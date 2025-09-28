@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
 import { storage } from "./storage";
+import { sendEmail, createContactNotificationEmail } from "./email";
 
 const contactSchema = z.object({
   name: z.string().min(2),
@@ -29,6 +30,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         service: contact.service,
         location: contact.location
       });
+
+      // Send email notification (non-blocking)
+      try {
+        const emailTemplate = createContactNotificationEmail(contact);
+        await sendEmail({
+          to: "service@imperialcleaninginc.com", // Business email
+          from: "notifications@imperialcleaninginc.com", // From address (will be configured in SendGrid)
+          subject: emailTemplate.subject,
+          html: emailTemplate.html,
+          text: emailTemplate.text
+        });
+      } catch (emailError) {
+        // Log email error but don't fail the request
+        console.error("Failed to send email notification:", emailError);
+      }
       
       res.json({ 
         success: true, 
