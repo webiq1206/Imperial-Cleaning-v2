@@ -41,14 +41,14 @@ export default function StickyContacts() {
             title={contact.title}
             onClick={() => handleContactClick(contact.method)}
             data-testid={contact.testId}
-            className="orbital-contact-btn group relative w-14 h-14 rounded-2xl gradient-bg backdrop-blur-xl border border-gray-800/50 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/20 sophisticated-glow glow-pulse-breathing hover-lift-strong hover-glow-expand button-magnetic"
+            className="orbital-contact-btn group relative w-14 h-14 rounded-2xl gradient-bg backdrop-blur-xl border border-gray-800/50 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/20 sophisticated-glow hover-lift-strong hover-glow-expand button-magnetic"
             style={{
               animationDelay: `${index * 0.2}s`
             }}
           >
             {/* Enhanced Orbital Rings with motion polish */}
-            <div className="orbital-ring orbital-ring-1 absolute inset-0 rounded-2xl border border-cyan-400/20 animate-spin glow-pulse-ambient" style={{ animationDuration: '8s' }}></div>
-            <div className="orbital-ring orbital-ring-2 absolute inset-0 rounded-2xl border border-purple-400/15 animate-spin glow-pulse-subtle" style={{ animationDuration: '12s', animationDirection: 'reverse' }}></div>
+            <div className="orbital-ring orbital-ring-1 absolute inset-0 rounded-2xl border border-cyan-400/20 animate-spin" style={{ animationDuration: '8s' }}></div>
+            <div className="orbital-ring orbital-ring-2 absolute inset-0 rounded-2xl border border-purple-400/15 animate-spin" style={{ animationDuration: '12s', animationDirection: 'reverse' }}></div>
             <div className="orbital-ring orbital-ring-3 absolute inset-0 rounded-2xl border border-cyan-300/10 animate-spin" style={{ animationDuration: '16s' }}></div>
             
             {/* Enhanced Central Glow with parallax */}
@@ -56,16 +56,16 @@ export default function StickyContacts() {
             
             {/* Additional orbital elements for enhanced sophistication */}
             <div className="absolute -inset-2">
-              <div className="absolute top-0 left-1/2 w-1 h-1 bg-cyan-400/40 rounded-full blur-sm animate-bounce" style={{ animationDelay: `${index * 0.3}s`, animationDuration: '4s' }}></div>
-              <div className="absolute bottom-0 right-1/4 w-0.5 h-0.5 bg-purple-400/50 rounded-full blur-sm animate-bounce" style={{ animationDelay: `${index * 0.5}s`, animationDuration: '5s' }}></div>
-              <div className="absolute top-1/3 right-0 w-0.5 h-0.5 bg-cyan-300/60 rounded-full blur-sm animate-bounce" style={{ animationDelay: `${index * 0.7}s`, animationDuration: '6s' }}></div>
+              <div className="absolute top-0 left-1/2 w-1 h-1 bg-cyan-400/40 rounded-full blur-sm"></div>
+              <div className="absolute bottom-0 right-1/4 w-0.5 h-0.5 bg-purple-400/50 rounded-full blur-sm"></div>
+              <div className="absolute top-1/3 right-0 w-0.5 h-0.5 bg-cyan-300/60 rounded-full blur-sm"></div>
             </div>
             
             {/* Center Icon with enhanced glow */}
             <div className="relative z-10 w-full h-full flex items-center justify-center hover-lift-gentle">
               <div className="relative">
                 {/* Enhanced Glowing Background with breathing effect */}
-                <div className="absolute inset-0 bg-cyan-400/20 rounded-full blur-sm scale-150 opacity-0 group-hover:opacity-100 transition-all duration-700 glow-pulse-breathing"></div>
+                <div className="absolute inset-0 bg-cyan-400/20 rounded-full blur-sm scale-150 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
                 
                 {/* Icon with sophisticated motion */}
                 <Icon 

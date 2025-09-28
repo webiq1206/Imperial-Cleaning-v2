@@ -60,7 +60,7 @@ export default function HeroSection() {
                   onClick={handleRequestQuote}
                   variant="pill-primary"
                   size="pill-lg"
-                  className="pill-button-resend-primary hover-lift-moderate button-ripple glow-pulse-breathing"
+                  className="pill-button-resend-primary hover-lift-moderate button-ripple"
                   data-testid="button-hero-get-started"
                 >
                   Get Started
@@ -68,7 +68,7 @@ export default function HeroSection() {
                 <Button 
                   variant="pill-secondary"
                   size="pill-lg"
-                  className="pill-button-resend-secondary hover-lift-gentle hover-shimmer glow-pulse-subtle"
+                  className="pill-button-resend-secondary hover-lift-gentle hover-shimmer"
                   data-testid="button-hero-documentation"
                 >
                   Learn More
@@ -92,17 +92,17 @@ export default function HeroSection() {
                   <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/50 parallax-subtle"></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                   
-                  {/* Enhanced glow with pulsing animation */}
-                  <div className="absolute inset-0 blur-2xl group-hover:blur-xl transition-all duration-700 glow-pulse-breathing" style={{ background: 'radial-gradient(ellipse at center, hsl(195, 100%, 50%, 0.08), hsl(271, 81%, 56%, 0.04), transparent)' }}></div>
+                  {/* Enhanced glow with subtle animation */}
+                  <div className="absolute inset-0 blur-2xl group-hover:blur-xl transition-all duration-700" style={{ background: 'radial-gradient(ellipse at center, hsl(195, 100%, 50%, 0.08), hsl(271, 81%, 56%, 0.04), transparent)' }}></div>
                   
                   {/* Interactive highlight effect with shimmer */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-white/5 via-transparent to-transparent hover-shimmer"></div>
                   
                   {/* Additional orbital elements */}
                   <div className="absolute -inset-4">
-                    <div className="absolute top-0 left-1/2 w-2 h-2 bg-cyan-400/30 rounded-full blur-sm animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-                    <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-purple-400/40 rounded-full blur-sm animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-                    <div className="absolute top-1/3 right-0 w-1 h-1 bg-cyan-300/50 rounded-full blur-sm animate-bounce" style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
+                    <div className="absolute top-0 left-1/2 w-2 h-2 bg-cyan-400/30 rounded-full blur-sm"></div>
+                    <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-purple-400/40 rounded-full blur-sm"></div>
+                    <div className="absolute top-1/3 right-0 w-1 h-1 bg-cyan-300/50 rounded-full blur-sm"></div>
                   </div>
                 </div>
               </div>
@@ -117,9 +117,9 @@ export default function HeroSection() {
           
           {/* Geometric elements with enhanced sophistication */}
           <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden opacity-8">
-            <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-gray-800/30 rotate-12 animate-pulse sophisticated-glow"></div>
-            <div className="absolute top-1/2 right-1/3 w-20 h-20 border border-gray-700/30 rotate-45 animate-pulse sophisticated-glow" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute bottom-1/3 right-1/6 w-16 h-16 border border-gray-600/30 -rotate-12 animate-pulse sophisticated-glow" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-gray-800/30 rotate-12 sophisticated-glow"></div>
+            <div className="absolute top-1/2 right-1/3 w-20 h-20 border border-gray-700/30 rotate-45 sophisticated-glow"></div>
+            <div className="absolute bottom-1/3 right-1/6 w-16 h-16 border border-gray-600/30 -rotate-12 sophisticated-glow"></div>
           </div>
           
           {/* Enhanced radial glow effects */}
