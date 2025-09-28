@@ -19,7 +19,7 @@ export default function ServiceAreasSection() {
               <div className="resend-icon mr-4">
                 <i className="fas fa-mountain"></i>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold gradient-text">Idaho</h3>
+              <h3 className="text-2xl lg:text-3xl font-semibold text-foreground">Idaho</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-8">
               <div className="space-y-4">
@@ -74,7 +74,7 @@ export default function ServiceAreasSection() {
               <div className="resend-icon mr-4">
                 <i className="fas fa-city"></i>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-semibold gradient-text">Utah</h3>
+              <h3 className="text-2xl lg:text-3xl font-semibold text-foreground">Utah</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-8">
               <div className="space-y-4">

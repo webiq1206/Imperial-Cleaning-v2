@@ -39,7 +39,7 @@ export default function ServiceAreasUtah() {
       <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
             Utah Cleaning Services
             <span className="gradient-text-cyan-purple block">Wasatch Front & Beyond</span>
           </h1>
@@ -61,7 +61,7 @@ export default function ServiceAreasUtah() {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Utah Cities We Serve</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Utah Cities We Serve</h2>
             <p className="text-xl text-muted-foreground">
               Comprehensive cleaning services across Utah's major metropolitan areas
             </p>
@@ -70,7 +70,7 @@ export default function ServiceAreasUtah() {
           <div className="grid md:grid-cols-2 gap-8">
             {cities.map((city, index) => (
               <div key={index} className="resend-card hover-lift">
-                <h3 className="text-2xl font-bold mb-4 gradient-text-cyan-purple">{city.name} Cleaning Services</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{city.name} <span className="gradient-text-cyan-purple">Cleaning Services</span></h3>
                 <p className="text-muted-foreground mb-6">{city.description}</p>
                 <div className="space-y-2">
                   {city.services.map((service, serviceIndex) => (
@@ -90,7 +90,7 @@ export default function ServiceAreasUtah() {
       <section className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Additional Utah Service Areas</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Additional Utah Service Areas</h2>
             <p className="text-xl text-muted-foreground">
               We also serve these Utah communities with professional cleaning services
             </p>
@@ -103,7 +103,7 @@ export default function ServiceAreasUtah() {
               "Lehi", "Clearfield", "Bountiful", "Park City"
             ].map((city, index) => (
               <div key={index} className="bg-card p-4 rounded-lg border border-border text-center">
-                <p className="font-semibold">{city}</p>
+                <p className="font-semibold text-foreground">{city}</p>
                 <p className="text-sm text-muted-foreground mt-1">Construction & Commercial</p>
               </div>
             ))}
@@ -115,7 +115,7 @@ export default function ServiceAreasUtah() {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Utah Trusts Imperial Cleaning</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Why Utah Trusts Imperial Cleaning</h2>
             <p className="text-xl text-muted-foreground">
               Mountain West expertise, Wasatch Front coverage, and professional results
             </p>
@@ -126,21 +126,21 @@ export default function ServiceAreasUtah() {
               <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-mountain"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">Mountain West Expertise</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Mountain West Expertise</h3>
               <p className="text-muted-foreground">We understand Utah's unique climate and high-altitude construction needs</p>
             </div>
             <div className="text-center">
               <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-city"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">Wasatch Front Coverage</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Wasatch Front Coverage</h3>
               <p className="text-muted-foreground">Complete coverage from Ogden to Provo and all points between</p>
             </div>
             <div className="text-center">
               <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-award"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">Utah Excellence</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Utah Excellence</h3>
               <p className="text-muted-foreground">Recognized by Utah contractors and businesses for superior service</p>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function ServiceAreasUtah() {
       {/* CTA Section */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Serve Your Utah Project?</h2>
+          <h2 className="text-4xl font-bold mb-6 text-foreground">Ready to Serve Your Utah Project?</h2>
           <p className="text-xl text-muted-foreground mb-8">
             Contact us today for professional cleaning services anywhere in Utah
           </p>

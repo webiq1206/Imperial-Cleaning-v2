@@ -16,7 +16,7 @@ export default function CommercialCleaning() {
       <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
             Professional Commercial Cleaning
             <span className="gradient-text-cyan-purple block">Idaho & Utah Businesses</span>
           </h1>
@@ -39,7 +39,7 @@ export default function CommercialCleaning() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6">Commercial Cleaning Idaho & Utah</h2>
+              <h2 className="text-4xl font-bold mb-6 text-foreground">Commercial Cleaning Idaho & Utah</h2>
               <p className="text-muted-foreground text-lg mb-6">
                 Our commercial cleaning services in Idaho and Utah help businesses maintain professional, healthy work environments. We provide reliable, scheduled cleaning services that keep your facility operating at its best.
               </p>
@@ -52,14 +52,14 @@ export default function CommercialCleaning() {
               </ul>
             </div>
             <div className="resend-card">
-              <h3 className="text-2xl font-bold mb-4">Service Options</h3>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">Service Options</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="icon-gradient text-2xl mr-4 mt-1">
                     <i className="fas fa-calendar-day"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Daily Cleaning</h4>
+                    <h4 className="font-semibold mb-1 text-foreground">Daily Cleaning</h4>
                     <p className="text-sm text-muted-foreground">Comprehensive daily maintenance for busy offices</p>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export default function CommercialCleaning() {
                     <i className="fas fa-calendar-week"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Weekly Service</h4>
+                    <h4 className="font-semibold mb-1 text-foreground">Weekly Service</h4>
                     <p className="text-sm text-muted-foreground">Regular weekly cleaning for smaller facilities</p>
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function CommercialCleaning() {
                     <i className="fas fa-cog"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Custom Schedules</h4>
+                    <h4 className="font-semibold mb-1 text-foreground">Custom Schedules</h4>
                     <p className="text-sm text-muted-foreground">Tailored cleaning plans to fit your business needs</p>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export default function CommercialCleaning() {
       {/* Service Areas */}
       <section className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Commercial Cleaning Service Areas</h2>
+          <h2 className="text-4xl font-bold mb-8 text-foreground">Commercial Cleaning Service Areas</h2>
           <p className="text-xl text-muted-foreground mb-12">
             Serving businesses throughout Idaho and Utah
           </p>
@@ -128,7 +128,7 @@ export default function CommercialCleaning() {
       {/* CTA Section */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Schedule Your Commercial Cleaning</h2>
+          <h2 className="text-4xl font-bold mb-6 text-foreground">Schedule Your Commercial Cleaning</h2>
           <p className="text-xl text-muted-foreground mb-8">
             Get reliable, professional commercial cleaning services for your business in Idaho or Utah
           </p>

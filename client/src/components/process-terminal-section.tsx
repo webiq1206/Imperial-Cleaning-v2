@@ -124,7 +124,7 @@ export default function ProcessTerminalSection() {
               <div className="icon-gradient text-2xl mb-3">
                 <i className="fas fa-cogs"></i>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Systematic Approach</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Systematic Approach</h3>
               <p className="text-sm text-muted-foreground">
                 Every step documented and executed with precision
               </p>
@@ -133,7 +133,7 @@ export default function ProcessTerminalSection() {
               <div className="icon-gradient text-2xl mb-3">
                 <i className="fas fa-chart-line"></i>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Quality Tracking</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Quality Tracking</h3>
               <p className="text-sm text-muted-foreground">
                 Real-time monitoring and quality assurance
               </p>
@@ -142,7 +142,7 @@ export default function ProcessTerminalSection() {
               <div className="icon-gradient text-2xl mb-3">
                 <i className="fas fa-rocket"></i>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Efficient Execution</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Efficient Execution</h3>
               <p className="text-sm text-muted-foreground">
                 Optimized workflow for faster project completion
               </p>

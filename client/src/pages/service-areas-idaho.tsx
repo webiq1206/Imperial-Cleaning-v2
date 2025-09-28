@@ -39,7 +39,7 @@ export default function ServiceAreasIdaho() {
       <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
             Idaho Cleaning Services
             <span className="gradient-text-cyan-purple block">Statewide Coverage</span>
           </h1>
@@ -61,7 +61,7 @@ export default function ServiceAreasIdaho() {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Idaho Cities We Serve</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Idaho Cities We Serve</h2>
             <p className="text-xl text-muted-foreground">
               Comprehensive cleaning services across Idaho's major cities and communities
             </p>
@@ -70,7 +70,7 @@ export default function ServiceAreasIdaho() {
           <div className="grid md:grid-cols-2 gap-8">
             {cities.map((city, index) => (
               <div key={index} className="resend-card hover-lift">
-                <h3 className="text-2xl font-bold mb-4 gradient-text-cyan-purple">{city.name} Cleaning Services</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{city.name} <span className="gradient-text-cyan-purple">Cleaning Services</span></h3>
                 <p className="text-muted-foreground mb-6">{city.description}</p>
                 <div className="space-y-2">
                   {city.services.map((service, serviceIndex) => (
@@ -90,7 +90,7 @@ export default function ServiceAreasIdaho() {
       <section className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Additional Idaho Service Areas</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Additional Idaho Service Areas</h2>
             <p className="text-xl text-muted-foreground">
               We also serve these Idaho communities with professional cleaning services
             </p>
@@ -103,7 +103,7 @@ export default function ServiceAreasIdaho() {
               "St. Anthony", "Driggs", "Victor", "Ashton"
             ].map((city, index) => (
               <div key={index} className="bg-card p-4 rounded-lg border border-border text-center">
-                <p className="font-semibold">{city}</p>
+                <p className="font-semibold text-foreground">{city}</p>
                 <p className="text-sm text-muted-foreground mt-1">Construction & Commercial</p>
               </div>
             ))}
@@ -115,7 +115,7 @@ export default function ServiceAreasIdaho() {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Idaho Trusts Imperial Cleaning</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Why Idaho Trusts Imperial Cleaning</h2>
             <p className="text-xl text-muted-foreground">
               Local expertise, statewide coverage, and professional results
             </p>
@@ -126,21 +126,21 @@ export default function ServiceAreasIdaho() {
               <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-map-marked-alt"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">Local Idaho Knowledge</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Local Idaho Knowledge</h3>
               <p className="text-muted-foreground">We understand Idaho's unique climate and construction challenges</p>
             </div>
             <div className="text-center">
               <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-truck"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">Statewide Coverage</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Statewide Coverage</h3>
               <p className="text-muted-foreground">From Boise to Idaho Falls, we serve all major Idaho markets</p>
             </div>
             <div className="text-center">
               <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-handshake"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">Idaho Partnerships</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Idaho Partnerships</h3>
               <p className="text-muted-foreground">Trusted by Idaho contractors and businesses for over a decade</p>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function ServiceAreasIdaho() {
       {/* CTA Section */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Serve Your Idaho Project?</h2>
+          <h2 className="text-4xl font-bold mb-6 text-foreground">Ready to Serve Your Idaho Project?</h2>
           <p className="text-xl text-muted-foreground mb-8">
             Contact us today for professional cleaning services anywhere in Idaho
           </p>
