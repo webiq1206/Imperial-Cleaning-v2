@@ -73,23 +73,13 @@
     letter-spacing: -0.01em;
   }
 
-  /* Inter font headings with gradient text */
+  /* Inter font headings - no gradient by default */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
     font-weight: 400 !important;
     letter-spacing: -0.025em;
     line-height: 1.2;
-    background: linear-gradient(to right, 
-      hsl(0, 0%, 70%),    /* light gray */
-      hsl(271, 81%, 56%), /* purple */
-      hsl(220, 90%, 60%), /* blue */
-      hsl(142, 71%, 45%)  /* green */
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    animation: gradientShift 8s ease-in-out infinite;
+    color: hsl(0, 0%, 100%); /* white text by default */
   }
   
   @keyframes gradientShift {
@@ -162,21 +152,26 @@
     }
   }
 
-  /* Resend-style gradient text classes */
+  /* Updated to match contact icons gradient */
   .gradient-text {
-    background: var(--resend-gradient-text);
+    background: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite;
   }
   
+  /* Updated to match contact icons - cyan to purple gradient */
   .gradient-text-cyan-purple {
     background: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite;
   }
   
   .gradient-text-subtle {
@@ -324,9 +319,9 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Legacy icon-gradient for simpler icons */
+  /* Updated icon gradient to match contact icons */
   .icon-gradient {
-    background: var(--resend-gradient-text);
+    background: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
