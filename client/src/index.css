@@ -57,16 +57,6 @@
   --font-mono: 'Geist Mono', 'Fira Code', 'SF Mono', monospace;
   --radius: 8px;
   
-  /* Removed complex gradients for minimal aesthetic */
-  --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 20%) 100%);
-  --gradient-primary-reverse: linear-gradient(315deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 20%) 100%);
-  --gradient-primary-vertical: linear-gradient(180deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 20%) 100%);
-  --gradient-primary-br: linear-gradient(to bottom right, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 20%) 100%);
-  --gradient-primary-subtle: linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 20%) 100%);
-  
-  /* Legacy support */
-  --resend-gradient: var(--gradient-primary);
-  --resend-gradient-text: var(--gradient-primary);
 }
 
 @layer base {
@@ -221,67 +211,10 @@
     color: hsl(0, 0%, 9%);
   }
   
-  /* Minimal icon container */
-  .resend-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 6px;
-    background: hsl(0, 0%, 96%);
-    border: 1px solid hsl(0, 0%, 89%);
-  }
-
-  .resend-icon i,
-  .resend-icon svg {
-    color: hsl(0, 0%, 45%);
-    font-size: 18px;
-  }
 
   /* Removed complex animations for minimal aesthetic */
   
-  /* Radial gradient utility */
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
-  }
 
-  /* Smooth infinite testimonials scroll - faster speed */
-  .animate-scroll-infinite {
-    animation: scrollInfinite 30s linear infinite;
-    will-change: transform;
-  }
-  
-  .animate-scroll-infinite:hover {
-    animation-play-state: paused;
-  }
-  
-  @keyframes scrollInfinite {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  .testimonials-track {
-    width: 200%; /* Double width for seamless loop */
-  }
-
-  /* Enable manual scrolling on testimonials while preserving auto-scroll */
-  .testimonials-container {
-    cursor: grab;
-  }
-  
-  .testimonials-container:active {
-    cursor: grabbing;
-  }
-  
-  /* Pause animation on manual interaction */
-  .testimonials-container:hover .animate-scroll-infinite {
-    animation-play-state: paused;
-  }
 
   /* Code block styling for light theme */
   .code-block {
