@@ -536,9 +536,9 @@
     background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
   }
 
-  /* Smooth infinite testimonials scroll */
+  /* Smooth infinite testimonials scroll - faster speed */
   .animate-scroll-infinite {
-    animation: scrollInfinite 60s linear infinite;
+    animation: scrollInfinite 30s linear infinite;
     will-change: transform;
   }
   
@@ -557,6 +557,20 @@
   
   .testimonials-track {
     width: 200%; /* Double width for seamless loop */
+  }
+
+  /* Enable manual scrolling on testimonials while preserving auto-scroll */
+  .testimonials-container {
+    cursor: grab;
+  }
+  
+  .testimonials-container:active {
+    cursor: grabbing;
+  }
+  
+  /* Pause animation on manual interaction */
+  .testimonials-container:hover .animate-scroll-infinite {
+    animation-play-state: paused;
   }
 
   /* ===== SOPHISTICATED MOTION POLISH SYSTEM ===== */

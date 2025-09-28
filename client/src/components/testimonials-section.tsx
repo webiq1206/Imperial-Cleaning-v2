@@ -79,8 +79,8 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Smooth Continuous Testimonials Carousel */}
-        <div className="overflow-hidden relative">
+        {/* Smooth Continuous Testimonials Carousel with Manual Scrolling */}
+        <div className="overflow-hidden relative testimonials-container">
           <div className="testimonials-track flex animate-scroll-infinite">
             {duplicatedTestimonials.map((testimonial, index) => (
               <div
