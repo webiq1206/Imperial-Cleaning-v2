@@ -1,4 +1,5 @@
-import { type User, type InsertUser, type Contact, type InsertContact } from "@shared/schema";
+import { users, contacts, type User, type InsertUser, type Contact, type InsertContact } from "@shared/schema";
+import { eq } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
 // modify the interface with any CRUD methods
@@ -61,4 +62,51 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export class DatabaseStorage implements IStorage {
+  private db: any;
+
+  constructor(database: any) {
+    this.db = database;
+  }
+
+  async getUser(id: string): Promise<User | undefined> {
+    const [user] = await this.db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await this.db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await this.db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  async createContact(insertContact: InsertContact): Promise<Contact> {
+    const [contact] = await this.db
+      .insert(contacts)
+      .values(insertContact)
+      .returning();
+    return contact;
+  }
+
+  async getContacts(): Promise<Contact[]> {
+    return await this.db.select().from(contacts);
+  }
+
+  async getContact(id: string): Promise<Contact | undefined> {
+    const [contact] = await this.db.select().from(contacts).where(eq(contacts.id, id));
+    return contact || undefined;
+  }
+}
+
+// Import database 
+import { db } from './db';
+
+// Use database storage directly since we know DATABASE_URL is available
+export const storage = new DatabaseStorage(db);

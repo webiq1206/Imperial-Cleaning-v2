@@ -53,6 +53,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Get all contacts endpoint
+  app.get("/api/contacts", async (req, res) => {
+    try {
+      const contacts = await storage.getContacts();
+      res.json(contacts);
+    } catch (error) {
+      console.error("Error fetching contacts:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to fetch contacts" 
+      });
+    }
+  });
+
+  // Get specific contact endpoint
+  app.get("/api/contact/:id", async (req, res) => {
+    try {
+      const contact = await storage.getContact(req.params.id);
+      if (contact) {
+        res.json(contact);
+      } else {
+        res.status(404).json({ 
+          success: false, 
+          message: "Contact not found" 
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching contact:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to fetch contact" 
+      });
+    }
+  });
+
   // Health check endpoint
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
