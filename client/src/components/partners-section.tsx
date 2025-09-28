@@ -54,7 +54,7 @@ export default function PartnersSection() {
           {partners.map((partner, index) => (
             <div 
               key={index} 
-              className="resend-card-subtle hover-lift group text-center p-6 transition-all duration-300"
+              className="resend-card-subtle group text-center p-6 transition-all duration-300 hover:-translate-y-1"
               data-testid={`partner-card-${index}`}
             >
               <div className="resend-icon mb-4 group-hover:scale-110 transition-transform duration-300">

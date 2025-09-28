@@ -140,9 +140,9 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
 
         {/* Progress Bar */}
         <div className="mb-8">
-          <div className="progress-bar mb-3">
+          <div className="h-1.5 bg-muted rounded-full mb-3 overflow-hidden">
             <div 
-              className="progress-fill" 
+              className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-300" 
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -216,7 +216,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                 size="pill-md"
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className={`${currentStep === 1 ? "invisible" : ""} hover-lift`}
+                className={`${currentStep === 1 ? "invisible" : ""} transition-transform duration-300 ease-out hover:-translate-y-1`}
                 data-testid="button-prev-step"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
@@ -229,7 +229,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                   variant="pill-primary"
                   size="pill-md"
                   onClick={nextStep}
-                  className="ml-auto hover-lift font-medium"
+                  className="ml-auto transition-transform duration-300 ease-out hover:-translate-y-1 font-medium"
                   data-testid="button-next-step"
                 >
                   Next
@@ -241,7 +241,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                   variant="pill-primary"
                   size="pill-md"
                   disabled={submitMutation.isPending}
-                  className="ml-auto hover-lift font-medium"
+                  className="ml-auto transition-transform duration-300 ease-out hover:-translate-y-1 font-medium"
                   data-testid="button-submit-form"
                 >
                   {submitMutation.isPending ? "Submitting..." : "Submit Request"}

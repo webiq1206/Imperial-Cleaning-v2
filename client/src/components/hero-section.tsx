@@ -30,7 +30,7 @@ export default function HeroSection() {
             <Button 
               variant="pill-primary"
               size="pill-lg"
-              className="text-base font-semibold hover-lift" 
+              className="text-base font-semibold transition-transform duration-300 ease-out hover:-translate-y-1" 
               onClick={handleRequestQuote}
               data-testid="button-hero-request-quote"
             >
@@ -39,7 +39,7 @@ export default function HeroSection() {
             <Button 
               variant="pill"
               size="pill-lg"
-              className="text-base font-medium hover-lift"
+              className="text-base font-medium transition-transform duration-300 ease-out hover:-translate-y-1"
               data-testid="button-hero-learn-more"
             >
               Learn More

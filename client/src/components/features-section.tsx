@@ -14,7 +14,7 @@ export default function FeaturesSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="group">
-            <div className="resend-card hover-lift">
+            <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
               <div className="resend-icon mb-6">
                 <i className="fas fa-shield-alt"></i>
               </div>
@@ -26,7 +26,7 @@ export default function FeaturesSection() {
           </div>
 
           <div className="group">
-            <div className="resend-card hover-lift">
+            <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
               <div className="resend-icon mb-6">
                 <i className="fas fa-clock"></i>
               </div>
@@ -38,7 +38,7 @@ export default function FeaturesSection() {
           </div>
 
           <div className="group">
-            <div className="resend-card hover-lift">
+            <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
               <div className="resend-icon mb-6">
                 <i className="fas fa-award"></i>
               </div>

@@ -24,7 +24,7 @@ export default function ConstructionCleaning() {
             Post-construction cleanup services for contractors. From debris removal to final detailing, we prepare your projects for handover.
           </p>
           <button 
-            className="pill-button-primary px-8 py-4 text-lg font-semibold hover-lift"
+            className="pill-button-primary px-8 py-4 text-lg font-semibold transition-transform duration-300 ease-out hover:-translate-y-1"
             onClick={() => setShowContactForm(true)}
             data-testid="button-request-quote"
           >

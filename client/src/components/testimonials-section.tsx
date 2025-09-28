@@ -110,7 +110,7 @@ export default function TestimonialsSection() {
                 className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.333%] pl-6"
                 data-testid={`testimonial-slide-${testimonial.id}`}
               >
-                <div className="resend-card h-full flex flex-col p-8 hover-lift">
+                <div className="resend-card h-full flex flex-col p-8 transition-transform duration-300 ease-out hover:-translate-y-1">
                   {/* Quote */}
                   <blockquote className="text-foreground text-base lg:text-lg leading-relaxed mb-8 flex-grow">
                     "{testimonial.content}"

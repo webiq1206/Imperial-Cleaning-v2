@@ -47,7 +47,7 @@ export default function ServiceAreasUtah() {
             Professional construction and commercial cleaning services throughout Utah. Trusted by contractors and businesses across the Wasatch Front.
           </p>
           <button 
-            className="pill-button-primary px-8 py-4 text-lg font-semibold hover-lift"
+            className="pill-button-primary px-8 py-4 text-lg font-semibold transition-transform duration-300 ease-out hover:-translate-y-1"
             onClick={() => setShowContactForm(true)}
             data-testid="button-request-quote"
           >
@@ -69,7 +69,7 @@ export default function ServiceAreasUtah() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {cities.map((city, index) => (
-              <div key={index} className="resend-card hover-lift">
+              <div key={index} className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
                 <h3 className="text-2xl font-bold mb-4 text-foreground">{city.name} <span className="gradient-text-cyan-purple">Cleaning Services</span></h3>
                 <p className="text-muted-foreground mb-6">{city.description}</p>
                 <div className="space-y-2">

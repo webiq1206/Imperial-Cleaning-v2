@@ -27,7 +27,7 @@ export default function ServicesSection() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Construction Cleaning */}
-            <div className="resend-card hover-lift">
+            <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
               <div className="flex items-center mb-6">
                 <div className="resend-icon mr-4">
                   <i className="fas fa-hard-hat"></i>
@@ -69,7 +69,7 @@ export default function ServicesSection() {
             </div>
 
             {/* Commercial Cleaning */}
-            <div className="resend-card hover-lift">
+            <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
               <div className="flex items-center mb-6">
                 <div className="resend-icon mr-4">
                   <i className="fas fa-building"></i>

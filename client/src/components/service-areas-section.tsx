@@ -14,7 +14,7 @@ export default function ServiceAreasSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16">
-          <div className="resend-card hover-lift">
+          <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
             <div className="flex items-center mb-8">
               <div className="resend-icon mr-4">
                 <i className="fas fa-mountain"></i>
@@ -69,7 +69,7 @@ export default function ServiceAreasSection() {
             </Link>
           </div>
 
-          <div className="resend-card hover-lift">
+          <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
             <div className="flex items-center mb-8">
               <div className="resend-icon mr-4">
                 <i className="fas fa-city"></i>
