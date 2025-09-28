@@ -135,21 +135,21 @@ export default function ServiceAreasUtah() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="icon-gradient text-5xl mb-4">
+              <div className="text-primary text-5xl mb-4">
                 <i className="fas fa-mountain"></i>
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Mountain West Expertise</h3>
               <p className="text-muted-foreground">We understand Utah's unique climate and high-altitude construction needs</p>
             </div>
             <div className="text-center">
-              <div className="icon-gradient text-5xl mb-4">
+              <div className="text-primary text-5xl mb-4">
                 <i className="fas fa-city"></i>
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Wasatch Front Coverage</h3>
               <p className="text-muted-foreground">Complete coverage from Ogden to Provo and all points between</p>
             </div>
             <div className="text-center">
-              <div className="icon-gradient text-5xl mb-4">
+              <div className="text-primary text-5xl mb-4">
                 <i className="fas fa-award"></i>
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Utah Excellence</h3>
@@ -167,7 +167,7 @@ export default function ServiceAreasUtah() {
             Contact us today for professional cleaning services anywhere in Utah
           </p>
           <button 
-            className="neon-border px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
             onClick={() => setShowContactForm(true)}
             data-testid="button-contact-utah"
           >

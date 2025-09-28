@@ -1,116 +1,87 @@
-import { useState, useEffect } from "react";
-
 export default function ProcessTerminalSection() {
-  const [currentStep, setCurrentStep] = useState(0);
-  
   const cleaningProcess = [
     {
       command: "imperial-clean --init",
       output: "✓ Initializing cleaning protocol...",
-      description: "Site assessment and preparation",
-      color: "text-cyan-400"
+      description: "Site assessment and preparation"
     },
     {
       command: "scan --debris --construction-waste",
       output: "✓ Debris removal: 847 items processed",
-      description: "Construction debris and waste removal",
-      color: "text-green-400"
+      description: "Construction debris and waste removal"
     },
     {
       command: "clean --surfaces --windows --deep",
       output: "✓ Surface cleaning: 12,500 sq ft completed",
-      description: "Deep cleaning of all surfaces and windows",
-      color: "text-blue-400"
+      description: "Deep cleaning of all surfaces and windows"
     },
     {
       command: "sanitize --disinfect --commercial-grade",
       output: "✓ Sanitization: EPA-approved disinfectants applied",
-      description: "Commercial-grade sanitization and disinfection",
-      color: "text-purple-400"
+      description: "Commercial-grade sanitization and disinfection"
     },
     {
       command: "inspect --quality-check --final-walkthrough",
       output: "✓ Final inspection: 100% completion verified",
-      description: "Quality assurance and final inspection",
-      color: "text-yellow-400"
+      description: "Quality assurance and final inspection"
     },
     {
       command: "deploy --ready-for-occupancy",
       output: "🎉 Project ready for handover!",
-      description: "Site ready for occupancy or handover",
-      color: "text-green-500"
+      description: "Site ready for occupancy or handover"
     }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentStep((prev) => (prev + 1) % cleaningProcess.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="py-24 px-6 process-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
+    <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-semibold mb-6 tracking-tight text-foreground">
             Our Cleaning Workflow
           </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-            A systematic, technology-driven approach to professional cleaning that ensures consistent, high-quality results every time.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            A systematic approach to professional cleaning that ensures consistent, high-quality results.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Terminal Window */}
-          <div className="glass-effect sophisticated-glow rounded-lg border border-gray-800/40 overflow-hidden shadow-2xl">
-            {/* Terminal Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-gray-900 border-b border-gray-800">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <div className="text-xs text-gray-400 font-mono">imperial-cleaning-system@production</div>
-              <div className="w-12"></div>
+          {/* Code Example */}
+          <div className="code-block overflow-hidden">
+            {/* Code Header */}
+            <div className="code-block-header">
+              <div className="text-xs font-mono">Cleaning Process Steps</div>
             </div>
 
-            {/* Terminal Content */}
-            <div className="p-4 md:p-6 font-mono text-sm leading-relaxed min-h-[300px] md:min-h-[400px]">
+            {/* Code Content */}
+            <div className="code-block-content">
               {cleaningProcess.map((step, index) => (
                 <div 
                   key={index} 
-                  className={`mb-4 transition-all duration-500 ${
-                    index <= currentStep ? 'opacity-100' : 'opacity-30'
-                  }`}
+                  className="mb-4"
                   data-testid={`process-step-${index}`}
                 >
-                  <div className="flex items-center mb-2">
-                    <span className="text-green-400 mr-2">$</span>
-                    <span className="text-white">{step.command}</span>
-                    {index === currentStep && (
-                      <span className="ml-2 w-2 h-4 bg-green-400 animate-pulse"></span>
-                    )}
-                  </div>
-                  <div className={`ml-4 mb-2 ${step.color}`} data-testid={`process-output-${index}`}>
-                    {step.output}
-                  </div>
-                  <div className="ml-4 mb-6 text-gray-400 text-xs" data-testid={`process-description-${index}`}>
-                    {step.description}
+                  <div className="flex items-start mb-2">
+                    <span className="code-comment mr-3">{index + 1}.</span>
+                    <div className="flex-1">
+                      <div className="code-command font-medium mb-1">{step.command}</div>
+                      <div className="code-success text-sm mb-1" data-testid={`process-output-${index}`}>
+                        {step.output}
+                      </div>
+                      <div className="code-comment text-xs" data-testid={`process-description-${index}`}>
+                        {step.description}
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
               
               {/* Status Bar */}
-              <div className="mt-8 pt-4 border-t border-gray-800">
-                <div className="flex items-center justify-between text-xs text-gray-400">
-                  <div className="flex items-center gap-4">
-                    <span>Status: {currentStep === cleaningProcess.length - 1 ? 'COMPLETE' : 'PROCESSING'}</span>
-                    <span>Progress: {Math.round(((currentStep + 1) / cleaningProcess.length) * 100)}%</span>
-                  </div>
+              <div className="mt-6 pt-4 border-t border-muted">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="code-comment">Status: Complete</span>
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                    <span>System Online</span>
+                    <div className="w-2 h-2 rounded-full bg-slate-400"></div>
+                    <span className="code-comment">All steps executed</span>
                   </div>
                 </div>
               </div>
@@ -118,9 +89,9 @@ export default function ProcessTerminalSection() {
           </div>
 
           {/* Process Benefits */}
-          <div className="grid md:grid-cols-3 gap-6 mt-16">
+          <div className="grid md:grid-cols-3 gap-8 mt-16">
             <div className="text-center">
-              <div className="icon-gradient text-2xl mb-3">
+              <div className="resend-icon mx-auto mb-4">
                 <i className="fas fa-cogs"></i>
               </div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">Systematic Approach</h3>
@@ -129,7 +100,7 @@ export default function ProcessTerminalSection() {
               </p>
             </div>
             <div className="text-center">
-              <div className="icon-gradient text-2xl mb-3">
+              <div className="resend-icon mx-auto mb-4">
                 <i className="fas fa-chart-line"></i>
               </div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">Quality Tracking</h3>
@@ -138,7 +109,7 @@ export default function ProcessTerminalSection() {
               </p>
             </div>
             <div className="text-center">
-              <div className="icon-gradient text-2xl mb-3">
+              <div className="resend-icon mx-auto mb-4">
                 <i className="fas fa-rocket"></i>
               </div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">Efficient Execution</h3>
