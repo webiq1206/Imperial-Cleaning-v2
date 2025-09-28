@@ -30,7 +30,7 @@ export default function Header() {
                 <img 
                   src="/header-logo.png" 
                   alt="Imperial Cleaning Inc" 
-                  className="h-8 w-auto brightness-0 invert hover:scale-105 transition-transform duration-300"
+                  className="h-5 w-auto brightness-0 invert opacity-40 hover:opacity-60 transition-all duration-300 mix-blend-overlay"
                 />
               </Link>
             </div>
