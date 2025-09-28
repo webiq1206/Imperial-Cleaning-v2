@@ -16,7 +16,7 @@ export default function ServiceAreasSection() {
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16">
           <div className="resend-card hover-lift">
             <div className="flex items-center mb-8">
-              <div className="icon-gradient text-2xl mr-4">
+              <div className="resend-icon mr-4">
                 <i className="fas fa-mountain"></i>
               </div>
               <h3 className="text-2xl lg:text-3xl font-semibold gradient-text">Idaho</h3>
@@ -71,7 +71,7 @@ export default function ServiceAreasSection() {
 
           <div className="resend-card hover-lift">
             <div className="flex items-center mb-8">
-              <div className="icon-gradient text-2xl mr-4">
+              <div className="resend-icon mr-4">
                 <i className="fas fa-city"></i>
               </div>
               <h3 className="text-2xl lg:text-3xl font-semibold gradient-text">Utah</h3>

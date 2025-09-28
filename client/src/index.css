@@ -241,7 +241,51 @@
     transform: translateY(-2px);
   }
   
-  /* Updated icon gradient to match Resend colors */
+  /* Sophisticated Resend-style icon container */
+  .resend-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(hsl(0, 0%, 5%), hsl(0, 0%, 8%)) padding-box,
+                linear-gradient(135deg, 
+                  hsl(271, 81%, 56%) 0%,
+                  hsl(195, 100%, 50%) 50%, 
+                  hsl(147, 78%, 42%) 100%) border-box;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 4px 16px hsla(271, 81%, 56%, 0.15),
+      0 1px 4px hsla(0, 0%, 0%, 0.3),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.1);
+  }
+
+  .resend-icon:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 8px 25px hsla(271, 81%, 56%, 0.25),
+      0 4px 12px hsla(195, 100%, 50%, 0.2),
+      0 2px 8px hsla(0, 0%, 0%, 0.4),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.15);
+  }
+
+  /* Icon content with gradient */
+  .resend-icon i,
+  .resend-icon svg {
+    background: linear-gradient(135deg, 
+      hsl(195, 100%, 50%) 0%,
+      hsl(271, 81%, 56%) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Legacy icon-gradient for simpler icons */
   .icon-gradient {
     background: var(--resend-gradient-text);
     background-clip: text;

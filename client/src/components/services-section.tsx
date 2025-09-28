@@ -29,7 +29,7 @@ export default function ServicesSection() {
             {/* Construction Cleaning */}
             <div className="resend-card hover-lift">
               <div className="flex items-center mb-6">
-                <div className="icon-gradient text-3xl mr-4">
+                <div className="resend-icon mr-4">
                   <i className="fas fa-hard-hat"></i>
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-medium">Construction Cleaning</h3>
@@ -71,7 +71,7 @@ export default function ServicesSection() {
             {/* Commercial Cleaning */}
             <div className="resend-card hover-lift">
               <div className="flex items-center mb-6">
-                <div className="icon-gradient text-3xl mr-4">
+                <div className="resend-icon mr-4">
                   <i className="fas fa-building"></i>
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-medium">Commercial Cleaning</h3>

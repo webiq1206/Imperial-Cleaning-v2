@@ -57,7 +57,7 @@ export default function PartnersSection() {
               className="resend-card-subtle hover-lift group text-center p-6 transition-all duration-300"
               data-testid={`partner-card-${index}`}
             >
-              <div className="icon-gradient text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="resend-icon mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i className={partner.icon}></i>
               </div>
               <h3 className="text-sm font-semibold mb-2 text-foreground" data-testid={`partner-name-${index}`}>

@@ -15,7 +15,7 @@ export default function FeaturesSection() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="group">
             <div className="resend-card hover-lift">
-              <div className="icon-gradient text-3xl mb-6">
+              <div className="resend-icon mb-6">
                 <i className="fas fa-shield-alt"></i>
               </div>
               <h3 className="text-2xl lg:text-3xl font-medium mb-4" data-testid="feature-title-insured">Fully Insured</h3>
@@ -27,7 +27,7 @@ export default function FeaturesSection() {
 
           <div className="group">
             <div className="resend-card hover-lift">
-              <div className="icon-gradient text-3xl mb-6">
+              <div className="resend-icon mb-6">
                 <i className="fas fa-clock"></i>
               </div>
               <h3 className="text-2xl lg:text-3xl font-medium mb-4" data-testid="feature-title-availability">24/7 Availability</h3>
@@ -39,7 +39,7 @@ export default function FeaturesSection() {
 
           <div className="group">
             <div className="resend-card hover-lift">
-              <div className="icon-gradient text-3xl mb-6">
+              <div className="resend-icon mb-6">
                 <i className="fas fa-award"></i>
               </div>
               <h3 className="text-2xl lg:text-3xl font-medium mb-4" data-testid="feature-title-guarantee">Quality Guaranteed</h3>
