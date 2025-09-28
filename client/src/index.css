@@ -604,4 +604,249 @@
       height: 240px !important;
     }
   }
+
+  /* Sophisticated Background Treatments - Resend Style */
+  
+  /* Layered Gradient Backgrounds */
+  .sophisticated-bg-primary {
+    background: 
+      radial-gradient(circle at 20% 20%, hsl(195, 100%, 50%, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(271, 81%, 56%, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(233, 78%, 60%, 0.01) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 1%) 25%, hsl(0, 0%, 0%) 50%, hsl(0, 0%, 2%) 75%, hsl(0, 0%, 0%) 100%);
+  }
+  
+  .sophisticated-bg-secondary {
+    background: 
+      radial-gradient(ellipse at top left, hsl(195, 100%, 50%, 0.02) 0%, transparent 70%),
+      radial-gradient(ellipse at bottom right, hsl(271, 81%, 56%, 0.015) 0%, transparent 70%),
+      linear-gradient(180deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 0.5%) 50%, hsl(0, 0%, 0%) 100%);
+  }
+  
+  .sophisticated-bg-tertiary {
+    background: 
+      conic-gradient(from 0deg at 50% 50%, hsl(0, 0%, 0%) 0deg, hsl(0, 0%, 1%) 90deg, hsl(0, 0%, 0%) 180deg, hsl(0, 0%, 0.5%) 270deg, hsl(0, 0%, 0%) 360deg),
+      radial-gradient(circle at center, hsl(195, 100%, 50%, 0.01) 0%, transparent 60%);
+  }
+  
+  /* Grain and Noise Overlays */
+  .noise-overlay {
+    position: relative;
+  }
+  
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 1px 1px, hsl(0, 0%, 100%, 0.008) 1px, transparent 0),
+      radial-gradient(circle at 3px 3px, hsl(0, 0%, 100%, 0.004) 1px, transparent 0);
+    background-size: 20px 20px, 40px 40px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .grain-texture {
+    position: relative;
+  }
+  
+  .grain-texture::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(0deg, transparent, transparent 1px, hsl(0, 0%, 100%, 0.003) 1px, hsl(0, 0%, 100%, 0.003) 2px),
+      repeating-linear-gradient(90deg, transparent, transparent 1px, hsl(0, 0%, 100%, 0.003) 1px, hsl(0, 0%, 100%, 0.003) 2px);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  /* Vignette Effects */
+  .vignette-top {
+    position: relative;
+  }
+  
+  .vignette-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(180deg, hsl(0, 0%, 0%, 0.8) 0%, hsl(0, 0%, 0%, 0.4) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .vignette-bottom {
+    position: relative;
+  }
+  
+  .vignette-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(0deg, hsl(0, 0%, 0%, 0.8) 0%, hsl(0, 0%, 0%, 0.4) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .vignette-radial {
+    position: relative;
+  }
+  
+  .vignette-radial::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 60%, hsl(0, 0%, 0%, 0.1) 80%, hsl(0, 0%, 0%, 0.4) 100%);
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  /* Section-Specific Background Treatments */
+  .hero-sophisticated-bg {
+    background: 
+      radial-gradient(ellipse 150% 100% at 50% 0%, hsl(195, 100%, 50%, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse 150% 100% at 50% 100%, hsl(271, 81%, 56%, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 0.5%) 25%, hsl(0, 0%, 1%) 50%, hsl(0, 0%, 0%) 75%, hsl(0, 0%, 0%) 100%);
+  }
+  
+  .services-sophisticated-bg {
+    background: 
+      linear-gradient(45deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 1%) 50%, hsl(0, 0%, 0%) 100%),
+      radial-gradient(circle at 80% 20%, hsl(195, 100%, 50%, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, hsl(271, 81%, 56%, 0.015) 0%, transparent 50%);
+  }
+  
+  .features-sophisticated-bg {
+    background: 
+      linear-gradient(180deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 0.8%) 20%, hsl(0, 0%, 0.5%) 50%, hsl(0, 0%, 0.8%) 80%, hsl(0, 0%, 0%) 100%),
+      radial-gradient(ellipse at top right, hsl(195, 100%, 50%, 0.025) 0%, transparent 60%);
+  }
+  
+  .testimonials-sophisticated-bg {
+    background: 
+      radial-gradient(ellipse 200% 100% at 50% 0%, hsl(271, 81%, 56%, 0.03) 0%, transparent 50%),
+      linear-gradient(225deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 1%) 30%, hsl(0, 0%, 0.5%) 70%, hsl(0, 0%, 0%) 100%),
+      radial-gradient(circle at 30% 70%, hsl(195, 100%, 50%, 0.015) 0%, transparent 40%);
+  }
+  
+  .footer-sophisticated-bg {
+    background: 
+      linear-gradient(0deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 0.8%) 25%, hsl(0, 0%, 0%) 100%),
+      radial-gradient(ellipse at bottom center, hsl(195, 100%, 50%, 0.02) 0%, transparent 50%);
+  }
+  
+  .process-sophisticated-bg {
+    background: 
+      radial-gradient(circle at 25% 25%, hsl(195, 100%, 50%, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(271, 81%, 56%, 0.015) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 0.5%) 50%, hsl(0, 0%, 0%) 100%);
+  }
+  
+  .areas-sophisticated-bg {
+    background: 
+      linear-gradient(180deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 1%) 50%, hsl(0, 0%, 0%) 100%),
+      radial-gradient(ellipse at center, hsl(233, 78%, 60%, 0.01) 0%, transparent 70%);
+  }
+  
+  .partners-sophisticated-bg {
+    background: 
+      conic-gradient(from 180deg at 50% 50%, hsl(0, 0%, 0%) 0deg, hsl(0, 0%, 0.5%) 120deg, hsl(0, 0%, 0%) 240deg, hsl(0, 0%, 1%) 360deg),
+      radial-gradient(ellipse at top, hsl(195, 100%, 50%, 0.015) 0%, transparent 60%);
+  }
+  
+  /* Backdrop Filters and Blend Modes */
+  .glass-effect {
+    backdrop-filter: blur(10px) saturate(150%);
+    background: hsl(0, 0%, 0%, 0.7);
+    border: 1px solid hsl(0, 0%, 100%, 0.1);
+  }
+  
+  .premium-card-bg {
+    background: 
+      linear-gradient(135deg, hsl(0, 0%, 2%) 0%, hsl(0, 0%, 0.5%) 50%, hsl(0, 0%, 1%) 100%),
+      radial-gradient(circle at top left, hsl(195, 100%, 50%, 0.015) 0%, transparent 50%);
+    border: 1px solid hsl(0, 0%, 100%, 0.05);
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Enhanced Gradient Animations */
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, hsl(0, 0%, 0%), hsl(0, 0%, 1%), hsl(0, 0%, 0.5%), hsl(0, 0%, 0%));
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Subtle Glow Effects */
+  .sophisticated-glow {
+    position: relative;
+  }
+  
+  .sophisticated-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(45deg, hsl(195, 100%, 50%, 0.1), hsl(271, 81%, 56%, 0.1));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .sophisticated-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Layered Section Transitions */
+  .section-transition-top {
+    position: relative;
+  }
+  
+  .section-transition-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(180deg, transparent 0%, hsl(0, 0%, 0%, 0.05) 50%, hsl(0, 0%, 0%, 0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .section-transition-bottom {
+    position: relative;
+  }
+  
+  .section-transition-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(0deg, transparent 0%, hsl(0, 0%, 0%, 0.05) 50%, hsl(0, 0%, 0%, 0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
 }

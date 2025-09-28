@@ -39,7 +39,7 @@ export default function PartnersSection() {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 partners-sophisticated-bg noise-overlay section-transition-top section-transition-bottom">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
@@ -54,7 +54,7 @@ export default function PartnersSection() {
           {partners.map((partner, index) => (
             <div 
               key={index} 
-              className="resend-card-subtle group text-center p-6 transition-all duration-300 hover:-translate-y-1"
+              className="premium-card-bg sophisticated-glow group text-center p-6 transition-all duration-300 hover:-translate-y-1 rounded-lg"
               data-testid={`partner-card-${index}`}
             >
               <div className="resend-icon mb-4 group-hover:scale-110 transition-transform duration-300">

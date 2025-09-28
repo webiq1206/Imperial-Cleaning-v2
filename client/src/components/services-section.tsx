@@ -13,7 +13,7 @@ export default function ServicesSection() {
 
   return (
     <>
-      <section id="services" className="py-24 px-6">
+      <section id="services" className="py-24 px-6 services-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
@@ -26,7 +26,7 @@ export default function ServicesSection() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Construction Cleaning */}
-            <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
+            <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
               <div className="flex items-center mb-6">
                 <div className="resend-icon mr-4">
                   <i className="fas fa-hard-hat"></i>
@@ -68,7 +68,7 @@ export default function ServicesSection() {
             </div>
 
             {/* Commercial Cleaning */}
-            <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
+            <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
               <div className="flex items-center mb-6">
                 <div className="resend-icon mr-4">
                   <i className="fas fa-building"></i>

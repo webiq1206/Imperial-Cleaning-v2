@@ -50,7 +50,7 @@ export default function ProcessTerminalSection() {
   }, []);
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-background to-background/80">
+    <section className="py-24 px-6 process-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
@@ -63,7 +63,7 @@ export default function ProcessTerminalSection() {
 
         <div className="max-w-4xl mx-auto">
           {/* Terminal Window */}
-          <div className="bg-black/95 rounded-lg border border-gray-800 overflow-hidden shadow-2xl">
+          <div className="glass-effect sophisticated-glow rounded-lg border border-gray-800/40 overflow-hidden shadow-2xl">
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-gray-900 border-b border-gray-800">
               <div className="flex items-center gap-2">

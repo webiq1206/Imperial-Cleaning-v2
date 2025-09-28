@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-background to-background/95">
+    <section className="py-24 px-6 testimonials-sophisticated-bg noise-overlay vignette-top vignette-bottom">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
                 className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.333%] pl-6"
                 data-testid={`testimonial-slide-${testimonial.id}-${index}`}
               >
-                <div className="resend-card h-full flex flex-col p-8 transition-transform duration-300 ease-out hover:-translate-y-1">
+                <div className="premium-card-bg sophisticated-glow h-full flex flex-col p-8 transition-transform duration-300 ease-out hover:-translate-y-1 rounded-lg">
                   {/* Quote */}
                   <blockquote className="text-foreground text-base lg:text-lg leading-relaxed mb-8 flex-grow">
                     "{testimonial.content}"

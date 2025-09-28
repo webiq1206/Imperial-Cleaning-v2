@@ -14,7 +14,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="relative min-h-screen bg-black overflow-hidden animate-fade-in-up">
+      <section className="relative min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
         {/* Resend-style hero layout */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-full">
           <div className="flex items-center h-screen relative">
@@ -22,7 +22,7 @@ export default function HeroSection() {
             <div className="flex-1 max-w-2xl z-20">
               {/* Resend-style announcement pill */}
               <div className="mb-8">
-                <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 bg-black/40 backdrop-blur-sm hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group">
+                <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow">
                   <span className="text-sm text-gray-400 font-medium tracking-tight">
                     Announcing Professional Cleaning Services
                   </span>
@@ -91,20 +91,21 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Resend-style background treatments */}
+        {/* Enhanced Resend-style sophisticated background treatments */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-gray-950 opacity-50"></div>
+          {/* Layered sophisticated gradients */}
+          <div className="absolute inset-0 sophisticated-bg-primary opacity-60"></div>
           
           {/* Geometric elements with enhanced sophistication */}
-          <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden opacity-10">
-            <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-gray-800 rotate-12 animate-pulse"></div>
-            <div className="absolute top-1/2 right-1/3 w-20 h-20 border border-gray-700 rotate-45 animate-pulse" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute bottom-1/3 right-1/6 w-16 h-16 border border-gray-600 -rotate-12 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden opacity-8">
+            <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-gray-800/30 rotate-12 animate-pulse sophisticated-glow"></div>
+            <div className="absolute top-1/2 right-1/3 w-20 h-20 border border-gray-700/30 rotate-45 animate-pulse sophisticated-glow" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-1/3 right-1/6 w-16 h-16 border border-gray-600/30 -rotate-12 animate-pulse sophisticated-glow" style={{ animationDelay: '2s' }}></div>
           </div>
           
-          {/* Subtle radial glow effect */}
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-radial from-cyan-500/5 via-transparent to-transparent rounded-full blur-3xl"></div>
+          {/* Enhanced radial glow effects */}
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-radial from-cyan-500/8 via-purple-500/4 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-gradient-radial from-purple-500/6 via-transparent to-transparent rounded-full blur-2xl"></div>
         </div>
       </section>
 

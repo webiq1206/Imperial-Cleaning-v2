@@ -2,7 +2,7 @@ import { Link } from "wouter";
 
 export default function ServiceAreasSection() {
   return (
-    <section id="areas" className="py-24 px-6">
+    <section id="areas" className="py-24 px-6 areas-sophisticated-bg noise-overlay grain-texture vignette-radial">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight leading-tight text-foreground">
@@ -14,7 +14,7 @@ export default function ServiceAreasSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16">
-          <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
+          <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
             <div className="flex items-center mb-8">
               <div className="resend-icon mr-4">
                 <i className="fas fa-mountain"></i>
@@ -69,7 +69,7 @@ export default function ServiceAreasSection() {
             </Link>
           </div>
 
-          <div className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
+          <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
             <div className="flex items-center mb-8">
               <div className="resend-icon mr-4">
                 <i className="fas fa-city"></i>
