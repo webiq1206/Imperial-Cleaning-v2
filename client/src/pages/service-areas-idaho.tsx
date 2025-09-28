@@ -2,6 +2,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import StickyContacts from "@/components/sticky-contacts";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
 
@@ -103,12 +104,21 @@ export default function ServiceAreasIdaho() {
               "Ammon", "Chubbuck", "Shelley", "Rigby",
               "American Falls", "Preston", "Soda Springs", "Montpelier",
               "St. Anthony", "Driggs", "Victor", "Ashton"
-            ].map((city, index) => (
-              <div key={index} className="bg-card p-4 rounded-lg border border-border text-center">
-                <p className="font-semibold text-foreground">{city}</p>
-                <p className="text-sm text-muted-foreground mt-1">Construction & Commercial</p>
-              </div>
-            ))}
+            ].map((city, index) => {
+              const citySlug = city.toLowerCase().replace(/\s+/g, '-');
+              return (
+                <div key={index} className="bg-card p-4 rounded-lg border border-border text-center hover:border-primary/50 transition-colors duration-200">
+                  <Link 
+                    href={`/service-areas/idaho/${citySlug}`}
+                    className="font-semibold text-foreground hover:text-primary transition-colors duration-200"
+                    data-testid={`link-${citySlug}-idaho`}
+                  >
+                    {city}
+                  </Link>
+                  <p className="text-sm text-muted-foreground mt-1">Construction & Commercial</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
