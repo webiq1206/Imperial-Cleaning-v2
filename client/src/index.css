@@ -383,6 +383,32 @@
     animation: orbitalGlow 2s ease-in-out infinite;
   }
 
+  /* Resend-style hero 3D logo effects */
+  .logo-3d-container {
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.5));
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+    }
+    50% {
+      transform: translateY(0px) rotateX(0deg) rotateY(5deg);
+    }
+    75% {
+      transform: translateY(10px) rotateX(-5deg) rotateY(0deg);
+    }
+  }
+  
+  /* Radial gradient utility */
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  }
+
   /* Additional Resend-style animations and effects */
   .fade-in-up {
     animation: fadeInUp 0.6s ease-out;
@@ -414,6 +440,18 @@
     .hero-logo {
       width: 250px;
       height: 250px;
+    }
+    
+    .logo-3d-container img {
+      width: 280px !important;
+      height: 280px !important;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .logo-3d-container img {
+      width: 240px !important;
+      height: 240px !important;
     }
   }
 }
