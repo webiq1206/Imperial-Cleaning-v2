@@ -12,82 +12,95 @@ export default function ServicesSection() {
 
   return (
     <>
-      <section id="services" className="py-24 px-4">
+      <section id="services" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Professional Cleaning Services
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+              Professional Cleaning
+              <span className="gradient-text block">Solutions</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Specialized cleaning solutions for construction sites and commercial facilities across Idaho and Utah.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Construction Cleaning */}
-            <div className="bg-card p-8 rounded-xl border border-border hover:border-primary/50 transition-all group">
-              <div className="icon-gradient text-5xl mb-6 group-hover:scale-110 transition-transform">
-                <i className="fas fa-hard-hat"></i>
+            <div className="bg-card/50 p-8 rounded-xl border border-border/50 hover:border-border transition-all duration-300 group backdrop-blur-sm">
+              <div className="flex items-center mb-6">
+                <div className="icon-gradient text-3xl mr-4">
+                  <i className="fas fa-hard-hat"></i>
+                </div>
+                <h3 className="text-2xl font-bold">Construction Cleaning</h3>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Construction Cleaning</h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-6 leading-relaxed">
                 Post-construction cleanup services for contractors across Idaho and Utah. From debris removal to final detailing, we prepare your projects for handover.
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground mb-6">
-                <li data-testid="feature-construction-debris">
-                  <i className="fas fa-check text-primary mr-2"></i>Post-construction debris removal
-                </li>
-                <li data-testid="feature-construction-windows">
-                  <i className="fas fa-check text-primary mr-2"></i>Window and surface cleaning
-                </li>
-                <li data-testid="feature-construction-floors">
-                  <i className="fas fa-check text-primary mr-2"></i>Floor care and protection
-                </li>
-                <li data-testid="feature-construction-inspection">
-                  <i className="fas fa-check text-primary mr-2"></i>Final inspection ready cleanup
-                </li>
-              </ul>
+              <div className="space-y-3 mb-8">
+                <div className="flex items-center text-sm" data-testid="feature-construction-debris">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Post-construction debris removal</span>
+                </div>
+                <div className="flex items-center text-sm" data-testid="feature-construction-windows">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Window and surface cleaning</span>
+                </div>
+                <div className="flex items-center text-sm" data-testid="feature-construction-floors">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Floor care and protection</span>
+                </div>
+                <div className="flex items-center text-sm" data-testid="feature-construction-inspection">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Final inspection ready cleanup</span>
+                </div>
+              </div>
               <Link href="/construction-cleaning">
                 <button 
-                  className="w-full neon-border py-3 rounded-lg font-medium"
+                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium"
                   onClick={() => handleLearnMore('construction')}
                   data-testid="button-learn-more-construction"
                 >
-                  Learn More
+                  Learn More →
                 </button>
               </Link>
             </div>
 
             {/* Commercial Cleaning */}
-            <div className="bg-card p-8 rounded-xl border border-border hover:border-primary/50 transition-all group">
-              <div className="icon-gradient text-5xl mb-6 group-hover:scale-110 transition-transform">
-                <i className="fas fa-building"></i>
+            <div className="bg-card/50 p-8 rounded-xl border border-border/50 hover:border-border transition-all duration-300 group backdrop-blur-sm">
+              <div className="flex items-center mb-6">
+                <div className="icon-gradient text-3xl mr-4">
+                  <i className="fas fa-building"></i>
+                </div>
+                <h3 className="text-2xl font-bold">Commercial Cleaning</h3>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Commercial Cleaning</h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-6 leading-relaxed">
                 Ongoing commercial cleaning services for businesses throughout Idaho and Utah. Reliable, professional maintenance to keep your facility spotless.
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground mb-6">
-                <li data-testid="feature-commercial-schedules">
-                  <i className="fas fa-check text-primary mr-2"></i>Daily and weekly cleaning schedules
-                </li>
-                <li data-testid="feature-commercial-sanitization">
-                  <i className="fas fa-check text-primary mr-2"></i>Office and workspace sanitization
-                </li>
-                <li data-testid="feature-commercial-restrooms">
-                  <i className="fas fa-check text-primary mr-2"></i>Restroom and break room maintenance
-                </li>
-                <li data-testid="feature-commercial-carpet">
-                  <i className="fas fa-check text-primary mr-2"></i>Carpet and floor care
-                </li>
-              </ul>
+              <div className="space-y-3 mb-8">
+                <div className="flex items-center text-sm" data-testid="feature-commercial-schedules">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Daily and weekly cleaning schedules</span>
+                </div>
+                <div className="flex items-center text-sm" data-testid="feature-commercial-sanitization">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Office and workspace sanitization</span>
+                </div>
+                <div className="flex items-center text-sm" data-testid="feature-commercial-restrooms">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Restroom and break room maintenance</span>
+                </div>
+                <div className="flex items-center text-sm" data-testid="feature-commercial-carpet">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <span>Carpet and floor care</span>
+                </div>
+              </div>
               <Link href="/commercial-cleaning">
                 <button 
-                  className="w-full neon-border py-3 rounded-lg font-medium"
+                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium"
                   onClick={() => handleLearnMore('commercial')}
                   data-testid="button-learn-more-commercial"
                 >
-                  Learn More
+                  Learn More →
                 </button>
               </Link>
             </div>

@@ -25,26 +25,12 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" data-testid="link-home">
-                <svg 
-                  width="240" 
-                  height="40" 
-                  viewBox="0 0 240 40" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8"
-                >
-                  <text 
-                    x="0" 
-                    y="28" 
-                    fill="#FFFFFF" 
-                    fontFamily="Inter, sans-serif" 
-                    fontSize="18" 
-                    fontWeight="700"
-                  >
-                    IMPERIAL CLEANING INC
-                  </text>
-                </svg>
+              <Link href="/" data-testid="link-home" className="flex items-center">
+                <img 
+                  src="/header-logo.png" 
+                  alt="Imperial Cleaning Inc" 
+                  className="h-8 w-auto filter brightness-0 invert"
+                />
               </Link>
             </div>
             

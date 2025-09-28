@@ -2,30 +2,16 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary border-t border-border py-16 px-4">
+    <footer className="bg-secondary/50 border-t border-border py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <svg 
-              width="240" 
-              height="40" 
-              viewBox="0 0 240 40" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 mb-4"
-            >
-              <text 
-                x="0" 
-                y="28" 
-                fill="#FFFFFF" 
-                fontFamily="Inter, sans-serif" 
-                fontSize="18" 
-                fontWeight="700"
-              >
-                IMPERIAL CLEANING INC
-              </text>
-            </svg>
-            <p className="text-muted-foreground text-sm">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="md:col-span-1">
+            <img 
+              src="/header-logo.png" 
+              alt="Imperial Cleaning Inc" 
+              className="h-8 w-auto filter brightness-0 invert mb-6"
+            />
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               Professional cleaning services for construction and commercial clients across Idaho and Utah.
             </p>
           </div>
