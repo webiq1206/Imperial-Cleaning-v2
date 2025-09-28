@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 export default function ServiceAreasSection() {
   return (
@@ -60,12 +61,13 @@ export default function ServiceAreasSection() {
               </div>
             </div>
             <Link href="/service-areas/idaho">
-              <button 
-                className="pill-button"
+              <Button 
+                variant="pill-secondary"
+                size="pill-md"
                 data-testid="button-view-idaho-areas"
               >
                 Learn More →
-              </button>
+              </Button>
             </Link>
           </div>
 
@@ -115,12 +117,13 @@ export default function ServiceAreasSection() {
               </div>
             </div>
             <Link href="/service-areas/utah">
-              <button 
-                className="pill-button"
+              <Button 
+                variant="pill-secondary"
+                size="pill-md"
                 data-testid="button-view-utah-areas"
               >
                 Learn More →
-              </button>
+              </Button>
             </Link>
           </div>
         </div>

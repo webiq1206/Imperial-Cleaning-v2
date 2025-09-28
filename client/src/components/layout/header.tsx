@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
 
@@ -82,13 +83,15 @@ export default function Header() {
               </div>
             </nav>
 
-            <button 
-              className="pill-button hidden md:inline-flex hover-lift-moderate button-ripple glow-pulse-breathing hover-shimmer" 
+            <Button 
+              variant="pill-secondary"
+              size="pill-md"
               onClick={handleRequestQuote}
               data-testid="button-request-quote-header"
+              className="hidden md:inline-flex hover-lift-moderate button-ripple glow-pulse-breathing hover-shimmer"
             >
               Request Quote
-            </button>
+            </Button>
 
             {/* Enhanced Mobile menu button */}
             <button 
@@ -139,16 +142,18 @@ export default function Header() {
                   Utah Service Areas
                 </Link>
                 <div className="pt-4 px-2 animate-fade-in-up stagger-delay-5">
-                  <button 
-                    className="pill-button w-full hover-lift-moderate button-ripple glow-pulse-breathing hover-shimmer"
+                  <Button 
+                    variant="pill-secondary"
+                    size="pill-md"
                     onClick={() => {
                       setIsMenuOpen(false);
                       handleRequestQuote();
                     }}
                     data-testid="button-request-quote-mobile"
+                    className="w-full hover-lift-moderate button-ripple glow-pulse-breathing hover-shimmer"
                   >
                     Request Quote
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

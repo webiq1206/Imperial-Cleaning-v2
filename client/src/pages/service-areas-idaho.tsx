@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import StickyContacts from "@/components/sticky-contacts";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
 
@@ -45,14 +46,16 @@ export default function ServiceAreasIdaho() {
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Professional construction and commercial cleaning services throughout Idaho. Trusted by contractors and businesses statewide.
           </p>
-          <button 
-            className="pill-button-primary px-8 py-4 text-lg font-semibold transition-transform duration-300 ease-out hover:-translate-y-1"
+          <Button 
+            variant="pill-primary"
+            size="pill-lg"
             onClick={() => setShowContactForm(true)}
             data-testid="button-request-quote"
+            className="text-lg font-semibold px-8 py-4"
           >
             Request Quote for Idaho
             <i className="fas fa-arrow-right ml-2"></i>
-          </button>
+          </Button>
         </div>
       </section>
 
