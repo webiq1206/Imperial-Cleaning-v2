@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
+import { Button } from "@/components/ui/button";
 
 export default function ServicesSection() {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -15,23 +16,23 @@ export default function ServicesSection() {
       <section id="services" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Professional Cleaning
-              <span className="gradient-text block">Solutions</span>
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight">
+              <span className="gradient-text-cyan-purple">Professional</span> Cleaning
+              <span className="gradient-text-cyan-purple block">Solutions</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
               Specialized cleaning solutions for construction sites and commercial facilities across Idaho and Utah.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Construction Cleaning */}
-            <div className="bg-card/50 p-8 rounded-xl border border-border/50 hover:border-border transition-all duration-300 group backdrop-blur-sm">
+            <div className="resend-card hover-lift">
               <div className="flex items-center mb-6">
                 <div className="icon-gradient text-3xl mr-4">
                   <i className="fas fa-hard-hat"></i>
                 </div>
-                <h3 className="text-2xl font-bold">Construction Cleaning</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium">Construction Cleaning</h3>
               </div>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Post-construction cleanup services for contractors across Idaho and Utah. From debris removal to final detailing, we prepare your projects for handover.
@@ -55,23 +56,25 @@ export default function ServicesSection() {
                 </div>
               </div>
               <Link href="/construction-cleaning">
-                <button 
-                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium"
+                <Button 
+                  variant="pill"
+                  size="pill-md"
+                  className="font-medium"
                   onClick={() => handleLearnMore('construction')}
                   data-testid="button-learn-more-construction"
                 >
                   Learn More →
-                </button>
+                </Button>
               </Link>
             </div>
 
             {/* Commercial Cleaning */}
-            <div className="bg-card/50 p-8 rounded-xl border border-border/50 hover:border-border transition-all duration-300 group backdrop-blur-sm">
+            <div className="resend-card hover-lift">
               <div className="flex items-center mb-6">
                 <div className="icon-gradient text-3xl mr-4">
                   <i className="fas fa-building"></i>
                 </div>
-                <h3 className="text-2xl font-bold">Commercial Cleaning</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium">Commercial Cleaning</h3>
               </div>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Ongoing commercial cleaning services for businesses throughout Idaho and Utah. Reliable, professional maintenance to keep your facility spotless.
@@ -95,13 +98,15 @@ export default function ServicesSection() {
                 </div>
               </div>
               <Link href="/commercial-cleaning">
-                <button 
-                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium"
+                <Button 
+                  variant="pill"
+                  size="pill-md"
+                  className="font-medium"
                   onClick={() => handleLearnMore('commercial')}
                   data-testid="button-learn-more-commercial"
                 >
                   Learn More →
-                </button>
+                </Button>
               </Link>
             </div>
           </div>

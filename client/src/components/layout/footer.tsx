@@ -2,27 +2,31 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary/50 border-t border-border py-20 px-6">
+    <footer className="border-t border-border/30 py-16 lg:py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-4 gap-12 lg:gap-16 mb-12">
+          {/* Company Info */}
           <div className="md:col-span-1">
             <img 
               src="/header-logo.png" 
               alt="Imperial Cleaning Inc" 
-              className="h-8 w-auto filter brightness-0 invert mb-6"
+              className="h-7 w-auto filter brightness-0 invert mb-6"
+              data-testid="footer-logo"
             />
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+            <p className="text-muted-foreground text-sm leading-6 max-w-xs font-normal">
               Professional cleaning services for construction and commercial clients across Idaho and Utah.
             </p>
           </div>
 
+          {/* Services */}
           <div>
-            <h4 className="font-bold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Services</h4>
+            <ul className="space-y-3">
               <li>
                 <Link 
                   href="/construction-cleaning" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-construction-cleaning"
                 >
                   Construction Cleaning
@@ -31,24 +35,29 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/commercial-cleaning" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-commercial-cleaning"
                 >
                   Commercial Cleaning
                 </Link>
               </li>
-              <li><span className="hover:text-foreground transition-colors">Post-Construction Cleanup</span></li>
-              <li><span className="hover:text-foreground transition-colors">Office Maintenance</span></li>
+              <li>
+                <span className="text-muted-foreground text-sm font-normal">Post-Construction Cleanup</span>
+              </li>
+              <li>
+                <span className="text-muted-foreground text-sm font-normal">Office Maintenance</span>
+              </li>
             </ul>
           </div>
 
+          {/* Service Areas */}
           <div>
-            <h4 className="font-bold mb-4">Service Areas</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Service Areas</h4>
+            <ul className="space-y-3">
               <li>
                 <Link 
                   href="/service-areas/idaho" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-idaho"
                 >
                   Idaho Falls, ID
@@ -57,7 +66,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/service-areas/idaho" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-pocatello"
                 >
                   Pocatello, ID
@@ -66,7 +75,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/service-areas/utah" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-salt-lake"
                 >
                   Salt Lake City, UT
@@ -75,7 +84,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/service-areas/utah" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-logan"
                 >
                   Logan, UT
@@ -84,13 +93,14 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="font-bold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Contact</h4>
+            <ul className="space-y-3">
               <li>
                 <a 
                   href="tel:+12085203202" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-phone"
                 >
                   (208) 520-3202
@@ -99,31 +109,42 @@ export default function Footer() {
               <li>
                 <a 
                   href="mailto:service@imperialcleaninginc.com" 
-                  className="hover:text-foreground transition-colors"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-email"
                 >
                   service@imperialcleaninginc.com
                 </a>
               </li>
-              <li data-testid="text-footer-location">Idaho Falls, ID</li>
-              <li data-testid="text-footer-hours">Mon-Fri: 7:00 AM - 6:00 PM</li>
+              <li>
+                <span className="text-muted-foreground text-sm font-normal" data-testid="text-footer-location">
+                  Idaho Falls, ID
+                </span>
+              </li>
+              <li>
+                <span className="text-muted-foreground text-sm font-normal" data-testid="text-footer-hours">
+                  Mon-Fri: 7:00 AM - 6:00 PM
+                </span>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p data-testid="text-footer-copyright">&copy; 2024 Imperial Cleaning Inc. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+        {/* Bottom Section */}
+        <div className="border-t border-border/20 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <p className="text-muted-foreground text-sm font-normal" data-testid="text-footer-copyright">
+            &copy; 2024 Imperial Cleaning Inc. All rights reserved.
+          </p>
+          <div className="flex flex-wrap gap-6">
             <a 
               href="#" 
-              className="hover:text-foreground transition-colors"
+              className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
               data-testid="link-footer-privacy"
             >
               Privacy Policy
             </a>
             <a 
               href="#" 
-              className="hover:text-foreground transition-colors"
+              className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
               data-testid="link-footer-terms"
             >
               Terms of Service

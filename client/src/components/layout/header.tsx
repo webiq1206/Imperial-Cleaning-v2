@@ -21,59 +21,69 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[72px]">
             <div className="flex items-center">
-              <Link href="/" data-testid="link-home" className="flex items-center">
+              <Link href="/" data-testid="link-home" className="flex items-center hover:opacity-80 transition-opacity">
                 <img 
                   src="/header-logo.png" 
                   alt="Imperial Cleaning Inc" 
-                  className="h-8 w-auto filter brightness-0 invert"
+                  className="h-7 w-auto brightness-0 invert"
                 />
               </Link>
             </div>
             
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex items-center space-x-10">
               <Link 
                 href="/construction-cleaning" 
-                className={`text-muted-foreground hover:text-foreground transition-colors ${location === '/construction-cleaning' ? 'text-foreground' : ''}`}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  location === '/construction-cleaning' 
+                    ? 'text-foreground' 
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
                 data-testid="link-construction-cleaning"
               >
                 Construction Cleaning
               </Link>
               <Link 
                 href="/commercial-cleaning" 
-                className={`text-muted-foreground hover:text-foreground transition-colors ${location === '/commercial-cleaning' ? 'text-foreground' : ''}`}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  location === '/commercial-cleaning' 
+                    ? 'text-foreground' 
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
                 data-testid="link-commercial-cleaning"
               >
                 Commercial Cleaning
               </Link>
               <div className="relative group">
-                <span className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer">
                   Service Areas
                 </span>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <Link 
-                    href="/service-areas/idaho" 
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-t-lg"
-                    data-testid="link-service-areas-idaho"
-                  >
-                    Idaho
-                  </Link>
-                  <Link 
-                    href="/service-areas/utah" 
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-b-lg"
-                    data-testid="link-service-areas-utah"
-                  >
-                    Utah
-                  </Link>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-48 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out">
+                  <div className="py-2">
+                    <Link 
+                      href="/service-areas/idaho" 
+                      className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors duration-200"
+                      data-testid="link-service-areas-idaho"
+                    >
+                      Idaho
+                    </Link>
+                    <Link 
+                      href="/service-areas/utah" 
+                      className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors duration-200"
+                      data-testid="link-service-areas-utah"
+                    >
+                      Utah
+                    </Link>
+                  </div>
                 </div>
               </div>
             </nav>
 
             <button 
-              className="neon-border px-6 py-2 rounded-lg font-medium hidden md:block" 
+              className="pill-button hidden md:inline-flex" 
               onClick={handleRequestQuote}
               data-testid="button-request-quote-header"
             >
@@ -82,21 +92,21 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button 
-              className="md:hidden p-2" 
+              className="md:hidden p-2 hover:bg-secondary/50 rounded-lg transition-colors duration-200" 
               onClick={handleMenuToggle}
               data-testid="button-mobile-menu"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
 
           {/* Mobile menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-border">
-              <div className="flex flex-col space-y-4">
+            <div className="md:hidden border-t border-border/20">
+              <div className="flex flex-col py-6 space-y-1">
                 <Link 
                   href="/construction-cleaning" 
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="px-2 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                   data-testid="link-construction-cleaning-mobile"
                 >
@@ -104,7 +114,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/commercial-cleaning" 
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="px-2 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                   data-testid="link-commercial-cleaning-mobile"
                 >
@@ -112,7 +122,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/service-areas/idaho" 
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="px-2 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                   data-testid="link-service-areas-idaho-mobile"
                 >
@@ -120,22 +130,24 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/service-areas/utah" 
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="px-2 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                   data-testid="link-service-areas-utah-mobile"
                 >
                   Utah Service Areas
                 </Link>
-                <button 
-                  className="neon-border px-6 py-2 rounded-lg font-medium text-left"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    handleRequestQuote();
-                  }}
-                  data-testid="button-request-quote-mobile"
-                >
-                  Request Quote
-                </button>
+                <div className="pt-4 px-2">
+                  <button 
+                    className="pill-button w-full"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      handleRequestQuote();
+                    }}
+                    data-testid="button-request-quote-mobile"
+                  >
+                    Request Quote
+                  </button>
+                </div>
               </div>
             </div>
           )}
