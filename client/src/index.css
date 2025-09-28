@@ -404,6 +404,29 @@
     background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
   }
 
+  /* Smooth infinite testimonials scroll */
+  .animate-scroll-infinite {
+    animation: scrollInfinite 60s linear infinite;
+    will-change: transform;
+  }
+  
+  .animate-scroll-infinite:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scrollInfinite {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .testimonials-track {
+    width: 200%; /* Double width for seamless loop */
+  }
+
   /* Additional Resend-style animations and effects */
   .fade-in-up {
     animation: fadeInUp 0.6s ease-out;

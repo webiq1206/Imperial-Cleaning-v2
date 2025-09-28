@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
-import useEmblaCarousel from 'embla-carousel-react';
+// Continuous smooth scroll - no choppy discrete movements
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -65,29 +64,8 @@ export default function TestimonialsSection() {
     }
   ];
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    loop: true,
-    slidesToScroll: 1,
-    containScroll: 'trimSnaps'
-  });
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  // Auto-scroll functionality
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const autoScroll = setInterval(() => {
-      scrollNext();
-    }, 8000); // 8 second intervals for slow movement
-
-    return () => {
-      clearInterval(autoScroll);
-    };
-  }, [emblaApi, scrollNext]);
+  // Duplicate testimonials for seamless infinite loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
     <section className="py-24 lg:py-32 px-6 bg-gradient-to-b from-background to-background/95">
@@ -101,14 +79,14 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Testimonials Carousel */}
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {testimonials.map((testimonial) => (
+        {/* Smooth Continuous Testimonials Carousel */}
+        <div className="overflow-hidden relative">
+          <div className="testimonials-track flex animate-scroll-infinite">
+            {duplicatedTestimonials.map((testimonial, index) => (
               <div
-                key={testimonial.id}
+                key={`${testimonial.id}-${index}`}
                 className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.333%] pl-6"
-                data-testid={`testimonial-slide-${testimonial.id}`}
+                data-testid={`testimonial-slide-${testimonial.id}-${index}`}
               >
                 <div className="resend-card h-full flex flex-col p-8 transition-transform duration-300 ease-out hover:-translate-y-1">
                   {/* Quote */}
@@ -122,7 +100,7 @@ export default function TestimonialsSection() {
                     <div className="flex-shrink-0 mr-4">
                       <div 
                         className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center overflow-hidden"
-                        data-testid={`avatar-${testimonial.id}`}
+                        data-testid={`avatar-${testimonial.id}-${index}`}
                       >
                         <span className="text-sm font-semibold text-black">
                           {testimonial.initials}
@@ -134,13 +112,13 @@ export default function TestimonialsSection() {
                     <div className="min-w-0 flex-1">
                       <div 
                         className="font-semibold text-foreground text-base mb-1"
-                        data-testid={`author-name-${testimonial.id}`}
+                        data-testid={`author-name-${testimonial.id}-${index}`}
                       >
                         {testimonial.author}
                       </div>
                       <div 
                         className="text-muted-foreground text-sm"
-                        data-testid={`author-position-${testimonial.id}`}
+                        data-testid={`author-position-${testimonial.id}-${index}`}
                       >
                         {testimonial.position} at {testimonial.company}
                       </div>
