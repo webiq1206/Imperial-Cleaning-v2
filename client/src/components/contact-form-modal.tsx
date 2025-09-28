@@ -125,13 +125,13 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
   const currentStepData = steps[currentStep - 1];
 
   return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-      <div className="bg-card max-w-md w-full rounded-xl border border-border p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold" data-testid="modal-title">Request a Quote</h3>
+    <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="resend-card max-w-md w-full border-border/50 hover:border-border transition-all duration-300">
+        <div className="flex items-center justify-between mb-8">
+          <h3 className="text-2xl font-semibold tracking-tight" data-testid="modal-title">Request a Quote</h3>
           <button 
             onClick={handleClose} 
-            className="text-muted-foreground hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-secondary/50 rounded-lg"
             data-testid="button-close-modal"
           >
             <X className="h-5 w-5" />
@@ -139,32 +139,40 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-6">
-          <Progress value={progress} className="h-2" />
-          <p className="text-sm text-muted-foreground mt-2" data-testid="progress-text">
-            Step <span data-testid="current-step">{currentStep}</span> of {steps.length}
+        <div className="mb-8">
+          <div className="progress-bar mb-3">
+            <div 
+              className="progress-fill" 
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <p className="text-sm text-muted-foreground font-medium" data-testid="progress-text">
+            Step <span data-testid="current-step" className="text-foreground font-semibold">{currentStep}</span> of {steps.length}
           </p>
         </div>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             {/* Current Step Content */}
             <div data-testid={`form-step-${currentStep}`}>
               <FormField
                 control={form.control}
                 name={currentStepData.field as keyof FormData}
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-base font-medium">
+                  <FormItem className="space-y-4">
+                    <FormLabel className="text-lg font-medium text-foreground">
                       {currentStepData.label}
                     </FormLabel>
                     <FormControl>
                       {currentStepData.field === "service" ? (
                         <Select onValueChange={field.onChange} value={field.value}>
-                          <SelectTrigger data-testid="select-service">
+                          <SelectTrigger 
+                            data-testid="select-service"
+                            className="h-12 border-border bg-input hover:border-primary/50 focus:border-primary transition-colors duration-200"
+                          >
                             <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="border-border bg-card">
                             <SelectItem value="construction" data-testid="option-construction">
                               Construction Cleaning
                             </SelectItem>
@@ -182,6 +190,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                           {...field}
                           rows={4}
                           data-testid={`input-${currentStepData.field}`}
+                          className="border-border bg-input hover:border-primary/50 focus:border-primary transition-colors duration-200 resize-none"
                         />
                       ) : (
                         <Input
@@ -189,6 +198,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                           {...field}
                           type={currentStepData.field === "email" ? "email" : currentStepData.field === "phone" ? "tel" : "text"}
                           data-testid={`input-${currentStepData.field}`}
+                          className="h-12 border-border bg-input hover:border-primary/50 focus:border-primary transition-colors duration-200 text-base"
                         />
                       )}
                     </FormControl>
@@ -199,13 +209,14 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center pt-6">
               <Button
                 type="button"
-                variant="outline"
+                variant="pill"
+                size="pill-md"
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className={currentStep === 1 ? "invisible" : ""}
+                className={`${currentStep === 1 ? "invisible" : ""} hover-lift`}
                 data-testid="button-prev-step"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
@@ -215,8 +226,10 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
               {currentStep < steps.length ? (
                 <Button
                   type="button"
+                  variant="pill-primary"
+                  size="pill-md"
                   onClick={nextStep}
-                  className="ml-auto"
+                  className="ml-auto hover-lift font-medium"
                   data-testid="button-next-step"
                 >
                   Next
@@ -225,11 +238,13 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
               ) : (
                 <Button
                   type="submit"
+                  variant="pill-primary"
+                  size="pill-md"
                   disabled={submitMutation.isPending}
-                  className="ml-auto"
+                  className="ml-auto hover-lift font-medium"
                   data-testid="button-submit-form"
                 >
-                  {submitMutation.isPending ? "Submitting..." : "Submit Quote Request"}
+                  {submitMutation.isPending ? "Submitting..." : "Submit Request"}
                 </Button>
               )}
             </div>

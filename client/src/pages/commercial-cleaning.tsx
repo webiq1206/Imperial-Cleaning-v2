@@ -18,13 +18,13 @@ export default function CommercialCleaning() {
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
             Professional Commercial Cleaning
-            <span className="gradient-text block">Idaho & Utah Businesses</span>
+            <span className="gradient-text-cyan-purple block">Idaho & Utah Businesses</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Ongoing commercial cleaning services for businesses throughout Idaho and Utah. Reliable, professional maintenance to keep your facility spotless.
           </p>
           <button 
-            className="neon-border px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
+            className="pill-button-primary px-8 py-4 text-lg font-semibold hover-lift"
             onClick={() => setShowContactForm(true)}
             data-testid="button-request-quote"
           >
@@ -51,7 +51,7 @@ export default function CommercialCleaning() {
                 <li><i className="fas fa-check text-primary mr-3"></i>Window cleaning and facility maintenance</li>
               </ul>
             </div>
-            <div className="bg-card p-8 rounded-xl border border-border">
+            <div className="resend-card">
               <h3 className="text-2xl font-bold mb-4">Service Options</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
@@ -95,8 +95,8 @@ export default function CommercialCleaning() {
             Serving businesses throughout Idaho and Utah
           </p>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <h3 className="text-xl font-bold mb-4 gradient-text">Idaho Commercial Cleaning</h3>
+            <div className="resend-card-subtle p-6">
+              <h3 className="text-xl font-bold mb-4 gradient-text-cyan-purple">Idaho Commercial Cleaning</h3>
               <div className="grid grid-cols-2 gap-2 text-muted-foreground text-sm">
                 <p>• Idaho Falls commercial cleaning</p>
                 <p>• Pocatello office cleaning</p>
@@ -108,8 +108,8 @@ export default function CommercialCleaning() {
                 <p>• Rigby commercial cleaning</p>
               </div>
             </div>
-            <div className="bg-card p-6 rounded-xl border border-border">
-              <h3 className="text-xl font-bold mb-4 gradient-text">Utah Commercial Cleaning</h3>
+            <div className="resend-card-subtle p-6">
+              <h3 className="text-xl font-bold mb-4 gradient-text-cyan-purple">Utah Commercial Cleaning</h3>
               <div className="grid grid-cols-2 gap-2 text-muted-foreground text-sm">
                 <p>• Logan commercial cleaning</p>
                 <p>• Ogden office cleaning</p>

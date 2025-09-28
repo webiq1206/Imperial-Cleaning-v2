@@ -41,13 +41,13 @@ export default function ServiceAreasIdaho() {
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
             Idaho Cleaning Services
-            <span className="gradient-text block">Statewide Coverage</span>
+            <span className="gradient-text-cyan-purple block">Statewide Coverage</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Professional construction and commercial cleaning services throughout Idaho. Trusted by contractors and businesses statewide.
           </p>
           <button 
-            className="neon-border px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
+            className="pill-button-primary px-8 py-4 text-lg font-semibold hover-lift"
             onClick={() => setShowContactForm(true)}
             data-testid="button-request-quote"
           >
@@ -69,8 +69,8 @@ export default function ServiceAreasIdaho() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {cities.map((city, index) => (
-              <div key={index} className="bg-card p-8 rounded-xl border border-border hover:border-primary/50 transition-all">
-                <h3 className="text-2xl font-bold mb-4 gradient-text">{city.name} Cleaning Services</h3>
+              <div key={index} className="resend-card hover-lift">
+                <h3 className="text-2xl font-bold mb-4 gradient-text-cyan-purple">{city.name} Cleaning Services</h3>
                 <p className="text-muted-foreground mb-6">{city.description}</p>
                 <div className="space-y-2">
                   {city.services.map((service, serviceIndex) => (

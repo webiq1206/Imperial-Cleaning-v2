@@ -50,7 +50,7 @@ export default function ProcessTerminalSection() {
   }, []);
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-background to-background/80">
+    <section className="py-16 lg:py-32 px-6 bg-gradient-to-b from-background to-background/80">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight">
@@ -77,7 +77,7 @@ export default function ProcessTerminalSection() {
             </div>
 
             {/* Terminal Content */}
-            <div className="p-6 font-mono text-sm leading-relaxed min-h-[400px]">
+            <div className="p-4 md:p-6 font-mono text-sm leading-relaxed min-h-[300px] md:min-h-[400px]">
               {cleaningProcess.map((step, index) => (
                 <div 
                   key={index} 
