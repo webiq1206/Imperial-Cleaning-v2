@@ -19,9 +19,9 @@ const buttonVariants = cva(
         ghost: "rounded-md hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Resend-style pill button variants
-        pill: "pill-button",
-        "pill-gradient": "pill-button-gradient",
-        "pill-primary": "pill-button-primary",
+        pill: "rounded-full border border-border bg-background text-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300",
+        "pill-gradient": "rounded-full border border-transparent bg-gradient-to-r from-cyan-500 to-purple-600 text-white hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300",
+        "pill-primary": "rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-black font-semibold hover:shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
