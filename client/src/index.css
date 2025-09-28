@@ -310,33 +310,47 @@
     transform: scale(1.05);
   }
 
-  .sticky-contacts {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  /* Orbital Contact Button Animations */
+  .orbital-contact-btn {
+    animation: fadeInUp 0.8s ease-out backwards;
   }
 
-  .contact-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px hsla(262, 83%, 58%, 0.3);
+  .orbital-ring {
+    pointer-events: none;
+    transform-origin: center;
   }
 
-  .contact-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px hsla(262, 83%, 58%, 0.4);
+  .orbital-ring-1 {
+    animation-timing-function: linear;
+  }
+
+  .orbital-ring-2 {
+    animation-timing-function: linear;
+    scale: 1.1;
+  }
+
+  .orbital-ring-3 {
+    animation-timing-function: linear;
+    scale: 1.2;
+  }
+
+  /* Enhanced orbital glow animation */
+  @keyframes orbitalGlow {
+    0%, 100% { 
+      box-shadow: 
+        0 0 20px rgba(34, 211, 238, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    50% { 
+      box-shadow: 
+        0 0 30px rgba(34, 211, 238, 0.2),
+        0 0 50px rgba(147, 51, 234, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .orbital-contact-btn:hover {
+    animation: orbitalGlow 2s ease-in-out infinite;
   }
 
   /* Additional Resend-style animations and effects */
@@ -370,11 +384,6 @@
     .hero-logo {
       width: 250px;
       height: 250px;
-    }
-    
-    .sticky-contacts {
-      bottom: 10px;
-      right: 10px;
     }
   }
 }
