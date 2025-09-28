@@ -73,26 +73,56 @@
     letter-spacing: -0.01em;
   }
 
-  /* Resend-style typography hierarchy */
+  /* Inter font headings with gradient text */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 400 !important;
     letter-spacing: -0.025em;
     line-height: 1.2;
+    background: linear-gradient(to right, 
+      hsl(0, 0%, 70%),    /* light gray */
+      hsl(271, 81%, 56%), /* purple */
+      hsl(220, 90%, 60%), /* blue */
+      hsl(142, 71%, 45%)  /* green */
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
   
   h1 {
     @apply text-5xl lg:text-6xl xl:text-7xl;
-    font-weight: 600;
   }
   
   h2 {
     @apply text-3xl lg:text-4xl xl:text-5xl;
-    font-weight: 600;
   }
   
   h3 {
     @apply text-2xl lg:text-3xl;
-    font-weight: 500;
+  }
+  
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+  
+  h5 {
+    @apply text-lg lg:text-xl;
+  }
+  
+  h6 {
+    @apply text-base lg:text-lg;
   }
   
   /* Resend-style body text */
