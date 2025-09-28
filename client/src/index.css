@@ -7,42 +7,59 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 1%);
-  --foreground: hsl(0, 0%, 98%);
-  --card: hsl(0, 0%, 2%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --popover: hsl(0, 0%, 2%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --primary: hsl(321, 100%, 71%);
-  --primary-foreground: hsl(0, 0%, 98%);
-  --secondary: hsl(0, 0%, 4%);
-  --secondary-foreground: hsl(0, 0%, 85%);
-  --muted: hsl(0, 0%, 3%);
-  --muted-foreground: hsl(0, 0%, 50%);
-  --accent: hsl(36, 100%, 63%);
-  --accent-foreground: hsl(0, 0%, 98%);
+  /* Resend-style pure black backgrounds and white text */
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 0%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  
+  /* Resend's cyan-to-purple gradient colors */
+  --primary: hsl(195, 100%, 50%); /* Cyan */
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 5%);
+  --secondary-foreground: hsl(0, 0%, 90%);
+  --muted: hsl(0, 0%, 2%);
+  --muted-foreground: hsl(0, 0%, 60%);
+  --accent: hsl(271, 81%, 56%); /* Purple */
+  --accent-foreground: hsl(0, 0%, 100%);
+  
+  /* Subtle borders and inputs for dark theme */
+  --border: hsl(0, 0%, 12%);
+  --input: hsl(0, 0%, 5%);
+  --ring: hsl(195, 100%, 50%);
+  
+  /* Updated chart colors using cyan-purple palette */
+  --chart-1: hsl(195, 100%, 50%);
+  --chart-2: hsl(271, 81%, 56%);
+  --chart-3: hsl(233, 78%, 60%);
+  --chart-4: hsl(158, 64%, 52%);
+  --chart-5: hsl(340, 82%, 52%);
+  
+  /* Error states */
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --border: hsl(0, 0%, 8%);
-  --input: hsl(0, 0%, 6%);
-  --ring: hsl(321, 100%, 71%);
-  --chart-1: hsl(321, 100%, 71%);
-  --chart-2: hsl(36, 100%, 63%);
-  --chart-3: hsl(42, 92%, 56%);
-  --chart-4: hsl(147, 78%, 42%);
-  --chart-5: hsl(341, 75%, 51%);
-  --sidebar: hsl(0, 0%, 2%);
-  --sidebar-foreground: hsl(0, 0%, 98%);
-  --sidebar-primary: hsl(321, 100%, 71%);
-  --sidebar-primary-foreground: hsl(0, 0%, 98%);
-  --sidebar-accent: hsl(0, 0%, 4%);
-  --sidebar-accent-foreground: hsl(321, 100%, 71%);
-  --sidebar-border: hsl(0, 0%, 8%);
-  --sidebar-ring: hsl(321, 100%, 71%);
-  --font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Geist', serif;
-  --font-mono: 'Geist Mono', 'Fira Code', monospace;
-  --radius: 6px;
+  
+  /* Sidebar colors */
+  --sidebar: hsl(0, 0%, 0%);
+  --sidebar-foreground: hsl(0, 0%, 100%);
+  --sidebar-primary: hsl(195, 100%, 50%);
+  --sidebar-primary-foreground: hsl(0, 0%, 0%);
+  --sidebar-accent: hsl(0, 0%, 5%);
+  --sidebar-accent-foreground: hsl(195, 100%, 50%);
+  --sidebar-border: hsl(0, 0%, 12%);
+  --sidebar-ring: hsl(195, 100%, 50%);
+  
+  /* Typography - prioritize Inter for Resend-like feel */
+  --font-sans: 'Inter', 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Inter', serif;
+  --font-mono: 'Geist Mono', 'Fira Code', 'SF Mono', monospace;
+  --radius: 8px;
+  
+  /* Resend gradient variables */
+  --resend-gradient: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+  --resend-gradient-text: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
 }
 
 @layer base {
@@ -52,11 +69,35 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    line-height: 1.6;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 
+  /* Resend-style typography hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+    @apply font-semibold;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    @apply text-5xl lg:text-6xl xl:text-7xl;
+    font-weight: 600;
+  }
+  
+  h2 {
+    @apply text-3xl lg:text-4xl xl:text-5xl;
+    font-weight: 600;
+  }
+  
+  h3 {
+    @apply text-2xl lg:text-3xl;
+    font-weight: 500;
+  }
+  
+  p {
+    color: hsl(0, 0%, 80%);
+    line-height: 1.6;
   }
 }
 
@@ -82,30 +123,127 @@
     }
   }
 
+  /* Resend-style gradient text classes */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(321, 100%, 71%), hsl(36, 100%, 63%));
+    background: var(--resend-gradient-text);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  
+  .gradient-text-cyan-purple {
+    background: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  
+  .gradient-text-subtle {
+    background: linear-gradient(135deg, hsl(195, 100%, 60%) 0%, hsl(271, 81%, 66%) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
   }
 
+  /* Resend-style card styling */
+  .resend-card {
+    background: hsl(0, 0%, 0%);
+    border: 1px solid hsl(0, 0%, 8%);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 24px;
+  }
+  
+  .resend-card:hover {
+    border-color: hsl(0, 0%, 15%);
+    box-shadow: 0 4px 24px hsla(0, 0%, 0%, 0.5);
+  }
+  
+  .resend-card-subtle {
+    background: hsl(0, 0%, 1%);
+    border: 1px solid hsl(0, 0%, 6%);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Legacy neon-border for compatibility */
   .neon-border {
     position: relative;
-    border: 1px solid hsl(0, 0%, 12%);
-    background: hsl(0, 0%, 2%);
+    border: 1px solid hsl(0, 0%, 8%);
+    background: hsl(0, 0%, 0%);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 6px;
+    border-radius: 8px;
   }
 
   .neon-border:hover {
-    border-color: hsl(321, 100%, 71%);
-    box-shadow: 0 0 0 1px hsla(321, 100%, 71%, 0.15), 
-                0 4px 16px hsla(321, 100%, 71%, 0.1);
-    background: hsl(0, 0%, 3%);
+    border-color: hsl(195, 100%, 50%);
+    box-shadow: 0 0 0 1px hsla(195, 100%, 50%, 0.15), 
+                0 4px 16px hsla(195, 100%, 50%, 0.1);
+    background: hsl(0, 0%, 1%);
   }
 
+  /* Resend-style pill buttons */
+  .pill-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid hsl(0, 0%, 12%);
+    background: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+  }
+  
+  .pill-button:hover {
+    border-color: hsl(195, 100%, 50%);
+    box-shadow: 0 0 0 1px hsla(195, 100%, 50%, 0.2), 
+                0 4px 12px hsla(195, 100%, 50%, 0.15);
+    transform: translateY(-1px);
+  }
+  
+  .pill-button-gradient {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(0, 0%, 0%), hsl(0, 0%, 0%)) padding-box,
+                var(--resend-gradient) border-box;
+    color: hsl(0, 0%, 100%);
+  }
+  
+  .pill-button-gradient:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px hsla(195, 100%, 50%, 0.2);
+  }
+  
+  .pill-button-primary {
+    background: var(--resend-gradient);
+    color: hsl(0, 0%, 0%);
+    border: none;
+    font-weight: 600;
+  }
+  
+  .pill-button-primary:hover {
+    box-shadow: 0 4px 20px hsla(195, 100%, 50%, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  /* Updated icon gradient to match Resend colors */
   .icon-gradient {
-    background: linear-gradient(135deg, hsl(321, 100%, 71%), hsl(36, 100%, 63%));
+    background: var(--resend-gradient-text);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -115,7 +253,7 @@
 
   .icon-gradient:hover {
     opacity: 1;
-    filter: drop-shadow(0 0 8px hsla(321, 100%, 71%, 0.3));
+    filter: drop-shadow(0 0 8px hsla(195, 100%, 50%, 0.3));
     transform: scale(1.05);
   }
 
@@ -157,8 +295,43 @@
 
   .progress-fill {
     height: 100%;
-    background: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(198, 93%, 60%));
+    background: var(--resend-gradient);
     transition: width 0.3s ease;
+  }
+  
+  /* Additional Resend-style animations and effects */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Resend-style subtle glow effects */
+  .subtle-glow {
+    box-shadow: 0 0 0 1px hsla(195, 100%, 50%, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .subtle-glow:hover {
+    box-shadow: 0 0 0 1px hsla(195, 100%, 50%, 0.2),
+                0 4px 12px hsla(195, 100%, 50%, 0.1);
   }
 
   @media (max-width: 768px) {
