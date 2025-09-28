@@ -26,12 +26,12 @@ export default function ServicesSection() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Construction Cleaning */}
-            <div className="glass-card-premium sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
+            <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-subtle animate-fade-in-left stagger-delay-1 p-6 rounded-lg group">
               <div className="flex items-center mb-6">
-                <div className="resend-icon mr-4">
-                  <i className="fas fa-hard-hat"></i>
+                <div className="resend-icon mr-4 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+                  <i className="fas fa-hard-hat icon-gradient"></i>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-medium">Construction Cleaning</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Construction Cleaning</h3>
               </div>
               
               {/* Elegant inset divider after header */}
@@ -45,21 +45,21 @@ export default function ServicesSection() {
               <div className="glass-divider-top mb-6"></div>
               
               <div className="space-y-3 mb-8">
-                <div className="flex items-center text-sm" data-testid="feature-construction-debris">
-                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                  <span>Post-construction debris removal</span>
+                <div className="flex items-center text-sm hover-lift-gentle group/item" data-testid="feature-construction-debris">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover/item:scale-125 glow-pulse-subtle transition-all duration-300"></div>
+                  <span className="group-hover/item:text-foreground transition-colors duration-300">Post-construction debris removal</span>
                 </div>
-                <div className="flex items-center text-sm" data-testid="feature-construction-windows">
-                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                  <span>Window and surface cleaning</span>
+                <div className="flex items-center text-sm hover-lift-gentle group/item" data-testid="feature-construction-windows">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover/item:scale-125 glow-pulse-subtle transition-all duration-300"></div>
+                  <span className="group-hover/item:text-foreground transition-colors duration-300">Window and surface cleaning</span>
                 </div>
-                <div className="flex items-center text-sm" data-testid="feature-construction-floors">
-                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                  <span>Floor care and protection</span>
+                <div className="flex items-center text-sm hover-lift-gentle group/item" data-testid="feature-construction-floors">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover/item:scale-125 glow-pulse-subtle transition-all duration-300"></div>
+                  <span className="group-hover/item:text-foreground transition-colors duration-300">Floor care and protection</span>
                 </div>
-                <div className="flex items-center text-sm" data-testid="feature-construction-inspection">
-                  <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                  <span>Final inspection ready cleanup</span>
+                <div className="flex items-center text-sm hover-lift-gentle group/item" data-testid="feature-construction-inspection">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-3 group-hover/item:scale-125 glow-pulse-subtle transition-all duration-300"></div>
+                  <span className="group-hover/item:text-foreground transition-colors duration-300">Final inspection ready cleanup</span>
                 </div>
               </div>
               
@@ -70,7 +70,7 @@ export default function ServicesSection() {
                 <Button 
                   variant="pill"
                   size="pill-md"
-                  className="font-medium"
+                  className="font-medium hover-lift-gentle button-ripple hover-shimmer glow-pulse-subtle group-hover:glow-pulse-breathing"
                   onClick={() => handleLearnMore('construction')}
                   data-testid="button-learn-more-construction"
                 >
@@ -80,12 +80,12 @@ export default function ServicesSection() {
             </div>
 
             {/* Commercial Cleaning */}
-            <div className="glass-card-premium sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
+            <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-gentle animate-fade-in-right stagger-delay-2 p-6 rounded-lg group">
               <div className="flex items-center mb-6">
-                <div className="resend-icon mr-4">
-                  <i className="fas fa-building"></i>
+                <div className="resend-icon mr-4 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+                  <i className="fas fa-building icon-gradient"></i>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-medium">Commercial Cleaning</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Commercial Cleaning</h3>
               </div>
               
               {/* Elegant inset divider after header */}

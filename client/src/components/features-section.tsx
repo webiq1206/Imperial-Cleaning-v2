@@ -12,10 +12,10 @@ export default function FeaturesSection() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="group">
-            <div className="glass-card-elevated sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
-              <div className="resend-icon mb-6">
-                <i className="fas fa-shield-alt"></i>
+          <div className="group animate-fade-in-up stagger-delay-1">
+            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-subtle p-6 rounded-lg">
+              <div className="resend-icon mb-6 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+                <i className="fas fa-shield-alt icon-gradient"></i>
               </div>
               
               {/* Elegant inset divider after icon */}
@@ -32,10 +32,10 @@ export default function FeaturesSection() {
             </div>
           </div>
 
-          <div className="group">
-            <div className="glass-card-elevated sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
-              <div className="resend-icon mb-6">
-                <i className="fas fa-clock"></i>
+          <div className="group animate-fade-in-up stagger-delay-2">
+            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-gentle p-6 rounded-lg">
+              <div className="resend-icon mb-6 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+                <i className="fas fa-clock icon-gradient"></i>
               </div>
               
               {/* Elegant inset divider after icon */}
@@ -52,10 +52,10 @@ export default function FeaturesSection() {
             </div>
           </div>
 
-          <div className="group">
-            <div className="glass-card-elevated sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
-              <div className="resend-icon mb-6">
-                <i className="fas fa-award"></i>
+          <div className="group animate-fade-in-up stagger-delay-3">
+            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-depth p-6 rounded-lg">
+              <div className="resend-icon mb-6 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+                <i className="fas fa-award icon-gradient"></i>
               </div>
               
               {/* Elegant inset divider after icon */}

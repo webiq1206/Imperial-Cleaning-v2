@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
                 className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.333%] pl-6"
                 data-testid={`testimonial-slide-${testimonial.id}-${index}`}
               >
-                <div className="glass-card-elevated sophisticated-glow h-full flex flex-col p-8 transition-transform duration-300 ease-out hover:-translate-y-1 rounded-lg">
+                <div className="glass-card-elevated sophisticated-glow h-full flex flex-col p-8 hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-subtle rounded-lg group">
                   {/* Quote */}
                   <blockquote className="text-foreground text-base lg:text-lg leading-relaxed mb-8 flex-grow">
                     "{testimonial.content}"
@@ -102,7 +102,7 @@ export default function TestimonialsSection() {
                     {/* Profile Picture */}
                     <div className="flex-shrink-0 mr-4">
                       <div 
-                        className="w-12 h-12 rounded-full gradient-bg-br flex items-center justify-center overflow-hidden"
+                        className="w-12 h-12 rounded-full gradient-bg-br flex items-center justify-center overflow-hidden hover-lift-gentle glow-pulse-breathing group-hover:scale-110 transition-all duration-500"
                         data-testid={`avatar-${testimonial.id}-${index}`}
                       >
                         <span className="text-sm font-semibold text-black">
@@ -136,21 +136,21 @@ export default function TestimonialsSection() {
         {/* Trust Indicators */}
         <div className="text-center mt-16 lg:mt-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-            <div className="text-center" data-testid="stat-projects">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2">200+</div>
-              <div className="text-sm text-muted-foreground">Projects Completed</div>
+            <div className="text-center hover-lift-gentle glow-pulse-subtle group animate-fade-in-scale stagger-delay-1" data-testid="stat-projects">
+              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">200+</div>
+              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Projects Completed</div>
             </div>
-            <div className="text-center" data-testid="stat-clients">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2">50+</div>
-              <div className="text-sm text-muted-foreground">Happy Clients</div>
+            <div className="text-center hover-lift-gentle glow-pulse-subtle group animate-fade-in-scale stagger-delay-2" data-testid="stat-clients">
+              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">50+</div>
+              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Happy Clients</div>
             </div>
-            <div className="text-center" data-testid="stat-experience">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2">5+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+            <div className="text-center hover-lift-gentle glow-pulse-subtle group animate-fade-in-scale stagger-delay-3" data-testid="stat-experience">
+              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
+              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Years Experience</div>
             </div>
-            <div className="text-center" data-testid="stat-coverage">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2">2</div>
-              <div className="text-sm text-muted-foreground">States Served</div>
+            <div className="text-center hover-lift-gentle glow-pulse-subtle group animate-fade-in-scale stagger-delay-4" data-testid="stat-coverage">
+              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">2</div>
+              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">States Served</div>
             </div>
           </div>
         </div>
