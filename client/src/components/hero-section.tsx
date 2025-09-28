@@ -19,9 +19,9 @@ export default function HeroSection() {
 
         {/* Hero content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-semibold mb-16 leading-tight tracking-tight">
-            <span className="gradient-text-cyan-purple">Professional</span>{" "}
-            <span className="gradient-text-cyan-purple">Cleaning</span> Services
+          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-semibold mb-16 leading-tight tracking-tight text-foreground">
+            Cleaning for<br />
+            businesses
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground mb-16 max-w-2xl mx-auto leading-relaxed font-normal">
             Trusted commercial and construction cleaning across Idaho & Utah. From post-construction cleanup to ongoing maintenance solutions.
