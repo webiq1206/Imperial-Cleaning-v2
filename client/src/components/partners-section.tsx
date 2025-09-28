@@ -39,7 +39,7 @@ export default function PartnersSection() {
   ];
 
   return (
-    <section className="py-16 lg:py-32 px-6">
+    <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">

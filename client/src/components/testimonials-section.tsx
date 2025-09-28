@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 lg:py-32 px-6 bg-gradient-to-b from-background to-background/95">
+    <section className="py-24 px-6 bg-gradient-to-b from-background to-background/95">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
