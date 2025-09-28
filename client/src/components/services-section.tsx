@@ -68,7 +68,7 @@ export default function ServicesSection() {
               
               <Link href="/construction-cleaning">
                 <Button 
-                  variant="pill"
+                  variant="pill-secondary"
                   size="pill-md"
                   className="font-medium hover-lift-gentle button-ripple hover-shimmer glow-pulse-subtle group-hover:glow-pulse-breathing"
                   onClick={() => handleLearnMore('construction')}
@@ -122,9 +122,9 @@ export default function ServicesSection() {
               
               <Link href="/commercial-cleaning">
                 <Button 
-                  variant="pill"
+                  variant="pill-secondary"
                   size="pill-md"
-                  className="font-medium"
+                  className="font-medium hover-lift-gentle button-ripple hover-shimmer glow-pulse-subtle group-hover:glow-pulse-breathing"
                   onClick={() => handleLearnMore('commercial')}
                   data-testid="button-learn-more-commercial"
                 >

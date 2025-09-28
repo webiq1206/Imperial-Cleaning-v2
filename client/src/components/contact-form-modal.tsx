@@ -212,11 +212,11 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
             <div className="flex justify-between items-center pt-6">
               <Button
                 type="button"
-                variant="pill"
+                variant="pill-secondary"
                 size="pill-md"
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className={`${currentStep === 1 ? "invisible" : ""} transition-transform duration-300 ease-out hover:-translate-y-1`}
+                className={`${currentStep === 1 ? "invisible" : ""} transition-transform duration-300 ease-out hover:-translate-y-1 hover-lift-gentle glow-pulse-subtle`}
                 data-testid="button-prev-step"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
