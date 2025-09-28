@@ -40,8 +40,7 @@ export default function ServiceAreasIdaho() {
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Idaho Cleaning Services
-            <span className="gradient-text-cyan-purple block">Statewide Coverage</span>
+            Idaho Cleaning Services - Statewide Coverage
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Professional construction and commercial cleaning services throughout Idaho. Trusted by contractors and businesses statewide.
@@ -70,7 +69,7 @@ export default function ServiceAreasIdaho() {
           <div className="grid md:grid-cols-2 gap-8">
             {cities.map((city, index) => (
               <div key={index} className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
-                <h3 className="text-2xl font-bold mb-4 text-foreground">{city.name} <span className="gradient-text-cyan-purple">Cleaning Services</span></h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{city.name} Cleaning Services</h3>
                 <p className="text-muted-foreground mb-6">{city.description}</p>
                 <div className="space-y-2">
                   {city.services.map((service, serviceIndex) => (

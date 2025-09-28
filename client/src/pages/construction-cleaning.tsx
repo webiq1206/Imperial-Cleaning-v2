@@ -17,8 +17,7 @@ export default function ConstructionCleaning() {
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Professional Construction Cleaning
-            <span className="gradient-text-cyan-purple block">Across Idaho & Utah</span>
+            Professional Construction Cleaning Across Idaho & Utah
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Post-construction cleanup services for contractors. From debris removal to final detailing, we prepare your projects for handover.
@@ -96,7 +95,7 @@ export default function ConstructionCleaning() {
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="resend-card-subtle p-6">
-              <h3 className="text-xl font-bold mb-4 gradient-text-cyan-purple">Idaho Construction Cleaning</h3>
+              <h3 className="text-xl font-bold mb-4 text-foreground">Idaho Construction Cleaning</h3>
               <div className="grid grid-cols-2 gap-2 text-muted-foreground text-sm">
                 <p>• Idaho Falls construction cleanup</p>
                 <p>• Pocatello construction cleaning</p>
@@ -109,7 +108,7 @@ export default function ConstructionCleaning() {
               </div>
             </div>
             <div className="resend-card-subtle p-6">
-              <h3 className="text-xl font-bold mb-4 gradient-text-cyan-purple">Utah Construction Cleaning</h3>
+              <h3 className="text-xl font-bold mb-4 text-foreground">Utah Construction Cleaning</h3>
               <div className="grid grid-cols-2 gap-2 text-muted-foreground text-sm">
                 <p>• Logan construction cleanup</p>
                 <p>• Ogden construction cleaning</p>

@@ -21,7 +21,7 @@
   --secondary: hsl(0, 0%, 5%);
   --secondary-foreground: hsl(0, 0%, 90%);
   --muted: hsl(0, 0%, 2%);
-  --muted-foreground: hsl(0, 0%, 65%);
+  --muted-foreground: hsl(0, 0%, 72%);
   --accent: hsl(271, 81%, 56%); /* Purple */
   --accent-foreground: hsl(0, 0%, 100%);
   
@@ -73,12 +73,12 @@
     letter-spacing: -0.01em;
   }
 
-  /* Inter font headings - no gradient by default */
+  /* Inter font headings - Resend-style weight and spacing */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
     letter-spacing: -0.025em;
-    line-height: 1.2;
+    line-height: 1.1;
     color: hsl(0, 0%, 100%); /* white text by default */
   }
   
@@ -91,42 +91,74 @@
     }
   }
   
+  /* Resend-inspired font scale with precise hierarchy */
   h1 {
-    @apply text-5xl lg:text-6xl xl:text-7xl;
+    @apply text-6xl lg:text-7xl xl:text-8xl;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
   }
   
   h2 {
-    @apply text-3xl lg:text-4xl xl:text-5xl;
+    @apply text-4xl lg:text-5xl xl:text-6xl;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
   }
   
   h3 {
-    @apply text-2xl lg:text-3xl;
+    @apply text-3xl lg:text-4xl xl:text-5xl;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
   }
   
   h4 {
-    @apply text-xl lg:text-2xl;
+    @apply text-2xl lg:text-3xl xl:text-4xl;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
   }
   
   h5 {
-    @apply text-lg lg:text-xl;
+    @apply text-xl lg:text-2xl xl:text-3xl;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
   }
   
   h6 {
-    @apply text-base lg:text-lg;
+    @apply text-lg lg:text-xl xl:text-2xl;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
   }
   
-  /* Resend-style body text */
+  /* Resend-style body text - improved contrast */
   p {
-    color: hsl(0, 0%, 65%);
-    line-height: 1.6;
+    color: hsl(0, 0%, 72%);
+    line-height: 1.65;
     font-weight: 400;
+    letter-spacing: -0.005em;
   }
   
   .resend-body-text {
-    color: hsl(0, 0%, 65%);
-    line-height: 1.6;
+    color: hsl(0, 0%, 72%);
+    line-height: 1.65;
     font-weight: 400;
     font-size: 1rem;
+    letter-spacing: -0.005em;
+  }
+  
+  /* Additional text hierarchy classes */
+  .text-large {
+    color: hsl(0, 0%, 72%);
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .text-small {
+    color: hsl(0, 0%, 68%);
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 0.875rem;
+    letter-spacing: 0;
   }
 }
 

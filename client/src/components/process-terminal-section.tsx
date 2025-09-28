@@ -54,8 +54,7 @@ export default function ProcessTerminalSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-            Our Cleaning
-            <span className="gradient-text-cyan-purple block">Workflow</span>
+            Our Cleaning Workflow
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
             A systematic, technology-driven approach to professional cleaning that ensures consistent, high-quality results every time.

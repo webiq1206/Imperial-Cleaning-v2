@@ -17,8 +17,7 @@ export default function CommercialCleaning() {
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Professional Commercial Cleaning
-            <span className="gradient-text-cyan-purple block">Idaho & Utah Businesses</span>
+            Professional Commercial Cleaning for Idaho & Utah Businesses
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Ongoing commercial cleaning services for businesses throughout Idaho and Utah. Reliable, professional maintenance to keep your facility spotless.
@@ -96,7 +95,7 @@ export default function CommercialCleaning() {
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="resend-card-subtle p-6">
-              <h3 className="text-xl font-bold mb-4 gradient-text-cyan-purple">Idaho Commercial Cleaning</h3>
+              <h3 className="text-xl font-bold mb-4 text-foreground">Idaho Commercial Cleaning</h3>
               <div className="grid grid-cols-2 gap-2 text-muted-foreground text-sm">
                 <p>• Idaho Falls commercial cleaning</p>
                 <p>• Pocatello office cleaning</p>
@@ -109,7 +108,7 @@ export default function CommercialCleaning() {
               </div>
             </div>
             <div className="resend-card-subtle p-6">
-              <h3 className="text-xl font-bold mb-4 gradient-text-cyan-purple">Utah Commercial Cleaning</h3>
+              <h3 className="text-xl font-bold mb-4 text-foreground">Utah Commercial Cleaning</h3>
               <div className="grid grid-cols-2 gap-2 text-muted-foreground text-sm">
                 <p>• Logan commercial cleaning</p>
                 <p>• Ogden office cleaning</p>

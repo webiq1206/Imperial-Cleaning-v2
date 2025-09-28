@@ -4,8 +4,7 @@ export default function FeaturesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-            Why Choose
-            <span className="gradient-text-cyan-purple block">Imperial Cleaning?</span>
+            Why Choose Imperial Cleaning?
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
             Experience the difference of professional cleaning services with our proven track record across Idaho and Utah.

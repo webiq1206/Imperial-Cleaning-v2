@@ -43,7 +43,7 @@ export default function PartnersSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-            Trusted & <span className="gradient-text-cyan-purple">Certified</span>
+            Trusted & Certified
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
             Our certifications and partnerships ensure the highest quality cleaning services with complete protection and peace of mind.

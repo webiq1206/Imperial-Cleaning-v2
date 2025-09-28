@@ -6,7 +6,7 @@ export default function ServiceAreasSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight leading-tight text-foreground">
-            Service <span className="gradient-text-cyan-purple">Areas</span>
+            Service Areas
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Proudly serving construction and commercial clients across Idaho and Utah with professional cleaning solutions.

@@ -17,8 +17,7 @@ export default function ServicesSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-              Professional Cleaning
-              <span className="gradient-text-cyan-purple block">Solutions</span>
+              Professional Cleaning Solutions
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
               Specialized cleaning solutions for construction sites and commercial facilities across Idaho and Utah.
