@@ -54,12 +54,16 @@ export default function PartnersSection() {
           {partners.map((partner, index) => (
             <div 
               key={index} 
-              className="premium-card-bg sophisticated-glow group text-center p-6 transition-all duration-300 hover:-translate-y-1 rounded-lg"
+              className="glass-card-elevated sophisticated-glow group text-center p-6 transition-all duration-300 hover:-translate-y-1 rounded-lg"
               data-testid={`partner-card-${index}`}
             >
               <div className="resend-icon mb-4 group-hover:scale-110 transition-transform duration-300">
                 <i className={partner.icon}></i>
               </div>
+              
+              {/* Elegant inset divider between icon and content */}
+              <div className="glass-divider-top mb-4"></div>
+              
               <h3 className="text-sm font-semibold mb-2 text-foreground" data-testid={`partner-name-${index}`}>
                 {partner.name}
               </h3>

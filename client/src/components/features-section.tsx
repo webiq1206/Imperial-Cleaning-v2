@@ -13,11 +13,19 @@ export default function FeaturesSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="group">
-            <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
+            <div className="glass-card-elevated sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
               <div className="resend-icon mb-6">
                 <i className="fas fa-shield-alt"></i>
               </div>
+              
+              {/* Elegant inset divider after icon */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-insured">Fully Insured</h3>
+              
+              {/* Inset divider before description */}
+              <div className="glass-divider-top mb-4"></div>
+              
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-insured">
                 Comprehensive insurance coverage protects your property and provides complete peace of mind for every project.
               </p>
@@ -25,11 +33,19 @@ export default function FeaturesSection() {
           </div>
 
           <div className="group">
-            <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
+            <div className="glass-card-elevated sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
               <div className="resend-icon mb-6">
                 <i className="fas fa-clock"></i>
               </div>
+              
+              {/* Elegant inset divider after icon */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-availability">24/7 Availability</h3>
+              
+              {/* Inset divider before description */}
+              <div className="glass-divider-top mb-4"></div>
+              
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-availability">
                 Flexible scheduling around the clock to meet your construction deadlines and business requirements.
               </p>
@@ -37,11 +53,19 @@ export default function FeaturesSection() {
           </div>
 
           <div className="group">
-            <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
+            <div className="glass-card-elevated sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
               <div className="resend-icon mb-6">
                 <i className="fas fa-award"></i>
               </div>
+              
+              {/* Elegant inset divider after icon */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-guarantee">Quality Guaranteed</h3>
+              
+              {/* Inset divider before description */}
+              <div className="glass-divider-top mb-4"></div>
+              
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-guarantee">
                 100% satisfaction guarantee on all cleaning services with professional standards that exceed expectations.
               </p>

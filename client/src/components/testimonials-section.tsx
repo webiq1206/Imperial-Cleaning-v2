@@ -88,11 +88,14 @@ export default function TestimonialsSection() {
                 className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.333%] pl-6"
                 data-testid={`testimonial-slide-${testimonial.id}-${index}`}
               >
-                <div className="premium-card-bg sophisticated-glow h-full flex flex-col p-8 transition-transform duration-300 ease-out hover:-translate-y-1 rounded-lg">
+                <div className="glass-card-elevated sophisticated-glow h-full flex flex-col p-8 transition-transform duration-300 ease-out hover:-translate-y-1 rounded-lg">
                   {/* Quote */}
                   <blockquote className="text-foreground text-base lg:text-lg leading-relaxed mb-8 flex-grow">
                     "{testimonial.content}"
                   </blockquote>
+
+                  {/* Elegant inset divider between quote and author */}
+                  <div className="glass-divider-top mb-6"></div>
 
                   {/* Author Information */}
                   <div className="flex items-center mt-auto">

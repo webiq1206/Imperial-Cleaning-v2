@@ -776,12 +776,73 @@
     border: 1px solid hsl(0, 0%, 100%, 0.1);
   }
   
+  /* ===== SOPHISTICATED GLASSMORPHISM CARD SYSTEM ===== */
+  
+  /* Base Glassmorphism Card - Premium elevated design */
   .premium-card-bg {
+    position: relative;
     background: 
-      linear-gradient(135deg, hsl(0, 0%, 2%) 0%, hsl(0, 0%, 0.5%) 50%, hsl(0, 0%, 1%) 100%),
-      radial-gradient(circle at top left, hsl(195, 100%, 50%, 0.015) 0%, transparent 50%);
-    border: 1px solid hsl(0, 0%, 100%, 0.05);
-    backdrop-filter: blur(8px);
+      linear-gradient(135deg, hsl(0, 0%, 2%) 0%, hsl(0, 0%, 0.8%) 25%, hsl(0, 0%, 0.5%) 75%, hsl(0, 0%, 1%) 100%),
+      radial-gradient(circle at top left, hsl(195, 100%, 50%, 0.025) 0%, transparent 60%),
+      radial-gradient(circle at bottom right, hsl(271, 81%, 56%, 0.015) 0%, transparent 60%);
+    backdrop-filter: blur(12px) saturate(120%);
+    
+    /* Sophisticated Multi-Layer Border System */
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    
+    /* Enhanced Inner Shadow System */
+    box-shadow: 
+      /* Deep inset shadows for glass-like depth */
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.1),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.2),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.05),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.1),
+      /* Subtle outer glow */
+      0 0 0 1px hsl(0, 0%, 100%, 0.03),
+      0 2px 8px hsl(0, 0%, 0%, 0.15),
+      0 4px 16px hsl(0, 0%, 0%, 0.1);
+    
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+  
+  /* Sophisticated Glass Border Treatment */
+  .premium-card-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      hsl(0, 0%, 100%, 0.1) 0%, 
+      transparent 25%, 
+      transparent 75%, 
+      hsl(195, 100%, 50%, 0.05) 100%
+    );
+    border-radius: inherit;
+    mask: linear-gradient(hsl(0, 0%, 0%) 0 0) content-box, linear-gradient(hsl(0, 0%, 0%) 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+  
+  /* Enhanced hover states */
+  .premium-card-bg:hover {
+    background: 
+      linear-gradient(135deg, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 1.5%) 25%, hsl(0, 0%, 1%) 75%, hsl(0, 0%, 2%) 100%),
+      radial-gradient(circle at top left, hsl(195, 100%, 50%, 0.035) 0%, transparent 60%),
+      radial-gradient(circle at bottom right, hsl(271, 81%, 56%, 0.025) 0%, transparent 60%);
+    
+    box-shadow: 
+      /* Enhanced inset shadows */
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.15),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.25),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.08),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.15),
+      /* Elevated outer glow */
+      0 0 0 1px hsl(195, 100%, 50%, 0.1),
+      0 4px 16px hsl(0, 0%, 0%, 0.2),
+      0 8px 32px hsl(0, 0%, 0%, 0.15),
+      0 0 24px hsl(195, 100%, 50%, 0.05);
   }
   
   /* Enhanced Gradient Animations */
@@ -797,24 +858,314 @@
     100% { background-position: 0% 50%; }
   }
   
-  /* Subtle Glow Effects */
+  /* ===== ENHANCED SOPHISTICATED GLOW SYSTEM ===== */
+  
   .sophisticated-glow {
     position: relative;
   }
   
+  /* Multi-layered ambient glow effect */
   .sophisticated-glow::before {
     content: '';
     position: absolute;
-    inset: -1px;
-    background: linear-gradient(45deg, hsl(195, 100%, 50%, 0.1), hsl(271, 81%, 56%, 0.1));
+    inset: -2px;
+    background: linear-gradient(135deg, 
+      hsl(195, 100%, 50%, 0.15) 0%, 
+      hsl(233, 78%, 60%, 0.1) 25%,
+      transparent 50%,
+      hsl(271, 81%, 56%, 0.1) 75%,
+      hsl(195, 100%, 50%, 0.08) 100%
+    );
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: pulseGlow 3s ease-in-out infinite;
   }
   
+  /* Hover-enhanced glow with multiple layers */
   .sophisticated-glow:hover::before {
     opacity: 1;
+    filter: blur(12px);
+    inset: -4px;
+  }
+  
+  /* Additional inner glow ring */
+  .sophisticated-glow::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(45deg, 
+      hsl(195, 100%, 50%, 0.08) 0%, 
+      transparent 30%,
+      transparent 70%,
+      hsl(271, 81%, 56%, 0.05) 100%
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .sophisticated-glow:hover::after {
+    opacity: 1;
+  }
+  
+  /* Pulse animation for ambient glow */
+  @keyframes pulseGlow {
+    0%, 100% { 
+      transform: scale(1);
+      opacity: 0;
+    }
+    50% { 
+      transform: scale(1.02);
+      opacity: 0.3;
+    }
+  }
+  
+  /* ===== GLASSMORPHISM UTILITY CLASSES ===== */
+  
+  /* Inset Divider System */
+  .glass-divider-top {
+    position: relative;
+  }
+  
+  .glass-divider-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      hsl(0, 0%, 100%, 0.1) 10%,
+      hsl(195, 100%, 50%, 0.15) 50%,
+      hsl(0, 0%, 100%, 0.1) 90%,
+      transparent 100%
+    );
+    box-shadow: 0 1px 0 hsl(0, 0%, 0%, 0.2);
+  }
+  
+  .glass-divider-bottom {
+    position: relative;
+  }
+  
+  .glass-divider-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      hsl(0, 0%, 0%, 0.2) 10%,
+      hsl(0, 0%, 0%, 0.3) 50%,
+      hsl(0, 0%, 0%, 0.2) 90%,
+      transparent 100%
+    );
+    box-shadow: 0 -1px 0 hsl(0, 0%, 100%, 0.05);
+  }
+  
+  .glass-divider-vertical {
+    position: relative;
+  }
+  
+  .glass-divider-vertical::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    bottom: 16px;
+    width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, 
+      transparent 0%,
+      hsl(0, 0%, 100%, 0.1) 10%,
+      hsl(195, 100%, 50%, 0.1) 50%,
+      hsl(0, 0%, 100%, 0.1) 90%,
+      transparent 100%
+    );
+    box-shadow: 1px 0 0 hsl(0, 0%, 0%, 0.15);
+  }
+  
+  /* Enhanced Border Treatments */
+  .glass-border-gradient {
+    position: relative;
+    border: 1px solid transparent;
+    background: 
+      linear-gradient(hsl(0, 0%, 0%) 0 0) padding-box,
+      linear-gradient(135deg, 
+        hsl(0, 0%, 100%, 0.1) 0%,
+        hsl(195, 100%, 50%, 0.2) 25%,
+        hsl(271, 81%, 56%, 0.15) 75%,
+        hsl(0, 0%, 100%, 0.05) 100%
+      ) border-box;
+  }
+  
+  .glass-border-refined {
+    box-shadow: 
+      /* Inner glass edge */
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.1),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.2),
+      /* Outer refined border */
+      0 0 0 1px hsl(0, 0%, 100%, 0.05),
+      0 0 0 2px hsl(0, 0%, 0%, 0.1),
+      /* Subtle depth shadow */
+      0 1px 3px hsl(0, 0%, 0%, 0.1);
+  }
+  
+  /* Premium Card Variants */
+  .glass-card-base {
+    background: 
+      linear-gradient(135deg, 
+        hsl(0, 0%, 1.5%) 0%, 
+        hsl(0, 0%, 0.5%) 25%, 
+        hsl(0, 0%, 0.8%) 75%,
+        hsl(0, 0%, 1.2%) 100%
+      ),
+      radial-gradient(circle at 30% 30%, hsl(195, 100%, 50%, 0.02) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, hsl(271, 81%, 56%, 0.015) 0%, transparent 60%);
+    
+    border: 1px solid hsl(0, 0%, 100%, 0.06);
+    backdrop-filter: blur(12px) saturate(110%);
+    
+    box-shadow: 
+      /* Basic inset glass effect */
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.08),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.15),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.04),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.08),
+      /* Basic outer shadow */
+      0 0 0 1px hsl(0, 0%, 100%, 0.02),
+      0 2px 8px hsl(0, 0%, 0%, 0.12),
+      0 4px 16px hsl(0, 0%, 0%, 0.08);
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card-base:hover {
+    border-color: hsl(195, 100%, 50%, 0.08);
+    transform: translateY(-1px);
+    
+    box-shadow: 
+      /* Enhanced basic glass insets */
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.1),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.2),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.05),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.1),
+      /* Basic hover glow */
+      0 0 0 1px hsl(195, 100%, 50%, 0.04),
+      0 4px 16px hsl(0, 0%, 0%, 0.15),
+      0 8px 32px hsl(0, 0%, 0%, 0.1),
+      0 0 24px hsl(195, 100%, 50%, 0.04);
+  }
+
+  .glass-card-elevated {
+    background: 
+      linear-gradient(135deg, 
+        hsl(0, 0%, 2.5%) 0%, 
+        hsl(0, 0%, 1%) 25%, 
+        hsl(0, 0%, 0.8%) 50%,
+        hsl(0, 0%, 1.5%) 75%,
+        hsl(0, 0%, 2%) 100%
+      ),
+      radial-gradient(circle at 20% 20%, hsl(195, 100%, 50%, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(271, 81%, 56%, 0.02) 0%, transparent 50%);
+    
+    border: 1px solid hsl(0, 0%, 100%, 0.08);
+    backdrop-filter: blur(16px) saturate(130%);
+    
+    box-shadow: 
+      /* Premium inset glass effect */
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.12),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.25),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.06),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.12),
+      /* Elevated outer shadow */
+      0 0 0 1px hsl(0, 0%, 100%, 0.04),
+      0 4px 12px hsl(0, 0%, 0%, 0.2),
+      0 8px 24px hsl(0, 0%, 0%, 0.15),
+      0 16px 48px hsl(0, 0%, 0%, 0.1);
+    
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card-elevated:hover {
+    border-color: hsl(195, 100%, 50%, 0.1);
+    transform: translateY(-2px);
+    
+    box-shadow: 
+      /* Enhanced glass insets */
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.15),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.3),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.08),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.15),
+      /* Elevated hover glow */
+      0 0 0 1px hsl(195, 100%, 50%, 0.08),
+      0 8px 24px hsl(0, 0%, 0%, 0.25),
+      0 16px 48px hsl(0, 0%, 0%, 0.2),
+      0 24px 64px hsl(0, 0%, 0%, 0.15),
+      0 0 32px hsl(195, 100%, 50%, 0.08);
+  }
+  
+  /* Intense Glassmorphism for Special Cards */
+  .glass-card-premium {
+    background: 
+      linear-gradient(135deg, 
+        hsl(0, 0%, 3%) 0%, 
+        hsl(0, 0%, 1.5%) 20%,
+        hsl(0, 0%, 1%) 40%,
+        hsl(0, 0%, 2%) 60%,
+        hsl(0, 0%, 1.2%) 80%,
+        hsl(0, 0%, 2.5%) 100%
+      ),
+      radial-gradient(ellipse at top left, hsl(195, 100%, 50%, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, hsl(271, 81%, 56%, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at center, hsl(233, 78%, 60%, 0.01) 0%, transparent 70%);
+      
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    backdrop-filter: blur(20px) saturate(140%);
+    
+    /* Complex layered shadows for premium depth */
+    box-shadow: 
+      /* Multi-layer inset glass */
+      inset 0 2px 0 hsl(0, 0%, 100%, 0.15),
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.1),
+      inset 0 -2px 0 hsl(0, 0%, 0%, 0.3),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.2),
+      inset 2px 0 0 hsl(0, 0%, 100%, 0.08),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.05),
+      inset -2px 0 0 hsl(0, 0%, 0%, 0.15),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.1),
+      /* Sophisticated outer glow system */
+      0 0 0 1px hsl(195, 100%, 50%, 0.06),
+      0 0 0 2px hsl(0, 0%, 100%, 0.02),
+      0 6px 16px hsl(0, 0%, 0%, 0.25),
+      0 12px 32px hsl(0, 0%, 0%, 0.2),
+      0 24px 64px hsl(0, 0%, 0%, 0.15);
+  }
+  
+  /* Premium border gradient overlay */
+  .glass-card-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+      hsl(0, 0%, 100%, 0.15) 0%, 
+      hsl(195, 100%, 50%, 0.1) 25%,
+      transparent 50%,
+      hsl(271, 81%, 56%, 0.08) 75%,
+      hsl(0, 0%, 100%, 0.1) 100%
+    );
+    border-radius: inherit;
+    mask: linear-gradient(hsl(0, 0%, 0%) 0 0) content-box, linear-gradient(hsl(0, 0%, 0%) 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
   }
 
   /* Layered Section Transitions */

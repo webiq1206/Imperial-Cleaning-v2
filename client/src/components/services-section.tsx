@@ -26,16 +26,24 @@ export default function ServicesSection() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Construction Cleaning */}
-            <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
+            <div className="glass-card-premium sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
               <div className="flex items-center mb-6">
                 <div className="resend-icon mr-4">
                   <i className="fas fa-hard-hat"></i>
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-medium">Construction Cleaning</h3>
               </div>
+              
+              {/* Elegant inset divider after header */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Post-construction cleanup services for contractors across Idaho and Utah. From debris removal to final detailing, we prepare your projects for handover.
               </p>
+              
+              {/* Inset divider before features */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <div className="space-y-3 mb-8">
                 <div className="flex items-center text-sm" data-testid="feature-construction-debris">
                   <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
@@ -54,6 +62,10 @@ export default function ServicesSection() {
                   <span>Final inspection ready cleanup</span>
                 </div>
               </div>
+              
+              {/* Inset divider before button */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <Link href="/construction-cleaning">
                 <Button 
                   variant="pill"
@@ -68,16 +80,24 @@ export default function ServicesSection() {
             </div>
 
             {/* Commercial Cleaning */}
-            <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
+            <div className="glass-card-premium sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
               <div className="flex items-center mb-6">
                 <div className="resend-icon mr-4">
                   <i className="fas fa-building"></i>
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-medium">Commercial Cleaning</h3>
               </div>
+              
+              {/* Elegant inset divider after header */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Ongoing commercial cleaning services for businesses throughout Idaho and Utah. Reliable, professional maintenance to keep your facility spotless.
               </p>
+              
+              {/* Inset divider before features */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <div className="space-y-3 mb-8">
                 <div className="flex items-center text-sm" data-testid="feature-commercial-schedules">
                   <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
@@ -96,6 +116,10 @@ export default function ServicesSection() {
                   <span>Carpet and floor care</span>
                 </div>
               </div>
+              
+              {/* Inset divider before button */}
+              <div className="glass-divider-top mb-6"></div>
+              
               <Link href="/commercial-cleaning">
                 <Button 
                   variant="pill"
