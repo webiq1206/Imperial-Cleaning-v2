@@ -1,4 +1,5 @@
-import { Star } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import useEmblaCarousel from 'embla-carousel-react';
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -10,27 +11,27 @@ export default function TestimonialsSection() {
       company: "Mountain View Construction",
       location: "Idaho Falls, ID",
       initials: "MT",
-      rating: 5
+      avatar: "/api/placeholder/60/60"
     },
     {
       id: 2,
       content: "We've been using Imperial Cleaning for our office maintenance for over two years. Consistent, reliable, and professional service every time.",
       author: "Sarah Chen",
-      position: "Operations Director",
+      position: "Operations Director", 
       company: "Tech Solutions Utah",
       location: "Salt Lake City, UT",
       initials: "SC",
-      rating: 5
+      avatar: "/api/placeholder/60/60"
     },
     {
       id: 3,
       content: "The team at Imperial Cleaning exceeded our expectations. They handled our large commercial facility with precision and care, delivering exceptional results.",
       author: "Robert Martinez",
       position: "Facilities Manager",
-      company: "Logan Manufacturing",
+      company: "Logan Manufacturing", 
       location: "Logan, UT",
       initials: "RM",
-      rating: 5
+      avatar: "/api/placeholder/60/60"
     },
     {
       id: 4,
@@ -38,92 +39,117 @@ export default function TestimonialsSection() {
       author: "Jennifer Walsh",
       position: "General Contractor",
       company: "Pocatello Builders",
-      location: "Pocatello, ID",
+      location: "Pocatello, ID", 
       initials: "JW",
-      rating: 5
+      avatar: "/api/placeholder/60/60"
+    },
+    {
+      id: 5,
+      content: "Imperial Cleaning delivers exceptional results every time. Their professional approach and attention to detail make them our go-to cleaning service.",
+      author: "David Kim",
+      position: "Facility Director",
+      company: "Boise Medical Center",
+      location: "Boise, ID",
+      initials: "DK", 
+      avatar: "/api/placeholder/60/60"
+    },
+    {
+      id: 6,
+      content: "Outstanding service and reliability. Imperial Cleaning has been instrumental in maintaining our commercial properties to the highest standards.",
+      author: "Lisa Rodriguez",
+      position: "Property Manager",
+      company: "Wasatch Commercial Properties",
+      location: "Provo, UT",
+      initials: "LR",
+      avatar: "/api/placeholder/60/60"
     }
   ];
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: true,
+    slidesToScroll: 1,
+    containScroll: 'trimSnaps'
+  });
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoScroll = setInterval(() => {
+      scrollNext();
+    }, 8000); // 8 second intervals for slow movement
+
+    return () => {
+      clearInterval(autoScroll);
+    };
+  }, [emblaApi, scrollNext]);
+
   return (
-    <section className="py-24 lg:py-32 px-6">
+    <section className="py-24 lg:py-32 px-6 bg-gradient-to-b from-background to-background/95">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight leading-tight text-foreground">
-            Client Success <span className="gradient-text-cyan-purple">Stories</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
+            Beyond <span className="gradient-text-cyan-purple">expectations</span>
           </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Trusted by construction companies and commercial businesses across Idaho and Utah for professional cleaning solutions.
+          <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Imperial Cleaning is driving remarkable client experiences that enable success stories, empower businesses, and fuel growth across Idaho and Utah.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {testimonials.map((testimonial) => (
-            <div 
-              key={testimonial.id}
-              className="resend-card hover-lift"
-              data-testid={`testimonial-card-${testimonial.id}`}
-            >
-              {/* Star Rating */}
-              <div className="flex mb-6" data-testid={`rating-${testimonial.id}`}>
-                {Array.from({ length: testimonial.rating }).map((_, index) => (
-                  <Star 
-                    key={index}
-                    className="w-4 h-4 fill-primary text-primary mr-1"
-                    data-testid={`star-${testimonial.id}-${index + 1}`}
-                  />
-                ))}
-              </div>
+        {/* Testimonials Carousel */}
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.333%] pl-6"
+                data-testid={`testimonial-slide-${testimonial.id}`}
+              >
+                <div className="resend-card h-full flex flex-col p-8 hover-lift">
+                  {/* Quote */}
+                  <blockquote className="text-foreground text-base lg:text-lg leading-relaxed mb-8 flex-grow">
+                    "{testimonial.content}"
+                  </blockquote>
 
-              {/* Testimonial Content */}
-              <blockquote className="text-foreground text-base lg:text-lg leading-relaxed mb-8 font-normal">
-                "{testimonial.content}"
-              </blockquote>
+                  {/* Author Information */}
+                  <div className="flex items-center mt-auto">
+                    {/* Profile Picture */}
+                    <div className="flex-shrink-0 mr-4">
+                      <div 
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center overflow-hidden"
+                        data-testid={`avatar-${testimonial.id}`}
+                      >
+                        <span className="text-sm font-semibold text-black">
+                          {testimonial.initials}
+                        </span>
+                      </div>
+                    </div>
 
-              {/* Author Information */}
-              <div className="flex items-center">
-                {/* Profile Circle with Initials */}
-                <div 
-                  className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mr-4 flex-shrink-0"
-                  data-testid={`profile-${testimonial.id}`}
-                >
-                  <span className="text-sm font-semibold text-black">
-                    {testimonial.initials}
-                  </span>
-                </div>
-
-                {/* Author Details */}
-                <div className="min-w-0 flex-1">
-                  <div 
-                    className="font-semibold text-foreground text-sm"
-                    data-testid={`author-name-${testimonial.id}`}
-                  >
-                    {testimonial.author}
-                  </div>
-                  <div 
-                    className="text-muted-foreground text-sm"
-                    data-testid={`author-position-${testimonial.id}`}
-                  >
-                    {testimonial.position}
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1">
-                    <span 
-                      className="text-muted-foreground text-xs font-medium"
-                      data-testid={`company-${testimonial.id}`}
-                    >
-                      {testimonial.company}
-                    </span>
-                    <span className="hidden sm:inline text-muted-foreground text-xs">•</span>
-                    <span 
-                      className="text-muted-foreground text-xs"
-                      data-testid={`location-${testimonial.id}`}
-                    >
-                      {testimonial.location}
-                    </span>
+                    {/* Author Details */}
+                    <div className="min-w-0 flex-1">
+                      <div 
+                        className="font-semibold text-foreground text-base mb-1"
+                        data-testid={`author-name-${testimonial.id}`}
+                      >
+                        {testimonial.author}
+                      </div>
+                      <div 
+                        className="text-muted-foreground text-sm"
+                        data-testid={`author-position-${testimonial.id}`}
+                      >
+                        {testimonial.position} at {testimonial.company}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Trust Indicators */}
