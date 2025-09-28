@@ -48,10 +48,8 @@ export default function TestimonialsSection() {
     <section className="py-24 lg:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight leading-tight">
-            <span className="gradient-text-cyan-purple">Client</span>{' '}
-            <span className="text-foreground">Success</span>{' '}
-            <span className="gradient-text-cyan-purple">Stories</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight leading-tight text-foreground">
+            Client Success <span className="gradient-text-cyan-purple">Stories</span>
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Trusted by construction companies and commercial businesses across Idaho and Utah for professional cleaning solutions.

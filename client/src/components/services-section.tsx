@@ -16,8 +16,8 @@ export default function ServicesSection() {
       <section id="services" className="py-16 lg:py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight">
-              <span className="gradient-text-cyan-purple">Professional</span> Cleaning
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
+              Professional Cleaning
               <span className="gradient-text-cyan-purple block">Solutions</span>
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
