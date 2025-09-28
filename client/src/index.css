@@ -57,9 +57,16 @@
   --font-mono: 'Geist Mono', 'Fira Code', 'SF Mono', monospace;
   --radius: 8px;
   
-  /* Resend gradient variables */
-  --resend-gradient: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
-  --resend-gradient-text: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+  /* Unified Gradient System - Cyan to Purple */
+  --gradient-primary: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+  --gradient-primary-reverse: linear-gradient(315deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+  --gradient-primary-vertical: linear-gradient(180deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+  --gradient-primary-br: linear-gradient(to bottom right, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+  --gradient-primary-subtle: linear-gradient(135deg, hsl(195, 100%, 60%) 0%, hsl(271, 81%, 66%) 100%);
+  
+  /* Legacy support */
+  --resend-gradient: var(--gradient-primary);
+  --resend-gradient-text: var(--gradient-primary);
 }
 
 @layer base {
@@ -184,9 +191,9 @@
     }
   }
 
-  /* Updated to match contact icons gradient */
+  /* Unified Gradient Text Classes */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+    background: var(--gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -195,9 +202,8 @@
     animation: gradientShift 3s ease-in-out infinite;
   }
   
-  /* Updated to match contact icons - cyan to purple gradient */
   .gradient-text-cyan-purple {
-    background: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+    background: var(--gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -207,11 +213,41 @@
   }
   
   .gradient-text-subtle {
-    background: linear-gradient(135deg, hsl(195, 100%, 60%) 0%, hsl(271, 81%, 66%) 100%);
+    background: var(--gradient-primary-subtle);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+  }
+  
+  /* Gradient Background Classes */
+  .gradient-bg {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-bg-br {
+    background: var(--gradient-primary-br);
+  }
+  
+  .gradient-bg-vertical {
+    background: var(--gradient-primary-vertical);
+  }
+  
+  .gradient-bg-subtle {
+    background: var(--gradient-primary-subtle);
+  }
+  
+  /* Gradient Border Classes */
+  .gradient-border {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                var(--gradient-primary) border-box;
+  }
+  
+  .gradient-border-2 {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                var(--gradient-primary) border-box;
   }
 
   /* Resend-style card styling */
@@ -251,60 +287,129 @@
     background: hsl(0, 0%, 1%);
   }
 
-  /* Resend-style pill buttons */
-  .pill-button {
+  /* Enhanced Resend-style pill buttons with sophisticated effects */
+  .pill-button-resend-primary {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    padding: 12px 28px;
     border-radius: 50px;
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid hsl(0, 0%, 12%);
-    background: hsl(0, 0%, 0%);
-    color: hsl(0, 0%, 100%);
-  }
-  
-  .pill-button:hover {
-    border-color: hsl(195, 100%, 50%);
-    box-shadow: 0 0 0 1px hsla(195, 100%, 50%, 0.2), 
-                0 4px 12px hsla(195, 100%, 50%, 0.15);
-    transform: translateY(-1px);
-  }
-  
-  .pill-button-gradient {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid transparent;
-    background: linear-gradient(hsl(0, 0%, 0%), hsl(0, 0%, 0%)) padding-box,
-                var(--resend-gradient) border-box;
-    color: hsl(0, 0%, 100%);
-  }
-  
-  .pill-button-gradient:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px hsla(195, 100%, 50%, 0.2);
-  }
-  
-  .pill-button-primary {
-    background: var(--resend-gradient);
-    color: hsl(0, 0%, 0%);
-    border: none;
     font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 0;
+    background: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 96%) 100%);
+    color: hsl(0, 0%, 0%);
+    box-shadow: 
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.8),
+      inset 0 -1px 0 hsla(0, 0%, 0%, 0.1),
+      0 1px 3px hsla(0, 0%, 0%, 0.1);
+    overflow: hidden;
   }
   
-  .pill-button-primary:hover {
-    box-shadow: 0 4px 20px hsla(195, 100%, 50%, 0.3);
-    transform: translateY(-2px);
+  .pill-button-resend-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    background: linear-gradient(135deg, transparent 0%, hsla(0, 0%, 100%, 0.1) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .pill-button-resend-primary:hover {
+    background: linear-gradient(135deg, hsl(0, 0%, 98%) 0%, hsl(0, 0%, 94%) 100%);
+    transform: translateY(-1px);
+    box-shadow: 
+      0 0 0 1px hsla(0, 0%, 100%, 0.4),
+      0 4px 20px hsla(0, 0%, 100%, 0.25),
+      0 8px 32px hsla(0, 0%, 0%, 0.1),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.9),
+      inset 0 -1px 0 hsla(0, 0%, 0%, 0.05);
+  }
+  
+  .pill-button-resend-primary:hover::before {
+    opacity: 1;
+  }
+  
+  .pill-button-resend-secondary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid hsla(0, 0%, 20%, 0.6);
+    background: hsla(0, 0%, 0%, 0.3);
+    backdrop-filter: blur(12px);
+    color: hsl(0, 0%, 85%);
+    box-shadow: 
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.05),
+      0 1px 3px hsla(0, 0%, 0%, 0.1);
+    overflow: hidden;
+  }
+  
+  .pill-button-resend-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    background: linear-gradient(135deg, 
+      hsla(195, 100%, 50%, 0.1) 0%, 
+      transparent 50%, 
+      hsla(271, 81%, 56%, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .pill-button-resend-secondary:hover {
+    border-color: hsla(195, 100%, 50%, 0.3);
+    background: hsla(0, 0%, 5%, 0.5);
+    color: hsl(0, 0%, 95%);
+    transform: translateY(-0.5px);
+    box-shadow: 
+      0 0 0 1px hsla(195, 100%, 50%, 0.2),
+      0 4px 16px hsla(195, 100%, 50%, 0.15),
+      0 8px 32px hsla(0, 0%, 0%, 0.2),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.1);
+  }
+  
+  .pill-button-resend-secondary:hover::before {
+    opacity: 1;
+  }
+  
+  /* Enhanced halo effect for secondary button */
+  .pill-button-resend-secondary::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, 
+      hsla(195, 100%, 50%, 0.1) 0%, 
+      hsla(271, 81%, 56%, 0.1) 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+  }
+  
+  .pill-button-resend-secondary:hover::after {
+    opacity: 1;
   }
   
   /* Sophisticated Resend-style icon container */
@@ -317,10 +422,7 @@
     height: 60px;
     border-radius: 16px;
     background: linear-gradient(hsl(0, 0%, 5%), hsl(0, 0%, 8%)) padding-box,
-                linear-gradient(135deg, 
-                  hsl(271, 81%, 56%) 0%,
-                  hsl(195, 100%, 50%) 50%, 
-                  hsl(147, 78%, 42%) 100%) border-box;
+                var(--gradient-primary) border-box;
     border: 1px solid transparent;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 
@@ -341,9 +443,7 @@
   /* Icon content with gradient */
   .resend-icon i,
   .resend-icon svg {
-    background: linear-gradient(135deg, 
-      hsl(195, 100%, 50%) 0%,
-      hsl(271, 81%, 56%) 100%);
+    background: var(--gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -351,9 +451,9 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Updated icon gradient to match contact icons */
+  /* Unified icon gradient */
   .icon-gradient {
-    background: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
+    background: var(--gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

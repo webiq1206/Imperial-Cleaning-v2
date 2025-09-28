@@ -18,10 +18,11 @@ const buttonVariants = cva(
           "rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "rounded-md hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Resend-style pill button variants
-        pill: "rounded-full border border-border bg-background text-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300",
-        "pill-gradient": "rounded-full border border-transparent bg-gradient-to-r from-cyan-500 to-purple-600 text-white hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300",
-        "pill-primary": "rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-black font-semibold hover:shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300",
+        // Enhanced Resend-style pill button variants with inner shadows and glow effects
+        pill: "rounded-full border border-gray-800/60 bg-black/40 text-gray-300 backdrop-blur-sm hover:border-gray-700/80 hover:bg-gray-950/60 hover:text-gray-200 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300",
+        "pill-gradient": "rounded-full border border-transparent bg-gradient-to-r from-black/80 to-gray-900/80 text-white backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(34,211,238,0.2),0_4px_12px_rgba(34,211,238,0.15),inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300",
+        "pill-primary": "rounded-full bg-white text-black font-semibold border-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.1)] hover:bg-gray-50 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.3),0_4px_20px_rgba(255,255,255,0.2),inset_0_1px_0_rgba(255,255,255,0.5)] hover:-translate-y-1 transition-all duration-300",
+        "pill-secondary": "rounded-full border border-gray-700/60 bg-black/20 text-gray-300 backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] hover:border-gray-600/80 hover:bg-gray-900/40 hover:text-gray-200 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.15),0_4px_16px_rgba(34,211,238,0.1),inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

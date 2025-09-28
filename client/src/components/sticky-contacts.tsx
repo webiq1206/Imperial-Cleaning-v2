@@ -41,7 +41,7 @@ export default function StickyContacts() {
             title={contact.title}
             onClick={() => handleContactClick(contact.method)}
             data-testid={contact.testId}
-            className="orbital-contact-btn group relative w-14 h-14 rounded-2xl bg-gradient-to-br from-black/90 to-gray-900/90 backdrop-blur-xl border border-gray-800/50 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/20"
+            className="orbital-contact-btn group relative w-14 h-14 rounded-2xl gradient-bg backdrop-blur-xl border border-gray-800/50 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/20"
             style={{
               animationDelay: `${index * 0.2}s`
             }}
@@ -52,7 +52,7 @@ export default function StickyContacts() {
             <div className="orbital-ring orbital-ring-3 absolute inset-0 rounded-2xl border border-cyan-300/10 animate-spin" style={{ animationDuration: '16s' }}></div>
             
             {/* Central Glow */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(to bottom right, hsl(195, 100%, 50%, 0.05), hsl(271, 81%, 56%, 0.05))' }}></div>
             
             {/* Center Icon with Glow */}
             <div className="relative z-10 w-full h-full flex items-center justify-center">
