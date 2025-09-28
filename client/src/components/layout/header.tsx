@@ -29,7 +29,7 @@ export default function Header() {
                 <img 
                   src="/header-logo.png" 
                   alt="Imperial Cleaning Inc" 
-                  className="h-7 w-auto brightness-0 invert"
+                  className="h-8 w-auto brightness-0 invert"
                 />
               </Link>
             </div>
