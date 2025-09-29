@@ -6,10 +6,10 @@ export default function FeaturesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-            Why Boise Trusts Imperial Cleaning
+            Why Businesses Choose Imperial Cleaning
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-            Treasure Valley's most trusted Idaho commercial cleaners with proven expertise across Boise, Meridian, Nampa, and Eagle. Licensed, bonded, and certified throughout Ada County and Canyon County.
+            Idaho and Utah's most trusted commercial cleaners with proven expertise across multiple cities and regions. Licensed, bonded, and certified throughout both states.
           </p>
         </div>
 
@@ -23,13 +23,13 @@ export default function FeaturesSection() {
               {/* Elegant inset divider after icon */}
               <div className="glass-divider-top mb-6"></div>
               
-              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-insured">Idaho Licensed & Insured</h3>
+              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-insured">Licensed & Insured</h3>
               
               {/* Inset divider before description */}
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-insured">
-                $2M liability insurance and comprehensive bonding provides complete peace of mind for every Boise commercial cleaning project. <Link href="#compliance" className="text-primary hover:text-primary/80 transition-colors">View our certifications →</Link>
+                $2M liability insurance and comprehensive bonding provides complete peace of mind for every commercial cleaning project. <Link href="#compliance" className="text-primary hover:text-primary/80 transition-colors">View our certifications →</Link>
               </p>
             </div>
           </div>
@@ -43,13 +43,13 @@ export default function FeaturesSection() {
               {/* Elegant inset divider after icon */}
               <div className="glass-divider-top mb-6"></div>
               
-              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-availability">24/7 Treasure Valley Service</h3>
+              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-availability">24/7 Service Available</h3>
               
               {/* Inset divider before description */}
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-availability">
-                Around-the-clock availability throughout Boise, Meridian, and Nampa. Emergency response within 30 minutes across Ada County and Canyon County for urgent cleanup needs.
+                Around-the-clock availability throughout our Idaho and Utah service areas. Rapid emergency response for urgent cleanup needs across both states.
               </p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function FeaturesSection() {
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-guarantee">
-                100% satisfaction guarantee backed by OSHA certification and Idaho state compliance. Eagle janitorial services that exceed expectations with documented quality assurance protocols.
+                100% satisfaction guarantee backed by OSHA certification and multi-state compliance. Professional services that exceed expectations with documented quality assurance protocols.
               </p>
             </div>
           </div>

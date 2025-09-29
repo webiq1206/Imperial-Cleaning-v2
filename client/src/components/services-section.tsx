@@ -17,10 +17,10 @@ export default function ServicesSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-              Boise Commercial Cleaning Solutions
+              Idaho & Utah Commercial Cleaning
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-              Idaho commercial cleaners specializing in Treasure Valley construction cleanup and Ada County cleaning services for businesses throughout Boise, Meridian, Nampa, and Eagle.
+              Professional commercial cleaning services across Idaho and Utah. Specialized construction cleanup and ongoing maintenance for businesses throughout the Intermountain West.
             </p>
           </div>
 
@@ -31,14 +31,14 @@ export default function ServicesSection() {
                 <div className="resend-icon mr-4 hover-lift-gentle group-hover:scale-105 transition-all duration-500">
                   <i className="fas fa-hard-hat icon-gradient"></i>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Treasure Valley Construction Cleanup</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Construction Cleanup Services</h3>
               </div>
               
               {/* Elegant inset divider after header */}
               <div className="glass-divider-top mb-6"></div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Treasure Valley construction cleanup services for Boise, Meridian, and Nampa contractors. From debris removal to final detailing, we've served major projects including downtown Boise high-rises, Meridian residential developments, and Eagle commercial buildings.
+                Professional construction cleanup services for Idaho and Utah contractors. From debris removal to final detailing, we serve major projects including office complexes, residential developments, and commercial buildings throughout both states.
               </p>
               
               {/* Inset divider before features */}
@@ -75,7 +75,7 @@ export default function ServicesSection() {
                     onClick={() => handleLearnMore('construction')}
                     data-testid="button-learn-more-construction"
                   >
-                    Boise Projects →
+                    View Projects →
                   </Button>
                 </Link>
                 <Link href="#faq">
@@ -97,14 +97,14 @@ export default function ServicesSection() {
                 <div className="resend-icon mr-4 hover-lift-gentle group-hover:scale-105 transition-all duration-500">
                   <i className="fas fa-building icon-gradient"></i>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Boise Commercial Cleaning</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Commercial Cleaning Services</h3>
               </div>
               
               {/* Elegant inset divider after header */}
               <div className="glass-divider-top mb-6"></div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Meridian office cleaning and Nampa industrial cleaning services for Ada County businesses. Our Eagle janitorial services include Fortune 500 companies, healthcare facilities, and government buildings throughout the Treasure Valley region.
+                Comprehensive office and industrial cleaning services for Idaho and Utah businesses. Our janitorial services include Fortune 500 companies, healthcare facilities, and government buildings throughout both states.
               </p>
               
               {/* Inset divider before features */}
@@ -141,7 +141,7 @@ export default function ServicesSection() {
                     onClick={() => handleLearnMore('commercial')}
                     data-testid="button-learn-more-commercial"
                   >
-                    Treasure Valley Services →
+                    Our Services →
                   </Button>
                 </Link>
                 <Link href="/service-areas/idaho">
