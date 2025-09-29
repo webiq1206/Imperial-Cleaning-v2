@@ -3,32 +3,129 @@ import Footer from "@/components/layout/footer";
 import StickyContacts from "@/components/sticky-contacts";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
 
 export default function ServiceAreasIdaho() {
   const [showContactForm, setShowContactForm] = useState(false);
+  
+  useEffect(() => {
+    // Update document title and meta description for SEO
+    document.title = "Boise & Treasure Valley Cleaning Services | Imperial Cleaning Idaho";
+    
+    // Update or create meta description
+    let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement;
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta') as HTMLMetaElement;
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = "Professional construction and commercial cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region. Serving Ada County, Canyon County, and all of Southwest Idaho with premium cleaning solutions.";
+    
+    // Add Open Graph tags for social sharing
+    let ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement;
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta') as HTMLMetaElement;
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.content = "Treasure Valley Cleaning Services - Boise, Meridian, Nampa | Imperial Cleaning";
+    
+    let ogDescription = document.querySelector('meta[property="og:description"]') as HTMLMetaElement;
+    if (!ogDescription) {
+      ogDescription = document.createElement('meta') as HTMLMetaElement;
+      ogDescription.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescription);
+    }
+    ogDescription.content = "Idaho's premier cleaning company serving Boise and the entire Treasure Valley with professional construction and commercial cleaning services.";
+  }, []);
 
-  const cities = [
+  const treasureValleyCities = [
+    {
+      name: "Boise",
+      population: "235,000+",
+      county: "Ada County",
+      description: "Idaho's capital and largest city, serving as the economic hub of the Treasure Valley. Professional construction and commercial cleaning services for Boise's thriving downtown business district, government facilities, healthcare centers, and major employers like Micron Technology, St. Luke's Health System, and Idaho Power.",
+      neighborhoods: ["Downtown Boise", "West Boise", "North End", "Bench", "Southeast Boise"],
+      services: ["High-Rise Construction Cleanup", "Government Facility Cleaning", "Healthcare Facility Services", "Corporate Office Maintenance", "Post-Construction Services"],
+      businessDistricts: ["Downtown Financial District", "Vista Village", "Boise Town Square", "WestPark Center"]
+    },
+    {
+      name: "Meridian",
+      population: "125,000+",
+      county: "Ada County",
+      description: "Idaho's fastest-growing city and the heart of residential development in the Treasure Valley. Specialized cleaning services for Meridian's booming construction projects, commercial developments along Eagle Road, and The Village at Meridian shopping district.",
+      neighborhoods: ["Meridian Ranch", "Bridgetower", "Ustick Station", "Tuscany"],
+      services: ["New Construction Cleanup", "Retail Facility Cleaning", "Residential Construction Services", "Commercial Development Support"],
+      businessDistricts: ["The Village at Meridian", "Eagle Road Corridor", "Meridian Crossroads"]
+    },
+    {
+      name: "Nampa",
+      population: "105,000+",
+      county: "Canyon County",
+      description: "Canyon County's largest city and major industrial center. Comprehensive cleaning services for Nampa's manufacturing facilities, warehouse districts, and the growing Karcher Corridor commercial development.",
+      neighborhoods: ["Historic Downtown Nampa", "Karcher Mall Area", "Greenhurst", "South Nampa"],
+      services: ["Industrial Facility Cleaning", "Warehouse Cleaning", "Manufacturing Support", "Distribution Center Services"],
+      businessDistricts: ["Karcher Corridor", "Downtown Nampa", "Industrial Park"]
+    },
+    {
+      name: "Eagle",
+      population: "32,000+",
+      county: "Ada County",
+      description: "Prestigious Treasure Valley community known for luxury developments and corporate offices. Premium cleaning services for Eagle's high-end commercial buildings, medical facilities, and exclusive residential construction projects.",
+      neighborhoods: ["Eagle Hills", "Banbury", "Seven Oaks", "Baneberry"],
+      services: ["Executive Office Cleaning", "Medical Facility Services", "Luxury Construction Cleanup", "Premium Commercial Maintenance"],
+      businessDistricts: ["Eagle Road Corporate District", "Downtown Eagle", "Medical Plaza"]
+    },
+    {
+      name: "Caldwell",
+      population: "65,000+",
+      county: "Canyon County",
+      description: "Historic Canyon County seat with growing industrial and agricultural sectors. Professional cleaning services for Caldwell's food processing facilities, agricultural businesses, and the expanding College of Idaho campus area.",
+      neighborhoods: ["Historic Downtown", "Indian Creek", "College Area", "Northside"],
+      services: ["Food Processing Facility Cleaning", "Agricultural Facility Services", "Educational Institution Cleaning", "Industrial Support"],
+      businessDistricts: ["Downtown Caldwell", "Cleveland Boulevard", "College of Idaho District"]
+    }
+  ];
+
+  const secondaryMarkets = [
+    {
+      name: "Kuna",
+      description: "Rapidly growing community in Ada County with new residential and commercial developments.",
+      services: ["Residential Construction", "Commercial Development", "Municipal Facilities"]
+    },
+    {
+      name: "Star",
+      description: "Charming Treasure Valley community experiencing significant growth and development.",
+      services: ["New Construction", "Commercial Cleaning", "Community Facilities"]
+    },
+    {
+      name: "Garden City",
+      description: "Dense urban community adjacent to Boise with industrial and entertainment districts.",
+      services: ["Industrial Cleaning", "Entertainment Venue Services", "Commercial Maintenance"]
+    },
+    {
+      name: "Mountain Home",
+      description: "Military community and regional service center in Elmore County.",
+      services: ["Government Facilities", "Military Installation Support", "Commercial Services"]
+    }
+  ];
+
+  const extendedCoverage = [
     {
       name: "Idaho Falls",
-      description: "Professional cleaning services for Idaho Falls construction and commercial clients. Premier cleaning solutions in southeastern Idaho.",
+      description: "Professional cleaning services for Idaho Falls construction and commercial clients in southeastern Idaho.",
       services: ["Construction Cleaning", "Commercial Cleaning", "Office Maintenance", "Post-Construction Cleanup"]
     },
     {
       name: "Pocatello",
-      description: "Reliable commercial and construction cleaning services in Pocatello. Serving contractors and businesses throughout Bannock County.",
-      services: ["Construction Site Cleaning", "Commercial Maintenance", "Office Cleaning", "Facility Services"]
+      description: "Reliable commercial and construction cleaning services in Pocatello and throughout Bannock County.",
+      services: ["Construction Site Cleaning", "Commercial Maintenance", "University Facilities", "Industrial Cleaning"]
     },
     {
-      name: "Rexburg",
-      description: "Quality cleaning services for Rexburg businesses and construction projects. Trusted by contractors and commercial clients.",
-      services: ["Construction Cleanup", "Commercial Cleaning", "Business Maintenance", "Project Cleaning"]
-    },
-    {
-      name: "Blackfoot",
-      description: "Professional cleaning solutions for Blackfoot area construction sites and commercial facilities.",
-      services: ["Post-Construction Services", "Commercial Cleaning", "Facility Maintenance", "Construction Support"]
+      name: "Twin Falls",
+      description: "Comprehensive cleaning services for the Magic Valley's largest city and regional commercial center.",
+      services: ["Regional Commercial Cleaning", "Agricultural Facility Services", "Healthcare Facilities", "Construction Support"]
     }
   ];
 
@@ -42,10 +139,10 @@ export default function ServiceAreasIdaho() {
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Idaho Cleaning Services - Statewide Coverage
+            Boise & Treasure Valley Cleaning Services
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Professional construction and commercial cleaning services throughout Idaho. Trusted by contractors and businesses statewide.
+            Premier construction and commercial cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region. Idaho's trusted cleaning partner.
           </p>
           <Button 
             variant="pill-primary"
@@ -54,7 +151,7 @@ export default function ServiceAreasIdaho() {
             data-testid="button-request-quote"
             className="text-lg font-semibold px-8 py-4"
           >
-            Request Quote for Idaho
+            Request Quote for Treasure Valley
             <i className="fas fa-arrow-right ml-2"></i>
           </Button>
         </div>
@@ -64,18 +161,51 @@ export default function ServiceAreasIdaho() {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Idaho Cities We Serve</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Treasure Valley - Our Primary Market</h2>
             <p className="text-xl text-muted-foreground">
-              Comprehensive cleaning services across Idaho's major cities and communities
+              Comprehensive cleaning services across Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {cities.map((city, index) => (
-              <div key={index} className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
-                <h3 className="text-2xl font-bold mb-4 text-foreground">{city.name} Cleaning Services</h3>
-                <p className="text-muted-foreground mb-6">{city.description}</p>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+            {treasureValleyCities.map((city, index) => (
+              <div key={index} id={city.name.toLowerCase()} className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-2xl font-bold text-foreground">{city.name}</h3>
+                  <span className="text-sm text-primary font-medium">{city.county}</span>
+                </div>
+                <div className="mb-4">
+                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">
+                    Population: {city.population}
+                  </span>
+                </div>
+                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{city.description}</p>
+                
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-foreground mb-2">Neighborhoods Served:</h4>
+                  <div className="flex flex-wrap gap-1">
+                    {city.neighborhoods.map((neighborhood, nIndex) => (
+                      <span key={nIndex} className="text-xs bg-card border border-border px-2 py-1 rounded">
+                        {neighborhood}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-foreground mb-2">Business Districts:</h4>
+                  <div className="space-y-1">
+                    {city.businessDistricts.map((district, dIndex) => (
+                      <div key={dIndex} className="flex items-center text-xs">
+                        <i className="fas fa-building text-primary mr-2"></i>
+                        <span>{district}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
                 <div className="space-y-2">
+                  <h4 className="text-sm font-semibold text-foreground mb-2">Specialized Services:</h4>
                   {city.services.map((service, serviceIndex) => (
                     <div key={serviceIndex} className="flex items-center text-sm">
                       <i className="fas fa-check text-primary mr-3"></i>
@@ -89,36 +219,85 @@ export default function ServiceAreasIdaho() {
         </div>
       </section>
 
-      {/* Additional Coverage Areas */}
+      {/* Secondary Markets */}
       <section className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Additional Idaho Service Areas</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Secondary Treasure Valley Markets</h2>
             <p className="text-xl text-muted-foreground">
-              We also serve these Idaho communities with professional cleaning services
+              Expanding our coverage throughout Southwest Idaho and the greater Treasure Valley region
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              "Ammon", "Chubbuck", "Shelley", "Rigby",
-              "American Falls", "Preston", "Soda Springs", "Montpelier",
-              "St. Anthony", "Driggs", "Victor", "Ashton"
-            ].map((city, index) => {
-              const citySlug = city.toLowerCase().replace(/\s+/g, '-');
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {secondaryMarkets.map((city, index) => {
+              const citySlug = city.name.toLowerCase().replace(/\s+/g, '-');
               return (
-                <div key={index} className="bg-card p-4 rounded-lg border border-border text-center hover:border-primary/50 transition-colors duration-200">
-                  <Link 
-                    href={`/service-areas/idaho/${citySlug}`}
-                    className="font-semibold text-foreground hover:text-primary transition-colors duration-200"
-                    data-testid={`link-${citySlug}-idaho`}
-                  >
-                    {city}
-                  </Link>
-                  <p className="text-sm text-muted-foreground mt-1">Construction & Commercial</p>
+                <div key={index} id={citySlug} className="resend-card text-center">
+                  <h3 className="font-bold text-lg text-foreground mb-3">
+                    {city.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">{city.description}</p>
+                  <div className="space-y-1">
+                    {city.services.map((service, serviceIndex) => (
+                      <div key={serviceIndex} className="text-xs text-muted-foreground">
+                        • {service}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               );
             })}
+          </div>
+
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4 text-foreground">Extended Idaho Coverage</h3>
+            <p className="text-lg text-muted-foreground">
+              Professional cleaning services across all major Idaho markets
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {extendedCoverage.map((city, index) => {
+              const cityId = city.name.toLowerCase().replace(/\s+/g, '-');
+              return (
+                <div key={index} id={cityId} className="bg-card p-6 rounded-lg border border-border hover:border-primary/50 transition-colors duration-200">
+                <h4 className="text-xl font-bold mb-3 text-foreground">{city.name}</h4>
+                <p className="text-muted-foreground mb-4 text-sm">{city.description}</p>
+                <div className="space-y-2">
+                  {city.services.map((service, serviceIndex) => (
+                    <div key={serviceIndex} className="flex items-center text-sm">
+                      <i className="fas fa-check text-primary mr-3"></i>
+                      <span>{service}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center">
+            <h4 className="text-2xl font-bold mb-6 text-foreground">Additional Idaho Communities</h4>
+            <div className="grid md:grid-cols-6 gap-4">
+              {[
+                "Ammon", "Chubbuck", "Shelley", "Rigby", "Rexburg", "Blackfoot",
+                "American Falls", "Preston", "Soda Springs", "Montpelier", "St. Anthony", "Driggs"
+              ].map((city, index) => {
+                const citySlug = city.toLowerCase().replace(/\s+/g, '-');
+                return (
+                  <div key={index} className="bg-card p-3 rounded-lg border border-border text-center hover:border-primary/50 transition-colors duration-200">
+                    <Link 
+                      href={`/service-areas/idaho/${citySlug}`}
+                      className="text-sm font-semibold text-foreground hover:text-primary transition-colors duration-200"
+                      data-testid={`link-${citySlug}-idaho`}
+                    >
+                      {city}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -145,8 +324,8 @@ export default function ServiceAreasIdaho() {
               <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-truck"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Statewide Coverage</h3>
-              <p className="text-muted-foreground">From Boise to Idaho Falls, we serve all major Idaho markets</p>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Treasure Valley Expertise</h3>
+              <p className="text-muted-foreground">Comprehensive coverage throughout Boise, Meridian, Nampa, Eagle, Caldwell and all of Southwest Idaho</p>
             </div>
             <div className="text-center">
               <div className="icon-gradient text-5xl mb-4">
@@ -162,16 +341,16 @@ export default function ServiceAreasIdaho() {
       {/* CTA Section */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6 text-foreground">Ready to Serve Your Idaho Project?</h2>
+          <h2 className="text-4xl font-bold mb-6 text-foreground">Ready to Serve Your Treasure Valley Project?</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Contact us today for professional cleaning services anywhere in Idaho
+            Contact us today for professional cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region
           </p>
           <button 
             className="neon-border px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
             onClick={() => setShowContactForm(true)}
             data-testid="button-contact-idaho"
           >
-            Get Idaho Service Quote
+            Get Treasure Valley Quote
           </button>
         </div>
       </section>
