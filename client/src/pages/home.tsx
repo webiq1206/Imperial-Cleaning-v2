@@ -8,6 +8,7 @@ import PartnersSection from "@/components/partners-section";
 import ProcessTerminalSection from "@/components/process-terminal-section";
 import ServiceAreasSection from "@/components/service-areas-section";
 import ServicePillarsSection from "@/components/service-pillars-section";
+import CaseStudiesSection from "@/components/case-studies-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import FAQSection from "@/components/faq-section";
 import StickyContacts from "@/components/sticky-contacts";
@@ -20,6 +21,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <ServicePillarsSection />
+      <CaseStudiesSection />
       <FeaturesSection />
       <ComplianceCertificationsSection />
       <PartnersSection />
