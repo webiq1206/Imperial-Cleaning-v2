@@ -15,7 +15,7 @@ export default function Footer() {
               data-testid="footer-logo"
             />
             <p className="text-muted-foreground text-sm leading-6 max-w-xs font-normal">
-              Professional cleaning services for construction and commercial clients across Idaho and Utah.
+              Headquartered in Idaho Falls, providing professional cleaning services for construction and commercial clients across Idaho and Utah.
             </p>
           </div>
 

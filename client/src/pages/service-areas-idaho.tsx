@@ -18,7 +18,7 @@ export default function ServiceAreasIdaho() {
   // Structured data for Idaho service areas page
   const idahoServiceSchema = createServiceSchema({
     name: "Treasure Valley Cleaning Services - Idaho",
-    description: "Comprehensive commercial and construction cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region. Professional cleaning solutions for Ada County, Canyon County, and all of Southwest Idaho businesses and contractors.",
+    description: "Headquartered in Idaho Falls, providing comprehensive commercial and construction cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region. Professional cleaning solutions for Ada County, Canyon County, and all of Southwest Idaho businesses and contractors.",
     serviceType: "Commercial and Construction Cleaning",
     areaServed: [
       {
@@ -107,7 +107,7 @@ export default function ServiceAreasIdaho() {
         "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
       }
     ],
-    "description": "Premier cleaning services throughout the Treasure Valley region including Boise, Meridian, Nampa, Eagle, and Caldwell. Professional commercial and construction cleaning for Ada County and Canyon County businesses.",
+    "description": "Idaho Falls-based premier cleaning services throughout the Treasure Valley region including Boise, Meridian, Nampa, Eagle, and Caldwell. Professional commercial and construction cleaning for Ada County and Canyon County businesses.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Treasure Valley Cleaning Services",
@@ -236,7 +236,7 @@ export default function ServiceAreasIdaho() {
   const extendedCoverage = [
     {
       name: "Idaho Falls",
-      description: "Both construction cleanup and commercial cleaning services available for Idaho Falls clients in southeastern Idaho.",
+      description: "Our hometown headquarters! Both construction cleanup and commercial cleaning services available for Idaho Falls clients in southeastern Idaho. Locally owned and operated from this great city.",
       services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Office Maintenance", "Post-Construction Cleanup"]
     },
     {
@@ -283,7 +283,7 @@ export default function ServiceAreasIdaho() {
             Boise & Treasure Valley Cleaning Services
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Both construction cleanup AND commercial cleaning services available in ALL Imperial Cleaning service areas throughout Idaho. Every city we serve receives the same comprehensive range of professional cleaning services.
+            Proudly headquartered in Idaho Falls, providing both construction cleanup AND commercial cleaning services in ALL Imperial Cleaning service areas throughout Idaho. Every city we serve receives the same comprehensive range of professional cleaning services.
           </p>
           <Button 
             variant="pill-primary"

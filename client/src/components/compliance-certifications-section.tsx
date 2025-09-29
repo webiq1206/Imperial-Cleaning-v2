@@ -24,7 +24,7 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-shield-alt",
       badge: "VERIFIED",
       status: "active",
-      description: "Comprehensive insurance coverage protecting your property and providing complete peace of mind for Boise commercial cleaning projects.",
+      description: "Idaho Falls-headquartered company with comprehensive insurance coverage protecting your property and providing complete peace of mind for all commercial cleaning projects.",
       details: [
         {
           type: "General Liability Insurance",
@@ -53,7 +53,7 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-hard-hat",
       badge: "OSHA CERTIFIED",
       status: "current",
-      description: "OSHA compliant cleaning Nampa operations with comprehensive safety training protocols ensuring accident prevention across all Treasure Valley locations.",
+      description: "Idaho Falls-based OSHA compliant cleaning operations with comprehensive safety training protocols ensuring accident prevention across all service locations.",
       details: [
         {
           type: "OSHA 30-Hour Construction",
@@ -82,7 +82,7 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-certificate",
       badge: "ISSA MEMBER",
       status: "certified",
-      description: "Certified commercial cleaners Meridian with ISSA membership and specialized green cleaning certifications demonstrating industry expertise.",
+      description: "Idaho Falls-headquartered certified commercial cleaners with ISSA membership and specialized green cleaning certifications demonstrating industry expertise.",
       details: [
         {
           type: "ISSA Membership",

@@ -110,7 +110,7 @@ export const createLocalBusinessSchema = (overrides: Partial<any> = {}) => ({
   "@id": "https://imperialcleaninginc.com/#localbusiness",
   "name": "Imperial Cleaning Inc",
   "alternateName": "Imperial Cleaning",
-  "description": "Professional construction and commercial cleaning services across Idaho and Utah. Trusted by contractors and businesses for reliable, efficient cleaning solutions in Boise, Meridian, Nampa, and the entire Treasure Valley.",
+  "description": "Headquartered in Idaho Falls, providing professional construction and commercial cleaning services across Idaho and Utah. Trusted by contractors and businesses for reliable, efficient cleaning solutions throughout Idaho and Utah.",
   "url": "https://imperialcleaninginc.com",
   "telephone": "+1-208-520-3202",
   "email": "service@imperialcleaninginc.com",
@@ -122,15 +122,15 @@ export const createLocalBusinessSchema = (overrides: Partial<any> = {}) => ({
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "123 Business Blvd",
-    "addressLocality": "Boise",
+    "addressLocality": "Idaho Falls",
     "addressRegion": "ID",
-    "postalCode": "83702",
+    "postalCode": "83402",
     "addressCountry": "US"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "43.6150",
-    "longitude": "-116.2023"
+    "latitude": "43.4666",
+    "longitude": "-112.0336"
   },
   "areaServed": [
     {
@@ -228,13 +228,13 @@ export const createOrganizationSchema = (overrides: Partial<any> = {}) => ({
   "url": "https://imperialcleaninginc.com",
   "logo": "https://imperialcleaninginc.com/hero-logo.png",
   "image": "https://imperialcleaninginc.com/hero-logo.png",
-  "description": "Leading commercial and construction cleaning company serving Idaho and Utah with professional cleaning solutions for contractors and businesses.",
+  "description": "Idaho Falls headquartered commercial and construction cleaning company serving Idaho and Utah with professional cleaning solutions for contractors and businesses.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "123 Business Blvd",
-    "addressLocality": "Boise",
+    "addressLocality": "Idaho Falls",
     "addressRegion": "ID", 
-    "postalCode": "83702",
+    "postalCode": "83402",
     "addressCountry": "US"
   },
   "contactPoint": {
@@ -328,7 +328,7 @@ export const createAggregateRatingSchema = (overrides: Partial<any> = {}) => ({
     "name": "Imperial Cleaning Inc",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Boise",
+      "addressLocality": "Idaho Falls",
       "addressRegion": "ID",
       "addressCountry": "US"
     }

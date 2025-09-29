@@ -45,7 +45,7 @@ export default function HeroSection() {
               <div className="mb-8 animate-fade-in-left stagger-delay-1">
                 <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow  hover-lift-gentle hover-shimmer">
                   <span className="text-sm text-gray-400 font-medium tracking-tight">
-                    Serving Idaho & Utah • Licensed & Insured
+                    Idaho Falls Hometown • Serving Idaho & Utah • Licensed & Insured
                   </span>
                   <svg className="ml-2 w-3.5 h-3.5 text-gray-500 group-hover:text-gray-400 transition-all duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
@@ -61,7 +61,7 @@ export default function HeroSection() {
 
               {/* Enhanced subtitle */}
               <p className="text-xl text-gray-400 mb-10 max-w-xl leading-[1.6] font-normal tracking-tight animate-fade-in-up stagger-delay-3">
-                Premier commercial cleaning services across Idaho and Utah. Professional construction cleanup and janitorial services for businesses that demand excellence.
+                Locally owned and operated from Idaho Falls, providing premier commercial cleaning services across Idaho and Utah. Professional construction cleanup and janitorial services for businesses that demand excellence.
               </p>
 
               {/* Enhanced CTA buttons with local market focus */}

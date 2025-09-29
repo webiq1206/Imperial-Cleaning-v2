@@ -20,7 +20,7 @@ export default function ServicesSection() {
               Both Services Available in ALL Locations
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-              Both construction cleanup AND commercial cleaning services available in every Imperial Cleaning service area across Idaho and Utah. Comprehensive cleaning solutions delivered with consistent quality in all markets we serve.
+              Proudly headquartered in Idaho Falls, providing both construction cleanup AND commercial cleaning services available in every Imperial Cleaning service area across Idaho and Utah. Comprehensive cleaning solutions delivered with consistent quality in all markets we serve.
             </p>
           </div>
 

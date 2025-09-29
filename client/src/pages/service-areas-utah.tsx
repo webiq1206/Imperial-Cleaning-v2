@@ -18,7 +18,7 @@ export default function ServiceAreasUtah() {
   // Structured data for Utah service areas page
   const utahServiceSchema = createServiceSchema({
     name: "Wasatch Front Cleaning Services - Utah",
-    description: "Professional commercial and construction cleaning services throughout Salt Lake City, Logan, Ogden, Provo and the entire Wasatch Front region. Comprehensive cleaning solutions for Utah businesses and contractors across Salt Lake, Weber, Davis, and Utah counties.",
+    description: "Idaho Falls-headquartered professional commercial and construction cleaning services throughout Salt Lake City, Logan, Ogden, Provo and the entire Wasatch Front region. Comprehensive cleaning solutions for Utah businesses and contractors across Salt Lake, Weber, Davis, and Utah counties.",
     serviceType: "Commercial and Construction Cleaning",
     areaServed: [
       {
@@ -97,7 +97,7 @@ export default function ServiceAreasUtah() {
         "sameAs": "https://en.wikipedia.org/wiki/Wasatch_Front"
       }
     ],
-    "description": "Professional cleaning services throughout the Wasatch Front region including Salt Lake City, Logan, Ogden, and Provo. Expert commercial and construction cleaning for Utah businesses and contractors.",
+    "description": "Idaho Falls-based professional cleaning services throughout the Wasatch Front region including Salt Lake City, Logan, Ogden, and Provo. Expert commercial and construction cleaning for Utah businesses and contractors.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Wasatch Front Cleaning Services",
@@ -207,7 +207,7 @@ export default function ServiceAreasUtah() {
             Utah Cleaning Services - Wasatch Front & Beyond
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Both construction cleanup AND commercial cleaning services available in ALL Imperial Cleaning service areas throughout Utah. Every city we serve receives the same comprehensive range of professional cleaning services.
+            Locally owned and operated from our Idaho Falls headquarters, providing both construction cleanup AND commercial cleaning services in ALL Imperial Cleaning service areas throughout Utah. Every city we serve receives the same comprehensive range of professional cleaning services.
           </p>
           <Button 
             variant="pill-primary"
