@@ -228,11 +228,11 @@ export default function Home() {
       <ServicesSection />
       <FeaturesSection />
       <TestimonialsSection />
+      <ProcessTerminalSection />
       <CaseStudiesSection />
       <ComplianceCertificationsSection />
       <PartnersSection />
       <ServiceAreasSection />
-      <ProcessTerminalSection />
       <ServicePillarsSection />
       <FAQSection />
       <Footer />
