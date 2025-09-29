@@ -42,7 +42,7 @@ export default function HeroSection() {
 
         {/* Resend-style hero layout */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-full">
-          <div className="flex items-center h-[85vh] md:h-screen relative">
+          <div className="flex items-start md:items-center h-[85vh] md:h-screen relative pt-8 md:pt-0">
             {/* Left side - Content */}
             <div className="flex-1 max-w-2xl z-20">
               {/* Enhanced Resend-style announcement pill with motion polish */}
