@@ -17,7 +17,7 @@ export default function HeroSection() {
     <>
       <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
         {/* Enhanced background logo - visible on both mobile and desktop with dark overlay */}
-        <div className="fixed md:absolute inset-0 flex items-center justify-center z-0">
+        <div className="fixed md:absolute inset-0 flex items-center justify-center z-10">
           <div className="relative">
             <img 
               src={logoPath}
