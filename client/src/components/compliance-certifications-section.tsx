@@ -162,6 +162,35 @@ export default function ComplianceCertificationsSection() {
         }
       ],
       keywords: "reliable cleaning services, quality guaranteed cleaning, customer satisfaction cleaning"
+    },
+    {
+      id: "environmental-compliance",
+      title: "Environmental Compliance",
+      icon: "fas fa-leaf",
+      badge: "ECO-CERTIFIED",
+      status: "certified",
+      description: "Environmentally responsible cleaning operations using eco-friendly products and sustainable practices while maintaining the highest professional cleaning standards.",
+      details: [
+        {
+          type: "Green Cleaning Products",
+          standard: "EPA-approved cleaning solutions",
+          provider: "Environmental certification",
+          status: "Eco-friendly operations"
+        },
+        {
+          type: "Waste Management",
+          protocol: "Sustainable disposal practices",
+          provider: "Environmental compliance",
+          status: "Responsible waste handling"
+        },
+        {
+          type: "Resource Conservation",
+          standard: "Water and energy efficiency",
+          provider: "Sustainability practices",
+          status: "Conservation protocols"
+        }
+      ],
+      keywords: "eco-friendly cleaning services, green cleaning company, sustainable cleaning practices"
     }
   ];
 
