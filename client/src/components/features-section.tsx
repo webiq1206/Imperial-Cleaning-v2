@@ -5,7 +5,7 @@ export default function FeaturesSection() {
   const features = [
     {
       title: "Licensed & Insured",
-      description: "$2M liability insurance and comprehensive bonding provides complete peace of mind for every commercial cleaning project.",
+      description: "Substantial liability insurance and comprehensive bonding provides complete peace of mind for every commercial cleaning project.",
       icon: Shield,
       linkText: "View our certifications →",
       linkHref: "#compliance"
