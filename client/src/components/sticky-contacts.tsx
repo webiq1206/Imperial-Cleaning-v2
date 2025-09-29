@@ -83,7 +83,7 @@ export default function StickyContacts() {
   return (
     <>
       {/* Desktop Sticky Contacts */}
-      <div className="fixed bottom-6 right-6 z-[1000] hidden md:flex flex-col gap-3 animate-fade-in-scale">
+      <div className="fixed bottom-6 right-6 z-[1000] hidden md:flex flex-col gap-3 animate-fade-in-scale max-md:!hidden">
         {contacts.map((contact, index) => {
           const Icon = contact.icon;
           const isHovered = hoveredContact === contact.method;
@@ -183,9 +183,9 @@ export default function StickyContacts() {
       </div>
       
       {/* Mobile Sticky Contacts */}
-      <div className="fixed bottom-4 left-4 right-4 z-[1000] md:hidden">
-        <div className="bg-card/95 backdrop-blur-md border border-border/50 rounded-2xl p-4 shadow-xl sophisticated-glow">
-          <div className="flex justify-between items-center gap-3">
+      <div className="fixed bottom-4 left-4 right-4 z-[1001] block md:!hidden w-auto">
+        <div className="bg-card/95 backdrop-blur-md border border-border/50 rounded-2xl p-3 shadow-xl">
+          <div className="flex justify-between items-center gap-2 w-full">
             {contacts.map((contact, index) => {
               const Icon = contact.icon;
               return (
@@ -196,7 +196,7 @@ export default function StickyContacts() {
                   onClick={contact.onClick ? (e) => { e.preventDefault(); contact.onClick(); } : () => handleContactClick(contact.method)}
                   data-testid={`${contact.testId}-mobile`}
                   aria-label={contact.title}
-                  className={`flex-1 flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-300 hover:bg-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 active:scale-95 ${
+                  className={`flex-1 flex flex-col items-center justify-center gap-1 p-2 rounded-lg transition-all duration-300 hover:bg-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 active:scale-95 min-w-0 ${
                     contact.color === 'green' ? 'hover:bg-green-500/10' :
                     contact.color === 'blue' ? 'hover:bg-blue-500/10' :
                     contact.color === 'purple' ? 'hover:bg-purple-500/10' :
@@ -205,7 +205,7 @@ export default function StickyContacts() {
                   }`}
                 >
                   <Icon 
-                    className={`w-6 h-6 ${
+                    className={`w-5 h-5 flex-shrink-0 ${
                       contact.color === 'green' ? 'text-green-400' :
                       contact.color === 'blue' ? 'text-blue-400' :
                       contact.color === 'purple' ? 'text-purple-400' :
@@ -214,7 +214,7 @@ export default function StickyContacts() {
                     }`}
                     strokeWidth={2}
                   />
-                  <span className="text-xs font-medium text-foreground">{contact.shortTitle}</span>
+                  <span className="text-xs font-medium text-foreground truncate">{contact.shortTitle}</span>
                 </a>
               );
             })}
