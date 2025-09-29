@@ -13,8 +13,8 @@ export default function PartnersSection() {
       type: "insurance"
     },
     {
-      name: "OSHA Compliant",
-      description: "Safety Standards Certified",
+      name: "Safety Compliant",
+      description: "Industry Standards Certified",
       icon: "fas fa-hard-hat",
       type: "certification"
     },

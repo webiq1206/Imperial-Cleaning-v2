@@ -301,7 +301,11 @@ export default function CaseStudiesSection() {
               <Collapsible
                 key={study.id}
                 open={isExpanded(study.id)}
-                onOpenChange={() => toggleExpanded(study.id)}
+                onOpenChange={(open) => {
+                  if (open !== isExpanded(study.id)) {
+                    toggleExpanded(study.id);
+                  }
+                }}
                 className={`glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle rounded-lg overflow-hidden group animate-fade-in-up stagger-delay-${index + 1}`}
                 data-testid={`case-study-card-${study.id}`}
               >

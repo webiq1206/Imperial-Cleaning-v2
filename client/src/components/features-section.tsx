@@ -63,13 +63,13 @@ export default function FeaturesSection() {
               {/* Elegant inset divider after icon */}
               <div className="glass-divider-top mb-6"></div>
               
-              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-guarantee">OSHA Certified Quality</h3>
+              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-guarantee">Certified Quality Standards</h3>
               
               {/* Inset divider before description */}
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-guarantee">
-                100% satisfaction guarantee backed by OSHA certification and multi-state compliance. Professional services that exceed expectations with documented quality assurance protocols.
+                100% satisfaction guarantee backed by industry certification and multi-state compliance. Professional services that exceed expectations with documented quality assurance protocols.
               </p>
             </div>
           </div>
