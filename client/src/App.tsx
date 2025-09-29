@@ -1,9 +1,10 @@
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient, apiRequest } from "./lib/queryClient";
+import { QueryClientProvider, useMutation } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import { initGA } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
 import { isValidServiceLocation, getLocationBySlug } from "./lib/routing-utils";
@@ -417,8 +418,11 @@ function AboutPage() {
   );
 }
 
-// Contact Page Component with comprehensive SEO
+// Contact Page Component with comprehensive SEO and multi-step form
 function ContactPage() {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
   // Contact page structured data
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -500,6 +504,33 @@ function ContactPage() {
     ]
   };
 
+  const contactMethods = [
+    {
+      title: "Call Us",
+      description: "Speak directly with our team",
+      action: "tel:+12085203202",
+      label: "(208) 520-3202",
+      icon: "phone",
+      available: "Mon-Fri 7AM-6PM, Sat 8AM-4PM"
+    },
+    {
+      title: "Email Us",
+      description: "Send us your project details",
+      action: "mailto:service@imperialcleaninginc.com",
+      label: "service@imperialcleaninginc.com",
+      icon: "envelope",
+      available: "24/7 - We respond within 4 hours"
+    },
+    {
+      title: "Visit Us",
+      description: "Meet us at our headquarters",
+      action: "https://www.google.com/maps/place/Idaho+Falls,+ID",
+      label: "Idaho Falls, ID",
+      icon: "map-marker-alt",
+      available: "By appointment"
+    }
+  ];
+
   return (
     <>
       <SEOHead
@@ -531,50 +562,335 @@ function ContactPage() {
         structuredData={[localBusinessSchema, breadcrumbSchema]}
       />
       
-      <div className="container mx-auto px-6 py-24">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6 text-foreground">Contact Imperial Cleaning Inc.</h1>
-          <div className="grid md:grid-cols-2 gap-12">
+      {/* Hero Section */}
+      <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
+              Get Your Free Quote
+            </h1>
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
+              Connect with Idaho and Utah's most trusted cleaning professionals. 
+              Fast responses, transparent pricing, exceptional results.
+            </p>
+          </div>
+          
+          {/* Contact Methods */}
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {contactMethods.map((method, index) => (
+              <a
+                key={index}
+                href={method.action}
+                target={method.action.startsWith('http') ? '_blank' : undefined}
+                rel={method.action.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="glass-card-elevated sophisticated-glow p-8 rounded-lg text-center hover-lift-moderate group transition-all duration-300"
+                data-testid={`contact-method-${method.icon}`}
+              >
+                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  <i className={`fas fa-${method.icon} text-2xl text-primary`}></i>
+                </div>
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">{method.title}</h3>
+                <p className="text-muted-foreground mb-4">{method.description}</p>
+                <div className="text-primary font-medium text-lg mb-2">{method.label}</div>
+                <div className="text-sm text-muted-foreground">{method.available}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Contact Form */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Form Section */}
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-foreground">Get In Touch</h2>
-              <div className="space-y-4 text-muted-foreground">
-                <div>
-                  <strong className="text-foreground">Phone:</strong><br />
-                  <a href="tel:+12085203202" className="text-primary hover:text-primary/80">(208) 520-3202</a>
+              <div className="mb-12">
+                <h2 className="text-4xl lg:text-5xl font-semibold mb-6 tracking-tight text-foreground">
+                  Tell Us About Your Project
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Complete our quick survey to receive a personalized quote tailored to your specific cleaning needs. 
+                  Takes less than 2 minutes.
+                </p>
+              </div>
+              
+              {!isSubmitted ? (
+                <ContactFormSurvey 
+                  currentStep={currentStep}
+                  setCurrentStep={setCurrentStep}
+                  onSubmitComplete={() => setIsSubmitted(true)}
+                />
+              ) : (
+                <div className="glass-card-elevated sophisticated-glow p-12 rounded-lg text-center">
+                  <div className="w-16 h-16 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+                    <i className="fas fa-check-circle text-3xl text-green-500"></i>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-foreground">Quote Request Received!</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Thank you for choosing Imperial Cleaning. We'll review your project details and contact you 
+                    within 24 hours with a detailed quote.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a 
+                      href="tel:+12085203202" 
+                      className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200"
+                    >
+                      <i className="fas fa-phone mr-2"></i>
+                      Call Now for Faster Service
+                    </a>
+                    <button 
+                      onClick={() => {setIsSubmitted(false); setCurrentStep(1);}}
+                      className="inline-flex items-center justify-center px-6 py-3 border border-border bg-card text-card-foreground font-medium rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
+                    >
+                      Submit Another Request
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-foreground">Email:</strong><br />
-                  <a href="mailto:service@imperialcleaninginc.com" className="text-primary hover:text-primary/80">
-                    service@imperialcleaninginc.com
-                  </a>
-                </div>
-                <div>
-                  <strong className="text-foreground">Headquarters:</strong><br />
-                  Idaho Falls, ID
+              )}
+            </div>
+
+            {/* Info Section */}
+            <div className="lg:pl-8">
+              <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg mb-8">
+                <h3 className="text-2xl font-semibold mb-6 text-foreground">Why Choose Imperial Cleaning?</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
+                    <div>
+                      <div className="font-medium text-foreground">Fast Response</div>
+                      <div className="text-sm text-muted-foreground">All quotes delivered within 24 hours</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
+                    <div>
+                      <div className="font-medium text-foreground">Transparent Pricing</div>
+                      <div className="text-sm text-muted-foreground">No hidden fees or surprise charges</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
+                    <div>
+                      <div className="font-medium text-foreground">Licensed & Insured</div>
+                      <div className="text-sm text-muted-foreground">Full liability and workers' compensation coverage</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
+                    <div>
+                      <div className="font-medium text-foreground">Satisfaction Guarantee</div>
+                      <div className="text-sm text-muted-foreground">100% satisfaction or we'll make it right</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold mb-4 text-foreground">Business Hours</h2>
-              <div className="space-y-2 text-muted-foreground">
-                <div className="flex justify-between">
-                  <span>Monday - Friday:</span>
-                  <span>7:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday:</span>
-                  <span>8:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday:</span>
-                  <span>Emergency Only</span>
+
+              <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Service Areas</h3>
+                <div className="space-y-3">
+                  <div>
+                    <div className="font-medium text-foreground">Idaho</div>
+                    <div className="text-sm text-muted-foreground">Idaho Falls, Pocatello, Boise, Twin Falls, Rexburg, and surrounding areas</div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-foreground">Utah</div>
+                    <div className="text-sm text-muted-foreground">Salt Lake City, Logan, Ogden, Provo, and surrounding areas</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
+  );
+}
+
+// Contact Form Survey Component (inline for simplicity)
+function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }) {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    service: "",
+    location: "",
+    message: ""
+  });
+
+  const steps = [
+    { id: 1, field: "name", label: "What's your name?", placeholder: "Your full name", required: true },
+    { id: 2, field: "company", label: "Company name?", placeholder: "Your company (optional)", required: false },
+    { id: 3, field: "email", label: "Email address?", placeholder: "your@email.com", required: true },
+    { id: 4, field: "phone", label: "Phone number?", placeholder: "(208) 555-0123", required: true },
+    { id: 5, field: "service", label: "What service do you need?", required: true },
+    { id: 6, field: "location", label: "Project location?", placeholder: "City, State", required: true },
+    { id: 7, field: "message", label: "Project details?", placeholder: "Tell us about your project...", required: false }
+  ];
+
+  const submitMutation = useMutation({
+    mutationFn: async (data) => {
+      return apiRequest("POST", "/api/contact", data);
+    },
+    onSuccess: () => {
+      toast({
+        title: "Quote Request Sent!",
+        description: "We'll contact you within 24 hours with your quote.",
+      });
+      onSubmitComplete();
+    },
+    onError: (error) => {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send quote request. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleFieldChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const nextStep = () => {
+    const step = steps[currentStep - 1];
+    const fieldValue = formData[step.field];
+    
+    if (step.required && (!fieldValue || fieldValue.trim() === "")) {
+      toast({
+        title: "Required Field",
+        description: `Please fill in ${step.label.toLowerCase()}`,
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (currentStep < steps.length) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleSubmit = () => {
+    submitMutation.mutate(formData);
+  };
+
+  const progress = (currentStep / steps.length) * 100;
+  const currentStepData = steps[currentStep - 1];
+
+  return (
+    <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+      {/* Progress Bar */}
+      <div className="mb-8">
+        <div className="h-2 bg-muted rounded-full mb-4 overflow-hidden">
+          <div 
+            className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-300" 
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="text-sm text-muted-foreground font-medium">
+          Step <span className="text-foreground font-semibold">{currentStep}</span> of {steps.length}
+        </p>
+      </div>
+
+      {/* Current Step */}
+      <div className="mb-8">
+        <h3 className="text-2xl font-medium mb-6 text-foreground">
+          {currentStepData.label}
+        </h3>
+        
+        {currentStepData.field === "service" ? (
+          <div className="space-y-3">
+            {["construction", "commercial", "both"].map((option) => (
+              <button
+                key={option}
+                onClick={() => handleFieldChange("service", option)}
+                className={`w-full p-4 text-left border rounded-lg transition-all duration-200 ${
+                  formData.service === option 
+                    ? "border-primary bg-primary/5 text-foreground" 
+                    : "border-border bg-card text-card-foreground hover:border-primary/50"
+                }`}
+                data-testid={`option-${option}`}
+              >
+                <div className="font-medium">
+                  {option === "construction" && "Construction Cleaning"}
+                  {option === "commercial" && "Commercial Cleaning"}
+                  {option === "both" && "Both Services"}
+                </div>
+                <div className="text-sm text-muted-foreground mt-1">
+                  {option === "construction" && "Post-construction cleanup and debris removal"}
+                  {option === "commercial" && "Office buildings, facilities, and ongoing maintenance"}
+                  {option === "both" && "Complete cleaning solutions for all your needs"}
+                </div>
+              </button>
+            ))}
+          </div>
+        ) : currentStepData.field === "message" ? (
+          <textarea
+            placeholder={currentStepData.placeholder}
+            value={formData[currentStepData.field]}
+            onChange={(e) => handleFieldChange(currentStepData.field, e.target.value)}
+            rows={4}
+            className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200"
+            data-testid={`input-${currentStepData.field}`}
+          />
+        ) : (
+          <input
+            type={currentStepData.field === "email" ? "email" : currentStepData.field === "phone" ? "tel" : "text"}
+            placeholder={currentStepData.placeholder}
+            value={formData[currentStepData.field]}
+            onChange={(e) => handleFieldChange(currentStepData.field, e.target.value)}
+            className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 text-lg"
+            data-testid={`input-${currentStepData.field}`}
+          />
+        )}
+      </div>
+
+      {/* Navigation */}
+      <div className="flex justify-between items-center">
+        <button
+          onClick={prevStep}
+          disabled={currentStep === 1}
+          className={`px-6 py-3 font-medium rounded-lg transition-all duration-200 ${
+            currentStep === 1 
+              ? "invisible" 
+              : "border border-border bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground"
+          }`}
+          data-testid="button-prev-step"
+        >
+          <i className="fas fa-arrow-left mr-2"></i>
+          Back
+        </button>
+
+        {currentStep < steps.length ? (
+          <button
+            onClick={nextStep}
+            className="px-8 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200"
+            data-testid="button-next-step"
+          >
+            Next
+            <i className="fas fa-arrow-right ml-2"></i>
+          </button>
+        ) : (
+          <button
+            onClick={handleSubmit}
+            disabled={submitMutation.isPending}
+            className="px-8 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200 disabled:opacity-50"
+            data-testid="button-submit-form"
+          >
+            {submitMutation.isPending ? "Submitting..." : "Get My Quote"}
+          </button>
+        )}
+      </div>
+    </div>
   );
 }
 
