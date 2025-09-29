@@ -281,23 +281,13 @@ export default function ComplianceCertificationsSection() {
                     ))}
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-3 mt-6">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleDownloadClick(category.title)}
-                      className="flex-1 glass-effect hover:bg-white/10 border-white/20"
-                      data-testid={`button-download-${category.id}`}
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Documentation
-                    </Button>
+                  {/* Action Button */}
+                  <div className="mt-6">
                     <Button
                       variant="default"
                       size="sm"
                       onClick={() => handleContactClick(category.id)}
-                      className="flex-1 resend-gradient-button"
+                      className="w-full resend-gradient-button"
                       data-testid={`button-verify-${category.id}`}
                     >
                       <FileCheck className="w-4 h-4 mr-2" />
