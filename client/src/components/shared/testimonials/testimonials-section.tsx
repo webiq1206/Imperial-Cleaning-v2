@@ -33,7 +33,7 @@ export default function TestimonialsSection({
     switch (layout) {
       case "grid":
         return (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {testimonials.slice(0, 6).map((testimonial, index) => (
               <TestimonialCard
                 key={testimonial.id}
@@ -47,9 +47,9 @@ export default function TestimonialsSection({
         );
       case "masonry":
         return (
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 lg:gap-8 space-y-6">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 lg:gap-12 space-y-8">
             {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id} className="break-inside-avoid">
+              <div key={testimonial.id} className="break-inside-avoid mb-8">
                 <TestimonialCard
                   testimonial={testimonial}
                   variant="default"

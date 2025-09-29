@@ -99,7 +99,7 @@ export default function TestimonialsCarousel({
           {testimonials.map((testimonial, index) => (
             <div
               key={`${testimonial.id}-${index}`}
-              className={`embla__slide ${getItemWidthClasses()} pl-6`}
+              className={`embla__slide ${getItemWidthClasses()} pl-8`}
               data-testid={`testimonial-slide-${testimonial.id}-${index}`}
             >
               <TestimonialCard
