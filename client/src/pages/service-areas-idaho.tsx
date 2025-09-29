@@ -167,45 +167,45 @@ export default function ServiceAreasIdaho() {
       name: "Boise",
       population: "235,000+",
       county: "Ada County",
-      description: "Idaho's capital and largest city, serving as the economic hub of the Treasure Valley. Professional construction and commercial cleaning services for Boise's thriving downtown business district, government facilities, healthcare centers, and major employers like Micron Technology, St. Luke's Health System, and Idaho Power.",
+      description: "Idaho's capital and largest city, serving as the economic hub of the Treasure Valley. Both construction cleanup and commercial cleaning services available for Boise's thriving downtown business district, government facilities, healthcare centers, and major employers like Micron Technology, St. Luke's Health System, and Idaho Power.",
       neighborhoods: ["Downtown Boise", "West Boise", "North End", "Bench", "Southeast Boise"],
-      services: ["High-Rise Construction Cleanup", "Government Facility Cleaning", "Healthcare Facility Services", "Corporate Office Maintenance", "Post-Construction Services"],
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Government Facility Cleaning", "Healthcare Facility Services", "Corporate Office Maintenance"],
       businessDistricts: ["Downtown Financial District", "Vista Village", "Boise Town Square", "WestPark Center"]
     },
     {
       name: "Meridian",
       population: "125,000+",
       county: "Ada County",
-      description: "Idaho's fastest-growing city and the heart of residential development in the Treasure Valley. Specialized cleaning services for Meridian's booming construction projects, commercial developments along Eagle Road, and The Village at Meridian shopping district.",
+      description: "Idaho's fastest-growing city and the heart of residential development in the Treasure Valley. Both construction cleanup and commercial cleaning services available for Meridian's booming construction projects, commercial developments along Eagle Road, and The Village at Meridian shopping district.",
       neighborhoods: ["Meridian Ranch", "Bridgetower", "Ustick Station", "Tuscany"],
-      services: ["New Construction Cleanup", "Retail Facility Cleaning", "Residential Construction Services", "Commercial Development Support"],
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Retail Facility Cleaning", "Commercial Development Support"],
       businessDistricts: ["The Village at Meridian", "Eagle Road Corridor", "Meridian Crossroads"]
     },
     {
       name: "Nampa",
       population: "105,000+",
       county: "Canyon County",
-      description: "Canyon County's largest city and major industrial center. Comprehensive cleaning services for Nampa's manufacturing facilities, warehouse districts, and the growing Karcher Corridor commercial development.",
+      description: "Canyon County's largest city and major industrial center. Both construction cleanup and commercial cleaning services available for Nampa's manufacturing facilities, warehouse districts, and the growing Karcher Corridor commercial development.",
       neighborhoods: ["Historic Downtown Nampa", "Karcher Mall Area", "Greenhurst", "South Nampa"],
-      services: ["Industrial Facility Cleaning", "Warehouse Cleaning", "Manufacturing Support", "Distribution Center Services"],
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Industrial Facility Cleaning", "Manufacturing Support"],
       businessDistricts: ["Karcher Corridor", "Downtown Nampa", "Industrial Park"]
     },
     {
       name: "Eagle",
       population: "32,000+",
       county: "Ada County",
-      description: "Prestigious Treasure Valley community known for luxury developments and corporate offices. Premium cleaning services for Eagle's high-end commercial buildings, medical facilities, and exclusive residential construction projects.",
+      description: "Prestigious Treasure Valley community known for luxury developments and corporate offices. Both construction cleanup and commercial cleaning services available for Eagle's high-end commercial buildings, medical facilities, and exclusive residential construction projects.",
       neighborhoods: ["Eagle Hills", "Banbury", "Seven Oaks", "Baneberry"],
-      services: ["Executive Office Cleaning", "Medical Facility Services", "Luxury Construction Cleanup", "Premium Commercial Maintenance"],
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Executive Office Cleaning", "Medical Facility Services"],
       businessDistricts: ["Eagle Road Corporate District", "Downtown Eagle", "Medical Plaza"]
     },
     {
       name: "Caldwell",
       population: "65,000+",
       county: "Canyon County",
-      description: "Historic Canyon County seat with growing industrial and agricultural sectors. Professional cleaning services for Caldwell's food processing facilities, agricultural businesses, and the expanding College of Idaho campus area.",
+      description: "Historic Canyon County seat with growing industrial and agricultural sectors. Both construction cleanup and commercial cleaning services available for Caldwell's food processing facilities, agricultural businesses, and the expanding College of Idaho campus area.",
       neighborhoods: ["Historic Downtown", "Indian Creek", "College Area", "Northside"],
-      services: ["Food Processing Facility Cleaning", "Agricultural Facility Services", "Educational Institution Cleaning", "Industrial Support"],
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Food Processing Facility Cleaning", "Educational Institution Cleaning"],
       businessDistricts: ["Downtown Caldwell", "Cleveland Boulevard", "College of Idaho District"]
     }
   ];
@@ -213,41 +213,41 @@ export default function ServiceAreasIdaho() {
   const secondaryMarkets = [
     {
       name: "Kuna",
-      description: "Rapidly growing community in Ada County with new residential and commercial developments.",
-      services: ["Residential Construction", "Commercial Development", "Municipal Facilities"]
+      description: "Rapidly growing community in Ada County with new residential and commercial developments. Both construction cleanup and commercial cleaning services available.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Municipal Facilities"]
     },
     {
       name: "Star",
-      description: "Charming Treasure Valley community experiencing significant growth and development.",
-      services: ["New Construction", "Commercial Cleaning", "Community Facilities"]
+      description: "Charming Treasure Valley community experiencing significant growth and development. Both construction cleanup and commercial cleaning services available.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Community Facilities"]
     },
     {
       name: "Garden City",
-      description: "Dense urban community adjacent to Boise with industrial and entertainment districts.",
-      services: ["Industrial Cleaning", "Entertainment Venue Services", "Commercial Maintenance"]
+      description: "Dense urban community adjacent to Boise with industrial and entertainment districts. Both construction cleanup and commercial cleaning services available.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Entertainment Venue Services"]
     },
     {
       name: "Mountain Home",
-      description: "Military community and regional service center in Elmore County.",
-      services: ["Government Facilities", "Military Installation Support", "Commercial Services"]
+      description: "Military community and regional service center in Elmore County. Both construction cleanup and commercial cleaning services available.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Government Facilities"]
     }
   ];
 
   const extendedCoverage = [
     {
       name: "Idaho Falls",
-      description: "Professional cleaning services for Idaho Falls construction and commercial clients in southeastern Idaho.",
-      services: ["Construction Cleaning", "Commercial Cleaning", "Office Maintenance", "Post-Construction Cleanup"]
+      description: "Both construction cleanup and commercial cleaning services available for Idaho Falls clients in southeastern Idaho.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Office Maintenance", "Post-Construction Cleanup"]
     },
     {
       name: "Pocatello",
-      description: "Reliable commercial and construction cleaning services in Pocatello and throughout Bannock County.",
-      services: ["Construction Site Cleaning", "Commercial Maintenance", "University Facilities", "Industrial Cleaning"]
+      description: "Both construction cleanup and commercial cleaning services available in Pocatello and throughout Bannock County.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "University Facilities", "Industrial Cleaning"]
     },
     {
       name: "Twin Falls",
-      description: "Comprehensive cleaning services for the Magic Valley's largest city and regional commercial center.",
-      services: ["Regional Commercial Cleaning", "Agricultural Facility Services", "Healthcare Facilities", "Construction Support"]
+      description: "Both construction cleanup and commercial cleaning services available for the Magic Valley's largest city and regional commercial center.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Agricultural Facility Services", "Healthcare Facilities"]
     }
   ];
 
@@ -283,7 +283,7 @@ export default function ServiceAreasIdaho() {
             Boise & Treasure Valley Cleaning Services
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Premier construction and commercial cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region. Idaho's trusted cleaning partner.
+            Both construction cleanup AND commercial cleaning services available in ALL Imperial Cleaning service areas throughout Idaho. Every city we serve receives the same comprehensive range of professional cleaning services.
           </p>
           <Button 
             variant="pill-primary"
@@ -304,7 +304,7 @@ export default function ServiceAreasIdaho() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-foreground">Treasure Valley - Our Primary Market</h2>
             <p className="text-xl text-muted-foreground">
-              Comprehensive cleaning services across Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region
+              Both construction cleanup and commercial cleaning services available in all cities and regions we serve across Idaho
             </p>
           </div>
 

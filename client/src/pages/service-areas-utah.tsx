@@ -155,23 +155,23 @@ export default function ServiceAreasUtah() {
   const cities = [
     {
       name: "Salt Lake City",
-      description: "Professional cleaning services for Salt Lake City's growing construction and commercial markets. Premier cleaning solutions in Utah's capital.",
-      services: ["High-Rise Construction Cleanup", "Commercial Office Cleaning", "Facility Maintenance", "Project Management"]
+      description: "Both construction cleanup and commercial cleaning services available for Salt Lake City's growing construction and commercial markets. Premier cleaning solutions in Utah's capital.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Facility Maintenance", "Project Management"]
     },
     {
       name: "Logan",
-      description: "Reliable commercial and construction cleaning services in Logan. Serving contractors and businesses throughout Cache County.",
-      services: ["Construction Site Services", "Commercial Cleaning", "University Facilities", "Industrial Cleaning"]
+      description: "Both construction cleanup and commercial cleaning services available in Logan. Serving contractors and businesses throughout Cache County.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "University Facilities", "Industrial Cleaning"]
     },
     {
       name: "Ogden",
-      description: "Quality cleaning services for Ogden businesses and construction projects. Trusted by contractors and commercial clients in Weber County.",
-      services: ["Construction Cleanup", "Commercial Maintenance", "Government Facilities", "Healthcare Cleaning"]
+      description: "Both construction cleanup and commercial cleaning services available for Ogden businesses and construction projects. Trusted by contractors and commercial clients in Weber County.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Government Facilities", "Healthcare Cleaning"]
     },
     {
       name: "Provo",
-      description: "Professional cleaning solutions for Provo area construction sites and commercial facilities in Utah County.",
-      services: ["Tech Facility Cleaning", "Commercial Services", "Construction Support", "Educational Facilities"]
+      description: "Both construction cleanup and commercial cleaning services available for Provo area construction sites and commercial facilities in Utah County.",
+      services: ["Construction Cleanup Available", "Commercial Cleaning Available", "Tech Facility Cleaning", "Educational Facilities"]
     }
   ];
 
@@ -207,7 +207,7 @@ export default function ServiceAreasUtah() {
             Utah Cleaning Services - Wasatch Front & Beyond
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Professional construction and commercial cleaning services throughout Utah. Trusted by contractors and businesses across the Wasatch Front.
+            Both construction cleanup AND commercial cleaning services available in ALL Imperial Cleaning service areas throughout Utah. Every city we serve receives the same comprehensive range of professional cleaning services.
           </p>
           <Button 
             variant="pill-primary"
@@ -228,7 +228,7 @@ export default function ServiceAreasUtah() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-foreground">Utah Cities We Serve</h2>
             <p className="text-xl text-muted-foreground">
-              Comprehensive cleaning services across Utah's major metropolitan areas
+              Both construction cleanup and commercial cleaning services available in all Utah cities and regions we serve
             </p>
           </div>
 
@@ -257,7 +257,7 @@ export default function ServiceAreasUtah() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-foreground">Additional Utah Service Areas</h2>
             <p className="text-xl text-muted-foreground">
-              We also serve these Utah communities with professional cleaning services
+              Both construction cleanup and commercial cleaning services available in these Utah communities
             </p>
           </div>
 
@@ -277,7 +277,7 @@ export default function ServiceAreasUtah() {
                   >
                     {city}
                   </Link>
-                  <p className="text-sm text-muted-foreground mt-1">Construction & Commercial</p>
+                  <p className="text-sm text-muted-foreground mt-1">Both Services Available</p>
                 </div>
               );
             })}

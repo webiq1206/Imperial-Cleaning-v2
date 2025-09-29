@@ -22,15 +22,15 @@ export default function ServicePillarsSection() {
     {
       id: "post-construction-cleanup",
       title: "Post-Construction Cleanup Process",
-      subtitle: "Boise Post-Construction Cleaning Excellence",
+      subtitle: "Available in All Service Areas Across Idaho & Utah",
       icon: "fas fa-hard-hat",
-      description: "Comprehensive Boise post-construction cleaning services with systematic 3-phase approach ensuring your Treasure Valley construction projects meet inspection standards and are ready for occupancy.",
+      description: "Comprehensive post-construction cleaning services available in all Imperial Cleaning service areas with systematic 3-phase approach ensuring your construction projects meet inspection standards and are ready for occupancy.",
       certification: "OSHA Certified • Bonded • Insured",
       processSteps: [
         {
           phase: "Phase 1: Rough Cleaning",
           tasks: [
-            "Complete debris removal and disposal in Boise area",
+            "Complete debris removal and disposal in all service areas",
             "Heavy dust elimination with HEPA filtration systems",
             "Surface preparation and protection application",
             "Construction material cleanup and sorting"
@@ -61,15 +61,15 @@ export default function ServicePillarsSection() {
         "High-reach window cleaning equipment",
         "Specialized construction dust removal tools"
       ],
-      serviceAreas: "Serving Boise, Meridian, Nampa, Caldwell, Eagle, Star, and surrounding Treasure Valley communities",
+      serviceAreas: "Available in all Imperial Cleaning service areas across Idaho and Utah",
       guarantee: "100% satisfaction guarantee with 24-hour callback service"
     },
     {
       id: "commercial-office-maintenance",
       title: "Commercial Office Maintenance",
-      subtitle: "Treasure Valley Commercial Janitorial Services",
+      subtitle: "Available in All Service Areas Across Idaho & Utah",
       icon: "fas fa-building",
-      description: "Professional Treasure Valley commercial janitorial services with flexible scheduling for Meridian office cleaning, Boise business maintenance, and comprehensive facility management.",
+      description: "Professional commercial janitorial services available in all Imperial Cleaning service areas with flexible scheduling for office cleaning, business maintenance, and comprehensive facility management.",
       certification: "Green Certified • ISSA Member • Bonded",
       schedules: [
         {
@@ -104,25 +104,25 @@ export default function ServicePillarsSection() {
         }
       ],
       businessTypes: [
-        "Corporate offices in Boise and Meridian",
+        "Corporate offices in all service areas",
         "Medical facilities and clinics",
         "Legal offices and professional services",
-        "Technology companies in Eagle area"
+        "Technology companies in all service areas"
       ],
-      serviceAreas: "Meridian office cleaning services, Boise commercial cleaning, Eagle commercial maintenance, and throughout Ada County",
+      serviceAreas: "Available in all Imperial Cleaning service areas across Idaho and Utah",
       guarantee: "Service quality audits and 48-hour issue resolution guarantee"
     },
     {
       id: "industrial-facility-cleaning",
       title: "Industrial Facility Cleaning",
-      subtitle: "Nampa Industrial Cleaning & Manufacturing Support",
+      subtitle: "Available in All Service Areas Across Idaho & Utah",
       icon: "fas fa-industry",
-      description: "Specialized Nampa industrial cleaning services for manufacturing facilities, warehouses, and production environments throughout Canyon County and the greater Treasure Valley.",
+      description: "Specialized industrial cleaning services available in all Imperial Cleaning service areas for manufacturing facilities, warehouses, and production environments.",
       certification: "OSHA 30-Hour Certified • EPA Compliant • Safety Trained",
       facilityTypes: [
         {
           type: "Manufacturing Plants",
-          location: "Nampa and Caldwell industrial zones",
+          location: "All Imperial Cleaning service areas",
           services: [
             "Production line cleaning and degreasing",
             "Equipment cleaning with food-grade solutions",
@@ -132,7 +132,7 @@ export default function ServicePillarsSection() {
         },
         {
           type: "Warehouse & Distribution Centers",
-          location: "Throughout Canyon County",
+          location: "All Imperial Cleaning service areas",
           services: [
             "High-bay cleaning with specialized lift equipment",
             "Loading dock cleaning and maintenance",
@@ -142,7 +142,7 @@ export default function ServicePillarsSection() {
         },
         {
           type: "Food Processing Facilities",
-          location: "Idaho's agricultural centers",
+          location: "All Imperial Cleaning service areas",
           services: [
             "USDA-compliant sanitization procedures",
             "Cold storage and freezer cleaning",
@@ -163,20 +163,20 @@ export default function ServicePillarsSection() {
         "EPA environmental protection standards",
         "State of Idaho industrial cleaning requirements"
       ],
-      serviceAreas: "Nampa industrial cleaning, Caldwell facility cleaning, and manufacturing support throughout the Treasure Valley",
+      serviceAreas: "Available in all Imperial Cleaning service areas across Idaho and Utah",
       guarantee: "Zero production downtime commitment with emergency response capability"
     },
     {
       id: "emergency-cleanup-services",
       title: "Emergency Cleanup Services",
-      subtitle: "24/7 Response in Ada County & Canyon County",
+      subtitle: "24/7 Response in All Service Areas Across Idaho & Utah",
       icon: "fas fa-exclamation-triangle",
-      description: "Rapid response emergency cleanup services available 24/7 throughout Ada County and Canyon County with 2-hour response time guarantee for urgent situations.",
+      description: "Rapid response emergency cleanup services available 24/7 in all Imperial Cleaning service areas across Idaho and Utah with 2-hour response time guarantee for urgent situations.",
       certification: "IICRC Certified • Hazmat Trained • Emergency Response Certified",
       emergencyTypes: [
         {
           type: "Water Damage & Flooding",
-          coverage: "Boise, Meridian, Nampa metro areas",
+          coverage: "All Imperial Cleaning service areas",
           services: [
             "Water extraction and structural drying",
             "Mold prevention and treatment",
@@ -186,7 +186,7 @@ export default function ServicePillarsSection() {
         },
         {
           type: "Biohazard & Trauma Cleanup",
-          coverage: "All Treasure Valley locations",
+          coverage: "All Imperial Cleaning service areas",
           services: [
             "Blood and bodily fluid cleanup",
             "Crime scene restoration",
@@ -196,7 +196,7 @@ export default function ServicePillarsSection() {
         },
         {
           type: "Chemical Spills & Hazmat",
-          coverage: "Industrial areas of Canyon County",
+          coverage: "All Imperial Cleaning service areas",
           services: [
             "Chemical spill containment and cleanup",
             "Hazardous material disposal",
@@ -207,7 +207,7 @@ export default function ServicePillarsSection() {
         {
           type: "Fire & Smoke Damage",
  
-          coverage: "Greater Boise area and surrounding counties",
+          coverage: "All Imperial Cleaning service areas",
           services: [
             "Smoke odor elimination",
             "Soot removal and surface cleaning",
@@ -222,7 +222,7 @@ export default function ServicePillarsSection() {
         "Insurance claim documentation experts",
         "24/7 dispatch and coordination center"
       ],
-      serviceAreas: "Emergency response covering Ada County, Canyon County, and extended Treasure Valley region",
+      serviceAreas: "Emergency response available in all Imperial Cleaning service areas across Idaho and Utah",
       guarantee: "Certified response times with full insurance coordination and regulatory compliance"
     },
     {
@@ -276,7 +276,7 @@ export default function ServicePillarsSection() {
         "Support for LEED certification goals",
         "Environmentally responsible business practices"
       ],
-      serviceAreas: "Green cleaning solutions available throughout Idaho and Utah for environmentally conscious businesses",
+      serviceAreas: "Green cleaning solutions available in all Imperial Cleaning service areas across Idaho and Utah",
       guarantee: "Cleaning effectiveness guarantee with environmental safety compliance"
     },
     {
@@ -351,7 +351,7 @@ export default function ServicePillarsSection() {
         "Equipment maintenance and inspection schedules",
         "Emergency response and first aid procedures"
       ],
-      serviceAreas: "Advanced cleaning technology deployed throughout Idaho and Utah for specialized cleaning requirements",
+      serviceAreas: "Advanced cleaning technology deployed in all Imperial Cleaning service areas across Idaho and Utah",
       guarantee: "Equipment performance guarantee with certified operator training and maintenance"
     }
   ];

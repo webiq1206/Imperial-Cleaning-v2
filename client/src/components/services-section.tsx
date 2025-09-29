@@ -17,10 +17,10 @@ export default function ServicesSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-              Idaho & Utah Commercial Cleaning
+              Both Services Available in ALL Locations
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-              Professional commercial cleaning services across Idaho and Utah. Specialized construction cleanup and ongoing maintenance for businesses throughout the Intermountain West.
+              Both construction cleanup AND commercial cleaning services available in every Imperial Cleaning service area across Idaho and Utah. Comprehensive cleaning solutions delivered with consistent quality in all markets we serve.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ export default function ServicesSection() {
               <div className="glass-divider-top mb-6"></div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Professional construction cleanup services for Idaho and Utah contractors. From debris removal to final detailing, we serve major projects including office complexes, residential developments, and commercial buildings throughout both states.
+                Construction cleanup services available in ALL Imperial Cleaning service areas across Idaho and Utah. From debris removal to final detailing, we serve major projects with consistent quality in every location we operate.
               </p>
               
               {/* Inset divider before features */}
@@ -104,7 +104,7 @@ export default function ServicesSection() {
               <div className="glass-divider-top mb-6"></div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Comprehensive office and industrial cleaning services for Idaho and Utah businesses. Our janitorial services include Fortune 500 companies, healthcare facilities, and government buildings throughout both states.
+                Commercial cleaning services available in ALL Imperial Cleaning service areas across Idaho and Utah. Our professional janitorial services serve Fortune 500 companies, healthcare facilities, and government buildings with consistent quality in every location we operate.
               </p>
               
               {/* Inset divider before features */}

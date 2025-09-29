@@ -16,44 +16,54 @@ export default function CommercialCleaning() {
 
   // Structured data for commercial cleaning page
   const commercialServiceSchema = createServiceSchema({
-    name: "Boise Commercial Cleaning Services",
-    description: "Professional commercial cleaning and janitorial services for Boise area businesses. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout Ada County, Canyon County, and the entire Treasure Valley region.",
+    name: "Idaho & Utah Commercial Cleaning Services",
+    description: "Professional commercial cleaning and janitorial services for businesses across all service areas in Idaho and Utah. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout all locations we serve.",
     serviceType: "Commercial Cleaning",
     areaServed: [
       {
-        "@type": "City",
-        "name": "Boise",
-        "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho"
+        "@type": "State",
+        "name": "Idaho",
+        "sameAs": "https://en.wikipedia.org/wiki/Idaho"
+      },
+      {
+        "@type": "State",
+        "name": "Utah",
+        "sameAs": "https://en.wikipedia.org/wiki/Utah"
       },
       {
         "@type": "City",
-        "name": "Meridian",
-        "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho"
-      },
-      {
-        "@type": "City", 
-        "name": "Nampa",
-        "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho"
+        "name": "Idaho Falls",
+        "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho"
       },
       {
         "@type": "City",
-        "name": "Eagle",
-        "sameAs": "https://en.wikipedia.org/wiki/Eagle,_Idaho"
+        "name": "Pocatello",
+        "sameAs": "https://en.wikipedia.org/wiki/Pocatello,_Idaho"
       },
       {
-        "@type": "AdministrativeArea",
-        "name": "Ada County",
-        "sameAs": "https://en.wikipedia.org/wiki/Ada_County,_Idaho"
+        "@type": "City",
+        "name": "Rexburg",
+        "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho"
       },
       {
-        "@type": "AdministrativeArea",
-        "name": "Canyon County",
-        "sameAs": "https://en.wikipedia.org/wiki/Canyon_County,_Idaho"
+        "@type": "City",
+        "name": "Logan",
+        "sameAs": "https://en.wikipedia.org/wiki/Logan,_Utah"
       },
       {
-        "@type": "Place",
-        "name": "Treasure Valley",
-        "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
+        "@type": "City",
+        "name": "Ogden",
+        "sameAs": "https://en.wikipedia.org/wiki/Ogden,_Utah"
+      },
+      {
+        "@type": "City",
+        "name": "Salt Lake City",
+        "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City"
+      },
+      {
+        "@type": "City",
+        "name": "Provo",
+        "sameAs": "https://en.wikipedia.org/wiki/Provo,_Utah"
       }
     ],
     provider: {
@@ -79,41 +89,41 @@ export default function CommercialCleaning() {
       "Retail Cleaning",
       "Corporate Cleaning"
     ],
-    "description": "Professional commercial cleaning services for Boise businesses including downtown financial district, medical centers, corporate offices, and retail facilities throughout Ada County and Canyon County.",
+    "description": "Professional commercial cleaning services for businesses across all service areas in Idaho and Utah including offices, medical centers, corporate facilities, and retail locations throughout all locations we serve.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Boise Commercial Cleaning Services",
+      "name": "Idaho & Utah Commercial Cleaning Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Downtown Boise Office Cleaning",
-            "description": "Professional office cleaning services for downtown Boise financial district and corporate buildings"
+            "name": "Office Cleaning Services",
+            "description": "Professional office cleaning services for corporate buildings and business districts across Idaho and Utah"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service", 
-            "name": "Meridian Medical Facility Cleaning",
-            "description": "Specialized medical facility cleaning services for healthcare centers in Meridian and surrounding areas"
+            "name": "Medical Facility Cleaning",
+            "description": "Specialized medical facility cleaning services for healthcare centers across all Idaho and Utah service areas"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Nampa Industrial Cleaning",
-            "description": "Industrial and warehouse cleaning services for Nampa manufacturing and distribution facilities"
+            "name": "Industrial Cleaning Services",
+            "description": "Industrial and warehouse cleaning services for manufacturing and distribution facilities in all service areas"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Eagle Corporate Cleaning",
-            "description": "Premium commercial cleaning services for Eagle corporate offices and executive facilities"
+            "name": "Corporate Cleaning Services",
+            "description": "Premium commercial cleaning services for corporate offices and executive facilities across Idaho and Utah"
           }
         }
       ]
@@ -137,19 +147,19 @@ export default function CommercialCleaning() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Boise Commercial Cleaning Services | Imperial Cleaning Inc."
-        description="Premier office & commercial cleaning in Boise, Meridian, Nampa. Serving downtown financial district, medical centers & businesses across Ada County. Call today!"
+        title="Idaho & Utah Commercial Cleaning Services | Imperial Cleaning Inc."
+        description="Premier office & commercial cleaning across all service areas in Idaho & Utah. Serving businesses, medical centers & offices in every location we operate. Call today!"
         canonicalUrl="https://imperialcleaninginc.com/commercial-cleaning"
         openGraph={{
-          title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
-          description: "Professional commercial cleaning services for Boise businesses including downtown offices, medical facilities, and corporate buildings throughout the Treasure Valley.",
+          title: "Idaho & Utah Commercial Cleaning Services | Imperial Cleaning Inc.",
+          description: "Professional commercial cleaning services for businesses across all service areas in Idaho and Utah including offices, medical facilities, and corporate buildings.",
           image: "https://imperialcleaninginc.com/hero-logo.png",
           type: "website"
         }}
         twitter={{
           card: "summary_large_image",
-          title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
-          description: "Trusted commercial cleaning for Boise businesses. Serving downtown district, medical centers & offices across Ada County & Treasure Valley.",
+          title: "Idaho & Utah Commercial Cleaning Services | Imperial Cleaning Inc.",
+          description: "Trusted commercial cleaning for businesses across Idaho & Utah. Serving offices, medical centers & businesses in all our service areas.",
           image: "https://imperialcleaninginc.com/hero-logo.png"
         }}
         structuredData={structuredData}
@@ -163,10 +173,10 @@ export default function CommercialCleaning() {
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Professional Commercial Cleaning for Idaho & Utah Businesses
+            Commercial Cleaning Available in ALL Service Areas
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Ongoing commercial cleaning services for businesses throughout Idaho and Utah. Reliable, professional maintenance to keep your facility spotless.
+            Professional commercial cleaning available in ALL Imperial Cleaning service areas across Idaho and Utah. Reliable, professional maintenance delivered with consistent quality in every location we serve.
           </p>
           <Button 
             variant="pill-primary"
@@ -186,9 +196,9 @@ export default function CommercialCleaning() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6 text-foreground">Commercial Cleaning Idaho & Utah</h2>
+              <h2 className="text-4xl font-bold mb-6 text-foreground">Available in All Service Areas</h2>
               <p className="text-muted-foreground text-lg mb-6">
-                Our commercial cleaning services in Idaho and Utah help businesses maintain professional, healthy work environments. We provide reliable, scheduled cleaning services that keep your facility operating at its best.
+                Commercial cleaning services are available in every city and region where Imperial Cleaning operates across Idaho and Utah. Whether your business is in our Idaho markets or Utah service areas, we provide the same professional, scheduled cleaning services with consistent quality everywhere.
               </p>
               <ul className="space-y-3 text-muted-foreground">
                 <li><i className="fas fa-check text-primary mr-3"></i>Daily and weekly commercial cleaning schedules</li>
@@ -237,9 +247,9 @@ export default function CommercialCleaning() {
       {/* Service Areas */}
       <section className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 text-foreground">Commercial Cleaning Service Areas</h2>
+          <h2 className="text-4xl font-bold mb-8 text-foreground">Available in ALL Our Service Areas</h2>
           <p className="text-xl text-muted-foreground mb-12">
-            Serving businesses throughout Idaho and Utah
+            Commercial cleaning services available in every location Imperial Cleaning serves across Idaho and Utah
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="resend-card-subtle p-6">

@@ -16,34 +16,54 @@ export default function ConstructionCleaning() {
 
   // Structured data for construction cleaning page
   const constructionServiceSchema = createServiceSchema({
-    name: "Treasure Valley Construction Cleaning Services",
-    description: "Professional post-construction cleanup services throughout Boise, Meridian, Nampa, Eagle, and the entire Treasure Valley region. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders in Idaho and Utah.",
+    name: "Idaho & Utah Construction Cleaning Services",
+    description: "Professional post-construction cleanup services throughout all service areas across Idaho and Utah. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders in all locations we serve.",
     serviceType: "Construction Cleaning",
     areaServed: [
       {
-        "@type": "City",
-        "name": "Boise",
-        "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho"
+        "@type": "State",
+        "name": "Idaho",
+        "sameAs": "https://en.wikipedia.org/wiki/Idaho"
+      },
+      {
+        "@type": "State",
+        "name": "Utah",
+        "sameAs": "https://en.wikipedia.org/wiki/Utah"
       },
       {
         "@type": "City",
-        "name": "Meridian",
-        "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho"
-      },
-      {
-        "@type": "City", 
-        "name": "Nampa",
-        "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho"
+        "name": "Idaho Falls",
+        "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho"
       },
       {
         "@type": "City",
-        "name": "Eagle",
-        "sameAs": "https://en.wikipedia.org/wiki/Eagle,_Idaho"
+        "name": "Pocatello",
+        "sameAs": "https://en.wikipedia.org/wiki/Pocatello,_Idaho"
       },
       {
-        "@type": "Place",
-        "name": "Treasure Valley",
-        "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
+        "@type": "City",
+        "name": "Rexburg",
+        "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Logan",
+        "sameAs": "https://en.wikipedia.org/wiki/Logan,_Utah"
+      },
+      {
+        "@type": "City",
+        "name": "Ogden",
+        "sameAs": "https://en.wikipedia.org/wiki/Ogden,_Utah"
+      },
+      {
+        "@type": "City",
+        "name": "Salt Lake City",
+        "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City"
+      },
+      {
+        "@type": "City",
+        "name": "Provo",
+        "sameAs": "https://en.wikipedia.org/wiki/Provo,_Utah"
       }
     ],
     provider: {
@@ -68,17 +88,17 @@ export default function ConstructionCleaning() {
       "Final Inspection Cleaning",
       "Construction Cleaning"
     ],
-    "description": "Professional post-construction cleanup services for contractors throughout Boise, Meridian, Nampa, Eagle, and the entire Treasure Valley region. Specialized in debris removal, detailed cleaning, and inspection-ready finishing.",
+    "description": "Professional post-construction cleanup services for contractors throughout all service areas across Idaho and Utah. Specialized in debris removal, detailed cleaning, and inspection-ready finishing in every location we serve.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Construction Cleaning Services",
+      "name": "Idaho & Utah Construction Cleaning Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
             "name": "Post-Construction Cleanup",
-            "description": "Comprehensive post-construction cleanup for contractors in Boise and Treasure Valley"
+            "description": "Comprehensive post-construction cleanup for contractors across all Idaho and Utah service areas"
           }
         },
         {
@@ -86,7 +106,7 @@ export default function ConstructionCleaning() {
           "itemOffered": {
             "@type": "Service", 
             "name": "Final Inspection Cleaning",
-            "description": "Final inspection ready cleaning for construction projects in Meridian and surrounding areas"
+            "description": "Final inspection ready cleaning for construction projects throughout Idaho and Utah"
           }
         },
         {
@@ -94,7 +114,7 @@ export default function ConstructionCleaning() {
           "itemOffered": {
             "@type": "Service",
             "name": "Construction Debris Removal",
-            "description": "Professional debris removal and site cleanup for Nampa construction projects"
+            "description": "Professional debris removal and site cleanup for construction projects in all service areas"
           }
         }
       ]
@@ -118,19 +138,19 @@ export default function ConstructionCleaning() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Treasure Valley Construction Cleaning | Imperial Cleaning Inc."
-        description="Professional post-construction cleanup in Boise, Meridian, Nampa & Eagle. Expert debris removal & inspection-ready cleaning for Idaho contractors. Call today!"
+        title="Idaho & Utah Construction Cleaning | Imperial Cleaning Inc."
+        description="Professional post-construction cleanup in all service areas across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call today!"
         canonicalUrl="https://imperialcleaninginc.com/construction-cleaning"
         openGraph={{
-          title: "Treasure Valley Construction Cleaning | Imperial Cleaning Inc.",
-          description: "Professional post-construction cleanup services throughout Boise, Meridian, Nampa, and the entire Treasure Valley region. Trusted by contractors for inspection-ready cleaning.",
+          title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc.",
+          description: "Professional post-construction cleanup services throughout all service areas across Idaho and Utah. Trusted by contractors for inspection-ready cleaning.",
           image: "https://imperialcleaninginc.com/hero-logo.png",
           type: "website"
         }}
         twitter={{
           card: "summary_large_image",
-          title: "Treasure Valley Construction Cleaning | Imperial Cleaning Inc.",
-          description: "Expert post-construction cleanup in Boise & Treasure Valley. Professional debris removal and final inspection cleaning for Idaho contractors.",
+          title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc.",
+          description: "Expert post-construction cleanup across Idaho & Utah. Professional debris removal and final inspection cleaning for contractors.",
           image: "https://imperialcleaninginc.com/hero-logo.png"
         }}
         structuredData={structuredData}
@@ -144,10 +164,10 @@ export default function ConstructionCleaning() {
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Professional Construction Cleaning Across Idaho & Utah
+            Construction Cleanup Available in ALL Service Areas
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Post-construction cleanup services for contractors. From debris removal to final detailing, we prepare your projects for handover.
+            Professional construction cleanup available in ALL Imperial Cleaning service areas across Idaho and Utah. From debris removal to final detailing, we serve every location we operate in.
           </p>
           <Button 
             variant="pill-primary"
@@ -167,16 +187,16 @@ export default function ConstructionCleaning() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6 text-foreground">Construction Cleaning Idaho & Utah</h2>
+              <h2 className="text-4xl font-bold mb-6 text-foreground">Available in All Service Areas</h2>
               <p className="text-muted-foreground text-lg mb-6">
-                Our construction cleaning services in Idaho and Utah help contractors meet project deadlines and safety requirements. We specialize in post-construction cleanup that prepares your site for final inspection and handover.
+                Construction cleanup services are available in every city and region where Imperial Cleaning operates across Idaho and Utah. Whether you're building in our Idaho markets or Utah service areas, we provide the same professional cleanup services with consistent quality everywhere.
               </p>
               <ul className="space-y-3 text-muted-foreground">
-                <li><i className="fas fa-check text-primary mr-3"></i>Post-construction debris removal across Idaho and Utah</li>
-                <li><i className="fas fa-check text-primary mr-3"></i>Window and surface cleaning for construction sites</li>
-                <li><i className="fas fa-check text-primary mr-3"></i>Floor care and protection services</li>
-                <li><i className="fas fa-check text-primary mr-3"></i>Final inspection ready cleanup</li>
-                <li><i className="fas fa-check text-primary mr-3"></i>Safety-compliant construction site cleaning</li>
+                <li><i className="fas fa-check text-primary mr-3"></i>Post-construction debris removal in all service areas</li>
+                <li><i className="fas fa-check text-primary mr-3"></i>Window and surface cleaning available everywhere we serve</li>
+                <li><i className="fas fa-check text-primary mr-3"></i>Floor care and protection services in all locations</li>
+                <li><i className="fas fa-check text-primary mr-3"></i>Final inspection ready cleanup across our entire territory</li>
+                <li><i className="fas fa-check text-primary mr-3"></i>Safety-compliant construction site cleaning in every market</li>
               </ul>
             </div>
             <div className="resend-card">
@@ -218,9 +238,9 @@ export default function ConstructionCleaning() {
       {/* Service Areas */}
       <section className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 text-foreground">Construction Cleaning Service Areas</h2>
+          <h2 className="text-4xl font-bold mb-8 text-foreground">Available in ALL Our Service Areas</h2>
           <p className="text-xl text-muted-foreground mb-12">
-            Serving construction sites throughout Idaho and Utah
+            Construction cleanup services available in every location Imperial Cleaning serves across Idaho and Utah
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="resend-card-subtle p-6">
