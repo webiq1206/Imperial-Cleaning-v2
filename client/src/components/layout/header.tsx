@@ -2,12 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { trackEvent } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
 
 export default function Header() {
   const [location] = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isServiceAreasDropdownOpen, setIsServiceAreasDropdownOpen] = useState(false);
@@ -19,9 +20,13 @@ export default function Header() {
     setShowContactForm(true);
   };
 
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-    trackEvent('mobile_menu_toggle', 'navigation', isMenuOpen ? 'close' : 'open');
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    trackEvent('mobile_menu_toggle', 'navigation', isMobileMenuOpen ? 'close' : 'open');
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   const handleServicesDropdownToggle = () => {
@@ -229,144 +234,154 @@ export default function Header() {
               Request Quote
             </Button>
 
-            {/* Enhanced Mobile menu button */}
-            <button 
-              className="md:hidden p-2 hover:bg-secondary/50 rounded-lg transition-all duration-300 hover-lift-gentle  button-magnetic" 
-              onClick={handleMenuToggle}
-              data-testid="button-mobile-menu"
-            >
-              <div className={`transition-all duration-300 ${isMenuOpen ? 'rotate-90 scale-90' : 'rotate-0 scale-100'}`}>
-                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </div>
-            </button>
-          </div>
+            {/* Enhanced Mobile menu with Sheet */}
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden p-2 hover:bg-secondary/50 rounded-lg hover-lift-gentle button-magnetic"
+                  data-testid="button-mobile-menu"
+                >
+                  <div className={`transition-all duration-300 ${isMobileMenuOpen ? 'rotate-90 scale-90' : 'rotate-0 scale-100'}`}>
+                    {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                  </div>
+                  <span className="sr-only">Toggle mobile menu</span>
+                </Button>
+              </SheetTrigger>
 
-          {/* Enhanced Mobile menu with sophisticated animations */}
-          {isMenuOpen && (
-            <div className="md:hidden border-t border-border/20 animate-fade-in-up">
-              <div className="flex flex-col py-6 space-y-1">
-                {/* Services Section */}
-                <div className="px-2 py-2">
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 animate-fade-in-left stagger-delay-1">Services</div>
-                  <Link 
-                    href="/construction-cleaning" 
-                    className={`block px-3 py-3 text-sm font-medium rounded-lg transition-all duration-300 hover-lift-gentle hover-shimmer animate-fade-in-left stagger-delay-2 ${
-                      location === '/construction-cleaning' 
-                        ? 'text-foreground bg-secondary/30' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                    data-testid="link-construction-cleaning-mobile"
-                  >
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                      <div>
-                        <div className="font-medium">Construction Cleanup</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">Post-construction debris removal</div>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link 
-                    href="/commercial-cleaning" 
-                    className={`block px-3 py-3 text-sm font-medium rounded-lg transition-all duration-300 hover-lift-gentle hover-shimmer animate-fade-in-left stagger-delay-3 ${
-                      location === '/commercial-cleaning' 
-                        ? 'text-foreground bg-secondary/30' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                    data-testid="link-commercial-cleaning-mobile"
-                  >
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      <div>
-                        <div className="font-medium">Commercial Cleaning</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">Daily office & facility maintenance</div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
+              <SheetContent side="right" className="w-full sm:w-80 glass-overlay">
+                <SheetHeader className="text-left">
+                  <SheetTitle className="text-primary-color text-lg font-semibold">
+                    Navigation
+                  </SheetTitle>
+                </SheetHeader>
 
-                {/* Service Areas Section */}
-                <div className="px-2 py-2">
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 animate-fade-in-left stagger-delay-4">Service Areas</div>
-                  <Link 
-                    href="/service-areas/idaho" 
-                    className="block px-3 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-300 hover-lift-gentle hover-shimmer animate-fade-in-left stagger-delay-5"
-                    onClick={() => setIsMenuOpen(false)}
-                    data-testid="link-service-areas-idaho-mobile"
-                  >
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                      <div>
-                        <div className="font-medium">Idaho Locations</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">Idaho Falls, Pocatello, Rexburg & more</div>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link 
-                    href="/service-areas/utah" 
-                    className="block px-3 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-300 hover-lift-gentle hover-shimmer animate-fade-in-left stagger-delay-6"
-                    onClick={() => setIsMenuOpen(false)}
-                    data-testid="link-service-areas-utah-mobile"
-                  >
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
-                      <div>
-                        <div className="font-medium">Utah Locations</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">Salt Lake City, Logan, Ogden & more</div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-
-                {/* Quick Links */}
-                <div className="px-2 py-2 border-t border-border/20 mt-2">
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 animate-fade-in-left stagger-delay-7">Quick Links</div>
-                  <Link 
-                    href="/#about" 
-                    className="block px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-300 hover-lift-gentle hover-shimmer animate-fade-in-left stagger-delay-8"
-                    onClick={() => setIsMenuOpen(false)}
-                    data-testid="link-about-mobile"
-                  >
-                    About Us
-                  </Link>
-                  <Link 
-                    href="/#contact" 
-                    className="block px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-300 hover-lift-gentle hover-shimmer animate-fade-in-left stagger-delay-9"
-                    onClick={() => setIsMenuOpen(false)}
-                    data-testid="link-contact-mobile"
-                  >
-                    Contact
-                  </Link>
-                </div>
-
-                {/* Call to Action */}
-                <div className="pt-4 px-2 animate-fade-in-up stagger-delay-10">
-                  <Button 
-                    variant="pill-secondary"
-                    size="pill-md"
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      handleRequestQuote();
-                    }}
-                    data-testid="button-request-quote-mobile"
-                    className="w-full hover-lift-moderate button-ripple hover-shimmer"
-                  >
-                    Request Quote
-                  </Button>
-                  <div className="text-center mt-3">
-                    <a 
-                      href="tel:+12085203202" 
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                      data-testid="link-phone-mobile"
+                <div className="flex flex-col h-full py-6 space-y-1">
+                  {/* Services Section */}
+                  <div className="px-2 py-4">
+                    <div className="text-xs font-semibold text-secondary-color uppercase tracking-wider mb-4">Services</div>
+                    <Link 
+                      href="/construction-cleaning" 
+                      className={`block px-4 py-4 text-sm font-medium rounded-xl transition-all duration-300 hover-lift-gentle glass-button mb-2 ${
+                        location === '/construction-cleaning' 
+                          ? 'text-primary bg-primary/10 border-primary/20' 
+                          : 'text-secondary-color hover:text-primary-color'
+                      }`}
+                      onClick={closeMobileMenu}
+                      data-testid="link-construction-cleaning-mobile"
                     >
-                      (208) 520-3202
-                    </a>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-blue-500 rounded-full mr-4"></div>
+                        <div>
+                          <div className="font-medium text-primary-color">Construction Cleanup</div>
+                          <div className="text-xs text-secondary-color mt-1">Post-construction debris removal</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/commercial-cleaning" 
+                      className={`block px-4 py-4 text-sm font-medium rounded-xl transition-all duration-300 hover-lift-gentle glass-button ${
+                        location === '/commercial-cleaning' 
+                          ? 'text-primary bg-primary/10 border-primary/20' 
+                          : 'text-secondary-color hover:text-primary-color'
+                      }`}
+                      onClick={closeMobileMenu}
+                      data-testid="link-commercial-cleaning-mobile"
+                    >
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
+                        <div>
+                          <div className="font-medium text-primary-color">Commercial Cleaning</div>
+                          <div className="text-xs text-secondary-color mt-1">Daily office & facility maintenance</div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* Service Areas Section */}
+                  <div className="px-2 py-4 border-t border-border/20">
+                    <div className="text-xs font-semibold text-secondary-color uppercase tracking-wider mb-4">Service Areas</div>
+                    <Link 
+                      href="/service-areas/idaho" 
+                      className="block px-4 py-4 text-sm font-medium text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button mb-2"
+                      onClick={closeMobileMenu}
+                      data-testid="link-service-areas-idaho-mobile"
+                    >
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-blue-600 rounded-full mr-4"></div>
+                        <div>
+                          <div className="font-medium text-primary-color">Idaho Locations</div>
+                          <div className="text-xs text-secondary-color mt-1">Idaho Falls, Pocatello, Rexburg & more</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/service-areas/utah" 
+                      className="block px-4 py-4 text-sm font-medium text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button"
+                      onClick={closeMobileMenu}
+                      data-testid="link-service-areas-utah-mobile"
+                    >
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-red-600 rounded-full mr-4"></div>
+                        <div>
+                          <div className="font-medium text-primary-color">Utah Locations</div>
+                          <div className="text-xs text-secondary-color mt-1">Salt Lake City, Logan, Ogden & more</div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* Quick Links */}
+                  <div className="px-2 py-4 border-t border-border/20">
+                    <div className="text-xs font-semibold text-secondary-color uppercase tracking-wider mb-4">Quick Links</div>
+                    <Link 
+                      href="/#about" 
+                      className="block px-4 py-3 text-sm font-medium text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button mb-2"
+                      onClick={closeMobileMenu}
+                      data-testid="link-about-mobile"
+                    >
+                      About Us
+                    </Link>
+                    <Link 
+                      href="/#contact" 
+                      className="block px-4 py-3 text-sm font-medium text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button"
+                      onClick={closeMobileMenu}
+                      data-testid="link-contact-mobile"
+                    >
+                      Contact
+                    </Link>
+                  </div>
+
+                  {/* Call to Action - Fixed at bottom */}
+                  <div className="mt-auto px-2 py-4 border-t border-border/20">
+                    <Button 
+                      variant="pill-primary"
+                      size="pill-lg"
+                      onClick={() => {
+                        closeMobileMenu();
+                        handleRequestQuote();
+                      }}
+                      data-testid="button-request-quote-mobile"
+                      className="w-full mb-4 hover-lift-moderate button-ripple"
+                    >
+                      Request Quote
+                    </Button>
+                    <div className="text-center">
+                      <a 
+                        href="tel:+12085203202" 
+                        className="text-sm text-secondary-color hover:text-primary-color transition-colors duration-200 font-medium"
+                        data-testid="link-phone-mobile"
+                      >
+                        📞 (208) 520-3202
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
+              </SheetContent>
+            </Sheet>
+          </div>
+
         </div>
       </header>
 

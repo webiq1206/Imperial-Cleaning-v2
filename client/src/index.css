@@ -67,6 +67,54 @@
   /* Legacy support */
   --resend-gradient: var(--gradient-primary);
   --resend-gradient-text: var(--gradient-primary);
+  
+  /* ===== CONSISTENT SPACING TOKENS ===== */
+  /* Section-level spacing for consistent vertical rhythm */
+  --spacing-section: theme(spacing.16) theme(spacing.6); /* py-16 px-6 for mobile, py-24 px-6 for desktop */
+  --spacing-section-mobile: theme(spacing.12) theme(spacing.4); /* py-12 px-4 for mobile */
+  --spacing-section-desktop: theme(spacing.24) theme(spacing.8); /* py-24 px-8 for desktop */
+  
+  /* Content spacing tokens */
+  --spacing-content-section: theme(spacing.16); /* mb-16 between major content sections */
+  --spacing-content-large: theme(spacing.20); /* mb-20 for large content blocks */
+  --spacing-content-medium: theme(spacing.12); /* mb-12 for medium content blocks */
+  --spacing-content-small: theme(spacing.8); /* mb-8 for small content blocks */
+  --spacing-content-tiny: theme(spacing.6); /* mb-6 for tiny content blocks */
+  
+  /* Card and component spacing */
+  --spacing-card-padding: theme(spacing.6); /* p-6 for standard cards */
+  --spacing-card-padding-large: theme(spacing.8); /* p-8 for large cards */
+  --spacing-card-gap: theme(spacing.8); /* gap-8 for card grids */
+  
+  /* Typography spacing tokens */
+  --spacing-text-heading: theme(spacing.8); /* mb-8 for headings */
+  --spacing-text-subheading: theme(spacing.6); /* mb-6 for subheadings */
+  --spacing-text-paragraph: theme(spacing.4); /* mb-4 for paragraphs */
+  --spacing-text-small: theme(spacing.3); /* mb-3 for small text blocks */
+  
+  /* ===== CENTRALIZED TYPOGRAPHY TOKENS ===== */
+  /* Text color tokens to replace ad-hoc text-gray-* usage */
+  --text-primary: hsl(0, 0%, 100%); /* Primary text (white) */
+  --text-secondary: hsl(0, 0%, 72%); /* Secondary text (muted) */
+  --text-tertiary: hsl(0, 0%, 68%); /* Tertiary text (more muted) */
+  --text-subtle: hsl(0, 0%, 60%); /* Very subtle text */
+  --text-inverse: hsl(0, 0%, 0%); /* Inverse text (black on light backgrounds) */
+  --text-accent: hsl(195, 100%, 50%); /* Accent text (cyan) */
+  --text-accent-alt: hsl(271, 81%, 56%); /* Alternative accent (purple) */
+  --text-success: hsl(142, 76%, 36%); /* Success text (green) */
+  --text-warning: hsl(38, 92%, 50%); /* Warning text (orange) */
+  --text-danger: hsl(0, 84%, 60%); /* Danger text (red) */
+  
+  /* Text size tokens for consistent hierarchy */
+  --text-size-display: theme(fontSize.6xl); /* Large display text */
+  --text-size-heading-1: theme(fontSize.4xl); /* h1 equivalent */
+  --text-size-heading-2: theme(fontSize.3xl); /* h2 equivalent */
+  --text-size-heading-3: theme(fontSize.2xl); /* h3 equivalent */
+  --text-size-heading-4: theme(fontSize.xl); /* h4 equivalent */
+  --text-size-body-large: theme(fontSize.lg); /* Large body text */
+  --text-size-body: theme(fontSize.base); /* Standard body text */
+  --text-size-body-small: theme(fontSize.sm); /* Small body text */
+  --text-size-caption: theme(fontSize.xs); /* Caption text */
 }
 
 @layer base {
@@ -1400,6 +1448,139 @@
     -webkit-mask-composite: xor;
   }
 
+  /* ===== UNIFIED GLASS-EFFECT UTILITY CLASSES ===== */
+  /* Simplified unified glass utilities for consistent usage */
+  
+  /* Standard glass card - replaces ad-hoc glassmorphism */
+  .glass-card {
+    @apply glass-card-elevated sophisticated-glow hover-lift-moderate;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Subtle glass effect for overlays and modals */
+  .glass-overlay {
+    backdrop-filter: blur(12px) saturate(140%);
+    background: hsl(0, 0%, 0%, 0.8);
+    border: 1px solid hsl(0, 0%, 100%, 0.1);
+  }
+  
+  /* Glass button for consistent interactive elements */
+  .glass-button {
+    backdrop-filter: blur(10px) saturate(120%);
+    background: linear-gradient(135deg, hsl(0, 0%, 2%) 0%, hsl(0, 0%, 1%) 100%);
+    border: 1px solid hsl(0, 0%, 100%, 0.08);
+    box-shadow: 
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.1),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.2),
+      0 2px 8px hsl(0, 0%, 0%, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-button:hover {
+    border-color: hsl(195, 100%, 50%, 0.1);
+    box-shadow: 
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.15),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.3),
+      0 4px 16px hsl(0, 0%, 0%, 0.2),
+      0 0 24px hsl(195, 100%, 50%, 0.05);
+  }
+  
+  /* Glass divider for consistent section separators */
+  .glass-divider {
+    @apply glass-divider-top;
+  }
+  
+  /* ===== UTILITY SPACING CLASSES ===== */
+  /* Consistent spacing utilities using our tokens */
+  
+  .section-padding {
+    padding: var(--spacing-section-mobile);
+  }
+  
+  .section-padding-desktop {
+    padding: var(--spacing-section-desktop);
+  }
+  
+  .content-spacing-large {
+    margin-bottom: var(--spacing-content-large);
+  }
+  
+  .content-spacing-medium {
+    margin-bottom: var(--spacing-content-medium);
+  }
+  
+  .content-spacing-small {
+    margin-bottom: var(--spacing-content-small);
+  }
+  
+  .text-spacing-heading {
+    margin-bottom: var(--spacing-text-heading);
+  }
+  
+  .text-spacing-paragraph {
+    margin-bottom: var(--spacing-text-paragraph);
+  }
+  
+  .card-padding {
+    padding: var(--spacing-card-padding);
+  }
+  
+  .card-padding-large {
+    padding: var(--spacing-card-padding-large);
+  }
+  
+  .card-gap {
+    gap: var(--spacing-card-gap);
+  }
+  
+  /* ===== UNIFIED TYPOGRAPHY UTILITIES ===== */
+  /* Typography utilities using centralized tokens */
+  
+  .text-primary-color {
+    color: var(--text-primary);
+  }
+  
+  .text-secondary-color {
+    color: var(--text-secondary);
+  }
+  
+  .text-tertiary-color {
+    color: var(--text-tertiary);
+  }
+  
+  .text-subtle-color {
+    color: var(--text-subtle);
+  }
+  
+  .text-accent-color {
+    color: var(--text-accent);
+  }
+  
+  .text-accent-alt-color {
+    color: var(--text-accent-alt);
+  }
+  
+  /* Responsive typography utilities */
+  .text-display {
+    font-size: var(--text-size-display);
+    @apply lg:text-7xl xl:text-8xl;
+  }
+  
+  .text-heading-1 {
+    font-size: var(--text-size-heading-1);
+    @apply lg:text-5xl xl:text-6xl;
+  }
+  
+  .text-heading-2 {
+    font-size: var(--text-size-heading-2);
+    @apply lg:text-4xl xl:text-5xl;
+  }
+  
+  .text-heading-3 {
+    font-size: var(--text-size-heading-3);
+    @apply lg:text-3xl xl:text-4xl;
+  }
+  
   /* Layered Section Transitions */
   .section-transition-top {
     position: relative;

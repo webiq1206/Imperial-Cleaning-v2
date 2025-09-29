@@ -71,7 +71,7 @@ export default function ProcessTerminalSection() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <div className="text-xs text-gray-400 font-mono">imperial-cleaning-system@production</div>
+              <div className="text-xs text-secondary-color font-mono">imperial-cleaning-system@production</div>
               <div className="w-12"></div>
             </div>
 
@@ -95,7 +95,7 @@ export default function ProcessTerminalSection() {
                   <div className={`ml-4 mb-2 ${step.color}`} data-testid={`process-output-${index}`}>
                     {step.output}
                   </div>
-                  <div className="ml-4 mb-6 text-gray-400 text-xs" data-testid={`process-description-${index}`}>
+                  <div className="ml-4 mb-6 text-secondary-color text-xs" data-testid={`process-description-${index}`}>
                     {step.description}
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export default function ProcessTerminalSection() {
               
               {/* Status Bar */}
               <div className="mt-8 pt-4 border-t border-gray-800">
-                <div className="flex items-center justify-between text-xs text-gray-400">
+                <div className="flex items-center justify-between text-xs text-secondary-color">
                   <div className="flex items-center gap-4">
                     <span>Status: {currentStep === cleaningProcess.length - 1 ? 'COMPLETE' : 'PROCESSING'}</span>
                     <span>Progress: {Math.round(((currentStep + 1) / cleaningProcess.length) * 100)}%</span>

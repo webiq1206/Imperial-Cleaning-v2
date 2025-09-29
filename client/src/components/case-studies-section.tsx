@@ -256,10 +256,10 @@ export default function CaseStudiesSection() {
 
   return (
     <>
-      <section id="case-studies" className="py-24 px-6 case-studies-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
+      <section id="case-studies" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 case-studies-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full glass-effect sophisticated-glow">
               <Award className="w-5 h-5 text-primary" />
               <span className="text-sm font-medium text-primary uppercase tracking-wider" data-testid="section-badge-case-studies">
@@ -278,7 +278,7 @@ export default function CaseStudiesSection() {
           </div>
 
           {/* Project Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 mb-12 sm:mb-16">
             {filters.map((filter) => (
               <button
                 key={filter.id}
@@ -296,7 +296,7 @@ export default function CaseStudiesSection() {
           </div>
 
           {/* Case Studies Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {filteredCaseStudies.map((study, index) => (
               <Collapsible
                 key={study.id}
@@ -464,7 +464,7 @@ export default function CaseStudiesSection() {
 
           {/* Trust Building Summary */}
           <div className="text-center">
-            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+            <div className="glass-card-elevated sophisticated-glow p-4 sm:p-6 lg:p-8 rounded-lg">
               <h3 className="text-2xl lg:text-3xl font-semibold mb-6 text-foreground">
                 Proven Track Record Across Idaho & Utah
               </h3>
