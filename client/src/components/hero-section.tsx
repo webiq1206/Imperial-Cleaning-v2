@@ -15,6 +15,15 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
+        {/* Mobile-only subtle background logo */}
+        <div className="absolute inset-0 flex items-center justify-center md:hidden z-0">
+          <img 
+            src={logoPath}
+            alt=""
+            className="w-80 h-80 object-contain opacity-[0.03] pointer-events-none"
+          />
+        </div>
+
         {/* Enhanced parallax background elements */}
         <div className="absolute inset-0 parallax-subtle opacity-20">
           <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-purple-500/5 rounded-full blur-xl "></div>
