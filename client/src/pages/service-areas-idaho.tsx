@@ -305,6 +305,155 @@ export default function ServiceAreasIdaho() {
         </div>
       </section>
 
+      {/* Services We Provide */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Professional Cleaning Services Throughout Idaho</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Imperial Cleaning Inc. provides comprehensive cleaning solutions across all Idaho service areas. From our headquarters in Idaho Falls, we deliver the same high-quality services to every community we serve.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-hard-hat text-blue-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Post-Construction Cleanup</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Professional construction debris removal and detailed cleaning services for new construction projects, renovations, and remodeling across Idaho. Our systematic 3-phase approach ensures your project is inspection-ready.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Complete debris removal and disposal</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Heavy dust elimination with HEPA filtration</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Window cleaning and fixture detail work</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Floor deep cleaning and protection</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-building text-green-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Commercial Office Cleaning</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Regular janitorial services and facility maintenance for offices, retail spaces, and commercial buildings. Flexible scheduling with daily, weekly, and monthly service options tailored to your business needs.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Daily office cleaning and maintenance</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Restroom cleaning and restocking</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Floor care and carpet maintenance</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Sanitization and trash removal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-industry text-purple-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Industrial Facility Cleaning</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Specialized cleaning for manufacturing facilities, warehouses, and production environments. We understand the unique requirements of industrial settings and maintain safety compliance.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Manufacturing facility cleaning</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Warehouse and distribution centers</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Food processing facility sanitization</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Equipment cleaning and maintenance</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-cogs text-orange-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Specialized Equipment & Techniques</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Advanced cleaning technology and professional expertise for complex cleaning challenges. State-of-the-art equipment ensures superior results for all project types.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">HEPA filtration and dust control systems</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">High-pressure washing and steam cleaning</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">Professional floor care technology</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">High-access cleaning for buildings</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              variant="pill-primary"
+              size="pill-lg"
+              onClick={() => setShowContactForm(true)}
+              data-testid="button-get-quote-services"
+              className="text-lg font-semibold px-8 py-4"
+            >
+              Get Quote for These Services
+              <i className="fas fa-arrow-right ml-2"></i>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Cities We Serve */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">

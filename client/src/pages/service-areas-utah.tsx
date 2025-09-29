@@ -229,6 +229,155 @@ export default function ServiceAreasUtah() {
         </div>
       </section>
 
+      {/* Services We Provide */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Professional Cleaning Services Throughout Utah</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Imperial Cleaning Inc. brings Idaho-based expertise to Utah's growing markets. From our headquarters in Idaho Falls, we deliver comprehensive cleaning solutions across the Wasatch Front and throughout Utah.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-hard-hat text-blue-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Post-Construction Cleanup</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Professional construction debris removal and detailed cleaning services for Utah's booming construction market. Our systematic approach handles projects from residential developments to commercial high-rises across the Wasatch Front.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Complete debris removal and disposal</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Heavy dust elimination with HEPA filtration</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Window cleaning and fixture detail work</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-3"></i>
+                  <span className="text-sm">Final inspection preparation</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-building text-green-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Commercial Office Cleaning</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Regular janitorial services for Utah's corporate offices, retail spaces, and commercial buildings. Serving Salt Lake City's financial district, tech companies in Lehi, and businesses throughout the Wasatch Front.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Daily office cleaning and maintenance</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Corporate facility management</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Retail and storefront cleaning</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-3"></i>
+                  <span className="text-sm">Medical and professional offices</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-industry text-purple-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Industrial Facility Cleaning</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Specialized cleaning for Utah's manufacturing and industrial facilities. From food processing plants to tech manufacturing, we understand Utah's diverse industrial landscape and safety requirements.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Manufacturing facility cleaning</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Tech and semiconductor facilities</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Food processing sanitization</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-3"></i>
+                  <span className="text-sm">Warehouse and distribution centers</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="resend-card">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-cogs text-orange-500 text-xl"></i>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Specialized Equipment & Techniques</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Advanced cleaning technology designed for Utah's unique high-altitude environment and diverse facility types. Professional equipment ensures superior results regardless of project complexity.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">High-altitude cleaning protocols</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">HEPA filtration systems</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">Professional floor care technology</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-check text-orange-500 mr-3"></i>
+                  <span className="text-sm">High-rise window cleaning equipment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              variant="pill-primary"
+              size="pill-lg"
+              onClick={() => setShowContactForm(true)}
+              data-testid="button-get-quote-utah-services"
+              className="text-lg font-semibold px-8 py-4"
+            >
+              Get Quote for Utah Services
+              <i className="fas fa-arrow-right ml-2"></i>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Cities We Serve */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
