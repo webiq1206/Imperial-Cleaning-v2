@@ -203,18 +203,43 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
       <SEOHead
         title={pageTitle}
         description={pageDescription}
+        keywords={isLocationSpecific ? 
+          `construction cleanup ${locationData!.name}, post construction cleaning ${locationData!.state}, debris removal ${locationData!.name}, final inspection cleaning, construction site cleaning ${locationData!.name} ${locationData!.state}` :
+          "construction cleanup Idaho Utah, post construction cleaning, debris removal, final inspection cleaning, construction site cleaning Idaho Falls, building cleanup services"
+        }
         canonicalUrl={canonicalUrl}
+        author="Imperial Cleaning Inc"
+        geography={isLocationSpecific ? {
+          region: `${locationData!.state === 'Idaho' ? 'ID' : 'UT'}`,
+          placename: `${locationData!.name}, ${locationData!.state}`,
+          position: locationData!.coordinates ? `${locationData!.coordinates.lat};${locationData!.coordinates.lng}` : undefined
+        } : {
+          region: "ID-UT",
+          placename: "Idaho Falls, Idaho",
+          position: "43.4666;-112.0336"
+        }}
         openGraph={{
           title: pageTitle,
           description: pageDescription,
           image: "https://imperialcleaninginc.com/hero-logo.png",
-          type: "website"
+          imageAlt: isLocationSpecific ? 
+            `Imperial Cleaning Inc - Construction Cleanup Services in ${locationData!.name}, ${locationData!.state}` :
+            "Imperial Cleaning Inc - Professional Construction Cleanup Services in Idaho and Utah",
+          type: "website",
+          url: canonicalUrl,
+          siteName: "Imperial Cleaning Inc",
+          locale: "en_US"
         }}
         twitter={{
           card: "summary_large_image",
           title: pageTitle,
           description: pageDescription,
-          image: "https://imperialcleaninginc.com/hero-logo.png"
+          image: "https://imperialcleaninginc.com/hero-logo.png",
+          imageAlt: isLocationSpecific ? 
+            `Construction Cleanup in ${locationData!.name}, ${locationData!.state}` :
+            "Professional Construction Cleanup Services",
+          site: "@imperialcleaning",
+          creator: "@imperialcleaning"
         }}
         structuredData={structuredData}
       />

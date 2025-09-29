@@ -203,18 +203,32 @@ export default function Home() {
       <SEOHead
         title="Boise Commercial Cleaning Services | Imperial Cleaning Inc."
         description="Premier commercial & construction cleaning in Boise, Meridian, Nampa & Treasure Valley. Trusted by 500+ businesses across Ada County & Canyon County. Call today!"
+        keywords="Boise commercial cleaning, construction cleanup Idaho, Meridian office cleaning, Nampa janitorial services, Treasure Valley cleaning company, Ada County cleaning, Canyon County commercial cleaners, Idaho Falls cleaning services, post construction cleanup"
         canonicalUrl="https://imperialcleaninginc.com/"
+        author="Imperial Cleaning Inc"
+        geography={{
+          region: "ID-UT",
+          placename: "Boise, Idaho",
+          position: "43.6150;-116.2023"
+        }}
         openGraph={{
           title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
           description: "Leading commercial and construction cleaning company serving Boise and the entire Treasure Valley region. Professional cleaning solutions for businesses and contractors.",
           image: "https://imperialcleaninginc.com/hero-logo.png",
-          type: "website"
+          imageAlt: "Imperial Cleaning Inc - Professional Cleaning Services in Boise and Treasure Valley",
+          type: "website",
+          url: "https://imperialcleaninginc.com/",
+          siteName: "Imperial Cleaning Inc",
+          locale: "en_US"
         }}
         twitter={{
           card: "summary_large_image",
           title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
           description: "Professional commercial & construction cleaning throughout Boise, Meridian, Nampa & the Treasure Valley. Trusted by Idaho businesses since 2010.",
-          image: "https://imperialcleaninginc.com/hero-logo.png"
+          image: "https://imperialcleaninginc.com/hero-logo.png",
+          imageAlt: "Imperial Cleaning Inc Logo - Professional Cleaning Services",
+          site: "@imperialcleaning",
+          creator: "@imperialcleaning"
         }}
         structuredData={structuredData}
       />

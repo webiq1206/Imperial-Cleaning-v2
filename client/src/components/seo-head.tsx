@@ -3,18 +3,36 @@ import { useEffect } from "react";
 export interface SEOProps {
   title: string;
   description: string;
+  keywords?: string;
   canonicalUrl?: string;
+  robots?: string;
+  language?: string;
+  author?: string;
+  viewport?: string;
+  themeColor?: string;
+  geography?: {
+    region?: string;
+    placename?: string;
+    position?: string;
+  };
   openGraph?: {
     title: string;
     description: string;
     image?: string;
+    imageAlt?: string;
     type?: string;
+    url?: string;
+    siteName?: string;
+    locale?: string;
   };
   twitter?: {
     card: string;
     title: string;
     description: string;
     image?: string;
+    imageAlt?: string;
+    site?: string;
+    creator?: string;
   };
   structuredData?: Record<string, any>[];
 }
@@ -22,7 +40,14 @@ export interface SEOProps {
 export default function SEOHead({
   title,
   description,
+  keywords,
   canonicalUrl,
+  robots = 'index, follow',
+  language = 'en',
+  author,
+  viewport = 'width=device-width, initial-scale=1',
+  themeColor = '#1a365d',
+  geography,
   openGraph,
   twitter,
   structuredData = []
@@ -31,8 +56,33 @@ export default function SEOHead({
     // Update document title
     document.title = title;
 
-    // Update or create meta description
+    // Update basic meta tags
     updateMetaTag('name', 'description', description);
+    updateMetaTag('name', 'robots', robots);
+    updateMetaTag('name', 'viewport', viewport);
+    updateMetaTag('name', 'theme-color', themeColor);
+    updateMetaTag('http-equiv', 'Content-Language', language);
+    
+    if (keywords) {
+      updateMetaTag('name', 'keywords', keywords);
+    }
+    
+    if (author) {
+      updateMetaTag('name', 'author', author);
+    }
+    
+    // Geographic targeting meta tags
+    if (geography) {
+      if (geography.region) {
+        updateMetaTag('name', 'geo.region', geography.region);
+      }
+      if (geography.placename) {
+        updateMetaTag('name', 'geo.placename', geography.placename);
+      }
+      if (geography.position) {
+        updateMetaTag('name', 'geo.position', geography.position);
+      }
+    }
 
     // Update or create canonical URL
     if (canonicalUrl) {
@@ -44,10 +94,15 @@ export default function SEOHead({
       updateMetaTag('property', 'og:title', openGraph.title);
       updateMetaTag('property', 'og:description', openGraph.description);
       updateMetaTag('property', 'og:type', openGraph.type || 'website');
-      updateMetaTag('property', 'og:url', canonicalUrl || window.location.href);
+      updateMetaTag('property', 'og:url', openGraph.url || canonicalUrl || window.location.href);
+      updateMetaTag('property', 'og:site_name', openGraph.siteName || 'Imperial Cleaning Inc');
+      updateMetaTag('property', 'og:locale', openGraph.locale || 'en_US');
       
       if (openGraph.image) {
         updateMetaTag('property', 'og:image', openGraph.image);
+        updateMetaTag('property', 'og:image:alt', openGraph.imageAlt || openGraph.title);
+        updateMetaTag('property', 'og:image:width', '1200');
+        updateMetaTag('property', 'og:image:height', '630');
       }
     }
 
@@ -57,8 +112,17 @@ export default function SEOHead({
       updateMetaTag('name', 'twitter:title', twitter.title);
       updateMetaTag('name', 'twitter:description', twitter.description);
       
+      if (twitter.site) {
+        updateMetaTag('name', 'twitter:site', twitter.site);
+      }
+      
+      if (twitter.creator) {
+        updateMetaTag('name', 'twitter:creator', twitter.creator);
+      }
+      
       if (twitter.image) {
         updateMetaTag('name', 'twitter:image', twitter.image);
+        updateMetaTag('name', 'twitter:image:alt', twitter.imageAlt || twitter.title);
       }
     }
 
@@ -76,20 +140,24 @@ export default function SEOHead({
         document.head.appendChild(script);
       });
     }
-  }, [title, description, canonicalUrl, openGraph, twitter, structuredData]);
+  }, [title, description, keywords, canonicalUrl, robots, language, author, viewport, themeColor, geography, openGraph, twitter, structuredData]);
 
   return null;
 }
 
-// Helper function to update or create meta tags
+// Helper function to update or create meta tags with validation
 function updateMetaTag(attribute: string, attributeValue: string, content: string) {
+  if (!content || content.trim() === '') {
+    return; // Skip empty content
+  }
+  
   let metaTag = document.querySelector(`meta[${attribute}="${attributeValue}"]`) as HTMLMetaElement;
   if (!metaTag) {
     metaTag = document.createElement('meta');
     metaTag.setAttribute(attribute, attributeValue);
     document.head.appendChild(metaTag);
   }
-  metaTag.content = content;
+  metaTag.content = content.trim();
 }
 
 // Helper function to update or create link tags
@@ -349,4 +417,201 @@ export const createBreadcrumbSchema = (items: Array<{ name: string; url: string 
     "name": item.name,
     "item": item.url
   }))
+});
+
+// WebSite schema with search functionality
+export const createWebSiteSchema = (overrides: Partial<any> = {}) => ({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://imperialcleaninginc.com/#website",
+  "name": "Imperial Cleaning Inc",
+  "alternateName": "Imperial Cleaning",
+  "url": "https://imperialcleaninginc.com",
+  "description": "Professional construction and commercial cleaning services across Idaho and Utah. Trusted by contractors and businesses for reliable cleaning solutions.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Imperial Cleaning Inc",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://imperialcleaninginc.com/hero-logo.png"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://imperialcleaninginc.com/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": "en-US",
+  ...overrides
+});
+
+// ContactPoint schema for contact information
+export const createContactPointSchema = (overrides: Partial<any> = {}) => ({
+  "@context": "https://schema.org",
+  "@type": "ContactPoint",
+  "telephone": "+1-208-520-3202",
+  "email": "service@imperialcleaninginc.com",
+  "contactType": "customer service",
+  "areaServed": ["ID", "UT"],
+  "availableLanguage": "English",
+  "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+    ],
+    "opens": "07:00",
+    "closes": "18:00"
+  },
+  ...overrides
+});
+
+// Review schema for individual reviews
+export const createReviewSchema = (review: {
+  author: string;
+  reviewBody: string;
+  ratingValue: number;
+  datePublished?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": review.author
+  },
+  "reviewBody": review.reviewBody,
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": review.ratingValue,
+    "bestRating": 5,
+    "worstRating": 1
+  },
+  "datePublished": review.datePublished || new Date().toISOString().split('T')[0],
+  "itemReviewed": {
+    "@type": "LocalBusiness",
+    "name": "Imperial Cleaning Inc"
+  }
+});
+
+// PostalAddress utility schema
+export const createPostalAddressSchema = (address: {
+  streetAddress?: string;
+  addressLocality: string;
+  addressRegion: string;
+  postalCode?: string;
+  addressCountry?: string;
+}) => ({
+  "@type": "PostalAddress",
+  "streetAddress": address.streetAddress || "123 Business Blvd",
+  "addressLocality": address.addressLocality,
+  "addressRegion": address.addressRegion,
+  "postalCode": address.postalCode || "83402",
+  "addressCountry": address.addressCountry || "US"
+});
+
+// Hours of operation schema
+export const createOpeningHoursSchema = (hours?: Array<{
+  dayOfWeek: string[];
+  opens: string;
+  closes: string;
+}>) => {
+  const defaultHours = [
+    {
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:00",
+      closes: "18:00"
+    },
+    {
+      dayOfWeek: ["Saturday"],
+      opens: "08:00",
+      closes: "16:00"
+    }
+  ];
+  
+  return (hours || defaultHours).map(hour => ({
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": hour.dayOfWeek,
+    "opens": hour.opens,
+    "closes": hour.closes
+  }));
+};
+
+// Article schema for blog posts or informational content
+export const createArticleSchema = (article: {
+  headline: string;
+  description: string;
+  author?: string;
+  datePublished?: string;
+  dateModified?: string;
+  image?: string;
+  url: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.headline,
+  "description": article.description,
+  "author": {
+    "@type": "Organization",
+    "name": article.author || "Imperial Cleaning Inc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Imperial Cleaning Inc",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://imperialcleaninginc.com/hero-logo.png"
+    }
+  },
+  "datePublished": article.datePublished || new Date().toISOString(),
+  "dateModified": article.dateModified || new Date().toISOString(),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": article.url
+  },
+  "image": article.image || "https://imperialcleaninginc.com/hero-logo.png",
+  "url": article.url
+});
+
+// Professional Service schema for specific cleaning services
+export const createProfessionalServiceSchema = (service: {
+  name: string;
+  description: string;
+  serviceType: string;
+  location: {
+    name: string;
+    state: string;
+  };
+  url: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": service.name,
+  "description": service.description,
+  "serviceType": service.serviceType,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Imperial Cleaning Inc",
+    "address": createPostalAddressSchema({
+      addressLocality: "Idaho Falls",
+      addressRegion: "ID"
+    }),
+    "telephone": "+1-208-520-3202",
+    "url": "https://imperialcleaninginc.com"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": service.location.name,
+    "containedInPlace": {
+      "@type": "State",
+      "name": service.location.state
+    }
+  },
+  "url": service.url,
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD"
+  }
 });

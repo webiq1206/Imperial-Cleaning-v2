@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { z } from "zod";
 import { storage } from "./storage";
 import { sendEmail, createContactNotificationEmail } from "./email";
+import { generateSitemap, getSitemapStats } from "./sitemap";
 
 const contactSchema = z.object({
   name: z.string().min(2),
@@ -107,6 +108,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Health check endpoint
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
+  // Sitemap route
+  app.get("/sitemap.xml", (req, res) => {
+    try {
+      const sitemap = generateSitemap();
+      res.setHeader('Content-Type', 'application/xml');
+      res.setHeader('Cache-Control', 'public, max-age=86400'); // Cache for 24 hours
+      res.send(sitemap);
+    } catch (error) {
+      console.error("Sitemap generation error:", error);
+      res.status(500).json({ error: "Failed to generate sitemap" });
+    }
+  });
+
+  // Sitemap stats route (for monitoring)
+  app.get("/api/sitemap-stats", (req, res) => {
+    try {
+      const stats = getSitemapStats();
+      res.json(stats);
+    } catch (error) {
+      console.error("Sitemap stats error:", error);
+      res.status(500).json({ error: "Failed to get sitemap stats" });
+    }
   });
 
   const httpServer = createServer(app);
