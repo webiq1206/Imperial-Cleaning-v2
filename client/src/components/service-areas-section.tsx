@@ -22,19 +22,19 @@ export default function ServiceAreasSection() {
                 <i className="fas fa-star"></i>
               </div>
               <div>
-                <h3 className="text-2xl lg:text-3xl font-semibold text-foreground">Primary Service Region</h3>
-                <p className="text-sm text-primary font-medium">Core Market Areas</p>
+                <h3 className="text-2xl lg:text-3xl font-semibold text-foreground">Idaho Service Area</h3>
+                <p className="text-sm text-primary font-medium">Primary Market Focus</p>
               </div>
             </div>
             <div className="mb-6">
               <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center">
                 <i className="fas fa-crown text-primary mr-2"></i>
-                Core Service Markets
+                Idaho Cleaning Services
               </h4>
               <div className="grid grid-cols-1 gap-4">
                 <div className="glass-card-elevated p-4 rounded-lg">
                   <p className="text-sm text-muted-foreground mb-3">
-                    Comprehensive cleaning services available across multiple metropolitan areas and regional markets.
+                    Professional commercial and construction cleaning services throughout Idaho's major metropolitan areas and growing communities.
                   </p>
                   <Link href="/service-areas" className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors">
                     View All Service Areas
@@ -57,7 +57,7 @@ export default function ServiceAreasSection() {
                 data-testid="button-view-region-one"
                 className="w-full sm:w-auto"
               >
-                View Regional Coverage →
+                View Idaho Coverage →
               </Button>
             </Link>
           </div>
@@ -69,17 +69,17 @@ export default function ServiceAreasSection() {
                 <i className="fas fa-city"></i>
               </div>
               <div>
-                <h3 className="text-2xl lg:text-3xl font-semibold text-foreground">Secondary Service Region</h3>
-                <p className="text-sm text-muted-foreground font-medium">Expanded Market Coverage</p>
+                <h3 className="text-2xl lg:text-3xl font-semibold text-foreground">Utah Service Area</h3>
+                <p className="text-sm text-muted-foreground font-medium">Expanding Market Presence</p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-4 mb-6">
               <div className="glass-card-elevated p-4 rounded-lg">
                 <p className="text-sm text-muted-foreground mb-3">
-                  Extended service coverage across additional metropolitan areas with the same professional standards and quality assurance.
+                  Growing service coverage across Utah's business centers with the same professional standards and quality assurance we provide in Idaho.
                 </p>
                 <Link href="/service-areas" className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors">
-                  View Extended Coverage
+                  View Utah Coverage
                   <i className="fas fa-arrow-right ml-2 text-xs"></i>
                 </Link>
               </div>
@@ -90,7 +90,7 @@ export default function ServiceAreasSection() {
                 size="pill-md"
                 data-testid="button-view-region-two"
               >
-                View Extended Areas →
+                View Utah Areas →
               </Button>
             </Link>
           </div>
