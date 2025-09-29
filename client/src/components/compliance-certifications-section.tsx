@@ -196,7 +196,7 @@ export default function ComplianceCertificationsSection() {
 
   return (
     <>
-      <section className="py-24 px-6 compliance-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
+      <section id="compliance" className="py-24 px-6 compliance-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-20">

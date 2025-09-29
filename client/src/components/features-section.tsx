@@ -1,13 +1,15 @@
+import { Link } from "wouter";
+
 export default function FeaturesSection() {
   return (
     <section className="py-24 px-6 features-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-            Why Choose Imperial Cleaning?
+            Why Boise Trusts Imperial Cleaning
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-            Experience the difference of professional cleaning services with our proven track record across Idaho and Utah.
+            Treasure Valley's most trusted Idaho commercial cleaners with proven expertise across Boise, Meridian, Nampa, and Eagle. Licensed, bonded, and certified throughout Ada County and Canyon County.
           </p>
         </div>
 
@@ -21,13 +23,13 @@ export default function FeaturesSection() {
               {/* Elegant inset divider after icon */}
               <div className="glass-divider-top mb-6"></div>
               
-              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-insured">Fully Insured</h3>
+              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-insured">Idaho Licensed & Insured</h3>
               
               {/* Inset divider before description */}
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-insured">
-                Comprehensive insurance coverage protects your property and provides complete peace of mind for every project.
+                $2M liability insurance and comprehensive bonding provides complete peace of mind for every Boise commercial cleaning project. <Link href="#compliance" className="text-primary hover:text-primary/80 transition-colors">View our certifications →</Link>
               </p>
             </div>
           </div>
@@ -41,13 +43,13 @@ export default function FeaturesSection() {
               {/* Elegant inset divider after icon */}
               <div className="glass-divider-top mb-6"></div>
               
-              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-availability">24/7 Availability</h3>
+              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-availability">24/7 Treasure Valley Service</h3>
               
               {/* Inset divider before description */}
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-availability">
-                Flexible scheduling around the clock to meet your construction deadlines and business requirements.
+                Around-the-clock availability throughout Boise, Meridian, and Nampa. Emergency response within 30 minutes across Ada County and Canyon County for urgent cleanup needs.
               </p>
             </div>
           </div>
@@ -61,13 +63,13 @@ export default function FeaturesSection() {
               {/* Elegant inset divider after icon */}
               <div className="glass-divider-top mb-6"></div>
               
-              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-guarantee">Quality Guaranteed</h3>
+              <h3 className="text-2xl lg:text-3xl font-medium mb-4 text-foreground" data-testid="feature-title-guarantee">OSHA Certified Quality</h3>
               
               {/* Inset divider before description */}
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-guarantee">
-                100% satisfaction guarantee on all cleaning services with professional standards that exceed expectations.
+                100% satisfaction guarantee backed by OSHA certification and Idaho state compliance. Eagle janitorial services that exceed expectations with documented quality assurance protocols.
               </p>
             </div>
           </div>

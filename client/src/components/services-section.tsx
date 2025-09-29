@@ -17,10 +17,10 @@ export default function ServicesSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-              Professional Cleaning Solutions
+              Boise Commercial Cleaning Solutions
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-              Specialized cleaning solutions for construction sites and commercial facilities across Idaho and Utah.
+              Idaho commercial cleaners specializing in Treasure Valley construction cleanup and Ada County cleaning services for businesses throughout Boise, Meridian, Nampa, and Eagle.
             </p>
           </div>
 
@@ -31,14 +31,14 @@ export default function ServicesSection() {
                 <div className="resend-icon mr-4 hover-lift-gentle group-hover:scale-105 transition-all duration-500">
                   <i className="fas fa-hard-hat icon-gradient"></i>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Construction Cleaning</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Treasure Valley Construction Cleanup</h3>
               </div>
               
               {/* Elegant inset divider after header */}
               <div className="glass-divider-top mb-6"></div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Post-construction cleanup services for contractors across Idaho and Utah. From debris removal to final detailing, we prepare your projects for handover.
+                Treasure Valley construction cleanup services for Boise, Meridian, and Nampa contractors. From debris removal to final detailing, we've served major projects including downtown Boise high-rises, Meridian residential developments, and Eagle commercial buildings.
               </p>
               
               {/* Inset divider before features */}
@@ -66,17 +66,29 @@ export default function ServicesSection() {
               {/* Inset divider before button */}
               <div className="glass-divider-top mb-6"></div>
               
-              <Link href="/construction-cleaning">
-                <Button 
-                  variant="pill-secondary"
-                  size="pill-md"
-                  className="font-medium hover-lift-gentle button-ripple hover-shimmer "
-                  onClick={() => handleLearnMore('construction')}
-                  data-testid="button-learn-more-construction"
-                >
-                  Learn More →
-                </Button>
-              </Link>
+              <div className="flex gap-3">
+                <Link href="/construction-cleaning">
+                  <Button 
+                    variant="pill-secondary"
+                    size="pill-md"
+                    className="font-medium hover-lift-gentle button-ripple hover-shimmer"
+                    onClick={() => handleLearnMore('construction')}
+                    data-testid="button-learn-more-construction"
+                  >
+                    Boise Projects →
+                  </Button>
+                </Link>
+                <Link href="#faq">
+                  <Button 
+                    variant="outline"
+                    size="pill-md"
+                    className="text-sm font-medium hover-lift-gentle"
+                    data-testid="button-construction-faq"
+                  >
+                    Construction FAQ
+                  </Button>
+                </Link>
+              </div>
             </div>
 
             {/* Commercial Cleaning */}
@@ -85,14 +97,14 @@ export default function ServicesSection() {
                 <div className="resend-icon mr-4 hover-lift-gentle group-hover:scale-105 transition-all duration-500">
                   <i className="fas fa-building icon-gradient"></i>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Commercial Cleaning</h3>
+                <h3 className="text-2xl lg:text-3xl font-medium hover-lift-gentle">Boise Commercial Cleaning</h3>
               </div>
               
               {/* Elegant inset divider after header */}
               <div className="glass-divider-top mb-6"></div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Ongoing commercial cleaning services for businesses throughout Idaho and Utah. Reliable, professional maintenance to keep your facility spotless.
+                Meridian office cleaning and Nampa industrial cleaning services for Ada County businesses. Our Eagle janitorial services include Fortune 500 companies, healthcare facilities, and government buildings throughout the Treasure Valley region.
               </p>
               
               {/* Inset divider before features */}
@@ -120,17 +132,29 @@ export default function ServicesSection() {
               {/* Inset divider before button */}
               <div className="glass-divider-top mb-6"></div>
               
-              <Link href="/commercial-cleaning">
-                <Button 
-                  variant="pill-secondary"
-                  size="pill-md"
-                  className="font-medium hover-lift-gentle button-ripple hover-shimmer "
-                  onClick={() => handleLearnMore('commercial')}
-                  data-testid="button-learn-more-commercial"
-                >
-                  Learn More →
-                </Button>
-              </Link>
+              <div className="flex gap-3">
+                <Link href="/commercial-cleaning">
+                  <Button 
+                    variant="pill-secondary"
+                    size="pill-md"
+                    className="font-medium hover-lift-gentle button-ripple hover-shimmer"
+                    onClick={() => handleLearnMore('commercial')}
+                    data-testid="button-learn-more-commercial"
+                  >
+                    Treasure Valley Services →
+                  </Button>
+                </Link>
+                <Link href="/service-areas/idaho">
+                  <Button 
+                    variant="outline"
+                    size="pill-md"
+                    className="text-sm font-medium hover-lift-gentle"
+                    data-testid="button-service-areas-idaho"
+                  >
+                    Service Areas
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
