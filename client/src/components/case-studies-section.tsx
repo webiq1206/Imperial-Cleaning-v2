@@ -214,6 +214,41 @@ export default function CaseStudiesSection() {
         after: "Fully compliant medical facility with specialized cleaning protocols, perfect regulatory compliance record, enhanced infection control, and recognition for outstanding standards."
       },
       keywords: "Logan healthcare cleaning, medical facility cleaning Utah, Utah Idaho commercial cleaning expertise"
+    },
+    {
+      id: "boise-tech-campus",
+      category: "commercial",
+      title: "Boise Technology Campus",
+      subtitle: "Modern Tech Facility & Employee Wellness Focus",
+      location: "Boise, ID",
+      projectType: "Technology Campus Maintenance",
+      timeline: "12-month premium wellness program",
+      badge: "TECH CAMPUS",
+      challenge: "A rapidly growing Boise technology campus required innovative cleaning solutions that prioritized employee wellness, air quality, and sustainable practices. The 24/7 operations schedule demanded flexible cleaning protocols that wouldn't disrupt productivity or collaboration spaces.",
+      solution: "Imperial Cleaning implemented a comprehensive wellness-focused cleaning program using eco-friendly products, advanced air purification systems, and flexible scheduling. Our team developed specialized protocols for open office environments, collaboration spaces, and high-tech equipment areas.",
+      results: {
+        timeline: "12 months of seamless service",
+        area: "120,000 square feet maintained",
+        wellness: "Indoor air quality improved 35%",
+        sustainability: "100% eco-friendly products used"
+      },
+      metrics: [
+        { label: "Campus Size", value: "120,000 sq ft", icon: "building" },
+        { label: "Air Quality", value: "35% improvement", icon: "trending-up" },
+        { label: "Eco Products", value: "100% sustainable", icon: "award" },
+        { label: "Employee Satisfaction", value: "95% positive", icon: "star" }
+      ],
+      testimonial: {
+        quote: "Imperial Cleaning's wellness-focused approach aligns perfectly with our company culture. The improved air quality and sustainable practices have positively impacted employee satisfaction and productivity. Outstanding partnership.",
+        author: "David Kim",
+        position: "Facilities & Operations Director",
+        company: "Boise Tech Innovations"
+      },
+      beforeAfter: {
+        before: "Standard office cleaning that didn't address employee wellness priorities, inconsistent air quality in open office spaces, lack of sustainable cleaning practices, and disrupted productivity during cleaning hours.",
+        after: "Wellness-optimized work environment with improved air quality, 100% sustainable cleaning products, flexible scheduling that supports 24/7 operations, and enhanced employee satisfaction ratings."
+      },
+      keywords: "Boise commercial cleaning, technology campus cleaning Idaho, sustainable office cleaning Boise"
     }
   ];
 
