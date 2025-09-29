@@ -15,12 +15,12 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
-        {/* Mobile-only subtle background logo */}
+        {/* Mobile-only background logo - larger and more visible */}
         <div className="absolute inset-0 flex items-center justify-center md:hidden z-0">
           <img 
             src={logoPath}
             alt=""
-            className="w-80 h-80 object-contain opacity-[0.03] pointer-events-none"
+            className="w-96 h-96 object-contain opacity-[0.08] pointer-events-none"
           />
         </div>
 
@@ -85,8 +85,8 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Right side - Enhanced 3D logo with sophisticated parallax */}
-            <div className="flex-1 flex items-center justify-center relative z-10 animate-fade-in-right stagger-delay-3">
+            {/* Right side - Enhanced 3D logo with sophisticated parallax (hidden on mobile) */}
+            <div className="flex-1 items-center justify-center relative z-10 animate-fade-in-right stagger-delay-3 hidden md:flex">
               <div className="relative parallax-depth">
                 {/* Enhanced logo with 3D effect and motion polish */}
                 <div className="logo-3d-container relative group hover-glow-expand">
