@@ -94,7 +94,7 @@ export default function HeroSection() {
                   <img 
                     src={logoPath}
                     alt="Imperial Cleaning"
-                    className="w-80 h-80 lg:w-96 lg:h-96 object-contain opacity-25 group-hover:opacity-35 transition-all duration-700 "
+                    className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[32rem] xl:h-[32rem] object-contain opacity-25 group-hover:opacity-35 transition-all duration-700 "
                   />
                   
                   {/* Enhanced overlay layers with motion */}
