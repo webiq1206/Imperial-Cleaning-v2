@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Building, Factory, MapPin, Clock, CheckCircle, ArrowRight, Award, TrendingUp, Shield, Users, Star, Calendar } from "lucide-react";
+import { Building, Factory, MapPin, Clock, CheckCircle, ArrowRight, Award, TrendingUp, Shield, Users, Star, Calendar, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ContactFormModal from "@/components/contact-form-modal";
 import { trackEvent } from "@/lib/analytics";
 
 export default function CaseStudiesSection() {
   const [showContactForm, setShowContactForm] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const [expandedStudies, setExpandedStudies] = useState<Set<string>>(new Set());
 
   const handleGetQuote = (projectType: string) => {
     trackEvent('get_quote', 'case_studies', projectType);
@@ -16,6 +18,25 @@ export default function CaseStudiesSection() {
   const handleFilterChange = (filter: string) => {
     setSelectedFilter(filter);
     trackEvent('filter_case_studies', 'engagement', filter);
+  };
+
+  const toggleExpanded = (studyId: string) => {
+    const newExpanded = new Set(expandedStudies);
+    if (newExpanded.has(studyId)) {
+      newExpanded.delete(studyId);
+      trackEvent('collapse_case_study', 'engagement', studyId);
+    } else {
+      newExpanded.add(studyId);
+      trackEvent('expand_case_study', 'engagement', studyId);
+    }
+    setExpandedStudies(newExpanded);
+  };
+
+  const isExpanded = (studyId: string) => expandedStudies.has(studyId);
+
+  const getPreviewText = (text: string, maxLength: number = 120) => {
+    if (text.length <= maxLength) return text;
+    return text.slice(0, maxLength).trim() + '...';
   };
 
   const caseStudies = [
@@ -277,13 +298,16 @@ export default function CaseStudiesSection() {
           {/* Case Studies Grid */}
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {filteredCaseStudies.map((study, index) => (
-              <div
+              <Collapsible
                 key={study.id}
+                open={isExpanded(study.id)}
+                onOpenChange={() => toggleExpanded(study.id)}
                 className={`glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle rounded-lg overflow-hidden group animate-fade-in-up stagger-delay-${index + 1}`}
                 data-testid={`case-study-card-${study.id}`}
               >
-                {/* Card Header */}
-                <div className="p-8 pb-6">
+                {/* Collapsed Content - Always Visible */}
+                <div className="p-6 lg:p-8">
+                  {/* Header with badges */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3 mb-2">
                       <div className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(study.category)}`} data-testid={`badge-${study.id}`}>
@@ -300,100 +324,141 @@ export default function CaseStudiesSection() {
                     </div>
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300" data-testid={`title-${study.id}`}>
+                  {/* Title and subtitle */}
+                  <h3 className="text-xl lg:text-2xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300" data-testid={`title-${study.id}`}>
                     {study.title}
                   </h3>
-                  <p className="text-lg text-primary mb-4 font-medium" data-testid={`subtitle-${study.id}`}>
+                  <p className="text-base lg:text-lg text-primary mb-4 font-medium" data-testid={`subtitle-${study.id}`}>
                     {study.subtitle}
                   </p>
 
-                  {/* Elegant divider */}
-                  <div className="glass-divider-top mb-6"></div>
-
-                  {/* Challenge & Solution */}
-                  <div className="space-y-4 mb-6">
-                    <div>
-                      <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wider">Challenge</h4>
-                      <p className="text-muted-foreground leading-relaxed text-sm" data-testid={`challenge-${study.id}`}>
-                        {study.challenge}
-                      </p>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wider">Solution</h4>
-                      <p className="text-muted-foreground leading-relaxed text-sm" data-testid={`solution-${study.id}`}>
-                        {study.solution}
-                      </p>
-                    </div>
+                  {/* Preview of challenge */}
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wider">Challenge Preview</h4>
+                    <p className="text-muted-foreground leading-relaxed text-sm" data-testid={`challenge-preview-${study.id}`}>
+                      {getPreviewText(study.challenge)}
+                    </p>
                   </div>
 
-                  {/* Metrics Grid */}
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    {study.metrics.map((metric, metricIndex) => (
-                      <div key={metricIndex} className="glass-effect p-3 rounded-lg hover-lift-gentle group/metric">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="text-primary group-hover/metric:scale-110 transition-transform duration-300">
-                            {getMetricIcon(metric.icon)}
-                          </div>
-                          <span className="text-xs text-muted-foreground font-medium">{metric.label}</span>
-                        </div>
-                        <div className="text-sm font-semibold text-foreground" data-testid={`metric-${study.id}-${metricIndex}`}>
-                          {metric.value}
-                        </div>
+                  {/* Expand/Collapse Button */}
+                  <CollapsibleTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-between text-sm font-medium hover:bg-muted/50 transition-all duration-300 mt-4 px-4 py-4 min-h-[48px] rounded-lg border border-border/50 hover:border-border group/trigger touch-manipulation"
+                      data-testid={`toggle-${study.id}`}
+                    >
+                      <span>
+                        {isExpanded(study.id) ? 'Show Less Details' : 'Show Full Details'}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-muted-foreground">
+                          {isExpanded(study.id) ? 'Collapse' : 'Expand'}
+                        </span>
+                        {isExpanded(study.id) ? (
+                          <ChevronUp className="w-4 h-4 transition-transform duration-300 group-hover/trigger:scale-110" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/trigger:scale-110" />
+                        )}
                       </div>
-                    ))}
-                  </div>
+                    </Button>
+                  </CollapsibleTrigger>
+                </div>
 
-                  {/* Before/After Narrative */}
-                  <div className="space-y-3 mb-6">
-                    <div>
-                      <h4 className="text-xs font-semibold text-red-400 mb-1 uppercase tracking-wider">Before</h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed" data-testid={`before-${study.id}`}>
-                        {study.beforeAfter.before}
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold text-green-400 mb-1 uppercase tracking-wider">After</h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed" data-testid={`after-${study.id}`}>
-                        {study.beforeAfter.after}
-                      </p>
-                    </div>
-                  </div>
+                {/* Expandable Content */}
+                <CollapsibleContent className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-up-2 data-[state=open]:slide-down-2">
+                  <div className="px-6 lg:px-8 pb-6 lg:pb-8 pt-0">
+                    {/* Elegant divider */}
+                    <div className="glass-divider-top mb-6"></div>
 
-                  {/* Client Testimonial */}
-                  <div className="glass-effect p-4 rounded-lg mb-6">
-                    <blockquote className="text-foreground text-sm leading-relaxed mb-3 italic" data-testid={`testimonial-quote-${study.id}`}>
-                      "{study.testimonial.quote}"
-                    </blockquote>
-                    <div className="flex items-center justify-between">
+                    {/* Full Challenge & Solution */}
+                    <div className="space-y-4 mb-6">
                       <div>
-                        <div className="font-semibold text-foreground text-sm" data-testid={`testimonial-author-${study.id}`}>
-                          {study.testimonial.author}
-                        </div>
-                        <div className="text-muted-foreground text-xs">
-                          {study.testimonial.position}, {study.testimonial.company}
-                        </div>
+                        <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wider">Full Challenge</h4>
+                        <p className="text-muted-foreground leading-relaxed text-sm" data-testid={`challenge-${study.id}`}>
+                          {study.challenge}
+                        </p>
                       </div>
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-current" />
+                      
+                      <div>
+                        <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wider">Our Solution</h4>
+                        <p className="text-muted-foreground leading-relaxed text-sm" data-testid={`solution-${study.id}`}>
+                          {study.solution}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Metrics Grid */}
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">Project Results</h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        {study.metrics.map((metric, metricIndex) => (
+                          <div key={metricIndex} className="glass-effect p-3 rounded-lg hover-lift-gentle group/metric">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="text-primary group-hover/metric:scale-110 transition-transform duration-300">
+                                {getMetricIcon(metric.icon)}
+                              </div>
+                              <span className="text-xs text-muted-foreground font-medium">{metric.label}</span>
+                            </div>
+                            <div className="text-sm font-semibold text-foreground" data-testid={`metric-${study.id}-${metricIndex}`}>
+                              {metric.value}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </div>
-                  </div>
 
-                  {/* CTA Button */}
-                  <Button
-                    onClick={() => handleGetQuote(study.category)}
-                    variant="outline"
-                    className="w-full group/cta hover-lift-gentle"
-                    data-testid={`cta-${study.id}`}
-                  >
-                    Get Similar Results
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/cta:translate-x-1 transition-transform duration-300" />
-                  </Button>
-                </div>
-              </div>
+                    {/* Before/After Narrative */}
+                    <div className="space-y-3 mb-6">
+                      <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">Transformation</h4>
+                      <div>
+                        <h5 className="text-xs font-semibold text-red-400 mb-1 uppercase tracking-wider">Before</h5>
+                        <p className="text-muted-foreground text-sm leading-relaxed" data-testid={`before-${study.id}`}>
+                          {study.beforeAfter.before}
+                        </p>
+                      </div>
+                      <div>
+                        <h5 className="text-xs font-semibold text-green-400 mb-1 uppercase tracking-wider">After</h5>
+                        <p className="text-muted-foreground text-sm leading-relaxed" data-testid={`after-${study.id}`}>
+                          {study.beforeAfter.after}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Client Testimonial */}
+                    <div className="glass-effect p-4 rounded-lg mb-6">
+                      <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">Client Testimonial</h4>
+                      <blockquote className="text-foreground text-sm leading-relaxed mb-3 italic" data-testid={`testimonial-quote-${study.id}`}>
+                        "{study.testimonial.quote}"
+                      </blockquote>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-semibold text-foreground text-sm" data-testid={`testimonial-author-${study.id}`}>
+                            {study.testimonial.author}
+                          </div>
+                          <div className="text-muted-foreground text-xs">
+                            {study.testimonial.position}, {study.testimonial.company}
+                          </div>
+                        </div>
+                        <div className="flex text-yellow-400">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 fill-current" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <Button
+                      onClick={() => handleGetQuote(study.category)}
+                      className="w-full group/cta hover-lift-gentle bg-primary hover:bg-primary/90 text-primary-foreground"
+                      data-testid={`cta-${study.id}`}
+                    >
+                      Get Similar Results
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover/cta:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             ))}
           </div>
 
