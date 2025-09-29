@@ -207,7 +207,7 @@ export default function Header() {
 
               {/* About Link */}
               <Link 
-                href="/#about" 
+                href="/about" 
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle"
                 data-testid="link-about"
               >
@@ -216,7 +216,7 @@ export default function Header() {
 
               {/* Contact Link */}
               <Link 
-                href="/#contact" 
+                href="/contact" 
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle"
                 data-testid="link-contact"
               >
@@ -336,7 +336,7 @@ export default function Header() {
                   <div className="px-2 py-4 border-t border-border/20">
                     <div className="text-xs font-semibold text-secondary-color uppercase tracking-wider mb-4">Quick Links</div>
                     <Link 
-                      href="/#about" 
+                      href="/about" 
                       className="block px-4 py-3 text-sm font-medium text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button mb-2"
                       onClick={closeMobileMenu}
                       data-testid="link-about-mobile"
@@ -344,7 +344,7 @@ export default function Header() {
                       About Us
                     </Link>
                     <Link 
-                      href="/#contact" 
+                      href="/contact" 
                       className="block px-4 py-3 text-sm font-medium text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button"
                       onClick={closeMobileMenu}
                       data-testid="link-contact-mobile"

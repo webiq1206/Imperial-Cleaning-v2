@@ -1,6 +1,3 @@
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
-import StickyContacts from "@/components/sticky-contacts";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -177,7 +174,7 @@ export default function ServiceAreasUtah() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <SEOHead
         title="Wasatch Front Cleaning Services | Imperial Cleaning Utah"
         description="Professional commercial & construction cleaning in Salt Lake City, Logan, Ogden, Provo & Wasatch Front. Expert Utah cleaning services. Call today!"
@@ -196,9 +193,6 @@ export default function ServiceAreasUtah() {
         }}
         structuredData={structuredData}
       />
-      
-      <Header />
-      <StickyContacts />
       
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
@@ -351,14 +345,12 @@ export default function ServiceAreasUtah() {
         </div>
       </section>
 
-      <Footer />
-      
       {showContactForm && (
         <ContactFormModal 
           isOpen={showContactForm} 
           onClose={() => setShowContactForm(false)} 
         />
       )}
-    </div>
+    </>
   );
 }

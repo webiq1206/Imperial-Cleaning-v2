@@ -1,6 +1,3 @@
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
-import StickyContacts from "@/components/sticky-contacts";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -253,7 +250,7 @@ export default function ServiceAreasIdaho() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <SEOHead
         title="Boise & Treasure Valley Cleaning Services | Imperial Cleaning Idaho"
         description="Professional construction & commercial cleaning throughout Boise, Meridian, Nampa, Eagle & Caldwell. Serving Ada County & Canyon County. Get your free quote today!"
@@ -272,9 +269,6 @@ export default function ServiceAreasIdaho() {
         }}
         structuredData={structuredData}
       />
-      
-      <Header />
-      <StickyContacts />
       
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
@@ -509,14 +503,12 @@ export default function ServiceAreasIdaho() {
         </div>
       </section>
 
-      <Footer />
-      
       {showContactForm && (
         <ContactFormModal 
           isOpen={showContactForm} 
           onClose={() => setShowContactForm(false)} 
         />
       )}
-    </div>
+    </>
   );
 }

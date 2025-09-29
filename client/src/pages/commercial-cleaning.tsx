@@ -1,11 +1,9 @@
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
-import StickyContacts from "@/components/sticky-contacts";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, RouteComponentProps } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
+import { ServiceLocation } from "@shared/service-locations";
 import SEOHead, { 
   createLocalBusinessSchema, 
   createServiceSchema,
@@ -13,7 +11,11 @@ import SEOHead, {
   createBreadcrumbSchema
 } from "@/components/seo-head";
 
-export default function CommercialCleaning() {
+interface CommercialCleaningProps extends RouteComponentProps {
+  locationData?: ServiceLocation | null;
+}
+
+export default function CommercialCleaning({ locationData }: CommercialCleaningProps) {
   const [showContactForm, setShowContactForm] = useState(false);
 
   // Structured data for commercial cleaning page
@@ -147,7 +149,7 @@ export default function CommercialCleaning() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <SEOHead
         title="Idaho & Utah Commercial Cleaning Services | Imperial Cleaning Inc."
         description="Premier office & commercial cleaning across all service areas in Idaho & Utah. Serving businesses, medical centers & offices in every location we operate. Call today!"
@@ -166,9 +168,6 @@ export default function CommercialCleaning() {
         }}
         structuredData={structuredData}
       />
-      
-      <Header />
-      <StickyContacts />
       
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
@@ -378,14 +377,12 @@ export default function CommercialCleaning() {
         </div>
       </section>
 
-      <Footer />
-      
       {showContactForm && (
         <ContactFormModal 
           isOpen={showContactForm} 
           onClose={() => setShowContactForm(false)} 
         />
       )}
-    </div>
+    </>
   );
 }

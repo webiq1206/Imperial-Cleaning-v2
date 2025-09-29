@@ -1,5 +1,3 @@
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
 import HeroSection from "@/components/hero-section";
 import ServicesSection from "@/components/services-section";
 import FeaturesSection from "@/components/features-section";
@@ -11,7 +9,6 @@ import ServicePillarsSection from "@/components/service-pillars-section";
 import CaseStudiesSection from "@/components/case-studies-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import FAQSection from "@/components/faq-section";
-import StickyContacts from "@/components/sticky-contacts";
 import SEOHead, { 
   createLocalBusinessSchema, 
   createOrganizationSchema, 
@@ -202,7 +199,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <SEOHead
         title="Boise Commercial Cleaning Services | Imperial Cleaning Inc."
         description="Premier commercial & construction cleaning in Boise, Meridian, Nampa & Treasure Valley. Trusted by 500+ businesses across Ada County & Canyon County. Call today!"
@@ -222,8 +219,6 @@ export default function Home() {
         structuredData={structuredData}
       />
       
-      <Header />
-      <StickyContacts />
       <HeroSection />
       <ServicesSection />
       <FeaturesSection />
@@ -235,7 +230,6 @@ export default function Home() {
       <ServiceAreasSection />
       <ServicePillarsSection />
       <FAQSection />
-      <Footer />
-    </div>
+    </>
   );
 }

@@ -1,11 +1,9 @@
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
-import StickyContacts from "@/components/sticky-contacts";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, RouteComponentProps } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
+import { ServiceLocation } from "@shared/service-locations";
 import SEOHead, { 
   createLocalBusinessSchema, 
   createServiceSchema,
@@ -13,7 +11,11 @@ import SEOHead, {
   createBreadcrumbSchema
 } from "@/components/seo-head";
 
-export default function ConstructionCleaning() {
+interface ConstructionCleaningProps extends RouteComponentProps {
+  locationData?: ServiceLocation | null;
+}
+
+export default function ConstructionCleaning({ locationData }: ConstructionCleaningProps) {
   const [showContactForm, setShowContactForm] = useState(false);
 
   // Structured data for construction cleaning page
@@ -138,7 +140,7 @@ export default function ConstructionCleaning() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <SEOHead
         title="Idaho & Utah Construction Cleaning | Imperial Cleaning Inc."
         description="Professional post-construction cleanup in all service areas across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call today!"
@@ -157,9 +159,6 @@ export default function ConstructionCleaning() {
         }}
         structuredData={structuredData}
       />
-      
-      <Header />
-      <StickyContacts />
       
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
@@ -369,14 +368,12 @@ export default function ConstructionCleaning() {
         </div>
       </section>
 
-      <Footer />
-      
       {showContactForm && (
         <ContactFormModal 
           isOpen={showContactForm} 
           onClose={() => setShowContactForm(false)} 
         />
       )}
-    </div>
+    </>
   );
 }
