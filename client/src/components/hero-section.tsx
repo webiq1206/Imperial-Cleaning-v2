@@ -42,11 +42,11 @@ export default function HeroSection() {
 
         {/* Resend-style hero layout */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-full">
-          <div className="flex items-start md:items-center h-[85vh] md:h-screen relative pt-2 md:pt-0">
+          <div className="flex items-center h-[85vh] md:h-screen relative">
             {/* Left side - Content */}
             <div className="flex-1 max-w-2xl z-20">
               {/* Enhanced Resend-style announcement pill with motion polish */}
-              <div className="mb-4 md:mb-8 animate-fade-in-left stagger-delay-1">
+              <div className="mb-6 md:mb-8 animate-fade-in-left stagger-delay-1">
                 <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow  hover-lift-gentle hover-shimmer">
                   <span className="text-sm text-secondary-color font-medium tracking-tight">
                     Professional Cleaning Services • Licensed & Insured • Trusted Partner
@@ -59,7 +59,7 @@ export default function HeroSection() {
 
               {/* Main heading with enhanced animations */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.9] tracking-tight mb-6 md:mb-8 animate-fade-in-up stagger-delay-2">
-                <span className="inline-block hover-lift-gentle">Professional</span><br /><span className="inline-block hover-lift-gentle stagger-delay-2">cleaning</span> <span className="inline-block hover-lift-gentle stagger-delay-2">for</span>
+                <span className="inline-block hover-lift-gentle">Professional</span><br /><span className="inline-block hover-lift-gentle stagger-delay-2">cleaning</span> <span className="inline-block hover-lift-gentle stagger-delay-2">for</span><br />
                 <span className="inline-block hover-lift-gentle stagger-delay-3 gradient-text-cyan-purple">businesses</span>
               </h1>
 
