@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -87,7 +87,14 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
         description: "We'll contact you within 24 hours with your quote.",
       });
       onClose();
-      form.reset();
+      form.reset({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        location: "",
+        message: "",
+      });
       setCurrentStep(1);
     },
     onError: (error) => {
@@ -169,15 +176,38 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
     
     // Legacy tracking
     trackEvent('form_abandon', 'contact', `step_${currentStep}`);
-    onClose();
-    form.reset();
+    
+    // Reset form state completely
+    form.reset({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      location: "",
+      message: "",
+    });
     setCurrentStep(1);
+    onClose();
   };
 
   if (!isOpen) return null;
 
   const progress = (currentStep / steps.length) * 100;
   const currentStepData = steps[currentStep - 1];
+
+  // Focus management for better UX
+  useEffect(() => {
+    if (isOpen && currentStepData) {
+      // Focus the current input field after a brief delay
+      const timer = setTimeout(() => {
+        const currentInput = document.querySelector(`[data-testid="input-${currentStepData.field}"]`) as HTMLInputElement;
+        if (currentInput) {
+          currentInput.focus();
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [currentStep, isOpen, currentStepData]);
 
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -211,6 +241,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
             {/* Current Step Content */}
             <div data-testid={`form-step-${currentStep}`}>
               <FormField
+                key={`${currentStepData.field}-${currentStep}`}
                 control={form.control}
                 name={currentStepData.field as keyof FormData}
                 render={({ field }) => (
@@ -242,7 +273,10 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                       ) : currentStepData.field === "message" ? (
                         <Textarea
                           placeholder={currentStepData.placeholder}
-                          {...field}
+                          value={field.value || ""}
+                          onChange={field.onChange}
+                          onBlur={field.onBlur}
+                          name={field.name}
                           rows={4}
                           data-testid={`input-${currentStepData.field}`}
                           className="border-border bg-input hover:border-primary/50 focus:border-primary transition-colors duration-200 resize-none"
@@ -250,10 +284,18 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                       ) : (
                         <Input
                           placeholder={currentStepData.placeholder}
-                          {...field}
+                          value={field.value || ""}
+                          onChange={(e) => {
+                            field.onChange(e);
+                            // Ensure we're only updating the current field
+                            form.setValue(currentStepData.field as keyof FormData, e.target.value);
+                          }}
+                          onBlur={field.onBlur}
+                          name={field.name}
                           type={currentStepData.field === "email" ? "email" : currentStepData.field === "phone" ? "tel" : "text"}
                           data-testid={`input-${currentStepData.field}`}
                           className="h-12 border-border bg-input hover:border-primary/50 focus:border-primary transition-colors duration-200 text-base"
+                          autoComplete={currentStepData.field === "email" ? "email" : currentStepData.field === "phone" ? "tel" : "off"}
                         />
                       )}
                     </FormControl>
