@@ -25,7 +25,7 @@ export default function ServicePillarsSection() {
       subtitle: "Available in All Service Areas Across Idaho & Utah",
       icon: "fas fa-hard-hat",
       description: "Comprehensive post-construction cleaning services available in all Imperial Cleaning service areas with systematic 3-phase approach ensuring your construction projects meet inspection standards and are ready for occupancy.",
-      certification: "OSHA Certified • Bonded • Insured",
+      certification: "Safety Certified • Bonded • Insured",
       processSteps: [
         {
           phase: "Phase 1: Rough Cleaning",
@@ -70,7 +70,7 @@ export default function ServicePillarsSection() {
       subtitle: "Available in All Service Areas Across Idaho & Utah",
       icon: "fas fa-building",
       description: "Professional commercial janitorial services available in all Imperial Cleaning service areas with flexible scheduling for office cleaning, business maintenance, and comprehensive facility management.",
-      certification: "Green Certified • ISSA Member • Bonded",
+      certification: "Environmentally Certified • Industry Member • Bonded",
       schedules: [
         {
           frequency: "Daily Office Cleaning",
@@ -118,7 +118,7 @@ export default function ServicePillarsSection() {
       subtitle: "Available in All Service Areas Across Idaho & Utah",
       icon: "fas fa-industry",
       description: "Specialized industrial cleaning services available in all Imperial Cleaning service areas for manufacturing facilities, warehouses, and production environments.",
-      certification: "OSHA 30-Hour Certified • EPA Compliant • Safety Trained",
+      certification: "Safety Certified • Environmentally Compliant • Professional Training",
       facilityTypes: [
         {
           type: "Manufacturing Plants",
@@ -144,7 +144,7 @@ export default function ServicePillarsSection() {
           type: "Food Processing Facilities",
           location: "All Imperial Cleaning service areas",
           services: [
-            "USDA-compliant sanitization procedures",
+            "Federal-compliant sanitization procedures",
             "Cold storage and freezer cleaning",
             "Production equipment deep cleaning",
             "Food safety protocol implementation"
@@ -158,9 +158,9 @@ export default function ServicePillarsSection() {
         "Specialized chemical dispensing systems"
       ],
       compliance: [
-        "OSHA safety standards compliance",
+        "Safety standards compliance",
         "FDA food safety regulations", 
-        "EPA environmental protection standards",
+        "Environmental protection standards",
         "State of Idaho industrial cleaning requirements"
       ],
       serviceAreas: "Available in all Imperial Cleaning service areas across Idaho and Utah",
@@ -172,7 +172,7 @@ export default function ServicePillarsSection() {
       subtitle: "24/7 Response in All Service Areas Across Idaho & Utah",
       icon: "fas fa-exclamation-triangle",
       description: "Rapid response emergency cleanup services available 24/7 in all Imperial Cleaning service areas across Idaho and Utah with 2-hour response time guarantee for urgent situations.",
-      certification: "IICRC Certified • Hazmat Trained • Emergency Response Certified",
+      certification: "Professional Certified • Hazmat Trained • Emergency Response Certified",
       emergencyTypes: [
         {
           type: "Water Damage & Flooding",
@@ -231,13 +231,13 @@ export default function ServicePillarsSection() {
       subtitle: "Eco-Friendly Cleaning for Idaho & Utah Clients",
       icon: "fas fa-leaf",
       description: "Environmentally responsible cleaning solutions using EPA-approved, non-toxic products perfect for Idaho and Utah businesses committed to sustainability and employee health.",
-      certification: "Green Seal Certified • EPA Safer Choice Partner • LEED Compliant",
+      certification: "Environmental Seal Certified • Environmental Safety Partner • Green Building Compliant",
       greenPrograms: [
         {
-          program: "LEED Building Compliance",
+          program: "Green Building Compliance",
           suitable: "Corporate offices and certified buildings",
           features: [
-            "Green Seal certified cleaning products",
+            "Environmental certified cleaning products",
             "Microfiber technology reducing chemical usage",
             "Energy-efficient equipment and procedures",
             "Waste reduction and recycling programs"
@@ -247,7 +247,7 @@ export default function ServicePillarsSection() {
           program: "Healthcare-Safe Cleaning",
           suitable: "Medical facilities and schools",
           features: [
-            "EPA Safer Choice approved products",
+            "Environmental Safety approved products",
             "Non-toxic disinfectants and sanitizers", 
             "Fragrance-free options for sensitive environments",
             "Reduced VOC emissions for indoor air quality"
@@ -285,7 +285,7 @@ export default function ServicePillarsSection() {
       subtitle: "Advanced Cleaning Technology & Professional Expertise",
       icon: "fas fa-cogs",
       description: "State-of-the-art cleaning equipment and advanced techniques ensuring superior results for complex cleaning challenges throughout the Treasure Valley region.",
-      certification: "Equipment Certified • ISSA Trained • Manufacturer Authorized",
+      certification: "Equipment Certified • Industry Trained • Manufacturer Authorized",
       equipmentCategories: [
         {
           category: "Air Filtration & Dust Control",
@@ -346,7 +346,7 @@ export default function ServicePillarsSection() {
         }
       ],
       safetyProtocols: [
-        "OSHA-compliant safety procedures",
+        "Safety-compliant safety procedures",
         "Personal protective equipment (PPE) requirements",
         "Equipment maintenance and inspection schedules",
         "Emergency response and first aid procedures"

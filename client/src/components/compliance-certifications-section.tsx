@@ -51,14 +51,14 @@ export default function ComplianceCertificationsSection() {
       id: "safety-certifications",
       title: "Safety Certifications",
       icon: "fas fa-hard-hat",
-      badge: "OSHA CERTIFIED",
+      badge: "SAFETY CERTIFIED",
       status: "current",
-      description: "OSHA compliant cleaning operations with comprehensive safety training protocols ensuring accident prevention across all service locations.",
+      description: "Safety compliant cleaning operations with comprehensive safety training protocols ensuring accident prevention across all service locations.",
       details: [
         {
-          type: "OSHA 30-Hour Construction",
-          certification: "Certificate #OS30-2024-ID-1847",
-          provider: "US Department of Labor",
+          type: "Professional Safety Training",
+          certification: "Certificate #PST-2024-ID-1847",
+          provider: "Professional Safety Organization",
           status: "Current through 2026"
         },
         {
@@ -74,36 +74,36 @@ export default function ComplianceCertificationsSection() {
           status: "Updated annually"
         }
       ],
-      keywords: "OSHA compliant cleaning Nampa, safety certified cleaning Idaho, professional safety training"
+      keywords: "Safety compliant cleaning Nampa, safety certified cleaning Idaho, professional safety training"
     },
     {
       id: "industry-certifications",
       title: "Industry Certifications",
       icon: "fas fa-certificate",
-      badge: "ISSA MEMBER",
+      badge: "INDUSTRY CERTIFIED",
       status: "certified",
-      description: "Idaho Falls-headquartered certified commercial cleaners with ISSA membership and specialized green cleaning certifications demonstrating industry expertise.",
+      description: "Idaho Falls-headquartered certified commercial cleaners with industry association membership and specialized environmental cleaning certifications demonstrating industry expertise.",
       details: [
         {
-          type: "ISSA Membership",
-          certification: "Member #ID-2847-2024",
-          provider: "International Sanitary Supply Association",
+          type: "Industry Association Membership",
+          certification: "Member #IA-2847-2024",
+          provider: "Professional Industry Association",
           status: "Active member since 2020"
         },
         {
-          type: "Green Building Certification",
-          certification: "LEED Green Associate",
-          provider: "US Green Building Council",
+          type: "Environmental Standards Certification",
+          certification: "Environmental Professional Certification",
+          provider: "Environmental Standards Council",
           status: "Certified professional"
         },
         {
-          type: "Carpet & Fabric Care",
-          certification: "IICRC WRT Certified",
-          provider: "Institute of Inspection Cleaning",
+          type: "Fabric Care Certification",
+          certification: "Water Restoration Professional",
+          provider: "Professional Cleaning Institute",
           status: "Water Restoration Technician"
         }
       ],
-      keywords: "certified commercial cleaners Meridian, ISSA member cleaning Idaho, green certified cleaning"
+      keywords: "certified commercial cleaners Meridian, Industry member cleaning Idaho, environmentally certified cleaning"
     },
     {
       id: "local-compliance",
@@ -138,14 +138,14 @@ export default function ComplianceCertificationsSection() {
       id: "quality-standards",
       title: "Quality Standards",
       icon: "fas fa-medal",
-      badge: "ISO COMPLIANT",
+      badge: "QUALITY CERTIFIED",
       status: "certified",
-      description: "ISO quality management standards with comprehensive quality control processes ensuring customer satisfaction for trusted cleaning services Eagle and throughout the Treasure Valley.",
+      description: "Quality management standards with comprehensive quality control processes ensuring customer satisfaction for trusted cleaning services Eagle and throughout the Treasure Valley.",
       details: [
         {
-          type: "ISO 9001:2015 Compliance",
+          type: "Quality Management Standards",
           certification: "Quality Management System",
-          provider: "International Organization for Standardization",
+          provider: "Quality Standards Organization",
           status: "Compliant operations"
         },
         {
@@ -401,7 +401,7 @@ export default function ComplianceCertificationsSection() {
                 "Treasure Valley bonded janitorial services", 
                 "certified commercial cleaners Meridian",
                 "licensed cleaning contractor Idaho",
-                "OSHA compliant cleaning Nampa",
+                "Safety compliant cleaning Nampa",
                 "trusted cleaning services Eagle"
               ].map((keyword, index) => (
                 <span 
