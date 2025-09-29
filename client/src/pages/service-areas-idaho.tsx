@@ -135,21 +135,21 @@ export default function ServiceAreasIdaho() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-primary text-5xl mb-4">
+              <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-map-marked-alt"></i>
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Local Idaho Knowledge</h3>
               <p className="text-muted-foreground">We understand Idaho's unique climate and construction challenges</p>
             </div>
             <div className="text-center">
-              <div className="text-primary text-5xl mb-4">
+              <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-truck"></i>
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Statewide Coverage</h3>
               <p className="text-muted-foreground">From Boise to Idaho Falls, we serve all major Idaho markets</p>
             </div>
             <div className="text-center">
-              <div className="text-primary text-5xl mb-4">
+              <div className="icon-gradient text-5xl mb-4">
                 <i className="fas fa-handshake"></i>
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Idaho Partnerships</h3>
@@ -167,7 +167,7 @@ export default function ServiceAreasIdaho() {
             Contact us today for professional cleaning services anywhere in Idaho
           </p>
           <button 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
+            className="neon-border px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
             onClick={() => setShowContactForm(true)}
             data-testid="button-contact-idaho"
           >

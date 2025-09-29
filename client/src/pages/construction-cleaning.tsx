@@ -57,7 +57,7 @@ export default function ConstructionCleaning() {
               <h3 className="text-2xl font-bold mb-4 text-foreground">Our Process</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className=" text-2xl mr-4 mt-1">
+                  <div className="icon-gradient text-2xl mr-4 mt-1">
                     <i className="fas fa-clipboard-list"></i>
                   </div>
                   <div>
@@ -66,7 +66,7 @@ export default function ConstructionCleaning() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className=" text-2xl mr-4 mt-1">
+                  <div className="icon-gradient text-2xl mr-4 mt-1">
                     <i className="fas fa-broom"></i>
                   </div>
                   <div>
@@ -75,7 +75,7 @@ export default function ConstructionCleaning() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className=" text-2xl mr-4 mt-1">
+                  <div className="icon-gradient text-2xl mr-4 mt-1">
                     <i className="fas fa-check-circle"></i>
                   </div>
                   <div>
