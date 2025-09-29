@@ -6,7 +6,7 @@ export default function TestimonialsSectionWrapper() {
     {
       id: 1,
       content: "Imperial Cleaning transformed our post-construction site into a spotless workspace. Their attention to detail is unmatched, and they completed the job ahead of schedule.",
-      author: "Michael Thompson",
+      author: "Michael T.",
       position: "Project Manager",
       company: "Mountain View Construction",
       location: "Idaho Falls, ID",
@@ -16,7 +16,7 @@ export default function TestimonialsSectionWrapper() {
     {
       id: 2,
       content: "We've been using Imperial Cleaning for our office maintenance for over two years. Consistent, reliable, and professional service every time.",
-      author: "Sarah Chen",
+      author: "Sarah C.",
       position: "Operations Director", 
       company: "Tech Solutions Utah",
       location: "Salt Lake City, UT",
@@ -26,7 +26,7 @@ export default function TestimonialsSectionWrapper() {
     {
       id: 3,
       content: "The team at Imperial Cleaning exceeded our expectations. They handled our large commercial facility with precision and care, delivering exceptional results.",
-      author: "Robert Martinez",
+      author: "Robert M.",
       position: "Facilities Manager",
       company: "Logan Manufacturing", 
       location: "Logan, UT",
@@ -36,7 +36,7 @@ export default function TestimonialsSectionWrapper() {
     {
       id: 4,
       content: "From initial consultation to final cleanup, Imperial Cleaning provided outstanding service. Their expertise in construction cleaning is evident in everything they do.",
-      author: "Jennifer Walsh",
+      author: "Jennifer W.",
       position: "General Contractor",
       company: "Pocatello Builders",
       location: "Pocatello, ID", 
@@ -46,7 +46,7 @@ export default function TestimonialsSectionWrapper() {
     {
       id: 5,
       content: "Imperial Cleaning delivers exceptional results every time. Their professional approach and attention to detail make them our go-to cleaning service.",
-      author: "David Kim",
+      author: "David K.",
       position: "Facility Director",
       company: "Boise Medical Center",
       location: "Boise, ID",
@@ -56,7 +56,7 @@ export default function TestimonialsSectionWrapper() {
     {
       id: 6,
       content: "Outstanding service and reliability. Imperial Cleaning has been instrumental in maintaining our commercial properties to the highest standards.",
-      author: "Lisa Rodriguez",
+      author: "Lisa R.",
       position: "Property Manager",
       company: "Wasatch Commercial Properties",
       location: "Provo, UT",

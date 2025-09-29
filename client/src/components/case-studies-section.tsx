@@ -65,7 +65,7 @@ export default function CaseStudiesSection() {
       ],
       testimonial: {
         quote: "Imperial Cleaning exceeded every expectation. Their systematic approach and attention to detail ensured our building was inspection-ready ahead of schedule. Professional, reliable, and incredibly thorough.",
-        author: "Michael Chen",
+        author: "Michael C.",
         position: "Project Manager",
         company: "Snake River Development Group"
       },
@@ -100,7 +100,7 @@ export default function CaseStudiesSection() {
       ],
       testimonial: {
         quote: "The transformation has been remarkable. Our safety scores improved dramatically, production efficiency increased, and employee satisfaction is at an all-time high. Imperial Cleaning truly understands industrial environments.",
-        author: "Sarah Rodriguez",
+        author: "Sarah R.",
         position: "Facilities Director", 
         company: "Pocatello Precision Manufacturing"
       },
@@ -170,7 +170,7 @@ export default function CaseStudiesSection() {
       ],
       testimonial: {
         quote: "Imperial Cleaning's ability to scale across state lines while maintaining their exceptional quality standards is impressive. They've become our go-to partner for construction cleanup throughout the region.",
-        author: "Amanda Thompson",
+        author: "Amanda T.",
         position: "Regional Construction Manager",
         company: "Mountain West Builders"
       },
@@ -240,7 +240,7 @@ export default function CaseStudiesSection() {
       ],
       testimonial: {
         quote: "Imperial Cleaning's wellness-focused approach aligns perfectly with our company culture. The improved air quality and sustainable practices have positively impacted employee satisfaction and productivity. Outstanding partnership.",
-        author: "David Kim",
+        author: "David K.",
         position: "Facilities & Operations Director",
         company: "Boise Tech Innovations"
       },

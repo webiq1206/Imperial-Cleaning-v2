@@ -747,7 +747,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
                   "Imperial Cleaning exceeded every expectation. Their systematic approach and attention to detail ensured our building was inspection-ready ahead of schedule."
                 </p>
                 <p className="text-sm font-medium text-foreground mt-2">
-                  - Michael Chen, Project Manager, Snake River Development Group
+                  - Michael C., Project Manager, Snake River Development Group
                 </p>
               </div>
             </div>
@@ -795,7 +795,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
                   "Imperial Cleaning's ability to scale across state lines while maintaining their exceptional quality standards is impressive. They've become our go-to partner."
                 </p>
                 <p className="text-sm font-medium text-foreground mt-2">
-                  - Amanda Thompson, Regional Construction Manager, Mountain West Builders
+                  - Amanda T., Regional Construction Manager, Mountain West Builders
                 </p>
               </div>
             </div>
