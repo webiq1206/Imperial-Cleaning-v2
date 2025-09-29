@@ -22,16 +22,16 @@ export default function Home() {
   // FAQ data for schema markup
   const faqData = [
     {
-      question: "What areas in Boise and the Treasure Valley do you serve?",
-      answer: "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout the entire Treasure Valley region, including Boise, Meridian, Nampa, Caldwell, Eagle, Star, and Kuna. We also serve outlying areas like Mountain Home, Emmett, and Middleton. Our Boise commercial cleaning team can typically reach any location within 30 minutes, ensuring prompt response times for both scheduled maintenance and urgent cleanup needs."
+      question: "What areas in Idaho Falls and Eastern Idaho do you serve?",
+      answer: "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout Eastern Idaho, including Idaho Falls, Pocatello, Blackfoot, Twin Falls, and Rexburg. We also serve the greater Bonneville County and Bannock County areas, as well as extending coverage to the Treasure Valley including Boise, Meridian, and Nampa. Our Idaho Falls headquarters ensures immediate response times for Eastern Idaho projects, with same-day service available for urgent cleanup needs."
     },
     {
       question: "What does your post-construction cleanup process include?",
-      answer: "Our Treasure Valley construction cleanup services follow a comprehensive 3-phase process: Phase 1 includes rough cleaning with debris removal, dust elimination, and surface preparation. Phase 2 covers detailed cleaning of windows, fixtures, floors, and all surfaces. Phase 3 is our final inspection-ready cleaning with touch-ups, floor protection, and complete project walkthrough. This systematic approach ensures your construction project in Boise, Meridian, or anywhere in Idaho meets inspection standards and is ready for occupancy."
+      answer: "Our Eastern Idaho construction cleanup services follow a comprehensive 3-phase process: Phase 1 includes rough cleaning with debris removal, dust elimination, and surface preparation. Phase 2 covers detailed cleaning of windows, fixtures, floors, and all surfaces. Phase 3 is our final inspection-ready cleaning with touch-ups, floor protection, and complete project walkthrough. This systematic approach ensures your construction project in Idaho Falls, Pocatello, or anywhere in Idaho meets inspection standards and is ready for occupancy."
     },
     {
       question: "How flexible are your commercial cleaning schedules in Idaho?",
-      answer: "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Meridian office cleaning and Boise commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Urgent cleanup services are available across the Treasure Valley with same-day response when needed."
+      answer: "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Idaho Falls and Pocatello commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Urgent cleanup services are available across Eastern Idaho with same-day response when needed."
     },
     {
       question: "Are you fully insured and bonded for commercial projects?",
@@ -39,62 +39,62 @@ export default function Home() {
     },
     {
       question: "How do you determine pricing for Nampa and Treasure Valley cleaning services?",
-      answer: "Our pricing for Nampa post-construction services and Treasure Valley commercial cleaning is based on several factors: square footage, frequency of service, type of facility, specific cleaning requirements, and accessibility. We provide detailed, transparent quotes with no hidden fees. Most commercial cleaning estimates in the Boise area can be provided within 24 hours. For construction cleanup projects, we offer both per-square-foot pricing and flat-rate options depending on project scope."
+      answer: "Our pricing for Idaho Falls construction services and Eastern Idaho commercial cleaning is based on several factors: square footage, frequency of service, type of facility, specific cleaning requirements, and accessibility. We provide detailed, transparent quotes with no hidden fees. Most commercial cleaning estimates in the Idaho Falls area can be provided within 24 hours. For construction cleanup projects, we offer both per-square-foot pricing and flat-rate options depending on project scope."
     }
   ];
 
   // Structured data schemas
   const localBusinessSchema = createLocalBusinessSchema({
     "name": "Imperial Cleaning Inc",
-    "description": "Leading commercial and construction cleaning company serving Boise, Meridian, Nampa, Eagle, and the entire Treasure Valley region. Professional post-construction cleanup and commercial janitorial services for Idaho and Utah businesses.",
+    "description": "Leading commercial and construction cleaning company headquartered in Idaho Falls, serving Eastern Idaho, southeastern Idaho, and extending to the Treasure Valley region. Professional post-construction cleanup and commercial janitorial services for Idaho and Utah businesses.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "123 Business Blvd",
-      "addressLocality": "Boise",
+      "addressLocality": "Idaho Falls",
       "addressRegion": "ID",
-      "postalCode": "83702",
+      "postalCode": "83402",
       "addressCountry": "US"
     },
     "areaServed": [
       {
         "@type": "City",
-        "name": "Boise",
-        "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho"
+        "name": "Idaho Falls",
+        "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho"
       },
       {
         "@type": "City", 
-        "name": "Meridian",
-        "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho"
+        "name": "Pocatello",
+        "sameAs": "https://en.wikipedia.org/wiki/Pocatello,_Idaho"
       },
       {
         "@type": "City",
-        "name": "Nampa", 
-        "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho"
+        "name": "Blackfoot", 
+        "sameAs": "https://en.wikipedia.org/wiki/Blackfoot,_Idaho"
       },
       {
         "@type": "City",
-        "name": "Eagle",
-        "sameAs": "https://en.wikipedia.org/wiki/Eagle,_Idaho"
+        "name": "Twin Falls",
+        "sameAs": "https://en.wikipedia.org/wiki/Twin_Falls,_Idaho"
       },
       {
         "@type": "City",
-        "name": "Caldwell",
-        "sameAs": "https://en.wikipedia.org/wiki/Caldwell,_Idaho"
+        "name": "Rexburg",
+        "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho"
       },
       {
         "@type": "AdministrativeArea",
-        "name": "Ada County",
-        "sameAs": "https://en.wikipedia.org/wiki/Ada_County,_Idaho"
+        "name": "Bonneville County",
+        "sameAs": "https://en.wikipedia.org/wiki/Bonneville_County,_Idaho"
       },
       {
         "@type": "AdministrativeArea",
-        "name": "Canyon County", 
-        "sameAs": "https://en.wikipedia.org/wiki/Canyon_County,_Idaho"
+        "name": "Bannock County", 
+        "sameAs": "https://en.wikipedia.org/wiki/Bannock_County,_Idaho"
       },
       {
         "@type": "Place",
-        "name": "Treasure Valley",
-        "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
+        "name": "Eastern Idaho",
+        "sameAs": "https://en.wikipedia.org/wiki/Eastern_Idaho"
       }
     ]
   });
@@ -107,30 +107,30 @@ export default function Home() {
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Treasure Valley Cleaning Services",
+      "name": "Eastern Idaho Cleaning Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Boise Commercial Cleaning",
-            "description": "Professional commercial cleaning services for Boise businesses, office buildings, and commercial facilities"
+            "name": "Idaho Falls Commercial Cleaning",
+            "description": "Professional commercial cleaning services for Idaho Falls businesses, office buildings, and commercial facilities including Snake River Landing"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service", 
-            "name": "Meridian Construction Cleanup",
-            "description": "Post-construction cleanup services for contractors and builders in Meridian and surrounding areas"
+            "name": "Pocatello Construction Cleanup",
+            "description": "Post-construction cleanup services for contractors and builders in Pocatello and surrounding southeastern Idaho areas"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Nampa Industrial Cleaning",
-            "description": "Industrial and warehouse cleaning services for Nampa manufacturing and distribution facilities"
+            "name": "Twin Falls Industrial Cleaning",
+            "description": "Industrial and warehouse cleaning services for Twin Falls manufacturing and agricultural facilities"
           }
         }
       ]
@@ -138,45 +138,45 @@ export default function Home() {
   });
 
   const constructionServiceSchema = createServiceSchema({
-    name: "Treasure Valley Construction Cleaning",
-    description: "Professional post-construction cleanup services throughout Boise, Meridian, Nampa, Eagle, and the entire Treasure Valley region. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders.",
+    name: "Eastern Idaho Construction Cleaning",
+    description: "Professional post-construction cleanup services throughout Idaho Falls, Pocatello, Twin Falls, Blackfoot, and the entire Eastern Idaho region. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders.",
     serviceType: "Construction Cleaning",
     areaServed: [
       {
         "@type": "City",
-        "name": "Boise, Idaho"
+        "name": "Idaho Falls, Idaho"
       },
       {
         "@type": "City",
-        "name": "Meridian, Idaho"
+        "name": "Pocatello, Idaho"
       },
       {
         "@type": "City", 
-        "name": "Nampa, Idaho"
+        "name": "Twin Falls, Idaho"
       },
       {
         "@type": "Place",
-        "name": "Treasure Valley, Idaho"
+        "name": "Eastern Idaho"
       }
     ]
   });
 
   const commercialServiceSchema = createServiceSchema({
-    name: "Boise Commercial Cleaning Services",
-    description: "Professional commercial cleaning and janitorial services for Boise area businesses. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout Ada County and Canyon County.",
+    name: "Idaho Falls Commercial Cleaning Services",
+    description: "Professional commercial cleaning and janitorial services for Idaho Falls area businesses. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout Bonneville County and southeastern Idaho.",
     serviceType: "Commercial Cleaning",
     areaServed: [
       {
         "@type": "AdministrativeArea",
-        "name": "Ada County, Idaho"
+        "name": "Bonneville County, Idaho"
       },
       {
         "@type": "AdministrativeArea",
-        "name": "Canyon County, Idaho"
+        "name": "Bannock County, Idaho"
       },
       {
         "@type": "Place",
-        "name": "Treasure Valley, Idaho"
+        "name": "Eastern Idaho"
       }
     ]
   });
@@ -185,7 +185,7 @@ export default function Home() {
   const aggregateRatingSchema = createAggregateRatingSchema();
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: "https://imperialcleaninginc.com/" },
-    { name: "Boise Commercial Cleaning", url: "https://imperialcleaninginc.com/" }
+    { name: "Idaho Falls Commercial Cleaning", url: "https://imperialcleaninginc.com/" }
   ]);
 
   const structuredData = [
@@ -201,19 +201,19 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Boise Commercial Cleaning Services | Imperial Cleaning Inc."
-        description="Premier commercial & construction cleaning in Boise, Meridian, Nampa & Treasure Valley. Trusted by 500+ businesses across Ada County & Canyon County. Call today!"
-        keywords="Boise commercial cleaning, construction cleanup Idaho, Meridian office cleaning, Nampa janitorial services, Treasure Valley cleaning company, Ada County cleaning, Canyon County commercial cleaners, Idaho Falls cleaning services, post construction cleanup"
+        title="Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc."
+        description="Premier commercial & construction cleaning in Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by 500+ businesses across Bonneville County & southeastern Idaho. Call today!"
+        keywords="Idaho Falls commercial cleaning, Eastern Idaho construction cleanup, Pocatello office cleaning, Twin Falls janitorial services, southeastern Idaho cleaning company, Bonneville County cleaning, Bannock County commercial cleaners, Blackfoot cleaning services, post construction cleanup"
         canonicalUrl="https://imperialcleaninginc.com/"
         author="Imperial Cleaning Inc"
         geography={{
           region: "ID-UT",
-          placename: "Boise, Idaho",
-          position: "43.6150;-116.2023"
+          placename: "Idaho Falls, Idaho",
+          position: "43.4933;-112.0339"
         }}
         openGraph={{
-          title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
-          description: "Leading commercial and construction cleaning company serving Boise and the entire Treasure Valley region. Professional cleaning solutions for businesses and contractors.",
+          title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
+          description: "Leading commercial and construction cleaning company serving Idaho Falls and the entire Eastern Idaho region. Professional cleaning solutions for businesses and contractors.",
           image: "https://imperialcleaninginc.com/hero-logo.png",
           imageAlt: "Imperial Cleaning Inc - Professional Cleaning Services in Boise and Treasure Valley",
           type: "website",
@@ -223,8 +223,8 @@ export default function Home() {
         }}
         twitter={{
           card: "summary_large_image",
-          title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
-          description: "Professional commercial & construction cleaning throughout Boise, Meridian, Nampa & the Treasure Valley. Trusted by Idaho businesses since 2010.",
+          title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
+          description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by Idaho businesses since 2010.",
           image: "https://imperialcleaninginc.com/hero-logo.png",
           imageAlt: "Imperial Cleaning Inc Logo - Professional Cleaning Services",
           site: "@imperialcleaning",

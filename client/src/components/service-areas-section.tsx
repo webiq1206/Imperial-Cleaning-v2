@@ -34,17 +34,17 @@ export default function ServiceAreasSection() {
               <div className="grid grid-cols-1 gap-4">
                 <div className="glass-card-elevated p-4 rounded-lg">
                   <p className="text-sm text-muted-foreground mb-3">
-                    Professional commercial and construction cleaning services throughout Idaho's major metropolitan areas and growing communities.
+                    Headquartered in Idaho Falls, providing professional commercial and construction cleaning services throughout Eastern Idaho and extending statewide coverage.
                   </p>
                   <Link href="/service-areas" className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors">
                     View All Service Areas
                     <i className="fas fa-arrow-right ml-2 text-xs"></i>
                   </Link>
                 </div>
-                <Link href="/service-areas/idaho#kuna" className="group">
-                  <div className="flex items-center p-2 rounded hover:bg-primary/10 transition-colors" data-testid="city-kuna">
+                <Link href="/service-areas/idaho#idaho-falls" className="group">
+                  <div className="flex items-center p-2 rounded hover:bg-primary/10 transition-colors" data-testid="city-idaho-falls">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Kuna</span>
+                    <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Idaho Falls (HQ)</span>
                   </div>
                 </Link>
               </div>
