@@ -35,6 +35,19 @@ import SEOHead, {
   createAggregateRatingSchema,
   createBreadcrumbSchema
 } from "@/components/seo-head";
+import { 
+  generateLocationTitle,
+  generateLocationDescription,
+  generateLocationHero,
+  generateMarketOverview,
+  generateServiceCoverage,
+  generateBusinessIntegration,
+  generateLocationFAQ,
+  generateLocationStructuredData,
+  generateCanonicalUrl,
+  generateLocationBreadcrumbs
+} from "@/lib/location-content-utils";
+import { locationToSlug } from "@/lib/routing-utils";
 
 interface ConstructionCleaningProps extends RouteComponentProps {
   locationData?: ServiceLocation | null;
@@ -42,74 +55,93 @@ interface ConstructionCleaningProps extends RouteComponentProps {
 
 export default function ConstructionCleaning({ locationData }: ConstructionCleaningProps) {
   const [showContactForm, setShowContactForm] = useState(false);
+  
+  // Generate location-specific content if locationData is provided
+  const isLocationSpecific = !!locationData;
+  const locationSlug = locationData ? locationToSlug(locationData.name) : null;
+  
+  // Location-specific content
+  const locationHero = locationData ? generateLocationHero('construction-cleaning', locationData) : null;
+  const marketOverview = locationData ? generateMarketOverview('construction-cleaning', locationData) : null;
+  const serviceCoverage = locationData ? generateServiceCoverage('construction-cleaning', locationData) : null;
+  const businessIntegration = locationData ? generateBusinessIntegration('construction-cleaning', locationData) : null;
+  const locationFAQ = locationData ? generateLocationFAQ('construction-cleaning', locationData) : null;
+  
+  // SEO content
+  const pageTitle = isLocationSpecific ? generateLocationTitle('construction-cleaning', locationData!) : "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc.";
+  const pageDescription = isLocationSpecific ? generateLocationDescription('construction-cleaning', locationData!) : "Professional post-construction cleanup in all service areas across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call today!";
+  const canonicalUrl = isLocationSpecific ? generateCanonicalUrl('construction-cleaning', locationSlug!) : "https://imperialcleaninginc.com/construction-cleaning";
 
-  // Structured data for construction cleaning page
-  const constructionServiceSchema = createServiceSchema({
-    name: "Idaho & Utah Construction Cleaning Services",
-    description: "Professional post-construction cleanup services throughout all service areas across Idaho and Utah. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders in all locations we serve.",
-    serviceType: "Construction Cleaning",
-    areaServed: [
-      {
-        "@type": "State",
-        "name": "Idaho",
-        "sameAs": "https://en.wikipedia.org/wiki/Idaho"
-      },
-      {
-        "@type": "State",
-        "name": "Utah",
-        "sameAs": "https://en.wikipedia.org/wiki/Utah"
-      },
-      {
-        "@type": "City",
-        "name": "Idaho Falls",
-        "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho"
-      },
-      {
-        "@type": "City",
-        "name": "Pocatello",
-        "sameAs": "https://en.wikipedia.org/wiki/Pocatello,_Idaho"
-      },
-      {
-        "@type": "City",
-        "name": "Rexburg",
-        "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho"
-      },
-      {
-        "@type": "City",
-        "name": "Logan",
-        "sameAs": "https://en.wikipedia.org/wiki/Logan,_Utah"
-      },
-      {
-        "@type": "City",
-        "name": "Ogden",
-        "sameAs": "https://en.wikipedia.org/wiki/Ogden,_Utah"
-      },
-      {
-        "@type": "City",
-        "name": "Salt Lake City",
-        "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City"
-      },
-      {
-        "@type": "City",
-        "name": "Provo",
-        "sameAs": "https://en.wikipedia.org/wiki/Provo,_Utah"
+  // Structured data - conditional based on location specificity
+  const constructionServiceSchema = isLocationSpecific ? 
+    generateLocationStructuredData('construction-cleaning', locationData!, canonicalUrl) :
+    createServiceSchema({
+      name: "Idaho & Utah Construction Cleaning Services",
+      description: "Professional post-construction cleanup services throughout all service areas across Idaho and Utah. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders in all locations we serve.",
+      serviceType: "Construction Cleaning",
+      areaServed: [
+        {
+          "@type": "State",
+          "name": "Idaho",
+          "sameAs": "https://en.wikipedia.org/wiki/Idaho"
+        },
+        {
+          "@type": "State",
+          "name": "Utah",
+          "sameAs": "https://en.wikipedia.org/wiki/Utah"
+        },
+        {
+          "@type": "City",
+          "name": "Idaho Falls",
+          "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho"
+        },
+        {
+          "@type": "City",
+          "name": "Pocatello",
+          "sameAs": "https://en.wikipedia.org/wiki/Pocatello,_Idaho"
+        },
+        {
+          "@type": "City",
+          "name": "Rexburg",
+          "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho"
+        },
+        {
+          "@type": "City",
+          "name": "Logan",
+          "sameAs": "https://en.wikipedia.org/wiki/Logan,_Utah"
+        },
+        {
+          "@type": "City",
+          "name": "Ogden",
+          "sameAs": "https://en.wikipedia.org/wiki/Ogden,_Utah"
+        },
+        {
+          "@type": "City",
+          "name": "Salt Lake City",
+          "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City"
+        },
+        {
+          "@type": "City",
+          "name": "Provo",
+          "sameAs": "https://en.wikipedia.org/wiki/Provo,_Utah"
+        }
+      ],
+      provider: {
+        "@type": "LocalBusiness",
+        "name": "Imperial Cleaning Inc",
+        "url": "https://imperialcleaninginc.com",
+        "telephone": "+1-208-520-3202",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Idaho Falls",
+          "addressRegion": "ID",
+          "addressCountry": "US"
+        }
       }
-    ],
-    provider: {
-      "@type": "LocalBusiness",
-      "name": "Imperial Cleaning Inc",
-      "url": "https://imperialcleaninginc.com",
-      "telephone": "+1-208-520-3202",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Boise",
-        "addressRegion": "ID",
-        "addressCountry": "US"
-      }
-    }
-  });
+    });
 
-  const localBusinessSchema = createLocalBusinessSchema({
+  // Skip additional local business schema for location-specific pages since it's included in the location structured data
+  const localBusinessSchema = !isLocationSpecific ? createLocalBusinessSchema({
     "serviceType": [
       "Post Construction Cleanup",
       "Construction Site Cleaning", 
@@ -148,18 +180,20 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
         }
       ]
     }
-  });
+  }) : null;
 
   const aggregateRatingSchema = createAggregateRatingSchema();
-  const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://imperialcleaninginc.com/" },
-    { name: "Services", url: "https://imperialcleaninginc.com/#services" },
-    { name: "Construction Cleaning", url: "https://imperialcleaninginc.com/construction-cleaning" }
-  ]);
+  const breadcrumbSchema = isLocationSpecific ? 
+    createBreadcrumbSchema(generateLocationBreadcrumbs('construction-cleaning', locationData!, locationSlug!)) :
+    createBreadcrumbSchema([
+      { name: "Home", url: "https://imperialcleaninginc.com/" },
+      { name: "Services", url: "https://imperialcleaninginc.com/#services" },
+      { name: "Construction Cleaning", url: "https://imperialcleaninginc.com/construction-cleaning" }
+    ]);
 
   const structuredData = [
     constructionServiceSchema,
-    localBusinessSchema,
+    ...(localBusinessSchema ? [localBusinessSchema] : []),
     aggregateRatingSchema,
     breadcrumbSchema
   ];
@@ -167,19 +201,19 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
   return (
     <>
       <SEOHead
-        title="Idaho & Utah Construction Cleaning | Imperial Cleaning Inc."
-        description="Professional post-construction cleanup in all service areas across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call today!"
-        canonicalUrl="https://imperialcleaninginc.com/construction-cleaning"
+        title={pageTitle}
+        description={pageDescription}
+        canonicalUrl={canonicalUrl}
         openGraph={{
-          title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc.",
-          description: "Professional post-construction cleanup services throughout all service areas across Idaho and Utah. Trusted by contractors for inspection-ready cleaning.",
+          title: pageTitle,
+          description: pageDescription,
           image: "https://imperialcleaninginc.com/hero-logo.png",
           type: "website"
         }}
         twitter={{
           card: "summary_large_image",
-          title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc.",
-          description: "Expert post-construction cleanup across Idaho & Utah. Professional debris removal and final inspection cleaning for contractors.",
+          title: pageTitle,
+          description: pageDescription,
           image: "https://imperialcleaninginc.com/hero-logo.png"
         }}
         structuredData={structuredData}
@@ -189,7 +223,11 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
       <div className="bg-card/30 border-b border-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <Breadcrumbs 
-            items={[
+            items={isLocationSpecific ? [
+              { name: "Services", href: "/#services" },
+              { name: "Construction Cleaning", href: "/construction-cleaning" },
+              { name: `${locationData!.name}, ${locationData!.state}` }
+            ] : [
               { name: "Services", href: "/#services" },
               { name: "Construction Cleaning" }
             ]}
@@ -202,10 +240,10 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
         <div className="absolute inset-0 bg-black/40 z-2"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Construction Cleanup Available in ALL Service Areas
+            {isLocationSpecific ? locationHero!.title : "Construction Cleanup Available in ALL Service Areas"}
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Professional construction cleanup available in ALL Imperial Cleaning service areas across Idaho and Utah. From debris removal to final detailing, we serve every location we operate in.
+            {isLocationSpecific ? locationHero!.subtitle : "Professional construction cleanup available in ALL Imperial Cleaning service areas across Idaho and Utah. From debris removal to final detailing, we serve every location we operate in."}
           </p>
           <Button 
             variant="pill-primary"
@@ -379,7 +417,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <Broom className="w-6 h-6 text-primary" />
+                    <Sparkles className="w-6 h-6 text-primary" />
                     <h3 className="text-2xl font-bold text-foreground">Phase 2: Detailed Cleaning & Surface Preparation</h3>
                   </div>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -775,6 +813,199 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
           </div>
         </div>
       </section>
+
+      {/* Location-Specific Content Sections */}
+      {isLocationSpecific && locationData && (
+        <>
+          {/* Local Market Overview */}
+          <section className="py-16 px-4 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold mb-6 text-foreground">{marketOverview!.title}</h2>
+                <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  {marketOverview!.description}
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="glass-card-elevated p-8 rounded-lg">
+                  <h3 className="text-2xl font-bold mb-6 text-foreground">Local Market Characteristics</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Building2 className="w-5 h-5 text-primary" />
+                      <span className="text-muted-foreground">Market Tier: <span className="text-foreground font-medium capitalize">{marketOverview!.marketTier}</span></span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Factory className="w-5 h-5 text-primary" />
+                      <span className="text-muted-foreground">Construction Activity: <span className="text-foreground font-medium capitalize">{marketOverview!.constructionActivity}</span></span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Users className="w-5 h-5 text-primary" />
+                      <span className="text-muted-foreground">Economic Base: <span className="text-foreground font-medium">{marketOverview!.economicBase.slice(0, 3).join(', ')}</span></span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="glass-card-elevated p-8 rounded-lg">
+                  <h3 className="text-2xl font-bold mb-6 text-foreground">Why Choose Us in {locationData.name}</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary" />
+                      <span className="text-muted-foreground">Understanding of local {locationData.demographics.economicBase.join(', ').toLowerCase()} markets</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary" />
+                      <span className="text-muted-foreground">Reliable {locationData.driveTimeFromHQ === "0 minutes (Headquarters)" ? "immediate local" : `${locationData.driveTimeFromHQ}`} response times</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary" />
+                      <span className="text-muted-foreground">Experience with {locationData.demographics.constructionActivity} construction activity levels</span>
+                    </li>
+                    {locationData.services.specializedServices.length > 0 && (
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        <span className="text-muted-foreground">Specialized in {locationData.services.specializedServices.slice(0, 2).join(' and ').toLowerCase()}</span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Service Coverage Details */}
+          <section className="py-16 px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold mb-6 text-foreground">Construction Cleanup Coverage in {locationData.name}</h2>
+                <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  {serviceCoverage!.description}
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="glass-card-elevated p-6 text-center hover-lift-gentle">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Clock className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">Response Time</h3>
+                  <p className="text-muted-foreground">{serviceCoverage!.driveTime === "0 minutes (Headquarters)" ? "Immediate response from local headquarters" : `${serviceCoverage!.driveTime} response from Idaho Falls`}</p>
+                </div>
+                
+                <div className="glass-card-elevated p-6 text-center hover-lift-gentle">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Building2 className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">Service Radius</h3>
+                  <p className="text-muted-foreground">Complete coverage throughout {serviceCoverage!.serviceRadius}</p>
+                </div>
+                
+                <div className="glass-card-elevated p-6 text-center hover-lift-gentle">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Star className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">Specialized Services</h3>
+                  <p className="text-muted-foreground">{serviceCoverage!.specializedServices.length > 0 ? serviceCoverage!.specializedServices.slice(0, 2).join(', ') : "Full-service construction cleanup"}</p>
+                </div>
+              </div>
+              
+              {serviceCoverage!.localAreas.length > 0 && (
+                <div className="mt-12 text-center">
+                  <h3 className="text-2xl font-bold mb-6 text-foreground">Areas We Serve in {locationData.name}</h3>
+                  <div className="flex flex-wrap justify-center gap-3">
+                    {serviceCoverage!.localAreas.map((area, index) => (
+                      <span key={index} className="glass-effect px-4 py-2 rounded-full text-sm text-muted-foreground">
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+
+          {/* Local Business Integration */}
+          <section className="py-16 px-4 bg-card/30">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold mb-6 text-foreground">Supporting {locationData.name}'s Business Community</h2>
+                <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  {businessIntegration!.content}
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-12">
+                <div className="glass-card-elevated p-8 rounded-lg">
+                  <h3 className="text-2xl font-bold mb-6 text-foreground">Local Economic Sectors</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {businessIntegration!.economicSectors.map((sector, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <Briefcase className="w-4 h-4 text-primary" />
+                        <span className="text-muted-foreground text-sm">{sector}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {businessIntegration!.businessDistricts.length > 0 && (
+                  <div className="glass-card-elevated p-8 rounded-lg">
+                    <h3 className="text-2xl font-bold mb-6 text-foreground">Key Business Areas</h3>
+                    <div className="space-y-3">
+                      {businessIntegration!.businessDistricts.map((district, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                          <Building2 className="w-4 h-4 text-primary" />
+                          <span className="text-muted-foreground">{district}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* Location-Specific FAQ */}
+          <section className="py-16 px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold mb-6 text-foreground">Construction Cleanup FAQ for {locationData.name}</h2>
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  Frequently asked questions specific to our construction cleanup services in {locationData.name}, {locationData.state}.
+                </p>
+              </div>
+              
+              <div className="max-w-4xl mx-auto">
+                <div className="glass-card-elevated p-8 rounded-lg">
+                  <Accordion type="single" collapsible className="space-y-4">
+                    {locationFAQ!.map((faq, index) => (
+                      <AccordionItem 
+                        key={index} 
+                        value={`location-faq-${index}`} 
+                        className="glass-card-elevated rounded-lg border-0 overflow-hidden"
+                      >
+                        <AccordionTrigger 
+                          className="px-6 py-6 text-left hover:no-underline" 
+                          data-testid={`faq-location-${index}`}
+                        >
+                          <h3 className="text-lg font-medium text-foreground leading-tight">
+                            {faq.question}
+                          </h3>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-6">
+                          <div className="glass-divider-top mb-4"></div>
+                          <p className="text-muted-foreground leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Related Services Section */}
       <section className="py-16 px-4 bg-card/30">
