@@ -37,7 +37,7 @@ export default function FAQSection() {
     {
       id: "insurance-bonding-compliance",
       question: "Are you fully insured and bonded for commercial projects?",
-      answer: "Yes, Imperial Cleaning Inc. maintains comprehensive insurance coverage including general liability, workers' compensation, and bonding for all commercial and construction cleaning projects in Idaho and Utah. We carry $2 million in liability coverage and are fully bonded, providing complete protection for your property and peace of mind. Our insurance certificates are readily available and we can add your business as an additional insured for larger projects."
+      answer: "Yes, Imperial Cleaning Inc. maintains comprehensive insurance coverage including general liability, workers' compensation, and bonding for all commercial and construction cleaning projects in our service areas. We carry substantial liability coverage and are fully bonded, providing complete protection for your property and peace of mind. Our insurance certificates are readily available and we can add your business as an additional insured for larger projects."
     },
     {
       id: "pricing-quote-process",
@@ -67,7 +67,7 @@ export default function FAQSection() {
     {
       id: "environmental-safety-practices",
       question: "What environmental and safety practices do you follow?",
-      answer: "Imperial Cleaning Inc. prioritizes environmental responsibility and safety in all operations across the Treasure Valley. We use EPA-approved, eco-friendly cleaning products whenever possible and follow all OSHA safety guidelines. Our team is trained in proper chemical handling, blood-borne pathogen procedures, and construction site safety protocols. We maintain all required safety certifications and provide regular training updates. For commercial clients in Boise and surrounding areas, we offer green cleaning programs that meet LEED building standards."
+      answer: "Imperial Cleaning Inc. prioritizes environmental responsibility and safety in all operations across our service areas. We use EPA-approved, eco-friendly cleaning products whenever possible and follow all required safety guidelines. Our team is trained in proper chemical handling, blood-borne pathogen procedures, and construction site safety protocols. We maintain all required safety certifications and provide regular training updates. For commercial clients in our service areas, we offer green cleaning programs that meet professional building standards."
     },
     {
       id: "staff-training-background",

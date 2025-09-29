@@ -287,7 +287,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-8 mb-6 pb-6 border-b border-border/10">
             <div className="flex items-center text-xs text-muted-foreground">
               <div className="w-3 h-3 bg-green-500 rounded mr-3"></div>
-              $2M Liability Insurance
+              Comprehensive Liability Insurance
             </div>
             <div className="flex items-center text-xs text-muted-foreground">
               <div className="w-3 h-3 bg-blue-500 rounded mr-3"></div>
@@ -295,7 +295,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center text-xs text-muted-foreground">
               <div className="w-3 h-3 bg-purple-500 rounded mr-3"></div>
-              OSHA Compliant
+              Safety Compliant
             </div>
             <div className="flex items-center text-xs text-muted-foreground">
               <div className="w-3 h-3 bg-yellow-500 rounded mr-3"></div>
@@ -314,7 +314,7 @@ export default function Footer() {
                 &copy; 2024 Imperial Cleaning Inc. All rights reserved.
               </p>
               <p className="text-muted-foreground text-xs" data-testid="text-footer-license">
-                Licensed Commercial Cleaning Contractor | Idaho License #12345 | Utah License #67890
+                Licensed Commercial Cleaning Contractor | Multi-State Licensed & Certified
               </p>
             </div>
             

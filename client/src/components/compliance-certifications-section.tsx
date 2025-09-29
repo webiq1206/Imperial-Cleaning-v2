@@ -29,19 +29,19 @@ export default function ComplianceCertificationsSection() {
         {
           type: "General Liability Insurance",
           coverage: "$2,000,000 per occurrence",
-          provider: "Commercial Insurance Partners",
+          provider: "Licensed Insurance Provider",
           status: "Active through 2026"
         },
         {
           type: "Workers' Compensation",
           coverage: "$1,000,000 per employee",
-          provider: "Idaho State Fund",
+          provider: "State Insurance Fund",
           status: "Full compliance"
         },
         {
           type: "Commercial Bonding",
           coverage: "$500,000 aggregate",
-          provider: "Surety Bond Solutions",
+          provider: "Bonding Authority",
           status: "Current & verified"
         }
       ],
@@ -57,24 +57,24 @@ export default function ComplianceCertificationsSection() {
       details: [
         {
           type: "Professional Safety Training",
-          certification: "Certificate #PST-2024-ID-1847",
-          provider: "Professional Safety Organization",
+          certification: "Professional Safety Certificate",
+          provider: "Safety Training Authority",
           status: "Current through 2026"
         },
         {
           type: "Hazmat Response Training",
           certification: "Level 2 Hazmat Certified",
-          provider: "National Safety Council",
+          provider: "Safety Standards Organization",
           status: "Annual recertification"
         },
         {
           type: "Bloodborne Pathogen Training",
-          certification: "BBP-CERT-2024-IC",
-          provider: "American Red Cross",
+          certification: "Pathogen Training Certificate",
+          provider: "Safety Training Provider",
           status: "Updated annually"
         }
       ],
-      keywords: "Safety compliant cleaning Nampa, safety certified cleaning Idaho, professional safety training"
+      keywords: "Safety compliant cleaning services, safety certified cleaning, professional safety training"
     },
     {
       id: "industry-certifications",
@@ -82,28 +82,28 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-certificate",
       badge: "INDUSTRY CERTIFIED",
       status: "certified",
-      description: "Idaho Falls-headquartered certified commercial cleaners with industry association membership and specialized environmental cleaning certifications demonstrating industry expertise.",
+      description: "Locally-based certified commercial cleaners with industry association membership and specialized environmental cleaning certifications demonstrating industry expertise.",
       details: [
         {
           type: "Industry Association Membership",
-          certification: "Member #IA-2847-2024",
-          provider: "Professional Industry Association",
+          certification: "Professional Membership",
+          provider: "Industry Association",
           status: "Active member since 2020"
         },
         {
           type: "Environmental Standards Certification",
           certification: "Environmental Professional Certification",
-          provider: "Environmental Standards Council",
+          provider: "Environmental Authority",
           status: "Certified professional"
         },
         {
           type: "Fabric Care Certification",
           certification: "Water Restoration Professional",
-          provider: "Professional Cleaning Institute",
+          provider: "Professional Training Institute",
           status: "Water Restoration Technician"
         }
       ],
-      keywords: "certified commercial cleaners Meridian, Industry member cleaning Idaho, environmentally certified cleaning"
+      keywords: "certified commercial cleaners, industry member cleaning services, environmentally certified cleaning"
     },
     {
       id: "local-compliance",
@@ -114,25 +114,25 @@ export default function ComplianceCertificationsSection() {
       description: "Licensed cleaning contractor with full compliance across all service regions, meeting all municipal requirements for local operations.",
       details: [
         {
-          type: "Idaho State Business License",
-          license: "IBL-47291-2024-IC",
-          provider: "Idaho Secretary of State",
-          status: "Active through December 2025"
+          type: "State Business License",
+          license: "Active Business License",
+          provider: "State Licensing Authority",
+          status: "Current commercial license"
         },
         {
-          type: "Ada County Business Permit",
-          license: "ADA-BP-2024-8472",
-          provider: "Ada County Clerk",
+          type: "Local Business Permit",
+          license: "Local Business Permit",
+          provider: "Local Licensing Authority",
           status: "Current commercial permit"
         },
         {
-          type: "Utah Contractor License",
-          license: "UCL-9483-COM-2024",
-          provider: "Utah Division of Occupational Licensing",
+          type: "Multi-State Contractor License",
+          license: "Commercial Contractor License",
+          provider: "State Licensing Board",
           status: "Multi-state operations"
         }
       ],
-      keywords: "licensed cleaning contractor Idaho, Boise business permit cleaning, Utah licensed cleaning"
+      keywords: "licensed cleaning contractor, local business permit cleaning, multi-state licensed cleaning"
     },
     {
       id: "quality-standards",
@@ -140,18 +140,18 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-medal",
       badge: "QUALITY CERTIFIED",
       status: "certified",
-      description: "Quality management standards with comprehensive quality control processes ensuring customer satisfaction for trusted cleaning services Eagle and throughout the Treasure Valley.",
+      description: "Quality management standards with comprehensive quality control processes ensuring customer satisfaction for trusted cleaning services throughout all service areas.",
       details: [
         {
           type: "Quality Management Standards",
           certification: "Quality Management System",
-          provider: "Quality Standards Organization",
+          provider: "Quality Standards Authority",
           status: "Compliant operations"
         },
         {
           type: "Customer Satisfaction Guarantee",
           policy: "100% Satisfaction Promise",
-          provider: "Imperial Cleaning Inc Policy",
+          provider: "Company Policy",
           status: "24-hour callback guarantee"
         },
         {
@@ -161,7 +161,7 @@ export default function ComplianceCertificationsSection() {
           status: "Every project verified"
         }
       ],
-      keywords: "trusted cleaning services Eagle, quality guaranteed cleaning Boise, customer satisfaction cleaning"
+      keywords: "trusted cleaning services, quality guaranteed cleaning, customer satisfaction cleaning"
     },
     {
       id: "emergency-protocols",
@@ -174,23 +174,23 @@ export default function ComplianceCertificationsSection() {
         {
           type: "Emergency Response Plan",
           protocol: "2-hour response guarantee",
-          coverage: "All Treasure Valley locations",
+          coverage: "All service area locations",
           status: "24/7 dispatch center"
         },
         {
           type: "Incident Management System",
           protocol: "Immediate notification & response",
-          coverage: "Boise, Meridian, Nampa coverage",
+          coverage: "Regional service coverage",
           status: "Full documentation process"
         },
         {
           type: "After-Hours Availability",
           protocol: "Emergency cleaning services",
-          coverage: "Ada County & Canyon County",
+          coverage: "Local service areas",
           status: "Always available"
         }
       ],
-      keywords: "24/7 emergency cleaning Boise, rapid response cleaning Idaho, emergency cleaning services"
+      keywords: "24/7 emergency cleaning services, rapid response cleaning, emergency cleaning services"
     }
   ];
 
@@ -213,7 +213,7 @@ export default function ComplianceCertificationsSection() {
             
             <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-normal" data-testid="desc-compliance-main">
               Imperial Cleaning Inc. maintains the highest standards of professional compliance, safety, and quality assurance. 
-              As a fully licensed, insured, and certified cleaning contractor serving Boise, Meridian, Nampa, and the entire Treasure Valley, 
+              As a fully licensed, insured, and certified cleaning contractor serving all regional service areas, 
               we provide complete transparency and peace of mind for every commercial and construction cleaning project.
             </p>
           </div>
@@ -346,7 +346,7 @@ export default function ComplianceCertificationsSection() {
               </h3>
               <p className="text-muted-foreground max-w-3xl mx-auto" data-testid="desc-trust-indicators">
                 Imperial Cleaning Inc. undergoes regular third-party verification and maintains transparent compliance documentation 
-                for all Boise area clients seeking trusted, professional cleaning services.
+                for all regional clients seeking trusted, professional cleaning services.
               </p>
             </div>
             
@@ -372,7 +372,7 @@ export default function ComplianceCertificationsSection() {
                   <Award className="w-12 h-12 text-purple-400 mx-auto" />
                 </div>
                 <h4 className="font-medium text-foreground mb-2">Multi-State Licensed</h4>
-                <p className="text-sm text-muted-foreground">Idaho & Utah compliance</p>
+                <p className="text-sm text-muted-foreground">Regional compliance</p>
               </div>
               
               <div className="text-center group" data-testid="indicator-availability">
@@ -388,7 +388,7 @@ export default function ComplianceCertificationsSection() {
           {/* Service Area Compliance */}
           <div className="glass-effect rounded-lg p-8 text-center">
             <h3 className="text-xl lg:text-2xl font-medium mb-4 text-foreground" data-testid="heading-service-area-compliance">
-              Local Compliance Across the Treasure Valley
+              Local Compliance Across All Service Areas
             </h3>
             <p className="text-muted-foreground mb-6 max-w-4xl mx-auto" data-testid="desc-service-area-compliance">
               Imperial Cleaning Inc. maintains full compliance and certification in all service areas across our regional markets. 
@@ -397,12 +397,12 @@ export default function ComplianceCertificationsSection() {
             
             <div className="flex flex-wrap justify-center gap-2 mb-6">
               {[
-                "Boise insured cleaning company",
-                "Treasure Valley bonded janitorial services", 
-                "certified commercial cleaners Meridian",
-                "licensed cleaning contractor Idaho",
-                "Safety compliant cleaning Nampa",
-                "trusted cleaning services Eagle"
+                "insured cleaning company",
+                "bonded janitorial services", 
+                "certified commercial cleaners",
+                "licensed cleaning contractor",
+                "safety compliant cleaning services",
+                "trusted cleaning services"
               ].map((keyword, index) => (
                 <span 
                   key={index}
