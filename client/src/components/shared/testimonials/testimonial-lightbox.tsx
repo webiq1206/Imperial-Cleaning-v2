@@ -68,7 +68,7 @@ export default function TestimonialLightbox({
       data-testid={`testimonial-lightbox-${testimonial.id}`}
     >
       <DialogContent 
-        className="max-w-2xl max-h-[85vh] overflow-y-auto glass-card-elevated sophisticated-glow"
+        className="max-w-2xl max-h-[85vh] overflow-y-auto glass-card-elevated"
         onOpenAutoFocus={handleLightboxOpen}
       >
         <DialogHeader className="text-left pb-4">
