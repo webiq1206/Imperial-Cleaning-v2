@@ -39,7 +39,7 @@ export default function FeatureStats({
       case "vertical":
         return "flex flex-col gap-8";
       default:
-        return `grid md:grid-cols-${columns} gap-8`;
+        return `grid md:grid-cols-${columns} gap-8 md:items-stretch`;
     }
   };
 
@@ -73,7 +73,7 @@ export default function FeatureStats({
           {featuresToDisplay.map((feature, index) => (
             <div 
               key={index}
-              className={`group animate-fade-in-up stagger-delay-${index + 1}`}
+              className={`group animate-fade-in-up stagger-delay-${index + 1} flex`}
               data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
             >
               <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-6 rounded-lg h-full">
