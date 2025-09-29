@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import StickyContacts from "@/components/sticky-contacts";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
@@ -168,6 +169,18 @@ export default function CommercialCleaning() {
       <Header />
       <StickyContacts />
       
+      {/* Breadcrumbs */}
+      <div className="bg-card/30 border-b border-border/20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+          <Breadcrumbs 
+            items={[
+              { name: "Services", href: "/#services" },
+              { name: "Commercial Cleaning" }
+            ]}
+          />
+        </div>
+      </div>
+      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-2"></div>
@@ -277,6 +290,71 @@ export default function CommercialCleaning() {
                 <p>• Orem commercial cleaning</p>
                 <p>• Layton business cleaning</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Internal Links */}
+      <section className="py-16 px-4 bg-card/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Explore Our Complete Cleaning Solutions</h2>
+            <p className="text-lg text-muted-foreground">
+              Imperial Cleaning provides comprehensive services across Idaho and Utah
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Related Services */}
+            <div className="resend-card p-6 text-center hover:scale-105 transition-transform duration-300">
+              <div className="icon-gradient text-4xl mb-4">
+                <i className="fas fa-hard-hat"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">Construction Cleanup</h3>
+              <p className="text-muted-foreground mb-4">Post-construction cleanup and debris removal for contractors</p>
+              <Link 
+                href="/construction-cleaning" 
+                className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
+                data-testid="link-construction-cleaning"
+              >
+                Learn About Construction Services
+                <i className="fas fa-arrow-right ml-2"></i>
+              </Link>
+            </div>
+            
+            {/* Idaho Service Areas */}
+            <div className="resend-card p-6 text-center hover:scale-105 transition-transform duration-300">
+              <div className="icon-gradient text-4xl mb-4">
+                <i className="fas fa-map-marker-alt"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">Idaho Locations</h3>
+              <p className="text-muted-foreground mb-4">Serving Boise, Idaho Falls, Pocatello, and the entire Treasure Valley</p>
+              <Link 
+                href="/service-areas/idaho" 
+                className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
+                data-testid="link-idaho-areas"
+              >
+                View Idaho Service Areas
+                <i className="fas fa-arrow-right ml-2"></i>
+              </Link>
+            </div>
+            
+            {/* Utah Service Areas */}
+            <div className="resend-card p-6 text-center hover:scale-105 transition-transform duration-300">
+              <div className="icon-gradient text-4xl mb-4">
+                <i className="fas fa-mountain"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">Utah Locations</h3>
+              <p className="text-muted-foreground mb-4">Covering Salt Lake City, Logan, Ogden, Provo, and the Wasatch Front</p>
+              <Link 
+                href="/service-areas/utah" 
+                className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
+                data-testid="link-utah-areas"
+              >
+                View Utah Service Areas
+                <i className="fas fa-arrow-right ml-2"></i>
+              </Link>
             </div>
           </div>
         </div>

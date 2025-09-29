@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import StickyContacts from "@/components/sticky-contacts";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useState } from "react";
@@ -198,6 +199,18 @@ export default function ServiceAreasUtah() {
       
       <Header />
       <StickyContacts />
+      
+      {/* Breadcrumbs */}
+      <div className="bg-card/30 border-b border-border/20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+          <Breadcrumbs 
+            items={[
+              { name: "Service Areas", href: "/#service-areas" },
+              { name: "Utah Locations" }
+            ]}
+          />
+        </div>
+      </div>
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">

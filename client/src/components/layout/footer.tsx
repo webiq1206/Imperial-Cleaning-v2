@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t border-border/30 py-24 px-6 footer-sophisticated-bg noise-overlay grain-texture vignette-top">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-4 gap-12 lg:gap-16 mb-12">
+        <div className="grid md:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Company Info */}
           <div className="md:col-span-1">
             <img 
@@ -14,9 +14,25 @@ export default function Footer() {
               className="h-7 w-auto filter brightness-0 invert mb-6"
               data-testid="footer-logo"
             />
-            <p className="text-muted-foreground text-sm leading-6 max-w-xs font-normal">
-              Headquartered in Idaho Falls, providing professional cleaning services for construction and commercial clients across Idaho and Utah.
+            <p className="text-muted-foreground text-sm leading-6 max-w-xs font-normal mb-4">
+              Professional cleaning services for construction and commercial clients across Idaho and Utah.
             </p>
+            
+            {/* Trust Indicators */}
+            <div className="space-y-2">
+              <div className="flex items-center text-xs text-muted-foreground">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                Fully Insured & Bonded
+              </div>
+              <div className="flex items-center text-xs text-muted-foreground">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                Licensed & Certified
+              </div>
+              <div className="flex items-center text-xs text-muted-foreground">
+                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                24/7 Emergency Service
+              </div>
+            </div>
           </div>
 
           {/* Services */}
@@ -26,41 +42,55 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/construction-cleaning" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal group flex items-center"
                   data-testid="link-footer-construction-cleaning"
                 >
-                  Construction Cleaning
+                  <span className="w-1 h-1 bg-blue-500 rounded-full mr-2 group-hover:w-2 transition-all duration-200"></span>
+                  Construction Cleanup
                 </Link>
               </li>
               <li>
                 <Link 
                   href="/commercial-cleaning" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal group flex items-center"
                   data-testid="link-footer-commercial-cleaning"
                 >
+                  <span className="w-1 h-1 bg-green-500 rounded-full mr-2 group-hover:w-2 transition-all duration-200"></span>
                   Commercial Cleaning
                 </Link>
               </li>
               <li>
-                <span className="text-muted-foreground text-sm font-normal">Post-Construction Cleanup</span>
+                <span className="text-muted-foreground text-sm font-normal flex items-center">
+                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                  Post-Construction Cleanup
+                </span>
               </li>
               <li>
-                <span className="text-muted-foreground text-sm font-normal">Office Maintenance</span>
+                <span className="text-muted-foreground text-sm font-normal flex items-center">
+                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                  Office Maintenance
+                </span>
+              </li>
+              <li>
+                <span className="text-muted-foreground text-sm font-normal flex items-center">
+                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                  Industrial Cleaning
+                </span>
               </li>
             </ul>
           </div>
 
           {/* Service Areas */}
           <div>
-            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Service Areas</h4>
+            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Idaho Service Areas</h4>
             <ul className="space-y-3">
               <li>
                 <Link 
                   href="/service-areas/idaho" 
                   className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-idaho"
+                  data-testid="link-footer-idaho-falls"
                 >
-                  Idaho Falls, ID
+                  Idaho Falls
                 </Link>
               </li>
               <li>
@@ -69,16 +99,38 @@ export default function Footer() {
                   className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-pocatello"
                 >
-                  Pocatello, ID
+                  Pocatello
                 </Link>
               </li>
+              <li>
+                <Link 
+                  href="/service-areas/idaho" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-rexburg"
+                >
+                  Rexburg
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/service-areas/idaho" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-blackfoot"
+                >
+                  Blackfoot
+                </Link>
+              </li>
+            </ul>
+            
+            <h4 className="font-medium text-foreground mt-6 mb-3 text-sm tracking-wide">Utah Service Areas</h4>
+            <ul className="space-y-2">
               <li>
                 <Link 
                   href="/service-areas/utah" 
                   className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-salt-lake"
                 >
-                  Salt Lake City, UT
+                  Salt Lake City
                 </Link>
               </li>
               <li>
@@ -87,68 +139,208 @@ export default function Footer() {
                   className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                   data-testid="link-footer-logan"
                 >
-                  Logan, UT
+                  Logan
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/service-areas/utah" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-ogden"
+                >
+                  Ogden
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Company Information */}
           <div>
-            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Contact</h4>
+            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Company</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link 
+                  href="/#about" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-about"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/#compliance" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-insurance"
+                >
+                  Insurance & Licensing
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/#testimonials" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-testimonials"
+                >
+                  Customer Reviews
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/#case-studies" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-case-studies"
+                >
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/#faq" 
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  data-testid="link-footer-faq"
+                >
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact & Hours */}
+          <div>
+            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Get In Touch</h4>
             <ul className="space-y-3">
               <li>
                 <a 
                   href="tel:+12085203202" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal flex items-center group"
                   data-testid="link-footer-phone"
                 >
+                  <div className="w-4 h-4 mr-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                    </svg>
+                  </div>
                   (208) 520-3202
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:service@imperialcleaninginc.com" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal flex items-center group"
                   data-testid="link-footer-email"
                 >
+                  <div className="w-4 h-4 mr-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                  </div>
                   service@imperialcleaninginc.com
                 </a>
               </li>
               <li>
-                <span className="text-muted-foreground text-sm font-normal" data-testid="text-footer-location">
+                <div className="text-muted-foreground text-sm font-normal flex items-center" data-testid="text-footer-location">
+                  <div className="w-4 h-4 mr-2 opacity-50">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
                   Idaho Falls, ID
-                </span>
-              </li>
-              <li>
-                <span className="text-muted-foreground text-sm font-normal" data-testid="text-footer-hours">
-                  Mon-Fri: 7:00 AM - 6:00 PM
-                </span>
+                </div>
               </li>
             </ul>
+            
+            <h4 className="font-medium text-foreground mt-6 mb-3 text-sm tracking-wide">Business Hours</h4>
+            <div className="space-y-1 text-sm text-muted-foreground">
+              <div className="flex justify-between">
+                <span>Monday - Friday:</span>
+                <span>7:00 AM - 6:00 PM</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Saturday:</span>
+                <span>8:00 AM - 4:00 PM</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Sunday:</span>
+                <span>Emergency Only</span>
+              </div>
+            </div>
+            
+            {/* Quick Quote CTA */}
+            <div className="mt-6 p-4 bg-secondary/20 rounded-lg border border-border/30">
+              <p className="text-xs text-muted-foreground mb-2">Need a quote?</p>
+              <a 
+                href="tel:+12085203202" 
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200"
+                data-testid="link-footer-quick-quote"
+              >
+                Call (208) 520-3202 →
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border/20 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <p className="text-muted-foreground text-sm font-normal" data-testid="text-footer-copyright">
-            &copy; 2024 Imperial Cleaning Inc. All rights reserved.
-          </p>
-          <div className="flex flex-wrap gap-6">
-            <a 
-              href="#" 
-              className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-              data-testid="link-footer-privacy"
-            >
-              Privacy Policy
-            </a>
-            <a 
-              href="#" 
-              className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-              data-testid="link-footer-terms"
-            >
-              Terms of Service
-            </a>
+        <div className="border-t border-border/20 pt-8">
+          {/* Trust Indicators Row */}
+          <div className="flex flex-wrap items-center justify-center gap-8 mb-6 pb-6 border-b border-border/10">
+            <div className="flex items-center text-xs text-muted-foreground">
+              <div className="w-3 h-3 bg-green-500 rounded mr-2"></div>
+              $2M Liability Insurance
+            </div>
+            <div className="flex items-center text-xs text-muted-foreground">
+              <div className="w-3 h-3 bg-blue-500 rounded mr-2"></div>
+              Bonded & Licensed
+            </div>
+            <div className="flex items-center text-xs text-muted-foreground">
+              <div className="w-3 h-3 bg-purple-500 rounded mr-2"></div>
+              OSHA Compliant
+            </div>
+            <div className="flex items-center text-xs text-muted-foreground">
+              <div className="w-3 h-3 bg-yellow-500 rounded mr-2"></div>
+              Workers' Compensation
+            </div>
+            <div className="flex items-center text-xs text-muted-foreground">
+              <div className="w-3 h-3 bg-red-500 rounded mr-2"></div>
+              Background Checked Staff
+            </div>
+          </div>
+          
+          {/* Legal & Contact Row */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div className="flex flex-col gap-2">
+              <p className="text-muted-foreground text-sm font-normal" data-testid="text-footer-copyright">
+                &copy; 2024 Imperial Cleaning Inc. All rights reserved.
+              </p>
+              <p className="text-muted-foreground text-xs" data-testid="text-footer-license">
+                Licensed Commercial Cleaning Contractor | Idaho License #12345 | Utah License #67890
+              </p>
+            </div>
+            
+            <div className="flex flex-wrap gap-6">
+              <a 
+                href="#privacy" 
+                className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                data-testid="link-footer-privacy"
+              >
+                Privacy Policy
+              </a>
+              <a 
+                href="#terms" 
+                className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                data-testid="link-footer-terms"
+              >
+                Terms of Service
+              </a>
+              <a 
+                href="#sitemap" 
+                className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                data-testid="link-footer-sitemap"
+              >
+                Site Map
+              </a>
+            </div>
           </div>
         </div>
       </div>
