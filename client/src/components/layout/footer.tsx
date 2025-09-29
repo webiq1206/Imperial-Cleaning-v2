@@ -333,7 +333,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div className="flex flex-col gap-2">
               <p className="text-muted-foreground text-sm font-normal" data-testid="text-footer-copyright">
-                &copy; 2024 Imperial Cleaning Inc. All rights reserved.
+                &copy; {new Date().getFullYear()} Imperial Cleaning Inc. All rights reserved.
               </p>
               <p className="text-muted-foreground text-xs" data-testid="text-footer-license">
                 Licensed Commercial Cleaning Contractor | Multi-State Licensed & Certified
