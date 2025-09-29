@@ -3,42 +3,164 @@ import Footer from "@/components/layout/footer";
 import StickyContacts from "@/components/sticky-contacts";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
+import SEOHead, { 
+  createLocalBusinessSchema, 
+  createServiceSchema,
+  createAggregateRatingSchema,
+  createBreadcrumbSchema
+} from "@/components/seo-head";
 
 export default function ServiceAreasIdaho() {
   const [showContactForm, setShowContactForm] = useState(false);
   
-  useEffect(() => {
-    // Update document title and meta description for SEO
-    document.title = "Boise & Treasure Valley Cleaning Services | Imperial Cleaning Idaho";
-    
-    // Update or create meta description
-    let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement;
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta') as HTMLMetaElement;
-      metaDescription.name = 'description';
-      document.head.appendChild(metaDescription);
+  // Structured data for Idaho service areas page
+  const idahoServiceSchema = createServiceSchema({
+    name: "Treasure Valley Cleaning Services - Idaho",
+    description: "Comprehensive commercial and construction cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region. Professional cleaning solutions for Ada County, Canyon County, and all of Southwest Idaho businesses and contractors.",
+    serviceType: "Commercial and Construction Cleaning",
+    areaServed: [
+      {
+        "@type": "City",
+        "name": "Boise",
+        "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Meridian",
+        "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho"
+      },
+      {
+        "@type": "City", 
+        "name": "Nampa",
+        "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Eagle",
+        "sameAs": "https://en.wikipedia.org/wiki/Eagle,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Caldwell",
+        "sameAs": "https://en.wikipedia.org/wiki/Caldwell,_Idaho"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Ada County",
+        "sameAs": "https://en.wikipedia.org/wiki/Ada_County,_Idaho"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Canyon County",
+        "sameAs": "https://en.wikipedia.org/wiki/Canyon_County,_Idaho"
+      },
+      {
+        "@type": "Place",
+        "name": "Treasure Valley",
+        "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
+      }
+    ]
+  });
+
+  const localBusinessSchema = createLocalBusinessSchema({
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Boise",
+        "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho"
+      },
+      {
+        "@type": "City", 
+        "name": "Meridian",
+        "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Nampa", 
+        "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Eagle",
+        "sameAs": "https://en.wikipedia.org/wiki/Eagle,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Caldwell",
+        "sameAs": "https://en.wikipedia.org/wiki/Caldwell,_Idaho"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Ada County",
+        "sameAs": "https://en.wikipedia.org/wiki/Ada_County,_Idaho"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Canyon County", 
+        "sameAs": "https://en.wikipedia.org/wiki/Canyon_County,_Idaho"
+      },
+      {
+        "@type": "Place",
+        "name": "Treasure Valley",
+        "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
+      }
+    ],
+    "description": "Premier cleaning services throughout the Treasure Valley region including Boise, Meridian, Nampa, Eagle, and Caldwell. Professional commercial and construction cleaning for Ada County and Canyon County businesses.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Treasure Valley Cleaning Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Boise Commercial Cleaning",
+            "description": "Professional office and commercial cleaning services for downtown Boise business district"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "Meridian Construction Cleanup",
+            "description": "Post-construction cleanup services for Meridian's growing development projects"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nampa Industrial Cleaning",
+            "description": "Industrial facility cleaning for Nampa's manufacturing and distribution centers"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Eagle Premium Services",
+            "description": "Premium commercial cleaning for Eagle's corporate offices and luxury developments"
+          }
+        }
+      ]
     }
-    metaDescription.content = "Professional construction and commercial cleaning services throughout Boise, Meridian, Nampa, Eagle, Caldwell and the entire Treasure Valley region. Serving Ada County, Canyon County, and all of Southwest Idaho with premium cleaning solutions.";
-    
-    // Add Open Graph tags for social sharing
-    let ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement;
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta') as HTMLMetaElement;
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.content = "Treasure Valley Cleaning Services - Boise, Meridian, Nampa | Imperial Cleaning";
-    
-    let ogDescription = document.querySelector('meta[property="og:description"]') as HTMLMetaElement;
-    if (!ogDescription) {
-      ogDescription = document.createElement('meta') as HTMLMetaElement;
-      ogDescription.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescription);
-    }
-    ogDescription.content = "Idaho's premier cleaning company serving Boise and the entire Treasure Valley with professional construction and commercial cleaning services.";
-  }, []);
+  });
+
+  const aggregateRatingSchema = createAggregateRatingSchema();
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://imperialcleaninginc.com/" },
+    { name: "Service Areas", url: "https://imperialcleaninginc.com/#service-areas" },
+    { name: "Idaho Service Areas", url: "https://imperialcleaninginc.com/service-areas/idaho" }
+  ]);
+
+  const structuredData = [
+    idahoServiceSchema,
+    localBusinessSchema,
+    aggregateRatingSchema,
+    breadcrumbSchema
+  ];
 
   const treasureValleyCities = [
     {
@@ -131,6 +253,25 @@ export default function ServiceAreasIdaho() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Boise & Treasure Valley Cleaning Services | Imperial Cleaning Idaho"
+        description="Professional construction & commercial cleaning throughout Boise, Meridian, Nampa, Eagle & Caldwell. Serving Ada County & Canyon County. Get your free quote today!"
+        canonicalUrl="https://imperialcleaninginc.com/service-areas/idaho"
+        openGraph={{
+          title: "Boise & Treasure Valley Cleaning Services | Imperial Cleaning Idaho",
+          description: "Professional construction and commercial cleaning services throughout Boise, Meridian, Nampa, Eagle, and the entire Treasure Valley region in Idaho.",
+          image: "https://imperialcleaninginc.com/hero-logo.png",
+          type: "website"
+        }}
+        twitter={{
+          card: "summary_large_image",
+          title: "Treasure Valley Cleaning Services | Imperial Cleaning Idaho",
+          description: "Expert cleaning services across Boise, Meridian, Nampa & the entire Treasure Valley. Professional construction & commercial cleaning solutions.",
+          image: "https://imperialcleaninginc.com/hero-logo.png"
+        }}
+        structuredData={structuredData}
+      />
+      
       <Header />
       <StickyContacts />
       

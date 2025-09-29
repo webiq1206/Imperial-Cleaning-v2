@@ -4,12 +4,138 @@ import StickyContacts from "@/components/sticky-contacts";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
+import SEOHead, { 
+  createLocalBusinessSchema, 
+  createServiceSchema,
+  createAggregateRatingSchema,
+  createBreadcrumbSchema
+} from "@/components/seo-head";
 
 export default function ConstructionCleaning() {
   const [showContactForm, setShowContactForm] = useState(false);
 
+  // Structured data for construction cleaning page
+  const constructionServiceSchema = createServiceSchema({
+    name: "Treasure Valley Construction Cleaning Services",
+    description: "Professional post-construction cleanup services throughout Boise, Meridian, Nampa, Eagle, and the entire Treasure Valley region. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders in Idaho and Utah.",
+    serviceType: "Construction Cleaning",
+    areaServed: [
+      {
+        "@type": "City",
+        "name": "Boise",
+        "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Meridian",
+        "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho"
+      },
+      {
+        "@type": "City", 
+        "name": "Nampa",
+        "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Eagle",
+        "sameAs": "https://en.wikipedia.org/wiki/Eagle,_Idaho"
+      },
+      {
+        "@type": "Place",
+        "name": "Treasure Valley",
+        "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
+      }
+    ],
+    provider: {
+      "@type": "LocalBusiness",
+      "name": "Imperial Cleaning Inc",
+      "url": "https://imperialcleaninginc.com",
+      "telephone": "+1-208-520-3202",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boise",
+        "addressRegion": "ID",
+        "addressCountry": "US"
+      }
+    }
+  });
+
+  const localBusinessSchema = createLocalBusinessSchema({
+    "serviceType": [
+      "Post Construction Cleanup",
+      "Construction Site Cleaning", 
+      "Debris Removal",
+      "Final Inspection Cleaning",
+      "Construction Cleaning"
+    ],
+    "description": "Professional post-construction cleanup services for contractors throughout Boise, Meridian, Nampa, Eagle, and the entire Treasure Valley region. Specialized in debris removal, detailed cleaning, and inspection-ready finishing.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Construction Cleaning Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Post-Construction Cleanup",
+            "description": "Comprehensive post-construction cleanup for contractors in Boise and Treasure Valley"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "Final Inspection Cleaning",
+            "description": "Final inspection ready cleaning for construction projects in Meridian and surrounding areas"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Construction Debris Removal",
+            "description": "Professional debris removal and site cleanup for Nampa construction projects"
+          }
+        }
+      ]
+    }
+  });
+
+  const aggregateRatingSchema = createAggregateRatingSchema();
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://imperialcleaninginc.com/" },
+    { name: "Services", url: "https://imperialcleaninginc.com/#services" },
+    { name: "Construction Cleaning", url: "https://imperialcleaninginc.com/construction-cleaning" }
+  ]);
+
+  const structuredData = [
+    constructionServiceSchema,
+    localBusinessSchema,
+    aggregateRatingSchema,
+    breadcrumbSchema
+  ];
+
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Treasure Valley Construction Cleaning | Imperial Cleaning Inc."
+        description="Professional post-construction cleanup in Boise, Meridian, Nampa & Eagle. Expert debris removal & inspection-ready cleaning for Idaho contractors. Call today!"
+        canonicalUrl="https://imperialcleaninginc.com/construction-cleaning"
+        openGraph={{
+          title: "Treasure Valley Construction Cleaning | Imperial Cleaning Inc.",
+          description: "Professional post-construction cleanup services throughout Boise, Meridian, Nampa, and the entire Treasure Valley region. Trusted by contractors for inspection-ready cleaning.",
+          image: "https://imperialcleaninginc.com/hero-logo.png",
+          type: "website"
+        }}
+        twitter={{
+          card: "summary_large_image",
+          title: "Treasure Valley Construction Cleaning | Imperial Cleaning Inc.",
+          description: "Expert post-construction cleanup in Boise & Treasure Valley. Professional debris removal and final inspection cleaning for Idaho contractors.",
+          image: "https://imperialcleaninginc.com/hero-logo.png"
+        }}
+        structuredData={structuredData}
+      />
+      
       <Header />
       <StickyContacts />
       

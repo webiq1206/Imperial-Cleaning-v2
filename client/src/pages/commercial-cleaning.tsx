@@ -4,12 +4,157 @@ import StickyContacts from "@/components/sticky-contacts";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
+import SEOHead, { 
+  createLocalBusinessSchema, 
+  createServiceSchema,
+  createAggregateRatingSchema,
+  createBreadcrumbSchema
+} from "@/components/seo-head";
 
 export default function CommercialCleaning() {
   const [showContactForm, setShowContactForm] = useState(false);
 
+  // Structured data for commercial cleaning page
+  const commercialServiceSchema = createServiceSchema({
+    name: "Boise Commercial Cleaning Services",
+    description: "Professional commercial cleaning and janitorial services for Boise area businesses. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout Ada County, Canyon County, and the entire Treasure Valley region.",
+    serviceType: "Commercial Cleaning",
+    areaServed: [
+      {
+        "@type": "City",
+        "name": "Boise",
+        "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Meridian",
+        "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho"
+      },
+      {
+        "@type": "City", 
+        "name": "Nampa",
+        "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho"
+      },
+      {
+        "@type": "City",
+        "name": "Eagle",
+        "sameAs": "https://en.wikipedia.org/wiki/Eagle,_Idaho"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Ada County",
+        "sameAs": "https://en.wikipedia.org/wiki/Ada_County,_Idaho"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Canyon County",
+        "sameAs": "https://en.wikipedia.org/wiki/Canyon_County,_Idaho"
+      },
+      {
+        "@type": "Place",
+        "name": "Treasure Valley",
+        "sameAs": "https://en.wikipedia.org/wiki/Treasure_Valley"
+      }
+    ],
+    provider: {
+      "@type": "LocalBusiness",
+      "name": "Imperial Cleaning Inc",
+      "url": "https://imperialcleaninginc.com",
+      "telephone": "+1-208-520-3202",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boise",
+        "addressRegion": "ID",
+        "addressCountry": "US"
+      }
+    }
+  });
+
+  const localBusinessSchema = createLocalBusinessSchema({
+    "serviceType": [
+      "Commercial Cleaning",
+      "Office Cleaning", 
+      "Janitorial Services",
+      "Medical Facility Cleaning",
+      "Retail Cleaning",
+      "Corporate Cleaning"
+    ],
+    "description": "Professional commercial cleaning services for Boise businesses including downtown financial district, medical centers, corporate offices, and retail facilities throughout Ada County and Canyon County.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Boise Commercial Cleaning Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Downtown Boise Office Cleaning",
+            "description": "Professional office cleaning services for downtown Boise financial district and corporate buildings"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "Meridian Medical Facility Cleaning",
+            "description": "Specialized medical facility cleaning services for healthcare centers in Meridian and surrounding areas"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nampa Industrial Cleaning",
+            "description": "Industrial and warehouse cleaning services for Nampa manufacturing and distribution facilities"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Eagle Corporate Cleaning",
+            "description": "Premium commercial cleaning services for Eagle corporate offices and executive facilities"
+          }
+        }
+      ]
+    }
+  });
+
+  const aggregateRatingSchema = createAggregateRatingSchema();
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://imperialcleaninginc.com/" },
+    { name: "Services", url: "https://imperialcleaninginc.com/#services" },
+    { name: "Commercial Cleaning", url: "https://imperialcleaninginc.com/commercial-cleaning" }
+  ]);
+
+  const structuredData = [
+    commercialServiceSchema,
+    localBusinessSchema,
+    aggregateRatingSchema,
+    breadcrumbSchema
+  ];
+
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Boise Commercial Cleaning Services | Imperial Cleaning Inc."
+        description="Premier office & commercial cleaning in Boise, Meridian, Nampa. Serving downtown financial district, medical centers & businesses across Ada County. Call today!"
+        canonicalUrl="https://imperialcleaninginc.com/commercial-cleaning"
+        openGraph={{
+          title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
+          description: "Professional commercial cleaning services for Boise businesses including downtown offices, medical facilities, and corporate buildings throughout the Treasure Valley.",
+          image: "https://imperialcleaninginc.com/hero-logo.png",
+          type: "website"
+        }}
+        twitter={{
+          card: "summary_large_image",
+          title: "Boise Commercial Cleaning Services | Imperial Cleaning Inc.",
+          description: "Trusted commercial cleaning for Boise businesses. Serving downtown district, medical centers & offices across Ada County & Treasure Valley.",
+          image: "https://imperialcleaninginc.com/hero-logo.png"
+        }}
+        structuredData={structuredData}
+      />
+      
       <Header />
       <StickyContacts />
       
