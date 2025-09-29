@@ -434,7 +434,7 @@ export default function Header() {
                   </SheetTitle>
                 </SheetHeader>
 
-                <div className="flex flex-col h-full py-6 space-y-1">
+                <div className="flex flex-col h-full py-6 space-y-1 overflow-y-auto">
                   {/* Services Section with Hierarchical Navigation */}
                   <div className="px-2 py-4">
                     <div className="text-xs font-semibold text-secondary-color uppercase tracking-wider mb-4">Services</div>
@@ -464,9 +464,9 @@ export default function Header() {
                       
                       {/* Construction Cleaning Locations */}
                       <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        expandedMobileService === 'construction' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        expandedMobileService === 'construction' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
                       }`}>
-                        <div className="pl-4 pt-2 space-y-1">
+                        <div className="pl-4 pt-2 space-y-1 max-h-80 overflow-y-auto">
                           <Link 
                             href="/construction-cleaning" 
                             className="block px-4 py-3 text-sm font-medium text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20"
@@ -478,7 +478,7 @@ export default function Header() {
                               <span>View All Construction Cleaning</span>
                             </div>
                           </Link>
-                          {getLocationsByService('construction').slice(0, 8).map((loc) => (
+                          {getLocationsByService('construction').map((loc) => (
                             <Link 
                               key={loc.name}
                               href={`/construction-cleaning/${locationToSlug(loc.name)}`}
@@ -492,15 +492,6 @@ export default function Header() {
                               </div>
                             </Link>
                           ))}
-                          {getLocationsByService('construction').length > 8 && (
-                            <Link 
-                              href="/construction-cleaning" 
-                              className="block px-4 py-2 text-xs text-muted-foreground hover:text-primary-color transition-colors duration-200"
-                              onClick={closeMobileMenu}
-                            >
-                              + {getLocationsByService('construction').length - 8} more locations
-                            </Link>
-                          )}
                         </div>
                       </div>
                     </div>
@@ -530,9 +521,9 @@ export default function Header() {
                       
                       {/* Commercial Cleaning Locations */}
                       <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        expandedMobileService === 'commercial' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        expandedMobileService === 'commercial' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
                       }`}>
-                        <div className="pl-4 pt-2 space-y-1">
+                        <div className="pl-4 pt-2 space-y-1 max-h-80 overflow-y-auto">
                           <Link 
                             href="/commercial-cleaning" 
                             className="block px-4 py-3 text-sm font-medium text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20"
@@ -544,7 +535,7 @@ export default function Header() {
                               <span>View All Commercial Cleaning</span>
                             </div>
                           </Link>
-                          {getLocationsByService('commercial').slice(0, 8).map((loc) => (
+                          {getLocationsByService('commercial').map((loc) => (
                             <Link 
                               key={loc.name}
                               href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
@@ -558,15 +549,6 @@ export default function Header() {
                               </div>
                             </Link>
                           ))}
-                          {getLocationsByService('commercial').length > 8 && (
-                            <Link 
-                              href="/commercial-cleaning" 
-                              className="block px-4 py-2 text-xs text-muted-foreground hover:text-primary-color transition-colors duration-200"
-                              onClick={closeMobileMenu}
-                            >
-                              + {getLocationsByService('commercial').length - 8} more locations
-                            </Link>
-                          )}
                         </div>
                       </div>
                     </div>
