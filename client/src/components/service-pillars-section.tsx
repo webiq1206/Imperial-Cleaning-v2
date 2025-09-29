@@ -25,12 +25,10 @@ export default function ServicePillarsSection() {
       subtitle: "Boise Post-Construction Cleaning Excellence",
       icon: "fas fa-hard-hat",
       description: "Comprehensive Boise post-construction cleaning services with systematic 3-phase approach ensuring your Treasure Valley construction projects meet inspection standards and are ready for occupancy.",
-      timeline: "48-72 hours typical completion",
       certification: "OSHA Certified • Bonded • Insured",
       processSteps: [
         {
           phase: "Phase 1: Rough Cleaning",
-          duration: "Day 1",
           tasks: [
             "Complete debris removal and disposal in Boise area",
             "Heavy dust elimination with HEPA filtration systems",
@@ -40,7 +38,6 @@ export default function ServicePillarsSection() {
         },
         {
           phase: "Phase 2: Detail Cleaning", 
-          duration: "Day 2",
           tasks: [
             "Window cleaning inside/out with professional equipment",
             "Light fixture and ceiling fan cleaning",
@@ -50,7 +47,6 @@ export default function ServicePillarsSection() {
         },
         {
           phase: "Phase 3: Final Inspection Ready",
-          duration: "Day 3",
           tasks: [
             "Touch-up cleaning and quality inspection",
             "Floor protection installation for move-in",
@@ -74,12 +70,10 @@ export default function ServicePillarsSection() {
       subtitle: "Treasure Valley Commercial Janitorial Services",
       icon: "fas fa-building",
       description: "Professional Treasure Valley commercial janitorial services with flexible scheduling for Meridian office cleaning, Boise business maintenance, and comprehensive facility management.",
-      timeline: "Daily/Weekly/Monthly schedules available",
       certification: "Green Certified • ISSA Member • Bonded",
       schedules: [
         {
           frequency: "Daily Office Cleaning",
-          time: "After hours (6 PM - 6 AM)",
           services: [
             "Workstation sanitization and dusting",
             "Restroom cleaning and restocking", 
@@ -90,7 +84,6 @@ export default function ServicePillarsSection() {
         },
         {
           frequency: "Weekly Deep Cleaning",
-          time: "Weekend service available",
           services: [
             "Conference room deep cleaning",
             "Window washing (interior)",
@@ -101,7 +94,6 @@ export default function ServicePillarsSection() {
         },
         {
           frequency: "Monthly Maintenance",
-          time: "Scheduled during off-hours",
           services: [
             "Floor stripping and waxing",
             "High dusting and ceiling cleaning", 
@@ -126,7 +118,6 @@ export default function ServicePillarsSection() {
       subtitle: "Nampa Industrial Cleaning & Manufacturing Support",
       icon: "fas fa-industry",
       description: "Specialized Nampa industrial cleaning services for manufacturing facilities, warehouses, and production environments throughout Canyon County and the greater Treasure Valley.",
-      timeline: "24/7 scheduling to minimize production downtime",
       certification: "OSHA 30-Hour Certified • EPA Compliant • Safety Trained",
       facilityTypes: [
         {
@@ -181,12 +172,10 @@ export default function ServicePillarsSection() {
       subtitle: "24/7 Response in Ada County & Canyon County",
       icon: "fas fa-exclamation-triangle",
       description: "Rapid response emergency cleanup services available 24/7 throughout Ada County and Canyon County with 2-hour response time guarantee for urgent situations.",
-      timeline: "2-hour response time guarantee",
       certification: "IICRC Certified • Hazmat Trained • Emergency Response Certified",
       emergencyTypes: [
         {
           type: "Water Damage & Flooding",
-          response: "Immediate (1-2 hours)",
           coverage: "Boise, Meridian, Nampa metro areas",
           services: [
             "Water extraction and structural drying",
@@ -197,7 +186,6 @@ export default function ServicePillarsSection() {
         },
         {
           type: "Biohazard & Trauma Cleanup",
-          response: "Immediate (2-4 hours)",
           coverage: "All Treasure Valley locations",
           services: [
             "Blood and bodily fluid cleanup",
@@ -208,7 +196,6 @@ export default function ServicePillarsSection() {
         },
         {
           type: "Chemical Spills & Hazmat",
-          response: "Immediate (1-3 hours)",
           coverage: "Industrial areas of Canyon County",
           services: [
             "Chemical spill containment and cleanup",
@@ -219,7 +206,7 @@ export default function ServicePillarsSection() {
         },
         {
           type: "Fire & Smoke Damage",
-          response: "Same day (4-8 hours)", 
+ 
           coverage: "Greater Boise area and surrounding counties",
           services: [
             "Smoke odor elimination",
@@ -244,7 +231,6 @@ export default function ServicePillarsSection() {
       subtitle: "Eco-Friendly Cleaning for Idaho & Utah Clients",
       icon: "fas fa-leaf",
       description: "Environmentally responsible cleaning solutions using EPA-approved, non-toxic products perfect for Idaho and Utah businesses committed to sustainability and employee health.",
-      timeline: "Standard scheduling with eco-friendly processes",
       certification: "Green Seal Certified • EPA Safer Choice Partner • LEED Compliant",
       greenPrograms: [
         {
@@ -299,7 +285,6 @@ export default function ServicePillarsSection() {
       subtitle: "Advanced Cleaning Technology & Professional Expertise",
       icon: "fas fa-cogs",
       description: "State-of-the-art cleaning equipment and advanced techniques ensuring superior results for complex cleaning challenges throughout the Treasure Valley region.",
-      timeline: "Equipment deployed based on project requirements",
       certification: "Equipment Certified • ISSA Trained • Manufacturer Authorized",
       equipmentCategories: [
         {
@@ -423,15 +408,7 @@ export default function ServicePillarsSection() {
                   </p>
 
                   {/* Quick Info Cards */}
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    <div className="glass-card-elevated p-4 rounded-lg">
-                      <div className="flex items-center mb-2">
-                        <Clock className="h-4 w-4 text-primary mr-2" />
-                        <span className="text-sm font-medium">Timeline</span>
-                      </div>
-                      <p className="text-xs text-muted-foreground">{pillar.timeline}</p>
-                    </div>
-                    
+                  <div className="grid md:grid-cols-1 gap-4 mb-6">
                     <div className="glass-card-elevated p-4 rounded-lg">
                       <div className="flex items-center mb-2">
                         <Shield className="h-4 w-4 text-primary mr-2" />
@@ -450,7 +427,7 @@ export default function ServicePillarsSection() {
                       >
                         <div className="flex items-center">
                           <Award className="h-4 w-4 text-primary mr-2" />
-                          <span className="font-medium">View Detailed Process & Equipment</span>
+                          <span className="font-light">View Detailed Process & Equipment</span>
                         </div>
                       </AccordionTrigger>
                       
@@ -466,11 +443,8 @@ export default function ServicePillarsSection() {
                               <div className="space-y-4">
                                 {pillar.processSteps.map((step, stepIndex) => (
                                   <div key={stepIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="flex justify-between items-center mb-3">
+                                    <div className="mb-3">
                                       <h5 className="font-medium text-foreground">{step.phase}</h5>
-                                      <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
-                                        {step.duration}
-                                      </span>
                                     </div>
                                     <ul className="space-y-2">
                                       {step.tasks.map((task, taskIndex) => (
@@ -496,11 +470,8 @@ export default function ServicePillarsSection() {
                               <div className="space-y-4">
                                 {pillar.schedules.map((schedule, scheduleIndex) => (
                                   <div key={scheduleIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="flex justify-between items-center mb-3">
+                                    <div className="mb-3">
                                       <h5 className="font-medium text-foreground">{schedule.frequency}</h5>
-                                      <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
-                                        {schedule.time}
-                                      </span>
                                     </div>
                                     <ul className="space-y-2">
                                       {schedule.services.map((service, serviceIndex) => (
@@ -554,11 +525,8 @@ export default function ServicePillarsSection() {
                               <div className="space-y-4">
                                 {pillar.emergencyTypes.map((emergency, emergencyIndex) => (
                                   <div key={emergencyIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="flex justify-between items-center mb-3">
+                                    <div className="mb-3">
                                       <h5 className="font-medium text-foreground">{emergency.type}</h5>
-                                      <span className="text-xs text-red-400 bg-red-400/10 px-2 py-1 rounded-full">
-                                        {emergency.response}
-                                      </span>
                                     </div>
                                     <p className="text-xs text-primary mb-3">{emergency.coverage}</p>
                                     <ul className="space-y-2">
