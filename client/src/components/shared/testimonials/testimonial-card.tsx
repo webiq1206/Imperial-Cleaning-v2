@@ -94,32 +94,6 @@ export default function TestimonialCard({
     );
   };
 
-  const renderAvatar = () => {
-    // Mobile-first avatar sizing
-    const avatarSizeClasses = compact || isMobile ? "w-10 h-10 md:w-12 md:h-12" : "w-12 h-12 md:w-14 md:h-14";
-    
-    if (testimonial.avatar) {
-      return (
-        <img 
-          src={testimonial.avatar}
-          alt={`${testimonial.author} avatar`}
-          className={`${avatarSizeClasses} rounded-full object-cover hover-lift-gentle group-hover:scale-110 transition-all duration-500`}
-        />
-      );
-    }
-
-    // Default avatar with initials
-    return (
-      <div 
-        className={`${avatarSizeClasses} rounded-full gradient-bg-br flex items-center justify-center overflow-hidden hover-lift-gentle group-hover:scale-110 transition-all duration-500`}
-        data-testid={`avatar-${testimonial.id}`}
-      >
-        <span className={`${compact || isMobile ? 'text-xs md:text-sm' : 'text-sm'} font-semibold text-black`}>
-          {testimonial.initials || testimonial.author.split(' ').map(n => n[0]).join('')}
-        </span>
-      </div>
-    );
-  };
 
   return (
     <div
@@ -153,14 +127,9 @@ export default function TestimonialCard({
       {!(compact || isMobile) && <div className="w-12 h-[1px] bg-gradient-to-r from-primary/30 to-transparent mb-6 md:mb-8"></div>}
 
       {/* Author Information */}
-      <div className={`flex items-start mt-auto ${compact || isMobile ? 'space-x-3' : 'space-x-4'}`}>
-        {/* Profile Picture */}
-        <div className="flex-shrink-0">
-          {renderAvatar()}
-        </div>
-
+      <div className="mt-auto">
         {/* Author Details */}
-        <div className="min-w-0 flex-1 space-y-1">
+        <div className="space-y-1">
           <div 
             className={`font-semibold text-foreground leading-snug ${
               compact || isMobile ? 'text-sm md:text-base' : 'text-base md:text-lg'

@@ -60,29 +60,6 @@ export default function TestimonialLightbox({
     );
   };
 
-  const renderAvatar = () => {
-    if (testimonial.avatar) {
-      return (
-        <img 
-          src={testimonial.avatar}
-          alt={`${testimonial.author} avatar`}
-          className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover"
-        />
-      );
-    }
-
-    // Default avatar with initials
-    return (
-      <div 
-        className="w-16 h-16 md:w-20 md:h-20 rounded-full gradient-bg-br flex items-center justify-center"
-        data-testid={`lightbox-avatar-${testimonial.id}`}
-      >
-        <span className="text-lg md:text-xl font-bold text-black">
-          {testimonial.initials || testimonial.author.split(' ').map(n => n[0]).join('')}
-        </span>
-      </div>
-    );
-  };
 
   return (
     <Dialog 
@@ -121,14 +98,9 @@ export default function TestimonialLightbox({
           <div className="w-16 h-[1px] bg-gradient-to-r from-primary/30 to-transparent"></div>
 
           {/* Author Information */}
-          <div className="flex items-start space-x-4 md:space-x-6">
-            {/* Profile Picture */}
-            <div className="flex-shrink-0">
-              {renderAvatar()}
-            </div>
-
+          <div>
             {/* Author Details */}
-            <div className="min-w-0 flex-1 space-y-2">
+            <div className="space-y-2">
               <div 
                 className="text-xl md:text-2xl font-semibold text-foreground leading-tight"
                 data-testid={`lightbox-author-${testimonial.id}`}
