@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Clock, Shield, Award } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackCTAClick, trackUserJourney, trackServiceDemand } from "@/lib/analytics";
 import { ServiceCTAProps } from "../types";
 
 export default function ServiceCTA({
@@ -15,6 +15,28 @@ export default function ServiceCTA({
 }: ServiceCTAProps) {
   
   const handleGetQuote = () => {
+    // Enhanced conversion tracking with full context
+    trackCTAClick('quote_request', {
+      page: window.location.pathname,
+      section: `service_cta_${serviceType}`,
+      serviceType: serviceType as 'construction-cleaning' | 'commercial-cleaning',
+      location: undefined, // Service hub page doesn't have specific location
+    });
+    
+    // Track service demand
+    trackServiceDemand(
+      serviceType as 'construction-cleaning' | 'commercial-cleaning',
+      'all_areas',
+      'cta_click'
+    );
+    
+    // Track user journey progression to decision stage
+    trackUserJourney('decision', 'service_cta_quote_request', {
+      serviceType: serviceType as 'construction-cleaning' | 'commercial-cleaning',
+      location: undefined
+    });
+    
+    // Legacy tracking
     trackEvent('quote_request', 'service_cta', serviceType);
     onGetQuote?.();
   };

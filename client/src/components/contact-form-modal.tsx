@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Progress } from "@/components/ui/progress";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackFormInteraction, trackUserJourney, trackConversionComplete } from "@/lib/analytics";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -64,6 +64,23 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
       return apiRequest("POST", "/api/contact", data);
     },
     onSuccess: () => {
+      // Enhanced form submission tracking
+      const formData = form.getValues();
+      trackConversionComplete('contact_form', {
+        serviceType: formData.service === 'construction' ? 'construction-cleaning' : 
+                    formData.service === 'commercial' ? 'commercial-cleaning' : undefined,
+        location: formData.location,
+        sourcePage: 'contact_form_modal'
+      });
+      
+      // Track user journey completion
+      trackUserJourney('conversion', 'contact_form_completed', {
+        serviceType: formData.service === 'construction' ? 'construction-cleaning' : 
+                    formData.service === 'commercial' ? 'commercial-cleaning' : undefined,
+        location: formData.location
+      });
+      
+      // Legacy tracking
       trackEvent('form_submit', 'contact', 'multi_step_form');
       toast({
         title: "Quote Request Sent!",
@@ -90,12 +107,30 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
       form.trigger(currentField).then((isValid) => {
         if (isValid && currentStep < steps.length) {
           setCurrentStep(currentStep + 1);
+          
+          // Enhanced form step tracking
+          trackFormInteraction('form_step', 'contact_form', currentStep + 1, {
+            serviceType: form.getValues().service === 'construction' ? 'construction-cleaning' : 
+                        form.getValues().service === 'commercial' ? 'commercial-cleaning' : undefined,
+            location: form.getValues().location
+          });
+          
+          // Legacy tracking
           trackEvent('form_step', 'contact', `step_${currentStep}_to_${currentStep + 1}`);
         }
       });
     } else {
       if (currentStep < steps.length) {
         setCurrentStep(currentStep + 1);
+        
+        // Enhanced form step tracking for optional fields
+        trackFormInteraction('form_step', 'contact_form', currentStep + 1, {
+          serviceType: form.getValues().service === 'construction' ? 'construction-cleaning' : 
+                      form.getValues().service === 'commercial' ? 'commercial-cleaning' : undefined,
+          location: form.getValues().location
+        });
+        
+        // Legacy tracking
         trackEvent('form_step', 'contact', `step_${currentStep}_to_${currentStep + 1}`);
       }
     }
@@ -104,6 +139,15 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+      
+      // Enhanced form back tracking
+      trackFormInteraction('form_step', 'contact_form', currentStep - 1, {
+        serviceType: form.getValues().service === 'construction' ? 'construction-cleaning' : 
+                    form.getValues().service === 'commercial' ? 'commercial-cleaning' : undefined,
+        location: form.getValues().location
+      });
+      
+      // Legacy tracking
       trackEvent('form_step', 'contact', `step_${currentStep}_to_${currentStep - 1}`);
     }
   };
@@ -113,6 +157,17 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
   };
 
   const handleClose = () => {
+    // Enhanced form abandonment tracking
+    const formData = form.getValues();
+    const filledFields = Object.values(formData).filter(value => value && value.toString().trim() !== '').length;
+    
+    trackFormInteraction('form_abandon', 'contact_form', currentStep, {
+      serviceType: formData.service === 'construction' ? 'construction-cleaning' : 
+                  formData.service === 'commercial' ? 'commercial-cleaning' : undefined,
+      location: formData.location
+    });
+    
+    // Legacy tracking
     trackEvent('form_abandon', 'contact', `step_${currentStep}`);
     onClose();
     form.reset();

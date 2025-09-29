@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Phone, Mail, ArrowRight } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackCTAClick, trackUserJourney } from "@/lib/analytics";
 import { ContactFormCTAProps } from "../types";
 
 export default function ContactFormCTA({
@@ -14,6 +14,21 @@ export default function ContactFormCTA({
 }: ContactFormCTAProps) {
   
   const handleShowContactForm = () => {
+    // Enhanced conversion tracking with context
+    trackCTAClick('contact_form', {
+      page: window.location.pathname,
+      section: `contact_form_cta_${variant}_${size}`,
+      serviceType: undefined, // Will be passed via props in the future
+      location: undefined, // Will be passed via props in the future
+    });
+    
+    // Track user journey progression
+    trackUserJourney('consideration', 'contact_form_cta_click', {
+      serviceType: undefined,
+      location: undefined
+    });
+    
+    // Legacy tracking
     trackEvent('contact_form_trigger', 'cta', variant);
     onShowContactForm?.();
   };

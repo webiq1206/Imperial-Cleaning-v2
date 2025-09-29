@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackNavigationInteraction, trackServiceNavigation } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
 import { allServiceLocations } from "@shared/service-locations";
 import { locationToSlug } from "@/lib/routing-utils";
@@ -41,8 +41,16 @@ export default function Header() {
   };
 
   const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    trackEvent('mobile_menu_toggle', 'navigation', isMobileMenuOpen ? 'close' : 'open');
+    const newState = !isMobileMenuOpen;
+    setIsMobileMenuOpen(newState);
+    
+    // Enhanced mobile menu tracking
+    trackNavigationInteraction(
+      'mobile_menu_toggle',
+      'main_nav',
+      newState ? 'mobile_menu_open' : 'mobile_menu_close'
+    );
+    trackEvent('mobile_menu_toggle', 'navigation', newState ? 'open' : 'close');
   };
 
   const closeMobileMenu = () => {
@@ -51,19 +59,43 @@ export default function Header() {
   };
 
   const toggleMobileService = (serviceType: string) => {
-    setExpandedMobileService(expandedMobileService === serviceType ? null : serviceType);
+    const newService = expandedMobileService === serviceType ? null : serviceType;
+    setExpandedMobileService(newService);
+    
+    // Track mobile service expansion
+    trackNavigationInteraction(
+      'mobile_menu_toggle',
+      'services',
+      `mobile_${serviceType}_${newService ? 'expand' : 'collapse'}`
+    );
   };
 
   const handleServicesDropdownToggle = () => {
-    setIsServicesDropdownOpen(!isServicesDropdownOpen);
+    const newState = !isServicesDropdownOpen;
+    setIsServicesDropdownOpen(newState);
     setIsServiceAreasDropdownOpen(false); // Close other dropdown
-    trackEvent('services_dropdown_toggle', 'navigation', isServicesDropdownOpen ? 'close' : 'open');
+    
+    // Enhanced navigation tracking
+    trackNavigationInteraction(
+      newState ? 'dropdown_open' : 'dropdown_close',
+      'services',
+      'services_main_dropdown'
+    );
+    trackEvent('services_dropdown_toggle', 'navigation', newState ? 'open' : 'close');
   };
 
   const handleServiceAreasDropdownToggle = () => {
-    setIsServiceAreasDropdownOpen(!isServiceAreasDropdownOpen);
+    const newState = !isServiceAreasDropdownOpen;
+    setIsServiceAreasDropdownOpen(newState);
     setIsServicesDropdownOpen(false); // Close other dropdown
-    trackEvent('service_areas_dropdown_toggle', 'navigation', isServiceAreasDropdownOpen ? 'close' : 'open');
+    
+    // Enhanced navigation tracking
+    trackNavigationInteraction(
+      newState ? 'dropdown_open' : 'dropdown_close',
+      'service_areas',
+      'service_areas_main_dropdown'
+    );
+    trackEvent('service_areas_dropdown_toggle', 'navigation', newState ? 'open' : 'close');
   };
 
   const closeAllDropdowns = () => {
@@ -74,6 +106,13 @@ export default function Header() {
 
   const handleServiceSubmenuEnter = (serviceType: string) => {
     setActiveServiceSubmenu(serviceType);
+    
+    // Track submenu interactions
+    trackNavigationInteraction(
+      'submenu_hover',
+      'services',
+      `${serviceType}_submenu`
+    );
   };
 
   const handleServiceSubmenuLeave = () => {
@@ -184,7 +223,11 @@ export default function Header() {
                           <Link 
                             href="/construction-cleaning" 
                             className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle border-b border-border/20"
-                            onClick={closeAllDropdowns}
+                            onClick={() => {
+                              trackServiceNavigation('construction-cleaning', 'dropdown_selection');
+                              trackNavigationInteraction('menu_click', 'services', 'construction_cleaning_all_locations');
+                              closeAllDropdowns();
+                            }}
                             data-testid="link-construction-cleaning-all"
                           >
                             <div className="flex items-center">
@@ -198,7 +241,11 @@ export default function Header() {
                               key={loc.name}
                               href={`/construction-cleaning/${locationToSlug(loc.name)}`}
                               className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-all duration-200"
-                              onClick={closeAllDropdowns}
+                              onClick={() => {
+                                trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
+                                trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                                closeAllDropdowns();
+                              }}
                               data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}`}
                             >
                               <div className="flex items-center justify-between">
@@ -242,7 +289,11 @@ export default function Header() {
                           <Link 
                             href="/commercial-cleaning" 
                             className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle border-b border-border/20"
-                            onClick={closeAllDropdowns}
+                            onClick={() => {
+                              trackServiceNavigation('commercial-cleaning', 'dropdown_selection');
+                              trackNavigationInteraction('menu_click', 'services', 'commercial_cleaning_all_locations');
+                              closeAllDropdowns();
+                            }}
                             data-testid="link-commercial-cleaning-all"
                           >
                             <div className="flex items-center">
@@ -256,7 +307,11 @@ export default function Header() {
                               key={loc.name}
                               href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
                               className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-all duration-200"
-                              onClick={closeAllDropdowns}
+                              onClick={() => {
+                                trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
+                                trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                                closeAllDropdowns();
+                              }}
                               data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}`}
                             >
                               <div className="flex items-center justify-between">
@@ -292,7 +347,10 @@ export default function Header() {
                     <Link 
                       href="/service-areas/idaho" 
                       className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
-                      onClick={closeAllDropdowns}
+                      onClick={() => {
+                        trackNavigationInteraction('menu_click', 'service_areas', 'idaho_service_areas');
+                        closeAllDropdowns();
+                      }}
                       data-testid="link-service-areas-idaho"
                     >
                       <div className="flex items-center">
@@ -306,7 +364,10 @@ export default function Header() {
                     <Link 
                       href="/service-areas/utah" 
                       className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
-                      onClick={closeAllDropdowns}
+                      onClick={() => {
+                        trackNavigationInteraction('menu_click', 'service_areas', 'utah_service_areas');
+                        closeAllDropdowns();
+                      }}
                       data-testid="link-service-areas-utah"
                     >
                       <div className="flex items-center">

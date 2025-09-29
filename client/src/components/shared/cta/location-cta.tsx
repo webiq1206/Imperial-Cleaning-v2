@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Clock, Star } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackCTAClick, trackUserJourney, trackServiceDemand, trackLocationInteraction } from "@/lib/analytics";
 import { LocationCTAProps } from "../types";
 
 export default function LocationCTA({
@@ -16,6 +16,40 @@ export default function LocationCTA({
 }: LocationCTAProps) {
   
   const handleGetQuote = () => {
+    // Determine service type from current page URL
+    const currentPath = window.location.pathname;
+    const serviceType = currentPath.includes('construction-cleaning') ? 'construction-cleaning' : 
+                       currentPath.includes('commercial-cleaning') ? 'commercial-cleaning' : undefined;
+    
+    // Enhanced conversion tracking with full location context
+    trackCTAClick('quote_request', {
+      page: currentPath,
+      section: `location_cta_${locationName.toLowerCase().replace(/\s+/g, '-')}`,
+      serviceType: serviceType,
+      location: locationName,
+      marketTier: undefined // Would need to be passed as prop for full context
+    });
+    
+    // Track location-specific interaction
+    trackLocationInteraction(
+      'location_cta',
+      locationName,
+      'primary', // Default tier - should be passed as prop
+      serviceType
+    );
+    
+    // Track service demand for this specific location
+    if (serviceType) {
+      trackServiceDemand(serviceType, locationName, 'cta_click');
+    }
+    
+    // Track user journey progression to conversion
+    trackUserJourney('conversion', 'location_cta_quote_request', {
+      serviceType: serviceType,
+      location: locationName
+    });
+    
+    // Legacy tracking
     trackEvent('quote_request', 'location_cta', `${locationName}_${state}`);
     onGetQuote?.();
   };

@@ -1,4 +1,5 @@
 import { TrustIndicatorsProps } from "../types";
+import { trackContentEngagement } from "@/lib/analytics";
 
 export default function TrustIndicators({
   projectsCompleted = 200,
@@ -68,6 +69,17 @@ export default function TrustIndicators({
         <div
           key={index}
           className={getItemClasses(index)}
+          onClick={() => {
+            // Track stats engagement
+            trackContentEngagement(
+              'stats_click',
+              {
+                contentType: 'trust_indicator',
+                contentId: stat.label,
+                position: index + 1
+              }
+            );
+          }}
           data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}
         >
           {/* Stat Value */}

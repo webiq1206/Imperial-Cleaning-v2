@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { TestimonialCardProps } from "../types";
+import { trackContentEngagement } from "@/lib/analytics";
 
 export default function TestimonialCard({
   testimonial,
@@ -80,6 +81,18 @@ export default function TestimonialCard({
     <div
       className={`${getCardClasses()} ${className}`}
       style={{ animationDelay: `${animationDelay}ms` }}
+      onClick={() => {
+        // Track testimonial engagement
+        trackContentEngagement(
+          'testimonial_click',
+          {
+            contentType: 'testimonial',
+            contentId: testimonial.id,
+            serviceType: testimonial.serviceType || undefined,
+            location: testimonial.location || undefined
+          }
+        );
+      }}
       data-testid={`testimonial-card-${testimonial.id}`}
     >
       {/* Rating */}

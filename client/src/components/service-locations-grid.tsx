@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight, Building, Star, Clock, Users } from "lucide-react";
+import { trackLocationInteraction, trackServiceDemand, trackContentEngagement } from "@/lib/analytics";
 import { 
   idahoLocations, 
   utahLocations, 
@@ -71,7 +72,36 @@ export default function ServiceLocationsGrid({
     const slug = getLocationSlug(location.name);
     
     return (
-      <Link href={`/${serviceType}/${slug}`} key={location.name}>
+      <Link 
+        href={`/${serviceType}/${slug}`} 
+        key={location.name}
+        onClick={() => {
+          // Enhanced location grid interaction tracking
+          trackLocationInteraction(
+            'location_card_click',
+            location.name,
+            location.marketTier,
+            serviceType
+          );
+          
+          // Track service demand for this location
+          trackServiceDemand(
+            serviceType as 'construction-cleaning' | 'commercial-cleaning',
+            location.name,
+            'location_grid_click'
+          );
+          
+          // Track engagement with location grid
+          trackContentEngagement(
+            'location_grid_click',
+            {
+              contentType: 'location_card',
+              contentId: location.name,
+              serviceType: serviceType
+            }
+          );
+        }}
+      >
         <div 
           className={`glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand p-6 rounded-lg group cursor-pointer transition-all duration-300 animate-fade-in-up stagger-delay-${index + 1}`}
           data-testid={`location-card-${slug}`}

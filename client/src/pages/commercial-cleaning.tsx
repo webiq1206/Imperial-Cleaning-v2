@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { Link, RouteComponentProps } from "wouter";
+import { useState, useEffect } from "react";
+import { Link, RouteComponentProps, useLocation } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
 import { ServiceCTA } from "@/components/shared";
@@ -52,6 +52,12 @@ import {
   generateLocationBreadcrumbs
 } from "@/lib/location-content-utils";
 import { locationToSlug } from "@/lib/routing-utils";
+import { 
+  trackServicePageView, 
+  trackUserJourney, 
+  trackServiceDemand,
+  trackScrollDepth 
+} from "@/lib/analytics";
 
 interface CommercialCleaningProps extends RouteComponentProps {
   locationData?: ServiceLocation | null;
@@ -59,6 +65,75 @@ interface CommercialCleaningProps extends RouteComponentProps {
 
 export default function CommercialCleaning({ locationData }: CommercialCleaningProps) {
   const [showContactForm, setShowContactForm] = useState(false);
+  const [location] = useLocation();
+  
+  // Track page view on component mount
+  useEffect(() => {
+    // Track enhanced page view with service/location context
+    trackServicePageView(
+      'commercial-cleaning', 
+      locationData?.name,
+      locationData?.marketTier
+    );
+    
+    // Track user journey stage
+    trackUserJourney(
+      'discovery',
+      locationData ? 'service_location_page' : 'service_hub_page',
+      {
+        serviceType: 'commercial-cleaning',
+        location: locationData?.name
+      }
+    );
+    
+    // Track service demand
+    trackServiceDemand(
+      'commercial-cleaning',
+      locationData?.name || 'all_areas',
+      'page_view'
+    );
+  }, [locationData]);
+  
+  // Track scroll depth
+  useEffect(() => {
+    const scrollTracked = { 25: false, 50: false, 75: false, 90: false, 100: false };
+    
+    const handleScroll = () => {
+      const scrollPercent = Math.round(
+        (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+      );
+      
+      const pageType = locationData ? 'service-location' : 'service-hub';
+      const serviceContext = {
+        serviceType: 'commercial-cleaning' as const,
+        location: locationData?.name
+      };
+      
+      if (scrollPercent >= 25 && !scrollTracked[25]) {
+        scrollTracked[25] = true;
+        trackScrollDepth(25, pageType, serviceContext);
+      }
+      if (scrollPercent >= 50 && !scrollTracked[50]) {
+        scrollTracked[50] = true;
+        trackScrollDepth(50, pageType, serviceContext);
+      }
+      if (scrollPercent >= 75 && !scrollTracked[75]) {
+        scrollTracked[75] = true;
+        trackScrollDepth(75, pageType, serviceContext);
+      }
+      if (scrollPercent >= 90 && !scrollTracked[90]) {
+        scrollTracked[90] = true;
+        trackScrollDepth(90, pageType, serviceContext);
+      }
+      if (scrollPercent >= 100 && !scrollTracked[100]) {
+        scrollTracked[100] = true;
+        trackScrollDepth(100, pageType, serviceContext);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [locationData]);
   
   // Generate location-specific content if locationData is provided
   const isLocationSpecific = !!locationData;
