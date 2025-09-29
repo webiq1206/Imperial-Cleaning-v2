@@ -41,15 +41,15 @@ export default function CaseStudiesSection() {
 
   const caseStudies = [
     {
-      id: "boise-downtown-office",
+      id: "idaho-falls-downtown-office",
       category: "construction",
-      title: "Boise Downtown Office Complex",
+      title: "Idaho Falls Downtown Office Complex",
       subtitle: "75,000 sq ft Post-Construction Cleanup Excellence",
-      location: "Downtown Boise, ID",
+      location: "Idaho Falls, ID",
       projectType: "Commercial Construction Cleanup",
       timeline: "Completed 2 days ahead of schedule",
       badge: "CONSTRUCTION",
-      challenge: "A premier 15-story downtown Boise office complex required comprehensive post-construction cleaning after extensive renovations. Construction debris, dust contamination, and strict occupancy deadlines created a complex cleaning challenge with zero tolerance for delays.",
+      challenge: "A premier 15-story downtown Idaho Falls office complex required comprehensive post-construction cleaning after extensive renovations. Located near our headquarters, construction debris, dust contamination, and strict occupancy deadlines created a complex cleaning challenge with zero tolerance for delays.",
       solution: "Imperial Cleaning deployed a specialized 12-person crew with industrial HEPA systems, implementing our proven 3-phase construction cleanup process. We coordinated with general contractors to minimize disruption while ensuring thorough debris removal, deep cleaning, and final polish.",
       results: {
         timeline: "Completed in 4 days (2 days early)",
@@ -67,24 +67,24 @@ export default function CaseStudiesSection() {
         quote: "Imperial Cleaning exceeded every expectation. Their systematic approach and attention to detail ensured our building was inspection-ready ahead of schedule. Professional, reliable, and incredibly thorough.",
         author: "Michael Chen",
         position: "Project Manager",
-        company: "Treasure Valley Development Group"
+        company: "Snake River Development Group"
       },
       beforeAfter: {
         before: "Construction site with heavy debris, dust contamination across all floors, window film residue, and unfinished surfaces requiring detailed cleaning throughout the 15-story complex.",
         after: "Pristine office environment ready for immediate occupancy with spotless windows, polished floors, sanitized surfaces, and air quality meeting strict commercial standards."
       },
-      keywords: "Boise commercial cleaning project, downtown office complex cleaning, post-construction cleanup Boise"
+      keywords: "Idaho Falls commercial cleaning project, downtown office complex cleaning, post-construction cleanup Idaho Falls"
     },
     {
-      id: "meridian-manufacturing",
+      id: "pocatello-manufacturing",
       category: "industrial",
-      title: "Meridian Manufacturing Facility",
+      title: "Pocatello Manufacturing Facility",
       subtitle: "Industrial Cleaning Transformation & Safety Enhancement",
-      location: "Meridian, ID",
+      location: "Pocatello, ID",
       projectType: "Manufacturing Facility Deep Clean",
       timeline: "Monthly maintenance program established",
       badge: "INDUSTRIAL",
-      challenge: "A 200,000 sq ft Meridian manufacturing facility faced declining safety scores due to accumulated industrial contaminants, machinery buildup, and inadequate cleaning protocols. OSHA compliance concerns and production efficiency issues required immediate intervention.",
+      challenge: "A 200,000 sq ft Pocatello manufacturing facility faced declining safety scores due to accumulated industrial contaminants, machinery buildup, and inadequate cleaning protocols. OSHA compliance concerns and production efficiency issues required immediate intervention.",
       solution: "Imperial Cleaning implemented a comprehensive industrial cleaning transformation program, including specialized degreasing, high-pressure washing, and establishment of ongoing maintenance protocols. Our OSHA-certified team used industrial-grade equipment and safety procedures.",
       results: {
         timeline: "Initial deep clean: 1 week",
@@ -102,24 +102,24 @@ export default function CaseStudiesSection() {
         quote: "The transformation has been remarkable. Our safety scores improved dramatically, production efficiency increased, and employee satisfaction is at an all-time high. Imperial Cleaning truly understands industrial environments.",
         author: "Sarah Rodriguez",
         position: "Facilities Director", 
-        company: "Meridian Precision Manufacturing"
+        company: "Pocatello Precision Manufacturing"
       },
       beforeAfter: {
         before: "Heavy machinery contamination, oil residue throughout production areas, poor air quality, accumulated industrial dust, and surfaces that hadn't been properly cleaned in years.",
         after: "Pristine manufacturing environment with spotless machinery, improved air quality, slip-resistant floors, and comprehensive cleaning protocols maintaining continuous high standards."
       },
-      keywords: "Meridian office cleaning results, industrial cleaning transformation, manufacturing facility cleaning Idaho"
+      keywords: "Pocatello industrial cleaning results, manufacturing facility cleaning transformation, eastern Idaho cleaning services"
     },
     {
-      id: "eagle-corporate-headquarters",
+      id: "twin-falls-corporate-headquarters",
       category: "commercial",
-      title: "Eagle Corporate Headquarters",
+      title: "Twin Falls Corporate Headquarters",
       subtitle: "Luxury Office Maintenance Program Excellence",
-      location: "Eagle, ID",
+      location: "Twin Falls, ID",
       projectType: "Executive Office Maintenance",
       timeline: "18-month premium service agreement",
       badge: "COMMERCIAL",
-      challenge: "A prestigious Eagle corporate headquarters demanded the highest standards of cleanliness for executive offices, conference facilities, and client reception areas. Previous cleaning services failed to maintain luxury standards expected by C-level executives and important clients.",
+      challenge: "A prestigious Twin Falls corporate headquarters demanded the highest standards of cleanliness for executive offices, conference facilities, and client reception areas. Previous cleaning services failed to maintain luxury standards expected by C-level executives and important clients.",
       solution: "Imperial Cleaning developed a custom luxury office maintenance program with daily, weekly, and monthly service tiers. Our trained professionals use premium cleaning products and white-glove techniques to maintain impeccable standards throughout the facility.",
       results: {
         timeline: "Perfect service record: 18 months",
@@ -137,13 +137,13 @@ export default function CaseStudiesSection() {
         quote: "Imperial Cleaning has become an extension of our team. Their attention to detail and professionalism reflects the standards we expect in our corporate environment. Consistently excellent service.",
         author: "James Patterson",
         position: "Chief Operations Officer",
-        company: "Eagle Financial Partners"
+        company: "Twin Falls Financial Partners"
       },
       beforeAfter: {
         before: "Standard office cleaning that didn't meet executive standards, inconsistent service quality, missed details in high-visibility areas, and frequent client complaints about facility appearance.",
         after: "Impeccable luxury office environment with consistently spotless executive suites, conference rooms that impress clients, and maintained premium standards throughout all areas."
       },
-      keywords: "Eagle corporate cleaning services, luxury office maintenance Idaho, executive office cleaning Treasure Valley"
+      keywords: "Twin Falls corporate cleaning services, luxury office maintenance Idaho, executive office cleaning southern Idaho"
     },
     {
       id: "utah-construction-projects",
@@ -181,15 +181,15 @@ export default function CaseStudiesSection() {
       keywords: "Utah construction cleanup, multi-state cleaning services, large-scale construction cleaning"
     },
     {
-      id: "treasure-valley-healthcare",
+      id: "logan-healthcare",
       category: "healthcare",
-      title: "Treasure Valley Healthcare Facility",
+      title: "Logan Healthcare Facility",
       subtitle: "Specialized Medical Cleaning & Compliance Standards",
-      location: "Boise, ID",
+      location: "Logan, UT",
       projectType: "Medical Facility Specialized Cleaning",
       timeline: "Ongoing compliance program since 2022",
       badge: "HEALTHCARE",
-      challenge: "A critical healthcare facility in the Treasure Valley required specialized cleaning services meeting strict medical standards, infection control protocols, and regulatory compliance. Standard cleaning approaches were insufficient for sensitive medical environments.",
+      challenge: "A critical healthcare facility in Logan, Utah required specialized cleaning services meeting strict medical standards, infection control protocols, and regulatory compliance. Standard cleaning approaches were insufficient for sensitive medical environments.",
       solution: "Imperial Cleaning developed comprehensive medical facility cleaning protocols with specialized training for healthcare environments. Our team maintains certifications in bloodborne pathogen handling, medical waste disposal, and infection control procedures.",
       results: {
         timeline: "2+ years of perfect compliance",
@@ -207,13 +207,13 @@ export default function CaseStudiesSection() {
         quote: "Imperial Cleaning understands the critical nature of medical facility cleaning. Their specialized protocols and attention to compliance have been essential to our operational success and patient safety.",
         author: "Dr. Maria Gonzalez",
         position: "Chief Medical Officer",
-        company: "Treasure Valley Medical Center"
+        company: "Cache Valley Medical Center"
       },
       beforeAfter: {
         before: "Healthcare facility requiring specialized medical cleaning protocols, strict compliance with health regulations, infection control measures, and medical waste handling procedures.",
         after: "Fully compliant medical facility with specialized cleaning protocols, perfect regulatory compliance record, enhanced infection control, and recognition for outstanding standards."
       },
-      keywords: "Treasure Valley healthcare cleaning, medical facility cleaning Idaho, Idaho commercial cleaning expertise"
+      keywords: "Logan healthcare cleaning, medical facility cleaning Utah, Utah Idaho commercial cleaning expertise"
     }
   ];
 
@@ -272,8 +272,8 @@ export default function CaseStudiesSection() {
             </h2>
             
             <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-normal" data-testid="desc-case-studies-main">
-              Discover how Imperial Cleaning Inc. delivers exceptional results across diverse projects in the Treasure Valley and beyond. 
-              From Boise commercial cleaning projects to large-scale Utah construction cleanup, our expertise speaks through measurable outcomes.
+              Discover how Imperial Cleaning Inc. delivers exceptional results across diverse projects throughout Idaho and Utah. 
+              From Idaho Falls headquarters to large-scale multi-state operations, our expertise speaks through measurable outcomes.
             </p>
           </div>
 
