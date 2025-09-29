@@ -7,6 +7,7 @@ import PartnersSection from "@/components/partners-section";
 import ProcessTerminalSection from "@/components/process-terminal-section";
 import ServiceAreasSection from "@/components/service-areas-section";
 import TestimonialsSection from "@/components/testimonials-section";
+import FAQSection from "@/components/faq-section";
 import StickyContacts from "@/components/sticky-contacts";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <ProcessTerminalSection />
       <ServiceAreasSection />
       <TestimonialsSection />
+      <FAQSection />
       <Footer />
     </div>
   );
