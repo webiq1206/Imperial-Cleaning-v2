@@ -19,7 +19,7 @@ export default function TestimonialsCarousel({
   itemsPerView = {
     mobile: 1,
     tablet: 2,
-    desktop: 3
+    desktop: 2
   },
   animationDelay = 0,
   className = "",
@@ -102,13 +102,13 @@ export default function TestimonialsCarousel({
   }, [emblaApi, autoplayPlugin, autoScroll]);
 
   const getItemWidthClasses = () => {
-    // Mobile-first responsive item sizing with better spacing
-    const mobileWidth = isMobile ? 85 : 100/itemsPerView.mobile; // Slightly smaller on mobile for peek effect
-    return `flex-[0_0_${mobileWidth}%] md:flex-[0_0_${100/itemsPerView.tablet}%] lg:flex-[0_0_${100/itemsPerView.desktop}%]`;
+    // Use exact percentages based on itemsPerView settings
+    // Mobile: 1 item = 100%, Tablet: 2 items = 50%, Desktop: 2 items = 50%
+    return "w-full md:w-1/2 lg:w-1/2 flex-shrink-0";
   };
   
   const getItemSpacing = () => {
-    return isMobile ? "pl-4 md:pl-6 lg:pl-8" : "pl-6 md:pl-8";
+    return "px-3 md:px-4 lg:px-4";
   };
 
   return (
@@ -119,7 +119,7 @@ export default function TestimonialsCarousel({
     >
       {/* Embla carousel viewport */}
       <div className="embla overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex">
+        <div className="embla__container flex -mx-3 md:-mx-4 lg:-mx-4">
           {testimonials.map((testimonial, index) => (
             <div
               key={`${testimonial.id}-${index}`}

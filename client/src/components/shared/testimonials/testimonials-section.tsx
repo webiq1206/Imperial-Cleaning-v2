@@ -18,7 +18,7 @@ export default function TestimonialsSection({
   itemsPerView = {
     mobile: 1,
     tablet: 2,
-    desktop: 3
+    desktop: 2
   },
   animationDelay = 0,
   className = ""
