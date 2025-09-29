@@ -1,7 +1,8 @@
-// Continuous smooth scroll - no choppy discrete movements
+import { TestimonialsSection } from "@/components/shared";
+import { TestimonialData } from "@/components/shared/types";
 
-export default function TestimonialsSection() {
-  const testimonials = [
+export default function TestimonialsSectionWrapper() {
+  const testimonials: TestimonialData[] = [
     {
       id: 1,
       content: "Imperial Cleaning transformed our post-construction site into a spotless workspace. Their attention to detail is unmatched, and they completed the job ahead of schedule.",
@@ -64,97 +65,19 @@ export default function TestimonialsSection() {
     }
   ];
 
-  // Duplicate testimonials for seamless infinite loop
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
-
   return (
-    <section className="py-24 px-6 testimonials-sophisticated-bg noise-overlay vignette-top vignette-bottom">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-            Beyond <span className="gradient-text-cyan-purple">expectations</span>
-          </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Imperial Cleaning is driving remarkable client experiences that enable success stories, empower businesses, and fuel growth across Idaho and Utah.
-          </p>
-        </div>
-
-        {/* Smooth Continuous Testimonials Carousel with Manual Scrolling */}
-        <div className="overflow-hidden relative testimonials-container">
-          <div className="testimonials-track flex animate-scroll-infinite">
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <div
-                key={`${testimonial.id}-${index}`}
-                className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.333%] pl-6"
-                data-testid={`testimonial-slide-${testimonial.id}-${index}`}
-              >
-                <div className="glass-card-elevated sophisticated-glow h-full flex flex-col p-8 hover-lift-moderate hover-glow-expand parallax-subtle rounded-lg group">
-                  {/* Quote */}
-                  <blockquote className="text-foreground text-base lg:text-lg leading-relaxed mb-8 flex-grow">
-                    "{testimonial.content}"
-                  </blockquote>
-
-                  {/* Elegant inset divider between quote and author */}
-                  <div className="glass-divider-top mb-6"></div>
-
-                  {/* Author Information */}
-                  <div className="flex items-center mt-auto">
-                    {/* Profile Picture */}
-                    <div className="flex-shrink-0 mr-4">
-                      <div 
-                        className="w-12 h-12 rounded-full gradient-bg-br flex items-center justify-center overflow-hidden hover-lift-gentle group-hover:scale-110 transition-all duration-500"
-                        data-testid={`avatar-${testimonial.id}-${index}`}
-                      >
-                        <span className="text-sm font-semibold text-black">
-                          {testimonial.initials}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Author Details */}
-                    <div className="min-w-0 flex-1">
-                      <div 
-                        className="font-semibold text-foreground text-base mb-1"
-                        data-testid={`author-name-${testimonial.id}-${index}`}
-                      >
-                        {testimonial.author}
-                      </div>
-                      <div 
-                        className="text-muted-foreground text-sm"
-                        data-testid={`author-position-${testimonial.id}-${index}`}
-                      >
-                        {testimonial.position} at {testimonial.company}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="text-center mt-16 lg:mt-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-            <div className="text-center hover-lift-gentle group animate-fade-in-scale stagger-delay-1" data-testid="stat-projects">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">200+</div>
-              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Projects Completed</div>
-            </div>
-            <div className="text-center hover-lift-gentle group animate-fade-in-scale stagger-delay-2" data-testid="stat-clients">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">50+</div>
-              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Happy Clients</div>
-            </div>
-            <div className="text-center hover-lift-gentle group animate-fade-in-scale stagger-delay-3" data-testid="stat-experience">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
-              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Years Experience</div>
-            </div>
-            <div className="text-center hover-lift-gentle group animate-fade-in-scale stagger-delay-4" data-testid="stat-coverage">
-              <div className="text-2xl lg:text-3xl font-bold gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">2</div>
-              <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">States Served</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <TestimonialsSection
+      testimonials={testimonials}
+      title="Beyond expectations"
+      description="Imperial Cleaning is driving remarkable client experiences that enable success stories, empower businesses, and fuel growth across Idaho and Utah."
+      autoScroll={true}
+      showTrustIndicators={true}
+      layout="carousel"
+      itemsPerView={{
+        mobile: 1,
+        tablet: 2,
+        desktop: 3
+      }}
+    />
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, RouteComponentProps } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
+import { ServiceCTA } from "@/components/shared";
 import { ServiceLocation } from "@shared/service-locations";
 import { 
   Building2, 
@@ -1085,55 +1086,21 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="glass-card-premium p-12 rounded-lg text-center">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-              <HardHat className="w-10 h-10 text-primary" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Ready for Professional Construction Cleanup?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Get your construction project inspection-ready with our comprehensive 3-phase cleanup process. Serving contractors and developers across Idaho and Utah with guaranteed satisfaction.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="glass-effect p-4 rounded-lg">
-                <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-lg font-bold text-foreground">Fast Response</div>
-                <div className="text-sm text-muted-foreground">24-48 hour project start</div>
-              </div>
-              <div className="glass-effect p-4 rounded-lg">
-                <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-lg font-bold text-foreground">Guaranteed Quality</div>
-                <div className="text-sm text-muted-foreground">100% satisfaction promise</div>
-              </div>
-              <div className="glass-effect p-4 rounded-lg">
-                <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-lg font-bold text-foreground">Proven Results</div>
-                <div className="text-sm text-muted-foreground">Inspection-ready cleanup</div>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <Button 
-                onClick={() => setShowContactForm(true)}
-                variant="pill-primary" 
-                size="pill-lg"
-                className="text-lg font-semibold px-12 py-4 hover-lift-gentle button-ripple"
-                data-testid="button-get-construction-quote-main"
-              >
-                Get Your Free Construction Cleanup Quote
-              </Button>
-              <p className="text-sm text-muted-foreground">
-                Licensed, bonded, and insured • Available across Idaho & Utah • Emergency cleanup services available
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Enhanced CTA Section - Using Shared ServiceCTA Component */}
+      <ServiceCTA
+        serviceType="construction-cleaning"
+        title="Ready for Professional Construction Cleanup?"
+        description="Get your construction project inspection-ready with our comprehensive 3-phase cleanup process. Serving contractors and developers across Idaho and Utah with guaranteed satisfaction."
+        buttonText="Get Your Free Construction Cleanup Quote"
+        onGetQuote={() => setShowContactForm(true)}
+        features={[
+          "24-48 hour project start",
+          "100% satisfaction promise", 
+          "Inspection-ready cleanup",
+          "Licensed, bonded, and insured"
+        ]}
+        className="bg-gradient-to-br from-primary/5 via-transparent to-primary/5"
+      />
 
       {showContactForm && (
         <ContactFormModal 

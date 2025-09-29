@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, RouteComponentProps } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
+import { ServiceCTA } from "@/components/shared";
 import { ServiceLocation } from "@shared/service-locations";
 import { 
   Building2, 
@@ -1219,55 +1220,21 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="glass-card-premium p-12 rounded-lg text-center">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-              <Building2 className="w-10 h-10 text-primary" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Ready for Professional Commercial Cleaning?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Maintain a professional, healthy work environment with our comprehensive commercial cleaning services. Serving businesses across Idaho and Utah with flexible schedules and guaranteed satisfaction.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="glass-effect p-4 rounded-lg">
-                <Calendar className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-lg font-bold text-foreground">Flexible Scheduling</div>
-                <div className="text-sm text-muted-foreground">Daily, weekly, or custom</div>
-              </div>
-              <div className="glass-effect p-4 rounded-lg">
-                <PhoneCall className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-lg font-bold text-foreground">Quick Response</div>
-                <div className="text-sm text-muted-foreground">24-hour quote turnaround</div>
-              </div>
-              <div className="glass-effect p-4 rounded-lg">
-                <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-lg font-bold text-foreground">Quality Guaranteed</div>
-                <div className="text-sm text-muted-foreground">100% satisfaction promise</div>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <Button 
-                onClick={() => setShowContactForm(true)}
-                variant="pill-primary" 
-                size="pill-lg"
-                className="text-lg font-semibold px-12 py-4 hover-lift-gentle button-ripple"
-                data-testid="button-get-commercial-quote-main"
-              >
-                Get Your Free Commercial Cleaning Quote
-              </Button>
-              <p className="text-sm text-muted-foreground">
-                Licensed, bonded, and insured • Available across Idaho & Utah • Same-day response for urgent needs
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Enhanced CTA Section - Using Shared ServiceCTA Component */}
+      <ServiceCTA
+        serviceType="commercial-cleaning"
+        title="Ready for Professional Commercial Cleaning?"
+        description="Maintain a professional, healthy work environment with our comprehensive commercial cleaning services. Serving businesses across Idaho and Utah with flexible schedules and guaranteed satisfaction."
+        buttonText="Get Your Free Commercial Cleaning Quote"
+        onGetQuote={() => setShowContactForm(true)}
+        features={[
+          "Daily, weekly, or custom schedules",
+          "24-hour quote turnaround", 
+          "100% satisfaction promise",
+          "Licensed, bonded, and insured"
+        ]}
+        className="bg-gradient-to-br from-primary/5 via-transparent to-primary/5"
+      />
 
       {showContactForm && (
         <ContactFormModal 
