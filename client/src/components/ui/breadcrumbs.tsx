@@ -37,7 +37,7 @@ export default function Breadcrumbs({ items, className = "" }: BreadcrumbsProps)
           
           return (
             <li key={index} className="flex items-center">
-              <ChevronRight className="w-4 h-4 mx-2 text-muted-foreground/50" />
+              <ChevronRight className="w-4 h-4 mx-3 text-muted-foreground/50" />
               {isLast ? (
                 <span 
                   className="font-medium text-foreground" 
