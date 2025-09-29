@@ -9,7 +9,7 @@ export default function FeaturesSection() {
             Why Businesses Choose Imperial Cleaning
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-            Idaho and Utah's most trusted commercial cleaners with proven expertise across multiple cities and regions. Licensed, bonded, and certified throughout both states.
+            Most trusted commercial cleaning company with proven expertise across multiple markets and regions. Licensed, bonded, and certified with comprehensive coverage.
           </p>
         </div>
 

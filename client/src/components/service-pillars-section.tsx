@@ -362,7 +362,7 @@ export default function ServicePillarsSection() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-20">
-            <div className="resend-icon mx-auto mb-8 hover-lift-gentle animate-fade-in-up">
+            <div className="resend-icon mx-auto mb-8 hover-lift-gentle">
               <i className="fas fa-columns icon-gradient text-4xl"></i>
             </div>
             
@@ -371,7 +371,7 @@ export default function ServicePillarsSection() {
             </h2>
             
             <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-normal">
-              Discover our comprehensive expertise in Boise post-construction cleaning, Treasure Valley commercial janitorial services, and specialized cleaning solutions throughout Idaho and Utah.
+              Discover our comprehensive expertise in post-construction cleaning, commercial janitorial services, and specialized cleaning solutions for businesses across our service regions.
             </p>
           </div>
 
@@ -380,7 +380,7 @@ export default function ServicePillarsSection() {
             {servicePillars.map((pillar, index) => (
               <div 
                 key={pillar.id}
-                className={`group animate-fade-in-up stagger-delay-${index + 1}`}
+                className="group"
                 data-testid={`service-pillar-${pillar.id}`}
               >
                 <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-8 rounded-lg">

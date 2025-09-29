@@ -24,7 +24,7 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-shield-alt",
       badge: "VERIFIED",
       status: "active",
-      description: "Idaho Falls-headquartered company with comprehensive insurance coverage protecting your property and providing complete peace of mind for all commercial cleaning projects.",
+      description: "Locally owned and operated company with comprehensive insurance coverage protecting your property and providing complete peace of mind for all commercial cleaning projects.",
       details: [
         {
           type: "General Liability Insurance",
@@ -45,7 +45,7 @@ export default function ComplianceCertificationsSection() {
           status: "Current & verified"
         }
       ],
-      keywords: "Boise insured cleaning company, Treasure Valley bonded janitorial services, Idaho insured contractor"
+      keywords: "Insured cleaning company, bonded janitorial services, licensed cleaning contractor"
     },
     {
       id: "safety-certifications",
@@ -53,7 +53,7 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-hard-hat",
       badge: "OSHA CERTIFIED",
       status: "current",
-      description: "Idaho Falls-based OSHA compliant cleaning operations with comprehensive safety training protocols ensuring accident prevention across all service locations.",
+      description: "OSHA compliant cleaning operations with comprehensive safety training protocols ensuring accident prevention across all service locations.",
       details: [
         {
           type: "OSHA 30-Hour Construction",
@@ -111,7 +111,7 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-map-marker-alt",
       badge: "LICENSED",
       status: "compliant",
-      description: "Licensed cleaning contractor Idaho with full compliance in both Idaho and Utah, meeting all municipal requirements for Boise area operations.",
+      description: "Licensed cleaning contractor with full compliance across all service regions, meeting all municipal requirements for local operations.",
       details: [
         {
           type: "Idaho State Business License",
@@ -169,7 +169,7 @@ export default function ComplianceCertificationsSection() {
       icon: "fas fa-exclamation-triangle",
       badge: "24/7 RESPONSE",
       status: "available",
-      description: "Comprehensive emergency response procedures with 24/7 availability and rapid incident management across all Treasure Valley cleaning operations.",
+      description: "Comprehensive emergency response procedures with 24/7 availability and rapid incident management across all service area cleaning operations.",
       details: [
         {
           type: "Emergency Response Plan",
@@ -391,8 +391,8 @@ export default function ComplianceCertificationsSection() {
               Local Compliance Across the Treasure Valley
             </h3>
             <p className="text-muted-foreground mb-6 max-w-4xl mx-auto" data-testid="desc-service-area-compliance">
-              Imperial Cleaning Inc. maintains full compliance and certification in all service areas including Boise, Meridian, Nampa, Caldwell, Eagle, Star, and Kuna. 
-              Our comprehensive licensing covers both commercial cleaning and post-construction cleanup services throughout Idaho and Utah.
+              Imperial Cleaning Inc. maintains full compliance and certification in all service areas across our regional markets. 
+              Our comprehensive licensing covers both commercial cleaning and post-construction cleanup services throughout all service regions.
             </p>
             
             <div className="flex flex-wrap justify-center gap-2 mb-6">
