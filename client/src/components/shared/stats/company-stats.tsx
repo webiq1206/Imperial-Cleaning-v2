@@ -34,13 +34,13 @@ export default function CompanyStats({
       case "achievements":
         return [
           { label: "Customer Satisfaction", value: "100%", icon: Star, color: "success" },
-          { label: "Insurance Coverage", value: "$2M", icon: Shield, color: "info" },
+          { label: "Insurance Coverage", value: "Comprehensive", icon: Shield, color: "info" },
           { label: "Response Time", value: "24/7", icon: Clock, color: "warning" },
           { label: "Success Rate", value: "99%", icon: TrendingUp, color: "success" }
         ];
       default:
         return [
-          { label: "Licensed & Insured", value: "Fully Certified", icon: Shield, color: "primary" },
+          { label: "Licensed & Insured", value: "Professional Service", icon: Shield, color: "primary" },
           { label: "Service Availability", value: "24/7", icon: Clock, color: "primary" },
           { label: "Quality Standards", value: "100% Guarantee", icon: Award, color: "primary" },
           { label: "Coverage Area", value: "Multi-State", icon: MapPin, color: "primary" }
@@ -99,7 +99,7 @@ export default function CompanyStats({
             </h2>
             {variant === "company-metrics" && (
               <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-                Most trusted commercial cleaning company with proven expertise across multiple markets and regions. Licensed, bonded, and certified with comprehensive coverage.
+                Most trusted commercial cleaning company with proven expertise across multiple markets and regions. Professional service with comprehensive coverage and quality assurance.
               </p>
             )}
           </div>
@@ -135,7 +135,7 @@ export default function CompanyStats({
                 {/* Value/Description */}
                 <p className="text-muted-foreground leading-relaxed">
                   {stat.value}
-                  {stat.description && (
+                  {'description' in stat && stat.description && (
                     <>
                       <br />
                       <span className="text-sm mt-2 block">{stat.description}</span>

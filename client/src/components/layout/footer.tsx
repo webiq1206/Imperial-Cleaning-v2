@@ -146,74 +146,33 @@ export default function Footer() {
           {/* Service Areas */}
           <div>
             <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Idaho Service Areas</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link 
-                  href="/service-areas/idaho" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-idaho-falls"
-                >
-                  Idaho Falls
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/service-areas/idaho" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-pocatello"
-                >
-                  Pocatello
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/service-areas/idaho" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-rexburg"
-                >
-                  Rexburg
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/service-areas/idaho" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-blackfoot"
-                >
-                  Blackfoot
-                </Link>
-              </li>
+            <ul className="space-y-2">
+              {[...allServiceLocations.filter(loc => loc.state === "Idaho")].map((location) => (
+                <li key={location.name}>
+                  <Link 
+                    href={`/service-areas/idaho`}
+                    className="text-muted-foreground text-xs hover:text-foreground transition-colors duration-200 font-normal"
+                    data-testid={`link-footer-${locationToSlug(location.name)}`}
+                  >
+                    {location.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
             
             <h4 className="font-medium text-foreground mt-6 mb-3 text-sm tracking-wide">Utah Service Areas</h4>
             <ul className="space-y-2">
-              <li>
-                <Link 
-                  href="/service-areas/utah" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-salt-lake"
-                >
-                  Salt Lake City
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/service-areas/utah" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-logan"
-                >
-                  Logan
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/service-areas/utah" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
-                  data-testid="link-footer-ogden"
-                >
-                  Ogden
-                </Link>
-              </li>
+              {[...allServiceLocations.filter(loc => loc.state === "Utah")].map((location) => (
+                <li key={location.name}>
+                  <Link 
+                    href={`/service-areas/utah`}
+                    className="text-muted-foreground text-xs hover:text-foreground transition-colors duration-200 font-normal"
+                    data-testid={`link-footer-${locationToSlug(location.name)}`}
+                  >
+                    {location.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

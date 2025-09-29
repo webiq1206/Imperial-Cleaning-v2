@@ -19,149 +19,149 @@ export default function ComplianceCertificationsSection() {
 
   const complianceCategories = [
     {
-      id: "insurance-bonding",
-      title: "Insurance & Bonding",
+      id: "insurance-protection",
+      title: "Insurance & Protection",
       icon: "fas fa-shield-alt",
-      badge: "VERIFIED",
+      badge: "PROTECTED",
       status: "active",
       description: "Locally owned and operated company with comprehensive insurance coverage protecting your property and providing complete peace of mind for all commercial cleaning projects.",
       details: [
         {
-          type: "General Liability Insurance",
-          coverage: "$2,000,000 per occurrence",
-          provider: "Licensed Insurance Provider",
-          status: "Active through 2026"
+          type: "General Liability Coverage",
+          coverage: "Comprehensive protection",
+          provider: "Licensed insurance coverage",
+          status: "Active protection"
         },
         {
           type: "Workers' Compensation",
-          coverage: "$1,000,000 per employee",
-          provider: "State Insurance Fund",
-          status: "Full compliance"
+          coverage: "Full employee coverage",
+          provider: "Professional insurance",
+          status: "Complete compliance"
         },
         {
-          type: "Commercial Bonding",
-          coverage: "$500,000 aggregate",
-          provider: "Bonding Authority",
+          type: "Property Protection",
+          coverage: "Client property coverage",
+          provider: "Bonding protection",
           status: "Current & verified"
         }
       ],
-      keywords: "Insured cleaning company, bonded janitorial services, licensed cleaning contractor"
+      keywords: "Insured cleaning company, professional cleaning services, reliable cleaning contractor"
     },
     {
-      id: "safety-certifications",
-      title: "Safety Certifications",
+      id: "safety-standards",
+      title: "Safety Standards",
       icon: "fas fa-hard-hat",
-      badge: "SAFETY CERTIFIED",
+      badge: "SAFETY FOCUSED",
       status: "current",
-      description: "Safety compliant cleaning operations with comprehensive safety training protocols ensuring accident prevention across all service locations.",
+      description: "Professional safety operations with comprehensive training protocols ensuring accident prevention and safe practices across all service locations.",
       details: [
         {
           type: "Professional Safety Training",
-          certification: "Professional Safety Certificate",
-          provider: "Safety Training Authority",
-          status: "Current through 2026"
+          standard: "Comprehensive safety protocols",
+          provider: "Professional training programs",
+          status: "Ongoing education"
         },
         {
-          type: "Hazmat Response Training",
-          certification: "Level 2 Hazmat Certified",
-          provider: "Safety Standards Organization",
-          status: "Annual recertification"
+          type: "Hazmat Response Protocols",
+          standard: "Specialized handling procedures",
+          provider: "Safety training standards",
+          status: "Regular training updates"
         },
         {
-          type: "Bloodborne Pathogen Training",
-          certification: "Pathogen Training Certificate",
-          provider: "Safety Training Provider",
-          status: "Updated annually"
+          type: "Health & Safety Procedures",
+          standard: "Professional health protocols",
+          provider: "Safety training programs",
+          status: "Updated regularly"
         }
       ],
-      keywords: "Safety compliant cleaning services, safety certified cleaning, professional safety training"
+      keywords: "Safety compliant cleaning services, professional safety training, safe cleaning practices"
     },
     {
-      id: "industry-certifications",
-      title: "Industry Certifications",
-      icon: "fas fa-certificate",
-      badge: "INDUSTRY CERTIFIED",
-      status: "certified",
-      description: "Locally-based certified commercial cleaners with industry association membership and specialized environmental cleaning certifications demonstrating industry expertise.",
+      id: "professional-standards",
+      title: "Professional Standards",
+      icon: "fas fa-medal",
+      badge: "PROFESSIONAL",
+      status: "established",
+      description: "Locally-based professional cleaners with industry knowledge and specialized environmental cleaning practices demonstrating professional expertise.",
       details: [
         {
-          type: "Industry Association Membership",
-          certification: "Professional Membership",
-          provider: "Industry Association",
-          status: "Active member since 2020"
+          type: "Industry Knowledge",
+          standard: "Professional expertise",
+          provider: "Industry experience",
+          status: "Ongoing development"
         },
         {
-          type: "Environmental Standards Certification",
-          certification: "Environmental Professional Certification",
-          provider: "Environmental Authority",
-          status: "Certified professional"
+          type: "Environmental Practices",
+          standard: "Sustainable cleaning methods",
+          provider: "Environmental responsibility",
+          status: "Professional practices"
         },
         {
-          type: "Fabric Care Certification",
-          certification: "Water Restoration Professional",
-          provider: "Professional Training Institute",
-          status: "Water Restoration Technician"
+          type: "Specialized Training",
+          standard: "Advanced cleaning techniques",
+          provider: "Professional development",
+          status: "Continuous improvement"
         }
       ],
-      keywords: "certified commercial cleaners, industry member cleaning services, environmentally certified cleaning"
+      keywords: "professional commercial cleaners, experienced cleaning services, knowledgeable cleaning team"
     },
     {
       id: "local-compliance",
-      title: "Local Compliance",
+      title: "Licensed Operations",
       icon: "fas fa-map-marker-alt",
       badge: "LICENSED",
       status: "compliant",
-      description: "Licensed cleaning contractor with full compliance across all service regions, meeting all municipal requirements for local operations.",
+      description: "Licensed cleaning contractor with full compliance across all service regions, meeting all municipal requirements for professional operations.",
       details: [
         {
-          type: "State Business License",
-          license: "Active Business License",
-          provider: "State Licensing Authority",
+          type: "Business Licensing",
+          license: "Professional business license",
+          provider: "State licensing requirements",
           status: "Current commercial license"
         },
         {
-          type: "Local Business Permit",
-          license: "Local Business Permit",
-          provider: "Local Licensing Authority",
-          status: "Current commercial permit"
+          type: "Local Permits",
+          license: "Municipal business permits",
+          provider: "Local compliance requirements",
+          status: "Current permits"
         },
         {
-          type: "Multi-State Contractor License",
-          license: "Commercial Contractor License",
-          provider: "State Licensing Board",
+          type: "Multi-State Operations",
+          license: "Regional service authorization",
+          provider: "State compliance",
           status: "Multi-state operations"
         }
       ],
-      keywords: "licensed cleaning contractor, local business permit cleaning, multi-state licensed cleaning"
+      keywords: "licensed cleaning contractor, compliant cleaning services, professional cleaning operations"
     },
     {
-      id: "quality-standards",
-      title: "Quality Standards",
-      icon: "fas fa-medal",
-      badge: "QUALITY CERTIFIED",
-      status: "certified",
-      description: "Quality management standards with comprehensive quality control processes ensuring customer satisfaction for trusted cleaning services throughout all service areas.",
+      id: "quality-assurance",
+      title: "Quality Assurance",
+      icon: "fas fa-check-circle",
+      badge: "QUALITY FOCUSED",
+      status: "guaranteed",
+      description: "Professional quality standards with comprehensive quality control processes ensuring customer satisfaction for reliable cleaning services throughout all service areas.",
       details: [
         {
-          type: "Quality Management Standards",
-          certification: "Quality Management System",
-          provider: "Quality Standards Authority",
-          status: "Compliant operations"
+          type: "Quality Management",
+          standard: "Professional quality systems",
+          provider: "Quality control processes",
+          status: "Systematic operations"
         },
         {
-          type: "Customer Satisfaction Guarantee",
+          type: "Customer Satisfaction",
           policy: "100% Satisfaction Promise",
-          provider: "Company Policy",
+          provider: "Company commitment",
           status: "24-hour callback guarantee"
         },
         {
-          type: "Quality Control Process",
+          type: "Quality Control",
           standard: "Multi-point inspection system",
-          provider: "Internal QC Department",
+          provider: "Internal quality department",
           status: "Every project verified"
         }
       ],
-      keywords: "trusted cleaning services, quality guaranteed cleaning, customer satisfaction cleaning"
+      keywords: "reliable cleaning services, quality guaranteed cleaning, customer satisfaction cleaning"
     }
   ];
 
@@ -174,17 +174,17 @@ export default function ComplianceCertificationsSection() {
             <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full glass-effect sophisticated-glow">
               <Shield className="w-5 h-5 text-primary" />
               <span className="text-sm font-medium text-primary uppercase tracking-wider" data-testid="section-badge-compliance">
-                Industry Compliance & Certifications
+                Professional Standards & Compliance
               </span>
             </div>
             
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground" data-testid="heading-compliance-main">
-              Trusted & Certified Cleaning Excellence
+              Professional & Reliable Cleaning Excellence
             </h2>
             
             <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-normal" data-testid="desc-compliance-main">
-              Imperial Cleaning Inc. maintains the highest standards of professional compliance, safety, and quality assurance. 
-              As a fully licensed, insured, and certified cleaning contractor serving all regional service areas, 
+              Imperial Cleaning Inc. maintains the highest standards of professional service, safety, and quality assurance. 
+              As a fully licensed and insured cleaning contractor serving all regional service areas, 
               we provide complete transparency and peace of mind for every commercial and construction cleaning project.
             </p>
           </div>
@@ -326,23 +326,23 @@ export default function ComplianceCertificationsSection() {
                 <div className="resend-icon mb-4 group-hover:scale-105 transition-all duration-300">
                   <Shield className="w-12 h-12 text-green-400 mx-auto" />
                 </div>
-                <h4 className="font-medium text-foreground mb-2">$2M+ Insurance Coverage</h4>
-                <p className="text-sm text-muted-foreground">Comprehensive liability protection</p>
+                <h4 className="font-medium text-foreground mb-2">Comprehensive Protection</h4>
+                <p className="text-sm text-muted-foreground">Full liability coverage</p>
               </div>
               
               <div className="text-center group" data-testid="indicator-response">
                 <div className="resend-icon mb-4 group-hover:scale-105 transition-all duration-300">
                   <Clock className="w-12 h-12 text-blue-400 mx-auto" />
                 </div>
-                <h4 className="font-medium text-foreground mb-2">2-Hour Response</h4>
-                <p className="text-sm text-muted-foreground">24/7 service guarantee</p>
+                <h4 className="font-medium text-foreground mb-2">Rapid Response</h4>
+                <p className="text-sm text-muted-foreground">Professional service guarantee</p>
               </div>
               
               <div className="text-center group" data-testid="indicator-compliance">
                 <div className="resend-icon mb-4 group-hover:scale-105 transition-all duration-300">
                   <Award className="w-12 h-12 text-purple-400 mx-auto" />
                 </div>
-                <h4 className="font-medium text-foreground mb-2">Multi-State Licensed</h4>
+                <h4 className="font-medium text-foreground mb-2">Professional Operations</h4>
                 <p className="text-sm text-muted-foreground">Regional compliance</p>
               </div>
               
@@ -369,8 +369,8 @@ export default function ComplianceCertificationsSection() {
             <div className="flex flex-wrap justify-center gap-2 mb-6">
               {[
                 "insured cleaning company",
-                "bonded janitorial services", 
-                "certified commercial cleaners",
+                "professional janitorial services", 
+                "commercial cleaning services",
                 "licensed cleaning contractor",
                 "safety compliant cleaning services",
                 "trusted cleaning services"

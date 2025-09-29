@@ -25,7 +25,7 @@ export default function ServicePillarsSection() {
       subtitle: "Available in All Service Areas Across Idaho & Utah",
       icon: "fas fa-hard-hat",
       description: "Comprehensive post-construction cleaning services available in all Imperial Cleaning service areas with systematic 3-phase approach ensuring your construction projects meet inspection standards and are ready for occupancy.",
-      certification: "Safety Certified • Bonded • Insured",
+      certification: "Professional Standards • Quality Assured",
       processSteps: [
         {
           phase: "Phase 1: Rough Cleaning",

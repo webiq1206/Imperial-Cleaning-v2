@@ -24,8 +24,8 @@ export default function FeatureStats({
       icon: Clock
     },
     {
-      title: "Certified Quality Standards",
-      description: "100% satisfaction guarantee backed by industry certification and multi-state compliance. Professional services that exceed expectations with documented quality assurance protocols.",
+      title: "Quality Standards",
+      description: "100% satisfaction guarantee backed by professional standards and multi-state compliance. Professional services that exceed expectations with documented quality assurance protocols.",
       icon: Award
     }
   ];
@@ -64,7 +64,7 @@ export default function FeatureStats({
             Why Businesses Choose Imperial Cleaning
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-            Most trusted commercial cleaning company with proven expertise across multiple markets and regions. Licensed, bonded, and certified with comprehensive coverage.
+            Most trusted commercial cleaning company with proven expertise across multiple markets and regions. Professional service with comprehensive coverage and quality assurance.
           </p>
         </div>
 

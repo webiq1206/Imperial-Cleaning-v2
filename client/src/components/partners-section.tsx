@@ -1,40 +1,40 @@
 export default function PartnersSection() {
   const partners = [
     {
-      name: "IICRC Certified",
-      description: "Institute of Inspection, Cleaning and Restoration",
+      name: "Professional Standards",
+      description: "Industry Best Practices",
       icon: "fas fa-certificate",
-      type: "certification"
+      type: "quality"
     },
     {
-      name: "General Liability",
-      description: "$2M Coverage",
+      name: "Comprehensive Coverage",
+      description: "Full Protection",
       icon: "fas fa-shield-alt",
       type: "insurance"
     },
     {
-      name: "Safety Compliant",
-      description: "Industry Standards Certified",
+      name: "Safety Excellence",
+      description: "Rigorous Safety Protocols",
       icon: "fas fa-hard-hat",
-      type: "certification"
+      type: "safety"
     },
     {
-      name: "EPA Registered",
-      description: "Environmental Protection Agency",
+      name: "Environmental Responsibility",
+      description: "Eco-Friendly Practices",
       icon: "fas fa-leaf",
-      type: "certification"
+      type: "environmental"
     },
     {
-      name: "Better Business Bureau",
-      description: "A+ Rating",
+      name: "Quality Assurance",
+      description: "Consistent Excellence",
       icon: "fas fa-star",
-      type: "accreditation"
+      type: "quality"
     },
     {
-      name: "Bonded & Insured",
-      description: "Complete Protection",
+      name: "Protected Service",
+      description: "Complete Peace of Mind",
       icon: "fas fa-lock",
-      type: "insurance"
+      type: "protection"
     }
   ];
 
@@ -43,10 +43,10 @@ export default function PartnersSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-            Trusted & Certified
+            Professional Excellence
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-            Our certifications and partnerships ensure the highest quality cleaning services with complete protection and peace of mind.
+            Our commitment to quality and professional standards ensures the highest level of cleaning services with complete protection and peace of mind.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export default function PartnersSection() {
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border bg-card/50">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm text-muted-foreground">
-              All certifications current and verified
+              Professional standards maintained
             </span>
           </div>
         </div>

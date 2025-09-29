@@ -85,7 +85,7 @@ export default function CaseStudiesSection() {
       timeline: "Monthly maintenance program established",
       badge: "INDUSTRIAL",
       challenge: "A 200,000 sq ft Pocatello manufacturing facility faced declining safety scores due to accumulated industrial contaminants, machinery buildup, and inadequate cleaning protocols. OSHA compliance concerns and production efficiency issues required immediate intervention.",
-      solution: "Imperial Cleaning implemented a comprehensive industrial cleaning transformation program, including specialized degreasing, high-pressure washing, and establishment of ongoing maintenance protocols. Our OSHA-certified team used industrial-grade equipment and safety procedures.",
+      solution: "Imperial Cleaning implemented a comprehensive industrial cleaning transformation program, including specialized degreasing, high-pressure washing, and establishment of ongoing maintenance protocols. Our professionally trained team used industrial-grade equipment and safety procedures.",
       results: {
         timeline: "Initial deep clean: 1 week",
         area: "200,000 square feet restored",
@@ -190,7 +190,7 @@ export default function CaseStudiesSection() {
       timeline: "Ongoing compliance program since 2022",
       badge: "HEALTHCARE",
       challenge: "A critical healthcare facility in Logan, Utah required specialized cleaning services meeting strict medical standards, infection control protocols, and regulatory compliance. Standard cleaning approaches were insufficient for sensitive medical environments.",
-      solution: "Imperial Cleaning developed comprehensive medical facility cleaning protocols with specialized training for healthcare environments. Our team maintains certifications in bloodborne pathogen handling, medical waste disposal, and infection control procedures.",
+      solution: "Imperial Cleaning developed comprehensive medical facility cleaning protocols with specialized training for healthcare environments. Our team maintains professional training in bloodborne pathogen handling, medical waste disposal, and infection control procedures.",
       results: {
         timeline: "2+ years of perfect compliance",
         area: "Healthcare facility fully compliant",
@@ -199,7 +199,7 @@ export default function CaseStudiesSection() {
       },
       metrics: [
         { label: "Compliance Record", value: "100% since 2022", icon: "shield" },
-        { label: "Medical Standards", value: "Fully certified", icon: "award" },
+        { label: "Medical Standards", value: "Professionally trained", icon: "award" },
         { label: "Inspection Results", value: "Zero violations", icon: "check-circle" },
         { label: "Program Duration", value: "2+ years ongoing", icon: "calendar" }
       ],
