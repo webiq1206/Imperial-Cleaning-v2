@@ -36,7 +36,7 @@ export default function ProcessTerminalSection() {
     },
     {
       command: "deploy --ready-for-occupancy",
-      output: "🎉 Project ready for handover!",
+      output: "Project ready for handover!",
       description: "Site ready for occupancy or handover",
       color: "text-green-500"
     }
