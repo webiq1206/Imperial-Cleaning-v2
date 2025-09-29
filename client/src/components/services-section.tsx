@@ -17,7 +17,7 @@ export default function ServicesSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
-              Both Services Available in ALL Locations
+              Construction & Commercial Cleaning Services Across Idaho and Utah
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
               Proudly headquartered in Idaho Falls, providing both construction cleanup AND commercial cleaning services available in every Imperial Cleaning service area across Idaho and Utah. Comprehensive cleaning solutions delivered with consistent quality in all markets we serve.

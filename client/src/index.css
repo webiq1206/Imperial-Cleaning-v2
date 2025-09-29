@@ -560,22 +560,16 @@
 
   /* Resend-style hero 3D logo effects */
   .logo-3d-container {
-    animation: float 6s ease-in-out infinite;
+    animation: breathe 4s ease-in-out infinite;
     filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.5));
   }
   
-  @keyframes float {
+  @keyframes breathe {
     0%, 100% {
-      transform: translateY(0px) rotateX(0deg) rotateY(0deg);
-    }
-    25% {
-      transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+      transform: scale(1);
     }
     50% {
-      transform: translateY(0px) rotateX(0deg) rotateY(5deg);
-    }
-    75% {
-      transform: translateY(10px) rotateX(-5deg) rotateY(0deg);
+      transform: scale(1.08);
     }
   }
   

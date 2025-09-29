@@ -92,12 +92,12 @@ export default function HeroSection() {
             <div className="flex-1 items-center justify-center relative z-10 animate-fade-in-right stagger-delay-3 hidden md:flex">
               <div className="relative parallax-depth">
                 {/* Enhanced logo with 3D effect and motion polish */}
-                <div className="logo-3d-container relative group hover-glow-expand">
+                <div className="logo-3d-container relative">
                   {/* Main logo */}
                   <img 
                     src={logoPath}
                     alt="Imperial Cleaning"
-                    className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[32rem] xl:h-[32rem] object-contain opacity-25 group-hover:opacity-35 transition-all duration-700 "
+                    className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[32rem] xl:h-[32rem] object-contain opacity-25"
                   />
                   
                   {/* Enhanced overlay layers with motion */}
@@ -105,10 +105,7 @@ export default function HeroSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                   
                   {/* Enhanced glow with subtle animation */}
-                  <div className="absolute inset-0 blur-2xl group-hover:blur-xl transition-all duration-700" style={{ background: 'radial-gradient(ellipse at center, hsl(195, 100%, 50%, 0.08), hsl(271, 81%, 56%, 0.04), transparent)' }}></div>
-                  
-                  {/* Interactive highlight effect with shimmer */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-white/5 via-transparent to-transparent hover-shimmer"></div>
+                  <div className="absolute inset-0 blur-2xl" style={{ background: 'radial-gradient(ellipse at center, hsl(195, 100%, 50%, 0.08), hsl(271, 81%, 56%, 0.04), transparent)' }}></div>
                   
                   {/* Additional orbital elements */}
                   <div className="absolute -inset-4">
