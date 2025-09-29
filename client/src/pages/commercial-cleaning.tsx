@@ -4,6 +4,7 @@ import StickyContacts from "@/components/sticky-contacts";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Link } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
 import SEOHead, { 
   createLocalBusinessSchema, 

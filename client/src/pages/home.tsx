@@ -226,14 +226,14 @@ export default function Home() {
       <StickyContacts />
       <HeroSection />
       <ServicesSection />
-      <ServicePillarsSection />
-      <CaseStudiesSection />
       <FeaturesSection />
+      <TestimonialsSection />
+      <CaseStudiesSection />
       <ComplianceCertificationsSection />
       <PartnersSection />
-      <ProcessTerminalSection />
       <ServiceAreasSection />
-      <TestimonialsSection />
+      <ProcessTerminalSection />
+      <ServicePillarsSection />
       <FAQSection />
       <Footer />
     </div>
