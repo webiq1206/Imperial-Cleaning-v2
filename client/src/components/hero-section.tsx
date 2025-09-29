@@ -22,7 +22,7 @@ export default function HeroSection() {
             <img 
               src={logoPath}
               alt=""
-              className="w-72 h-72 md:w-96 md:h-96 object-contain opacity-[0.18] pointer-events-none"
+              className="w-72 h-72 md:w-96 md:h-96 object-contain opacity-20 md:opacity-0 pointer-events-none"
             />
             {/* Dark overlay for better content readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/60 to-black/50"></div>
