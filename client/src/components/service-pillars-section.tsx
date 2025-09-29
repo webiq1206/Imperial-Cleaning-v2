@@ -358,42 +358,42 @@ export default function ServicePillarsSection() {
 
   return (
     <>
-      <section id="service-pillars" className="py-24 px-6 services-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
+      <section id="service-pillars" className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 services-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="resend-icon mx-auto mb-8 hover-lift-gentle">
               <i className="fas fa-columns icon-gradient text-4xl"></i>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-6 sm:mb-8 tracking-tight leading-tight">
               <span className="gradient-text-cyan-purple">Service Excellence Pillars</span>
             </h2>
             
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-normal">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-normal px-2">
               Discover our comprehensive expertise in post-construction cleaning, commercial janitorial services, and specialized cleaning solutions for businesses across our service regions.
             </p>
           </div>
 
           {/* Service Pillars Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {servicePillars.map((pillar, index) => (
               <div 
                 key={pillar.id}
                 className="group"
                 data-testid={`service-pillar-${pillar.id}`}
               >
-                <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-8 rounded-lg">
+                <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-4 sm:p-6 lg:p-8 rounded-lg">
                   {/* Pillar Header */}
-                  <div className="flex items-start mb-6">
-                    <div className="resend-icon mr-6 hover-lift-gentle group-hover:scale-105 transition-all duration-500">
+                  <div className="flex flex-col sm:flex-row items-start mb-4 sm:mb-6">
+                    <div className="resend-icon mb-3 sm:mb-0 sm:mr-4 lg:mr-6 hover-lift-gentle group-hover:scale-105 transition-all duration-500 self-center sm:self-start">
                       <i className={`${pillar.icon} icon-gradient text-2xl`}></i>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl lg:text-3xl font-medium mb-2 hover-lift-gentle" data-testid={`pillar-title-${pillar.id}`}>
+                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-medium mb-2 hover-lift-gentle break-words hyphens-auto" data-testid={`pillar-title-${pillar.id}`}>
                         {pillar.title}
                       </h3>
-                      <p className="text-primary font-medium text-sm" data-testid={`pillar-subtitle-${pillar.id}`}>
+                      <p className="text-primary font-medium text-xs sm:text-sm break-words" data-testid={`pillar-subtitle-${pillar.id}`}>
                         {pillar.subtitle}
                       </p>
                     </div>
@@ -403,54 +403,54 @@ export default function ServicePillarsSection() {
                   <div className="glass-divider-top mb-6"></div>
 
                   {/* Description */}
-                  <p className="text-muted-foreground mb-6 leading-relaxed" data-testid={`pillar-description-${pillar.id}`}>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed break-words" data-testid={`pillar-description-${pillar.id}`}>
                     {pillar.description}
                   </p>
 
                   {/* Quick Info Cards */}
-                  <div className="grid md:grid-cols-1 gap-4 mb-6">
-                    <div className="glass-card-elevated p-4 rounded-lg">
+                  <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
                       <div className="flex items-center mb-2">
                         <Shield className="h-4 w-4 text-primary mr-2" />
-                        <span className="text-sm font-medium">Certification</span>
+                        <span className="text-xs sm:text-sm font-medium">Certification</span>
                       </div>
-                      <p className="text-xs text-muted-foreground">{pillar.certification}</p>
+                      <p className="text-xs text-muted-foreground break-words">{pillar.certification}</p>
                     </div>
                   </div>
 
                   {/* Expandable Details */}
-                  <Accordion type="single" collapsible className="mb-6">
+                  <Accordion type="single" collapsible className="mb-4 sm:mb-6">
                     <AccordionItem value="details" className="border-0">
                       <AccordionTrigger 
-                        className="hover:no-underline p-4 glass-card-elevated rounded-lg hover-lift-gentle"
+                        className="hover:no-underline p-3 sm:p-4 glass-card-elevated rounded-lg hover-lift-gentle min-h-[48px] text-left"
                         data-testid={`expand-details-${pillar.id}`}
                       >
-                        <div className="flex items-center">
+                        <div className="flex items-center flex-wrap">
                           <Award className="h-4 w-4 text-primary mr-2" />
-                          <span className="font-light">View Detailed Process & Equipment</span>
+                          <span className="font-light text-sm sm:text-base break-words">View Detailed Process & Equipment</span>
                         </div>
                       </AccordionTrigger>
                       
-                      <AccordionContent className="pt-4">
-                        <div className="space-y-6">
+                      <AccordionContent className="pt-3 sm:pt-4">
+                        <div className="space-y-4 sm:space-y-6">
                           {/* Process Steps (for construction cleanup) */}
                           {pillar.processSteps && (
                             <div>
-                              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                                 <CheckCircle className="h-4 w-4 text-primary mr-2" />
                                 Systematic Process Breakdown
                               </h4>
-                              <div className="space-y-4">
+                              <div className="space-y-3 sm:space-y-4">
                                 {pillar.processSteps.map((step, stepIndex) => (
-                                  <div key={stepIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="mb-3">
-                                      <h5 className="font-medium text-foreground">{step.phase}</h5>
+                                  <div key={stepIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                                    <div className="mb-2 sm:mb-3">
+                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{step.phase}</h5>
                                     </div>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                       {step.tasks.map((task, taskIndex) => (
-                                        <li key={taskIndex} className="flex items-start text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                                          {task}
+                                        <li key={taskIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                          <span className="break-words">{task}</span>
                                         </li>
                                       ))}
                                     </ul>
@@ -463,21 +463,21 @@ export default function ServicePillarsSection() {
                           {/* Schedules (for commercial cleaning) */}
                           {pillar.schedules && (
                             <div>
-                              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                                 <Clock className="h-4 w-4 text-primary mr-2" />
                                 Flexible Service Schedules
                               </h4>
-                              <div className="space-y-4">
+                              <div className="space-y-3 sm:space-y-4">
                                 {pillar.schedules.map((schedule, scheduleIndex) => (
-                                  <div key={scheduleIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="mb-3">
-                                      <h5 className="font-medium text-foreground">{schedule.frequency}</h5>
+                                  <div key={scheduleIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                                    <div className="mb-2 sm:mb-3">
+                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{schedule.frequency}</h5>
                                     </div>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                       {schedule.services.map((service, serviceIndex) => (
-                                        <li key={serviceIndex} className="flex items-start text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                                          {service}
+                                        <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                          <span className="break-words">{service}</span>
                                         </li>
                                       ))}
                                     </ul>
@@ -490,22 +490,22 @@ export default function ServicePillarsSection() {
                           {/* Facility Types (for industrial cleaning) */}
                           {pillar.facilityTypes && (
                             <div>
-                              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                                 <i className="fas fa-industry w-4 h-4 text-primary mr-2"></i>
                                 Specialized Facility Expertise
                               </h4>
-                              <div className="space-y-4">
+                              <div className="space-y-3 sm:space-y-4">
                                 {pillar.facilityTypes.map((facility, facilityIndex) => (
-                                  <div key={facilityIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="mb-3">
-                                      <h5 className="font-medium text-foreground">{facility.type}</h5>
-                                      <p className="text-xs text-primary">{facility.location}</p>
+                                  <div key={facilityIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                                    <div className="mb-2 sm:mb-3">
+                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{facility.type}</h5>
+                                      <p className="text-xs text-primary break-words">{facility.location}</p>
                                     </div>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                       {facility.services.map((service, serviceIndex) => (
-                                        <li key={serviceIndex} className="flex items-start text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                                          {service}
+                                        <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                          <span className="break-words">{service}</span>
                                         </li>
                                       ))}
                                     </ul>
@@ -518,22 +518,22 @@ export default function ServicePillarsSection() {
                           {/* Emergency Types (for emergency services) */}
                           {pillar.emergencyTypes && (
                             <div>
-                              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                                 <i className="fas fa-ambulance w-4 h-4 text-primary mr-2"></i>
                                 Emergency Response Capabilities
                               </h4>
-                              <div className="space-y-4">
+                              <div className="space-y-3 sm:space-y-4">
                                 {pillar.emergencyTypes.map((emergency, emergencyIndex) => (
-                                  <div key={emergencyIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="mb-3">
-                                      <h5 className="font-medium text-foreground">{emergency.type}</h5>
+                                  <div key={emergencyIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                                    <div className="mb-2 sm:mb-3">
+                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{emergency.type}</h5>
                                     </div>
-                                    <p className="text-xs text-primary mb-3">{emergency.coverage}</p>
-                                    <ul className="space-y-2">
+                                    <p className="text-xs text-primary mb-2 sm:mb-3 break-words">{emergency.coverage}</p>
+                                    <ul className="space-y-1 sm:space-y-2">
                                       {emergency.services.map((service, serviceIndex) => (
-                                        <li key={serviceIndex} className="flex items-start text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                                          {service}
+                                        <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                          <span className="break-words">{service}</span>
                                         </li>
                                       ))}
                                     </ul>
@@ -546,22 +546,22 @@ export default function ServicePillarsSection() {
                           {/* Green Programs (for green cleaning) */}
                           {pillar.greenPrograms && (
                             <div>
-                              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                                 <i className="fas fa-leaf w-4 h-4 text-green-400 mr-2"></i>
                                 Environmental Programs
                               </h4>
-                              <div className="space-y-4">
+                              <div className="space-y-3 sm:space-y-4">
                                 {pillar.greenPrograms.map((program, programIndex) => (
-                                  <div key={programIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="mb-3">
-                                      <h5 className="font-medium text-foreground">{program.program}</h5>
-                                      <p className="text-xs text-green-400">{program.suitable}</p>
+                                  <div key={programIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                                    <div className="mb-2 sm:mb-3">
+                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{program.program}</h5>
+                                      <p className="text-xs text-green-400 break-words">{program.suitable}</p>
                                     </div>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                       {program.features.map((feature, featureIndex) => (
-                                        <li key={featureIndex} className="flex items-start text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                                          {feature}
+                                        <li key={featureIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                          <span className="break-words">{feature}</span>
                                         </li>
                                       ))}
                                     </ul>
@@ -574,22 +574,22 @@ export default function ServicePillarsSection() {
                           {/* Equipment Categories (for specialized equipment) */}
                           {pillar.equipmentCategories && (
                             <div>
-                              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                                 <i className="fas fa-cogs w-4 h-4 text-primary mr-2"></i>
                                 Professional Equipment Arsenal
                               </h4>
-                              <div className="space-y-4">
+                              <div className="space-y-3 sm:space-y-4">
                                 {pillar.equipmentCategories.map((category, categoryIndex) => (
-                                  <div key={categoryIndex} className="glass-card-elevated p-4 rounded-lg">
-                                    <div className="mb-3">
-                                      <h5 className="font-medium text-foreground">{category.category}</h5>
-                                      <p className="text-xs text-primary">{category.applications}</p>
+                                  <div key={categoryIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                                    <div className="mb-2 sm:mb-3">
+                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{category.category}</h5>
+                                      <p className="text-xs text-primary break-words">{category.applications}</p>
                                     </div>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-1 sm:space-y-2">
                                       {category.equipment.map((item, itemIndex) => (
-                                        <li key={itemIndex} className="flex items-start text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                                          {item}
+                                        <li key={itemIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                          <span className="break-words">{item}</span>
                                         </li>
                                       ))}
                                     </ul>
@@ -602,16 +602,16 @@ export default function ServicePillarsSection() {
                           {/* Equipment List (simple list format) */}
                           {pillar.equipment && (
                             <div>
-                              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                                 <i className="fas fa-tools w-4 h-4 text-primary mr-2"></i>
                                 Professional Equipment
                               </h4>
-                              <div className="glass-card-elevated p-4 rounded-lg">
-                                <ul className="space-y-2">
+                              <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                                <ul className="space-y-1 sm:space-y-2">
                                   {pillar.equipment.map((item, itemIndex) => (
-                                    <li key={itemIndex} className="flex items-start text-sm text-muted-foreground">
-                                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                                      {item}
+                                    <li key={itemIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                      <span className="break-words">{item}</span>
                                     </li>
                                   ))}
                                 </ul>
@@ -621,23 +621,23 @@ export default function ServicePillarsSection() {
 
                           {/* Service Areas */}
                           <div>
-                            <h4 className="font-semibold text-foreground mb-3 flex items-center">
+                            <h4 className="font-semibold text-foreground mb-2 sm:mb-3 flex items-center text-sm sm:text-base">
                               <i className="fas fa-map-marker-alt w-4 h-4 text-primary mr-2"></i>
                               Service Coverage Area
                             </h4>
-                            <div className="glass-card-elevated p-4 rounded-lg">
-                              <p className="text-sm text-muted-foreground">{pillar.serviceAreas}</p>
+                            <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                              <p className="text-xs sm:text-sm text-muted-foreground break-words">{pillar.serviceAreas}</p>
                             </div>
                           </div>
 
                           {/* Guarantee */}
                           <div>
-                            <h4 className="font-semibold text-foreground mb-3 flex items-center">
+                            <h4 className="font-semibold text-foreground mb-2 sm:mb-3 flex items-center text-sm sm:text-base">
                               <Shield className="h-4 w-4 text-primary mr-2" />
                               Service Guarantee
                             </h4>
-                            <div className="glass-card-elevated p-4 rounded-lg">
-                              <p className="text-sm text-muted-foreground">{pillar.guarantee}</p>
+                            <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                              <p className="text-xs sm:text-sm text-muted-foreground break-words">{pillar.guarantee}</p>
                             </div>
                           </div>
                         </div>
@@ -646,17 +646,17 @@ export default function ServicePillarsSection() {
                   </Accordion>
 
                   {/* Elegant divider before button */}
-                  <div className="glass-divider-top mb-6"></div>
+                  <div className="glass-divider-top mb-4 sm:mb-6"></div>
 
                   {/* Call to Action */}
                   <Button 
                     variant="pill-secondary"
                     size="pill-lg"
-                    className="w-full font-medium hover-lift-gentle button-ripple hover-shimmer group"
+                    className="w-full font-medium hover-lift-gentle button-ripple hover-shimmer group text-sm sm:text-base px-4 py-3 sm:px-6 sm:py-4"
                     onClick={() => handleGetQuote(pillar.id)}
                     data-testid={`button-get-quote-${pillar.id}`}
                   >
-                    Get Free Quote for {pillar.title}
+                    <span className="break-words text-center">Get Free Quote for {pillar.title}</span>
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </div>
@@ -666,19 +666,19 @@ export default function ServicePillarsSection() {
 
           {/* Bottom CTA Section */}
           <div className="text-center">
-            <div className="glass-card-premium sophisticated-glow p-8 rounded-lg animate-fade-in-up stagger-delay-7">
-              <h3 className="text-3xl lg:text-4xl font-semibold mb-4 text-foreground">
+            <div className="glass-card-premium sophisticated-glow p-4 sm:p-6 lg:p-8 rounded-lg animate-fade-in-up stagger-delay-7">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 text-foreground break-words">
                 Ready to Experience Imperial Cleaning Excellence?
               </h3>
-              <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto break-words px-2">
                 Contact us today for a comprehensive consultation and discover how our specialized cleaning expertise can support your Treasure Valley business or construction project.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button 
                   variant="pill-primary"
                   size="pill-lg"
-                  className="font-medium hover-lift-gentle button-ripple hover-shimmer"
+                  className="font-medium hover-lift-gentle button-ripple hover-shimmer text-sm sm:text-base px-4 py-3 sm:px-6 sm:py-4"
                   onClick={() => handleGetQuote('consultation')}
                   data-testid="button-consultation"
                 >
@@ -688,7 +688,7 @@ export default function ServicePillarsSection() {
                 <Button 
                   variant="pill-secondary"
                   size="pill-lg"
-                  className="font-medium hover-lift-gentle button-ripple hover-shimmer"
+                  className="font-medium hover-lift-gentle button-ripple hover-shimmer text-sm sm:text-base px-4 py-3 sm:px-6 sm:py-4"
                   onClick={() => window.open('tel:+1-208-555-0123', '_self')}
                   data-testid="button-call-now"
                 >
