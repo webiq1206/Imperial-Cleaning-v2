@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { trackEvent } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
+import { allServiceLocations } from "@shared/service-locations";
+import { locationToSlug } from "@/lib/routing-utils";
 
 export default function Header() {
   const [location] = useLocation();
@@ -12,8 +14,26 @@ export default function Header() {
   const [showContactForm, setShowContactForm] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isServiceAreasDropdownOpen, setIsServiceAreasDropdownOpen] = useState(false);
+  const [activeServiceSubmenu, setActiveServiceSubmenu] = useState<string | null>(null);
+  const [expandedMobileService, setExpandedMobileService] = useState<string | null>(null);
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const serviceAreasDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Filter locations by service type
+  const getLocationsByService = (serviceType: 'construction' | 'commercial') => {
+    return allServiceLocations.filter(loc => {
+      if (serviceType === 'construction') {
+        return loc.services.constructionCleanup;
+      } else {
+        return loc.services.commercialCleaning;
+      }
+    }).sort((a, b) => {
+      // Sort by market tier (primary first) then by name
+      const tierOrder = { primary: 0, secondary: 1, extended: 2 };
+      const tierDiff = tierOrder[a.marketTier] - tierOrder[b.marketTier];
+      return tierDiff !== 0 ? tierDiff : a.name.localeCompare(b.name);
+    });
+  };
 
   const handleRequestQuote = () => {
     trackEvent('quote_request', 'contact', 'header_button');
@@ -27,6 +47,11 @@ export default function Header() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    setExpandedMobileService(null);
+  };
+
+  const toggleMobileService = (serviceType: string) => {
+    setExpandedMobileService(expandedMobileService === serviceType ? null : serviceType);
   };
 
   const handleServicesDropdownToggle = () => {
@@ -44,6 +69,15 @@ export default function Header() {
   const closeAllDropdowns = () => {
     setIsServicesDropdownOpen(false);
     setIsServiceAreasDropdownOpen(false);
+    setActiveServiceSubmenu(null);
+  };
+
+  const handleServiceSubmenuEnter = (serviceType: string) => {
+    setActiveServiceSubmenu(serviceType);
+  };
+
+  const handleServiceSubmenuLeave = () => {
+    setActiveServiceSubmenu(null);
   };
 
   const handleDropdownKeyDown = (event: React.KeyboardEvent, toggleFunction: () => void) => {
@@ -99,7 +133,7 @@ export default function Header() {
             </div>
             
             <nav className="hidden md:flex items-center space-x-8">
-              {/* Services Dropdown */}
+              {/* Services Dropdown with Multi-level Navigation */}
               <div className="relative" ref={servicesDropdownRef}>
                 <button 
                   className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle flex items-center focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md px-2 py-1"
@@ -114,44 +148,126 @@ export default function Header() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-64 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${isServicesDropdownOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'}`}>
+                
+                {/* Main Services Dropdown */}
+                <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${isServicesDropdownOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'}`}>
                   <div className="py-2">
-                    <Link 
-                      href="/construction-cleaning" 
-                      className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg ${
-                        location === '/construction-cleaning' 
+                    
+                    {/* Construction Cleaning */}
+                    <div 
+                      className="relative"
+                      onMouseEnter={() => handleServiceSubmenuEnter('construction')}
+                      onMouseLeave={handleServiceSubmenuLeave}
+                    >
+                      <div className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
+                        location.startsWith('/construction-cleaning') 
                           ? 'text-foreground bg-secondary/30' 
                           : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-                      }`}
-                      onClick={closeAllDropdowns}
-                      data-testid="link-construction-cleaning"
-                    >
-                      <div className="flex items-center">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                        <div>
-                          <div className="font-medium">Construction Cleanup</div>
-                          <div className="text-xs text-muted-foreground mt-0.5">Post-construction debris removal</div>
+                      }`}>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                            <div>
+                              <div className="font-medium">Construction Cleaning</div>
+                              <div className="text-xs text-muted-foreground mt-0.5">Post-construction debris removal</div>
+                            </div>
+                          </div>
+                          <ChevronRight className="h-3 w-3 text-muted-foreground" />
                         </div>
                       </div>
-                    </Link>
-                    <Link 
-                      href="/commercial-cleaning" 
-                      className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg ${
-                        location === '/commercial-cleaning' 
+                      
+                      {/* Construction Cleaning Location Flyout */}
+                      <div className={`absolute left-full top-0 ml-2 w-64 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow max-h-96 overflow-y-auto ${
+                        activeServiceSubmenu === 'construction' ? 'opacity-100 visible scale-100 translate-x-0' : 'opacity-0 invisible scale-95 translate-x-2'
+                      }`}>
+                        <div className="py-2">
+                          <Link 
+                            href="/construction-cleaning" 
+                            className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle border-b border-border/20"
+                            onClick={closeAllDropdowns}
+                            data-testid="link-construction-cleaning-all"
+                          >
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                              <span className="font-medium">View All Construction Cleaning</span>
+                            </div>
+                          </Link>
+                          <div className="border-b border-border/20 my-2"></div>
+                          {getLocationsByService('construction').map((loc) => (
+                            <Link 
+                              key={loc.name}
+                              href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-all duration-200"
+                              onClick={closeAllDropdowns}
+                              data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span>{loc.name}</span>
+                                <span className="text-xs text-muted-foreground">{loc.state}</span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Commercial Cleaning */}
+                    <div 
+                      className="relative"
+                      onMouseEnter={() => handleServiceSubmenuEnter('commercial')}
+                      onMouseLeave={handleServiceSubmenuLeave}
+                    >
+                      <div className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
+                        location.startsWith('/commercial-cleaning') 
                           ? 'text-foreground bg-secondary/30' 
                           : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-                      }`}
-                      onClick={closeAllDropdowns}
-                      data-testid="link-commercial-cleaning"
-                    >
-                      <div className="flex items-center">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                        <div>
-                          <div className="font-medium">Commercial Cleaning</div>
-                          <div className="text-xs text-muted-foreground mt-0.5">Daily office & facility maintenance</div>
+                      }`}>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <div>
+                              <div className="font-medium">Commercial Cleaning</div>
+                              <div className="text-xs text-muted-foreground mt-0.5">Daily office & facility maintenance</div>
+                            </div>
+                          </div>
+                          <ChevronRight className="h-3 w-3 text-muted-foreground" />
                         </div>
                       </div>
-                    </Link>
+                      
+                      {/* Commercial Cleaning Location Flyout */}
+                      <div className={`absolute left-full top-0 ml-2 w-64 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow max-h-96 overflow-y-auto ${
+                        activeServiceSubmenu === 'commercial' ? 'opacity-100 visible scale-100 translate-x-0' : 'opacity-0 invisible scale-95 translate-x-2'
+                      }`}>
+                        <div className="py-2">
+                          <Link 
+                            href="/commercial-cleaning" 
+                            className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle border-b border-border/20"
+                            onClick={closeAllDropdowns}
+                            data-testid="link-commercial-cleaning-all"
+                          >
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                              <span className="font-medium">View All Commercial Cleaning</span>
+                            </div>
+                          </Link>
+                          <div className="border-b border-border/20 my-2"></div>
+                          {getLocationsByService('commercial').map((loc) => (
+                            <Link 
+                              key={loc.name}
+                              href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-all duration-200"
+                              onClick={closeAllDropdowns}
+                              data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span>{loc.name}</span>
+                                <span className="text-xs text-muted-foreground">{loc.state}</span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -258,45 +374,141 @@ export default function Header() {
                 </SheetHeader>
 
                 <div className="flex flex-col h-full py-6 space-y-1">
-                  {/* Services Section */}
+                  {/* Services Section with Hierarchical Navigation */}
                   <div className="px-2 py-4">
                     <div className="text-xs font-semibold text-secondary-color uppercase tracking-wider mb-4">Services</div>
-                    <Link 
-                      href="/construction-cleaning" 
-                      className={`block px-4 py-4 text-sm font-medium rounded-xl transition-all duration-300 hover-lift-gentle glass-button mb-2 ${
-                        location === '/construction-cleaning' 
-                          ? 'text-primary bg-primary/10 border-primary/20' 
-                          : 'text-secondary-color hover:text-primary-color'
-                      }`}
-                      onClick={closeMobileMenu}
-                      data-testid="link-construction-cleaning-mobile"
-                    >
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-blue-500 rounded-full mr-4"></div>
-                        <div>
-                          <div className="font-medium text-primary-color">Construction Cleanup</div>
-                          <div className="text-xs text-secondary-color mt-1">Post-construction debris removal</div>
+                    
+                    {/* Construction Cleaning */}
+                    <div className="mb-4">
+                      <button
+                        className={`w-full flex items-center justify-between px-4 py-4 text-sm font-medium rounded-xl transition-all duration-300 hover-lift-gentle glass-button ${
+                          location.startsWith('/construction-cleaning') 
+                            ? 'text-primary bg-primary/10 border-primary/20' 
+                            : 'text-secondary-color hover:text-primary-color'
+                        }`}
+                        onClick={() => toggleMobileService('construction')}
+                        data-testid="button-construction-cleaning-mobile"
+                      >
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full mr-4"></div>
+                          <div className="text-left">
+                            <div className="font-medium text-primary-color">Construction Cleaning</div>
+                            <div className="text-xs text-secondary-color mt-1">Post-construction debris removal</div>
+                          </div>
+                        </div>
+                        <ChevronRight className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+                          expandedMobileService === 'construction' ? 'rotate-90' : 'rotate-0'
+                        }`} />
+                      </button>
+                      
+                      {/* Construction Cleaning Locations */}
+                      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        expandedMobileService === 'construction' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      }`}>
+                        <div className="pl-4 pt-2 space-y-1">
+                          <Link 
+                            href="/construction-cleaning" 
+                            className="block px-4 py-3 text-sm font-medium text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20"
+                            onClick={closeMobileMenu}
+                            data-testid="link-construction-cleaning-all-mobile"
+                          >
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                              <span>View All Construction Cleaning</span>
+                            </div>
+                          </Link>
+                          {getLocationsByService('construction').slice(0, 8).map((loc) => (
+                            <Link 
+                              key={loc.name}
+                              href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                              className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
+                              onClick={closeMobileMenu}
+                              data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}-mobile`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span>{loc.name}</span>
+                                <span className="text-xs text-muted-foreground">{loc.state}</span>
+                              </div>
+                            </Link>
+                          ))}
+                          {getLocationsByService('construction').length > 8 && (
+                            <Link 
+                              href="/construction-cleaning" 
+                              className="block px-4 py-2 text-xs text-muted-foreground hover:text-primary-color transition-colors duration-200"
+                              onClick={closeMobileMenu}
+                            >
+                              + {getLocationsByService('construction').length - 8} more locations
+                            </Link>
+                          )}
                         </div>
                       </div>
-                    </Link>
-                    <Link 
-                      href="/commercial-cleaning" 
-                      className={`block px-4 py-4 text-sm font-medium rounded-xl transition-all duration-300 hover-lift-gentle glass-button ${
-                        location === '/commercial-cleaning' 
-                          ? 'text-primary bg-primary/10 border-primary/20' 
-                          : 'text-secondary-color hover:text-primary-color'
-                      }`}
-                      onClick={closeMobileMenu}
-                      data-testid="link-commercial-cleaning-mobile"
-                    >
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                        <div>
-                          <div className="font-medium text-primary-color">Commercial Cleaning</div>
-                          <div className="text-xs text-secondary-color mt-1">Daily office & facility maintenance</div>
+                    </div>
+
+                    {/* Commercial Cleaning */}
+                    <div className="mb-4">
+                      <button
+                        className={`w-full flex items-center justify-between px-4 py-4 text-sm font-medium rounded-xl transition-all duration-300 hover-lift-gentle glass-button ${
+                          location.startsWith('/commercial-cleaning') 
+                            ? 'text-primary bg-primary/10 border-primary/20' 
+                            : 'text-secondary-color hover:text-primary-color'
+                        }`}
+                        onClick={() => toggleMobileService('commercial')}
+                        data-testid="button-commercial-cleaning-mobile"
+                      >
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
+                          <div className="text-left">
+                            <div className="font-medium text-primary-color">Commercial Cleaning</div>
+                            <div className="text-xs text-secondary-color mt-1">Daily office & facility maintenance</div>
+                          </div>
+                        </div>
+                        <ChevronRight className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+                          expandedMobileService === 'commercial' ? 'rotate-90' : 'rotate-0'
+                        }`} />
+                      </button>
+                      
+                      {/* Commercial Cleaning Locations */}
+                      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        expandedMobileService === 'commercial' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      }`}>
+                        <div className="pl-4 pt-2 space-y-1">
+                          <Link 
+                            href="/commercial-cleaning" 
+                            className="block px-4 py-3 text-sm font-medium text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20"
+                            onClick={closeMobileMenu}
+                            data-testid="link-commercial-cleaning-all-mobile"
+                          >
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                              <span>View All Commercial Cleaning</span>
+                            </div>
+                          </Link>
+                          {getLocationsByService('commercial').slice(0, 8).map((loc) => (
+                            <Link 
+                              key={loc.name}
+                              href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                              className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
+                              onClick={closeMobileMenu}
+                              data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}-mobile`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span>{loc.name}</span>
+                                <span className="text-xs text-muted-foreground">{loc.state}</span>
+                              </div>
+                            </Link>
+                          ))}
+                          {getLocationsByService('commercial').length > 8 && (
+                            <Link 
+                              href="/commercial-cleaning" 
+                              className="block px-4 py-2 text-xs text-muted-foreground hover:text-primary-color transition-colors duration-200"
+                              onClick={closeMobileMenu}
+                            >
+                              + {getLocationsByService('commercial').length - 8} more locations
+                            </Link>
+                          )}
                         </div>
                       </div>
-                    </Link>
+                    </div>
                   </div>
 
                   {/* Service Areas Section */}

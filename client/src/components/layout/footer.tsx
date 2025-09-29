@@ -1,6 +1,28 @@
 import { Link } from "wouter";
+import { allServiceLocations } from "@shared/service-locations";
+import { locationToSlug } from "@/lib/routing-utils";
 
 export default function Footer() {
+  // Get top locations by service type for footer display
+  const getTopLocationsByService = (serviceType: 'construction' | 'commercial', limit: number = 4) => {
+    return allServiceLocations
+      .filter(loc => {
+        if (serviceType === 'construction') {
+          return loc.services.constructionCleanup;
+        } else {
+          return loc.services.commercialCleaning;
+        }
+      })
+      .filter(loc => loc.marketTier === 'primary' || loc.marketTier === 'secondary')
+      .sort((a, b) => {
+        // Sort by market tier (primary first) then by name
+        const tierOrder = { primary: 0, secondary: 1, extended: 2 };
+        const tierDiff = tierOrder[a.marketTier] - tierOrder[b.marketTier];
+        return tierDiff !== 0 ? tierDiff : a.name.localeCompare(b.name);
+      })
+      .slice(0, limit);
+  };
+
   return (
     <footer className="border-t border-border/30 py-24 px-6 footer-sophisticated-bg noise-overlay grain-texture vignette-top">
       <div className="max-w-7xl mx-auto">
@@ -35,49 +57,90 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Services</h4>
-            <ul className="space-y-3">
-              <li>
+          {/* Services with Locations */}
+          <div className="md:col-span-2">
+            <h4 className="font-medium text-foreground mb-6 text-sm tracking-wide">Our Services</h4>
+            
+            {/* Construction Cleaning */}
+            <div className="mb-6">
+              <Link 
+                href="/construction-cleaning" 
+                className="text-foreground text-sm font-medium hover:text-primary transition-colors duration-200 group flex items-center mb-3"
+                data-testid="link-footer-construction-cleaning"
+              >
+                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover:scale-125 transition-all duration-200"></span>
+                Construction Cleaning
+              </Link>
+              <div className="pl-5 space-y-2">
+                {getTopLocationsByService('construction', 4).map((loc) => (
+                  <Link 
+                    key={loc.name}
+                    href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                    className="block text-muted-foreground text-xs hover:text-foreground transition-colors duration-200"
+                    data-testid={`link-footer-construction-${locationToSlug(loc.name)}`}
+                  >
+                    {loc.name}, {loc.state}
+                  </Link>
+                ))}
                 <Link 
                   href="/construction-cleaning" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal group flex items-center"
-                  data-testid="link-footer-construction-cleaning"
+                  className="block text-muted-foreground text-xs hover:text-primary transition-colors duration-200 font-medium"
+                  data-testid="link-footer-construction-all"
                 >
-                  <span className="w-1 h-1 bg-blue-500 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></span>
-                  Construction Cleanup
+                  View all locations →
                 </Link>
-              </li>
-              <li>
+              </div>
+            </div>
+
+            {/* Commercial Cleaning */}
+            <div className="mb-6">
+              <Link 
+                href="/commercial-cleaning" 
+                className="text-foreground text-sm font-medium hover:text-primary transition-colors duration-200 group flex items-center mb-3"
+                data-testid="link-footer-commercial-cleaning"
+              >
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-3 group-hover:scale-125 transition-all duration-200"></span>
+                Commercial Cleaning
+              </Link>
+              <div className="pl-5 space-y-2">
+                {getTopLocationsByService('commercial', 4).map((loc) => (
+                  <Link 
+                    key={loc.name}
+                    href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                    className="block text-muted-foreground text-xs hover:text-foreground transition-colors duration-200"
+                    data-testid={`link-footer-commercial-${locationToSlug(loc.name)}`}
+                  >
+                    {loc.name}, {loc.state}
+                  </Link>
+                ))}
                 <Link 
                   href="/commercial-cleaning" 
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal group flex items-center"
-                  data-testid="link-footer-commercial-cleaning"
+                  className="block text-muted-foreground text-xs hover:text-primary transition-colors duration-200 font-medium"
+                  data-testid="link-footer-commercial-all"
                 >
-                  <span className="w-1 h-1 bg-green-500 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></span>
-                  Commercial Cleaning
+                  View all locations →
                 </Link>
-              </li>
-              <li>
-                <span className="text-muted-foreground text-sm font-normal flex items-center">
+              </div>
+            </div>
+
+            {/* Service Specialties */}
+            <div className="border-t border-border/20 pt-4">
+              <h5 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">Specialties</h5>
+              <div className="space-y-2">
+                <span className="block text-muted-foreground text-xs flex items-center">
                   <span className="w-1 h-1 bg-gray-400 rounded-full mr-3"></span>
                   Post-Construction Cleanup
                 </span>
-              </li>
-              <li>
-                <span className="text-muted-foreground text-sm font-normal flex items-center">
+                <span className="block text-muted-foreground text-xs flex items-center">
                   <span className="w-1 h-1 bg-gray-400 rounded-full mr-3"></span>
-                  Office Maintenance
+                  Office & Facility Maintenance
                 </span>
-              </li>
-              <li>
-                <span className="text-muted-foreground text-sm font-normal flex items-center">
+                <span className="block text-muted-foreground text-xs flex items-center">
                   <span className="w-1 h-1 bg-gray-400 rounded-full mr-3"></span>
                   Industrial Cleaning
                 </span>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
 
           {/* Service Areas */}
