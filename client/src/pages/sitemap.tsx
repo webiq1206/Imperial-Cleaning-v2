@@ -55,7 +55,7 @@ export default function SitemapPage() {
         openGraph={{
           title: "Site Map | Imperial Cleaning Inc - Complete Website Navigation",
           description: "Navigate all pages of Imperial Cleaning Inc website. Professional cleaning services across Idaho and Utah with comprehensive site navigation.",
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           imageAlt: "Imperial Cleaning Inc Site Map",
           type: "website",
           url: "https://imperialcleaninginc.com/sitemap"

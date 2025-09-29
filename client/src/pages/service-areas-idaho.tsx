@@ -259,14 +259,14 @@ export default function ServiceAreasIdaho() {
         openGraph={{
           title: "Idaho Falls & Eastern Idaho Cleaning Services | Imperial Cleaning Inc",
           description: "Professional construction and commercial cleaning services throughout Idaho Falls, Pocatello, Twin Falls, and the entire Eastern Idaho region.",
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           type: "website"
         }}
         twitter={{
           card: "summary_large_image",
           title: "Eastern Idaho Cleaning Services | Imperial Cleaning Inc",
           description: "Expert cleaning services across Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Professional construction & commercial cleaning solutions from our headquarters.",
-          image: "https://imperialcleaninginc.com/hero-logo.png"
+          image: "/og-image.png"
         }}
         structuredData={structuredData}
       />

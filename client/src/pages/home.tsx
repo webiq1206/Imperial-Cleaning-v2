@@ -214,7 +214,7 @@ export default function Home() {
         openGraph={{
           title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
           description: "Leading commercial and construction cleaning company serving Idaho Falls and the entire Eastern Idaho region. Professional cleaning solutions for businesses and contractors.",
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           imageAlt: "Imperial Cleaning Inc - Professional Cleaning Services in Boise and Treasure Valley",
           type: "website",
           url: "https://imperialcleaninginc.com/",
@@ -225,7 +225,7 @@ export default function Home() {
           card: "summary_large_image",
           title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
           description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by Idaho businesses since 2010.",
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           imageAlt: "Imperial Cleaning Inc Logo - Professional Cleaning Services",
           site: "@imperialcleaning",
           creator: "@imperialcleaning"

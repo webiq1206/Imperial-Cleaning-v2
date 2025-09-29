@@ -182,14 +182,14 @@ export default function ServiceAreasUtah() {
         openGraph={{
           title: "Wasatch Front Cleaning Services | Imperial Cleaning Utah",
           description: "Professional commercial and construction cleaning services throughout Salt Lake City, Logan, Ogden, Provo and the entire Wasatch Front region in Utah.",
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           type: "website"
         }}
         twitter={{
           card: "summary_large_image",
           title: "Wasatch Front Cleaning Services | Imperial Cleaning Utah",
           description: "Expert cleaning services across Salt Lake City, Logan, Ogden, Provo & Wasatch Front. Professional construction & commercial cleaning in Utah.",
-          image: "https://imperialcleaninginc.com/hero-logo.png"
+          image: "/og-image.png"
         }}
         structuredData={structuredData}
       />

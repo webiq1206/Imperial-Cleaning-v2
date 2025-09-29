@@ -309,7 +309,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
         openGraph={{
           title: pageTitle,
           description: pageDescription,
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           imageAlt: isLocationSpecific ? 
             `Imperial Cleaning Inc - Commercial Cleaning Services in ${locationData!.name}, ${locationData!.state}` :
             "Imperial Cleaning Inc - Professional Commercial Cleaning Services in Idaho and Utah",
@@ -322,7 +322,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
           card: "summary_large_image",
           title: pageTitle,
           description: pageDescription,
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           imageAlt: isLocationSpecific ? 
             `Commercial Cleaning in ${locationData!.name}, ${locationData!.state}` :
             "Professional Commercial Cleaning Services",

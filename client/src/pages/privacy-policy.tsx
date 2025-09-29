@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
         openGraph={{
           title: "Privacy Policy | Imperial Cleaning Inc",
           description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           imageAlt: "Imperial Cleaning Inc Privacy Policy",
           type: "website",
           url: "https://imperialcleaninginc.com/privacy-policy"

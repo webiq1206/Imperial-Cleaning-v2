@@ -46,7 +46,7 @@ export default function TermsOfServicePage() {
         openGraph={{
           title: "Terms of Service | Imperial Cleaning Inc",
           description: "Review the terms of service for Imperial Cleaning Inc's professional cleaning services in Idaho and Utah.",
-          image: "https://imperialcleaninginc.com/hero-logo.png",
+          image: "/og-image.png",
           imageAlt: "Imperial Cleaning Inc Terms of Service",
           type: "website",
           url: "https://imperialcleaninginc.com/terms-of-service"
