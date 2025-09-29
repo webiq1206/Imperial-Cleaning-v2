@@ -19,11 +19,11 @@ const buttonVariants = cva(
         ghost: "rounded-md hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Enhanced Resend-style pill button variants using centralized tokens
-        pill: "rounded-full glass-button text-secondary hover:text-primary hover:-translate-y-0.5 transition-all duration-300 hover-lift-gentle",
+        pill: "rounded-full glass-button text-foreground hover:text-foreground hover:-translate-y-0.5 transition-all duration-300 hover-lift-gentle",
         "pill-gradient": "rounded-full border border-transparent bg-gradient-to-r from-secondary to-muted text-primary backdrop-blur-sm hover:shadow-[0_0_0_1px_rgba(var(--primary),0.2),0_4px_12px_rgba(var(--primary),0.15),inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300",
         "pill-primary": "rounded-full bg-foreground text-background font-semibold border-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.1)] hover:bg-foreground/90 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.3),0_4px_20px_rgba(255,255,255,0.2),inset_0_1px_0_rgba(255,255,255,0.5)] hover:-translate-y-1 transition-all duration-300 hover-lift-moderate button-ripple hover-shimmer",
-        "pill-secondary": "rounded-full glass-button text-tertiary hover:text-secondary hover:shadow-[0_0_0_1px_rgba(var(--primary),0.15),0_4px_16px_rgba(var(--primary),0.1),inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300 hover-lift-gentle hover-shimmer",
-        "pill-ghost": "rounded-full border border-border/60 bg-transparent text-secondary backdrop-blur-sm hover:border-primary/30 hover:bg-secondary/10 hover:text-primary hover:-translate-y-0.5 transition-all duration-300 hover-lift-gentle",
+        "pill-secondary": "rounded-full glass-button text-foreground hover:text-foreground hover:shadow-[0_0_0_1px_rgba(var(--primary),0.15),0_4px_16px_rgba(var(--primary),0.1),inset_0_1px_0_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300 hover-lift-gentle hover-shimmer",
+        "pill-ghost": "rounded-full border border-border/60 bg-transparent text-foreground backdrop-blur-sm hover:border-primary/30 hover:bg-secondary/10 hover:text-foreground hover:-translate-y-0.5 transition-all duration-300 hover-lift-gentle",
         "pill-accent": "rounded-full bg-primary text-background font-medium border-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_8px_rgba(var(--primary),0.25)] hover:bg-primary/90 hover:shadow-[0_4px_16px_rgba(var(--primary),0.3),inset_0_1px_0_rgba(255,255,255,0.3)] hover:-translate-y-1 transition-all duration-300 hover-lift-moderate",
       },
       size: {

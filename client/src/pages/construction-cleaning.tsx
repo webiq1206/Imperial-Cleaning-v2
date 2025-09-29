@@ -22,7 +22,9 @@ import {
   Award,
   Clock,
   TrendingUp,
-  Star
+  Star,
+  MapPin,
+  Briefcase
 } from "lucide-react";
 import {
   Accordion,
