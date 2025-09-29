@@ -584,14 +584,10 @@ export default function ServiceAreasIdaho() {
               ].map((city, index) => {
                 const citySlug = city.toLowerCase().replace(/\s+/g, '-');
                 return (
-                  <div key={index} className="bg-card p-3 rounded-lg border border-border text-center hover:border-primary/50 transition-colors duration-200">
-                    <Link 
-                      href={`/service-areas/idaho/${citySlug}`}
-                      className="text-sm font-semibold text-foreground hover:text-primary transition-colors duration-200"
-                      data-testid={`link-${citySlug}-idaho`}
-                    >
+                  <div key={index} className="bg-card p-3 rounded-lg border border-border text-center">
+                    <span className="text-sm font-semibold text-foreground" data-testid={`area-${citySlug}-idaho`}>
                       {city}
-                    </Link>
+                    </span>
                   </div>
                 );
               })}

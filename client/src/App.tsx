@@ -19,6 +19,9 @@ import ConstructionCleaning from "@/pages/construction-cleaning";
 import CommercialCleaning from "@/pages/commercial-cleaning";
 import ServiceAreasIdaho from "@/pages/service-areas-idaho";
 import ServiceAreasUtah from "@/pages/service-areas-utah";
+import PrivacyPolicyPage from "@/pages/privacy-policy";
+import TermsOfServicePage from "@/pages/terms-of-service";
+import SitemapPage from "@/pages/sitemap";
 import NotFound from "@/pages/not-found";
 
 // Service/Location Page Component
@@ -922,6 +925,11 @@ function Router() {
         {/* About and Contact pages */}
         <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
+        
+        {/* Legal and Information pages */}
+        <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+        <Route path="/terms-of-service" component={TermsOfServicePage} />
+        <Route path="/sitemap" component={SitemapPage} />
         
         {/* 404 fallback */}
         <Route component={NotFound} />

@@ -425,14 +425,10 @@ export default function ServiceAreasUtah() {
             ].map((city, index) => {
               const citySlug = city.toLowerCase().replace(/\s+/g, '-');
               return (
-                <div key={index} className="bg-card p-4 rounded-lg border border-border text-center hover:border-primary/50 transition-colors duration-200">
-                  <Link 
-                    href={`/service-areas/utah/${citySlug}`}
-                    className="font-semibold text-foreground hover:text-primary transition-colors duration-200"
-                    data-testid={`link-${citySlug}-utah`}
-                  >
+                <div key={index} className="bg-card p-4 rounded-lg border border-border text-center">
+                  <h3 className="font-semibold text-foreground" data-testid={`area-${citySlug}-utah`}>
                     {city}
-                  </Link>
+                  </h3>
                   <p className="text-sm text-muted-foreground mt-1">Both Services Available</p>
                 </div>
               );

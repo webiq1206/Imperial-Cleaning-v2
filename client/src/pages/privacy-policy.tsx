@@ -1,0 +1,353 @@
+import SEOHead from "@/components/seo-head";
+
+export default function PrivacyPolicyPage() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "PrivacyPolicy",
+    "@id": "https://imperialcleaninginc.com/privacy-policy#privacy",
+    "name": "Imperial Cleaning Inc Privacy Policy",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Imperial Cleaning Inc",
+      "url": "https://imperialcleaninginc.com"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2025-09-29",
+    "description": "Privacy policy for Imperial Cleaning Inc explaining how we collect, use, and protect customer information."
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://imperialcleaninginc.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy Policy",
+        "item": "https://imperialcleaninginc.com/privacy-policy"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="Privacy Policy | Imperial Cleaning Inc - Professional Cleaning Services"
+        description="Learn how Imperial Cleaning Inc protects your privacy and personal information. Our privacy policy explains data collection, use, and protection for customers in Idaho and Utah."
+        keywords="privacy policy, Imperial Cleaning privacy, data protection, customer information, Idaho cleaning company privacy, Utah cleaning services privacy"
+        canonicalUrl="https://imperialcleaninginc.com/privacy-policy"
+        author="Imperial Cleaning Inc"
+        openGraph={{
+          title: "Privacy Policy | Imperial Cleaning Inc",
+          description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
+          image: "https://imperialcleaninginc.com/hero-logo.png",
+          imageAlt: "Imperial Cleaning Inc Privacy Policy",
+          type: "website",
+          url: "https://imperialcleaninginc.com/privacy-policy"
+        }}
+        structuredData={[organizationSchema, breadcrumbSchema]}
+      />
+
+      {/* Hero Section */}
+      <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-8 tracking-tight leading-tight text-foreground">
+            Privacy Policy
+          </h1>
+          <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed font-normal">
+            Your privacy and data protection are important to us. Learn how we collect, use, and safeguard your information.
+          </p>
+          <p className="text-sm text-muted-foreground mt-4">
+            Last updated: September 29, 2025
+          </p>
+        </div>
+      </section>
+
+      {/* Privacy Policy Content */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-12">
+            
+            {/* Introduction */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">Introduction</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Imperial Cleaning Inc ("we," "our," or "us") is committed to protecting your privacy and personal information. 
+                  This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our 
+                  website, use our services, or interact with us in any way.
+                </p>
+                <p>
+                  We operate throughout Idaho and Utah, providing professional construction cleanup and commercial cleaning 
+                  services. This policy applies to all our business operations and digital platforms.
+                </p>
+              </div>
+            </div>
+
+            {/* Information We Collect */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">Information We Collect</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-medium mb-3 text-foreground">Personal Information</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    We may collect personal information that you provide directly to us, including:
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span>Name, email address, and phone number</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span>Company name and job title</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span>Project location and service requirements</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span>Billing and payment information</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-medium mb-3 text-foreground">Automatically Collected Information</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    When you visit our website, we automatically collect certain information:
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span>IP address and browser information</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span>Website usage patterns and analytics</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span>Referral sources and page interactions</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* How We Use Your Information */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">How We Use Your Information</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>We use your information for the following business purposes:</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                    <span>Providing cleaning services and project quotes</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                    <span>Communicating about services, schedules, and billing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                    <span>Improving our services and customer experience</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                    <span>Complying with legal and regulatory requirements</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                    <span>Maintaining business records and insurance documentation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Information Sharing */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">Information Sharing and Disclosure</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  We do not sell, trade, or rent your personal information. We may share your information only in the following circumstances:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                    <span>With service providers who assist in our business operations (e.g., payment processing, insurance)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                    <span>When required by law or to protect our legal rights</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                    <span>In connection with a business transfer or merger</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                    <span>With your explicit consent</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Data Security */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">Data Security</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  We implement appropriate technical and organizational security measures to protect your personal information against 
+                  unauthorized access, alteration, disclosure, or destruction. These measures include:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                    <span>SSL encryption for data transmission</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                    <span>Secure data storage and access controls</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                    <span>Regular security assessments and updates</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                    <span>Employee training on data protection practices</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Your Rights */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">Your Rights and Choices</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>You have the following rights regarding your personal information:</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                    <span>Access and review your personal information</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                    <span>Request corrections to inaccurate information</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                    <span>Request deletion of your information (subject to legal requirements)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                    <span>Opt-out of marketing communications</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Contact Information */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">Contact Us</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:
+                </p>
+                <div className="grid md:grid-cols-2 gap-6 mt-6">
+                  <div>
+                    <h4 className="font-medium text-foreground mb-2">Email</h4>
+                    <a 
+                      href="mailto:privacy@imperialcleaninginc.com" 
+                      className="text-primary hover:text-primary/80 transition-colors"
+                      data-testid="link-privacy-email"
+                    >
+                      privacy@imperialcleaninginc.com
+                    </a>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground mb-2">Phone</h4>
+                    <a 
+                      href="tel:+12085203202" 
+                      className="text-primary hover:text-primary/80 transition-colors"
+                      data-testid="link-privacy-phone"
+                    >
+                      (208) 520-3202
+                    </a>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground mb-2">Mailing Address</h4>
+                    <div className="text-sm">
+                      Imperial Cleaning Inc<br />
+                      123 Business Blvd<br />
+                      Idaho Falls, ID 83402
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground mb-2">Service Areas</h4>
+                    <div className="text-sm">
+                      Idaho and Utah<br />
+                      Licensed & Insured
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Updates */}
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-6 text-foreground">Policy Updates</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  We may update this Privacy Policy periodically to reflect changes in our practices or applicable laws. 
+                  We will notify you of any material changes by posting the updated policy on our website and updating 
+                  the "Last Updated" date.
+                </p>
+                <p>
+                  We encourage you to review this Privacy Policy regularly to stay informed about how we protect your information.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-16 text-center">
+            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">
+                Questions About Our Privacy Practices?
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                We're committed to transparency and protecting your privacy. Contact us anytime with your questions or concerns.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="mailto:privacy@imperialcleaninginc.com" 
+                  className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200"
+                  data-testid="button-contact-privacy"
+                >
+                  Contact Privacy Team
+                </a>
+                <a 
+                  href="/contact" 
+                  className="inline-flex items-center justify-center px-6 py-3 border border-border bg-card text-card-foreground font-medium rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
+                  data-testid="button-general-contact"
+                >
+                  General Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
