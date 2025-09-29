@@ -26,7 +26,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-[72px]">
             <div className="flex items-center">
-              <Link href="/" data-testid="link-home" className="flex items-center hover:opacity-80 transition-all duration-300 hover-lift-gentle glow-pulse-subtle">
+              <Link href="/" data-testid="link-home" className="flex items-center hover:opacity-80 transition-all duration-300 hover-lift-gentle ">
                 <img 
                   src="/header-logo.png" 
                   alt="Imperial Cleaning Inc" 
@@ -88,14 +88,14 @@ export default function Header() {
               size="pill-md"
               onClick={handleRequestQuote}
               data-testid="button-request-quote-header"
-              className="hidden md:inline-flex hover-lift-moderate button-ripple glow-pulse-breathing hover-shimmer"
+              className="hidden md:inline-flex hover-lift-moderate button-ripple  hover-shimmer"
             >
               Request Quote
             </Button>
 
             {/* Enhanced Mobile menu button */}
             <button 
-              className="md:hidden p-2 hover:bg-secondary/50 rounded-lg transition-all duration-300 hover-lift-gentle glow-pulse-subtle button-magnetic" 
+              className="md:hidden p-2 hover:bg-secondary/50 rounded-lg transition-all duration-300 hover-lift-gentle  button-magnetic" 
               onClick={handleMenuToggle}
               data-testid="button-mobile-menu"
             >
@@ -150,7 +150,7 @@ export default function Header() {
                       handleRequestQuote();
                     }}
                     data-testid="button-request-quote-mobile"
-                    className="w-full hover-lift-moderate button-ripple glow-pulse-breathing hover-shimmer"
+                    className="w-full hover-lift-moderate button-ripple  hover-shimmer"
                   >
                     Request Quote
                   </Button>

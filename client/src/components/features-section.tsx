@@ -13,8 +13,8 @@ export default function FeaturesSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="group animate-fade-in-up stagger-delay-1">
-            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-subtle p-6 rounded-lg">
-              <div className="resend-icon mb-6 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand  parallax-subtle p-6 rounded-lg">
+              <div className="resend-icon mb-6 hover-lift-gentle  group-hover:scale-105 transition-all duration-500">
                 <i className="fas fa-shield-alt icon-gradient"></i>
               </div>
               
@@ -33,8 +33,8 @@ export default function FeaturesSection() {
           </div>
 
           <div className="group animate-fade-in-up stagger-delay-2">
-            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-gentle p-6 rounded-lg">
-              <div className="resend-icon mb-6 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand  parallax-gentle p-6 rounded-lg">
+              <div className="resend-icon mb-6 hover-lift-gentle  group-hover:scale-105 transition-all duration-500">
                 <i className="fas fa-clock icon-gradient"></i>
               </div>
               
@@ -53,8 +53,8 @@ export default function FeaturesSection() {
           </div>
 
           <div className="group animate-fade-in-up stagger-delay-3">
-            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand glow-pulse-subtle parallax-depth p-6 rounded-lg">
-              <div className="resend-icon mb-6 hover-lift-gentle glow-pulse-breathing group-hover:scale-105 transition-all duration-500">
+            <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand  parallax-depth p-6 rounded-lg">
+              <div className="resend-icon mb-6 hover-lift-gentle  group-hover:scale-105 transition-all duration-500">
                 <i className="fas fa-award icon-gradient"></i>
               </div>
               

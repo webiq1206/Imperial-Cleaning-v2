@@ -627,63 +627,7 @@
     }
   }
   
-  /* Enhanced Glow Pulse System */
-  .glow-pulse-subtle {
-    animation: glowPulseSubtle 3s ease-in-out infinite;
-    will-change: box-shadow, opacity;
-  }
-  
-  .glow-pulse-ambient {
-    animation: glowPulseAmbient 4s ease-in-out infinite;
-    will-change: box-shadow, filter;
-  }
-  
-  .glow-pulse-breathing {
-    animation: glowPulseBreathing 2.5s ease-in-out infinite;
-    will-change: box-shadow, transform;
-  }
-  
-  @keyframes glowPulseSubtle {
-    0%, 100% {
-      box-shadow: 
-        0 0 20px rgba(34, 211, 238, 0.05),
-        0 0 40px rgba(147, 51, 234, 0.03),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-    50% {
-      box-shadow: 
-        0 0 30px rgba(34, 211, 238, 0.1),
-        0 0 60px rgba(147, 51, 234, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    }
-  }
-  
-  @keyframes glowPulseAmbient {
-    0%, 100% {
-      filter: brightness(1) drop-shadow(0 0 10px rgba(34, 211, 238, 0.1));
-    }
-    33% {
-      filter: brightness(1.05) drop-shadow(0 0 20px rgba(34, 211, 238, 0.15));
-    }
-    66% {
-      filter: brightness(1.02) drop-shadow(0 0 15px rgba(147, 51, 234, 0.12));
-    }
-  }
-  
-  @keyframes glowPulseBreathing {
-    0%, 100% {
-      transform: scale(1);
-      box-shadow: 
-        0 0 15px rgba(34, 211, 238, 0.08),
-        0 0 30px rgba(147, 51, 234, 0.05);
-    }
-    50% {
-      transform: scale(1.02);
-      box-shadow: 
-        0 0 25px rgba(34, 211, 238, 0.12),
-        0 0 50px rgba(147, 51, 234, 0.08);
-    }
-  }
+  /* Static glow effects (no pulsing) */
   
   /* Sophisticated Hover Micro-Interactions */
   .hover-lift-gentle {
@@ -1179,7 +1123,7 @@
     opacity: 0;
     filter: blur(8px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: pulseGlow 3s ease-in-out infinite;
+    /* No animation */
   }
   
   /* Hover-enhanced glow with multiple layers */
@@ -1210,17 +1154,7 @@
     opacity: 1;
   }
   
-  /* Subtle glow animation (no pulsing) */
-  @keyframes pulseGlow {
-    0%, 100% { 
-      transform: scale(1);
-      opacity: 0.05;
-    }
-    50% { 
-      transform: scale(1.01);
-      opacity: 0.08;
-    }
-  }
+  /* Static glow - no animation */
   
   /* ===== GLASSMORPHISM UTILITY CLASSES ===== */
   

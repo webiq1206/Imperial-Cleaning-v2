@@ -17,12 +17,12 @@ export default function HeroSection() {
       <section className="relative min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
         {/* Enhanced parallax background elements */}
         <div className="absolute inset-0 parallax-subtle opacity-20">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-purple-500/5 rounded-full blur-xl glow-pulse-ambient"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-purple-500/5 rounded-full blur-xl "></div>
           <div className="absolute bottom-40 right-32 w-24 h-24 bg-gradient-to-br from-purple-500/8 to-cyan-500/4 rounded-full blur-lg"></div>
         </div>
         
         <div className="absolute inset-0 parallax-gentle opacity-10">
-          <div className="absolute top-1/3 right-20 w-40 h-40 bg-gradient-to-br from-cyan-400/6 to-purple-600/3 rounded-full blur-2xl glow-pulse-subtle"></div>
+          <div className="absolute top-1/3 right-20 w-40 h-40 bg-gradient-to-br from-cyan-400/6 to-purple-600/3 rounded-full blur-2xl "></div>
           <div className="absolute bottom-20 left-32 w-28 h-28 bg-gradient-to-br from-purple-400/5 to-cyan-600/2 rounded-full blur-xl"></div>
         </div>
 
@@ -33,7 +33,7 @@ export default function HeroSection() {
             <div className="flex-1 max-w-2xl z-20">
               {/* Enhanced Resend-style announcement pill with motion polish */}
               <div className="mb-8 animate-fade-in-left stagger-delay-1">
-                <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow glow-pulse-subtle hover-lift-gentle hover-shimmer">
+                <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow  hover-lift-gentle hover-shimmer">
                   <span className="text-sm text-gray-400 font-medium tracking-tight">
                     Announcing Professional Cleaning Services
                   </span>
@@ -85,7 +85,7 @@ export default function HeroSection() {
                   <img 
                     src={logoPath}
                     alt="Imperial Cleaning"
-                    className="w-80 h-80 lg:w-96 lg:h-96 object-contain opacity-25 group-hover:opacity-35 transition-all duration-700 glow-pulse-ambient"
+                    className="w-80 h-80 lg:w-96 lg:h-96 object-contain opacity-25 group-hover:opacity-35 transition-all duration-700 "
                   />
                   
                   {/* Enhanced overlay layers with motion */}

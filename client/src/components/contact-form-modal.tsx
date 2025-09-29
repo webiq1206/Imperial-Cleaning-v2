@@ -216,7 +216,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                 size="pill-md"
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className={`${currentStep === 1 ? "invisible" : ""} transition-transform duration-300 ease-out hover:-translate-y-1 hover-lift-gentle glow-pulse-subtle`}
+                className={`${currentStep === 1 ? "invisible" : ""} transition-transform duration-300 ease-out hover:-translate-y-1 hover-lift-gentle `}
                 data-testid="button-prev-step"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
