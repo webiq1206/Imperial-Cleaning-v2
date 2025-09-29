@@ -167,60 +167,6 @@ export default function ServicePillarsSection() {
       guarantee: "Zero production downtime commitment"
     },
     {
-      id: "green-cleaning-solutions",
-      title: "Green Cleaning Solutions",
-      subtitle: "Eco-Friendly Cleaning for Idaho & Utah Clients",
-      icon: "fas fa-leaf",
-      description: "Environmentally responsible cleaning solutions using EPA-approved, non-toxic products perfect for Idaho and Utah businesses committed to sustainability and employee health.",
-      certification: "Environmental Seal Certified • Environmental Safety Partner • Green Building Compliant",
-      greenPrograms: [
-        {
-          program: "Green Building Compliance",
-          suitable: "Corporate offices and certified buildings",
-          features: [
-            "Environmental certified cleaning products",
-            "Microfiber technology reducing chemical usage",
-            "Energy-efficient equipment and procedures",
-            "Waste reduction and recycling programs"
-          ]
-        },
-        {
-          program: "Healthcare-Safe Cleaning",
-          suitable: "Medical facilities and schools",
-          features: [
-            "Environmental Safety approved products",
-            "Non-toxic disinfectants and sanitizers", 
-            "Fragrance-free options for sensitive environments",
-            "Reduced VOC emissions for indoor air quality"
-          ]
-        },
-        {
-          program: "Child-Safe Environments",
-          suitable: "Schools, daycares, and family businesses",
-          features: [
-            "Plant-based cleaning formulations",
-            "Non-toxic floor care products",
-            "Safe surface sanitizers",
-            "Allergy-conscious cleaning protocols"
-          ]
-        }
-      ],
-      ecoProducts: [
-        "Biodegradable all-purpose cleaners",
-        "Plant-based floor care solutions",
-        "Non-toxic window and glass cleaners",
-        "Enzyme-based carpet and upholstery cleaners"
-      ],
-      benefits: [
-        "Improved indoor air quality",
-        "Reduced chemical exposure for employees",
-        "Support for LEED certification goals",
-        "Environmentally responsible business practices"
-      ],
-      serviceAreas: "Green cleaning solutions available in all Imperial Cleaning service areas across Idaho and Utah",
-      guarantee: "Cleaning effectiveness guarantee with environmental safety compliance"
-    },
-    {
       id: "specialized-equipment-techniques",
       title: "Specialized Equipment & Techniques",
       subtitle: "Advanced Cleaning Technology & Professional Expertise",
@@ -456,34 +402,6 @@ export default function ServicePillarsSection() {
                             </div>
                           )}
 
-
-                          {/* Green Programs (for green cleaning) */}
-                          {pillar.greenPrograms && (
-                            <div>
-                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
-                                <i className="fas fa-leaf w-4 h-4 text-green-400 mr-2"></i>
-                                Environmental Programs
-                              </h4>
-                              <div className="space-y-3 sm:space-y-4">
-                                {pillar.greenPrograms.map((program, programIndex) => (
-                                  <div key={programIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-                                    <div className="mb-2 sm:mb-3">
-                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{program.program}</h5>
-                                      <p className="text-xs text-green-400 break-words">{program.suitable}</p>
-                                    </div>
-                                    <ul className="space-y-1 sm:space-y-2">
-                                      {program.features.map((feature, featureIndex) => (
-                                        <li key={featureIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                                          <span className="break-words">{feature}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
 
                           {/* Equipment Categories (for specialized equipment) */}
                           {pillar.equipmentCategories && (
