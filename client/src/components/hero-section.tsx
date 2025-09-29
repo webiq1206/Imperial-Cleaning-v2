@@ -15,14 +15,18 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="relative min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
-        {/* Mobile-only background logo - larger and more visible */}
-        <div className="absolute inset-0 flex items-center justify-center md:hidden z-0">
-          <img 
-            src={logoPath}
-            alt=""
-            className="w-96 h-96 object-contain opacity-[0.08] pointer-events-none"
-          />
+      <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
+        {/* Enhanced background logo - visible on both mobile and desktop with dark overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-0">
+          <div className="relative">
+            <img 
+              src={logoPath}
+              alt=""
+              className="w-72 h-72 md:w-96 md:h-96 object-contain opacity-[0.18] pointer-events-none"
+            />
+            {/* Dark overlay for better content readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/60 to-black/50"></div>
+          </div>
         </div>
 
         {/* Enhanced parallax background elements */}
@@ -38,11 +42,11 @@ export default function HeroSection() {
 
         {/* Resend-style hero layout */}
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-full">
-          <div className="flex items-center h-screen relative">
+          <div className="flex items-center h-[85vh] md:h-screen relative">
             {/* Left side - Content */}
             <div className="flex-1 max-w-2xl z-20">
               {/* Enhanced Resend-style announcement pill with motion polish */}
-              <div className="mb-8 animate-fade-in-left stagger-delay-1">
+              <div className="mb-6 md:mb-8 animate-fade-in-left stagger-delay-1">
                 <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow  hover-lift-gentle hover-shimmer">
                   <span className="text-sm text-secondary-color font-medium tracking-tight">
                     Professional Cleaning Services • Licensed & Insured • Trusted Partner
@@ -54,13 +58,13 @@ export default function HeroSection() {
               </div>
 
               {/* Main heading with enhanced animations */}
-              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.9] tracking-tight mb-8 animate-fade-in-up stagger-delay-2">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.9] tracking-tight mb-6 md:mb-8 animate-fade-in-up stagger-delay-2">
                 <span className="inline-block hover-lift-gentle">Professional</span><br /><span className="inline-block hover-lift-gentle stagger-delay-2">cleaning</span> <span className="inline-block hover-lift-gentle stagger-delay-2">for</span>
                 <span className="inline-block hover-lift-gentle stagger-delay-3 gradient-text-cyan-purple">businesses</span>
               </h1>
 
               {/* Enhanced subtitle */}
-              <p className="text-xl text-secondary-color mb-10 max-w-xl leading-[1.6] font-normal tracking-tight animate-fade-in-up stagger-delay-3">
+              <p className="text-lg md:text-xl text-secondary-color mb-8 md:mb-10 max-w-xl leading-[1.6] font-normal tracking-tight animate-fade-in-up stagger-delay-3">
                 Locally owned and operated commercial cleaning company providing premier construction cleanup and janitorial services for businesses that demand excellence across multiple markets.
               </p>
 
