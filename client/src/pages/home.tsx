@@ -26,7 +26,7 @@ export default function Home() {
   const faqData = [
     {
       question: "What areas in Boise and the Treasure Valley do you serve?",
-      answer: "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout the entire Treasure Valley region, including Boise, Meridian, Nampa, Caldwell, Eagle, Star, and Kuna. We also serve outlying areas like Mountain Home, Emmett, and Middleton. Our Boise commercial cleaning team can typically reach any location within 30 minutes, ensuring prompt response times for both scheduled maintenance and emergency cleanup services."
+      answer: "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout the entire Treasure Valley region, including Boise, Meridian, Nampa, Caldwell, Eagle, Star, and Kuna. We also serve outlying areas like Mountain Home, Emmett, and Middleton. Our Boise commercial cleaning team can typically reach any location within 30 minutes, ensuring prompt response times for both scheduled maintenance and urgent cleanup needs."
     },
     {
       question: "What does your post-construction cleanup process include?",
@@ -34,7 +34,7 @@ export default function Home() {
     },
     {
       question: "How flexible are your commercial cleaning schedules in Idaho?",
-      answer: "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Meridian office cleaning and Boise commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Emergency cleanup services are available across the Treasure Valley with same-day response when needed."
+      answer: "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Meridian office cleaning and Boise commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Urgent cleanup services are available across the Treasure Valley with same-day response when needed."
     },
     {
       question: "Are you fully insured and bonded for commercial projects?",

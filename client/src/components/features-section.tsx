@@ -49,7 +49,7 @@ export default function FeaturesSection() {
               <div className="glass-divider-top mb-4"></div>
               
               <p className="text-muted-foreground leading-relaxed" data-testid="feature-desc-availability">
-                Around-the-clock availability throughout our Idaho and Utah service areas. Rapid emergency response for urgent cleanup needs across both states.
+                Around-the-clock availability throughout our Idaho and Utah service areas. Flexible scheduling and responsive service for all cleanup needs across both states.
               </p>
             </div>
           </div>

@@ -125,41 +125,6 @@ export default function CaseStudiesSection() {
       keywords: "Eagle corporate cleaning services, luxury office maintenance Idaho, executive office cleaning Treasure Valley"
     },
     {
-      id: "nampa-warehouse-emergency",
-      category: "emergency",
-      title: "Nampa Warehouse Facility",
-      subtitle: "Emergency Cleanup & Rapid Restoration Response",
-      location: "Nampa, ID",
-      projectType: "Emergency Water Damage Response",
-      timeline: "72-hour emergency response completion",
-      badge: "EMERGENCY",
-      challenge: "A major Nampa warehouse facility experienced significant water damage from a burst pipe, affecting 150,000 sq ft of storage space, inventory, and operational areas. Immediate response was critical to prevent business interruption and further damage.",
-      solution: "Imperial Cleaning's emergency response team arrived within 2 hours, deploying industrial water extraction equipment, dehumidification systems, and specialized cleaning protocols. Our 24/7 crew worked continuously to restore operations quickly and prevent mold development.",
-      results: {
-        timeline: "Full restoration in 72 hours",
-        area: "150,000 square feet restored",
-        response: "2-hour initial response time",
-        business: "Zero operational downtime"
-      },
-      metrics: [
-        { label: "Response Time", value: "2 hours", icon: "clock" },
-        { label: "Affected Area", value: "150,000 sq ft", icon: "building" },
-        { label: "Restoration Time", value: "72 hours", icon: "calendar" },
-        { label: "Business Impact", value: "Zero downtime", icon: "trending-up" }
-      ],
-      testimonial: {
-        quote: "When disaster struck, Imperial Cleaning was our lifeline. Their rapid response and expertise prevented what could have been a devastating business interruption. Professional, efficient, and reliable when it mattered most.",
-        author: "Roberto Sanchez",
-        position: "Warehouse Operations Manager",
-        company: "Nampa Distribution Solutions"
-      },
-      beforeAfter: {
-        before: "Extensive water damage throughout warehouse floors, affected inventory areas, potential mold risks, operational disruption, and urgent need for immediate professional intervention.",
-        after: "Fully restored warehouse operations with professional water extraction, sanitized surfaces, prevented mold development, and complete business continuity maintained within 72 hours."
-      },
-      keywords: "Nampa industrial cleaning transformation, emergency cleanup Idaho, warehouse restoration services"
-    },
-    {
       id: "utah-construction-projects",
       category: "construction",
       title: "Utah Multi-Site Construction Projects",
@@ -240,7 +205,6 @@ export default function CaseStudiesSection() {
     { id: "construction", label: "Construction", count: caseStudies.filter(s => s.category === "construction").length },
     { id: "commercial", label: "Commercial", count: caseStudies.filter(s => s.category === "commercial").length },
     { id: "industrial", label: "Industrial", count: caseStudies.filter(s => s.category === "industrial").length },
-    { id: "emergency", label: "Emergency", count: caseStudies.filter(s => s.category === "emergency").length },
     { id: "healthcare", label: "Healthcare", count: caseStudies.filter(s => s.category === "healthcare").length }
   ];
 
@@ -249,7 +213,6 @@ export default function CaseStudiesSection() {
       case "construction": return "text-orange-400 border-orange-400/20 bg-orange-400/10";
       case "commercial": return "text-blue-400 border-blue-400/20 bg-blue-400/10";
       case "industrial": return "text-purple-400 border-purple-400/20 bg-purple-400/10";
-      case "emergency": return "text-red-400 border-red-400/20 bg-red-400/10";
       case "healthcare": return "text-green-400 border-green-400/20 bg-green-400/10";
       default: return "text-cyan-400 border-cyan-400/20 bg-cyan-400/10";
     }

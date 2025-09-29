@@ -22,7 +22,7 @@ export default function FAQSection() {
     {
       id: "service-areas-boise",
       question: "What areas in Boise and the Treasure Valley do you serve?",
-      answer: "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout the entire Treasure Valley region, including Boise, Meridian, Nampa, Caldwell, Eagle, Star, and Kuna. We also serve outlying areas like Mountain Home, Emmett, and Middleton. Our Boise commercial cleaning team can typically reach any location within 30 minutes, ensuring prompt response times for both scheduled maintenance and emergency cleanup services."
+      answer: "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout the entire Treasure Valley region, including Boise, Meridian, Nampa, Caldwell, Eagle, Star, and Kuna. We also serve outlying areas like Mountain Home, Emmett, and Middleton. Our Boise commercial cleaning team can typically reach any location within 30 minutes, ensuring prompt response times for both scheduled maintenance and urgent cleanup needs."
     },
     {
       id: "construction-cleanup-process",
@@ -32,7 +32,7 @@ export default function FAQSection() {
     {
       id: "commercial-cleaning-scheduling",
       question: "How flexible are your commercial cleaning schedules in Idaho?",
-      answer: "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Meridian office cleaning and Boise commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Emergency cleanup services are available across the Treasure Valley with same-day response when needed."
+      answer: "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Meridian office cleaning and Boise commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Urgent cleanup services are available across the Treasure Valley with same-day response when needed."
     },
     {
       id: "insurance-bonding-compliance",
@@ -43,11 +43,6 @@ export default function FAQSection() {
       id: "pricing-quote-process",
       question: "How do you determine pricing for Nampa and Treasure Valley cleaning services?",
       answer: "Our pricing for Nampa post-construction services and Treasure Valley commercial cleaning is based on several factors: square footage, frequency of service, type of facility, specific cleaning requirements, and accessibility. We provide detailed, transparent quotes with no hidden fees. Most commercial cleaning estimates in the Boise area can be provided within 24 hours. For construction cleanup projects, we offer both per-square-foot pricing and flat-rate options depending on project scope."
-    },
-    {
-      id: "response-time-emergencies",
-      question: "What are your emergency response times in Boise and surrounding areas?",
-      answer: "For emergency cleaning situations in Boise, Meridian, Nampa, and the greater Treasure Valley, Imperial Cleaning Inc. provides 24/7 emergency response. Our typical response time is 2-4 hours for urgent situations during business hours, and within 6 hours for after-hours emergencies. This includes water damage cleanup, biohazard situations, and urgent pre-inspection cleaning for construction projects. Our rapid response capability covers all of Ada County and Canyon County."
     },
     {
       id: "construction-timeline-coordination",

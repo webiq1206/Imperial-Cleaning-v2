@@ -162,35 +162,6 @@ export default function ComplianceCertificationsSection() {
         }
       ],
       keywords: "trusted cleaning services, quality guaranteed cleaning, customer satisfaction cleaning"
-    },
-    {
-      id: "emergency-protocols",
-      title: "Emergency Protocols",
-      icon: "fas fa-exclamation-triangle",
-      badge: "24/7 RESPONSE",
-      status: "available",
-      description: "Comprehensive emergency response procedures with 24/7 availability and rapid incident management across all service area cleaning operations.",
-      details: [
-        {
-          type: "Emergency Response Plan",
-          protocol: "2-hour response guarantee",
-          coverage: "All service area locations",
-          status: "24/7 dispatch center"
-        },
-        {
-          type: "Incident Management System",
-          protocol: "Immediate notification & response",
-          coverage: "Regional service coverage",
-          status: "Full documentation process"
-        },
-        {
-          type: "After-Hours Availability",
-          protocol: "Emergency cleaning services",
-          coverage: "Local service areas",
-          status: "Always available"
-        }
-      ],
-      keywords: "24/7 emergency cleaning services, rapid response cleaning, emergency cleaning services"
     }
   ];
 
@@ -364,7 +335,7 @@ export default function ComplianceCertificationsSection() {
                   <Clock className="w-12 h-12 text-blue-400 mx-auto" />
                 </div>
                 <h4 className="font-medium text-foreground mb-2">2-Hour Response</h4>
-                <p className="text-sm text-muted-foreground">Emergency service guarantee</p>
+                <p className="text-sm text-muted-foreground">24/7 service guarantee</p>
               </div>
               
               <div className="text-center group" data-testid="indicator-compliance">

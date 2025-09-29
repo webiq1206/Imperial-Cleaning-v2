@@ -164,66 +164,7 @@ export default function ServicePillarsSection() {
         "State of Idaho industrial cleaning requirements"
       ],
       serviceAreas: "Available in all Imperial Cleaning service areas across Idaho and Utah",
-      guarantee: "Zero production downtime commitment with emergency response capability"
-    },
-    {
-      id: "emergency-cleanup-services",
-      title: "Emergency Cleanup Services",
-      subtitle: "24/7 Response in All Service Areas Across Idaho & Utah",
-      icon: "fas fa-exclamation-triangle",
-      description: "Rapid response emergency cleanup services available 24/7 in all Imperial Cleaning service areas across Idaho and Utah with 2-hour response time guarantee for urgent situations.",
-      certification: "Professional Certified • Hazmat Trained • Emergency Response Certified",
-      emergencyTypes: [
-        {
-          type: "Water Damage & Flooding",
-          coverage: "All Imperial Cleaning service areas",
-          services: [
-            "Water extraction and structural drying",
-            "Mold prevention and treatment",
-            "Content cleaning and restoration",
-            "Insurance documentation and coordination"
-          ]
-        },
-        {
-          type: "Biohazard & Trauma Cleanup",
-          coverage: "All Imperial Cleaning service areas",
-          services: [
-            "Blood and bodily fluid cleanup",
-            "Crime scene restoration",
-            "Medical waste disposal",
-            "Odor elimination and sanitization"
-          ]
-        },
-        {
-          type: "Chemical Spills & Hazmat",
-          coverage: "All Imperial Cleaning service areas",
-          services: [
-            "Chemical spill containment and cleanup",
-            "Hazardous material disposal",
-            "Air quality testing and remediation",
-            "Regulatory compliance documentation"
-          ]
-        },
-        {
-          type: "Fire & Smoke Damage",
- 
-          coverage: "All Imperial Cleaning service areas",
-          services: [
-            "Smoke odor elimination",
-            "Soot removal and surface cleaning",
-            "Content cleaning and restoration",
-            "Structural cleaning and deodorization"
-          ]
-        }
-      ],
-      responseTeam: [
-        "Certified emergency response technicians",
-        "Hazmat-trained cleanup specialists",
-        "Insurance claim documentation experts",
-        "24/7 dispatch and coordination center"
-      ],
-      serviceAreas: "Emergency response available in all Imperial Cleaning service areas across Idaho and Utah",
-      guarantee: "Certified response times with full insurance coordination and regulatory compliance"
+      guarantee: "Zero production downtime commitment"
     },
     {
       id: "green-cleaning-solutions",
@@ -349,7 +290,7 @@ export default function ServicePillarsSection() {
         "Safety-compliant safety procedures",
         "Personal protective equipment (PPE) requirements",
         "Equipment maintenance and inspection schedules",
-        "Emergency response and first aid procedures"
+        "First aid and safety response procedures"
       ],
       serviceAreas: "Advanced cleaning technology deployed in all Imperial Cleaning service areas across Idaho and Utah",
       guarantee: "Equipment performance guarantee with certified operator training and maintenance"
@@ -515,33 +456,6 @@ export default function ServicePillarsSection() {
                             </div>
                           )}
 
-                          {/* Emergency Types (for emergency services) */}
-                          {pillar.emergencyTypes && (
-                            <div>
-                              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
-                                <i className="fas fa-ambulance w-4 h-4 text-primary mr-2"></i>
-                                Emergency Response Capabilities
-                              </h4>
-                              <div className="space-y-3 sm:space-y-4">
-                                {pillar.emergencyTypes.map((emergency, emergencyIndex) => (
-                                  <div key={emergencyIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-                                    <div className="mb-2 sm:mb-3">
-                                      <h5 className="font-medium text-foreground text-sm sm:text-base break-words">{emergency.type}</h5>
-                                    </div>
-                                    <p className="text-xs text-primary mb-2 sm:mb-3 break-words">{emergency.coverage}</p>
-                                    <ul className="space-y-1 sm:space-y-2">
-                                      {emergency.services.map((service, serviceIndex) => (
-                                        <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
-                                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                                          <span className="break-words">{service}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
 
                           {/* Green Programs (for green cleaning) */}
                           {pillar.greenPrograms && (

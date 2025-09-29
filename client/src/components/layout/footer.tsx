@@ -30,7 +30,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center text-xs text-muted-foreground">
                 <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                24/7 Emergency Service
+                24/7 Service Available
               </div>
             </div>
           </div>
