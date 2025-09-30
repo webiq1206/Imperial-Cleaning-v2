@@ -8,7 +8,37 @@ Imperial Cleaning Inc. is a professional cleaning services website targeting com
 
 Preferred communication style: Simple, everyday language.
 
+## Company History
+
+- **Founded**: 2015 in Idaho Falls, Idaho
+- **Utah Expansion**: 2023
+- **Years of Service**: 10 years (2015-2025)
+
 ## Recent Changes (September 30, 2025)
+
+### Accurate Company History Implementation
+- Corrected founding date from false "2010" to accurate "2015" across entire codebase
+- Updated Utah expansion date from false "2013" to accurate "2023" 
+- Removed all fake addresses ("123 Business Blvd") from About page, Contact page, Terms of Service, Privacy Policy, and structured data schemas
+- Updated all "years of experience" references from 15+ to accurate 10 years
+- Fixed all SEO metadata (titles, descriptions, Open Graph, Twitter cards) with correct dates
+- Updated company milestones timeline with accurate chronology
+- Changes applied to: App.tsx (About/Contact pages), home.tsx, seo-head.tsx, footer.tsx, terms-of-service.tsx, privacy-policy.tsx
+
+### Service Level Enhancement
+- Updated all service area comparison tables to display 5-star service level across all Idaho and Utah markets
+- Applied to Idaho Falls, Pocatello, Twin Falls, Blackfoot, Rexburg, Boise, Logan, Ogden, Salt Lake City, and Provo
+
+### Icon Color Consistency
+- Unified icon colors within each city playbook section to match city's designated theme color
+- Each city's icons (Key Industries, Industry Challenges, Our Solutions, Compliance) now use consistent color throughout section
+- Idaho cities: primary (cyan), blue, green, yellow, purple, indigo
+- Utah cities: primary (cyan), blue, green, purple
+
+### Typography Standardization
+- Removed all font-bold, font-semibold, and font-medium classes from entire codebase (55+ files)
+- All text now uses consistent font-weight: 300 (light) for elegant, uniform appearance
+- Applied across all pages, components, and UI elements
 
 ### Hero Section Redesign
 - Created reusable InternalHeroSection component matching homepage design with fixed background logo, parallax effects, and sophisticated styling

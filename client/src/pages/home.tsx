@@ -47,14 +47,6 @@ export default function Home() {
  const localBusinessSchema = createLocalBusinessSchema({
   "name": "Imperial Cleaning Inc",
   "description": "Leading commercial and construction cleaning company headquartered in Idaho Falls, serving Eastern Idaho, southeastern Idaho, and extending to the Treasure Valley region. Professional post-construction cleanup and commercial janitorial services for Idaho and Utah businesses.",
-  "address": {
-   "@type": "PostalAddress",
-   "streetAddress": "123 Business Blvd",
-   "addressLocality": "Idaho Falls",
-   "addressRegion": "ID",
-   "postalCode": "83402",
-   "addressCountry": "US"
-  },
   "areaServed": [
    {
     "@type": "City",
@@ -224,7 +216,7 @@ export default function Home() {
     twitter={{
      card: "summary_large_image",
      title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
-     description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by Idaho businesses since 2010.",
+     description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by Idaho businesses since 2015.",
      image: "/og-image.png",
      imageAlt: "Imperial Cleaning Inc Logo - Professional Cleaning Services",
      site: "@imperialcleaning",

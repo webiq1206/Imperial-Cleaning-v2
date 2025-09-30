@@ -187,14 +187,6 @@ export const createLocalBusinessSchema = (overrides: Partial<any> = {}) => ({
  "priceRange": "$$",
  "currenciesAccepted": "USD",
  "paymentAccepted": "Cash, Check, Credit Card, ACH Transfer",
- "address": {
-  "@type": "PostalAddress",
-  "streetAddress": "123 Business Blvd",
-  "addressLocality": "Idaho Falls",
-  "addressRegion": "ID",
-  "postalCode": "83402",
-  "addressCountry": "US"
- },
  "geo": {
   "@type": "GeoCoordinates",
   "latitude": "43.4666",
@@ -297,14 +289,6 @@ export const createOrganizationSchema = (overrides: Partial<any> = {}) => ({
  "logo": "https://imperialcleaninginc.com/hero-logo.png",
  "image": "https://imperialcleaninginc.com/hero-logo.png",
  "description": "Idaho Falls headquartered commercial and construction cleaning company serving Idaho and Utah with professional cleaning solutions for contractors and businesses.",
- "address": {
-  "@type": "PostalAddress",
-  "streetAddress": "123 Business Blvd",
-  "addressLocality": "Idaho Falls",
-  "addressRegion": "ID", 
-  "postalCode": "83402",
-  "addressCountry": "US"
- },
  "contactPoint": {
   "@type": "ContactPoint",
   "telephone": "+1-208-520-3202",
@@ -315,7 +299,7 @@ export const createOrganizationSchema = (overrides: Partial<any> = {}) => ({
   "@type": "Person",
   "name": "Imperial Cleaning Management Team"
  },
- "foundingDate": "2010",
+ "foundingDate": "2015",
  "numberOfEmployees": {
   "@type": "QuantitativeValue",
   "value": "25"
@@ -504,7 +488,7 @@ export const createPostalAddressSchema = (address: {
  addressCountry?: string;
 }) => ({
  "@type": "PostalAddress",
- "streetAddress": address.streetAddress || "123 Business Blvd",
+ ...(address.streetAddress && { "streetAddress": address.streetAddress }),
  "addressLocality": address.addressLocality,
  "addressRegion": address.addressRegion,
  "postalCode": address.postalCode || "83402",

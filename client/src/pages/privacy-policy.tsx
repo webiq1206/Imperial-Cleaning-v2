@@ -287,7 +287,6 @@ export default function PrivacyPolicyPage() {
           <h4 className=" text-foreground mb-2">Mailing Address</h4>
           <div className="text-sm">
            Imperial Cleaning Inc<br />
-           123 Business Blvd<br />
            Idaho Falls, ID 83402
           </div>
          </div>

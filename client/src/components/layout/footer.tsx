@@ -38,7 +38,7 @@ export default function Footer() {
         data-testid="footer-logo"
        />
        <p className="text-muted-foreground text-base leading-relaxed max-w-md mb-6">
-        Idaho and Utah's most trusted cleaning company since 2010. Professional construction cleanup 
+        Idaho and Utah's most trusted cleaning company since 2015. Professional construction cleanup 
         and commercial cleaning services with a commitment to excellence.
        </p>
        

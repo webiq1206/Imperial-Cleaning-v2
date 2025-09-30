@@ -399,7 +399,6 @@ export default function TermsOfServicePage() {
           <h4 className=" text-foreground mb-2">Business Office</h4>
           <div className="text-sm space-y-1">
            <div>Imperial Cleaning Inc</div>
-           <div>123 Business Blvd</div>
            <div>Idaho Falls, ID 83402</div>
           </div>
          </div>

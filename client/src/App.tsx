@@ -63,16 +63,8 @@ function AboutPage() {
   "alternateName": "Imperial Cleaning",
   "url": "https://imperialcleaninginc.com",
   "logo": "https://imperialcleaninginc.com/hero-logo.png",
-  "description": "Professional construction and commercial cleaning company serving Idaho and Utah since 2010. Headquartered in Idaho Falls with comprehensive cleaning solutions for businesses and contractors.",
-  "foundingDate": "2010",
-  "address": {
-   "@type": "PostalAddress",
-   "streetAddress": "123 Business Blvd",
-   "addressLocality": "Idaho Falls",
-   "addressRegion": "ID",
-   "postalCode": "83402",
-   "addressCountry": "US"
-  },
+  "description": "Professional construction and commercial cleaning company serving Idaho and Utah since 2015. Headquartered in Idaho Falls with comprehensive cleaning solutions for businesses and contractors.",
+  "foundingDate": "2015",
   "areaServed": [
    {
     "@type": "State",
@@ -131,7 +123,7 @@ function AboutPage() {
  };
 
  const companyStats = [
-  { label: "Years of Excellence", value: "15+", icon: "calendar" },
+  { label: "Years of Excellence", value: "10+", icon: "calendar" },
   { label: "Projects Completed", value: "2,500+", icon: "building" },
   { label: "States Served", value: "2", icon: "map" },
   { label: "Team Members", value: "25+", icon: "users" }
@@ -161,10 +153,10 @@ function AboutPage() {
  ];
 
  const milestones = [
-  { year: "2010", title: "Company Founded", description: "Imperial Cleaning Inc. established in Idaho Falls with a focus on construction cleanup." },
-  { year: "2013", title: "Utah Expansion", description: "Extended services into Utah markets, serving Salt Lake City and surrounding areas." },
-  { year: "2016", title: "Commercial Growth", description: "Expanded to comprehensive commercial cleaning services for office buildings and facilities." },
+  { year: "2015", title: "Company Founded", description: "Imperial Cleaning Inc. established in Idaho Falls with a focus on construction cleanup." },
+  { year: "2018", title: "Service Expansion", description: "Expanded to comprehensive commercial cleaning services for office buildings and facilities." },
   { year: "2020", title: "Technology Integration", description: "Implemented advanced project management and quality assurance systems." },
+  { year: "2023", title: "Utah Expansion", description: "Extended services into Utah markets, serving Salt Lake City and surrounding areas." },
   { year: "2024", title: "Regional Leadership", description: "Recognized as the premier cleaning company across Idaho and Utah with 25+ team members." }
  ];
 
@@ -172,7 +164,7 @@ function AboutPage() {
   <>
    <SEOHead
     title="About Imperial Cleaning Inc | Professional Cleaning Services in Idaho & Utah"
-    description="Learn about Imperial Cleaning Inc, Idaho's trusted cleaning company since 2010. Licensed, bonded & insured with expert construction cleanup and commercial cleaning services across ID & UT."
+    description="Learn about Imperial Cleaning Inc, Idaho's trusted cleaning company since 2015. Licensed, bonded & insured with expert construction cleanup and commercial cleaning services across ID & UT."
     keywords="about Imperial Cleaning, Idaho cleaning company, Utah cleaning services, professional cleaners, construction cleanup experts, commercial cleaning specialists, Idaho Falls headquarters"
     canonicalUrl="https://imperialcleaninginc.com/about"
     author="Imperial Cleaning Inc"
@@ -183,7 +175,7 @@ function AboutPage() {
     }}
     openGraph={{
      title: "About Imperial Cleaning Inc | Idaho & Utah's Premier Cleaning Company",
-     description: "Discover Imperial Cleaning Inc's story - Idaho's most trusted cleaning company since 2010. Expert construction cleanup and commercial cleaning across Idaho and Utah.",
+     description: "Discover Imperial Cleaning Inc's story - Idaho's most trusted cleaning company since 2015. Expert construction cleanup and commercial cleaning across Idaho and Utah.",
      image: "https://imperialcleaninginc.com/hero-logo.png",
      imageAlt: "Imperial Cleaning Inc - Professional Cleaning Services",
      type: "website",
@@ -192,7 +184,7 @@ function AboutPage() {
     twitter={{
      card: "summary_large_image",
      title: "About Imperial Cleaning Inc | Idaho & Utah Cleaning Experts",
-     description: "Learn about Imperial Cleaning Inc - Idaho's premier cleaning company since 2010. Licensed, bonded & insured cleaning services across Idaho and Utah.",
+     description: "Learn about Imperial Cleaning Inc - Idaho's premier cleaning company since 2015. Licensed, bonded & insured cleaning services across Idaho and Utah.",
      image: "https://imperialcleaninginc.com/hero-logo.png",
      imageAlt: "Imperial Cleaning Inc Logo"
     }}
@@ -207,7 +199,7 @@ function AboutPage() {
        About Imperial Cleaning
       </h1>
       <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-       Fifteen years of excellence in professional cleaning services across Idaho and Utah. 
+       Ten years of excellence in professional cleaning services across Idaho and Utah. 
        Built on integrity, powered by innovation.
       </p>
      </div>
@@ -234,7 +226,7 @@ function AboutPage() {
        </h2>
        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
         <p>
-         Founded in 2010 in Idaho Falls, Imperial Cleaning Inc. began with a simple mission: 
+         Founded in 2015 in Idaho Falls, Imperial Cleaning Inc. began with a simple mission: 
          to provide the highest quality cleaning services that construction companies and businesses 
          could truly rely on.
         </p>
@@ -263,7 +255,7 @@ function AboutPage() {
          <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
          <div>
           <div className=" text-foreground">Proven Track Record</div>
-          <div className="text-sm text-muted-foreground">15+ years serving major contractors and businesses</div>
+          <div className="text-sm text-muted-foreground">10 years serving major contractors and businesses</div>
          </div>
         </div>
         <div className="flex items-start gap-3">
@@ -322,7 +314,7 @@ function AboutPage() {
        Our Journey
       </h2>
       <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-       Fifteen years of growth, innovation, and service excellence across Idaho and Utah.
+       Ten years of growth, innovation, and service excellence across Idaho and Utah.
       </p>
      </div>
      
@@ -381,7 +373,7 @@ function AboutPage() {
         <div className="text-sm text-muted-foreground ">Emergency Response</div>
        </div>
        <div className="glass-card-elevated sophisticated-glow p-6 rounded-lg text-center">
-        <div className="text-3xl text-primary mb-2">15+</div>
+        <div className="text-3xl text-primary mb-2">10+</div>
         <div className="text-sm text-muted-foreground ">Years Experience</div>
        </div>
       </div>
@@ -438,14 +430,6 @@ function ContactPage() {
   "telephone": "+1-208-520-3202",
   "email": "service@imperialcleaninginc.com",
   "logo": "https://imperialcleaninginc.com/hero-logo.png",
-  "address": {
-   "@type": "PostalAddress",
-   "streetAddress": "123 Business Blvd",
-   "addressLocality": "Idaho Falls",
-   "addressRegion": "ID",
-   "postalCode": "83402",
-   "addressCountry": "US"
-  },
   "geo": {
    "@type": "GeoCoordinates",
    "latitude": "43.4666",
