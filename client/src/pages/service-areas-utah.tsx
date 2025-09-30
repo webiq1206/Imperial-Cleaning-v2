@@ -433,7 +433,7 @@ export default function ServiceAreasUtah() {
 
      {/* Logan Playbook */}
      <div className="mb-20">
-      <div className="border-l-4 border-blue-500 pl-6 mb-8">
+      <div className="border-l-4 border-blue-600 pl-6 mb-8">
        <h2 className="text-3xl mb-2 text-foreground">Logan Commercial Cleaning</h2>
        <p className="text-lg text-blue-600 ">Same-Day Response • University & Research Specialists</p>
       </div>
@@ -441,26 +441,26 @@ export default function ServiceAreasUtah() {
       <div className="grid md:grid-cols-2 gap-8 mb-8">
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-building text-blue-500 mr-3"></i>
+         <i className="fas fa-building text-blue-600 mr-3"></i>
          Key Industries
         </h3>
         <ul className="space-y-3">
          <li className="flex items-start">
-          <i className="fas fa-university text-blue-500 mr-3 mt-1"></i>
+          <i className="fas fa-university text-blue-600 mr-3 mt-1"></i>
           <div>
            <span className="">Utah State University</span>
            <p className="text-sm text-muted-foreground">Educational campus & research facilities</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-seedling text-blue-500 mr-3 mt-1"></i>
+          <i className="fas fa-seedling text-blue-600 mr-3 mt-1"></i>
           <div>
            <span className="">Agricultural Research (USU Extension)</span>
            <p className="text-sm text-muted-foreground">Research labs & testing facilities</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-plane text-blue-500 mr-3 mt-1"></i>
+          <i className="fas fa-plane text-blue-600 mr-3 mt-1"></i>
           <div>
            <span className="">Aerospace Industry</span>
            <p className="text-sm text-muted-foreground">Northrop Grumman & defense contractors</p>
@@ -471,26 +471,26 @@ export default function ServiceAreasUtah() {
 
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-exclamation-triangle text-blue-500 mr-3"></i>
+         <i className="fas fa-exclamation-triangle text-blue-600 mr-3"></i>
          Industry Challenges
         </h3>
         <ul className="space-y-3">
          <li className="flex items-start">
-          <i className="fas fa-microscope text-blue-500 mr-3 mt-1"></i>
+          <i className="fas fa-microscope text-blue-600 mr-3 mt-1"></i>
           <div>
            <span className="">Research Lab Protocols</span>
            <p className="text-sm text-muted-foreground">Controlled environment cleaning requirements</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-calendar-alt text-blue-500 mr-3 mt-1"></i>
+          <i className="fas fa-calendar-alt text-blue-600 mr-3 mt-1"></i>
           <div>
            <span className="">University Facility Scheduling</span>
            <p className="text-sm text-muted-foreground">Academic calendar coordination</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-tractor text-blue-500 mr-3 mt-1"></i>
+          <i className="fas fa-tractor text-blue-600 mr-3 mt-1"></i>
           <div>
            <span className="">Agricultural Research Facilities</span>
            <p className="text-sm text-muted-foreground">Specialized sanitation requirements</p>
@@ -503,41 +503,41 @@ export default function ServiceAreasUtah() {
       <div className="grid md:grid-cols-2 gap-8">
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-tools text-blue-500 mr-3"></i>
+         <i className="fas fa-tools text-blue-600 mr-3"></i>
          Our Solutions
         </h3>
         <ul className="space-y-2">
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-blue-500 mr-3"></i>
+          <i className="fas fa-check-circle text-blue-600 mr-3"></i>
           <span>Cleanroom-capable cleaning procedures</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-blue-500 mr-3"></i>
+          <i className="fas fa-check-circle text-blue-600 mr-3"></i>
           <span>Educational facility cleaning expertise</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-blue-500 mr-3"></i>
+          <i className="fas fa-check-circle text-blue-600 mr-3"></i>
           <span>Research-grade cleaning protocols</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-blue-500 mr-3"></i>
+          <i className="fas fa-check-circle text-blue-600 mr-3"></i>
           <span>Flexible scheduling around academic needs</span>
          </li>
         </ul>
        </div>
 
-       <div className="resend-card bg-blue-500/5">
+       <div className="resend-card bg-blue-600/5">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-certificate text-blue-500 mr-3"></i>
+         <i className="fas fa-certificate text-blue-600 mr-3"></i>
          Compliance & Proof
         </h3>
         <ul className="space-y-2 mb-4">
          <li className="flex items-center">
-          <i className="fas fa-school text-blue-500 mr-3"></i>
+          <i className="fas fa-school text-blue-600 mr-3"></i>
           <span className="">University facility standards</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-flask text-blue-500 mr-3"></i>
+          <i className="fas fa-flask text-blue-600 mr-3"></i>
           <span className="">Research facility protocols</span>
          </li>
         </ul>
@@ -552,7 +552,7 @@ export default function ServiceAreasUtah() {
 
      {/* Ogden Playbook */}
      <div className="mb-20">
-      <div className="border-l-4 border-green-500 pl-6 mb-8">
+      <div className="border-l-4 border-green-600 pl-6 mb-8">
        <h2 className="text-3xl mb-2 text-foreground">Ogden Commercial Cleaning</h2>
        <p className="text-lg text-green-600 ">Same-Day Response • Federal Facility Experience</p>
       </div>
@@ -560,33 +560,33 @@ export default function ServiceAreasUtah() {
       <div className="grid md:grid-cols-2 gap-8 mb-8">
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-building text-green-500 mr-3"></i>
+         <i className="fas fa-building text-green-600 mr-3"></i>
          Key Industries
         </h3>
         <ul className="space-y-3">
          <li className="flex items-start">
-          <i className="fas fa-fighter-jet text-green-500 mr-3 mt-1"></i>
+          <i className="fas fa-fighter-jet text-green-600 mr-3 mt-1"></i>
           <div>
            <span className="">Hill Air Force Base (Adjacent)</span>
            <p className="text-sm text-muted-foreground">Federal facility & defense contractors</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-university text-green-500 mr-3 mt-1"></i>
+          <i className="fas fa-university text-green-600 mr-3 mt-1"></i>
           <div>
            <span className="">Weber State University</span>
            <p className="text-sm text-muted-foreground">Educational campus facilities</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-hiking text-green-500 mr-3 mt-1"></i>
+          <i className="fas fa-hiking text-green-600 mr-3 mt-1"></i>
           <div>
            <span className="">Outdoor Industry</span>
            <p className="text-sm text-muted-foreground">Amer Sports & outdoor equipment manufacturers</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-file-invoice-dollar text-green-500 mr-3 mt-1"></i>
+          <i className="fas fa-file-invoice-dollar text-green-600 mr-3 mt-1"></i>
           <div>
            <span className="">IRS Service Center</span>
            <p className="text-sm text-muted-foreground">Federal government facility</p>
@@ -597,26 +597,26 @@ export default function ServiceAreasUtah() {
 
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-exclamation-triangle text-green-500 mr-3"></i>
+         <i className="fas fa-exclamation-triangle text-green-600 mr-3"></i>
          Industry Challenges
         </h3>
         <ul className="space-y-3">
          <li className="flex items-start">
-          <i className="fas fa-shield-alt text-green-500 mr-3 mt-1"></i>
+          <i className="fas fa-shield-alt text-green-600 mr-3 mt-1"></i>
           <div>
            <span className="">Government Security Requirements</span>
            <p className="text-sm text-muted-foreground">Federal background checks & clearances</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-id-card text-green-500 mr-3 mt-1"></i>
+          <i className="fas fa-id-card text-green-600 mr-3 mt-1"></i>
           <div>
            <span className="">Federal Facility Standards</span>
            <p className="text-sm text-muted-foreground">Government building protocols</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-building text-green-500 mr-3 mt-1"></i>
+          <i className="fas fa-building text-green-600 mr-3 mt-1"></i>
           <div>
            <span className="">Multi-Building Campus Management</span>
            <p className="text-sm text-muted-foreground">Complex facility coordination</p>
@@ -629,41 +629,41 @@ export default function ServiceAreasUtah() {
       <div className="grid md:grid-cols-2 gap-8">
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-tools text-green-500 mr-3"></i>
+         <i className="fas fa-tools text-green-600 mr-3"></i>
          Our Solutions
         </h3>
         <ul className="space-y-2">
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-green-500 mr-3"></i>
+          <i className="fas fa-check-circle text-green-600 mr-3"></i>
           <span>Federal facility cleaning experience</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-green-500 mr-3"></i>
+          <i className="fas fa-check-circle text-green-600 mr-3"></i>
           <span>Government security protocol compliance</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-green-500 mr-3"></i>
+          <i className="fas fa-check-circle text-green-600 mr-3"></i>
           <span>Multi-building campus management expertise</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-green-500 mr-3"></i>
+          <i className="fas fa-check-circle text-green-600 mr-3"></i>
           <span>Educational facility coordination</span>
          </li>
         </ul>
        </div>
 
-       <div className="resend-card bg-green-500/5">
+       <div className="resend-card bg-green-600/5">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-certificate text-green-500 mr-3"></i>
+         <i className="fas fa-certificate text-green-600 mr-3"></i>
          Compliance & Proof
         </h3>
         <ul className="space-y-2 mb-4">
          <li className="flex items-center">
-          <i className="fas fa-flag-usa text-green-500 mr-3"></i>
+          <i className="fas fa-flag-usa text-green-600 mr-3"></i>
           <span className="">Federal facility standards</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-shield-alt text-green-500 mr-3"></i>
+          <i className="fas fa-shield-alt text-green-600 mr-3"></i>
           <span className="">Government facility requirements</span>
          </li>
         </ul>
@@ -678,7 +678,7 @@ export default function ServiceAreasUtah() {
 
      {/* Provo/Utah Valley Playbook */}
      <div className="mb-12">
-      <div className="border-l-4 border-purple-500 pl-6 mb-8">
+      <div className="border-l-4 border-purple-600 pl-6 mb-8">
        <h2 className="text-3xl mb-2 text-foreground">Provo & Utah Valley Cleaning</h2>
        <p className="text-lg text-purple-600 ">Silicon Slopes • Tech Campus Specialists • 24-48hr Deployment</p>
       </div>
@@ -686,33 +686,33 @@ export default function ServiceAreasUtah() {
       <div className="grid md:grid-cols-2 gap-8 mb-8">
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-building text-purple-500 mr-3"></i>
+         <i className="fas fa-building text-purple-600 mr-3"></i>
          Key Industries
         </h3>
         <ul className="space-y-3">
          <li className="flex items-start">
-          <i className="fas fa-laptop-code text-purple-500 mr-3 mt-1"></i>
+          <i className="fas fa-laptop-code text-purple-600 mr-3 mt-1"></i>
           <div>
            <span className="">Silicon Slopes Tech Companies</span>
            <p className="text-sm text-muted-foreground">Qualtrics, Adobe, Pluralsight & startups</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-university text-purple-500 mr-3 mt-1"></i>
+          <i className="fas fa-university text-purple-600 mr-3 mt-1"></i>
           <div>
            <span className="">Brigham Young University</span>
            <p className="text-sm text-muted-foreground">Campus facilities & research buildings</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-chart-line text-purple-500 mr-3 mt-1"></i>
+          <i className="fas fa-chart-line text-purple-600 mr-3 mt-1"></i>
           <div>
            <span className="">Financial Services</span>
            <p className="text-sm text-muted-foreground">Fintech & corporate finance offices</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-rocket text-purple-500 mr-3 mt-1"></i>
+          <i className="fas fa-rocket text-purple-600 mr-3 mt-1"></i>
           <div>
            <span className="">Tech Startups</span>
            <p className="text-sm text-muted-foreground">Rapid-growth companies & coworking spaces</p>
@@ -723,26 +723,26 @@ export default function ServiceAreasUtah() {
 
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-exclamation-triangle text-purple-500 mr-3"></i>
+         <i className="fas fa-exclamation-triangle text-purple-600 mr-3"></i>
          Industry Challenges
         </h3>
         <ul className="space-y-3">
          <li className="flex items-start">
-          <i className="fas fa-chart-bar text-purple-500 mr-3 mt-1"></i>
+          <i className="fas fa-chart-bar text-purple-600 mr-3 mt-1"></i>
           <div>
            <span className="">Tech Startup Rapid Growth</span>
            <p className="text-sm text-muted-foreground">Scalable cleaning programs needed</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-graduation-cap text-purple-500 mr-3 mt-1"></i>
+          <i className="fas fa-graduation-cap text-purple-600 mr-3 mt-1"></i>
           <div>
            <span className="">University Campus Facilities</span>
            <p className="text-sm text-muted-foreground">Large-scale facility management</p>
           </div>
          </li>
          <li className="flex items-start">
-          <i className="fas fa-building text-purple-500 mr-3 mt-1"></i>
+          <i className="fas fa-building text-purple-600 mr-3 mt-1"></i>
           <div>
            <span className="">Corporate Campus Environments</span>
            <p className="text-sm text-muted-foreground">Multi-building tech complexes</p>
@@ -755,41 +755,41 @@ export default function ServiceAreasUtah() {
       <div className="grid md:grid-cols-2 gap-8">
        <div className="resend-card">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-tools text-purple-500 mr-3"></i>
+         <i className="fas fa-tools text-purple-600 mr-3"></i>
          Our Solutions
         </h3>
         <ul className="space-y-2">
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-purple-500 mr-3"></i>
+          <i className="fas fa-check-circle text-purple-600 mr-3"></i>
           <span>Scalable cleaning programs for growth</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-purple-500 mr-3"></i>
+          <i className="fas fa-check-circle text-purple-600 mr-3"></i>
           <span>Tech campus cleaning expertise</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-purple-500 mr-3"></i>
+          <i className="fas fa-check-circle text-purple-600 mr-3"></i>
           <span>Startup-friendly flexible contracts</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-check-circle text-purple-500 mr-3"></i>
+          <i className="fas fa-check-circle text-purple-600 mr-3"></i>
           <span>Corporate facility management</span>
          </li>
         </ul>
        </div>
 
-       <div className="resend-card bg-purple-500/5">
+       <div className="resend-card bg-purple-600/5">
         <h3 className="text-xl mb-4 text-foreground flex items-center">
-         <i className="fas fa-certificate text-purple-500 mr-3"></i>
+         <i className="fas fa-certificate text-purple-600 mr-3"></i>
          Compliance & Proof
         </h3>
         <ul className="space-y-2 mb-4">
          <li className="flex items-center">
-          <i className="fas fa-school text-purple-500 mr-3"></i>
+          <i className="fas fa-school text-purple-600 mr-3"></i>
           <span className="">Educational facility standards</span>
          </li>
          <li className="flex items-center">
-          <i className="fas fa-building text-purple-500 mr-3"></i>
+          <i className="fas fa-building text-purple-600 mr-3"></i>
           <span className="">Corporate facility requirements</span>
          </li>
         </ul>
