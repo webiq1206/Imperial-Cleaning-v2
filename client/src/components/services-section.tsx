@@ -20,7 +20,7 @@ export default function ServicesSection() {
        Construction & Commercial Cleaning Services Across Idaho and Utah
       </h2>
       <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-       Proudly headquartered in Idaho Falls, providing both construction cleanup AND commercial cleaning services available in every Imperial Cleaning service area across Idaho and Utah. Comprehensive cleaning solutions delivered with consistent quality in all markets we serve.
+       Proudly headquartered in Idaho Falls, providing construction cleanup and commercial cleaning services throughout Idaho and Utah. Comprehensive cleaning solutions delivered with consistent quality in all markets we serve.
       </p>
      </div>
 
@@ -38,7 +38,7 @@ export default function ServicesSection() {
        <div className="glass-divider-top mb-6"></div>
        
        <p className="text-muted-foreground mb-6 leading-relaxed">
-        Construction cleanup services available in ALL Imperial Cleaning service areas across Idaho and Utah. From debris removal to final detailing, we serve major projects with consistent quality in every location we operate.
+        Serving Idaho and Utah markets from debris removal to final detailing, we deliver major construction projects with consistent quality across every location.
        </p>
        
        {/* Inset divider before features */}
@@ -104,7 +104,7 @@ export default function ServicesSection() {
        <div className="glass-divider-top mb-6"></div>
        
        <p className="text-muted-foreground mb-6 leading-relaxed">
-        Commercial cleaning services available in ALL Imperial Cleaning service areas across Idaho and Utah. Our professional janitorial services serve Fortune 500 companies, healthcare facilities, and government buildings with consistent quality in every location we operate.
+        Throughout Idaho and Utah, our professional janitorial services serve Fortune 500 companies, healthcare facilities, and government buildings with consistent quality.
        </p>
        
        {/* Inset divider before features */}
