@@ -6,9 +6,7 @@ export default function FeaturesSection() {
   {
    title: "Licensed & Insured",
    description: "Substantial liability insurance and comprehensive bonding provides complete peace of mind for every commercial cleaning project.",
-   icon: Shield,
-   linkText: "View our certifications →",
-   linkHref: "#compliance"
+   icon: Shield
   },
   {
    title: "24/7 Service Available", 
