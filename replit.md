@@ -8,6 +8,18 @@ Imperial Cleaning Inc. is a professional cleaning services website targeting com
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (September 30, 2025)
+
+### Hero Section Redesign
+- Created reusable InternalHeroSection component matching homepage design with fixed background logo, parallax effects, and sophisticated styling
+- Updated all internal pages (Construction Cleaning, Commercial Cleaning, Idaho/Utah Service Areas) to use consistent hero design
+- Maintained mobile optimization with -mt-12 spacing and proper background logo display (visible on mobile, hidden on desktop)
+
+### Content Cleanup
+- Removed all instances of "In ALL Locations", "ALL Service Areas", and similar unprofessional phrasing from headings and descriptions
+- Replaced with regionally scoped, professional language while preserving SEO value and geographic keywords (Idaho, Utah)
+- Updates applied to Construction Cleaning, Commercial Cleaning, and Case Studies sections
+
 ## System Architecture
 
 ### Frontend Architecture
