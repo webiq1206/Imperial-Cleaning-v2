@@ -94,7 +94,7 @@ export default function FeatureStats({
         {/* Description */}
         <p className="text-muted-foreground leading-relaxed">
          {feature.description}
-         {feature.linkText && feature.linkHref && (
+         {'linkText' in feature && 'linkHref' in feature && feature.linkText && feature.linkHref && (
           <>
            {" "}
            <Link 
