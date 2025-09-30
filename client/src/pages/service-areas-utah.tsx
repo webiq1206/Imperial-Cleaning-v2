@@ -850,6 +850,8 @@ export default function ServiceAreasUtah() {
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
          </td>
         </tr>
         <tr className="border-t border-border hover:bg-primary/5 transition-colors">
@@ -873,6 +875,8 @@ export default function ServiceAreasUtah() {
           <div>Educational campus</div>
          </td>
          <td className="px-6 py-4">
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
@@ -902,6 +906,8 @@ export default function ServiceAreasUtah() {
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
          </td>
         </tr>
         <tr className="border-t border-border hover:bg-primary/5 transition-colors">
@@ -925,6 +931,8 @@ export default function ServiceAreasUtah() {
           <div>University facilities</div>
          </td>
          <td className="px-6 py-4">
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>

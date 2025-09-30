@@ -1039,6 +1039,8 @@ export default function ServiceAreasIdaho() {
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
          </td>
         </tr>
         <tr className="border-t border-border hover:bg-primary/5 transition-colors">
@@ -1062,6 +1064,8 @@ export default function ServiceAreasIdaho() {
           <div>Medical facilities</div>
          </td>
          <td className="px-6 py-4">
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
@@ -1091,6 +1095,8 @@ export default function ServiceAreasIdaho() {
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
          </td>
         </tr>
         <tr className="border-t border-border hover:bg-primary/5 transition-colors">
@@ -1113,6 +1119,8 @@ export default function ServiceAreasIdaho() {
           <div>Food processing</div>
          </td>
          <td className="px-6 py-4">
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
@@ -1141,6 +1149,8 @@ export default function ServiceAreasIdaho() {
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
          </td>
         </tr>
         <tr className="border-t border-border hover:bg-primary/5 transition-colors">
@@ -1164,6 +1174,8 @@ export default function ServiceAreasIdaho() {
           <div>Corporate offices</div>
          </td>
          <td className="px-6 py-4">
+          <i className="fas fa-star text-yellow-500"></i>
+          <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
           <i className="fas fa-star text-yellow-500"></i>
