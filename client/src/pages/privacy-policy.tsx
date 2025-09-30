@@ -1,4 +1,5 @@
 import SEOHead from "@/components/seo-head";
+import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
 export default function PrivacyPolicyPage() {
  const organizationSchema = {
@@ -46,10 +47,17 @@ export default function PrivacyPolicyPage() {
     openGraph={{
      title: "Privacy Policy | Imperial Cleaning Inc",
      description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
-     image: "/og-image.png",
-     imageAlt: "Imperial Cleaning Inc Privacy Policy",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Privacy Policy Professional Cleaning Services",
      type: "website",
      url: "https://imperialcleaninginc.com/privacy-policy"
+    }}
+    twitter={{
+     card: "summary_large_image",
+     title: "Privacy Policy | Imperial Cleaning Inc",
+     description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Privacy Policy Professional Cleaning Services"
     }}
     structuredData={[organizationSchema, breadcrumbSchema]}
    />

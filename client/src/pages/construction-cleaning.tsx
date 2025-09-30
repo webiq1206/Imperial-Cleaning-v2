@@ -7,6 +7,7 @@ import ServiceLocationsGrid from "@/components/service-locations-grid";
 import { ServiceCTA } from "@/components/shared";
 import InternalHeroSection from "@/components/internal-hero-section";
 import { ServiceLocation } from "@shared/service-locations";
+import logoImage from "@assets/imperial-cleaning-logo.jpg";
 import { 
  Building2, 
  HardHat, 
@@ -300,10 +301,8 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
     openGraph={{
      title: pageTitle,
      description: pageDescription,
-     image: "/og-image.png",
-     imageAlt: isLocationSpecific ? 
-      `Imperial Cleaning Inc - Construction Cleanup Services in ${locationData!.name}, ${locationData!.state}` :
-      "Imperial Cleaning Inc - Professional Construction Cleanup Services in Idaho and Utah",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Professional Post-Construction Cleanup Services Idaho Utah",
      type: "website",
      url: canonicalUrl,
      siteName: "Imperial Cleaning Inc",
@@ -313,10 +312,8 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
      card: "summary_large_image",
      title: pageTitle,
      description: pageDescription,
-     image: "/og-image.png",
-     imageAlt: isLocationSpecific ? 
-      `Construction Cleanup in ${locationData!.name}, ${locationData!.state}` :
-      "Professional Construction Cleanup Services",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Professional Post-Construction Cleanup Services Idaho Utah",
      site: "@imperialcleaning",
      creator: "@imperialcleaning"
     }}

@@ -1,4 +1,5 @@
 import SEOHead from "@/components/seo-head";
+import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
 export default function TermsOfServicePage() {
  const termsSchema = {
@@ -46,10 +47,17 @@ export default function TermsOfServicePage() {
     openGraph={{
      title: "Terms of Service | Imperial Cleaning Inc",
      description: "Review the terms of service for Imperial Cleaning Inc's professional cleaning services in Idaho and Utah.",
-     image: "/og-image.png",
-     imageAlt: "Imperial Cleaning Inc Terms of Service",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Terms of Service Professional Cleaning Company",
      type: "website",
      url: "https://imperialcleaninginc.com/terms-of-service"
+    }}
+    twitter={{
+     card: "summary_large_image",
+     title: "Terms of Service | Imperial Cleaning Inc",
+     description: "Review the terms of service for Imperial Cleaning Inc's professional cleaning services in Idaho and Utah.",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Terms of Service Professional Cleaning Company"
     }}
     structuredData={[termsSchema, breadcrumbSchema]}
    />

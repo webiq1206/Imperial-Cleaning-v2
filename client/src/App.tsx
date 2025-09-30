@@ -9,6 +9,7 @@ import { initGA } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
 import { isValidServiceLocation, getLocationBySlug } from "./lib/routing-utils";
 import SEOHead from "@/components/seo-head";
+import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
 // Layout
 import PageLayout from "@/components/layout/page-layout";
@@ -176,8 +177,8 @@ function AboutPage() {
     openGraph={{
      title: "About Imperial Cleaning Inc | Idaho & Utah's Premier Cleaning Company",
      description: "Discover Imperial Cleaning Inc's story - Idaho's most trusted cleaning company since 2015. Expert construction cleanup and commercial cleaning across Idaho and Utah.",
-     image: "https://imperialcleaninginc.com/hero-logo.png",
-     imageAlt: "Imperial Cleaning Inc - Professional Cleaning Services",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Idaho Professional Cleaning Company Since 2015",
      type: "website",
      url: "https://imperialcleaninginc.com/about"
     }}
@@ -185,8 +186,8 @@ function AboutPage() {
      card: "summary_large_image",
      title: "About Imperial Cleaning Inc | Idaho & Utah Cleaning Experts",
      description: "Learn about Imperial Cleaning Inc - Idaho's premier cleaning company since 2015. Licensed, bonded & insured cleaning services across Idaho and Utah.",
-     image: "https://imperialcleaninginc.com/hero-logo.png",
-     imageAlt: "Imperial Cleaning Inc Logo"
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Idaho Professional Cleaning Company Since 2015"
     }}
     structuredData={[organizationSchema, breadcrumbSchema]}
    />
@@ -534,8 +535,8 @@ function ContactPage() {
     openGraph={{
      title: "Contact Imperial Cleaning Inc | Professional Cleaning Services Idaho & Utah",
      description: "Contact Idaho's premier cleaning company for professional construction cleanup and commercial cleaning services. Free quotes available across Idaho and Utah.",
-     image: "https://imperialcleaninginc.com/hero-logo.png",
-     imageAlt: "Imperial Cleaning Inc - Contact Us for Professional Cleaning",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Contact Professional Cleaning Services Idaho Utah",
      type: "website",
      url: "https://imperialcleaninginc.com/contact"
     }}
@@ -543,8 +544,8 @@ function ContactPage() {
      card: "summary_large_image",
      title: "Contact Imperial Cleaning Inc | Free Cleaning Quotes",
      description: "Get professional cleaning services in Idaho & Utah. Call (208) 520-3202 for free construction cleanup and commercial cleaning quotes.",
-     image: "https://imperialcleaninginc.com/hero-logo.png",
-     imageAlt: "Imperial Cleaning Inc Contact Information"
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Contact Professional Cleaning Services Idaho Utah"
     }}
     structuredData={[localBusinessSchema, breadcrumbSchema]}
    />

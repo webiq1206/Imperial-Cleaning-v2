@@ -17,6 +17,7 @@ import SEOHead, {
  createAggregateRatingSchema,
  createBreadcrumbSchema
 } from "@/components/seo-head";
+import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
 export default function Home() {
  // FAQ data for schema markup
@@ -206,8 +207,8 @@ export default function Home() {
     openGraph={{
      title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
      description: "Leading commercial and construction cleaning company serving Idaho Falls and the entire Eastern Idaho region. Professional cleaning solutions for businesses and contractors.",
-     image: "/og-image.png",
-     imageAlt: "Imperial Cleaning Inc - Professional Cleaning Services in Boise and Treasure Valley",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah",
      type: "website",
      url: "https://imperialcleaninginc.com/",
      siteName: "Imperial Cleaning Inc",
@@ -217,8 +218,8 @@ export default function Home() {
      card: "summary_large_image",
      title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
      description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by Idaho businesses since 2015.",
-     image: "/og-image.png",
-     imageAlt: "Imperial Cleaning Inc Logo - Professional Cleaning Services",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah",
      site: "@imperialcleaning",
      creator: "@imperialcleaning"
     }}

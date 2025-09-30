@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import SEOHead from "@/components/seo-head";
 import { allServiceLocations } from "@shared/service-locations";
 import { locationToSlug } from "@/lib/routing-utils";
+import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
 export default function SitemapPage() {
  const sitemapSchema = {
@@ -55,10 +56,17 @@ export default function SitemapPage() {
     openGraph={{
      title: "Site Map | Imperial Cleaning Inc - Complete Website Navigation",
      description: "Navigate all pages of Imperial Cleaning Inc website. Professional cleaning services across Idaho and Utah with comprehensive site navigation.",
-     image: "/og-image.png",
-     imageAlt: "Imperial Cleaning Inc Site Map",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Site Navigation Professional Cleaning Services",
      type: "website",
      url: "https://imperialcleaninginc.com/sitemap"
+    }}
+    twitter={{
+     card: "summary_large_image",
+     title: "Site Map | Imperial Cleaning Inc - Complete Website Navigation",
+     description: "Navigate all pages of Imperial Cleaning Inc website. Professional cleaning services across Idaho and Utah with comprehensive site navigation.",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Site Navigation Professional Cleaning Services"
     }}
     structuredData={[sitemapSchema, breadcrumbSchema]}
    />

@@ -10,6 +10,7 @@ import SEOHead, {
  createAggregateRatingSchema,
  createBreadcrumbSchema
 } from "@/components/seo-head";
+import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
 export default function ServiceAreasUtah() {
  const [showContactForm, setShowContactForm] = useState(false);
@@ -159,14 +160,16 @@ export default function ServiceAreasUtah() {
     openGraph={{
      title: "Wasatch Front Cleaning Services | Imperial Cleaning Utah",
      description: "Professional commercial and construction cleaning services throughout Salt Lake City, Logan, Ogden, Provo and the entire Wasatch Front region in Utah.",
-     image: "/og-image.png",
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Utah Cleaning Services Coverage Map",
      type: "website"
     }}
     twitter={{
      card: "summary_large_image",
      title: "Wasatch Front Cleaning Services | Imperial Cleaning Utah",
      description: "Expert cleaning services across Salt Lake City, Logan, Ogden, Provo & Wasatch Front. Professional construction & commercial cleaning in Utah.",
-     image: "/og-image.png"
+     image: logoImage,
+     imageAlt: "Imperial Cleaning Inc - Utah Cleaning Services Coverage Map"
     }}
     structuredData={structuredData}
    />
