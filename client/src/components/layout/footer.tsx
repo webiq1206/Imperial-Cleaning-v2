@@ -96,7 +96,7 @@ export default function Footer() {
        </div>
        <div className="flex items-center text-xs text-muted-foreground">
         <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
-        <span>15+ Years Experience</span>
+        <span>10+ Years Experience</span>
        </div>
       </div>
      </div>

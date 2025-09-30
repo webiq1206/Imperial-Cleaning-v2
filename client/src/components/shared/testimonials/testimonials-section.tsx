@@ -39,9 +39,9 @@ export default function TestimonialsSection({
  };
  
  const getDefaultTrustStats = () => [
-  { label: "Projects Completed", value: "200+", icon: "building" },
-  { label: "Happy Clients", value: "50+", icon: "users" },
-  { label: "Years Experience", value: "5+", icon: "award" },
+  { label: "Projects Completed", value: "500+", icon: "building" },
+  { label: "Happy Clients", value: "100+", icon: "users" },
+  { label: "Years Experience", value: "10+", icon: "award" },
   { label: "States Served", value: "2", icon: "map-pin" }
  ];
 

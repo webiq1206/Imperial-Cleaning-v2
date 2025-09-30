@@ -509,7 +509,7 @@ export default function CaseStudiesSection() {
        </h3>
        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
         <div className="text-center hover-lift-gentle group" data-testid="summary-stat-projects">
-         <div className="text-3xl gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">200+</div>
+         <div className="text-3xl gradient-text-cyan-purple mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
          <div className="text-sm text-muted-foreground">Projects Completed</div>
         </div>
         <div className="text-center hover-lift-gentle group" data-testid="summary-stat-states">
