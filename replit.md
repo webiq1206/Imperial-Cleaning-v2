@@ -20,6 +20,14 @@ Preferred communication style: Simple, everyday language.
 - Replaced with regionally scoped, professional language while preserving SEO value and geographic keywords (Idaho, Utah)
 - Updates applied to Construction Cleaning, Commercial Cleaning, and Case Studies sections
 
+### Service Area Pages Transformation
+- Redesigned Idaho and Utah service area pages from generic city lists to industry-specific playbook format
+- Added market overview sections with regional strengths and response time commitments
+- Created detailed city playbooks featuring: dominant industries (INL, Chobani, Qualtrics, Hill AFB), operational challenges, tailored solutions, compliance requirements, and proof points
+- Implemented service readiness comparison tables showing response times, crew availability, and specializations
+- Added operational assurance sections covering licensing, OSHA compliance, 24/7 emergency response, and quality processes
+- Maintained all SEO elements (H2 headings with city names, structured data, geographic keywords) while providing actionable content for decision-making
+
 ## System Architecture
 
 ### Frontend Architecture
