@@ -5,6 +5,7 @@ import { Link, RouteComponentProps, useLocation } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
 import { ServiceCTA } from "@/components/shared";
+import InternalHeroSection from "@/components/internal-hero-section";
 import { ServiceLocation } from "@shared/service-locations";
 import { 
   Building2, 
@@ -148,7 +149,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
   
   // SEO content
   const pageTitle = isLocationSpecific ? generateLocationTitle('commercial-cleaning', locationData!) : "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc.";
-  const pageDescription = isLocationSpecific ? generateLocationDescription('commercial-cleaning', locationData!) : "Professional commercial cleaning services in all service areas across Idaho & Utah. Daily, weekly & monthly schedules for offices & businesses. Call today!";
+  const pageDescription = isLocationSpecific ? generateLocationDescription('commercial-cleaning', locationData!) : "Professional commercial cleaning services across Idaho & Utah. Daily, weekly & monthly schedules for offices & businesses. Call today!";
   const canonicalUrl = isLocationSpecific ? generateCanonicalUrl('commercial-cleaning', locationSlug!) : "https://imperialcleaninginc.com/commercial-cleaning";
 
   // Structured data - conditional based on location specificity
@@ -156,7 +157,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
     generateLocationStructuredData('commercial-cleaning', locationData!, canonicalUrl) :
     createServiceSchema({
       name: "Idaho & Utah Commercial Cleaning Services",
-      description: "Professional commercial cleaning and janitorial services for businesses across all service areas in Idaho and Utah. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout all locations we serve.",
+      description: "Professional commercial cleaning and janitorial services for businesses across Idaho and Utah. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout the region.",
       serviceType: "Commercial Cleaning",
       areaServed: [
         {
@@ -229,7 +230,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
       "Retail Cleaning",
       "Corporate Cleaning"
     ],
-    "description": "Professional commercial cleaning services for businesses across all service areas in Idaho and Utah including offices, medical centers, corporate facilities, and retail locations throughout all locations we serve.",
+    "description": "Professional commercial cleaning services for businesses across Idaho and Utah including offices, medical centers, corporate facilities, and retail locations throughout the region.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Idaho & Utah Commercial Cleaning Services",
@@ -255,7 +256,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
           "itemOffered": {
             "@type": "Service",
             "name": "Industrial Cleaning Services",
-            "description": "Industrial and warehouse cleaning services for manufacturing and distribution facilities in all service areas"
+            "description": "Industrial and warehouse cleaning services for manufacturing and distribution facilities"
           }
         },
         {
@@ -349,27 +350,15 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
       </div>
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-2"></div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            {isLocationSpecific ? locationHero!.title : "Commercial Cleaning Available in ALL Service Areas"}
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            {isLocationSpecific ? locationHero!.subtitle : "Professional commercial cleaning available in ALL Imperial Cleaning service areas across Idaho and Utah. Reliable, professional maintenance delivered with consistent quality in every location we serve."}
-          </p>
-          <Button 
-            variant="pill-primary"
-            size="pill-lg"
-            onClick={() => setShowContactForm(true)}
-            data-testid="button-request-quote"
-            className="text-lg font-semibold px-8 py-4"
-          >
-            Request a Quote
-            <i className="fas fa-arrow-right ml-2"></i>
-          </Button>
-        </div>
-      </section>
+      <InternalHeroSection
+        title={isLocationSpecific ? locationHero!.title : "Professional Commercial Cleaning Services"}
+        subtitle={isLocationSpecific ? locationHero!.subtitle : "Expert janitorial and commercial cleaning throughout Idaho and Utah. Flexible scheduling and reliable service for businesses."}
+        pillText="Licensed & Insured • Professional Service"
+        primaryCTA={{
+          text: "Request a Quote",
+          onClick: () => setShowContactForm(true)
+        }}
+      />
 
       {/* Comprehensive Service Overview */}
       <section className="py-24 px-4">

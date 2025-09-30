@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
+import InternalHeroSection from "@/components/internal-hero-section";
 import SEOHead, { 
   createLocalBusinessSchema, 
   createServiceSchema,
@@ -206,28 +207,15 @@ export default function ServiceAreasUtah() {
         </div>
       </div>
       
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-2"></div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Utah Cleaning Services - Wasatch Front & Beyond
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Locally owned and operated from our Idaho Falls headquarters, providing both construction cleanup AND commercial cleaning services in ALL Imperial Cleaning service areas throughout Utah. Every city we serve receives the same comprehensive range of professional cleaning services.
-          </p>
-          <Button 
-            variant="pill-primary"
-            size="pill-lg"
-            onClick={() => setShowContactForm(true)}
-            data-testid="button-request-quote"
-            className="text-lg font-semibold px-8 py-4"
-          >
-            Request Quote for Utah
-            <i className="fas fa-arrow-right ml-2"></i>
-          </Button>
-        </div>
-      </section>
+      <InternalHeroSection
+        title="Utah Cleaning Services"
+        subtitle="Expert construction and commercial cleaning services across the Wasatch Front and northern Utah. Serving Logan, Ogden, Salt Lake City, Provo, and surrounding areas."
+        pillText="Utah's Professional Cleaning Solution • Licensed & Insured"
+        primaryCTA={{
+          text: "Request a Quote",
+          onClick: () => setShowContactForm(true)
+        }}
+      />
 
       {/* Services We Provide */}
       <section className="py-24 px-4 bg-card/30">

@@ -155,7 +155,7 @@ export default function CaseStudiesSection() {
       timeline: "6-month multi-project program",
       badge: "MULTI-STATE",
       challenge: "A major construction company required reliable post-construction cleanup services across multiple Utah locations simultaneously. Coordinating resources, maintaining quality standards, and meeting tight deadlines across different sites presented significant logistical challenges.",
-      solution: "Imperial Cleaning established dedicated Utah operations with local project managers and specialized crews. Our multi-state capabilities enabled consistent service delivery across all locations while maintaining our Idaho-proven quality standards and processes.",
+      solution: "Imperial Cleaning established dedicated Utah operations with local project managers and specialized crews. Our multi-state capabilities enabled consistent service delivery while maintaining our Idaho-proven quality standards and processes.",
       results: {
         timeline: "All 8 projects completed on schedule",
         area: "Combined 400,000 square feet",

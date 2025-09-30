@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useState } from "react";
 import ContactFormModal from "@/components/contact-form-modal";
+import InternalHeroSection from "@/components/internal-hero-section";
 import SEOHead, { 
   createLocalBusinessSchema, 
   createServiceSchema,
@@ -283,28 +284,15 @@ export default function ServiceAreasIdaho() {
         </div>
       </div>
       
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-2"></div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            Idaho Falls & Eastern Idaho Cleaning Services
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Headquartered in Idaho Falls, we provide both construction cleanup AND commercial cleaning services throughout Eastern Idaho and beyond. Every city we serve receives the same comprehensive range of professional cleaning services with the personal touch of a locally-owned business.
-          </p>
-          <Button 
-            variant="pill-primary"
-            size="pill-lg"
-            onClick={() => setShowContactForm(true)}
-            data-testid="button-request-quote"
-            className="text-lg font-semibold px-8 py-4"
-          >
-            Request Quote for Eastern Idaho
-            <i className="fas fa-arrow-right ml-2"></i>
-          </Button>
-        </div>
-      </section>
+      <InternalHeroSection
+        title="Idaho Cleaning Services"
+        subtitle="Professional construction and commercial cleaning throughout Eastern Idaho, Treasure Valley, and southeastern Idaho. Serving Idaho Falls, Pocatello, Boise, Twin Falls, and surrounding communities."
+        pillText="Idaho's Trusted Cleaning Partner • Licensed & Insured"
+        primaryCTA={{
+          text: "Request a Quote",
+          onClick: () => setShowContactForm(true)
+        }}
+      />
 
       {/* Services We Provide */}
       <section className="py-24 px-4 bg-card/30">

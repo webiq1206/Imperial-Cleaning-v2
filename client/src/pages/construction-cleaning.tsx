@@ -5,6 +5,7 @@ import { Link, RouteComponentProps, useLocation } from "wouter";
 import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
 import { ServiceCTA } from "@/components/shared";
+import InternalHeroSection from "@/components/internal-hero-section";
 import { ServiceLocation } from "@shared/service-locations";
 import { 
   Building2, 
@@ -147,7 +148,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
   
   // SEO content
   const pageTitle = isLocationSpecific ? generateLocationTitle('construction-cleaning', locationData!) : "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc.";
-  const pageDescription = isLocationSpecific ? generateLocationDescription('construction-cleaning', locationData!) : "Professional post-construction cleanup in all service areas across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call today!";
+  const pageDescription = isLocationSpecific ? generateLocationDescription('construction-cleaning', locationData!) : "Professional post-construction cleanup across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call today!";
   const canonicalUrl = isLocationSpecific ? generateCanonicalUrl('construction-cleaning', locationSlug!) : "https://imperialcleaninginc.com/construction-cleaning";
 
   // Structured data - conditional based on location specificity
@@ -155,7 +156,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
     generateLocationStructuredData('construction-cleaning', locationData!, canonicalUrl) :
     createServiceSchema({
       name: "Idaho & Utah Construction Cleaning Services",
-      description: "Professional post-construction cleanup services throughout all service areas across Idaho and Utah. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders in all locations we serve.",
+      description: "Professional post-construction cleanup services across Idaho and Utah. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders throughout the region.",
       serviceType: "Construction Cleaning",
       areaServed: [
         {
@@ -227,7 +228,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
       "Final Inspection Cleaning",
       "Construction Cleaning"
     ],
-    "description": "Professional post-construction cleanup services for contractors throughout all service areas across Idaho and Utah. Specialized in debris removal, detailed cleaning, and inspection-ready finishing in every location we serve.",
+    "description": "Professional post-construction cleanup services for contractors across Idaho and Utah. Specialized in debris removal, detailed cleaning, and inspection-ready finishing throughout the region.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Idaho & Utah Construction Cleaning Services",
@@ -237,7 +238,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
           "itemOffered": {
             "@type": "Service",
             "name": "Post-Construction Cleanup",
-            "description": "Comprehensive post-construction cleanup for contractors across all Idaho and Utah service areas"
+            "description": "Comprehensive post-construction cleanup for contractors across Idaho and Utah"
           }
         },
         {
@@ -245,7 +246,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
           "itemOffered": {
             "@type": "Service", 
             "name": "Final Inspection Cleaning",
-            "description": "Final inspection ready cleaning for construction projects throughout Idaho and Utah"
+            "description": "Inspection-ready cleaning for construction projects across Idaho and Utah"
           }
         },
         {
@@ -253,7 +254,7 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
           "itemOffered": {
             "@type": "Service",
             "name": "Construction Debris Removal",
-            "description": "Professional debris removal and site cleanup for construction projects in all service areas"
+            "description": "Professional debris removal and site cleanup for construction projects"
           }
         }
       ]
@@ -339,27 +340,15 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
       </div>
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-2"></div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
-            {isLocationSpecific ? locationHero!.title : "Construction Cleanup Available in ALL Service Areas"}
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            {isLocationSpecific ? locationHero!.subtitle : "Professional construction cleanup available in ALL Imperial Cleaning service areas across Idaho and Utah. From debris removal to final detailing, we serve every location we operate in."}
-          </p>
-          <Button 
-            variant="pill-primary"
-            size="pill-lg"
-            onClick={() => setShowContactForm(true)}
-            data-testid="button-request-quote"
-            className="text-lg font-semibold px-8 py-4"
-          >
-            Request a Quote
-            <i className="fas fa-arrow-right ml-2"></i>
-          </Button>
-        </div>
-      </section>
+      <InternalHeroSection
+        title={isLocationSpecific ? locationHero!.title : "Professional Construction Cleanup Services"}
+        subtitle={isLocationSpecific ? locationHero!.subtitle : "Expert post-construction cleanup across Idaho and Utah. From debris removal to final detailing, delivering inspection-ready results."}
+        pillText="Licensed & Insured • Professional Service"
+        primaryCTA={{
+          text: "Request a Quote",
+          onClick: () => setShowContactForm(true)
+        }}
+      />
 
       {/* Comprehensive Service Overview */}
       <section className="py-24 px-4">
