@@ -190,8 +190,6 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
   onClose();
  };
 
- if (!isOpen) return null;
-
  const progress = (currentStep / steps.length) * 100;
  const currentStepData = steps[currentStep - 1];
 
@@ -208,6 +206,8 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
    return () => clearTimeout(timer);
   }
  }, [currentStep, isOpen, currentStepData]);
+
+ if (!isOpen) return null;
 
  return (
   <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
