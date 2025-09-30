@@ -198,7 +198,7 @@ export default function Header() {
                       onMouseEnter={() => handleServiceSubmenuEnter('construction')}
                       onMouseLeave={handleServiceSubmenuLeave}
                     >
-                      <div className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
+                      <div className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
                         location.startsWith('/construction-cleaning') 
                           ? 'text-foreground bg-secondary/30' 
                           : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
@@ -222,7 +222,7 @@ export default function Header() {
                         <div className="py-2">
                           <Link 
                             href="/construction-cleaning" 
-                            className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle border-b border-border/20"
+                            className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 border-b border-border/20"
                             onClick={() => {
                               trackServiceNavigation('construction-cleaning', 'dropdown_selection');
                               trackNavigationInteraction('menu_click', 'services', 'construction_cleaning_all_locations');
@@ -264,7 +264,7 @@ export default function Header() {
                       onMouseEnter={() => handleServiceSubmenuEnter('commercial')}
                       onMouseLeave={handleServiceSubmenuLeave}
                     >
-                      <div className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
+                      <div className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
                         location.startsWith('/commercial-cleaning') 
                           ? 'text-foreground bg-secondary/30' 
                           : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
@@ -288,7 +288,7 @@ export default function Header() {
                         <div className="py-2">
                           <Link 
                             href="/commercial-cleaning" 
-                            className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle border-b border-border/20"
+                            className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary/50 transition-all duration-200 border-b border-border/20"
                             onClick={() => {
                               trackServiceNavigation('commercial-cleaning', 'dropdown_selection');
                               trackNavigationInteraction('menu_click', 'services', 'commercial_cleaning_all_locations');
@@ -346,7 +346,7 @@ export default function Header() {
                   <div className="py-2">
                     <Link 
                       href="/service-areas/idaho" 
-                      className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
+                      className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
                       onClick={() => {
                         trackNavigationInteraction('menu_click', 'service_areas', 'idaho_service_areas');
                         closeAllDropdowns();
@@ -363,7 +363,7 @@ export default function Header() {
                     </Link>
                     <Link 
                       href="/service-areas/utah" 
-                      className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-lift-gentle hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
+                      className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
                       onClick={() => {
                         trackNavigationInteraction('menu_click', 'service_areas', 'utah_service_areas');
                         closeAllDropdowns();
