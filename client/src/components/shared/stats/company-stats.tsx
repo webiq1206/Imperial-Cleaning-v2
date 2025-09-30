@@ -26,9 +26,9 @@ export default function CompanyStats({
   switch (variant) {
    case "trust-indicators":
     return [
-     { label: "Projects Completed", value: "200+", icon: Building, color: "primary" },
-     { label: "Happy Clients", value: "50+", icon: Users, color: "primary" },
-     { label: "Years Experience", value: "5+", icon: Award, color: "primary" },
+     { label: "Projects Completed", value: "500+", icon: Building, color: "primary" },
+     { label: "Happy Clients", value: "100+", icon: Users, color: "primary" },
+     { label: "Years Experience", value: "10+", icon: Award, color: "primary" },
      { label: "States Served", value: "2", icon: MapPin, color: "primary" }
     ];
    case "achievements":
