@@ -126,6 +126,8 @@
     @apply bg-background text-foreground font-sans antialiased;
     line-height: 1.5;
     letter-spacing: -0.01em;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   /* Inter font headings - Resend-style weight and spacing */
