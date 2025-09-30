@@ -294,346 +294,1148 @@ export default function ServiceAreasIdaho() {
         }}
       />
 
-      {/* Services We Provide */}
-      <section className="py-24 px-4 bg-card/30">
+      {/* Market Overview Section */}
+      <section className="py-24 px-4 bg-gradient-to-br from-primary/5 to-primary/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Professional Cleaning Services Throughout Idaho</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Imperial Cleaning Inc. provides comprehensive cleaning solutions across all Idaho service areas. From our Idaho Falls headquarters, we deliver the same high-quality services to every community we serve, with special expertise in Eastern Idaho markets.
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Eastern Idaho Market Overview</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Imperial Cleaning Inc. is headquartered in Idaho Falls, positioned at the heart of Eastern Idaho's diverse industrial landscape. We serve the region's leading sectors with specialized cleaning expertise.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="resend-card">
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-hard-hat text-blue-500 text-xl"></i>
+                  <i className="fas fa-atom text-blue-500 text-xl"></i>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Post-Construction Cleanup</h3>
+                <h3 className="text-xl font-bold text-foreground">Nuclear & Research</h3>
               </div>
-              <p className="text-muted-foreground mb-6">
-                Professional construction debris removal and detailed cleaning services for new construction projects, renovations, and remodeling across Idaho. Our systematic 3-phase approach ensures your project is inspection-ready.
+              <p className="text-muted-foreground text-sm mb-4">
+                Idaho National Laboratory (INL) represents one of the nation's premier nuclear research facilities. Our team maintains DOE-level security clearances and radiation safety protocols.
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <i className="fas fa-check text-blue-500 mr-3"></i>
-                  <span className="text-sm">Complete debris removal and disposal</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-blue-500 mr-3"></i>
-                  <span className="text-sm">Heavy dust elimination with HEPA filtration</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-blue-500 mr-3"></i>
-                  <span className="text-sm">Window cleaning and fixture detail work</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-blue-500 mr-3"></i>
-                  <span className="text-sm">Floor deep cleaning and protection</span>
-                </div>
+              <div className="flex items-start">
+                <i className="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                <span className="text-sm">Cleanroom & contamination control expertise</span>
               </div>
             </div>
 
             <div className="resend-card">
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-building text-green-500 text-xl"></i>
+                  <i className="fas fa-heartbeat text-green-500 text-xl"></i>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Commercial Office Cleaning</h3>
+                <h3 className="text-xl font-bold text-foreground">Healthcare & Medical</h3>
               </div>
-              <p className="text-muted-foreground mb-6">
-                Regular janitorial services and facility maintenance for offices, retail spaces, and commercial buildings. Flexible scheduling with daily, weekly, and monthly service options tailored to your business needs.
+              <p className="text-muted-foreground text-sm mb-4">
+                Eastern Idaho Regional Medical Center, Portneuf Medical Center, and numerous healthcare facilities require stringent infection control and sanitization standards.
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <i className="fas fa-check text-green-500 mr-3"></i>
-                  <span className="text-sm">Daily office cleaning and maintenance</span>
+              <div className="flex items-start">
+                <i className="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                <span className="text-sm">Hospital-grade disinfection & HEPA filtration</span>
+              </div>
+            </div>
+
+            <div className="resend-card">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-industry text-orange-500 text-xl"></i>
                 </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-green-500 mr-3"></i>
-                  <span className="text-sm">Restroom cleaning and restocking</span>
+                <h3 className="text-xl font-bold text-foreground">Food Processing & Agriculture</h3>
+              </div>
+              <p className="text-muted-foreground text-sm mb-4">
+                Magic Valley food processing (Chobani, Clif Bar) and Eastern Idaho's agricultural sector demand USDA/FDA compliance and food-grade sanitization protocols.
+              </p>
+              <div className="flex items-start">
+                <i className="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                <span className="text-sm">HACCP-compliant cleaning & 24/7 availability</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-xl p-8">
+            <h3 className="text-2xl font-bold mb-6 text-foreground text-center">Response Time Commitments</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4">
+                  <i className="fas fa-bolt text-green-500 text-2xl"></i>
                 </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-green-500 mr-3"></i>
-                  <span className="text-sm">Floor care and carpet maintenance</span>
+                <h4 className="font-bold text-lg mb-2 text-foreground">Idaho Falls & Pocatello</h4>
+                <p className="text-sm text-muted-foreground">Immediate to same-day response</p>
+                <p className="text-xs text-muted-foreground mt-2">Full crew availability • On-site equipment</p>
+              </div>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full mb-4">
+                  <i className="fas fa-clock text-blue-500 text-2xl"></i>
                 </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-green-500 mr-3"></i>
-                  <span className="text-sm">Sanitization and trash removal</span>
+                <h4 className="font-bold text-lg mb-2 text-foreground">Boise & Twin Falls</h4>
+                <p className="text-sm text-muted-foreground">24-48 hour deployment</p>
+                <p className="text-xs text-muted-foreground mt-2">Coordinated scheduling • Full service capability</p>
+              </div>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-full mb-4">
+                  <i className="fas fa-phone-volume text-purple-500 text-2xl"></i>
+                </div>
+                <h4 className="font-bold text-lg mb-2 text-foreground">Emergency Services</h4>
+                <p className="text-sm text-muted-foreground">24/7 rapid response</p>
+                <p className="text-xs text-muted-foreground mt-2">All markets • Emergency protocols</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* City Playbooks */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">City-Specific Cleaning Solutions</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Each market we serve has unique industrial demands and compliance requirements. Our city playbooks detail our specialized capabilities and proven track record in your area.
+            </p>
+          </div>
+
+          {/* Idaho Falls Playbook */}
+          <div className="mb-20">
+            <div className="border-l-4 border-primary pl-6 mb-8">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Idaho Falls Commercial Cleaning</h2>
+              <p className="text-lg text-primary font-medium">Headquarters • Full-Service Capability • Immediate Response</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-building text-primary mr-3"></i>
+                  Key Industries
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-atom text-primary mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Idaho National Laboratory (INL)</span>
+                      <p className="text-sm text-muted-foreground">Nuclear research & DOE facilities</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-hospital text-primary mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Eastern Idaho Regional Medical Center</span>
+                      <p className="text-sm text-muted-foreground">Level II trauma center & medical complex</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-landmark text-primary mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Government & Municipal Facilities</span>
+                      <p className="text-sm text-muted-foreground">County offices & public buildings</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-exclamation-triangle text-orange-500 mr-3"></i>
+                  Industry Challenges
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-radiation text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Radiation Safety Compliance</span>
+                      <p className="text-sm text-muted-foreground">Contamination control & decontamination protocols</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-shield-virus text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Healthcare Infection Control</span>
+                      <p className="text-sm text-muted-foreground">Hospital-grade disinfection standards</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-microscope text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Cleanroom Protocols</span>
+                      <p className="text-sm text-muted-foreground">ISO-certified clean environment maintenance</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-tools text-green-500 mr-3"></i>
+                  Our Solutions
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>HEPA filtration systems for particle control</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Certified cleanroom cleaning procedures</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Medical facility infection prevention expertise</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Security-cleared personnel for sensitive facilities</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card bg-primary/5">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-certificate text-blue-500 mr-3"></i>
+                  Compliance & Proof
+                </h3>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center">
+                    <i className="fas fa-file-contract text-blue-500 mr-3"></i>
+                    <span className="font-semibold">DOE facility requirements</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-hospital-alt text-blue-500 mr-3"></i>
+                    <span className="font-semibold">Hospital cleaning standards</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-shield-alt text-blue-500 mr-3"></i>
+                    <span className="font-semibold">Infection control protocols</span>
+                  </li>
+                </ul>
+                <div className="pt-4 border-t border-border">
+                  <p className="text-sm text-muted-foreground italic">
+                    "Proven track record cleaning sensitive research facilities and medical environments requiring the highest standards of cleanliness and safety compliance."
+                  </p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Pocatello Playbook */}
+          <div className="mb-20">
+            <div className="border-l-4 border-blue-500 pl-6 mb-8">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Pocatello Commercial Cleaning</h2>
+              <p className="text-lg text-blue-600 font-medium">Same-Day Response • Educational Facility Expertise</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-building text-blue-500 mr-3"></i>
+                  Key Industries
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-university text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Idaho State University</span>
+                      <p className="text-sm text-muted-foreground">Educational facilities & campus buildings</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-hospital text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Portneuf Medical Center</span>
+                      <p className="text-sm text-muted-foreground">Regional healthcare provider</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-cogs text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Manufacturing & Industrial</span>
+                      <p className="text-sm text-muted-foreground">Production facilities & warehouses</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-exclamation-triangle text-orange-500 mr-3"></i>
+                  Industry Challenges
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-calendar-alt text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">University Facility Schedules</span>
+                      <p className="text-sm text-muted-foreground">After-hours & break period cleaning coordination</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-layer-group text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Multi-Use Building Complexity</span>
+                      <p className="text-sm text-muted-foreground">Labs, classrooms, offices & common areas</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-user-graduate text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Student Housing Turnover</span>
+                      <p className="text-sm text-muted-foreground">Semester transitions & rapid deep cleaning</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-tools text-green-500 mr-3"></i>
+                  Our Solutions
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Flexible scheduling around academic calendars</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Educational facility cleaning expertise</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Rapid turnover cleaning for housing</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Multi-environment cleaning protocols</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card bg-blue-500/5">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-certificate text-blue-500 mr-3"></i>
+                  Compliance & Proof
+                </h3>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center">
+                    <i className="fas fa-school text-blue-500 mr-3"></i>
+                    <span className="font-semibold">Educational facility standards</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-hospital-alt text-blue-500 mr-3"></i>
+                    <span className="font-semibold">Healthcare cleaning requirements</span>
+                  </li>
+                </ul>
+                <div className="pt-4 border-t border-border">
+                  <p className="text-sm text-muted-foreground italic">
+                    "Experienced in university dormitory turnovers and medical facility cleaning, ensuring students return to pristine living spaces and patients receive care in sanitized environments."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Twin Falls Playbook */}
+          <div className="mb-20">
+            <div className="border-l-4 border-green-500 pl-6 mb-8">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Twin Falls Commercial Cleaning</h2>
+              <p className="text-lg text-green-600 font-medium">Magic Valley • Food Processing Specialists • 24/7 Service</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-building text-green-500 mr-3"></i>
+                  Key Industries
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-cookie-bite text-green-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Food Processing Giants</span>
+                      <p className="text-sm text-muted-foreground">Chobani yogurt, Clif Bar & major manufacturers</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-tractor text-green-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Agriculture & Dairy</span>
+                      <p className="text-sm text-muted-foreground">Processing plants & distribution centers</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-warehouse text-green-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Industrial & Logistics</span>
+                      <p className="text-sm text-muted-foreground">Warehouses & distribution facilities</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-exclamation-triangle text-orange-500 mr-3"></i>
+                  Industry Challenges
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-file-alt text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">USDA Compliance Requirements</span>
+                      <p className="text-sm text-muted-foreground">Strict sanitation & documentation standards</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-shield-virus text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Food Safety Standards</span>
+                      <p className="text-sm text-muted-foreground">FDA regulations & allergen control</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-clock text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">24/7 Production Operations</span>
+                      <p className="text-sm text-muted-foreground">Night shift & continuous operation cleaning</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-tools text-green-500 mr-3"></i>
+                  Our Solutions
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Food-grade sanitization equipment & chemicals</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>HACCP-compliant cleaning procedures</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Night shift & weekend crew availability</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Allergen cross-contamination prevention</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card bg-green-500/5">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-certificate text-green-500 mr-3"></i>
+                  Compliance & Proof
+                </h3>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center">
+                    <i className="fas fa-stamp text-green-500 mr-3"></i>
+                    <span className="font-semibold">USDA food facility standards</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-square text-green-500 mr-3"></i>
+                    <span className="font-semibold">FDA compliance requirements</span>
+                  </li>
+                </ul>
+                <div className="pt-4 border-t border-border">
+                  <p className="text-sm text-muted-foreground italic">
+                    "Trusted by Magic Valley's leading food processors to maintain sanitary conditions that meet rigorous USDA and FDA standards, enabling uninterrupted production operations."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Blackfoot Playbook */}
+          <div className="mb-20">
+            <div className="border-l-4 border-yellow-500 pl-6 mb-8">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Blackfoot Commercial Cleaning</h2>
+              <p className="text-lg text-yellow-600 font-medium">Potato Capital • Agricultural Facilities</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-building text-yellow-500 mr-3"></i>
+                  Key Industries & Challenges
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-seedling text-yellow-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Food Processing & Potato Industry</span>
+                      <p className="text-sm text-muted-foreground">Agricultural facility cleaning & seasonal demands</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-industry text-yellow-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Agricultural Operations</span>
+                      <p className="text-sm text-muted-foreground">Harvest season deep cleaning & maintenance</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card bg-yellow-500/5">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-tools text-yellow-500 mr-3"></i>
+                  Solutions & Compliance
+                </h3>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-yellow-500 mr-3"></i>
+                    <span>Agricultural facility expertise</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-yellow-500 mr-3"></i>
+                    <span>Food processing protocols</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-certificate text-yellow-500 mr-3"></i>
+                    <span className="font-semibold">USDA standards & food safety</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Rexburg Playbook */}
+          <div className="mb-20">
+            <div className="border-l-4 border-purple-500 pl-6 mb-8">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Rexburg Commercial Cleaning</h2>
+              <p className="text-lg text-purple-600 font-medium">University Town • Student Housing Specialists</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-building text-purple-500 mr-3"></i>
+                  Key Industries & Challenges
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-university text-purple-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">BYU-Idaho & Educational Facilities</span>
+                      <p className="text-sm text-muted-foreground">Campus buildings & academic spaces</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-home text-purple-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">High-Volume Student Housing</span>
+                      <p className="text-sm text-muted-foreground">Seasonal occupancy changes & semester transitions</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card bg-purple-500/5">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-tools text-purple-500 mr-3"></i>
+                  Solutions & Compliance
+                </h3>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-purple-500 mr-3"></i>
+                    <span>Housing turnover expertise</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-purple-500 mr-3"></i>
+                    <span>Educational facility cleaning</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-certificate text-purple-500 mr-3"></i>
+                    <span className="font-semibold">Educational facility standards</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Boise/Treasure Valley Playbook */}
+          <div className="mb-12">
+            <div className="border-l-4 border-indigo-500 pl-6 mb-8">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Boise & Treasure Valley Cleaning</h2>
+              <p className="text-lg text-indigo-600 font-medium">State Capital • Tech Corridor • 24-48hr Deployment</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-building text-indigo-500 mr-3"></i>
+                  Key Industries
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-landmark text-indigo-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">State Government Facilities</span>
+                      <p className="text-sm text-muted-foreground">Capitol complex & state office buildings</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-microchip text-indigo-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Micron Technology</span>
+                      <p className="text-sm text-muted-foreground">Semiconductor manufacturing facilities</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-hospital text-indigo-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">St. Luke's Health System</span>
+                      <p className="text-sm text-muted-foreground">Major medical center & network</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-briefcase text-indigo-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Corporate Offices</span>
+                      <p className="text-sm text-muted-foreground">Professional services & business headquarters</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-exclamation-triangle text-orange-500 mr-3"></i>
+                  Industry Challenges
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <i className="fas fa-user-secret text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Government Security Clearances</span>
+                      <p className="text-sm text-muted-foreground">Background checks & secure facility access</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-microscope text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Semiconductor Cleanroom Standards</span>
+                      <p className="text-sm text-muted-foreground">ISO-certified particle-free environments</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-star text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                      <span className="font-semibold">Corporate Expectations</span>
+                      <p className="text-sm text-muted-foreground">Premium service standards & presentation</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="resend-card">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-tools text-green-500 mr-3"></i>
+                  Our Solutions
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Security-cleared personnel available</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Cleanroom expertise & certification</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Corporate-grade service standards</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                    <span>Coordinated 24-48hr deployment</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="resend-card bg-indigo-500/5">
+                <h3 className="text-xl font-bold mb-4 text-foreground flex items-center">
+                  <i className="fas fa-certificate text-indigo-500 mr-3"></i>
+                  Compliance & Proof
+                </h3>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center">
+                    <i className="fas fa-building text-indigo-500 mr-3"></i>
+                    <span className="font-semibold">State facility requirements</span>
+                  </li>
+                  <li className="flex items-center">
+                    <i className="fas fa-industry text-indigo-500 mr-3"></i>
+                    <span className="font-semibold">ISO cleanroom standards</span>
+                  </li>
+                </ul>
+                <div className="pt-4 border-t border-border">
+                  <p className="text-sm text-muted-foreground italic">
+                    "Experienced serving government facilities requiring security clearances and tech facilities demanding cleanroom precision. Our Treasure Valley team delivers Idaho Falls-quality service to the state capital region."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Readiness Comparison Table */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Service Readiness by Market</h2>
+            <p className="text-xl text-muted-foreground">
+              Compare our capabilities and response times across all Idaho service areas
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-card rounded-lg overflow-hidden">
+              <thead>
+                <tr className="bg-primary/10">
+                  <th className="px-6 py-4 text-left font-bold text-foreground">Market</th>
+                  <th className="px-6 py-4 text-left font-bold text-foreground">Response Time</th>
+                  <th className="px-6 py-4 text-left font-bold text-foreground">On-site Crew</th>
+                  <th className="px-6 py-4 text-left font-bold text-foreground">Primary Specializations</th>
+                  <th className="px-6 py-4 text-left font-bold text-foreground">Service Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-border hover:bg-primary/5 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="font-bold text-foreground">Idaho Falls</div>
+                    <div className="text-sm text-muted-foreground">Headquarters</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="inline-flex items-center px-3 py-1 bg-green-500/20 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                      <i className="fas fa-bolt mr-2"></i>
+                      Immediate
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="text-sm">Full-time crews</div>
+                    <div className="text-xs text-muted-foreground">Equipment on-site</div>
+                  </td>
+                  <td className="px-6 py-4 text-sm">
+                    <div>Nuclear/DOE facilities</div>
+                    <div>Medical centers</div>
+                    <div>Government buildings</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                  </td>
+                </tr>
+                <tr className="border-t border-border hover:bg-primary/5 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="font-bold text-foreground">Pocatello</div>
+                    <div className="text-sm text-muted-foreground">Primary Market</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="inline-flex items-center px-3 py-1 bg-green-500/20 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                      <i className="fas fa-clock mr-2"></i>
+                      Same-Day
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="text-sm">Dedicated crews</div>
+                    <div className="text-xs text-muted-foreground">Local equipment</div>
+                  </td>
+                  <td className="px-6 py-4 text-sm">
+                    <div>University facilities</div>
+                    <div>Student housing</div>
+                    <div>Medical facilities</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                  </td>
+                </tr>
+                <tr className="border-t border-border hover:bg-primary/5 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="font-bold text-foreground">Twin Falls</div>
+                    <div className="text-sm text-muted-foreground">Magic Valley</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="inline-flex items-center px-3 py-1 bg-blue-500/20 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                      <i className="fas fa-calendar-alt mr-2"></i>
+                      24-48 Hours
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="text-sm">Deployed crews</div>
+                    <div className="text-xs text-muted-foreground">Mobile equipment</div>
+                  </td>
+                  <td className="px-6 py-4 text-sm">
+                    <div>Food processing</div>
+                    <div>Agriculture facilities</div>
+                    <div>Industrial plants</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                  </td>
+                </tr>
+                <tr className="border-t border-border hover:bg-primary/5 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="font-bold text-foreground">Blackfoot</div>
+                    <div className="text-sm text-muted-foreground">Regional</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="inline-flex items-center px-3 py-1 bg-green-500/20 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                      <i className="fas fa-clock mr-2"></i>
+                      Same-Day
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="text-sm">Regional crews</div>
+                    <div className="text-xs text-muted-foreground">Shared resources</div>
+                  </td>
+                  <td className="px-6 py-4 text-sm">
+                    <div>Agricultural facilities</div>
+                    <div>Food processing</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                  </td>
+                </tr>
+                <tr className="border-t border-border hover:bg-primary/5 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="font-bold text-foreground">Rexburg</div>
+                    <div className="text-sm text-muted-foreground">Regional</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="inline-flex items-center px-3 py-1 bg-green-500/20 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                      <i className="fas fa-clock mr-2"></i>
+                      Same-Day
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="text-sm">Regional crews</div>
+                    <div className="text-xs text-muted-foreground">Shared resources</div>
+                  </td>
+                  <td className="px-6 py-4 text-sm">
+                    <div>Student housing</div>
+                    <div>Educational facilities</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                  </td>
+                </tr>
+                <tr className="border-t border-border hover:bg-primary/5 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="font-bold text-foreground">Boise/Treasure Valley</div>
+                    <div className="text-sm text-muted-foreground">Extended Coverage</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="inline-flex items-center px-3 py-1 bg-blue-500/20 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                      <i className="fas fa-calendar-alt mr-2"></i>
+                      24-48 Hours
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="text-sm">Deployed crews</div>
+                    <div className="text-xs text-muted-foreground">Full capability</div>
+                  </td>
+                  <td className="px-6 py-4 text-sm">
+                    <div>Government facilities</div>
+                    <div>Tech/cleanroom</div>
+                    <div>Corporate offices</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                    <i className="fas fa-star text-yellow-500"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              <i className="fas fa-info-circle mr-2"></i>
+              All markets include 24/7 emergency response capability with accelerated deployment
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Operational Assurances Section */}
+      <section className="py-24 px-4 bg-gradient-to-br from-primary/5 to-primary/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Operational Excellence Across Idaho</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Every service area benefits from our comprehensive safety, compliance, and quality assurance protocols
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="resend-card text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4">
+                <i className="fas fa-certificate text-green-500 text-2xl"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">Licensed & Insured</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Fully licensed and insured for operations across all Idaho locations. Comprehensive liability coverage protects your facility and our team.
+              </p>
+              <ul className="text-sm text-left space-y-2">
+                <li className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-2"></i>
+                  <span>General liability insurance</span>
+                </li>
+                <li className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-2"></i>
+                  <span>Workers' compensation</span>
+                </li>
+                <li className="flex items-center">
+                  <i className="fas fa-check text-green-500 mr-2"></i>
+                  <span>Idaho state licensing</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="resend-card text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full mb-4">
+                <i className="fas fa-hard-hat text-blue-500 text-2xl"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">OSHA Compliance</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Rigorous safety protocols and OSHA compliance training for all personnel. Regular safety audits and continuous improvement programs.
+              </p>
+              <ul className="text-sm text-left space-y-2">
+                <li className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-2"></i>
+                  <span>OSHA-certified training</span>
+                </li>
+                <li className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-2"></i>
+                  <span>Safety equipment protocols</span>
+                </li>
+                <li className="flex items-center">
+                  <i className="fas fa-check text-blue-500 mr-2"></i>
+                  <span>Incident prevention programs</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="resend-card text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-full mb-4">
+                <i className="fas fa-phone-volume text-purple-500 text-2xl"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">24/7 Emergency Response</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Round-the-clock availability for emergency cleaning services. Rapid response teams ready to deploy across all Idaho markets.
+              </p>
+              <ul className="text-sm text-left space-y-2">
+                <li className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-2"></i>
+                  <span>24/7 dispatch center</span>
+                </li>
+                <li className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-2"></i>
+                  <span>Emergency equipment ready</span>
+                </li>
+                <li className="flex items-center">
+                  <i className="fas fa-check text-purple-500 mr-2"></i>
+                  <span>Rapid deployment protocols</span>
+                </li>
+              </ul>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="resend-card">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-industry text-purple-500 text-xl"></i>
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <i className="fas fa-leaf text-green-500 text-xl"></i>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Industrial Facility Cleaning</h3>
+                <h3 className="text-xl font-bold text-foreground">Environmental Compliance</h3>
               </div>
-              <p className="text-muted-foreground mb-6">
-                Specialized cleaning for manufacturing facilities, warehouses, and production environments. We understand the unique requirements of industrial settings and maintain safety compliance.
+              <p className="text-sm text-muted-foreground mb-4">
+                Idaho DEQ-compliant operations and eco-friendly cleaning products. Proper waste disposal and environmental stewardship across all service areas.
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <i className="fas fa-check text-purple-500 mr-3"></i>
-                  <span className="text-sm">Manufacturing facility cleaning</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-purple-500 mr-3"></i>
-                  <span className="text-sm">Warehouse and distribution centers</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-purple-500 mr-3"></i>
-                  <span className="text-sm">Food processing facility sanitization</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-purple-500 mr-3"></i>
-                  <span className="text-sm">Equipment cleaning and maintenance</span>
-                </div>
-              </div>
+              <ul className="space-y-2">
+                <li className="flex items-center text-sm">
+                  <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Idaho DEQ compliance</span>
+                </li>
+                <li className="flex items-center text-sm">
+                  <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Green cleaning products available</span>
+                </li>
+                <li className="flex items-center text-sm">
+                  <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Proper waste management protocols</span>
+                </li>
+              </ul>
             </div>
 
             <div className="resend-card">
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-cogs text-orange-500 text-xl"></i>
+                  <i className="fas fa-clipboard-check text-orange-500 text-xl"></i>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Specialized Equipment & Techniques</h3>
+                <h3 className="text-xl font-bold text-foreground">Quality Assurance</h3>
               </div>
-              <p className="text-muted-foreground mb-6">
-                Advanced cleaning technology and professional expertise for complex cleaning challenges. State-of-the-art equipment ensures superior results for all project types.
+              <p className="text-sm text-muted-foreground mb-4">
+                Multi-point quality control inspections and customer satisfaction monitoring. Consistent service standards maintained across all Idaho locations.
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <i className="fas fa-check text-orange-500 mr-3"></i>
-                  <span className="text-sm">HEPA filtration and dust control systems</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-orange-500 mr-3"></i>
-                  <span className="text-sm">High-pressure washing and steam cleaning</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-orange-500 mr-3"></i>
-                  <span className="text-sm">Professional floor care technology</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-check text-orange-500 mr-3"></i>
-                  <span className="text-sm">High-access cleaning for buildings</span>
-                </div>
-              </div>
+              <ul className="space-y-2">
+                <li className="flex items-center text-sm">
+                  <i className="fas fa-check-circle text-orange-500 mr-2"></i>
+                  <span>Post-service quality inspections</span>
+                </li>
+                <li className="flex items-center text-sm">
+                  <i className="fas fa-check-circle text-orange-500 mr-2"></i>
+                  <span>Customer feedback systems</span>
+                </li>
+                <li className="flex items-center text-sm">
+                  <i className="fas fa-check-circle text-orange-500 mr-2"></i>
+                  <span>Performance metrics tracking</span>
+                </li>
+              </ul>
             </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button 
-              variant="pill-primary"
-              size="pill-lg"
-              onClick={() => setShowContactForm(true)}
-              data-testid="button-get-quote-services"
-              className="text-lg font-semibold px-8 py-4"
-            >
-              Get Quote for These Services
-              <i className="fas fa-arrow-right ml-2"></i>
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Cities We Serve */}
+      {/* Strategic CTAs Section */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Eastern Idaho - Our Primary Market</h2>
-            <p className="text-xl text-muted-foreground">
-              Headquartered in Idaho Falls, serving southeastern Idaho with immediate response times and comprehensive cleaning solutions
+          <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-12 text-center">
+            <h2 className="text-4xl font-bold mb-6 text-white">Ready to Experience Industry-Leading Cleaning Services?</h2>
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+              From nuclear facilities in Idaho Falls to food processing plants in Twin Falls, from university housing in Rexburg to state government buildings in Boise—we deliver specialized cleaning solutions that meet your industry's exact requirements.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="text-3xl font-bold text-white mb-2">Immediate</div>
+                <div className="text-white/90">Response in Idaho Falls & Pocatello</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="text-3xl font-bold text-white mb-2">24-48hr</div>
+                <div className="text-white/90">Deployment to Boise & Twin Falls</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                <div className="text-white/90">Emergency response—all markets</div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button 
+                variant="secondary"
+                size="pill-lg"
+                onClick={() => setShowContactForm(true)}
+                data-testid="button-get-quote-cta"
+                className="text-lg font-semibold px-8 py-4 bg-white text-primary hover:bg-white/90"
+              >
+                <i className="fas fa-clipboard-list mr-2"></i>
+                Request Your Free Quote
+              </Button>
+              <Button 
+                variant="outline"
+                size="pill-lg"
+                asChild
+                data-testid="button-call-cta"
+                className="text-lg font-semibold px-8 py-4 border-2 border-white text-white hover:bg-white/10"
+              >
+                <a href="tel:+12085241124">
+                  <i className="fas fa-phone mr-2"></i>
+                  Call (208) 524-1124
+                </a>
+              </Button>
+            </div>
+
+            <p className="text-sm text-white/80 mt-8">
+              <i className="fas fa-shield-alt mr-2"></i>
+              Licensed, insured, and compliant across all Idaho service areas
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-            {primaryMarketCities.map((city, index) => (
-              <div key={index} id={city.name.toLowerCase()} className="resend-card transition-transform duration-300 ease-out hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-foreground">{city.name}</h3>
-                  <span className="text-sm text-primary font-medium">{city.county}</span>
-                </div>
-                <div className="mb-4">
-                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full mb-2">
-                    Population: {city.population}
-                  </span>
-                </div>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{city.description}</p>
-                
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Neighborhoods Served:</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {city.neighborhoods.map((neighborhood, nIndex) => (
-                      <span key={nIndex} className="text-xs bg-card border border-border px-2 py-1 rounded">
-                        {neighborhood}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Business Districts:</h4>
-                  <div className="space-y-1">
-                    {city.businessDistricts.map((district, dIndex) => (
-                      <div key={dIndex} className="flex items-center text-xs">
-                        <i className="fas fa-building text-primary mr-2"></i>
-                        <span>{district}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Specialized Services:</h4>
-                  {city.services.map((service, serviceIndex) => (
-                    <div key={serviceIndex} className="flex items-center text-sm">
-                      <i className="fas fa-check text-primary mr-3"></i>
-                      <span>{service}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Market-Specific Quick Actions */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
+              <h3 className="text-lg font-bold mb-3 text-foreground">
+                <i className="fas fa-atom text-primary mr-2"></i>
+                Nuclear/DOE Facilities
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Need cleanroom-certified cleaning for sensitive research or production environments? Our Idaho Falls team specializes in DOE-compliant facility maintenance.
+              </p>
+              <Button 
+                variant="outline"
+                size="default"
+                onClick={() => setShowContactForm(true)}
+                data-testid="button-quote-nuclear"
+                className="w-full"
+              >
+                Get Nuclear Facility Quote
+              </Button>
+            </div>
 
-      {/* Secondary Markets */}
-      <section className="py-24 px-4 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Regional Idaho Markets</h2>
-            <p className="text-xl text-muted-foreground">
-              Expanding our coverage throughout regional Idaho communities and growing business centers
-            </p>
-          </div>
+            <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
+              <h3 className="text-lg font-bold mb-3 text-foreground">
+                <i className="fas fa-industry text-green-500 mr-2"></i>
+                Food Processing Plants
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                USDA/FDA-compliant cleaning for Magic Valley food processors. HACCP protocols, food-grade sanitization, and 24/7 scheduling available.
+              </p>
+              <Button 
+                variant="outline"
+                size="default"
+                onClick={() => setShowContactForm(true)}
+                data-testid="button-quote-food"
+                className="w-full"
+              >
+                Get Food Facility Quote
+              </Button>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {secondaryMarkets.map((city, index) => {
-              const citySlug = city.name.toLowerCase().replace(/\s+/g, '-');
-              return (
-                <div key={index} id={citySlug} className="resend-card text-center">
-                  <h3 className="font-bold text-lg text-foreground mb-3">
-                    {city.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">{city.description}</p>
-                  <div className="space-y-1">
-                    {city.services.map((service, serviceIndex) => (
-                      <div key={serviceIndex} className="text-xs text-muted-foreground">
-                        • {service}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4 text-foreground">Treasure Valley Coverage</h3>
-            <p className="text-lg text-muted-foreground">
-              Professional cleaning services extending to Boise area and southwestern Idaho markets
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {extendedCoverage.map((city, index) => {
-              const cityId = city.name.toLowerCase().replace(/\s+/g, '-');
-              return (
-                <div key={index} id={cityId} className="bg-card p-6 rounded-lg border border-border hover:border-primary/50 transition-colors duration-200">
-                <h4 className="text-xl font-bold mb-3 text-foreground">{city.name}</h4>
-                <p className="text-muted-foreground mb-4 text-sm">{city.description}</p>
-                <div className="space-y-2">
-                  {city.services.map((service, serviceIndex) => (
-                    <div key={serviceIndex} className="flex items-center text-sm">
-                      <i className="fas fa-check text-primary mr-3"></i>
-                      <span>{service}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              );
-            })}
-          </div>
-
-          <div className="text-center">
-            <h4 className="text-2xl font-bold mb-6 text-foreground">Additional Idaho Communities</h4>
-            <div className="grid md:grid-cols-6 gap-4">
-              {[
-                "American Falls", "Preston", "Soda Springs", "Montpelier", "St. Anthony", "Driggs",
-                "Kuna", "Star", "Garden City", "Mountain Home", "Emmett", "Middleton"
-              ].map((city, index) => {
-                const citySlug = city.toLowerCase().replace(/\s+/g, '-');
-                return (
-                  <div key={index} className="bg-card p-3 rounded-lg border border-border text-center">
-                    <span className="text-sm font-semibold text-foreground" data-testid={`area-${citySlug}-idaho`}>
-                      {city}
-                    </span>
-                  </div>
-                );
-              })}
+            <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
+              <h3 className="text-lg font-bold mb-3 text-foreground">
+                <i className="fas fa-university text-blue-500 mr-2"></i>
+                Educational Facilities
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                University buildings, student housing turnovers, and campus facilities. Flexible scheduling around academic calendars in Pocatello and Rexburg.
+              </p>
+              <Button 
+                variant="outline"
+                size="default"
+                onClick={() => setShowContactForm(true)}
+                data-testid="button-quote-education"
+                className="w-full"
+              >
+                Get Education Facility Quote
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us in Idaho */}
-      <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Why Idaho Trusts Imperial Cleaning</h2>
-            <p className="text-xl text-muted-foreground">
-              Local expertise, statewide coverage, and professional results
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="icon-gradient text-5xl mb-4">
-                <i className="fas fa-map-marked-alt"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Local Idaho Knowledge</h3>
-              <p className="text-muted-foreground">We understand Idaho's unique climate and construction challenges</p>
-            </div>
-            <div className="text-center">
-              <div className="icon-gradient text-5xl mb-4">
-                <i className="fas fa-truck"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Eastern Idaho Expertise</h3>
-              <p className="text-muted-foreground">Deep local knowledge throughout Idaho Falls, Pocatello, Blackfoot, and all of southeastern Idaho</p>
-            </div>
-            <div className="text-center">
-              <div className="icon-gradient text-5xl mb-4">
-                <i className="fas fa-handshake"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Idaho Partnerships</h3>
-              <p className="text-muted-foreground">Trusted by Idaho contractors and businesses for over a decade</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6 text-foreground">Ready to Serve Your Eastern Idaho Project?</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Contact us today for professional cleaning services throughout Idaho Falls, Pocatello, Twin Falls, and all of Eastern Idaho
-          </p>
-          <button 
-            className="neon-border px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-transform"
-            onClick={() => setShowContactForm(true)}
-            data-testid="button-contact-idaho"
-          >
-            Get Eastern Idaho Quote
-          </button>
         </div>
       </section>
 
