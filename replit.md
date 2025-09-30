@@ -129,7 +129,7 @@ Preferred communication style: Simple, everyday language.
 
 ### External Services
 - **Analytics**: Google Analytics 4 for user behavior tracking and conversion measurement
-- **Email Service**: SendGrid integration configured for transactional emails
+- **Email Service**: Resend API configured for transactional emails
 - **Database Hosting**: Neon Database for serverless PostgreSQL hosting
 - **Session Storage**: PostgreSQL session store for scalable session management
 

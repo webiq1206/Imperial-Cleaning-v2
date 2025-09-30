@@ -1,18 +1,17 @@
-import { MailService } from '@sendgrid/mail';
+import { Resend } from 'resend';
 
-// Initialize SendGrid service with error handling
-let mailService: MailService | null = null;
+// Initialize Resend service with error handling
+let resend: Resend | null = null;
 
 try {
-  if (process.env.SENDGRID_API_KEY) {
-    mailService = new MailService();
-    mailService.setApiKey(process.env.SENDGRID_API_KEY);
-    console.log('SendGrid email service initialized');
+  if (process.env.RESEND_API_KEY) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+    console.log('Resend email service initialized');
   } else {
-    console.log('SENDGRID_API_KEY not found - email notifications disabled');
+    console.log('RESEND_API_KEY not found - email notifications disabled');
   }
 } catch (error) {
-  console.warn('Failed to initialize SendGrid:', error.message);
+  console.warn('Failed to initialize Resend:', (error as Error).message);
 }
 
 interface EmailParams {
@@ -24,13 +23,13 @@ interface EmailParams {
 }
 
 export async function sendEmail(params: EmailParams): Promise<boolean> {
-  if (!mailService) {
+  if (!resend) {
     console.log('Email service not available - would send:', params.subject);
     return false;
   }
 
   try {
-    await mailService.send({
+    await resend.emails.send({
       to: params.to,
       from: params.from,
       subject: params.subject,
@@ -40,7 +39,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     console.log(`Email sent successfully to ${params.to}`);
     return true;
   } catch (error) {
-    console.error('SendGrid email error:', error);
+    console.error('Resend email error:', error);
     return false;
   }
 }

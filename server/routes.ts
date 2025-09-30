@@ -37,7 +37,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const emailTemplate = createContactNotificationEmail(contact);
         await sendEmail({
           to: "service@imperialcleaninginc.com", // Business email
-          from: "notifications@imperialcleaninginc.com", // From address (will be configured in SendGrid)
+          from: "notifications@imperialcleaninginc.com", // From address (will be configured in Resend)
           subject: emailTemplate.subject,
           html: emailTemplate.html,
           text: emailTemplate.text
