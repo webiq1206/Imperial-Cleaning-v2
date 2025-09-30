@@ -746,14 +746,29 @@
   }
   
   /* Disable hover effects for static contexts like lightboxes */
-  .no-hover-effects {
+  .no-hover-effects,
+  .no-hover-effects.glass-card-elevated,
+  .no-hover-effects.glass-card-base,
+  .no-hover-effects.glass-card-premium {
     transition: none !important;
     will-change: auto !important;
   }
   
-  .no-hover-effects:hover {
+  .no-hover-effects:hover,
+  .no-hover-effects.glass-card-elevated:hover,
+  .no-hover-effects.glass-card-base:hover,
+  .no-hover-effects.glass-card-premium:hover {
     transform: none !important;
-    box-shadow: none !important;
+    border-color: inherit !important;
+    box-shadow: 
+      inset 0 1px 0 hsl(0, 0%, 100%, 0.12),
+      inset 0 -1px 0 hsl(0, 0%, 0%, 0.25),
+      inset 1px 0 0 hsl(0, 0%, 100%, 0.06),
+      inset -1px 0 0 hsl(0, 0%, 0%, 0.12),
+      0 0 0 1px hsl(0, 0%, 100%, 0.04),
+      0 4px 12px hsl(0, 0%, 0%, 0.2),
+      0 8px 24px hsl(0, 0%, 0%, 0.15),
+      0 16px 48px hsl(0, 0%, 0%, 0.1) !important;
   }
   
   /* Scroll-Based Reveal Animations */
