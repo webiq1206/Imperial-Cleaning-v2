@@ -7,10 +7,10 @@ export { default as FeatureStats } from './feature-stats';
 
 // Re-export types for convenience
 export type {
-  CompanyStatsProps,
-  ProjectMetricsProps,
-  TrustIndicatorsProps,
-  FeatureStatsProps,
-  StatItem,
-  BaseStatsProps
+ CompanyStatsProps,
+ ProjectMetricsProps,
+ TrustIndicatorsProps,
+ FeatureStatsProps,
+ StatItem,
+ BaseStatsProps
 } from '../types';

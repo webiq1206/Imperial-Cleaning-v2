@@ -10,12 +10,12 @@ export { default as CaseStudyTestimonial } from './case-study-testimonial';
 
 // Re-export types for convenience
 export type {
-  TestimonialCardProps,
-  TestimonialsSectionProps,
-  TestimonialsCarouselProps,
-  ServiceTestimonialsProps,
-  LocationTestimonialsProps,
-  CaseStudyTestimonialProps,
-  TestimonialData,
-  BaseTestimonialProps
+ TestimonialCardProps,
+ TestimonialsSectionProps,
+ TestimonialsCarouselProps,
+ ServiceTestimonialsProps,
+ LocationTestimonialsProps,
+ CaseStudyTestimonialProps,
+ TestimonialData,
+ BaseTestimonialProps
 } from '../types';

@@ -7,9 +7,9 @@ export { default as ContactFormCTA } from './contact-form-cta';
 
 // Re-export types for convenience
 export type {
-  PrimaryCTAProps,
-  ServiceCTAProps,
-  LocationCTAProps,
-  ContactFormCTAProps,
-  BaseCTAProps
+ PrimaryCTAProps,
+ ServiceCTAProps,
+ LocationCTAProps,
+ ContactFormCTAProps,
+ BaseCTAProps
 } from '../types';
