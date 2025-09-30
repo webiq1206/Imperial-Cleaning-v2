@@ -313,6 +313,7 @@ export default function ComplianceCertificationsSection() {
          {/* Action Button */}
          <div className="mt-6">
           <Button
+           type="button"
            variant="default"
            size="sm"
            onClick={() => handleContactClick(category.id)}
@@ -405,6 +406,7 @@ export default function ComplianceCertificationsSection() {
       </div>
       
       <Button
+       type="button"
        onClick={() => handleContactClick('service-area-verification')}
        className="resend-gradient-button"
        data-testid="button-verify-compliance"

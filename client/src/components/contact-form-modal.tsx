@@ -207,11 +207,31 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
   }
  }, [currentStep, isOpen, currentStepData]);
 
+ // Handle escape key to close modal
+ useEffect(() => {
+  const handleEscape = (e: KeyboardEvent) => {
+   if (e.key === 'Escape' && isOpen) {
+    handleClose();
+   }
+  };
+  
+  if (isOpen) {
+   document.addEventListener('keydown', handleEscape);
+   return () => document.removeEventListener('keydown', handleEscape);
+  }
+ }, [isOpen, handleClose]);
+
  if (!isOpen) return null;
 
  return (
-  <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-   <div className="resend-card max-w-md w-full border-border/50 hover:border-border transition-all duration-300">
+  <div 
+   className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+   onClick={handleClose}
+  >
+   <div 
+    className="resend-card max-w-md w-full border-border/50 hover:border-border transition-all duration-300"
+    onClick={(e) => e.stopPropagation()}
+   >
     <div className="flex items-center justify-between mb-8">
      <h3 className="text-2xl tracking-tight" data-testid="modal-title">Request a Quote</h3>
      <button 
