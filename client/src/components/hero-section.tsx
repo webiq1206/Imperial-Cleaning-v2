@@ -61,8 +61,7 @@ export default function HeroSection() {
        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tight mb-6 md:mb-8 animate-fade-in-up stagger-delay-2" data-testid="heading-hero-h1">
         <span className="inline-block hover-lift-gentle">Professional </span>
         <br />
-        <span className="inline-block hover-lift-gentle stagger-delay-2">cleaning </span>
-        <span className="inline-block hover-lift-gentle stagger-delay-2"> for</span>
+        <span className="inline-block hover-lift-gentle stagger-delay-2">cleaning for</span>
         <br />
         <span className="inline-block hover-lift-gentle stagger-delay-3 gradient-text-cyan-purple">businesses</span>
        </h1>
