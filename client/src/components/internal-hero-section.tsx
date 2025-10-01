@@ -3,7 +3,8 @@ import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
 import { Button } from "@/components/ui/button";
-import logoPath from "@assets/Imperial-Cleaning-Inc.-Commercial-Cleaning-in-Idaho-Falls-ID-Website-Icon-white (1)_1759082752680.png";
+import logoPathWebP from "@assets/hero-logo.webp";
+import logoPathPNG from "@assets/Imperial-Cleaning-Inc.-Commercial-Cleaning-in-Idaho-Falls-ID-Website-Icon-white (1)_1759082752680.png";
 
 interface InternalHeroSectionProps {
  title: string;
@@ -48,16 +49,19 @@ export default function InternalHeroSection({
      className="fixed md:absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
      style={{ transform: 'translate(-50%, -50%) translateZ(0)', willChange: 'transform' }}
     >
-      <img 
-       src={logoPath}
-       alt="Imperial Cleaning Inc Logo - Commercial Cleaning Idaho"
-       className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
-       width="384"
-       height="384"
-       fetchPriority="high"
-       decoding="async"
-       style={{ filter: 'brightness(0.4) contrast(1.2)', transform: 'translateZ(0)' }}
-      />
+      <picture>
+        <source srcSet={logoPathWebP} type="image/webp" />
+        <img 
+         src={logoPathPNG}
+         alt="Imperial Cleaning Inc Logo - Commercial Cleaning Idaho"
+         className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
+         width="384"
+         height="384"
+         fetchPriority="high"
+         decoding="async"
+         style={{ filter: 'brightness(0.4) contrast(1.2)', transform: 'translateZ(0)' }}
+        />
+      </picture>
     </div>
 
     {/* Enhanced parallax background elements */}
