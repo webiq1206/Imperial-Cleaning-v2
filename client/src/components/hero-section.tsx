@@ -16,17 +16,14 @@ export default function HeroSection() {
  return (
   <>
    <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
-    {/* Enhanced background logo - visible on both mobile and desktop with dark overlay */}
-    <div className="fixed md:absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-     <div className="relative w-72 h-72 md:w-96 md:h-96">
+    {/* Enhanced background logo - visible on mobile with darkening effect, hidden on desktop */}
+    <div className="fixed md:absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96">
       <img 
        src={logoPath}
        alt=""
        className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
+       style={{ filter: 'brightness(0.4) contrast(1.2)' }}
       />
-      {/* Dark overlay confined to logo area only */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/60 to-black/50 md:from-black/40 md:via-black/60 md:to-black/50 pointer-events-none"></div>
-     </div>
     </div>
 
     {/* Enhanced parallax background elements */}
