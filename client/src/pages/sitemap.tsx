@@ -246,61 +246,54 @@ export default function SitemapPage() {
 
      </div>
 
-     {/* Service + Location Pages */}
+     {/* Service + Location Pages - All City/Service Combinations */}
      <div className="mt-12 glass-card-elevated sophisticated-glow p-8 rounded-lg">
       <h2 className="text-2xl mb-8 text-foreground flex items-center">
        <div className="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
-       Service-Specific Location Pages
+       City-Specific Service Pages
       </h2>
+      <p className="text-sm text-muted-foreground mb-6">
+       Complete directory of all location-specific service pages using our SEO-optimized /state/service/city/ URL structure
+      </p>
       
       <div className="grid md:grid-cols-2 gap-8">
        {/* Construction Cleaning Locations */}
        <div>
         <h3 className="text-lg mb-4 text-foreground">Construction Cleaning by Location</h3>
         <p className="text-sm text-muted-foreground mb-4">
-         Specialized construction cleanup services available in the following locations:
+         Specialized construction cleanup services across Idaho and Utah:
         </p>
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-6">
          <div>
-          <h4 className=" text-foreground mb-2 text-sm">Idaho</h4>
-          <ul className="space-y-1">
-           {idahoLocations.filter(loc => loc.services.constructionCleanup).slice(0, 5).map((location) => (
+          <h4 className="text-foreground mb-3 text-sm">Idaho ({idahoLocations.filter(loc => loc.services.constructionCleanup).length} locations)</h4>
+          <ul className="space-y-1.5">
+           {idahoLocations.filter(loc => loc.services.constructionCleanup).map((location) => (
             <li key={`construction-${location.name}`}>
              <Link 
               href={buildServiceLocationUrl(location.state, 'construction-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-construction-${locationToSlug(location.name)}`}
              >
-              {location.name} Construction Cleaning
+              {location.name}
              </Link>
             </li>
            ))}
-           {idahoLocations.filter(loc => loc.services.constructionCleanup).length > 5 && (
-            <li className="text-xs text-muted-foreground">
-             + {idahoLocations.filter(loc => loc.services.constructionCleanup).length - 5} more...
-            </li>
-           )}
           </ul>
          </div>
          <div>
-          <h4 className=" text-foreground mb-2 text-sm">Utah</h4>
-          <ul className="space-y-1">
-           {utahLocations.filter(loc => loc.services.constructionCleanup).slice(0, 5).map((location) => (
+          <h4 className="text-foreground mb-3 text-sm">Utah ({utahLocations.filter(loc => loc.services.constructionCleanup).length} locations)</h4>
+          <ul className="space-y-1.5">
+           {utahLocations.filter(loc => loc.services.constructionCleanup).map((location) => (
             <li key={`construction-${location.name}`}>
              <Link 
               href={buildServiceLocationUrl(location.state, 'construction-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-construction-${locationToSlug(location.name)}`}
              >
-              {location.name} Construction Cleaning
+              {location.name}
              </Link>
             </li>
            ))}
-           {utahLocations.filter(loc => loc.services.constructionCleanup).length > 5 && (
-            <li className="text-xs text-muted-foreground">
-             + {utahLocations.filter(loc => loc.services.constructionCleanup).length - 5} more...
-            </li>
-           )}
           </ul>
          </div>
         </div>
@@ -310,49 +303,39 @@ export default function SitemapPage() {
        <div>
         <h3 className="text-lg mb-4 text-foreground">Commercial Cleaning by Location</h3>
         <p className="text-sm text-muted-foreground mb-4">
-         Professional commercial cleaning services available in the following locations:
+         Professional commercial cleaning services across Idaho and Utah:
         </p>
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-6">
          <div>
-          <h4 className=" text-foreground mb-2 text-sm">Idaho</h4>
-          <ul className="space-y-1">
-           {idahoLocations.filter(loc => loc.services.commercialCleaning).slice(0, 5).map((location) => (
+          <h4 className="text-foreground mb-3 text-sm">Idaho ({idahoLocations.filter(loc => loc.services.commercialCleaning).length} locations)</h4>
+          <ul className="space-y-1.5">
+           {idahoLocations.filter(loc => loc.services.commercialCleaning).map((location) => (
             <li key={`commercial-${location.name}`}>
              <Link 
               href={buildServiceLocationUrl(location.state, 'commercial-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-commercial-${locationToSlug(location.name)}`}
              >
-              {location.name} Commercial Cleaning
+              {location.name}
              </Link>
             </li>
            ))}
-           {idahoLocations.filter(loc => loc.services.commercialCleaning).length > 5 && (
-            <li className="text-xs text-muted-foreground">
-             + {idahoLocations.filter(loc => loc.services.commercialCleaning).length - 5} more...
-            </li>
-           )}
           </ul>
          </div>
          <div>
-          <h4 className=" text-foreground mb-2 text-sm">Utah</h4>
-          <ul className="space-y-1">
-           {utahLocations.filter(loc => loc.services.commercialCleaning).slice(0, 5).map((location) => (
+          <h4 className="text-foreground mb-3 text-sm">Utah ({utahLocations.filter(loc => loc.services.commercialCleaning).length} locations)</h4>
+          <ul className="space-y-1.5">
+           {utahLocations.filter(loc => loc.services.commercialCleaning).map((location) => (
             <li key={`commercial-${location.name}`}>
              <Link 
               href={buildServiceLocationUrl(location.state, 'commercial-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-commercial-${locationToSlug(location.name)}`}
              >
-              {location.name} Commercial Cleaning
+              {location.name}
              </Link>
             </li>
            ))}
-           {utahLocations.filter(loc => loc.services.commercialCleaning).length > 5 && (
-            <li className="text-xs text-muted-foreground">
-             + {utahLocations.filter(loc => loc.services.commercialCleaning).length - 5} more...
-            </li>
-           )}
           </ul>
          </div>
         </div>

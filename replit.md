@@ -29,6 +29,64 @@ Preferred communication style: Simple, everyday language.
 - Analytics tracking for search queries and result selections
 - Component location: client/src/components/search-bar.tsx
 
+### URL Structure Migration & SEO Enhancement (October 1, 2025)
+
+**URL Structure Changes**
+- Migrated from `/service/city/` to `/state/service/city/` format for improved SEO and geographic targeting
+- New URL pattern: `/idaho/construction-cleaning/idaho-falls/` and `/utah/commercial-cleaning/salt-lake-city/`
+- Implemented routing utilities in `client/src/lib/routing-utils.ts`:
+  - `buildServiceLocationUrl(state, service, city)` - generates SEO-optimized URLs
+  - `getLocationByStateAndSlug(state, citySlug)` - retrieves location data with state validation
+  - `stateToSlug()` and `slugToState()` - handle state URL conversion
+  - `isValidServiceLocation(service, locationSlug, state)` - validates service/location/state combinations
+- Updated all internal navigation (header, footer, mega menu, CTAs, breadcrumbs) to use new URL structure
+- All 24 service locations now accessible via state-qualified URLs
+
+**Mega Menu Navigation**
+- Implemented comprehensive mega menu combining services and locations with tabbed interface
+- Two-tab design: "Our Services" and "Service Areas" for intuitive navigation
+- Services tab displays construction cleaning and commercial cleaning with icons and descriptions
+- Service Areas tab shows all Idaho and Utah locations organized by state
+- Hover effects and visual indicators for better user experience
+- Mobile-optimized with collapsible menu and touch-friendly interactions
+- Component location: `client/src/components/layout/header.tsx`
+
+**Location-Specific Content Generation**
+- Added 5 new content sections to city/service pages for comprehensive local context:
+  - **Regional Challenges**: Location-specific operational challenges and industry pain points
+  - **Tailored Solutions**: Custom solutions addressing each city's unique market needs
+  - **Case Studies**: Real project examples showcasing local expertise and results
+  - **Compliance & Certifications**: Region-specific licensing, OSHA compliance, and regulatory requirements
+  - **Location Testimonials**: City-specific client testimonials and success stories
+- Content generation utilities in `client/src/lib/location-content-utils.ts`
+- All content dynamically generated based on location demographics and industry data from `shared/service-locations.ts`
+
+**SEO Optimization Implementation**
+- Comprehensive structured data implementation:
+  - LocalBusiness schema with city-specific NAP (Name, Address, Phone) data
+  - Service schema for each service/location combination
+  - BreadcrumbList schema for improved navigation and search appearance
+- City-specific meta tags:
+  - Unique title tags: "[Service] in [City], [State] | Imperial Cleaning Inc"
+  - Location-optimized meta descriptions with local keywords
+  - Open Graph tags for social sharing with city context
+  - Twitter Card optimization for location pages
+- Breadcrumb navigation on all city/service pages showing: Home > State > Service > City
+- Semantic HTML with proper heading hierarchy (H1 for city/service, H2 for sections)
+
+**Sitemap Updates**
+- Updated `client/src/pages/sitemap.tsx` to display all city/service URL combinations
+- Complete directory showing all 24 locations × 2 services = 48 unique city/service pages
+- Organized by state (Idaho/Utah) and service type for easy navigation
+- URLs use new `/state/service/city/` format with `buildServiceLocationUrl()` utility
+- Dynamic location counts displayed for each state/service combination
+
+**Technical Implementation**
+- Service location data centralized in `shared/service-locations.ts` with 24 total locations
+- Routing utilities ensure consistent URL generation across entire application
+- All links validated for proper state/service/location combinations
+- Mobile-responsive design maintained across all new pages and components
+
 ## Recent Changes (September 30, 2025)
 
 ### Featured Image Implementation
