@@ -6,6 +6,7 @@ import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
 import { ServiceCTA } from "@/components/shared";
 import InternalHeroSection from "@/components/internal-hero-section";
+import RelatedLinks from "@/components/related-links";
 import { ServiceLocation } from "@shared/service-locations";
 import logoImage from "@assets/imperial-cleaning-logo.jpg";
 import { 
@@ -404,6 +405,18 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
          Get a Free Commercial Cleaning Quote in {locationData!.name}
         </Button>
        </div>
+       
+       {/* Related Links */}
+       {serviceIntroduction.internalLinks && (
+        <div className="mt-12">
+         <RelatedLinks
+          currentService="commercial-cleaning"
+          location={locationData!}
+          serviceArea={locationData!.state}
+          data-testid="related-links-intro"
+         />
+        </div>
+       )}
       </div>
      </div>
     </section>
@@ -1699,6 +1712,20 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
           </div>
          ))}
         </div>
+       </div>
+      </section>
+     )}
+
+     {/* Related Links Before FAQ */}
+     {coverageDetails && coverageDetails.internalLinks && (
+      <section className="py-16 px-4 bg-card/30">
+       <div className="max-w-7xl mx-auto">
+        <RelatedLinks
+         currentService="commercial-cleaning"
+         location={locationData}
+         serviceArea={locationData.state}
+         data-testid="related-links-before-faq"
+        />
        </div>
       </section>
      )}

@@ -1,4 +1,11 @@
 import { ServiceLocation } from "@shared/service-locations";
+import { buildServiceLocationUrl } from "./routing-utils";
+import { 
+  getComplementaryServiceLink, 
+  getNearbyCities, 
+  getServiceAreaLink,
+  getSimilarIndustryLocations 
+} from "./linking-utils";
 
 /**
  * Generate location-specific SEO and content for service pages
@@ -1139,7 +1146,17 @@ export function generateServiceIntroduction(service: string, location: ServiceLo
     );
   }
 
-  return intro;
+  // Add internal links for SEO and user navigation
+  const complementaryLink = getComplementaryServiceLink(service, location);
+  const stateAreaLink = getServiceAreaLink(location.state);
+
+  return {
+    ...intro,
+    internalLinks: {
+      complementary: complementaryLink,
+      stateArea: stateAreaLink
+    }
+  };
 }
 
 // Generate "Why Choose [Service] in [City]" section
@@ -1248,7 +1265,13 @@ export function generateEnhancedServiceFeatures(service: string, location: Servi
     localContext: `${location.state === 'Idaho' 
       ? `All ${isConstruction ? 'construction cleanup services' : 'commercial cleaning programs'} in ${location.name} include specialized dust control protocols for Idaho's high desert climate, ensuring superior air quality and cleanliness despite challenging environmental conditions.`
       : `Our ${isConstruction ? 'construction cleanup methods' : 'commercial cleaning programs'} in ${location.name} are specifically adapted for Utah's mountain environment, with air quality-focused approaches that maintain healthy indoor conditions throughout the year.`
-    }`
+    }`,
+    internalLinks: {
+      serviceHub: {
+        url: `/${service}`,
+        text: `Explore all our ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} capabilities`
+      }
+    }
   };
 }
 
@@ -1296,6 +1319,10 @@ export function generateServiceCoverageDetails(service: string, location: Servic
         title: `24/7 Emergency ${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} in ${location.name}`,
         description: `When ${isConstruction ? 'construction emergencies' : 'facility emergencies'} happen in ${location.name}, Imperial Cleaning Inc is available 24 hours a day, 7 days a week. Whether you need ${isConstruction ? 'urgent post-construction cleanup for an accelerated inspection deadline' : 'emergency cleanup after water damage or contamination incidents'}, our ${location.name} response team is ready to mobilize immediately. Call us anytime at 208-520-3202 for emergency ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} services in ${location.name}, ${location.state}.`
       }
+    },
+    internalLinks: {
+      nearbyCities: getNearbyCities(service, location, 5),
+      stateArea: getServiceAreaLink(location.state)
     }
   };
 }
@@ -1548,6 +1575,12 @@ export function generateIndustryApplications(service: string, location: ServiceL
       }
 
       return app;
-    }).slice(0, 4)
+    }).slice(0, 4),
+    internalLinks: {
+      complementary: getComplementaryServiceLink(service, location),
+      similarIndustry: industries.slice(0, 2).flatMap(industry => 
+        getSimilarIndustryLocations(service, location, industry, 2)
+      ).slice(0, 3)
+    }
   };
 }
