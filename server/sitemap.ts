@@ -21,8 +21,8 @@ export function generateSitemap(): string {
   const baseUrl = 'https://imperialcleaninginc.com';
   const currentDate = new Date().toISOString().split('T')[0];
   
-  // Static routes
-  const staticUrls: SitemapUrl[] = [
+  // Main Pages (priority: 1.0, changefreq: weekly)
+  const mainPages: SitemapUrl[] = [
     {
       url: `${baseUrl}/`,
       lastmod: currentDate,
@@ -32,15 +32,19 @@ export function generateSitemap(): string {
     {
       url: `${baseUrl}/about`,
       lastmod: currentDate,
-      changefreq: 'monthly',
-      priority: 0.8
+      changefreq: 'weekly',
+      priority: 1.0
     },
     {
       url: `${baseUrl}/contact`,
       lastmod: currentDate,
-      changefreq: 'monthly',
-      priority: 0.8
-    },
+      changefreq: 'weekly',
+      priority: 1.0
+    }
+  ];
+
+  // Service Hub Pages (priority: 0.9, changefreq: weekly)
+  const serviceHubPages: SitemapUrl[] = [
     {
       url: `${baseUrl}/construction-cleaning`,
       lastmod: currentDate,
@@ -52,24 +56,51 @@ export function generateSitemap(): string {
       lastmod: currentDate,
       changefreq: 'weekly',
       priority: 0.9
-    },
-    {
-      url: `${baseUrl}/service-areas/idaho`,
-      lastmod: currentDate,
-      changefreq: 'monthly',
-      priority: 0.7
-    },
-    {
-      url: `${baseUrl}/service-areas/utah`,
-      lastmod: currentDate,
-      changefreq: 'monthly',
-      priority: 0.7
     }
   ];
 
-  // Dynamic service/location routes
+  // Service Area Pages (priority: 0.85, changefreq: monthly)
+  const serviceAreaPages: SitemapUrl[] = [
+    {
+      url: `${baseUrl}/idaho-service-areas`,
+      lastmod: currentDate,
+      changefreq: 'monthly',
+      priority: 0.85
+    },
+    {
+      url: `${baseUrl}/utah-service-areas`,
+      lastmod: currentDate,
+      changefreq: 'monthly',
+      priority: 0.85
+    }
+  ];
+
+  // Legal/Other Pages (priority: 0.3, changefreq: yearly)
+  const legalPages: SitemapUrl[] = [
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastmod: currentDate,
+      changefreq: 'yearly',
+      priority: 0.3
+    },
+    {
+      url: `${baseUrl}/terms-of-service`,
+      lastmod: currentDate,
+      changefreq: 'yearly',
+      priority: 0.3
+    },
+    {
+      url: `${baseUrl}/sitemap`,
+      lastmod: currentDate,
+      changefreq: 'yearly',
+      priority: 0.3
+    }
+  ];
+
+  // City-Specific Service Pages (priority: 0.8, changefreq: monthly)
+  // Format: https://imperialcleaninginc.com/state/service/city/
   const serviceTypes = ['construction-cleaning', 'commercial-cleaning'];
-  const dynamicUrls: SitemapUrl[] = [];
+  const cityServicePages: SitemapUrl[] = [];
 
   // Generate URLs for each service/location combination
   for (const service of serviceTypes) {
@@ -80,20 +111,26 @@ export function generateSitemap(): string {
         : location.services.commercialCleaning;
 
       if (supportsService) {
-        const locationSlug = locationToSlug(location.name);
-        dynamicUrls.push({
-          url: `${baseUrl}/${service}/${locationSlug}`,
+        const stateSlug = location.state.toLowerCase();
+        const citySlug = locationToSlug(location.name);
+        cityServicePages.push({
+          url: `${baseUrl}/${stateSlug}/${service}/${citySlug}/`,
           lastmod: currentDate,
-          changefreq: 'weekly',
-          priority: location.marketTier === 'primary' ? 0.8 : 
-                   location.marketTier === 'secondary' ? 0.7 : 0.6
+          changefreq: 'monthly',
+          priority: 0.8
         });
       }
     }
   }
 
-  // Combine all URLs
-  const allUrls = [...staticUrls, ...dynamicUrls];
+  // Combine all URLs in proper order
+  const allUrls = [
+    ...mainPages,
+    ...serviceHubPages,
+    ...serviceAreaPages,
+    ...cityServicePages,
+    ...legalPages
+  ];
 
   // Generate XML sitemap
   const xmlHeader = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -129,10 +166,16 @@ export function generateSitemap(): string {
 
 // Generate sitemap statistics for monitoring
 export function getSitemapStats() {
-  const staticCount = 7; // Homepage, About, Contact, 2 service hubs, 2 service areas
+  // Count static pages
+  const mainPagesCount = 3; // Homepage, About, Contact
+  const serviceHubCount = 2; // Construction, Commercial
+  const serviceAreaCount = 2; // Idaho, Utah
+  const legalPagesCount = 3; // Privacy, Terms, Sitemap page
+  const staticCount = mainPagesCount + serviceHubCount + serviceAreaCount + legalPagesCount;
+  
   const locationCount = allServiceLocations.length;
   
-  // Count dynamic routes
+  // Count dynamic city/service routes
   let constructionCleaningCount = 0;
   let commercialCleaningCount = 0;
   
@@ -145,12 +188,20 @@ export function getSitemapStats() {
   const totalUrls = staticCount + dynamicCount;
   
   return {
-    static_urls: staticCount,
-    dynamic_urls: dynamicCount,
-    total_urls: totalUrls,
+    static_pages: {
+      main_pages: mainPagesCount,
+      service_hubs: serviceHubCount,
+      service_areas: serviceAreaCount,
+      legal_pages: legalPagesCount,
+      total: staticCount
+    },
+    dynamic_pages: {
+      construction_cleaning: constructionCleaningCount,
+      commercial_cleaning: commercialCleaningCount,
+      total: dynamicCount
+    },
     locations_covered: locationCount,
-    construction_cleaning_pages: constructionCleaningCount,
-    commercial_cleaning_pages: commercialCleaningCount,
+    total_urls: totalUrls,
     last_generated: new Date().toISOString()
   };
 }
