@@ -183,6 +183,62 @@ export default function Header() {
        >
         <Search className="w-5 h-5" />
        </button>
+       
+       {/* Service Areas Dropdown */}
+       <div className="relative" ref={serviceAreasDropdownRef}>
+        <button 
+         className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle flex items-center focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md px-2 py-1"
+         onClick={handleServiceAreasDropdownToggle}
+         onKeyDown={(e) => handleDropdownKeyDown(e, handleServiceAreasDropdownToggle)}
+         aria-haspopup="true"
+         aria-expanded={isServiceAreasDropdownOpen}
+         data-testid="button-service-areas-dropdown"
+        >
+         Service Areas
+         <svg className={`ml-1 h-3 w-3 transition-transform duration-200 ${isServiceAreasDropdownOpen ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+         </svg>
+        </button>
+        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${isServiceAreasDropdownOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'}`}>
+         <div className="py-2">
+          <Link 
+           href="/service-areas/idaho" 
+           className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
+           onClick={() => {
+            trackNavigationInteraction('menu_click', 'service_areas', 'idaho_service_areas');
+            closeAllDropdowns();
+           }}
+           data-testid="link-service-areas-idaho"
+          >
+           <div className="flex items-center">
+            <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+            <div>
+             <div className="">Idaho Locations</div>
+             <div className="text-xs text-muted-foreground mt-0.5">Idaho Falls, Pocatello, Rexburg & more</div>
+            </div>
+           </div>
+          </Link>
+          <Link 
+           href="/service-areas/utah" 
+           className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
+           onClick={() => {
+            trackNavigationInteraction('menu_click', 'service_areas', 'utah_service_areas');
+            closeAllDropdowns();
+           }}
+           data-testid="link-service-areas-utah"
+          >
+           <div className="flex items-center">
+            <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+            <div>
+             <div className="">Utah Locations</div>
+             <div className="text-xs text-muted-foreground mt-0.5">Salt Lake City, Logan, Ogden & more</div>
+            </div>
+           </div>
+          </Link>
+         </div>
+        </div>
+       </div>
+
        {/* Services Dropdown with Multi-level Navigation */}
        <div className="relative" ref={servicesDropdownRef}>
         <button 
@@ -334,61 +390,6 @@ export default function Header() {
             </div>
            </div>
           </div>
-         </div>
-        </div>
-       </div>
-
-       {/* Service Areas Dropdown */}
-       <div className="relative" ref={serviceAreasDropdownRef}>
-        <button 
-         className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle flex items-center focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md px-2 py-1"
-         onClick={handleServiceAreasDropdownToggle}
-         onKeyDown={(e) => handleDropdownKeyDown(e, handleServiceAreasDropdownToggle)}
-         aria-haspopup="true"
-         aria-expanded={isServiceAreasDropdownOpen}
-         data-testid="button-service-areas-dropdown"
-        >
-         Service Areas
-         <svg className={`ml-1 h-3 w-3 transition-transform duration-200 ${isServiceAreasDropdownOpen ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-         </svg>
-        </button>
-        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${isServiceAreasDropdownOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'}`}>
-         <div className="py-2">
-          <Link 
-           href="/service-areas/idaho" 
-           className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
-           onClick={() => {
-            trackNavigationInteraction('menu_click', 'service_areas', 'idaho_service_areas');
-            closeAllDropdowns();
-           }}
-           data-testid="link-service-areas-idaho"
-          >
-           <div className="flex items-center">
-            <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-            <div>
-             <div className="">Idaho Locations</div>
-             <div className="text-xs text-muted-foreground mt-0.5">Idaho Falls, Pocatello, Rexburg & more</div>
-            </div>
-           </div>
-          </Link>
-          <Link 
-           href="/service-areas/utah" 
-           className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
-           onClick={() => {
-            trackNavigationInteraction('menu_click', 'service_areas', 'utah_service_areas');
-            closeAllDropdowns();
-           }}
-           data-testid="link-service-areas-utah"
-          >
-           <div className="flex items-center">
-            <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
-            <div>
-             <div className="">Utah Locations</div>
-             <div className="text-xs text-muted-foreground mt-0.5">Salt Lake City, Logan, Ogden & more</div>
-            </div>
-           </div>
-          </Link>
          </div>
         </div>
        </div>
