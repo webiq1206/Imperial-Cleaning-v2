@@ -66,7 +66,7 @@ export default function ServicesSection() {
        {/* Inset divider before button */}
        <div className="glass-divider-top mb-6"></div>
        
-       <div className="flex gap-3">
+       <div className="flex gap-3 flex-wrap">
         <Link href="/construction-cleaning">
          <Button 
           variant="pill-secondary"
@@ -75,19 +75,28 @@ export default function ServicesSection() {
           onClick={() => handleLearnMore('construction')}
           data-testid="button-learn-more-construction"
          >
-          View Projects →
+          Our Services →
          </Button>
         </Link>
-        <Link href="#faq">
+        <Link href="/service-areas/idaho">
          <Button 
           variant="pill-ghost"
           size="pill-md"
           className="text-sm hover-lift-gentle"
-          data-testid="button-construction-faq"
+          data-testid="button-service-areas-construction"
          >
-          Construction FAQ
+          Service Areas
          </Button>
         </Link>
+        <Button 
+         variant="pill-primary"
+         size="pill-md"
+         className="hover-lift-gentle button-ripple"
+         onClick={() => setShowContactForm(true)}
+         data-testid="button-request-quote-construction"
+        >
+         Request Quote
+        </Button>
        </div>
       </div>
 
@@ -132,7 +141,7 @@ export default function ServicesSection() {
        {/* Inset divider before button */}
        <div className="glass-divider-top mb-6"></div>
        
-       <div className="flex gap-3">
+       <div className="flex gap-3 flex-wrap">
         <Link href="/commercial-cleaning">
          <Button 
           variant="pill-secondary"
@@ -149,11 +158,20 @@ export default function ServicesSection() {
           variant="pill-ghost"
           size="pill-md"
           className="text-sm hover-lift-gentle"
-          data-testid="button-service-areas-idaho"
+          data-testid="button-service-areas-commercial"
          >
           Service Areas
          </Button>
         </Link>
+        <Button 
+         variant="pill-primary"
+         size="pill-md"
+         className="hover-lift-gentle button-ripple"
+         onClick={() => setShowContactForm(true)}
+         data-testid="button-request-quote-commercial"
+        >
+         Request Quote
+        </Button>
        </div>
       </div>
      </div>
