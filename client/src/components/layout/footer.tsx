@@ -80,6 +80,63 @@ export default function Footer() {
        </div>
       </div>
       
+      {/* Social Media Links */}
+      <div className="mb-6">
+       <h4 className="text-sm text-foreground mb-3">Connect With Us</h4>
+       <div className="flex gap-4">
+        <a 
+         href="https://www.facebook.com/imperialcleaninginc" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         className="text-muted-foreground hover:text-primary transition-colors duration-200"
+         data-testid="link-footer-facebook"
+         aria-label="Visit our Facebook page"
+        >
+         <i className="fab fa-facebook text-xl"></i>
+        </a>
+        <a 
+         href="https://www.linkedin.com/company/imperial-cleaning-inc" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         className="text-muted-foreground hover:text-primary transition-colors duration-200"
+         data-testid="link-footer-linkedin"
+         aria-label="Visit our LinkedIn page"
+        >
+         <i className="fab fa-linkedin text-xl"></i>
+        </a>
+        <a 
+         href="https://twitter.com/imperialcleaning" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         className="text-muted-foreground hover:text-primary transition-colors duration-200"
+         data-testid="link-footer-twitter"
+         aria-label="Follow us on X (Twitter)"
+        >
+         <i className="fab fa-x-twitter text-xl"></i>
+        </a>
+        <a 
+         href="https://www.instagram.com/imperialcleaninginc" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         className="text-muted-foreground hover:text-primary transition-colors duration-200"
+         data-testid="link-footer-instagram"
+         aria-label="Follow us on Instagram"
+        >
+         <i className="fab fa-instagram text-xl"></i>
+        </a>
+        <a 
+         href="https://www.youtube.com/@imperialcleaninginc" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         className="text-muted-foreground hover:text-primary transition-colors duration-200"
+         data-testid="link-footer-youtube"
+         aria-label="Subscribe to our YouTube channel"
+        >
+         <i className="fab fa-youtube text-xl"></i>
+        </a>
+       </div>
+      </div>
+      
       {/* Trust Indicators */}
       <div className="grid grid-cols-2 gap-3">
        <div className="flex items-center text-xs text-muted-foreground">
