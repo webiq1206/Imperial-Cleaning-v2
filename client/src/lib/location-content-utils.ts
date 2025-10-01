@@ -1482,6 +1482,9 @@ export function generateIndustryApplications(service: string, location: ServiceL
             `After-hours scheduling to accommodate ${location.name} retail operations`
           ];
           app.experience = `We've completed retail construction cleanup throughout ${location.name}, from major shopping centers to individual store build-outs, consistently delivering the showroom-ready results that ${location.name} retailers need.`;
+        } else if (industry === "Residential" || industry === "Residential Development" || industry === "Luxury Residential") {
+          // Skip residential industry - we don't provide residential cleaning services
+          return null;
         } else {
           app.title = `${industry} Construction Projects in ${location.name}`;
           app.description = `${location.name}'s ${industry.toLowerCase()} sector has specific construction cleanup requirements based on facility types, operational needs, and industry regulations. Our ${industry.toLowerCase()} construction cleanup experience ensures ${location.name} projects receive appropriate specialized services.`;
@@ -1558,6 +1561,9 @@ export function generateIndustryApplications(service: string, location: ServiceL
             `Sanitation schedules minimizing production disruption while maintaining compliance`
           ];
           app.experience = `Our food processing facility experience in ${location.name} ensures food production environments meet all regulatory requirements while maintaining operational efficiency.`;
+        } else if (industry === "Residential" || industry === "Residential Development" || industry === "Luxury Residential") {
+          // Skip residential industry - we don't provide residential cleaning services
+          return null;
         } else {
           app.title = `${industry} Commercial Cleaning in ${location.name}`;
           app.description = `${location.name}'s ${industry.toLowerCase()} businesses need commercial cleaning programs tailored to their specific operational requirements, facility types, and industry standards. Our ${industry.toLowerCase()} cleaning expertise ensures ${location.name} facilities receive appropriate specialized services.`;
@@ -1575,7 +1581,7 @@ export function generateIndustryApplications(service: string, location: ServiceL
       }
 
       return app;
-    }).slice(0, 4),
+    }).filter(app => app !== null).slice(0, 4),
     internalLinks: {
       complementary: getComplementaryServiceLink(service, location),
       similarIndustry: industries.slice(0, 2).flatMap(industry => 
