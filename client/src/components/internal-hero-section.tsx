@@ -79,7 +79,7 @@ export default function InternalHeroSection({
           <span className="text-sm text-secondary-color tracking-tight">
            {pillText}
           </span>
-          <svg className="ml-2 w-3.5 h-3.5 text-subtle-color group-hover:text-secondary-color transition-all duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="ml-2 w-3.5 h-3.5 text-subtle-color group-hover:text-secondary-color transition-all duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
           </svg>
          </div>
