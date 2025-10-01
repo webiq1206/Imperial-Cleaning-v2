@@ -293,11 +293,10 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
   ]);
 
  const structuredData = [
-  commercialServiceSchema,
-  ...(localBusinessSchema ? [localBusinessSchema] : []),
-  aggregateRatingSchema,
-  breadcrumbSchema
- ];
+ ...(isLocationSpecific && Array.isArray(commercialServiceSchema) ? commercialServiceSchema : [commercialServiceSchema]),
+ ...(localBusinessSchema ? [localBusinessSchema] : []),
+ aggregateRatingSchema
+].filter(Boolean);
 
  return (
   <>

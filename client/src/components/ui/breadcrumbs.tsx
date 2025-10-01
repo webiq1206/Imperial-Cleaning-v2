@@ -1,17 +1,61 @@
 import { Link } from "wouter";
 import { ChevronRight, Home } from "lucide-react";
+import { useEffect } from "react";
 
 interface BreadcrumbItem {
  name: string;
  href?: string;
+ url?: string;
 }
 
 interface BreadcrumbsProps {
  items: BreadcrumbItem[];
  className?: string;
+ includeStructuredData?: boolean;
 }
 
-export default function Breadcrumbs({ items, className = "" }: BreadcrumbsProps) {
+export default function Breadcrumbs({ items, className = "", includeStructuredData = true }: BreadcrumbsProps) {
+ useEffect(() => {
+  if (includeStructuredData) {
+   const existingBreadcrumbSchema = document.querySelector('script[data-schema-type="BreadcrumbList"]');
+   if (existingBreadcrumbSchema) {
+    existingBreadcrumbSchema.remove();
+   }
+
+   const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+     {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://imperialcleaninginc.com/"
+     },
+     ...items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": item.name,
+      "item": item.url || item.href || window.location.href
+     }))
+    ]
+   };
+
+   const script = document.createElement('script');
+   script.type = 'application/ld+json';
+   script.setAttribute('data-schema-type', 'BreadcrumbList');
+   script.textContent = JSON.stringify(breadcrumbSchema);
+   document.head.appendChild(script);
+
+   return () => {
+    const schemaToRemove = document.querySelector('script[data-schema-type="BreadcrumbList"]');
+    if (schemaToRemove) {
+     schemaToRemove.remove();
+    }
+   };
+  }
+ }, [items, includeStructuredData]);
+
  return (
   <nav 
    aria-label="Breadcrumb navigation" 
@@ -19,7 +63,6 @@ export default function Breadcrumbs({ items, className = "" }: BreadcrumbsProps)
    data-testid="breadcrumbs"
   >
    <ol className="flex items-center space-x-2">
-    {/* Home link */}
     <li>
      <Link 
       href="/" 

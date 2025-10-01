@@ -937,45 +937,151 @@ export function generateBusinessIntegration(service: string, location: ServiceLo
   };
 }
 
-// Generate location-specific structured data
+// Generate location-specific structured data with comprehensive LocalBusiness and Service schemas
 export function generateLocationStructuredData(service: string, location: ServiceLocation, canonicalUrl: string) {
   const isConstruction = service === 'construction-cleaning';
   const serviceName = isConstruction ? 'Construction Cleaning' : 'Commercial Cleaning';
+  const stateAbbr = location.state === "Idaho" ? "ID" : "UT";
   
-  return {
+  const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": `Imperial Cleaning Inc - ${location.name} ${serviceName}`,
+    "alternateName": `Imperial Cleaning ${location.name}`,
     "description": generateLocationDescription(service, location),
     "url": canonicalUrl,
     "telephone": "+1-208-520-3202",
+    "email": "service@imperialcleaninginc.com",
+    "logo": "https://imperialcleaninginc.com/hero-logo.png",
+    "image": "https://imperialcleaninginc.com/hero-logo.png",
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Check, Credit Card, ACH Transfer",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Idaho Falls",
       "addressRegion": "ID",
       "addressCountry": "US"
     },
-    "areaServed": {
-      "@type": "City",
-      "name": location.name,
-      "addressRegion": location.state === "Idaho" ? "ID" : "UT"
+    ...(location.coordinates && {
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": location.coordinates.lat.toString(),
+        "longitude": location.coordinates.lng.toString()
+      }
+    }),
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": location.name,
+        "addressRegion": stateAbbr,
+        ...(location.county && { "containedInPlace": { "@type": "AdministrativeArea", "name": location.county } })
+      },
+      {
+        "@type": "State",
+        "name": location.state,
+        "addressRegion": stateAbbr
+      }
+    ],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": location.coordinates ? {
+        "@type": "GeoCoordinates",
+        "latitude": location.coordinates.lat.toString(),
+        "longitude": location.coordinates.lng.toString()
+      } : {
+        "@type": "GeoCoordinates",
+        "latitude": "43.4666",
+        "longitude": "-112.0336"
+      },
+      "geoRadius": location.serviceRadius
     },
     "serviceType": isConstruction ? 
       ["Post Construction Cleanup", "Construction Site Cleaning", "Debris Removal", "Final Inspection Cleaning"] :
       ["Commercial Cleaning", "Janitorial Services", "Office Cleaning", "Facility Maintenance"],
+    "openingHours": [
+      "Mo-Fr 07:00-18:00"
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": `${serviceName} Services in ${location.name}`,
-      "itemListElement": location.services.specializedServices.slice(0, 3).map(service => ({
+      "itemListElement": location.services.specializedServices.slice(0, 5).map(serviceItem => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": service,
-          "description": `Professional ${service.toLowerCase()} services in ${location.name}, ${location.state}`
-        }
+          "name": serviceItem,
+          "description": `Professional ${serviceItem.toLowerCase()} services in ${location.name}, ${location.state}`,
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Imperial Cleaning Inc"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": location.name,
+            "addressRegion": stateAbbr
+          }
+        },
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "USD"
       }))
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-208-520-3202",
+      "contactType": "customer service",
+      "areaServed": [stateAbbr],
+      "availableLanguage": "English",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      }
     }
   };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${serviceName} Services in ${location.name}, ${location.state}`,
+    "description": `Professional ${serviceName.toLowerCase()} services for ${location.name}, ${location.state}. Serving ${location.serviceRadius} with expert ${isConstruction ? 'post-construction cleanup and debris removal' : 'commercial cleaning and janitorial services'}.`,
+    "serviceType": serviceName,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Imperial Cleaning Inc",
+      "telephone": "+1-208-520-3202",
+      "url": "https://imperialcleaninginc.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Idaho Falls",
+        "addressRegion": "ID",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": location.name,
+      "addressRegion": stateAbbr,
+      "containedInPlace": {
+        "@type": "State",
+        "name": location.state
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD"
+    }
+  };
+
+  return [localBusinessSchema, serviceSchema];
 }
 
 // Generate canonical URL for location

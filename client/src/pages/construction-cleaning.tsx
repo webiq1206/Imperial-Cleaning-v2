@@ -283,11 +283,10 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
   ]);
 
  const structuredData = [
-  constructionServiceSchema,
-  ...(localBusinessSchema ? [localBusinessSchema] : []),
-  aggregateRatingSchema,
-  breadcrumbSchema
- ];
+ ...(isLocationSpecific && Array.isArray(constructionServiceSchema) ? constructionServiceSchema : [constructionServiceSchema]),
+ ...(localBusinessSchema ? [localBusinessSchema] : []),
+ aggregateRatingSchema
+].filter(Boolean);
 
  return (
   <>
