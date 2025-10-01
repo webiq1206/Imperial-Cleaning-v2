@@ -320,7 +320,7 @@ export default function ComplianceCertificationsSection() {
         <div className="resend-icon mb-4 group-hover:scale-105 transition-all duration-300">
          <Shield className="w-12 h-12 text-green-400 mx-auto" />
         </div>
-        <h4 className=" text-foreground mb-2">Comprehensive Protection</h4>
+        <h4 className="text-lg text-foreground mb-2">Comprehensive Protection</h4>
         <p className="text-sm text-muted-foreground">Full liability coverage</p>
        </div>
        
@@ -328,7 +328,7 @@ export default function ComplianceCertificationsSection() {
         <div className="resend-icon mb-4 group-hover:scale-105 transition-all duration-300">
          <Clock className="w-12 h-12 text-blue-400 mx-auto" />
         </div>
-        <h4 className=" text-foreground mb-2">Rapid Response</h4>
+        <h4 className="text-lg text-foreground mb-2">Rapid Response</h4>
         <p className="text-sm text-muted-foreground">Professional service guarantee</p>
        </div>
        
@@ -336,7 +336,7 @@ export default function ComplianceCertificationsSection() {
         <div className="resend-icon mb-4 group-hover:scale-105 transition-all duration-300">
          <Award className="w-12 h-12 text-purple-400 mx-auto" />
         </div>
-        <h4 className=" text-foreground mb-2">Professional Operations</h4>
+        <h4 className="text-lg text-foreground mb-2">Professional Operations</h4>
         <p className="text-sm text-muted-foreground">Regional compliance</p>
        </div>
        
@@ -344,7 +344,7 @@ export default function ComplianceCertificationsSection() {
         <div className="resend-icon mb-4 group-hover:scale-105 transition-all duration-300">
          <Globe className="w-12 h-12 text-cyan-400 mx-auto" />
         </div>
-        <h4 className=" text-foreground mb-2">24/7 Availability</h4>
+        <h4 className="text-lg text-foreground mb-2">24/7 Availability</h4>
         <p className="text-sm text-muted-foreground">Always ready to serve</p>
        </div>
       </div>
