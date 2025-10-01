@@ -207,9 +207,10 @@ export default function Header() {
          id="services-mega-menu-panel"
          ref={megaMenuPanelRef}
          role="menu"
-         className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-[700px] bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${
-          isMegaMenuOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'
+         className={`absolute top-full left-1/2 mt-3 w-[700px] bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl transition-opacity transition-visibility duration-300 ease-out glass-card-elevated sophisticated-glow ${
+          isMegaMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
          }`}
+         style={{ transform: 'translateX(-50%)' }}
         >
          
          <div className="border-b border-border/20">
@@ -217,7 +218,7 @@ export default function Header() {
            <button
             onClick={() => handleServiceTabChange('construction')}
             role="menuitem"
-            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 ${
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-colors duration-200 ${
              activeServiceTab === 'construction' 
               ? 'bg-blue-500/20 text-blue-600 border border-blue-500/30' 
               : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
@@ -230,7 +231,7 @@ export default function Header() {
            <button
             onClick={() => handleServiceTabChange('commercial')}
             role="menuitem"
-            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 ${
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-colors duration-200 ${
              activeServiceTab === 'commercial' 
               ? 'bg-green-500/20 text-green-600 border border-green-500/30' 
               : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
@@ -277,7 +278,7 @@ export default function Header() {
                 key={`${loc.state}-${loc.name}`}
                 href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
                 role="menuitem"
-                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                 onClick={() => {
                  trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
@@ -308,7 +309,7 @@ export default function Header() {
                 key={`${loc.state}-${loc.name}`}
                 href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
                 role="menuitem"
-                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                 onClick={() => {
                  trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
@@ -363,7 +364,7 @@ export default function Header() {
                 key={`${loc.state}-${loc.name}`}
                 href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
                 role="menuitem"
-                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                 onClick={() => {
                  trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
@@ -394,7 +395,7 @@ export default function Header() {
                 key={`${loc.state}-${loc.name}`}
                 href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
                 role="menuitem"
-                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
                 onClick={() => {
                  trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);

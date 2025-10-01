@@ -1791,7 +1791,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
        <h3 className="text-xl mb-3 text-foreground">Construction Cleanup</h3>
        <p className="text-muted-foreground mb-4">Post-construction cleanup and debris removal for contractors</p>
        <Link href="/construction-cleaning">
-        <Button variant="outline" size="sm" className="w-full" data-testid="link-construction-cleaning">
+        <Button variant="pill-ghost" size="pill-sm" className="w-full" data-testid="link-construction-cleaning">
          Learn About Construction Services
         </Button>
        </Link>
@@ -1804,7 +1804,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
        <h3 className="text-xl mb-3 text-foreground">Idaho Service Areas</h3>
        <p className="text-muted-foreground mb-4">Serving Idaho Falls, Pocatello, Boise, and the entire Treasure Valley</p>
        <Link href="/service-areas/idaho">
-        <Button variant="outline" size="sm" className="w-full" data-testid="link-idaho-areas">
+        <Button variant="pill-ghost" size="pill-sm" className="w-full" data-testid="link-idaho-areas">
          View Idaho Locations
         </Button>
        </Link>
@@ -1817,7 +1817,7 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
        <h3 className="text-xl mb-3 text-foreground">Utah Service Areas</h3>
        <p className="text-muted-foreground mb-4">Covering Salt Lake City, Logan, Ogden, Provo, and the Wasatch Front</p>
        <Link href="/service-areas/utah">
-        <Button variant="outline" size="sm" className="w-full" data-testid="link-utah-areas">
+        <Button variant="pill-ghost" size="pill-sm" className="w-full" data-testid="link-utah-areas">
          View Utah Locations
         </Button>
        </Link>

@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import SEOHead from "@/components/seo-head";
+import { Button } from "@/components/ui/button";
 import { allServiceLocations } from "@shared/service-locations";
 import { locationToSlug, buildServiceLocationUrl } from "@/lib/routing-utils";
 import logoImage from "@assets/imperial-cleaning-logo.jpg";
@@ -457,19 +458,23 @@ export default function SitemapPage() {
         we're here to deliver exceptional results with reliable, professional service.
        </p>
        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <a 
-         href="/contact" 
-         className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200"
-         data-testid="sitemap-cta-contact"
-        >
-         Get Free Quote Today
-        </a>
-        <a 
-         href="tel:+12085203202" 
-         className="inline-flex items-center justify-center px-8 py-4 border border-border bg-card text-card-foreground rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
-         data-testid="sitemap-cta-phone"
-        >
-         Call (208) 520-3202
+        <Link href="/contact">
+         <Button 
+          variant="pill-primary"
+          size="pill-lg"
+          data-testid="sitemap-cta-contact"
+         >
+          Get Free Quote Today
+         </Button>
+        </Link>
+        <a href="tel:+12085203202">
+         <Button 
+          variant="pill-ghost"
+          size="pill-lg"
+          data-testid="sitemap-cta-phone"
+         >
+          Call (208) 520-3202
+         </Button>
         </a>
        </div>
        <p className="text-sm text-muted-foreground mt-4">

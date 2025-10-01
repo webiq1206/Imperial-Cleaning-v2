@@ -80,7 +80,7 @@ export default function ServicesSection() {
         </Link>
         <Link href="#faq">
          <Button 
-          variant="outline"
+          variant="pill-ghost"
           size="pill-md"
           className="text-sm hover-lift-gentle"
           data-testid="button-construction-faq"
@@ -146,7 +146,7 @@ export default function ServicesSection() {
         </Link>
         <Link href="/service-areas/idaho">
          <Button 
-          variant="outline"
+          variant="pill-ghost"
           size="pill-md"
           className="text-sm hover-lift-gentle"
           data-testid="button-service-areas-idaho"
