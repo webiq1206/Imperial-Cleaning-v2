@@ -76,6 +76,26 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (October 1, 2025)
 
+### Performance Optimization for PageSpeed Insights (October 1, 2025)
+- **Eliminated render-blocking external fonts**:
+  - Removed Google Fonts (Inter, Geist, Fira Code) from index.html and index.css
+  - Implemented system font stacks for optimal performance: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif`
+  - Font Awesome CSS now deferred using preload + onload technique (non-blocking)
+- **Optimized image loading**:
+  - Hero images: Added `fetchPriority="high"` for above-the-fold content, explicit width/height dimensions (384x384, 512x512), `decoding="async"`
+  - Footer logo: Added `loading="lazy"`, `decoding="async"`, width="120" height="32"
+  - Header logo: Added width="75" height="20", `decoding="async"`
+  - All images have explicit dimensions to prevent Cumulative Layout Shift (CLS)
+- **CSS performance improvements**:
+  - Consolidated and organized animations in dedicated section
+  - Removed duplicate keyframe definitions
+- **Target metrics**:
+  - Largest Contentful Paint (LCP): Optimized with high-priority hero images
+  - Cumulative Layout Shift (CLS): Eliminated with explicit image dimensions
+  - Total Blocking Time (TBT): Reduced with async image decoding and deferred Font Awesome
+  - First Contentful Paint (FCP): Improved by removing render-blocking fonts
+- **Files modified**: `client/index.html`, `client/src/index.css`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`, `client/src/components/layout/footer.tsx`, `client/src/components/layout/header.tsx`
+
 ### Critical SEO Optimization - Phase 2
 - **Added comprehensive noscript content** (~600+ words) to index.html for SEO crawlers that don't execute JavaScript
   - Includes H1, H2, H3 heading structure with proper semantic HTML

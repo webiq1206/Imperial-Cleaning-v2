@@ -172,6 +172,9 @@ export default function Header() {
          src="/header-logo.png" 
          alt="Imperial Cleaning Inc" 
          className="h-5 w-auto brightness-0 invert opacity-40 hover:opacity-60 transition-all duration-300 mix-blend-overlay"
+         width="75"
+         height="20"
+         decoding="async"
         />
        </Link>
       </div>
