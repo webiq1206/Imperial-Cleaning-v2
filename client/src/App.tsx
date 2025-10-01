@@ -5,9 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { initGA } from "./lib/analytics";
+import { initGA, trackEvent } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
-import { isValidServiceLocation, getLocationBySlug } from "./lib/routing-utils";
+import { isValidServiceLocation, getLocationBySlug, getLocationByStateAndSlug, buildServiceLocationUrl } from "./lib/routing-utils";
 import SEOHead from "@/components/seo-head";
 import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
@@ -25,32 +25,93 @@ import TermsOfServicePage from "@/pages/terms-of-service";
 import SitemapPage from "@/pages/sitemap";
 import NotFound from "@/pages/not-found";
 
-// Service/Location Page Component
+// Service/Location Page Component (supports both new and legacy formats)
 interface ServiceLocationPageProps {
+ params: {
+  service: string;
+  location: string;
+  state?: string;
+ };
+}
+
+function ServiceLocationPage({ params }: ServiceLocationPageProps) {
+ const { service, location, state } = params;
+ 
+ // Validate the service/location combination
+ if (state) {
+  // New format: validate state/service/city
+  if (!isValidServiceLocation(service, location, state)) {
+   return <NotFound />;
+  }
+  
+  const locationData = getLocationByStateAndSlug(state, location);
+  
+  // Render the appropriate service page with location context
+  if (service === 'construction-cleaning') {
+   return <ConstructionCleaning params={{}} locationData={locationData} />;
+  } else if (service === 'commercial-cleaning') {
+   return <CommercialCleaning params={{}} locationData={locationData} />;
+  }
+ } else {
+  // Legacy format: validate service/city only
+  if (!isValidServiceLocation(service, location)) {
+   return <NotFound />;
+  }
+  
+  const locationData = getLocationBySlug(location);
+  
+  // Render the appropriate service page with location context
+  if (service === 'construction-cleaning') {
+   return <ConstructionCleaning params={{}} locationData={locationData} />;
+  } else if (service === 'commercial-cleaning') {
+   return <CommercialCleaning params={{}} locationData={locationData} />;
+  }
+ }
+ 
+ return <NotFound />;
+}
+
+// Legacy URL Redirect Component - redirects old URLs to new format
+interface LegacyRedirectProps {
  params: {
   service: string;
   location: string;
  };
 }
 
-function ServiceLocationPage({ params }: ServiceLocationPageProps) {
+function LegacyServiceLocationRedirect({ params }: LegacyRedirectProps) {
  const { service, location } = params;
  
- // Validate the service/location combination
- if (!isValidServiceLocation(service, location)) {
+ // Get the location data to determine the state
+ const locationData = getLocationBySlug(location);
+ 
+ if (!locationData || !isValidServiceLocation(service, location)) {
   return <NotFound />;
  }
  
- const locationData = getLocationBySlug(location);
+ // Build the new URL with state
+ const newUrl = buildServiceLocationUrl(locationData.state, service, locationData.name);
  
- // Render the appropriate service page with location context
- if (service === 'construction-cleaning') {
-  return <ConstructionCleaning params={{}} locationData={locationData} />;
- } else if (service === 'commercial-cleaning') {
-  return <CommercialCleaning params={{}} locationData={locationData} />;
- }
+ // Use window.location for 301-like redirect with analytics tracking
+ useEffect(() => {
+  // Track legacy redirect for analytics
+  trackEvent(
+   'legacy_url_redirect',
+   'navigation',
+   `${service}/${location} → ${newUrl}`
+  );
+  
+  window.location.replace(newUrl);
+ }, [newUrl, service, location]);
  
- return <NotFound />;
+ // Show loading state while redirecting
+ return (
+  <div className="min-h-screen flex items-center justify-center">
+   <div className="text-center">
+    <div className="text-lg text-muted-foreground">Redirecting...</div>
+   </div>
+  </div>
+ );
 }
 
 // About Page Component with comprehensive SEO
@@ -696,7 +757,13 @@ function ContactPage() {
 }
 
 // Contact Form Survey Component (inline for simplicity)
-function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }) {
+interface ContactFormSurveyProps {
+ currentStep: number;
+ setCurrentStep: (step: number) => void;
+ onSubmitComplete: () => void;
+}
+
+function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }: ContactFormSurveyProps) {
  const { toast } = useToast();
  const [formData, setFormData] = useState({
   name: "",
@@ -708,7 +775,13 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }) {
   message: ""
  });
 
- const steps = [
+ const steps: Array<{
+  id: number;
+  field: keyof typeof formData;
+  label: string;
+  placeholder?: string;
+  required: boolean;
+ }> = [
   { id: 1, field: "name", label: "What's your name?", placeholder: "Your full name", required: true },
   { id: 2, field: "company", label: "Company name?", placeholder: "Your company (optional)", required: false },
   { id: 3, field: "email", label: "Email address?", placeholder: "your@email.com", required: true },
@@ -719,7 +792,7 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }) {
  ];
 
  const submitMutation = useMutation({
-  mutationFn: async (data) => {
+  mutationFn: async (data: typeof formData) => {
    return apiRequest("POST", "/api/contact", data);
   },
   onSuccess: () => {
@@ -739,7 +812,7 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }) {
   },
  });
 
- const handleFieldChange = (field, value) => {
+ const handleFieldChange = (field: keyof typeof formData, value: string) => {
   setFormData(prev => ({ ...prev, [field]: value }));
  };
 
@@ -895,12 +968,17 @@ function Router() {
     <Route path="/construction-cleaning" component={ConstructionCleaning} />
     <Route path="/commercial-cleaning" component={CommercialCleaning} />
     
-    {/* Service + Location pages */}
+    {/* NEW: State + Service + Location pages (SEO optimized) */}
+    <Route path="/:state/:service/:city">
+     {(params) => <ServiceLocationPage params={{ service: params.service, location: params.city, state: params.state }} />}
+    </Route>
+    
+    {/* LEGACY: Service + Location pages (redirect to new format) */}
     <Route path="/construction-cleaning/:location">
-     {(params) => <ServiceLocationPage params={{ service: 'construction-cleaning', location: params.location }} />}
+     {(params) => <LegacyServiceLocationRedirect params={{ service: 'construction-cleaning', location: params.location }} />}
     </Route>
     <Route path="/commercial-cleaning/:location">
-     {(params) => <ServiceLocationPage params={{ service: 'commercial-cleaning', location: params.location }} />}
+     {(params) => <LegacyServiceLocationRedirect params={{ service: 'commercial-cleaning', location: params.location }} />}
     </Route>
     
     {/* Service areas */}
