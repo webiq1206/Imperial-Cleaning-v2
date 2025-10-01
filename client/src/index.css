@@ -124,6 +124,8 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     max-width: 100vw;
   }
@@ -131,8 +133,8 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     line-height: 1.5;
-    letter-spacing: -0.01em;
     overflow-x: hidden;
+    letter-spacing: -0.01em;
     max-width: 100vw;
     font-weight: 300;
     position: relative;
@@ -1647,5 +1649,49 @@
     background: linear-gradient(0deg, transparent 0%, hsl(0, 0%, 0%, 0.05) 50%, hsl(0, 0%, 0%, 0.1) 100%);
     pointer-events: none;
     z-index: 1;
+  }
+
+  /* Performance Optimizations for Smooth Scrolling */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+
+  /* Optimize fixed elements on mobile for smoother scrolling */
+  @media (max-width: 768px) {
+    [class*="fixed"] {
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      will-change: transform;
+    }
+    
+    /* Reduce parallax effects on mobile for performance */
+    .parallax-subtle,
+    .parallax-gentle,
+    .parallax-depth {
+      transform: none !important;
+      -webkit-transform: none !important;
+    }
+  }
+
+  /* Smooth anchor scrolling with offset for fixed headers */
+  [id] {
+    scroll-margin-top: 80px;
+  }
+
+  /* Optimize animations during scroll */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-on-scroll {
+      will-change: opacity, transform;
+    }
+  }
+
+  /* Disable will-change when not needed to save resources */
+  * {
+    will-change: auto;
   }
 }

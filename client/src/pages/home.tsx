@@ -229,14 +229,22 @@ export default function Home() {
    <HeroSection />
    <ServicesSection />
    <FeaturesSection />
-   <TestimonialsSection />
+   <div id="testimonials">
+    <TestimonialsSection />
+   </div>
    <ProcessTerminalSection />
-   <CaseStudiesSection />
-   <ComplianceCertificationsSection />
+   <div id="case-studies">
+    <CaseStudiesSection />
+   </div>
+   <div id="compliance">
+    <ComplianceCertificationsSection />
+   </div>
    <PartnersSection />
    <ServiceAreasSection />
    <ServicePillarsSection />
-   <FAQSection />
+   <div id="faq">
+    <FAQSection />
+   </div>
   </>
  );
 }

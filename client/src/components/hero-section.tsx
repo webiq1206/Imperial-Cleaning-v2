@@ -17,12 +17,15 @@ export default function HeroSection() {
   <>
    <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
     {/* Enhanced background logo - visible on mobile with darkening effect, hidden on desktop */}
-    <div className="fixed md:absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96">
+    <div 
+     className="fixed md:absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
+     style={{ transform: 'translate(-50%, -50%) translateZ(0)', willChange: 'transform' }}
+    >
       <img 
        src={logoPath}
        alt=""
        className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
-       style={{ filter: 'brightness(0.4) contrast(1.2)' }}
+       style={{ filter: 'brightness(0.4) contrast(1.2)', transform: 'translateZ(0)' }}
       />
     </div>
 
