@@ -198,7 +198,7 @@ export default function SearchBar({ isOpen, onClose }: SearchBarProps) {
               }
             }}
             onKeyDown={handleKeyDown}
-            className="w-full h-16 pl-16 pr-16 text-lg bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl
+            className="w-full h-16 pl-16 pr-16 text-lg bg-gray-900/90 backdrop-blur-sm border border-border/30 rounded-xl
                      text-foreground placeholder:text-muted-foreground
                      focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50
                      transition-all duration-200"
