@@ -23,7 +23,7 @@ export default function HeroSection() {
     >
       <img 
        src={logoPath}
-       alt=""
+       alt="Imperial Cleaning Inc Logo - Commercial Cleaning Idaho"
        className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
        style={{ filter: 'brightness(0.4) contrast(1.2)', transform: 'translateZ(0)' }}
       />
@@ -104,7 +104,7 @@ export default function HeroSection() {
          {/* Main logo */}
          <img 
           src={logoPath}
-          alt="Imperial Cleaning"
+          alt="Imperial Cleaning Inc - Professional Commercial and Construction Cleaning Services"
           className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[32rem] xl:h-[32rem] object-contain opacity-25"
          />
          

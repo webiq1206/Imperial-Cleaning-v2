@@ -233,18 +233,12 @@ export default function Home() {
     <TestimonialsSection />
    </div>
    <ProcessTerminalSection />
-   <div id="case-studies">
-    <CaseStudiesSection />
-   </div>
-   <div id="compliance">
-    <ComplianceCertificationsSection />
-   </div>
+   <CaseStudiesSection />
+   <ComplianceCertificationsSection />
    <PartnersSection />
    <ServiceAreasSection />
    <ServicePillarsSection />
-   <div id="faq">
-    <FAQSection />
-   </div>
+   <FAQSection />
   </>
  );
 }
