@@ -252,40 +252,68 @@ export default function Footer() {
           </Link>
          </li>
          <li>
-          <Link 
+          <a 
            href="/#compliance" 
-           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal cursor-pointer"
            data-testid="link-footer-insurance"
+           onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/#compliance';
+            setTimeout(() => {
+             document.getElementById('compliance')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+           }}
           >
            Insurance & Licensing
-          </Link>
+          </a>
          </li>
          <li>
-          <Link 
+          <a 
            href="/#testimonials" 
-           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal cursor-pointer"
            data-testid="link-footer-reviews"
+           onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/#testimonials';
+            setTimeout(() => {
+             document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+           }}
           >
            Customer Reviews
-          </Link>
+          </a>
          </li>
          <li>
-          <Link 
+          <a 
            href="/#case-studies" 
-           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal cursor-pointer"
            data-testid="link-footer-case-studies"
+           onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/#case-studies';
+            setTimeout(() => {
+             document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+           }}
           >
            Case Studies
-          </Link>
+          </a>
          </li>
          <li>
-          <Link 
+          <a 
            href="/#faq" 
-           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+           className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal cursor-pointer"
            data-testid="link-footer-faq"
+           onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/#faq';
+            setTimeout(() => {
+             document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+           }}
           >
            FAQ
-          </Link>
+          </a>
          </li>
          <li>
           <Link 
