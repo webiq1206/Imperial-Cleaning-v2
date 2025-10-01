@@ -482,7 +482,7 @@ export default function Header() {
          </button>
         </div>
 
-        <div className="flex flex-col h-full py-6 space-y-1 overflow-y-auto">
+        <div className="flex flex-col h-full py-6 pb-32 space-y-1 overflow-y-auto">
          <div className="px-2 py-4">
           <div className="text-xs text-secondary-color uppercase tracking-wider mb-4">Services</div>
           
