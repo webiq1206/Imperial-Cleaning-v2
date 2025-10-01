@@ -1,17 +1,7 @@
-import { useState } from "react";
-import { Shield, CheckCircle, Award, FileCheck, AlertTriangle, Phone, Download, ArrowRight, Clock, Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import ContactFormModal from "@/components/contact-form-modal";
+import { Shield, CheckCircle, Award, AlertTriangle, Download, Clock, Globe } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export default function ComplianceCertificationsSection() {
- const [showContactForm, setShowContactForm] = useState(false);
-
- const handleContactClick = (source: string) => {
-  trackEvent('contact_compliance', 'engagement', source);
-  setShowContactForm(true);
- };
-
  const handleDownloadClick = (document: string) => {
   trackEvent('download_compliance_doc', 'document', document);
   // In a real implementation, this would trigger actual document downloads
@@ -195,7 +185,6 @@ export default function ComplianceCertificationsSection() {
  ];
 
  return (
-  <>
    <section id="compliance" className="py-24 px-6 compliance-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom">
     <div className="max-w-7xl mx-auto">
      {/* Section Header */}
@@ -309,21 +298,6 @@ export default function ComplianceCertificationsSection() {
            </div>
           ))}
          </div>
-
-         {/* Action Button */}
-         <div className="mt-6">
-          <Button
-           type="button"
-           variant="default"
-           size="sm"
-           onClick={() => handleContactClick(category.id)}
-           className="w-full resend-gradient-button"
-           data-testid={`button-verify-${category.id}`}
-          >
-           <FileCheck className="w-4 h-4 mr-2" />
-           Verify
-          </Button>
-         </div>
         </div>
        </div>
       ))}
@@ -404,25 +378,8 @@ export default function ComplianceCertificationsSection() {
         </span>
        ))}
       </div>
-      
-      <Button
-       type="button"
-       onClick={() => handleContactClick('service-area-verification')}
-       className="resend-gradient-button"
-       data-testid="button-verify-compliance"
-      >
-       <Phone className="w-4 h-4 mr-2" />
-       Verify Our Compliance
-       <ArrowRight className="w-4 h-4 ml-2" />
-      </Button>
      </div>
     </div>
    </section>
-
-   <ContactFormModal 
-    isOpen={showContactForm} 
-    onClose={() => setShowContactForm(false)} 
-   />
-  </>
  );
 }
