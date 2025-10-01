@@ -52,6 +52,10 @@ export default function InternalHeroSection({
        src={logoPath}
        alt="Imperial Cleaning Inc Logo - Commercial Cleaning Idaho"
        className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
+       width="384"
+       height="384"
+       fetchPriority="high"
+       decoding="async"
        style={{ filter: 'brightness(0.4) contrast(1.2)', transform: 'translateZ(0)' }}
       />
     </div>

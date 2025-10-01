@@ -150,12 +150,24 @@
     color: hsl(0, 0%, 100%); /* white text by default */
   }
   
+  /* ===== ANIMATIONS & KEYFRAMES SECTION ===== */
+  /* Performance Note: Complex animations below can be deferred for optimal initial page load */
+  
   @keyframes gradientShift {
     0%, 100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
     }
   }
   
@@ -243,14 +255,7 @@
     animation: breathe 4s ease-in-out infinite;
   }
 
-  @keyframes breathe {
-    0%, 100% { 
-      transform: translate(-50%, -50%) scale(1); 
-    }
-    50% { 
-      transform: translate(-50%, -50%) scale(1.05); 
-    }
-  }
+  /* Note: breathe keyframe is defined in the Animations & Keyframes section above */
 
   /* Unified Gradient Text Classes */
   .gradient-text {
@@ -577,14 +582,7 @@
     filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.5));
   }
   
-  @keyframes breathe {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.08);
-    }
-  }
+  /* Note: breathe keyframe is defined in the Animations & Keyframes section above */
   
   /* Radial gradient utility */
   .bg-gradient-radial {

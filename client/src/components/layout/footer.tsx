@@ -33,8 +33,12 @@ export default function Footer() {
       <div className="mb-8">
        <img 
         src="/header-logo.png" 
-        alt="Imperial Cleaning Inc" 
+        alt="Imperial Cleaning Inc - Professional Commercial Cleaning Services" 
         className="h-8 w-auto filter brightness-0 invert mb-6"
+        width="120"
+        height="32"
+        loading="lazy"
+        decoding="async"
         data-testid="footer-logo"
        />
        <p className="text-muted-foreground text-base leading-relaxed max-w-md mb-6">
