@@ -194,8 +194,8 @@ export default function Home() {
  return (
   <>
    <SEOHead
-    title="Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc."
-    description="Premier commercial & construction cleaning in Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by 500+ businesses across Bonneville County & southeastern Idaho. Call today!"
+    title="Commercial Cleaning Idaho Falls | Imperial Cleaning"
+    description="Premier commercial & construction cleaning in Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Licensed, insured. Call (208) 520-3202."
     keywords="Idaho Falls commercial cleaning, Eastern Idaho construction cleanup, Pocatello office cleaning, Twin Falls janitorial services, southeastern Idaho cleaning company, Bonneville County cleaning, Bannock County commercial cleaners, Blackfoot cleaning services, post construction cleanup"
     canonicalUrl="https://imperialcleaninginc.com/"
     author="Imperial Cleaning Inc"
@@ -205,8 +205,8 @@ export default function Home() {
      position: "43.4933;-112.0339"
     }}
     openGraph={{
-     title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
-     description: "Leading commercial and construction cleaning company serving Idaho Falls and the entire Eastern Idaho region. Professional cleaning solutions for businesses and contractors.",
+     title: "Idaho Falls Commercial Cleaning | Imperial Cleaning Inc.",
+     description: "Leading commercial and construction cleaning company serving Idaho Falls and Eastern Idaho. Professional cleaning solutions for businesses and contractors.",
      image: logoImage,
      imageAlt: "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah",
      type: "website",
@@ -216,8 +216,8 @@ export default function Home() {
     }}
     twitter={{
      card: "summary_large_image",
-     title: "Idaho Falls Commercial Cleaning Services | Imperial Cleaning Inc.",
-     description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Trusted by Idaho businesses since 2015.",
+     title: "Idaho Falls Commercial Cleaning | Imperial Cleaning Inc.",
+     description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello & Eastern Idaho. Licensed & insured since 2015.",
      image: logoImage,
      imageAlt: "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah",
      site: "@imperialcleaning",
