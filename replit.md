@@ -93,8 +93,17 @@ Preferred communication style: Simple, everyday language.
   - openingHoursSpecification for business hours
   - sameAs property with all social media profile URLs
   - Valid JSON-LD format resolving schema validation errors
-- **Verification**: All SEO fixes tested and verified with end-to-end Playwright tests
-- **Files modified**: `client/index.html`, `client/src/components/layout/footer.tsx`
+- **Fixed image accessibility issues**: Added descriptive alt text to all images
+  - Hero section background and main logos
+  - Internal hero background logos
+  - All images now have SEO-friendly, descriptive alt attributes
+- **Fixed duplicate ID attributes**: Removed duplicate IDs from home.tsx wrapper divs
+  - case-studies, compliance, and faq sections now have unique IDs
+  - Zero duplicate IDs across entire homepage (46 unique IDs)
+  - Anchor links (#case-studies, #compliance, #faq) work correctly
+- **Added aria-hidden to decorative SVGs**: Small decorative icons properly marked as presentational
+- **Verification**: All SEO fixes tested and verified with comprehensive end-to-end Playwright tests
+- **Files modified**: `client/index.html`, `client/src/components/layout/footer.tsx`, `client/src/pages/home.tsx`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`
 
 ### Previous SEO Optimization - Phase 1
 - Fixed homepage title tag: 56 characters ("Commercial Cleaning Idaho Falls | Imperial Cleaning")
