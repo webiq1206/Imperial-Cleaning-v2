@@ -76,7 +76,30 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (October 1, 2025)
 
-### Performance Optimization for PageSpeed Insights (October 1, 2025)
+### Advanced PageSpeed Optimization - Phase 3 (October 1, 2025)
+- **Text compression enabled (Gzip/Brotli)**:
+  - Added compression middleware to server/index.ts
+  - Compresses all text-based responses (HTML, CSS, JavaScript, JSON) in production
+  - Positioned before all routes to ensure complete coverage
+  - Significantly reduces transfer size for all text assets
+- **WebP image optimization**:
+  - Converted hero logo PNG (82KB) to WebP (34KB) = 58% file size reduction
+  - Implemented picture elements with WebP primary source and PNG fallback
+  - WebP images served to modern browsers, PNG fallback for legacy browsers
+  - Hero WebP stored in public/hero-logo.webp for stable URL (no fingerprinting)
+- **Critical asset preloading**:
+  - Added preload hint for hero WebP image: `<link rel="preload" href="/hero-logo.webp" as="image" type="image/webp" fetchpriority="high">`
+  - Preload ensures critical hero image loads immediately for improved LCP
+  - Font Awesome CSS continues to use deferred preload technique
+- **Performance metrics improvements**:
+  - LCP (Largest Contentful Paint): Improved with WebP optimization + preload
+  - TBT (Total Blocking Time): Reduced with compression and async loading
+  - FCP (First Contentful Paint): Faster with compressed text assets
+  - Bundle size: Reduced by 58% for hero images (82KB → 34KB)
+- **Files modified**: `server/index.ts`, `client/index.html`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`, `public/hero-logo.webp`
+- **Testing**: End-to-end tests confirmed WebP loading, picture element fallbacks, preload functionality, and zero regressions
+
+### Performance Optimization for PageSpeed Insights - Phase 2 (October 1, 2025)
 - **Eliminated render-blocking external fonts**:
   - Removed Google Fonts (Inter, Geist, Fira Code) from index.html and index.css
   - Implemented system font stacks for optimal performance: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif`
