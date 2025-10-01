@@ -62,13 +62,13 @@ export function generateSitemap(): string {
   // Service Area Pages (priority: 0.85, changefreq: monthly)
   const serviceAreaPages: SitemapUrl[] = [
     {
-      url: `${baseUrl}/idaho-service-areas`,
+      url: `${baseUrl}/service-areas/idaho`,
       lastmod: currentDate,
       changefreq: 'monthly',
       priority: 0.85
     },
     {
-      url: `${baseUrl}/utah-service-areas`,
+      url: `${baseUrl}/service-areas/utah`,
       lastmod: currentDate,
       changefreq: 'monthly',
       priority: 0.85
