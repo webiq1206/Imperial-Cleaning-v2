@@ -1694,4 +1694,22 @@
   * {
     will-change: auto;
   }
+
+  /* Disable transform hover effects on touch devices to prevent menu wiggling */
+  @media (hover: none) and (pointer: coarse) {
+    .hover-lift-gentle,
+    .hover-lift-moderate,
+    .hover-lift-bold,
+    .hover-shimmer,
+    .button-magnetic {
+      transform: none !important;
+      transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease !important;
+    }
+    
+    .hover-lift-gentle:hover,
+    .hover-lift-moderate:hover,
+    .hover-lift-bold:hover {
+      transform: none !important;
+    }
+  }
 }
