@@ -73,3 +73,33 @@ Preferred communication style: Simple, everyday language.
 
 ### SEO and Performance
 - **Search Console**: Google Search Console.
+
+## Recent Changes (October 1, 2025)
+
+### Critical SEO Optimization - Phase 2
+- **Added comprehensive noscript content** (~600+ words) to index.html for SEO crawlers that don't execute JavaScript
+  - Includes H1, H2, H3 heading structure with proper semantic HTML
+  - Full service descriptions, location coverage, company statistics, and contact CTAs
+  - Resolves "0 words content" and "0% text-to-code ratio" audit issues
+- **Added social media links** to footer: Facebook, LinkedIn, Twitter/X, Instagram, YouTube
+  - All links include target="_blank", rel="noopener noreferrer", and descriptive aria-labels
+  - Font Awesome icons for visual consistency
+  - Addresses missing social media presence audit findings
+- **Enhanced structured data** with comprehensive Schema.org LocalBusiness markup:
+  - Added logo, image, foundingDate (2015), priceRange, paymentAccepted
+  - Geographic coordinates (latitude: 43.4916, longitude: -112.0339)
+  - Detailed address with postal code (83402)
+  - hasOfferCatalog with detailed service offerings
+  - openingHoursSpecification for business hours
+  - sameAs property with all social media profile URLs
+  - Valid JSON-LD format resolving schema validation errors
+- **Verification**: All SEO fixes tested and verified with end-to-end Playwright tests
+- **Files modified**: `client/index.html`, `client/src/components/layout/footer.tsx`
+
+### Previous SEO Optimization - Phase 1
+- Fixed homepage title tag: 56 characters ("Commercial Cleaning Idaho Falls | Imperial Cleaning")
+- Fixed meta description: 148 characters with local keywords and phone number
+- Added canonical link tags, Open Graph tags, Twitter Card tags
+- Implemented www-to-non-www redirect middleware (301 redirects)
+- Verified proper H1/H2 heading hierarchy
+- Fixed favicon meta tags for all devices
