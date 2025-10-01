@@ -1,0 +1,130 @@
+Type
+Element
+Priority
+Problem and Recommendation
+Sortable
+Page Speed
+
+DOM Size
+
+Your page has 1613 DOM elements, which is heavy for browsers to parse and repaint. Simplify nested layouts, lazy-render off-screen content, and split pages into lighter sections to reduce the DOM size.
+
+Page Speed
+
+Interaction to Next Paint (INP)
+
+Your Interaction to Next Paint (INP) is 2.603s, meaning users experience noticeable delays after input. Defer non-critical JavaScript, move work off the main thread (Web Workers, requestIdleCallback), and reduce third-party script impact to improve the user experience.
+
+Social Media
+
+YouTube
+
+It looks like you may not be linking to a YouTube page. Add a working YouTube link to showcase your video content and boost visitor engagement.
+
+Social Media
+
+X
+
+It looks like you may not be linking to an X (Twitter) profile. Add a working X link so visitors can follow your latest updates.
+
+Social Media
+
+LinkedIn
+
+It looks like you may not be linking to a LinkedIn page. Add a working LinkedIn link to strengthen your professional presence and build audience trust.
+
+Social Media
+
+Instagram
+
+It looks like you may not be linking to an Instagram page. Add a working Instagram link to grow your visual audience and build brand trust.
+
+Social Media
+
+Facebook
+
+It looks like you may not be linking to a Facebook page. Add a working Facebook link to help visitors connect with you on social media.
+
+Technical SEO
+
+Structured Data
+
+Your page includes structured data, but it contains critical errors. Fix the invalid or incomplete markup so search engines can read it and display rich-result features.
+
+Technical SEO
+
+Hreflang
+
+Your hreflang implementation has critical errors. This may result in search engines indexing the wrong version of your page. Fix the malformed or missing tags to ensure users see the correct version in search results.
+
+Technical SEO
+
+Noindex
+
+Your page contains a noindex directive, which means search engines like Google can't show it in search results. Remove the noindex tag if you want this page to appear in search results.
+
+Technical SEO
+
+Language
+
+Your language declaration is missing. Add a lang attribute to your html tag.
+
+Technical SEO
+
+Canonical
+
+There are critical issues with your canonical tag that may see search engines index incorrect or duplicate pages. Ensure your page includes a single canonical tag that points to a live URL to avoid confusion.
+
+Technical SEO
+
+Favicon
+
+Your favicon is missing or inaccessible. Add a valid favicon to improve website appearance in browser tabs and search results.
+
+On-Page SEO
+
+Content
+
+Your content is too thin (0 words). Add more content to better inform users what your page is about. Aim for at least 500 words.
+
+On-Page SEO
+
+Content
+
+Your text-to-code ratio is too low (0%). Reduce any code bloat on your page and consider adding more content.
+
+On-Page SEO
+
+H2-H6 Structure
+
+Your page structure is problematic. Key heading levels are missing, skipped, or over-used. Consider rebuilding your page structure with H2s, H3s, and H4s used to introduce sections and subsections. Avoid hierarchy gaps (e.g., H4s directly following H2s) and excess headings.
+
+On-Page SEO
+
+H1
+
+Your H1 is missing! Add a main H1 heading to the page to improve search visibility and guide your visitors. Aim for 10-70 characters.
+
+On-Page SEO
+
+Meta Description
+
+Your meta description is missing! Add a compelling description of the page to attract more clicks. Aim for 100-130 characters.
+
+On-Page SEO
+
+Title
+
+Your title is missing! Add a descriptive title for the page to increase search visibility. Aim for 50-60 characters.
+
+Page Speed
+
+Overall Performance
+
+Your overall performance score is 75 / 100. Performance is average, but could be better. Optimize images, reduce JS/CSS, and consider improved caching to improve performance.
+
+Page Speed
+
+Largest Contentful Paint (LCP)
+
+Your Largest Contentful Paint (LCP) is 2.6s, meaning users may feel the main content of the page loads slowly. Optimize images, the server response, and resource priorities to speed things up.

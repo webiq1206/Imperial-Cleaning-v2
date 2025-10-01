@@ -16,6 +16,17 @@ const contactSchema = z.object({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // WWW to non-WWW redirect middleware for SEO consistency
+  app.use((req, res, next) => {
+    const host = req.headers.host || '';
+    if (host.startsWith('www.')) {
+      const newHost = host.replace('www.', '');
+      const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'https';
+      return res.redirect(301, `${protocol}://${newHost}${req.originalUrl}`);
+    }
+    next();
+  });
+
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {
