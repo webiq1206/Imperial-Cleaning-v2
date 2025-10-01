@@ -51,13 +51,16 @@ const searchIndex: SearchResult[] = [
   { title: "Sitemap", description: "Complete site navigation", url: "/sitemap", category: "page", icon: "page" },
 ];
 
-export default function SearchBar() {
+interface SearchBarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function SearchBar({ isOpen, onClose }: SearchBarProps) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [, navigate] = useLocation();
-  const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -78,27 +81,31 @@ export default function SearchBar() {
     setSelectedIndex(0);
   }, [query]);
 
+  // Auto-focus input when modal opens
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+    if (isOpen) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
+    } else {
+      setQuery("");
+      setResults([]);
+    }
+  }, [isOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
       }
     };
 
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
-        setQuery("");
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, []);
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [isOpen, onClose]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (results.length === 0) return;
@@ -124,9 +131,7 @@ export default function SearchBar() {
   const handleSelectResult = (result: SearchResult) => {
     trackEvent('search_select', 'search', result.title);
     navigate(result.url);
-    setQuery("");
-    setIsOpen(false);
-    inputRef.current?.blur();
+    onClose();
   };
 
   const getIcon = (iconType: string) => {
@@ -140,98 +145,98 @@ export default function SearchBar() {
     }
   };
 
+  if (!isOpen) return null;
+
   return (
-    <div ref={searchRef} className="relative w-full max-w-xs lg:max-w-sm">
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder="Search..."
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setIsOpen(true);
-            if (e.target.value.trim().length > 0) {
-              trackEvent('search_query', 'search', e.target.value);
-            }
-          }}
-          onFocus={() => {
-            if (query.trim().length > 0) {
-              setIsOpen(true);
-            }
-          }}
-          onKeyDown={handleKeyDown}
-          className="w-full h-9 pl-9 pr-9 text-sm bg-secondary/30 border border-border/30 rounded-lg
-                   text-foreground placeholder:text-muted-foreground
-                   focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50
-                   transition-all duration-200 hover:border-border/50"
-          data-testid="input-search"
-        />
-        {query && (
-          <button
-            onClick={() => {
-              setQuery("");
-              setIsOpen(false);
-              inputRef.current?.focus();
+    <div 
+      className="fixed inset-0 bg-black/95 backdrop-blur-md z-[100] flex items-start justify-center pt-20 px-4"
+      onClick={onClose}
+    >
+      <div 
+        className="w-full max-w-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Search Input */}
+        <div className="relative mb-4">
+          <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-muted-foreground pointer-events-none" />
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="Search pages, services, and locations..."
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              if (e.target.value.trim().length > 0) {
+                trackEvent('search_query', 'search', e.target.value);
+              }
             }}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-            data-testid="button-clear-search"
+            onKeyDown={handleKeyDown}
+            className="w-full h-16 pl-16 pr-16 text-lg bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl
+                     text-foreground placeholder:text-muted-foreground
+                     focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50
+                     transition-all duration-200"
+            data-testid="input-search"
+          />
+          <button
+            onClick={onClose}
+            className="absolute right-6 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-secondary/50"
+            data-testid="button-close-search"
           >
-            <X className="w-4 h-4" />
+            <X className="w-6 h-6" />
           </button>
+        </div>
+
+        {/* Search Results */}
+        {results.length > 0 && (
+          <div className="bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl overflow-hidden glass-card-elevated">
+            <div className="py-2 max-h-96 overflow-y-auto">
+              {results.map((result, index) => (
+                <button
+                  key={`${result.url}-${index}`}
+                  onClick={() => handleSelectResult(result)}
+                  onMouseEnter={() => setSelectedIndex(index)}
+                  className={`w-full px-6 py-4 text-left transition-all duration-150 ${
+                    index === selectedIndex
+                      ? 'bg-secondary/50 text-foreground'
+                      : 'text-muted-foreground hover:bg-secondary/30 hover:text-foreground'
+                  }`}
+                  data-testid={`search-result-${index}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`mt-1 ${index === selectedIndex ? 'text-primary' : 'text-muted-foreground'}`}>
+                      {getIcon(result.icon)}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-base mb-1">
+                        {result.title}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {result.description}
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+            <div className="px-6 py-3 border-t border-border/30 bg-secondary/20">
+              <div className="text-xs text-muted-foreground flex items-center justify-between">
+                <span>Use ↑↓ to navigate</span>
+                <span>↵ to select • ESC to close</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {query.trim().length > 0 && results.length === 0 && (
+          <div className="bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl overflow-hidden glass-card-elevated">
+            <div className="px-6 py-12 text-center">
+              <div className="text-muted-foreground">
+                No results found for "{query}"
+              </div>
+            </div>
+          </div>
         )}
       </div>
-
-      {isOpen && results.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-card/98 backdrop-blur-md border border-border/50 rounded-lg shadow-xl overflow-hidden z-50 glass-card-elevated">
-          <div className="py-2 max-h-96 overflow-y-auto">
-            {results.map((result, index) => (
-              <button
-                key={`${result.url}-${index}`}
-                onClick={() => handleSelectResult(result)}
-                onMouseEnter={() => setSelectedIndex(index)}
-                className={`w-full px-4 py-3 text-left transition-all duration-150 ${
-                  index === selectedIndex
-                    ? 'bg-secondary/50 text-foreground'
-                    : 'text-muted-foreground hover:bg-secondary/30 hover:text-foreground'
-                }`}
-                data-testid={`search-result-${index}`}
-              >
-                <div className="flex items-start gap-3">
-                  <div className={`mt-0.5 ${index === selectedIndex ? 'text-primary' : 'text-muted-foreground'}`}>
-                    {getIcon(result.icon)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm truncate">
-                      {result.title}
-                    </div>
-                    <div className="text-xs text-muted-foreground mt-0.5 truncate">
-                      {result.description}
-                    </div>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
-          <div className="px-4 py-2 border-t border-border/30 bg-secondary/20">
-            <div className="text-xs text-muted-foreground flex items-center justify-between">
-              <span>Use ↑↓ to navigate</span>
-              <span>↵ to select</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {isOpen && query.trim().length > 0 && results.length === 0 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-card/98 backdrop-blur-md border border-border/50 rounded-lg shadow-xl overflow-hidden z-50 glass-card-elevated">
-          <div className="px-4 py-6 text-center">
-            <div className="text-muted-foreground text-sm">
-              No results found for "{query}"
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

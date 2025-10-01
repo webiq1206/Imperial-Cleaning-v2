@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { trackEvent, trackNavigationInteraction, trackServiceNavigation } from "@/lib/analytics";
@@ -13,6 +13,7 @@ export default function Header() {
  const [location] = useLocation();
  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
  const [showContactForm, setShowContactForm] = useState(false);
+ const [showSearch, setShowSearch] = useState(false);
  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
  const [isServiceAreasDropdownOpen, setIsServiceAreasDropdownOpen] = useState(false);
  const [activeServiceSubmenu, setActiveServiceSubmenu] = useState<string | null>(null);
@@ -172,12 +173,16 @@ export default function Header() {
        </Link>
       </div>
       
-      {/* Search Bar - Hidden on smallest screens, visible on sm and up */}
-      <div className="hidden sm:block flex-1 max-w-md">
-       <SearchBar />
-      </div>
-      
       <nav className="hidden md:flex items-center space-x-8">
+       {/* Search Button */}
+       <button
+        onClick={() => setShowSearch(true)}
+        className="text-muted-foreground hover:text-foreground transition-all duration-300 hover-lift-gentle p-2 hover:bg-secondary/50 rounded-lg"
+        aria-label="Search"
+        data-testid="button-open-search"
+       >
+        <Search className="w-5 h-5" />
+       </button>
        {/* Services Dropdown with Multi-level Navigation */}
        <div className="relative" ref={servicesDropdownRef}>
         <button 
@@ -440,9 +445,19 @@ export default function Header() {
          </SheetTitle>
         </SheetHeader>
 
-        {/* Mobile Search Bar */}
-        <div className="py-4 sm:hidden">
-         <SearchBar />
+        {/* Mobile Search Button */}
+        <div className="py-4">
+         <button
+          onClick={() => {
+           setIsMobileMenuOpen(false);
+           setShowSearch(true);
+          }}
+          className="w-full flex items-center gap-3 px-4 py-3 text-sm text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button"
+          data-testid="button-open-search-mobile"
+         >
+          <Search className="w-5 h-5" />
+          <span>Search</span>
+         </button>
         </div>
 
         <div className="flex flex-col h-full py-6 space-y-1 overflow-y-auto">
@@ -657,6 +672,11 @@ export default function Header() {
      onClose={() => setShowContactForm(false)} 
     />
    )}
+
+   <SearchBar 
+    isOpen={showSearch}
+    onClose={() => setShowSearch(false)}
+   />
   </>
  );
 }
