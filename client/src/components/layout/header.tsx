@@ -7,7 +7,7 @@ import { trackEvent, trackNavigationInteraction, trackServiceNavigation } from "
 import ContactFormModal from "@/components/contact-form-modal";
 import SearchBar from "@/components/search-bar";
 import { allServiceLocations } from "@shared/service-locations";
-import { locationToSlug } from "@/lib/routing-utils";
+import { buildServiceLocationUrl } from "@/lib/routing-utils";
 
 export default function Header() {
  const [location] = useLocation();
@@ -274,16 +274,16 @@ export default function Header() {
              <div className="grid grid-cols-3 gap-2">
               {getLocationsByServiceAndState('construction', 'Idaho').map((loc) => (
                <Link 
-                key={`${loc.state}-${locationToSlug(loc.name)}`}
-                href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                key={`${loc.state}-${loc.name}`}
+                href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
                 role="menuitem"
                 className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
                 onClick={() => {
                  trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
-                 trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                 trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                  closeMegaMenu();
                 }}
-                data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}`}
+                data-testid={`link-construction-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}`}
                >
                 <div className="flex items-center gap-2 min-w-0">
                  <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-blue-500" />
@@ -305,16 +305,16 @@ export default function Header() {
              <div className="grid grid-cols-3 gap-2">
               {getLocationsByServiceAndState('construction', 'Utah').map((loc) => (
                <Link 
-                key={`${loc.state}-${locationToSlug(loc.name)}`}
-                href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                key={`${loc.state}-${loc.name}`}
+                href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
                 role="menuitem"
                 className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
                 onClick={() => {
                  trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
-                 trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                 trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                  closeMegaMenu();
                 }}
-                data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}`}
+                data-testid={`link-construction-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}`}
                >
                 <div className="flex items-center gap-2 min-w-0">
                  <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-blue-500" />
@@ -360,16 +360,16 @@ export default function Header() {
              <div className="grid grid-cols-3 gap-2">
               {getLocationsByServiceAndState('commercial', 'Idaho').map((loc) => (
                <Link 
-                key={`${loc.state}-${locationToSlug(loc.name)}`}
-                href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                key={`${loc.state}-${loc.name}`}
+                href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
                 role="menuitem"
                 className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
                 onClick={() => {
                  trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
-                 trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                 trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                  closeMegaMenu();
                 }}
-                data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}`}
+                data-testid={`link-commercial-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}`}
                >
                 <div className="flex items-center gap-2 min-w-0">
                  <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-green-500" />
@@ -391,16 +391,16 @@ export default function Header() {
              <div className="grid grid-cols-3 gap-2">
               {getLocationsByServiceAndState('commercial', 'Utah').map((loc) => (
                <Link 
-                key={`${loc.state}-${locationToSlug(loc.name)}`}
-                href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                key={`${loc.state}-${loc.name}`}
+                href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
                 role="menuitem"
                 className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
                 onClick={() => {
                  trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
-                 trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                 trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                  closeMegaMenu();
                 }}
-                data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}`}
+                data-testid={`link-commercial-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}`}
                >
                 <div className="flex items-center gap-2 min-w-0">
                  <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-green-500" />
@@ -536,15 +536,15 @@ export default function Header() {
               <div className="space-y-1">
                {getLocationsByServiceAndState('construction', 'Idaho').map((loc) => (
                 <Link 
-                 key={`${loc.state}-${locationToSlug(loc.name)}`}
-                 href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                 key={`${loc.state}-${loc.name}`}
+                 href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
                  className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
                  onClick={() => {
                   trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
-                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                   closeMobileMenu();
                  }}
-                 data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}-mobile`}
+                 data-testid={`link-construction-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}-mobile`}
                 >
                  <div className="flex items-center gap-2">
                   <MapPin className="w-3 h-3 text-muted-foreground/50" />
@@ -566,15 +566,15 @@ export default function Header() {
               <div className="space-y-1">
                {getLocationsByServiceAndState('construction', 'Utah').map((loc) => (
                 <Link 
-                 key={`${loc.state}-${locationToSlug(loc.name)}`}
-                 href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                 key={`${loc.state}-${loc.name}`}
+                 href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
                  className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
                  onClick={() => {
                   trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
-                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                   closeMobileMenu();
                  }}
-                 data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}-mobile`}
+                 data-testid={`link-construction-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}-mobile`}
                 >
                  <div className="flex items-center gap-2">
                   <MapPin className="w-3 h-3 text-muted-foreground/50" />
@@ -641,15 +641,15 @@ export default function Header() {
               <div className="space-y-1">
                {getLocationsByServiceAndState('commercial', 'Idaho').map((loc) => (
                 <Link 
-                 key={`${loc.state}-${locationToSlug(loc.name)}`}
-                 href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                 key={`${loc.state}-${loc.name}`}
+                 href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
                  className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
                  onClick={() => {
                   trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
-                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                   closeMobileMenu();
                  }}
-                 data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}-mobile`}
+                 data-testid={`link-commercial-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}-mobile`}
                 >
                  <div className="flex items-center gap-2">
                   <MapPin className="w-3 h-3 text-muted-foreground/50" />
@@ -671,15 +671,15 @@ export default function Header() {
               <div className="space-y-1">
                {getLocationsByServiceAndState('commercial', 'Utah').map((loc) => (
                 <Link 
-                 key={`${loc.state}-${locationToSlug(loc.name)}`}
-                 href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                 key={`${loc.state}-${loc.name}`}
+                 href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
                  className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
                  onClick={() => {
                   trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
-                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${loc.name.toLowerCase().replace(/\s+/g, '_')}`);
                   closeMobileMenu();
                  }}
-                 data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}-mobile`}
+                 data-testid={`link-commercial-cleaning-${loc.name.toLowerCase().replace(/\s+/g, '-')}-mobile`}
                 >
                  <div className="flex items-center gap-2">
                   <MapPin className="w-3 h-3 text-muted-foreground/50" />

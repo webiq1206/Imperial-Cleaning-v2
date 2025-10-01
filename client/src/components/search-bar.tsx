@@ -1,7 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Search, MapPin, Wrench, FileText, X } from "lucide-react";
 import { useLocation } from "wouter";
 import { trackEvent } from "@/lib/analytics";
+import { allServiceLocations } from "@shared/service-locations";
+import { buildServiceLocationUrl } from "@/lib/routing-utils";
 
 interface SearchResult {
   title: string;
@@ -12,44 +14,69 @@ interface SearchResult {
   icon: 'page' | 'service' | 'location';
 }
 
-const searchIndex: SearchResult[] = [
-  // Main Pages
-  { title: "Home", description: "Imperial Cleaning Inc. homepage", url: "/", category: "page", icon: "page" },
-  { title: "About", description: "Learn about Imperial Cleaning Inc.", url: "/about", category: "page", icon: "page" },
-  { title: "Contact", description: "Get in touch with us", url: "/contact", category: "page", icon: "page" },
+// Build search index dynamically from location data
+const buildSearchIndex = (): SearchResult[] => {
+  const staticResults: SearchResult[] = [
+    // Main Pages
+    { title: "Home", description: "Imperial Cleaning Inc. homepage", url: "/", category: "page", icon: "page" },
+    { title: "About", description: "Learn about Imperial Cleaning Inc.", url: "/about", category: "page", icon: "page" },
+    { title: "Contact", description: "Get in touch with us", url: "/contact", category: "page", icon: "page" },
+    
+    // Services
+    { title: "Construction Cleaning", description: "Post-construction cleanup services", url: "/construction-cleaning", category: "service", icon: "service" },
+    { title: "Commercial Cleaning", description: "Daily office & facility maintenance", url: "/commercial-cleaning", category: "service", icon: "service" },
+    
+    // Service Areas
+    { title: "Idaho Service Areas", description: "Cleaning services across Idaho", url: "/service-areas/idaho", category: "location", icon: "location" },
+    { title: "Utah Service Areas", description: "Cleaning services across Utah", url: "/service-areas/utah", category: "location", icon: "location" },
+    
+    // Page Sections
+    { title: "Compliance & Certifications", description: "Our certifications and compliance standards", url: "/#compliance", category: "section", icon: "page", section: "compliance" },
+    { title: "Testimonials", description: "Client reviews and success stories", url: "/#testimonials", category: "section", icon: "page", section: "testimonials" },
+    { title: "Company Statistics", description: "Our experience and achievements", url: "/#stats", category: "section", icon: "page", section: "stats" },
+    { title: "FAQ", description: "Frequently asked questions", url: "/construction-cleaning#faq", category: "section", icon: "page", section: "faq" },
+    { title: "Case Studies", description: "Real project examples and results", url: "/#case-studies", category: "section", icon: "page", section: "case-studies" },
+    
+    // Legal
+    { title: "Privacy Policy", description: "Our privacy policy and data protection", url: "/privacy-policy", category: "page", icon: "page" },
+    { title: "Terms of Service", description: "Terms and conditions", url: "/terms-of-service", category: "page", icon: "page" },
+    { title: "Sitemap", description: "Complete site navigation", url: "/sitemap", category: "page", icon: "page" },
+  ];
+
+  // Add location-specific entries dynamically
+  const locationResults: SearchResult[] = [];
   
-  // Services
-  { title: "Construction Cleaning", description: "Post-construction cleanup services", url: "/construction-cleaning", category: "service", icon: "service" },
-  { title: "Commercial Cleaning", description: "Daily office & facility maintenance", url: "/commercial-cleaning", category: "service", icon: "service" },
+  // Get primary locations (limit to avoid too many results)
+  const primaryLocations = allServiceLocations.filter(loc => loc.marketTier === 'primary' || loc.marketTier === 'secondary');
   
-  // Service Areas - Idaho
-  { title: "Idaho Service Areas", description: "Cleaning services across Idaho", url: "/service-areas/idaho", category: "location", icon: "location" },
-  { title: "Idaho Falls", description: "Construction & commercial cleaning in Idaho Falls", url: "/construction-cleaning/idaho-falls", category: "location", icon: "location" },
-  { title: "Pocatello", description: "Construction & commercial cleaning in Pocatello", url: "/construction-cleaning/pocatello", category: "location", icon: "location" },
-  { title: "Twin Falls", description: "Construction & commercial cleaning in Twin Falls", url: "/construction-cleaning/twin-falls", category: "location", icon: "location" },
-  { title: "Blackfoot", description: "Construction & commercial cleaning in Blackfoot", url: "/construction-cleaning/blackfoot", category: "location", icon: "location" },
-  { title: "Rexburg", description: "Construction & commercial cleaning in Rexburg", url: "/construction-cleaning/rexburg", category: "location", icon: "location" },
-  { title: "Boise", description: "Construction & commercial cleaning in Boise", url: "/construction-cleaning/boise", category: "location", icon: "location" },
-  
-  // Service Areas - Utah
-  { title: "Utah Service Areas", description: "Cleaning services across Utah", url: "/service-areas/utah", category: "location", icon: "location" },
-  { title: "Salt Lake City", description: "Construction & commercial cleaning in Salt Lake City", url: "/construction-cleaning/salt-lake-city", category: "location", icon: "location" },
-  { title: "Logan", description: "Construction & commercial cleaning in Logan", url: "/construction-cleaning/logan", category: "location", icon: "location" },
-  { title: "Ogden", description: "Construction & commercial cleaning in Ogden", url: "/construction-cleaning/ogden", category: "location", icon: "location" },
-  { title: "Provo", description: "Construction & commercial cleaning in Provo", url: "/construction-cleaning/provo", category: "location", icon: "location" },
-  
-  // Page Sections
-  { title: "Compliance & Certifications", description: "Our certifications and compliance standards", url: "/#compliance", category: "section", icon: "page", section: "compliance" },
-  { title: "Testimonials", description: "Client reviews and success stories", url: "/#testimonials", category: "section", icon: "page", section: "testimonials" },
-  { title: "Company Statistics", description: "Our experience and achievements", url: "/#stats", category: "section", icon: "page", section: "stats" },
-  { title: "FAQ", description: "Frequently asked questions", url: "/construction-cleaning#faq", category: "section", icon: "page", section: "faq" },
-  { title: "Case Studies", description: "Real project examples and results", url: "/#case-studies", category: "section", icon: "page", section: "case-studies" },
-  
-  // Legal
-  { title: "Privacy Policy", description: "Our privacy policy and data protection", url: "/privacy-policy", category: "page", icon: "page" },
-  { title: "Terms of Service", description: "Terms and conditions", url: "/terms-of-service", category: "page", icon: "page" },
-  { title: "Sitemap", description: "Complete site navigation", url: "/sitemap", category: "page", icon: "page" },
-];
+  primaryLocations.forEach(loc => {
+    // Add construction cleaning entry if available
+    if (loc.services.constructionCleanup) {
+      locationResults.push({
+        title: `${loc.name} - Construction Cleaning`,
+        description: `Post-construction cleanup in ${loc.name}, ${loc.state}`,
+        url: buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name),
+        category: "location",
+        icon: "location"
+      });
+    }
+    
+    // Add commercial cleaning entry if available
+    if (loc.services.commercialCleaning) {
+      locationResults.push({
+        title: `${loc.name} - Commercial Cleaning`,
+        description: `Commercial cleaning services in ${loc.name}, ${loc.state}`,
+        url: buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name),
+        category: "location",
+        icon: "location"
+      });
+    }
+  });
+
+  return [...staticResults, ...locationResults];
+};
+
+const searchIndex = buildSearchIndex();
 
 interface SearchBarProps {
   isOpen: boolean;

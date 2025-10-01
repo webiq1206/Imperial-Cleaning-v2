@@ -9,6 +9,7 @@ import {
  extendedUtahLocations,
  ServiceLocation 
 } from "@shared/service-locations";
+import { buildServiceLocationUrl } from "@/lib/routing-utils";
 
 interface ServiceLocationsGridProps {
  serviceType: "construction-cleaning" | "commercial-cleaning";
@@ -73,7 +74,7 @@ export default function ServiceLocationsGrid({
   
   return (
    <Link 
-    href={`/${serviceType}/${slug}`} 
+    href={buildServiceLocationUrl(location.state, serviceType, location.name)} 
     key={location.name}
     onClick={() => {
      // Enhanced location grid interaction tracking

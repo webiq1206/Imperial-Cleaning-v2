@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import SEOHead from "@/components/seo-head";
 import { allServiceLocations } from "@shared/service-locations";
-import { locationToSlug } from "@/lib/routing-utils";
+import { locationToSlug, buildServiceLocationUrl } from "@/lib/routing-utils";
 import logoImage from "@assets/imperial-cleaning-logo.jpg";
 
 export default function SitemapPage() {
@@ -267,7 +267,7 @@ export default function SitemapPage() {
            {idahoLocations.filter(loc => loc.services.constructionCleanup).slice(0, 5).map((location) => (
             <li key={`construction-${location.name}`}>
              <Link 
-              href={`/construction-cleaning/${locationToSlug(location.name)}`}
+              href={buildServiceLocationUrl(location.state, 'construction-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-construction-${locationToSlug(location.name)}`}
              >
@@ -288,7 +288,7 @@ export default function SitemapPage() {
            {utahLocations.filter(loc => loc.services.constructionCleanup).slice(0, 5).map((location) => (
             <li key={`construction-${location.name}`}>
              <Link 
-              href={`/construction-cleaning/${locationToSlug(location.name)}`}
+              href={buildServiceLocationUrl(location.state, 'construction-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-construction-${locationToSlug(location.name)}`}
              >
@@ -319,7 +319,7 @@ export default function SitemapPage() {
            {idahoLocations.filter(loc => loc.services.commercialCleaning).slice(0, 5).map((location) => (
             <li key={`commercial-${location.name}`}>
              <Link 
-              href={`/commercial-cleaning/${locationToSlug(location.name)}`}
+              href={buildServiceLocationUrl(location.state, 'commercial-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-commercial-${locationToSlug(location.name)}`}
              >
@@ -340,7 +340,7 @@ export default function SitemapPage() {
            {utahLocations.filter(loc => loc.services.commercialCleaning).slice(0, 5).map((location) => (
             <li key={`commercial-${location.name}`}>
              <Link 
-              href={`/commercial-cleaning/${locationToSlug(location.name)}`}
+              href={buildServiceLocationUrl(location.state, 'commercial-cleaning', location.name)}
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               data-testid={`sitemap-commercial-${locationToSlug(location.name)}`}
              >

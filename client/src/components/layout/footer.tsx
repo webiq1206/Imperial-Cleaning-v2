@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { allServiceLocations } from "@shared/service-locations";
-import { locationToSlug } from "@/lib/routing-utils";
+import { locationToSlug, buildServiceLocationUrl } from "@/lib/routing-utils";
 
 export default function Footer() {
  // Get top locations by service type for footer display
@@ -119,7 +119,7 @@ export default function Footer() {
         {getTopLocationsByService('construction', 3).map((loc) => (
          <Link 
           key={loc.name}
-          href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+          href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
           className="block text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
           data-testid={`link-footer-construction-${locationToSlug(loc.name)}`}
          >
@@ -155,7 +155,7 @@ export default function Footer() {
         {getTopLocationsByService('commercial', 3).map((loc) => (
          <Link 
           key={loc.name}
-          href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+          href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
           className="block text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
           data-testid={`link-footer-commercial-${locationToSlug(loc.name)}`}
          >
