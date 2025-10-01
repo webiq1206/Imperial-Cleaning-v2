@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronRight, Search } from "lucide-react";
+import { Menu, X, ChevronRight, Search, Building2, Hammer, MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { trackEvent, trackNavigationInteraction, trackServiceNavigation } from "@/lib/analytics";
@@ -14,27 +14,35 @@ export default function Header() {
  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
  const [showContactForm, setShowContactForm] = useState(false);
  const [showSearch, setShowSearch] = useState(false);
- const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
- const [isServiceAreasDropdownOpen, setIsServiceAreasDropdownOpen] = useState(false);
- const [activeServiceSubmenu, setActiveServiceSubmenu] = useState<string | null>(null);
+ const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+ const [activeServiceTab, setActiveServiceTab] = useState<'construction' | 'commercial'>('construction');
  const [expandedMobileService, setExpandedMobileService] = useState<string | null>(null);
- const servicesDropdownRef = useRef<HTMLDivElement>(null);
- const serviceAreasDropdownRef = useRef<HTMLDivElement>(null);
+ const megaMenuRef = useRef<HTMLDivElement>(null);
+ const megaMenuButtonRef = useRef<HTMLButtonElement>(null);
+ const megaMenuPanelRef = useRef<HTMLDivElement>(null);
 
- // Filter locations by service type
- const getLocationsByService = (serviceType: 'construction' | 'commercial') => {
-  return allServiceLocations.filter(loc => {
-   if (serviceType === 'construction') {
-    return loc.services.constructionCleanup;
-   } else {
-    return loc.services.commercialCleaning;
-   }
-  }).sort((a, b) => {
-   // Sort by market tier (primary first) then by name
-   const tierOrder = { primary: 0, secondary: 1, extended: 2 };
-   const tierDiff = tierOrder[a.marketTier] - tierOrder[b.marketTier];
-   return tierDiff !== 0 ? tierDiff : a.name.localeCompare(b.name);
-  });
+ // Memoize filtered locations by service type and state
+ const getLocationsByService = useMemo(() => {
+  return (serviceType: 'construction' | 'commercial') => {
+   return allServiceLocations.filter(loc => {
+    if (serviceType === 'construction') {
+     return loc.services.constructionCleanup;
+    } else {
+     return loc.services.commercialCleaning;
+    }
+   }).sort((a, b) => {
+    const stateDiff = a.state.localeCompare(b.state);
+    if (stateDiff !== 0) return stateDiff;
+    const tierOrder = { primary: 0, secondary: 1, extended: 2 };
+    const tierDiff = tierOrder[a.marketTier] - tierOrder[b.marketTier];
+    return tierDiff !== 0 ? tierDiff : a.name.localeCompare(b.name);
+   });
+  };
+ }, []);
+
+ // Group locations by state
+ const getLocationsByServiceAndState = (serviceType: 'construction' | 'commercial', state: 'Idaho' | 'Utah') => {
+  return getLocationsByService(serviceType).filter(loc => loc.state === state);
  };
 
  const handleRequestQuote = () => {
@@ -46,7 +54,6 @@ export default function Header() {
   const newState = !isMobileMenuOpen;
   setIsMobileMenuOpen(newState);
   
-  // Enhanced mobile menu tracking
   trackNavigationInteraction(
    'mobile_menu_toggle',
    'main_nav',
@@ -64,7 +71,6 @@ export default function Header() {
   const newService = expandedMobileService === serviceType ? null : serviceType;
   setExpandedMobileService(newService);
   
-  // Track mobile service expansion
   trackNavigationInteraction(
    'mobile_menu_toggle',
    'services',
@@ -72,81 +78,78 @@ export default function Header() {
   );
  };
 
- const handleServicesDropdownToggle = () => {
-  const newState = !isServicesDropdownOpen;
-  setIsServicesDropdownOpen(newState);
-  setIsServiceAreasDropdownOpen(false); // Close other dropdown
+ const handleMegaMenuToggle = () => {
+  const newState = !isMegaMenuOpen;
+  setIsMegaMenuOpen(newState);
   
-  // Enhanced navigation tracking
   trackNavigationInteraction(
    newState ? 'dropdown_open' : 'dropdown_close',
    'services',
-   'services_main_dropdown'
+   'services_mega_menu'
   );
-  trackEvent('services_dropdown_toggle', 'navigation', newState ? 'open' : 'close');
+  trackEvent('mega_menu_toggle', 'navigation', newState ? 'open' : 'close');
  };
 
- const handleServiceAreasDropdownToggle = () => {
-  const newState = !isServiceAreasDropdownOpen;
-  setIsServiceAreasDropdownOpen(newState);
-  setIsServicesDropdownOpen(false); // Close other dropdown
+ const closeMegaMenu = () => {
+  setIsMegaMenuOpen(false);
   
-  // Enhanced navigation tracking
-  trackNavigationInteraction(
-   newState ? 'dropdown_open' : 'dropdown_close',
-   'service_areas',
-   'service_areas_main_dropdown'
-  );
-  trackEvent('service_areas_dropdown_toggle', 'navigation', newState ? 'open' : 'close');
- };
-
- const closeAllDropdowns = () => {
-  setIsServicesDropdownOpen(false);
-  setIsServiceAreasDropdownOpen(false);
-  setActiveServiceSubmenu(null);
- };
-
- const handleServiceSubmenuEnter = (serviceType: string) => {
-  setActiveServiceSubmenu(serviceType);
-  
-  // Track submenu interactions
-  trackNavigationInteraction(
-   'submenu_hover',
-   'services',
-   `${serviceType}_submenu`
-  );
- };
-
- const handleServiceSubmenuLeave = () => {
-  setActiveServiceSubmenu(null);
- };
-
- const handleDropdownKeyDown = (event: React.KeyboardEvent, toggleFunction: () => void) => {
-  if (event.key === 'Enter' || event.key === ' ') {
-   event.preventDefault();
-   toggleFunction();
-  } else if (event.key === 'Escape') {
-   event.preventDefault();
-   closeAllDropdowns();
+  if (megaMenuButtonRef.current) {
+   megaMenuButtonRef.current.focus();
   }
  };
 
- // Close dropdowns when clicking outside
+ const handleServiceTabChange = (serviceType: 'construction' | 'commercial') => {
+  setActiveServiceTab(serviceType);
+  
+  trackNavigationInteraction(
+   'menu_click',
+   'services',
+   `${serviceType}_tab`
+  );
+ };
+
+ const handleMegaMenuKeyDown = (event: React.KeyboardEvent) => {
+  if (event.key === 'Enter' || event.key === ' ') {
+   event.preventDefault();
+   handleMegaMenuToggle();
+  } else if (event.key === 'Escape') {
+   event.preventDefault();
+   closeMegaMenu();
+  } else if (event.key === 'ArrowLeft' && activeServiceTab === 'commercial') {
+   event.preventDefault();
+   handleServiceTabChange('construction');
+  } else if (event.key === 'ArrowRight' && activeServiceTab === 'construction') {
+   event.preventDefault();
+   handleServiceTabChange('commercial');
+  }
+ };
+
+ // Focus management for mega menu
+ useEffect(() => {
+  if (isMegaMenuOpen && megaMenuPanelRef.current) {
+   const firstFocusable = megaMenuPanelRef.current.querySelector<HTMLElement>(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+   );
+   if (firstFocusable) {
+    firstFocusable.focus();
+   }
+  }
+ }, [isMegaMenuOpen]);
+
+ // Close mega menu when clicking outside
  useEffect(() => {
   const handleClickOutside = (event: MouseEvent) => {
    if (
-    servicesDropdownRef.current &&
-    !servicesDropdownRef.current.contains(event.target as Node) &&
-    serviceAreasDropdownRef.current &&
-    !serviceAreasDropdownRef.current.contains(event.target as Node)
+    megaMenuRef.current &&
+    !megaMenuRef.current.contains(event.target as Node)
    ) {
-    closeAllDropdowns();
+    closeMegaMenu();
    }
   };
 
   const handleEscapeKey = (event: KeyboardEvent) => {
    if (event.key === 'Escape') {
-    closeAllDropdowns();
+    closeMegaMenu();
    }
   };
 
@@ -174,7 +177,6 @@ export default function Header() {
       </div>
       
       <nav className="hidden md:flex items-center space-x-8">
-       {/* Search Button */}
        <button
         onClick={() => setShowSearch(true)}
         className="text-muted-foreground hover:text-foreground transition-all duration-300 hover-lift-gentle p-2 hover:bg-secondary/50 rounded-lg"
@@ -184,217 +186,239 @@ export default function Header() {
         <Search className="w-5 h-5" />
        </button>
        
-       {/* Service Areas Dropdown */}
-       <div className="relative" ref={serviceAreasDropdownRef}>
+       <div className="relative" ref={megaMenuRef}>
         <button 
+         ref={megaMenuButtonRef}
          className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle flex items-center focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md px-2 py-1"
-         onClick={handleServiceAreasDropdownToggle}
-         onKeyDown={(e) => handleDropdownKeyDown(e, handleServiceAreasDropdownToggle)}
+         onClick={handleMegaMenuToggle}
+         onKeyDown={handleMegaMenuKeyDown}
          aria-haspopup="true"
-         aria-expanded={isServiceAreasDropdownOpen}
-         data-testid="button-service-areas-dropdown"
-        >
-         Service Areas
-         <svg className={`ml-1 h-3 w-3 transition-transform duration-200 ${isServiceAreasDropdownOpen ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-         </svg>
-        </button>
-        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${isServiceAreasDropdownOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'}`}>
-         <div className="py-2">
-          <Link 
-           href="/service-areas/idaho" 
-           className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
-           onClick={() => {
-            trackNavigationInteraction('menu_click', 'service_areas', 'idaho_service_areas');
-            closeAllDropdowns();
-           }}
-           data-testid="link-service-areas-idaho"
-          >
-           <div className="flex items-center">
-            <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-            <div>
-             <div className="">Idaho Locations</div>
-             <div className="text-xs text-muted-foreground mt-0.5">Idaho Falls, Pocatello, Rexburg & more</div>
-            </div>
-           </div>
-          </Link>
-          <Link 
-           href="/service-areas/utah" 
-           className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg"
-           onClick={() => {
-            trackNavigationInteraction('menu_click', 'service_areas', 'utah_service_areas');
-            closeAllDropdowns();
-           }}
-           data-testid="link-service-areas-utah"
-          >
-           <div className="flex items-center">
-            <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
-            <div>
-             <div className="">Utah Locations</div>
-             <div className="text-xs text-muted-foreground mt-0.5">Salt Lake City, Logan, Ogden & more</div>
-            </div>
-           </div>
-          </Link>
-         </div>
-        </div>
-       </div>
-
-       {/* Services Dropdown with Multi-level Navigation */}
-       <div className="relative" ref={servicesDropdownRef}>
-        <button 
-         className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle flex items-center focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md px-2 py-1"
-         onClick={handleServicesDropdownToggle}
-         onKeyDown={(e) => handleDropdownKeyDown(e, handleServicesDropdownToggle)}
-         aria-haspopup="true"
-         aria-expanded={isServicesDropdownOpen}
-         data-testid="button-services-dropdown"
+         aria-expanded={isMegaMenuOpen}
+         aria-controls="services-mega-menu-panel"
+         data-testid="button-mega-menu"
         >
          Services
-         <svg className={`ml-1 h-3 w-3 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+         <svg className={`ml-1 h-3 w-3 transition-transform duration-200 ${isMegaMenuOpen ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
          </svg>
         </button>
         
-        {/* Main Services Dropdown */}
-        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${isServicesDropdownOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'}`}>
-         <div className="py-2">
-          
-          {/* Construction Cleaning */}
-          <div 
-           className="relative"
-           onMouseEnter={() => handleServiceSubmenuEnter('construction')}
-           onMouseLeave={handleServiceSubmenuLeave}
-          >
-           <div className={`block px-4 py-3 text-sm transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
-            location.startsWith('/construction-cleaning') 
-             ? 'text-foreground bg-secondary/30' 
-             : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-           }`}>
-            <div className="flex items-center justify-between">
-             <div className="flex items-center">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-              <div>
-               <div className="">Construction Cleaning</div>
-               <div className="text-xs text-muted-foreground mt-0.5">Post-construction debris removal</div>
-              </div>
+        <div 
+         id="services-mega-menu-panel"
+         ref={megaMenuPanelRef}
+         role="menu"
+         className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-[700px] bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow ${
+          isMegaMenuOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95 translate-y-2'
+         }`}
+        >
+         
+         <div className="border-b border-border/20">
+          <div className="flex p-2 gap-2">
+           <button
+            onClick={() => handleServiceTabChange('construction')}
+            role="menuitem"
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 ${
+             activeServiceTab === 'construction' 
+              ? 'bg-blue-500/20 text-blue-600 border border-blue-500/30' 
+              : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+            }`}
+            data-testid="button-tab-construction"
+           >
+            <Hammer className="w-4 h-4" />
+            <span className="font-medium">Construction Cleaning</span>
+           </button>
+           <button
+            onClick={() => handleServiceTabChange('commercial')}
+            role="menuitem"
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 ${
+             activeServiceTab === 'commercial' 
+              ? 'bg-green-500/20 text-green-600 border border-green-500/30' 
+              : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+            }`}
+            data-testid="button-tab-commercial"
+           >
+            <Building2 className="w-4 h-4" />
+            <span className="font-medium">Commercial Cleaning</span>
+           </button>
+          </div>
+         </div>
+
+         <div className="p-6">
+          {activeServiceTab === 'construction' && (
+           <div className="space-y-6">
+            <div className="flex items-center justify-between mb-4">
+             <div>
+              <h3 className="text-lg font-semibold text-foreground">Construction Cleaning Services</h3>
+              <p className="text-sm text-muted-foreground mt-1">Post-construction debris removal and final cleanup</p>
              </div>
-             <ChevronRight className="h-3 w-3 text-muted-foreground" />
-            </div>
-           </div>
-           
-           {/* Construction Cleaning Location Flyout */}
-           <div className={`absolute left-full top-0 ml-2 w-64 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow max-h-96 overflow-y-auto ${
-            activeServiceSubmenu === 'construction' ? 'opacity-100 visible scale-100 translate-x-0' : 'opacity-0 invisible scale-95 translate-x-2'
-           }`}>
-            <div className="py-2">
              <Link 
               href="/construction-cleaning" 
-              className="block px-4 py-3 text-sm text-foreground hover:bg-secondary/50 transition-all duration-200 border-b border-border/20"
+              role="menuitem"
+              className="text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline"
               onClick={() => {
                trackServiceNavigation('construction-cleaning', 'dropdown_selection');
-               trackNavigationInteraction('menu_click', 'services', 'construction_cleaning_all_locations');
-               closeAllDropdowns();
+               trackNavigationInteraction('menu_click', 'services', 'construction_cleaning_all');
+               closeMegaMenu();
               }}
               data-testid="link-construction-cleaning-all"
              >
-              <div className="flex items-center">
-               <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-               <span className="">View All Construction Cleaning</span>
-              </div>
+              View All →
              </Link>
-             <div className="border-b border-border/20 my-2"></div>
-             {getLocationsByService('construction').map((loc) => (
-              <Link 
-               key={loc.name}
-               href={`/construction-cleaning/${locationToSlug(loc.name)}`}
-               className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-all duration-200"
-               onClick={() => {
-                trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
-                trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
-                closeAllDropdowns();
-               }}
-               data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}`}
-              >
-               <div className="flex items-center justify-between">
-                <span>{loc.name}</span>
-                <span className="text-xs text-muted-foreground">{loc.state}</span>
-               </div>
-              </Link>
-             ))}
             </div>
-           </div>
-          </div>
 
-          {/* Commercial Cleaning */}
-          <div 
-           className="relative"
-           onMouseEnter={() => handleServiceSubmenuEnter('commercial')}
-           onMouseLeave={handleServiceSubmenuLeave}
-          >
-           <div className={`block px-4 py-3 text-sm transition-all duration-200 hover-shimmer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg cursor-pointer ${
-            location.startsWith('/commercial-cleaning') 
-             ? 'text-foreground bg-secondary/30' 
-             : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-           }`}>
-            <div className="flex items-center justify-between">
-             <div className="flex items-center">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-              <div>
-               <div className="">Commercial Cleaning</div>
-               <div className="text-xs text-muted-foreground mt-0.5">Daily office & facility maintenance</div>
-              </div>
+            <div>
+             <div className="flex items-center gap-2 mb-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              <h4 className="text-sm font-semibold text-foreground">Idaho</h4>
              </div>
-             <ChevronRight className="h-3 w-3 text-muted-foreground" />
+             <div className="grid grid-cols-3 gap-2">
+              {getLocationsByServiceAndState('construction', 'Idaho').map((loc) => (
+               <Link 
+                key={`${loc.state}-${locationToSlug(loc.name)}`}
+                href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                role="menuitem"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                onClick={() => {
+                 trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
+                 trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                 closeMegaMenu();
+                }}
+                data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}`}
+               >
+                <div className="flex items-center gap-2 min-w-0">
+                 <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-blue-500" />
+                 <span className="truncate">{loc.name}</span>
+                </div>
+                {loc.marketTier === 'primary' && (
+                 <Star className="w-3 h-3 flex-shrink-0 text-blue-500" />
+                )}
+               </Link>
+              ))}
+             </div>
+            </div>
+
+            <div>
+             <div className="flex items-center gap-2 mb-3">
+              <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+              <h4 className="text-sm font-semibold text-foreground">Utah</h4>
+             </div>
+             <div className="grid grid-cols-3 gap-2">
+              {getLocationsByServiceAndState('construction', 'Utah').map((loc) => (
+               <Link 
+                key={`${loc.state}-${locationToSlug(loc.name)}`}
+                href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                role="menuitem"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                onClick={() => {
+                 trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
+                 trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                 closeMegaMenu();
+                }}
+                data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}`}
+               >
+                <div className="flex items-center gap-2 min-w-0">
+                 <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-blue-500" />
+                 <span className="truncate">{loc.name}</span>
+                </div>
+                {loc.marketTier === 'primary' && (
+                 <Star className="w-3 h-3 flex-shrink-0 text-blue-500" />
+                )}
+               </Link>
+              ))}
+             </div>
             </div>
            </div>
-           
-           {/* Commercial Cleaning Location Flyout */}
-           <div className={`absolute left-full top-0 ml-2 w-64 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl transition-all duration-300 ease-out glass-card-elevated sophisticated-glow max-h-96 overflow-y-auto ${
-            activeServiceSubmenu === 'commercial' ? 'opacity-100 visible scale-100 translate-x-0' : 'opacity-0 invisible scale-95 translate-x-2'
-           }`}>
-            <div className="py-2">
+          )}
+
+          {activeServiceTab === 'commercial' && (
+           <div className="space-y-6">
+            <div className="flex items-center justify-between mb-4">
+             <div>
+              <h3 className="text-lg font-semibold text-foreground">Commercial Cleaning Services</h3>
+              <p className="text-sm text-muted-foreground mt-1">Daily office and facility maintenance</p>
+             </div>
              <Link 
               href="/commercial-cleaning" 
-              className="block px-4 py-3 text-sm text-foreground hover:bg-secondary/50 transition-all duration-200 border-b border-border/20"
+              role="menuitem"
+              className="text-sm text-green-600 hover:text-green-700 font-medium hover:underline"
               onClick={() => {
                trackServiceNavigation('commercial-cleaning', 'dropdown_selection');
-               trackNavigationInteraction('menu_click', 'services', 'commercial_cleaning_all_locations');
-               closeAllDropdowns();
+               trackNavigationInteraction('menu_click', 'services', 'commercial_cleaning_all');
+               closeMegaMenu();
               }}
               data-testid="link-commercial-cleaning-all"
              >
-              <div className="flex items-center">
-               <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-               <span className="">View All Commercial Cleaning</span>
-              </div>
+              View All →
              </Link>
-             <div className="border-b border-border/20 my-2"></div>
-             {getLocationsByService('commercial').map((loc) => (
-              <Link 
-               key={loc.name}
-               href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
-               className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-all duration-200"
-               onClick={() => {
-                trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
-                trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
-                closeAllDropdowns();
-               }}
-               data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}`}
-              >
-               <div className="flex items-center justify-between">
-                <span>{loc.name}</span>
-                <span className="text-xs text-muted-foreground">{loc.state}</span>
-               </div>
-              </Link>
-             ))}
+            </div>
+
+            <div>
+             <div className="flex items-center gap-2 mb-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              <h4 className="text-sm font-semibold text-foreground">Idaho</h4>
+             </div>
+             <div className="grid grid-cols-3 gap-2">
+              {getLocationsByServiceAndState('commercial', 'Idaho').map((loc) => (
+               <Link 
+                key={`${loc.state}-${locationToSlug(loc.name)}`}
+                href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                role="menuitem"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                onClick={() => {
+                 trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
+                 trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                 closeMegaMenu();
+                }}
+                data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}`}
+               >
+                <div className="flex items-center gap-2 min-w-0">
+                 <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-green-500" />
+                 <span className="truncate">{loc.name}</span>
+                </div>
+                {loc.marketTier === 'primary' && (
+                 <Star className="w-3 h-3 flex-shrink-0 text-green-500" />
+                )}
+               </Link>
+              ))}
+             </div>
+            </div>
+
+            <div>
+             <div className="flex items-center gap-2 mb-3">
+              <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+              <h4 className="text-sm font-semibold text-foreground">Utah</h4>
+             </div>
+             <div className="grid grid-cols-3 gap-2">
+              {getLocationsByServiceAndState('commercial', 'Utah').map((loc) => (
+               <Link 
+                key={`${loc.state}-${locationToSlug(loc.name)}`}
+                href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                role="menuitem"
+                className="group flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                onClick={() => {
+                 trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
+                 trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                 closeMegaMenu();
+                }}
+                data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}`}
+               >
+                <div className="flex items-center gap-2 min-w-0">
+                 <MapPin className="w-3 h-3 flex-shrink-0 text-muted-foreground/50 group-hover:text-green-500" />
+                 <span className="truncate">{loc.name}</span>
+                </div>
+                {loc.marketTier === 'primary' && (
+                 <Star className="w-3 h-3 flex-shrink-0 text-green-500" />
+                )}
+               </Link>
+              ))}
+             </div>
             </div>
            </div>
-          </div>
+          )}
          </div>
         </div>
        </div>
 
-       {/* About Link */}
        <Link 
         href="/about" 
         className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle"
@@ -403,7 +427,6 @@ export default function Header() {
         About
        </Link>
 
-       {/* Contact Link */}
        <Link 
         href="/contact" 
         className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle"
@@ -423,7 +446,6 @@ export default function Header() {
        Request Quote
       </Button>
 
-      {/* Enhanced Mobile menu with Sheet */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
        <SheetTrigger asChild>
         <Button
@@ -446,7 +468,6 @@ export default function Header() {
          </SheetTitle>
         </SheetHeader>
 
-        {/* Mobile Search Button */}
         <div className="py-4">
          <button
           onClick={() => {
@@ -462,11 +483,9 @@ export default function Header() {
         </div>
 
         <div className="flex flex-col h-full py-6 space-y-1 overflow-y-auto">
-         {/* Services Section with Hierarchical Navigation */}
          <div className="px-2 py-4">
           <div className="text-xs text-secondary-color uppercase tracking-wider mb-4">Services</div>
           
-          {/* Construction Cleaning */}
           <div className="mb-4">
            <button
             className={`w-full flex items-center justify-between px-4 py-4 text-sm rounded-xl transition-all duration-300 hover-lift-gentle glass-button ${
@@ -489,41 +508,89 @@ export default function Header() {
             }`} />
            </button>
            
-           {/* Construction Cleaning Locations */}
            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
             expandedMobileService === 'construction' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
            }`}>
-            <div className="pl-4 pt-2 space-y-1 max-h-80 overflow-y-auto">
+            <div className="pl-4 pt-2 space-y-3 max-h-80 overflow-y-auto">
              <Link 
               href="/construction-cleaning" 
-              className="block px-4 py-3 text-sm text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20"
-              onClick={closeMobileMenu}
+              className="block px-4 py-3 text-sm text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20 mb-3"
+              onClick={() => {
+               trackServiceNavigation('construction-cleaning', 'dropdown_selection');
+               trackNavigationInteraction('menu_click', 'services', 'construction_cleaning_all');
+               closeMobileMenu();
+              }}
               data-testid="link-construction-cleaning-all-mobile"
              >
               <div className="flex items-center">
-               <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-               <span>View All Construction Cleaning</span>
+               <Hammer className="w-4 h-4 mr-3 text-blue-500" />
+               <span className="font-medium">View All Construction Cleaning</span>
               </div>
              </Link>
-             {getLocationsByService('construction').map((loc) => (
-              <Link 
-               key={loc.name}
-               href={`/construction-cleaning/${locationToSlug(loc.name)}`}
-               className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
-               onClick={closeMobileMenu}
-               data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}-mobile`}
-              >
-               <div className="flex items-center justify-between">
-                <span>{loc.name}</span>
-                <span className="text-xs text-muted-foreground">{loc.state}</span>
-               </div>
-              </Link>
-             ))}
+             
+             <div>
+              <div className="flex items-center gap-2 px-4 mb-2">
+               <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+               <h5 className="text-xs font-semibold text-foreground uppercase tracking-wider">Idaho</h5>
+              </div>
+              <div className="space-y-1">
+               {getLocationsByServiceAndState('construction', 'Idaho').map((loc) => (
+                <Link 
+                 key={`${loc.state}-${locationToSlug(loc.name)}`}
+                 href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                 className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
+                 onClick={() => {
+                  trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
+                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                  closeMobileMenu();
+                 }}
+                 data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}-mobile`}
+                >
+                 <div className="flex items-center gap-2">
+                  <MapPin className="w-3 h-3 text-muted-foreground/50" />
+                  <span>{loc.name}</span>
+                 </div>
+                 {loc.marketTier === 'primary' && (
+                  <Star className="w-3 h-3 text-blue-500" />
+                 )}
+                </Link>
+               ))}
+              </div>
+             </div>
+
+             <div>
+              <div className="flex items-center gap-2 px-4 mb-2">
+               <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+               <h5 className="text-xs font-semibold text-foreground uppercase tracking-wider">Utah</h5>
+              </div>
+              <div className="space-y-1">
+               {getLocationsByServiceAndState('construction', 'Utah').map((loc) => (
+                <Link 
+                 key={`${loc.state}-${locationToSlug(loc.name)}`}
+                 href={`/construction-cleaning/${locationToSlug(loc.name)}`}
+                 className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
+                 onClick={() => {
+                  trackServiceNavigation('construction-cleaning', 'submenu_location', loc.name);
+                  trackNavigationInteraction('menu_click', 'services', `construction_cleaning_${locationToSlug(loc.name)}`);
+                  closeMobileMenu();
+                 }}
+                 data-testid={`link-construction-cleaning-${locationToSlug(loc.name)}-mobile`}
+                >
+                 <div className="flex items-center gap-2">
+                  <MapPin className="w-3 h-3 text-muted-foreground/50" />
+                  <span>{loc.name}</span>
+                 </div>
+                 {loc.marketTier === 'primary' && (
+                  <Star className="w-3 h-3 text-blue-500" />
+                 )}
+                </Link>
+               ))}
+              </div>
+             </div>
             </div>
            </div>
           </div>
 
-          {/* Commercial Cleaning */}
           <div className="mb-4">
            <button
             className={`w-full flex items-center justify-between px-4 py-4 text-sm rounded-xl transition-all duration-300 hover-lift-gentle glass-button ${
@@ -546,75 +613,90 @@ export default function Header() {
             }`} />
            </button>
            
-           {/* Commercial Cleaning Locations */}
            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
             expandedMobileService === 'commercial' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
            }`}>
-            <div className="pl-4 pt-2 space-y-1 max-h-80 overflow-y-auto">
+            <div className="pl-4 pt-2 space-y-3 max-h-80 overflow-y-auto">
              <Link 
               href="/commercial-cleaning" 
-              className="block px-4 py-3 text-sm text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20"
-              onClick={closeMobileMenu}
+              className="block px-4 py-3 text-sm text-primary-color hover:bg-secondary/30 rounded-lg transition-all duration-200 border-b border-border/20 mb-3"
+              onClick={() => {
+               trackServiceNavigation('commercial-cleaning', 'dropdown_selection');
+               trackNavigationInteraction('menu_click', 'services', 'commercial_cleaning_all');
+               closeMobileMenu();
+              }}
               data-testid="link-commercial-cleaning-all-mobile"
              >
               <div className="flex items-center">
-               <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-               <span>View All Commercial Cleaning</span>
+               <Building2 className="w-4 h-4 mr-3 text-green-500" />
+               <span className="font-medium">View All Commercial Cleaning</span>
               </div>
              </Link>
-             {getLocationsByService('commercial').map((loc) => (
-              <Link 
-               key={loc.name}
-               href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
-               className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
-               onClick={closeMobileMenu}
-               data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}-mobile`}
-              >
-               <div className="flex items-center justify-between">
-                <span>{loc.name}</span>
-                <span className="text-xs text-muted-foreground">{loc.state}</span>
-               </div>
-              </Link>
-             ))}
+             
+             <div>
+              <div className="flex items-center gap-2 px-4 mb-2">
+               <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+               <h5 className="text-xs font-semibold text-foreground uppercase tracking-wider">Idaho</h5>
+              </div>
+              <div className="space-y-1">
+               {getLocationsByServiceAndState('commercial', 'Idaho').map((loc) => (
+                <Link 
+                 key={`${loc.state}-${locationToSlug(loc.name)}`}
+                 href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                 className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
+                 onClick={() => {
+                  trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
+                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                  closeMobileMenu();
+                 }}
+                 data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}-mobile`}
+                >
+                 <div className="flex items-center gap-2">
+                  <MapPin className="w-3 h-3 text-muted-foreground/50" />
+                  <span>{loc.name}</span>
+                 </div>
+                 {loc.marketTier === 'primary' && (
+                  <Star className="w-3 h-3 text-green-500" />
+                 )}
+                </Link>
+               ))}
+              </div>
+             </div>
+
+             <div>
+              <div className="flex items-center gap-2 px-4 mb-2">
+               <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+               <h5 className="text-xs font-semibold text-foreground uppercase tracking-wider">Utah</h5>
+              </div>
+              <div className="space-y-1">
+               {getLocationsByServiceAndState('commercial', 'Utah').map((loc) => (
+                <Link 
+                 key={`${loc.state}-${locationToSlug(loc.name)}`}
+                 href={`/commercial-cleaning/${locationToSlug(loc.name)}`}
+                 className="flex items-center justify-between px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg transition-all duration-200"
+                 onClick={() => {
+                  trackServiceNavigation('commercial-cleaning', 'submenu_location', loc.name);
+                  trackNavigationInteraction('menu_click', 'services', `commercial_cleaning_${locationToSlug(loc.name)}`);
+                  closeMobileMenu();
+                 }}
+                 data-testid={`link-commercial-cleaning-${locationToSlug(loc.name)}-mobile`}
+                >
+                 <div className="flex items-center gap-2">
+                  <MapPin className="w-3 h-3 text-muted-foreground/50" />
+                  <span>{loc.name}</span>
+                 </div>
+                 {loc.marketTier === 'primary' && (
+                  <Star className="w-3 h-3 text-green-500" />
+                 )}
+                </Link>
+               ))}
+              </div>
+             </div>
             </div>
            </div>
           </div>
          </div>
 
-         {/* Service Areas Section */}
-         <div className="px-2 py-4 border-t border-border/20">
-          <div className="text-xs text-secondary-color uppercase tracking-wider mb-4">Service Areas</div>
-          <Link 
-           href="/service-areas/idaho" 
-           className="block px-4 py-4 text-sm text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button mb-2"
-           onClick={closeMobileMenu}
-           data-testid="link-service-areas-idaho-mobile"
-          >
-           <div className="flex items-center">
-            <div className="w-3 h-3 bg-blue-600 rounded-full mr-4"></div>
-            <div>
-             <div className=" text-primary-color">Idaho Locations</div>
-             <div className="text-xs text-secondary-color mt-1">Idaho Falls, Pocatello, Rexburg & more</div>
-            </div>
-           </div>
-          </Link>
-          <Link 
-           href="/service-areas/utah" 
-           className="block px-4 py-4 text-sm text-secondary-color hover:text-primary-color rounded-xl transition-all duration-300 hover-lift-gentle glass-button"
-           onClick={closeMobileMenu}
-           data-testid="link-service-areas-utah-mobile"
-          >
-           <div className="flex items-center">
-            <div className="w-3 h-3 bg-red-600 rounded-full mr-4"></div>
-            <div>
-             <div className=" text-primary-color">Utah Locations</div>
-             <div className="text-xs text-secondary-color mt-1">Salt Lake City, Logan, Ogden & more</div>
-            </div>
-           </div>
-          </Link>
-         </div>
-
-         {/* Quick Links */}
          <div className="px-2 py-4 border-t border-border/20">
           <div className="text-xs text-secondary-color uppercase tracking-wider mb-4">Quick Links</div>
           <Link 
@@ -635,7 +717,6 @@ export default function Header() {
           </Link>
          </div>
 
-         {/* Call to Action - Fixed at bottom */}
          <div className="mt-auto px-2 py-4 border-t border-border/20">
           <Button 
            variant="pill-primary"
