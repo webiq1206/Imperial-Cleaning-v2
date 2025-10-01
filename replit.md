@@ -1,212 +1,75 @@
 # Imperial Cleaning Inc. Website
 
 ## Overview
-
-Imperial Cleaning Inc. is a professional cleaning services website targeting commercial contractors and businesses across Idaho and Utah. The application is built as a modern full-stack web application optimized for SEO and lead generation, featuring construction cleaning and commercial cleaning services. The site includes multi-step contact forms, service area pages, and comprehensive analytics tracking to convert organic search traffic into qualified leads.
+Imperial Cleaning Inc. is a professional cleaning services website targeting commercial contractors and businesses across Idaho and Utah. The application is a modern full-stack web application optimized for SEO and lead generation. It features construction cleaning and commercial cleaning services, multi-step contact forms, service area pages, and comprehensive analytics tracking to convert organic search traffic into qualified leads. The project aims to maximize organic search visibility and provide a robust platform for business growth.
 
 ## User Preferences
-
 Preferred communication style: Simple, everyday language.
-
-## Company History
-
-- **Founded**: 2015 in Idaho Falls, Idaho
-- **Utah Expansion**: 2023
-- **Years of Service**: 10 years (2015-2025)
-
-## Recent Changes (October 1, 2025)
-
-### Intelligent Search Function (October 1, 2025)
-- Implemented elegant search lightbox modal triggered by magnifying glass icon in header
-- Full-screen dark overlay with backdrop blur for focused search experience
-- Auto-focused search input with real-time autocomplete suggestions
-- Search functionality includes keyboard navigation (arrow keys, Enter to select, Escape to close)
-- Comprehensive search index covering all pages, services, locations, and page sections
-- Smart navigation to specific pages or anchor sections (e.g., /#compliance, /#testimonials)
-- Visual feedback with icon indicators (pages, services, locations) for each result type
-- Accessible from desktop header (magnifying glass icon) and mobile menu (Search button)
-- Lightbox automatically closes after selection or when pressing Escape/clicking outside
-- Analytics tracking for search queries and result selections
-- Component location: client/src/components/search-bar.tsx
-
-### URL Structure Migration & SEO Enhancement (October 1, 2025)
-
-**URL Structure Changes**
-- Migrated from `/service/city/` to `/state/service/city/` format for improved SEO and geographic targeting
-- New URL pattern: `/idaho/construction-cleaning/idaho-falls/` and `/utah/commercial-cleaning/salt-lake-city/`
-- Implemented routing utilities in `client/src/lib/routing-utils.ts`:
-  - `buildServiceLocationUrl(state, service, city)` - generates SEO-optimized URLs
-  - `getLocationByStateAndSlug(state, citySlug)` - retrieves location data with state validation
-  - `stateToSlug()` and `slugToState()` - handle state URL conversion
-  - `isValidServiceLocation(service, locationSlug, state)` - validates service/location/state combinations
-- Updated all internal navigation (header, footer, mega menu, CTAs, breadcrumbs) to use new URL structure
-- All 24 service locations now accessible via state-qualified URLs
-
-**Mega Menu Navigation**
-- Implemented comprehensive mega menu combining services and locations with tabbed interface
-- Two-tab design: "Our Services" and "Service Areas" for intuitive navigation
-- Services tab displays construction cleaning and commercial cleaning with icons and descriptions
-- Service Areas tab shows all Idaho and Utah locations organized by state
-- Hover effects and visual indicators for better user experience
-- Mobile-optimized with collapsible menu and touch-friendly interactions
-- Component location: `client/src/components/layout/header.tsx`
-
-**Location-Specific Content Generation**
-- Added 5 new content sections to city/service pages for comprehensive local context:
-  - **Regional Challenges**: Location-specific operational challenges and industry pain points
-  - **Tailored Solutions**: Custom solutions addressing each city's unique market needs
-  - **Case Studies**: Real project examples showcasing local expertise and results
-  - **Compliance & Certifications**: Region-specific licensing, OSHA compliance, and regulatory requirements
-  - **Location Testimonials**: City-specific client testimonials and success stories
-- Content generation utilities in `client/src/lib/location-content-utils.ts`
-- All content dynamically generated based on location demographics and industry data from `shared/service-locations.ts`
-
-**SEO Optimization Implementation**
-- Comprehensive structured data implementation:
-  - LocalBusiness schema with city-specific NAP (Name, Address, Phone) data
-  - Service schema for each service/location combination
-  - BreadcrumbList schema for improved navigation and search appearance
-- City-specific meta tags:
-  - Unique title tags: "[Service] in [City], [State] | Imperial Cleaning Inc"
-  - Location-optimized meta descriptions with local keywords
-  - Open Graph tags for social sharing with city context
-  - Twitter Card optimization for location pages
-- Breadcrumb navigation on all city/service pages showing: Home > State > Service > City
-- Semantic HTML with proper heading hierarchy (H1 for city/service, H2 for sections)
-
-**Sitemap Updates**
-- Updated `client/src/pages/sitemap.tsx` to display all city/service URL combinations
-- Complete directory showing all 24 locations × 2 services = 48 unique city/service pages
-- Organized by state (Idaho/Utah) and service type for easy navigation
-- URLs use new `/state/service/city/` format with `buildServiceLocationUrl()` utility
-- Dynamic location counts displayed for each state/service combination
-
-**Technical Implementation**
-- Service location data centralized in `shared/service-locations.ts` with 24 total locations
-- Routing utilities ensure consistent URL generation across entire application
-- All links validated for proper state/service/location combinations
-- Mobile-responsive design maintained across all new pages and components
-
-## Recent Changes (September 30, 2025)
-
-### Featured Image Implementation
-- Implemented Imperial Cleaning Inc. logo as featured image across all 10 website pages for enhanced social media sharing
-- Added SEO-optimized, page-specific alt tags to improve brand visibility and context
-- Logo displays when pages are shared on Facebook, Twitter, LinkedIn, and other social platforms
-- Each page has unique alt text combining brand name with page-specific context and relevant keywords
-- Implementation includes both Open Graph and Twitter Card image properties
-- Pages updated: Home, Construction Cleaning, Commercial Cleaning, Idaho Service Areas, Utah Service Areas, About, Contact, Privacy Policy, Terms of Service, Sitemap
-
-### Accurate Company History Implementation
-- Corrected founding date from false "2010" to accurate "2015" across entire codebase
-- Updated Utah expansion date from false "2013" to accurate "2023" 
-- Removed all fake addresses ("123 Business Blvd") from About page, Contact page, Terms of Service, Privacy Policy, and structured data schemas
-- Updated all "years of experience" references from 15+ to accurate 10 years
-- Fixed all SEO metadata (titles, descriptions, Open Graph, Twitter cards) with correct dates
-- Updated company milestones timeline with accurate chronology
-- Changes applied to: App.tsx (About/Contact pages), home.tsx, seo-head.tsx, footer.tsx, terms-of-service.tsx, privacy-policy.tsx
-
-### Service Level Enhancement
-- Updated all service area comparison tables to display 5-star service level across all Idaho and Utah markets
-- Applied to Idaho Falls, Pocatello, Twin Falls, Blackfoot, Rexburg, Boise, Logan, Ogden, Salt Lake City, and Provo
-
-### Icon Color Consistency
-- Unified icon colors within each city playbook section to match city's designated theme color
-- Each city's icons (Key Industries, Industry Challenges, Our Solutions, Compliance) now use consistent color throughout section
-- Idaho cities: primary (cyan), blue, green, yellow, purple, indigo
-- Utah cities: primary (cyan), blue, green, purple
-
-### Typography Standardization
-- Removed all font-bold, font-semibold, and font-medium classes from entire codebase (55+ files)
-- All text now uses consistent font-weight: 300 (light) for elegant, uniform appearance
-- Applied across all pages, components, and UI elements
-
-### Hero Section Redesign
-- Created reusable InternalHeroSection component matching homepage design with fixed background logo, parallax effects, and sophisticated styling
-- Updated all internal pages (Construction Cleaning, Commercial Cleaning, Idaho/Utah Service Areas) to use consistent hero design
-- Maintained mobile optimization with -mt-12 spacing and proper background logo display (visible on mobile, hidden on desktop)
-
-### Content Cleanup
-- Removed all instances of "In ALL Locations", "ALL Service Areas", and similar unprofessional phrasing from headings and descriptions
-- Replaced with regionally scoped, professional language while preserving SEO value and geographic keywords (Idaho, Utah)
-- Updates applied to Construction Cleaning, Commercial Cleaning, and Case Studies sections
-
-### Service Area Pages Transformation
-- Redesigned Idaho and Utah service area pages from generic city lists to industry-specific playbook format
-- Added market overview sections with regional strengths and response time commitments
-- Created detailed city playbooks featuring: dominant industries (INL, Chobani, Qualtrics, Hill AFB), operational challenges, tailored solutions, compliance requirements, and proof points
-- Implemented service readiness comparison tables showing response times, crew availability, and specializations
-- Added operational assurance sections covering licensing, OSHA compliance, 24/7 emergency response, and quality processes
-- Maintained all SEO elements (H2 headings with city names, structured data, geographic keywords) while providing actionable content for decision-making
 
 ## System Architecture
 
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript using Vite as the build tool
-- **Routing**: Wouter for lightweight client-side routing
-- **Styling**: Tailwind CSS with shadcn/ui component library for consistent design
-- **State Management**: TanStack Query for server state management and React hooks for local state
-- **Form Handling**: React Hook Form with Zod validation for type-safe form validation
-- **UI Components**: Radix UI primitives with custom theming through CSS variables
+- **Framework**: React 18 with TypeScript using Vite.
+- **Routing**: Wouter for lightweight client-side routing.
+- **Styling**: Tailwind CSS with shadcn/ui component library, using Radix UI primitives.
+- **State Management**: TanStack Query for server state management and React hooks for local state.
+- **Form Handling**: React Hook Form with Zod validation.
+- **UI/UX Decisions**: Consistent design with fixed background logo, parallax effects in hero sections, unified icon colors per city theme, and standardized light font-weight (300) across all typography. Mega menu combines services and locations with a tabbed interface.
+- **Feature Specifications**: Intelligent search lightbox modal with autocomplete; URL structure migration to `/state/service/city/` format; location-specific content generation with 5 new sections per city page; comprehensive structured data and city-specific meta tags; multi-step contact forms.
 
 ### Backend Architecture
-- **Runtime**: Node.js with Express.js framework
-- **Language**: TypeScript with ES modules
-- **API Design**: RESTful API with structured error handling and request logging
-- **Middleware**: Express middleware for JSON parsing, CORS handling, and request/response logging
-- **Storage Interface**: Abstracted storage layer with in-memory implementation (ready for database integration)
+- **Runtime**: Node.js with Express.js.
+- **Language**: TypeScript with ES modules.
+- **API Design**: RESTful API with structured error handling.
+- **Middleware**: Express middleware for JSON parsing, CORS, and logging.
+- **Storage Interface**: Abstracted storage layer with in-memory implementation, designed for future PostgreSQL integration.
 
 ### Data Storage Solutions
-- **ORM**: Drizzle ORM configured for PostgreSQL with schema definitions
-- **Database**: PostgreSQL (configured but not yet connected - currently using in-memory storage)
-- **Schema Management**: Drizzle Kit for migrations and schema management
-- **Connection**: Neon Database serverless PostgreSQL adapter ready for deployment
+- **ORM**: Drizzle ORM configured for PostgreSQL.
+- **Database**: PostgreSQL (configured, currently using in-memory).
+- **Schema Management**: Drizzle Kit for migrations.
+- **Connection**: Neon Database serverless PostgreSQL adapter ready.
 
 ### Authentication and Authorization
-- **Current State**: No authentication system implemented (contact forms are public)
-- **Session Management**: Basic session handling configured but not actively used
-- **Security**: Input validation through Zod schemas and sanitized form submissions
+- **Current State**: No authentication implemented (contact forms are public).
+- **Security**: Input validation via Zod schemas.
 
 ### SEO and Analytics Integration
-- **SEO Optimization**: Comprehensive meta tags, structured data (JSON-LD), and semantic HTML
-- **Analytics**: Google Analytics 4 integration with custom event tracking
-- **Performance**: Optimized images, minified assets, and lazy loading
-- **Schema Markup**: LocalBusiness, Service, and FAQ structured data for better search visibility
+- **SEO Optimization**: Comprehensive meta tags, structured data (JSON-LD), semantic HTML, canonical link tags, Open Graph and Twitter Card tags, www-to-non-www redirects, and proper heading hierarchy.
+- **Analytics**: Google Analytics 4 integration with custom event tracking.
+- **Performance**: Optimized images, minified assets, lazy loading.
+- **Schema Markup**: LocalBusiness, Service, and BreadcrumbList structured data.
 
 ### Contact and Lead Management
-- **Multi-step Forms**: Progressive contact forms with validation and progress tracking
-- **Lead Capture**: Contact submissions stored with detailed analytics tracking
-- **Communication Channels**: Click-to-call, SMS, and email integration
-- **Form Validation**: Client and server-side validation with comprehensive error handling
+- **Lead Capture**: Contact submissions stored with analytics tracking.
+- **Communication Channels**: Click-to-call, SMS, and email integration.
+- **Form Validation**: Client and server-side validation.
 
 ## External Dependencies
 
 ### Core Frontend Dependencies
-- **React Ecosystem**: React 18, React DOM, React Hook Form, React Query
-- **UI Framework**: Radix UI components, Tailwind CSS, class-variance-authority
-- **Routing**: Wouter for lightweight client-side routing
-- **Validation**: Zod for runtime type checking and form validation
-- **Icons**: FontAwesome and Lucide React icons
+- **React Ecosystem**: React 18, React DOM, React Hook Form, React Query.
+- **UI Framework**: Radix UI components, Tailwind CSS, class-variance-authority.
+- **Routing**: Wouter.
+- **Validation**: Zod.
+- **Icons**: FontAwesome and Lucide React.
 
 ### Backend Dependencies
-- **Express Framework**: Express.js with TypeScript support
-- **Database**: Drizzle ORM with PostgreSQL dialect and Neon serverless adapter
-- **Validation**: Zod for API request validation
-- **Development**: tsx for TypeScript execution and hot reloading
+- **Express Framework**: Express.js.
+- **Database**: Drizzle ORM with PostgreSQL dialect, Neon serverless adapter.
+- **Validation**: Zod.
 
 ### Build and Development Tools
-- **Build Tool**: Vite with React plugin and TypeScript support
-- **TypeScript**: Full TypeScript configuration with strict mode
-- **Replit Integration**: Cartographer and dev banner plugins for Replit development environment
-- **PostCSS**: Autoprefixer and Tailwind CSS processing
+- **Build Tool**: Vite.
+- **TypeScript**: Full TypeScript configuration.
+- **Replit Integration**: Cartographer and dev banner plugins.
+- **PostCSS**: Autoprefixer.
 
 ### External Services
-- **Analytics**: Google Analytics 4 for user behavior tracking and conversion measurement
-- **Email Service**: Resend API configured for transactional emails
-- **Database Hosting**: Neon Database for serverless PostgreSQL hosting
-- **Session Storage**: PostgreSQL session store for scalable session management
+- **Analytics**: Google Analytics 4.
+- **Email Service**: Resend API.
+- **Database Hosting**: Neon Database.
+- **Session Storage**: PostgreSQL session store.
 
 ### SEO and Performance
-- **Search Console**: Google Search Console integration for search performance monitoring
-- **Schema Markup**: JSON-LD structured data for enhanced search results
-- **Performance Optimization**: Image compression, asset minification, and mobile-first responsive design
+- **Search Console**: Google Search Console.
