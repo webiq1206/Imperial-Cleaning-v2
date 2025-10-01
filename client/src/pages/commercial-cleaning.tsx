@@ -27,7 +27,8 @@ import {
  Briefcase,
  ShoppingCart,
  MapPin,
- PhoneCall
+ PhoneCall,
+ AlertCircle
 } from "lucide-react";
 import {
  Accordion,
@@ -51,7 +52,12 @@ import {
  generateLocationFAQ,
  generateLocationStructuredData,
  generateCanonicalUrl,
- generateLocationBreadcrumbs
+ generateLocationBreadcrumbs,
+ generateLocalChallenges,
+ generateLocalSolutions,
+ generateLocalCaseStudies,
+ generateLocalCompliance,
+ generateLocalTestimonials
 } from "@/lib/location-content-utils";
 import { locationToSlug } from "@/lib/routing-utils";
 import { 
@@ -147,6 +153,11 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
  const serviceCoverage = locationData ? generateServiceCoverage('commercial-cleaning', locationData) : null;
  const businessIntegration = locationData ? generateBusinessIntegration('commercial-cleaning', locationData) : null;
  const locationFAQ = locationData ? generateLocationFAQ('commercial-cleaning', locationData) : null;
+ const localChallenges = locationData ? generateLocalChallenges('commercial-cleaning', locationData) : null;
+ const localSolutions = locationData ? generateLocalSolutions('commercial-cleaning', locationData) : null;
+ const localCaseStudies = locationData ? generateLocalCaseStudies('commercial-cleaning', locationData) : null;
+ const localCompliance = locationData ? generateLocalCompliance('commercial-cleaning', locationData) : null;
+ const localTestimonials = locationData ? generateLocalTestimonials('commercial-cleaning', locationData) : null;
  
  // SEO content
  const pageTitle = isLocationSpecific ? generateLocationTitle('commercial-cleaning', locationData!) : "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc.";
@@ -1184,6 +1195,190 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
        </div>
       </div>
      </section>
+
+     {/* Local Challenges Section */}
+     {localChallenges && (
+      <section className="py-16 px-4">
+       <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+         <h2 className="text-4xl mb-6 text-foreground" data-testid="heading-challenges">{localChallenges.title}</h2>
+         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Understanding the unique commercial cleaning challenges specific to {locationData.name} helps us deliver superior results.
+         </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+         {localChallenges.challenges.map((challenge, index) => (
+          <div key={index} className="glass-card-elevated p-8 rounded-lg hover-lift-gentle" data-testid={`card-challenge-${index}`}>
+           <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+             <AlertCircle className="w-6 h-6 text-amber-500" />
+            </div>
+            <div className="flex-1">
+             <h3 className="text-xl mb-3 text-foreground" data-testid={`text-challenge-title-${index}`}>{challenge.title}</h3>
+             <p className="text-muted-foreground leading-relaxed" data-testid={`text-challenge-description-${index}`}>{challenge.description}</p>
+            </div>
+           </div>
+          </div>
+         ))}
+        </div>
+       </div>
+      </section>
+     )}
+
+     {/* Our Solutions Section */}
+     {localSolutions && (
+      <section className="py-16 px-4 bg-card/30">
+       <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+         <h2 className="text-4xl mb-6 text-foreground" data-testid="heading-solutions">{localSolutions.title}</h2>
+         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Our tailored approach addresses the specific needs of commercial cleaning in {locationData.name}.
+         </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+         {localSolutions.solutions.map((solution, index) => (
+          <div key={index} className="glass-card-elevated p-6 rounded-lg hover-lift-gentle" data-testid={`card-solution-${index}`}>
+           <div className="w-12 h-12 mb-4 rounded-full bg-green-500/10 flex items-center justify-center">
+            <CheckCircle className="w-6 h-6 text-green-500" />
+           </div>
+           <h3 className="text-lg mb-3 text-foreground" data-testid={`text-solution-title-${index}`}>{solution.title}</h3>
+           <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-solution-description-${index}`}>{solution.description}</p>
+          </div>
+         ))}
+        </div>
+       </div>
+      </section>
+     )}
+
+     {/* Local Case Studies Section */}
+     {localCaseStudies && localCaseStudies.caseStudies.length > 0 && (
+      <section className="py-16 px-4">
+       <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+         <h2 className="text-4xl mb-6 text-foreground" data-testid="heading-case-studies">{localCaseStudies.title}</h2>
+         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Real projects, real results from our commercial cleaning work in {locationData.name}.
+         </p>
+        </div>
+        
+        <div className="grid lg:grid-cols-2 gap-8">
+         {localCaseStudies.caseStudies.map((caseStudy, index) => (
+          <div key={index} className="glass-card-elevated p-8 rounded-lg" data-testid={`card-case-study-${index}`}>
+           <div className="flex items-start gap-3 mb-4">
+            <Building2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+            <div>
+             <h3 className="text-xl mb-2 text-foreground" data-testid={`text-case-study-title-${index}`}>{caseStudy.title}</h3>
+             <p className="text-sm text-muted-foreground mb-1">
+              <span className="text-foreground">Client:</span> {caseStudy.client}
+             </p>
+             <p className="text-sm text-muted-foreground flex items-center gap-2">
+              <MapPin className="w-4 h-4" />
+              {caseStudy.location}
+             </p>
+            </div>
+           </div>
+           
+           <div className="space-y-4">
+            <div>
+             <h4 className="text-sm uppercase tracking-wide text-primary mb-2">Challenge</h4>
+             <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.challenge}</p>
+            </div>
+            
+            <div>
+             <h4 className="text-sm uppercase tracking-wide text-primary mb-2">Solution</h4>
+             <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.solution}</p>
+            </div>
+            
+            <div>
+             <h4 className="text-sm uppercase tracking-wide text-primary mb-2">Results</h4>
+             <ul className="space-y-2">
+              {caseStudy.results.map((result, resultIndex) => (
+               <li key={resultIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                <span>{result}</span>
+               </li>
+              ))}
+             </ul>
+            </div>
+           </div>
+          </div>
+         ))}
+        </div>
+       </div>
+      </section>
+     )}
+
+     {/* Compliance & Certifications Section */}
+     {localCompliance && (
+      <section className="py-16 px-4 bg-card/30">
+       <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+         <h2 className="text-4xl mb-6 text-foreground" data-testid="heading-compliance">{localCompliance.title}</h2>
+         <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          {localCompliance.description}
+         </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+         {localCompliance.complianceCategories.map((category, index) => (
+          <div key={index} className="glass-card-elevated p-8 rounded-lg" data-testid={`card-compliance-${index}`}>
+           <div className="flex items-start gap-4 mb-6">
+            <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+             <Shield className="w-6 h-6 text-blue-500" />
+            </div>
+            <h3 className="text-xl text-foreground pt-2" data-testid={`text-compliance-category-${index}`}>{category.category}</h3>
+           </div>
+           <ul className="space-y-3">
+            {category.requirements.map((requirement, reqIndex) => (
+             <li key={reqIndex} className="flex items-start gap-3 text-sm text-muted-foreground">
+              <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+              <span>{requirement}</span>
+             </li>
+            ))}
+           </ul>
+          </div>
+         ))}
+        </div>
+       </div>
+      </section>
+     )}
+
+     {/* Local Testimonials Section */}
+     {localTestimonials && localTestimonials.testimonials.length > 0 && (
+      <section className="py-16 px-4">
+       <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+         <h2 className="text-4xl mb-6 text-foreground" data-testid="heading-testimonials">{localTestimonials.title}</h2>
+         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Hear from businesses we've served in {locationData.name}.
+         </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+         {localTestimonials.testimonials.map((testimonial, index) => (
+          <div key={index} className="glass-card-elevated p-8 rounded-lg" data-testid={`card-testimonial-${index}`}>
+           <div className="mb-6">
+            <Star className="w-8 h-8 text-amber-500 mb-4" />
+            <p className="text-lg text-foreground italic leading-relaxed mb-4">
+             "{testimonial.quote}"
+            </p>
+           </div>
+           <div className="border-t border-border/20 pt-4">
+            <p className="text-sm text-foreground font-medium">{testimonial.businessType}</p>
+            <p className="text-sm text-muted-foreground flex items-center gap-2 mt-1">
+             <MapPin className="w-4 h-4" />
+             {testimonial.location}
+            </p>
+            <p className="text-xs text-muted-foreground mt-2 italic">{testimonial.context}</p>
+           </div>
+          </div>
+         ))}
+        </div>
+       </div>
+      </section>
+     )}
 
      {/* Location-Specific FAQ */}
      <section className="py-16 px-4">
