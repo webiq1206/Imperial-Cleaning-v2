@@ -3,8 +3,9 @@ import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
 import { Button } from "@/components/ui/button";
-import logoPathWebP from "@assets/hero-logo.webp";
 import logoPathPNG from "@assets/Imperial-Cleaning-Inc.-Commercial-Cleaning-in-Idaho-Falls-ID-Website-Icon-white (1)_1759082752680.png";
+
+const logoPathWebP = "/hero-logo.webp";
 
 interface InternalHeroSectionProps {
  title: string;
