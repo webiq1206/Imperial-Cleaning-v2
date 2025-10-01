@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { trackEvent, trackNavigationInteraction, trackServiceNavigation } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
+import SearchBar from "@/components/search-bar";
 import { allServiceLocations } from "@shared/service-locations";
 import { locationToSlug } from "@/lib/routing-utils";
 
@@ -160,8 +161,8 @@ export default function Header() {
   <>
    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/20 glass-effect sophisticated-glow animate-fade-in-up">
     <div className="max-w-7xl mx-auto px-6 lg:px-8">
-     <div className="flex items-center justify-between h-[72px]">
-      <div className="flex items-center">
+     <div className="flex items-center justify-between h-[72px] gap-4 lg:gap-8">
+      <div className="flex items-center flex-shrink-0">
        <Link href="/" data-testid="link-home" className="flex items-center hover:opacity-80 transition-all duration-300 hover-lift-gentle ">
         <img 
          src="/header-logo.png" 
@@ -169,6 +170,11 @@ export default function Header() {
          className="h-5 w-auto brightness-0 invert opacity-40 hover:opacity-60 transition-all duration-300 mix-blend-overlay"
         />
        </Link>
+      </div>
+      
+      {/* Search Bar - Hidden on smallest screens, visible on sm and up */}
+      <div className="hidden sm:block flex-1 max-w-md">
+       <SearchBar />
       </div>
       
       <nav className="hidden md:flex items-center space-x-8">
@@ -433,6 +439,11 @@ export default function Header() {
           Navigation
          </SheetTitle>
         </SheetHeader>
+
+        {/* Mobile Search Bar */}
+        <div className="py-4 sm:hidden">
+         <SearchBar />
+        </div>
 
         <div className="flex flex-col h-full py-6 space-y-1 overflow-y-auto">
          {/* Services Section with Hierarchical Navigation */}
