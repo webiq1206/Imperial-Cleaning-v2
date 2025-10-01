@@ -57,7 +57,13 @@ import {
  generateLocalSolutions,
  generateLocalCaseStudies,
  generateLocalCompliance,
- generateLocalTestimonials
+ generateLocalTestimonials,
+ generateServiceIntroduction,
+ generateWhyChoose,
+ generateEnhancedServiceFeatures,
+ generateServiceCoverageDetails,
+ generateCitySpecificProcess,
+ generateIndustryApplications
 } from "@/lib/location-content-utils";
 import { locationToSlug } from "@/lib/routing-utils";
 import { 
@@ -158,6 +164,14 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
  const localCaseStudies = locationData ? generateLocalCaseStudies('commercial-cleaning', locationData) : null;
  const localCompliance = locationData ? generateLocalCompliance('commercial-cleaning', locationData) : null;
  const localTestimonials = locationData ? generateLocalTestimonials('commercial-cleaning', locationData) : null;
+ 
+ // New enhanced location-specific content
+ const serviceIntroduction = locationData ? generateServiceIntroduction('commercial-cleaning', locationData) : null;
+ const whyChoose = locationData ? generateWhyChoose('commercial-cleaning', locationData) : null;
+ const enhancedFeatures = locationData ? generateEnhancedServiceFeatures('commercial-cleaning', locationData) : null;
+ const coverageDetails = locationData ? generateServiceCoverageDetails('commercial-cleaning', locationData) : null;
+ const cityProcess = locationData ? generateCitySpecificProcess('commercial-cleaning', locationData) : null;
+ const industryApps = locationData ? generateIndustryApplications('commercial-cleaning', locationData) : null;
  
  // SEO content
  const pageTitle = isLocationSpecific ? generateLocationTitle('commercial-cleaning', locationData!) : "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc.";
@@ -366,6 +380,115 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
      onClick: () => setShowContactForm(true)
     }}
    />
+
+   {/* Service-Specific Introduction (Location Pages Only) */}
+   {isLocationSpecific && serviceIntroduction && (
+    <section className="py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+     <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
+       <h2 className="text-4xl md:text-5xl mb-8 text-foreground" data-testid="heading-service-intro">
+        {serviceIntroduction.title}
+       </h2>
+       <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+        {serviceIntroduction.paragraphs.map((paragraph, index) => (
+         <p key={index}>{paragraph}</p>
+        ))}
+       </div>
+       <div className="mt-10 text-center">
+        <Button 
+         onClick={() => setShowContactForm(true)}
+         variant="pill-primary" 
+         size="pill-lg"
+         data-testid={`button-quote-${locationData!.name.toLowerCase().replace(/\s+/g, '-')}`}
+        >
+         Get a Free Commercial Cleaning Quote in {locationData!.name}
+        </Button>
+       </div>
+      </div>
+     </div>
+    </section>
+   )}
+
+   {/* Why Choose Section (Location Pages Only) */}
+   {isLocationSpecific && whyChoose && (
+    <section className="py-24 px-4">
+     <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+       <h2 className="text-4xl md:text-5xl mb-6 text-foreground" data-testid="heading-why-choose">
+        {whyChoose.title}
+       </h2>
+       <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+        {whyChoose.intro}
+       </p>
+      </div>
+      
+      <div className="grid md:grid-cols-2 gap-8">
+       {whyChoose.reasons.map((reason, index) => (
+        <div key={index} className="glass-card-elevated p-8 hover-lift-gentle">
+         <div className="flex items-start gap-4">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+           <CheckCircle className="w-6 h-6 text-primary" />
+          </div>
+          <div>
+           <h3 className="text-xl mb-3 text-foreground">{reason.title}</h3>
+           <p className="text-muted-foreground leading-relaxed">{reason.description}</p>
+          </div>
+         </div>
+        </div>
+       ))}
+      </div>
+      
+      <div className="mt-12 text-center">
+       <Button 
+        onClick={() => setShowContactForm(true)}
+        variant="outline"
+        size="lg"
+        data-testid={`button-contact-${locationData!.name.toLowerCase().replace(/\s+/g, '-')}`}
+       >
+        <PhoneCall className="w-4 h-4 mr-2" />
+        Call Our {locationData!.name} Team Today
+       </Button>
+      </div>
+     </div>
+    </section>
+   )}
+
+   {/* Enhanced Service Features (Location Pages Only) */}
+   {isLocationSpecific && enhancedFeatures && (
+    <section className="py-24 px-4 bg-card/30">
+     <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+       <h2 className="text-4xl md:text-5xl mb-6 text-foreground" data-testid="heading-enhanced-features">
+        {enhancedFeatures.title}
+       </h2>
+       <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+        {enhancedFeatures.intro}
+       </p>
+      </div>
+      
+      <div className="grid md:grid-cols-2 gap-8 mb-12">
+       {enhancedFeatures.features.map((feature, index) => (
+        <div key={index} className="glass-card-elevated p-8 hover-lift-gentle">
+         <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+           <Building2 className="w-6 h-6 text-primary" />
+          </div>
+          <h3 className="text-xl text-foreground">{feature.title}</h3>
+         </div>
+         <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+        </div>
+       ))}
+      </div>
+      
+      <div className="glass-card-elevated p-8 text-center">
+       <AlertCircle className="w-12 h-12 mx-auto mb-4 text-primary" />
+       <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+        {enhancedFeatures.localContext}
+       </p>
+      </div>
+     </div>
+    </section>
+   )}
 
    {/* Comprehensive Service Overview */}
    <section className="py-24 px-4">
@@ -742,6 +865,207 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
      </div>
     </div>
    </section>
+
+   {/* Service Coverage Details (Location Pages Only) */}
+   {isLocationSpecific && coverageDetails && (
+    <section className="py-24 px-4 bg-card/30">
+     <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+       <h2 className="text-4xl md:text-5xl mb-6 text-foreground" data-testid="heading-coverage-details">
+        {coverageDetails.title}
+       </h2>
+       <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+        {coverageDetails.intro}
+       </p>
+      </div>
+      
+      {coverageDetails.coverage.districts && (
+       <div className="mb-12">
+        <h3 className="text-3xl mb-8 text-foreground text-center">
+         {coverageDetails.coverage.districts.title}
+        </h3>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+         {coverageDetails.coverage.districts.areas.map((area, index) => (
+          <div key={index} className="glass-card-elevated p-6 hover-lift-gentle">
+           <div className="flex items-center gap-3 mb-3">
+            <MapPin className="w-5 h-5 text-primary" />
+            <h4 className="text-lg text-foreground">{area.name}</h4>
+           </div>
+           <p className="text-sm text-muted-foreground">{area.description}</p>
+          </div>
+         ))}
+        </div>
+       </div>
+      )}
+      
+      <div className="grid md:grid-cols-3 gap-8 mb-12">
+       <div className="glass-card-elevated p-8 text-center">
+        <Clock className="w-12 h-12 mx-auto mb-4 text-primary" />
+        <h3 className="text-xl mb-3 text-foreground">Response Time</h3>
+        <p className="text-muted-foreground mb-2">{coverageDetails.coverage.responseTime.standard}</p>
+        <p className="text-sm text-muted-foreground">{coverageDetails.coverage.responseTime.description}</p>
+       </div>
+       
+       <div className="glass-card-elevated p-8 text-center">
+        <AlertCircle className="w-12 h-12 mx-auto mb-4 text-primary" />
+        <h3 className="text-xl mb-3 text-foreground">Emergency Service</h3>
+        <p className="text-muted-foreground mb-2">{coverageDetails.coverage.responseTime.emergency}</p>
+        <p className="text-sm text-muted-foreground">24/7 availability</p>
+       </div>
+       
+       <div className="glass-card-elevated p-8 text-center">
+        <Building2 className="w-12 h-12 mx-auto mb-4 text-primary" />
+        <h3 className="text-xl mb-3 text-foreground">Facility Types</h3>
+        <ul className="text-sm text-muted-foreground text-left space-y-2">
+         {coverageDetails.coverage.facilityTypes.types.slice(0, 4).map((type, index) => (
+          <li key={index} className="flex items-center gap-2">
+           <CheckCircle className="w-3 h-3 text-primary flex-shrink-0" />
+           <span>{type}</span>
+          </li>
+         ))}
+        </ul>
+       </div>
+      </div>
+      
+      <div className="glass-card-elevated p-8">
+       <h3 className="text-2xl mb-4 text-foreground flex items-center gap-3">
+        <PhoneCall className="w-6 h-6 text-primary" />
+        {coverageDetails.coverage.emergencyService.title}
+       </h3>
+       <p className="text-muted-foreground leading-relaxed mb-6">
+        {coverageDetails.coverage.emergencyService.description}
+       </p>
+       <Button 
+        onClick={() => setShowContactForm(true)}
+        variant="pill-primary" 
+        size="pill-lg"
+        data-testid={`button-emergency-${locationData!.name.toLowerCase().replace(/\s+/g, '-')}`}
+       >
+        Request Emergency Service in {locationData!.name}
+       </Button>
+      </div>
+     </div>
+    </section>
+   )}
+
+   {/* City-Specific Process (Location Pages Only) */}
+   {isLocationSpecific && cityProcess && (
+    <section className="py-24 px-4">
+     <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+       <h2 className="text-4xl md:text-5xl mb-6 text-foreground" data-testid="heading-city-process">
+        {cityProcess.title}
+       </h2>
+       <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+        {cityProcess.intro}
+       </p>
+      </div>
+      
+      <div className="space-y-8">
+       {cityProcess.steps.map((step, index) => (
+        <div key={index} className="glass-card-elevated p-8 hover-lift-gentle">
+         <div className="flex items-start gap-6">
+          <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+           <span className="text-2xl text-primary font-bold">{step.number}</span>
+          </div>
+          <div className="flex-1">
+           <h3 className="text-2xl mb-3 text-foreground">{step.title}</h3>
+           <p className="text-muted-foreground mb-4 leading-relaxed">{step.description}</p>
+           <div className="glass-effect p-4 rounded-lg border-l-4 border-primary">
+            <p className="text-sm text-muted-foreground italic">
+             <strong className="text-foreground">Local Insight:</strong> {step.localContext}
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
+       ))}
+      </div>
+      
+      <div className="mt-12 text-center">
+       <Button 
+        onClick={() => setShowContactForm(true)}
+        variant="pill-primary" 
+        size="pill-lg"
+        data-testid={`button-process-${locationData!.name.toLowerCase().replace(/\s+/g, '-')}`}
+       >
+        Start Your {locationData!.name} Commercial Cleaning Service
+       </Button>
+      </div>
+     </div>
+    </section>
+   )}
+
+   {/* Industry-Specific Applications (Location Pages Only) */}
+   {isLocationSpecific && industryApps && (
+    <section className="py-24 px-4 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+     <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+       <h2 className="text-4xl md:text-5xl mb-6 text-foreground" data-testid="heading-industry-apps">
+        {industryApps.title}
+       </h2>
+       <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+        {industryApps.intro}
+       </p>
+      </div>
+      
+      <div className="space-y-12">
+       {industryApps.industries.map((industry, index) => (
+        <div key={index} className="glass-card-elevated p-8">
+         <div className="flex items-center gap-4 mb-6">
+          <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+           <Briefcase className="w-7 h-7 text-primary" />
+          </div>
+          <h3 className="text-3xl text-foreground">{industry.title}</h3>
+         </div>
+         
+         <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+          {industry.description}
+         </p>
+         
+         <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+           <h4 className="text-lg text-foreground mb-4 flex items-center gap-2">
+            <CheckCircle className="w-5 h-5 text-primary" />
+            Key Requirements for {locationData!.name}
+           </h4>
+           <ul className="space-y-2 text-sm text-muted-foreground">
+            {industry.requirements.map((req, reqIndex) => (
+             <li key={reqIndex} className="flex items-start gap-2">
+              <span className="text-primary mt-1">•</span>
+              <span>{req}</span>
+             </li>
+            ))}
+           </ul>
+          </div>
+          
+          <div className="glass-effect p-6 rounded-lg border-l-4 border-primary">
+           <h4 className="text-lg text-foreground mb-3 flex items-center gap-2">
+            <Star className="w-5 h-5 text-primary" />
+            Our {locationData!.name} Experience
+           </h4>
+           <p className="text-sm text-muted-foreground leading-relaxed">
+            {industry.experience}
+           </p>
+          </div>
+         </div>
+        </div>
+       ))}
+      </div>
+      
+      <div className="mt-12 text-center">
+       <Button 
+        onClick={() => setShowContactForm(true)}
+        variant="outline"
+        size="lg"
+        data-testid={`button-industry-${locationData!.name.toLowerCase().replace(/\s+/g, '-')}`}
+       >
+        Discuss Your {locationData!.name} Industry Requirements
+       </Button>
+      </div>
+     </div>
+    </section>
+   )}
 
    {/* Industries Served */}
    <section className="py-24 px-4 bg-card/50">

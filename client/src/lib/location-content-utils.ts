@@ -1100,3 +1100,454 @@ export function generateLocationBreadcrumbs(service: string, location: ServiceLo
     { name: `${location.name}, ${location.state}`, url: `https://imperialcleaninginc.com/${service}/${locationSlug}` }
   ];
 }
+
+// Generate comprehensive service-specific introduction (2-3 paragraphs)
+export function generateServiceIntroduction(service: string, location: ServiceLocation) {
+  const isConstruction = service === 'construction-cleaning';
+  const industries = location.demographics.economicBase.slice(0, 3);
+  const majorEmployer = location.demographics.majorEmployers?.[0];
+  const districts = location.businessDistricts || location.neighborhoods || [];
+  
+  let intro = {
+    title: `${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} Services in ${location.name}, ${location.state}`,
+    paragraphs: [] as string[]
+  };
+
+  if (isConstruction) {
+    intro.paragraphs.push(
+      `When you need construction cleanup in ${location.name}, ${location.state}, Imperial Cleaning Inc delivers inspection-ready results that meet the exacting standards of ${location.name}'s ${location.demographics.constructionActivity === 'high' ? 'thriving' : 'growing'} construction sector. Our post-construction cleaning services transform construction sites across ${districts.length > 0 ? districts.slice(0, 2).join(' and ') : location.name} into pristine, move-in-ready spaces that pass final inspections with zero deficiencies. From debris removal and dust elimination to final detailing and OSHA compliance verification, we understand the critical timeline pressures contractors face in ${location.name} and consistently deliver quality results that enable on-time project completion.`
+    );
+
+    intro.paragraphs.push(
+      `Serving ${industries.join(', ')} construction projects throughout ${location.name}, our construction cleanup expertise addresses the unique challenges of ${location.state}'s ${location.state === 'Idaho' ? 'high desert climate' : 'mountain environment'}. ${majorEmployer ? `Our experience includes work supporting major developments for organizations like ${majorEmployer} and other leading ${location.name} employers.` : `We've successfully completed cleanup projects for major commercial, industrial, and institutional developments throughout the ${location.name} area.`} Whether you're a general contractor managing a ${location.demographics.constructionActivity === 'high' ? '100,000 square foot commercial build-out' : 'multi-phase renovation'} or a specialty contractor completing tenant improvements, our construction cleaning in ${location.name} ensures your project meets inspection standards and client expectations.`
+    );
+
+    intro.paragraphs.push(
+      `Located ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 'right here in Idaho Falls' : `just ${location.driveTimeFromHQ} from our Idaho Falls headquarters`}, we provide ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 'immediate response' : 'reliable same-day or next-day response'} for construction cleanup emergencies and can mobilize full crews to ${location.name} construction sites within ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 'hours' : 'a day'}. Our deep familiarity with ${location.county ? `${location.county}` : `${location.name} area`} building departments, inspection requirements, and local contractors means we understand exactly what's required for final sign-off in ${location.name}. With specialized equipment calibrated for ${location.state}'s environmental conditions and crews trained in the specific compliance standards that ${location.name} projects demand, Imperial Cleaning Inc is the trusted construction cleanup partner for contractors throughout ${location.name}, ${location.state}.`
+    );
+  } else {
+    intro.paragraphs.push(
+      `When ${location.name}, ${location.state} businesses need reliable commercial cleaning services, Imperial Cleaning Inc delivers the professional, consistent facility maintenance that keeps ${industries.join(', ')} organizations operating at peak performance. Our comprehensive commercial cleaning in ${location.name} covers everything from daily office janitorial services to specialized facility maintenance for ${location.demographics.commercialDensity === 'high' ? 'the area\'s extensive commercial infrastructure' : 'growing business facilities'} across ${districts.length > 0 ? districts.slice(0, 2).join(', ') : `${location.name}'s business districts`}. We understand that your facility's cleanliness directly impacts employee productivity, client impressions, and operational efficiency—that's why businesses throughout ${location.name} trust us to maintain their professional environments to the highest standards.`
+    );
+
+    intro.paragraphs.push(
+      `Serving ${location.name}'s diverse business community, our commercial cleaning expertise spans ${industries.join(', ')} facilities with customized programs that address each industry's unique requirements. ${majorEmployer ? `Our client portfolio includes relationships with major ${location.name} employers, and we understand the exacting standards required by organizations like ${majorEmployer} and other leading businesses in the area.` : `We've established a strong reputation throughout ${location.name} for delivering exceptional cleaning services that meet the varied needs of professional offices, healthcare facilities, educational institutions, and commercial buildings.`} Whether you need nightly janitorial services for a ${location.demographics.commercialDensity === 'high' ? 'downtown high-rise' : 'professional office building'}, weekly deep cleaning for retail spaces, or specialized maintenance for regulated facilities, our commercial cleaning services in ${location.name} deliver the reliability and quality your business demands.`
+    );
+
+    intro.paragraphs.push(
+      `Based ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 'right here in Idaho Falls with local teams serving your facility' : `${location.driveTimeFromHQ} from our Idaho Falls headquarters with optimized service routes to ${location.name}`}, we provide ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 'same-day response' : 'rapid response'} for urgent cleaning needs and maintain consistent service delivery across our entire ${location.serviceRadius} service area. Our teams are thoroughly familiar with ${location.name}'s business environment, understand local workplace standards, and maintain relationships with ${location.county ? `${location.county}` : `${location.name}`} facility managers and building operators. With eco-friendly cleaning products proven effective in ${location.state}'s climate, advanced equipment, and rigorously trained staff, Imperial Cleaning Inc has become the preferred commercial cleaning provider for businesses throughout ${location.name}, ${location.state}.`
+    );
+  }
+
+  return intro;
+}
+
+// Generate "Why Choose [Service] in [City]" section
+export function generateWhyChoose(service: string, location: ServiceLocation) {
+  const isConstruction = service === 'construction-cleaning';
+  const serviceType = isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning';
+  
+  return {
+    title: `Why Choose Imperial Cleaning for ${serviceType} in ${location.name}`,
+    intro: `When you select Imperial Cleaning Inc for ${isConstruction ? 'post-construction cleanup' : 'commercial cleaning'} in ${location.name}, you're partnering with a company that combines regional expertise with deep local knowledge. Here's what sets us apart as ${location.name}'s preferred ${isConstruction ? 'construction cleaning' : 'commercial cleaning'} provider:`,
+    reasons: [
+      {
+        title: `${location.name} Local Expertise and Market Knowledge`,
+        description: `We've served ${location.name}, ${location.state} for years, building extensive experience with local ${isConstruction ? 'contractors, building departments, and inspection requirements' : 'businesses, facility managers, and workplace standards'}. Our teams understand ${location.county ? `${location.county}'s` : `${location.name}'s`} specific ${isConstruction ? 'building codes, permitting processes, and final inspection criteria' : 'commercial facility standards, health department regulations, and industry compliance requirements'}. This local knowledge ensures we consistently deliver results that meet ${location.name} standards without costly delays or re-work.`
+      },
+      {
+        title: `${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 'Immediate Response from Our Idaho Falls Headquarters' : `Rapid Response Time - ${location.driveTimeFromHQ} from Idaho Falls`}`,
+        description: `${location.driveTimeFromHQ === "0 minutes (Headquarters)" 
+          ? `As our headquarters city, ${location.name} benefits from our immediate availability, full equipment inventory, and direct management oversight. We can mobilize crews to your ${isConstruction ? 'construction site' : 'facility'} within hours for emergency needs and maintain flexible scheduling for all ${location.name} projects.`
+          : `With just ${location.driveTimeFromHQ} drive time from our Idaho Falls headquarters, we provide reliable service delivery to ${location.name} with pre-positioned equipment and strategic scheduling. Our ${isConstruction ? 'construction cleanup crews' : 'janitorial teams'} reach ${location.name} ${isConstruction ? 'job sites' : 'facilities'} promptly for both scheduled services and urgent needs.`
+        }`
+      },
+      {
+        title: `Experience with ${location.name}'s Major Industries and Employers`,
+        description: `${location.demographics.majorEmployers?.length ? `Our client portfolio includes work with ${location.name}'s leading employers across ${location.demographics.economicBase.slice(0, 3).join(', ')} sectors. We understand the specific ${isConstruction ? 'construction standards and project requirements' : 'facility maintenance needs and operational considerations'} that ${location.name} businesses demand.` : `We've built strong relationships with ${location.name} businesses across ${location.demographics.economicBase.slice(0, 3).join(', ')} industries, understanding the unique ${isConstruction ? 'project timelines and quality standards' : 'cleaning requirements and operational schedules'} each sector requires.`} This industry-specific expertise ensures we deliver appropriate solutions for your ${location.name} ${isConstruction ? 'construction project' : 'business facility'}.`
+      },
+      {
+        title: `${location.state}-Specific Compliance and Regulatory Knowledge`,
+        description: `We maintain current knowledge of ${location.state} ${isConstruction ? 'construction waste disposal regulations, environmental protection requirements, and building code standards' : 'commercial cleaning chemical regulations, workplace safety standards, and facility maintenance requirements'} that apply to ${location.name} projects. ${location.county ? `Our familiarity with ${location.county} local ordinances ensures compliance with county-specific ${isConstruction ? 'debris disposal and site cleanup' : 'waste management and cleaning product'} requirements.` : ''} This regulatory expertise protects you from compliance issues while ensuring all ${isConstruction ? 'cleanup work' : 'cleaning services'} meets current ${location.name} standards.`
+      },
+      {
+        title: `Proven Track Record in ${location.name}, ${location.state}`,
+        description: `${location.demographics.constructionActivity === 'high' || location.demographics.commercialDensity === 'high' 
+          ? `With ${location.demographics.constructionActivity === 'high' ? 'extensive construction cleanup experience across multiple ongoing projects' : 'ongoing contracts with numerous commercial facilities'} in ${location.name}, we've established a reputation for reliability, quality, and professional service. ${isConstruction ? 'Contractors know they can count on us for on-time completion and inspection-ready results.' : 'Facility managers trust us for consistent quality and responsive service.'}`
+          : `We've successfully completed ${isConstruction ? 'construction cleanup projects' : 'commercial cleaning contracts'} throughout ${location.name}, earning the trust of local ${isConstruction ? 'contractors and developers' : 'businesses and property managers'}. Our growing presence in ${location.name} reflects our commitment to delivering exceptional service to ${location.state} communities.`
+        }`
+      },
+      {
+        title: `Equipment and Techniques Optimized for ${location.state} Conditions`,
+        description: `Our ${isConstruction ? 'construction cleanup equipment' : 'commercial cleaning systems'} are specifically selected and maintained for ${location.state}'s ${location.state === 'Idaho' ? 'high desert climate conditions' : 'mountain environment'} that impact ${location.name}. ${location.state === 'Idaho' 
+          ? `We use HEPA filtration and advanced dust control systems calibrated for Idaho's fine dust conditions, ensuring ${isConstruction ? 'construction sites' : 'facilities'} remain clean despite the challenging climate.`
+          : `We employ air quality-focused cleaning methods that work effectively in Utah's climate, maintaining healthy indoor environments throughout ${location.name}.`
+        } This environmental adaptation ensures superior results for ${location.name} ${isConstruction ? 'construction projects' : 'commercial facilities'}.`
+      }
+    ]
+  };
+}
+
+// Generate enhanced location-specific service features
+export function generateEnhancedServiceFeatures(service: string, location: ServiceLocation) {
+  const isConstruction = service === 'construction-cleaning';
+  const industries = location.demographics.economicBase;
+  const districts = location.businessDistricts || location.neighborhoods || [];
+  
+  return {
+    title: `${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} Services Throughout ${location.name}`,
+    intro: `Our ${isConstruction ? 'post-construction cleanup services' : 'commercial cleaning programs'} in ${location.name}, ${location.state} are specifically tailored to meet the unique needs of ${location.name}'s ${isConstruction ? 'construction market' : 'business community'} and local environmental conditions.`,
+    features: industries.slice(0, 4).map(industry => {
+      let feature = {
+        title: '',
+        description: '',
+        icon: industry
+      };
+
+      if (isConstruction) {
+        if (industry === "Healthcare") {
+          feature.title = `Healthcare Facility Construction Cleanup in ${location.name}`;
+          feature.description = `Specialized post-construction cleaning for ${location.name} medical facilities, meeting strict infection control and contamination-free standards required by ${location.state} healthcare regulations. ${districts.length > 0 ? `From ${districts[0]} medical centers to outlying clinics` : `Throughout ${location.name}'s healthcare district`}, we deliver hospital-grade cleanup that enables immediate facility operations.`;
+        } else if (industry === "Technology" || industry === "Manufacturing") {
+          feature.title = `Technology & Clean Room Construction Cleanup in ${location.name}`;
+          feature.description = `ISO-certified construction cleanup for ${location.name}'s ${industry.toLowerCase()} facilities, including controlled environments and sensitive equipment areas. Our clean room cleaning protocols meet the exacting standards of ${location.name}'s tech sector${location.demographics.majorEmployers?.[0] ? `, with proven experience supporting facilities like ${location.demographics.majorEmployers[0]}` : ''}.`;
+        } else if (industry === "Education") {
+          feature.title = `Educational Facility Construction Cleanup in ${location.name}`;
+          feature.description = `Fast, thorough post-construction cleanup for ${location.name} schools, colleges, and universities, working within tight academic calendar constraints. We understand the importance of timely completion for ${location.name}'s educational institutions${location.demographics.majorEmployers?.find(e => e.includes("University") || e.includes("College")) ? `, including work with ${location.demographics.majorEmployers.find(e => e.includes("University") || e.includes("College"))}` : ''}.`;
+        } else if (industry === "Government" || industry === "Energy") {
+          feature.title = `Government & Energy Facility Construction Cleanup in ${location.name}`;
+          feature.description = `Security-cleared construction cleanup services for ${location.name}'s government and energy facilities, following strict protocols and compliance requirements. Our teams are experienced with the unique access, security, and quality standards that ${location.name}'s ${industry.toLowerCase()} projects demand.`;
+        } else {
+          feature.title = `${industry} Construction Cleanup in ${location.name}`;
+          feature.description = `Comprehensive post-construction cleaning for ${location.name}'s ${industry.toLowerCase()} sector, from ${districts.length > 0 ? `${districts[0]} commercial developments` : 'downtown projects'} to ${districts.length > 1 ? `${districts[1]} facilities` : 'suburban locations'}. We adapt our construction cleanup approach to meet the specific requirements of ${location.name}'s ${industry.toLowerCase()} construction projects.`;
+        }
+      } else {
+        if (industry === "Healthcare") {
+          feature.title = `Healthcare Facility Cleaning in ${location.name}`;
+          feature.description = `Medical-grade commercial cleaning for ${location.name} healthcare facilities, maintaining strict infection control protocols and HIPAA-compliant cleaning procedures. ${districts.length > 0 ? `From ${districts[0]} hospitals to medical office buildings` : `Throughout ${location.name}'s healthcare facilities`}, we deliver the specialized cleaning that healthcare environments require.`;
+        } else if (industry === "Technology") {
+          feature.title = `Technology Campus Cleaning in ${location.name}`;
+          feature.description = `Professional commercial cleaning for ${location.name}'s technology companies, including clean room maintenance, ESD-safe procedures, and specialized equipment care. Our tech-sector expertise ensures ${location.name} technology facilities maintain pristine, contamination-free environments${location.demographics.majorEmployers?.[0] ? `, with proven results for companies like ${location.demographics.majorEmployers[0]}` : ''}.`;
+        } else if (industry === "Education") {
+          feature.title = `Educational Institution Cleaning in ${location.name}`;
+          feature.description = `Comprehensive janitorial services for ${location.name}'s schools, colleges, and universities, working around academic schedules and student activities. We provide the consistent, high-quality cleaning that ${location.name}'s educational facilities need${location.demographics.majorEmployers?.find(e => e.includes("University") || e.includes("College")) ? `, including ongoing contracts with ${location.demographics.majorEmployers.find(e => e.includes("University") || e.includes("College"))}` : ''}.`;
+        } else if (industry === "Retail") {
+          feature.title = `Retail & Shopping Center Cleaning in ${location.name}`;
+          feature.description = `Professional retail cleaning services for ${location.name}'s stores, shopping centers, and commercial retail spaces. ${districts.length > 0 ? `From ${districts[0]} retail districts to neighborhood shopping centers` : `Throughout ${location.name}'s retail locations`}, we maintain clean, inviting shopping environments that enhance the customer experience.`;
+        } else if (industry === "Food Processing" || industry === "Agriculture") {
+          feature.title = `Food Processing Facility Cleaning in ${location.name}`;
+          feature.description = `FDA and USDA-compliant commercial cleaning for ${location.name}'s food processing facilities, maintaining strict sanitation standards and GMP compliance. Our food safety expertise ensures ${location.name} food processing operations meet all regulatory requirements while minimizing production disruption.`;
+        } else {
+          feature.title = `${industry} Commercial Cleaning in ${location.name}`;
+          feature.description = `Specialized commercial cleaning services for ${location.name}'s ${industry.toLowerCase()} businesses, ${districts.length > 0 ? `from ${districts[0]} to ${districts[1] || 'surrounding areas'}` : `throughout ${location.name}`}. We understand the unique facility maintenance needs of ${location.name}'s ${industry.toLowerCase()} sector and deliver tailored cleaning solutions.`;
+        }
+      }
+
+      return feature;
+    }),
+    localContext: `${location.state === 'Idaho' 
+      ? `All ${isConstruction ? 'construction cleanup services' : 'commercial cleaning programs'} in ${location.name} include specialized dust control protocols for Idaho's high desert climate, ensuring superior air quality and cleanliness despite challenging environmental conditions.`
+      : `Our ${isConstruction ? 'construction cleanup methods' : 'commercial cleaning programs'} in ${location.name} are specifically adapted for Utah's mountain environment, with air quality-focused approaches that maintain healthy indoor conditions throughout the year.`
+    }`
+  };
+}
+
+// Generate service coverage details
+export function generateServiceCoverageDetails(service: string, location: ServiceLocation) {
+  const isConstruction = service === 'construction-cleaning';
+  const districts = location.businessDistricts || location.neighborhoods || [];
+  const industries = location.demographics.economicBase;
+  
+  return {
+    title: `Our ${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} Coverage in ${location.name}, ${location.state}`,
+    intro: `Imperial Cleaning Inc provides comprehensive ${isConstruction ? 'post-construction cleanup services' : 'commercial cleaning services'} throughout ${location.name} and surrounding ${location.state} communities within our ${location.serviceRadius} service area.`,
+    coverage: {
+      districts: districts.length > 0 ? {
+        title: `${location.name} Districts and Neighborhoods Served`,
+        areas: districts.map(district => ({
+          name: district,
+          description: `${isConstruction ? 'Construction cleanup services' : 'Commercial cleaning programs'} for ${district} ${isConstruction ? 'construction projects' : 'businesses and facilities'}, with ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 'immediate local response' : 'regular service routes'} ensuring consistent availability throughout this ${location.name} area.`
+        }))
+      } : null,
+      facilityTypes: {
+        title: `Types of ${location.name} ${isConstruction ? 'Construction Projects' : 'Facilities'} We Serve`,
+        types: industries.map(industry => {
+          if (isConstruction) {
+            return `${industry} facility construction and renovation projects`;
+          } else {
+            return `${industry} commercial facilities and office buildings`;
+          }
+        })
+      },
+      responseTime: {
+        title: `Response Time Guarantees for ${location.name}`,
+        standard: location.driveTimeFromHQ === "0 minutes (Headquarters)" 
+          ? `Same-day response for routine ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} requests in ${location.name}` 
+          : `Next-day response for standard ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} requests in ${location.name}`,
+        emergency: location.driveTimeFromHQ === "0 minutes (Headquarters)"
+          ? `2-4 hour response for emergency ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} needs in ${location.name}`
+          : `Same-day response for emergency ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} situations in ${location.name}`,
+        description: `${location.driveTimeFromHQ === "0 minutes (Headquarters)" 
+          ? `Based right here in ${location.name}, our crews are immediately available for any ${isConstruction ? 'construction site' : 'commercial facility'} need.`
+          : `With optimized routes from Idaho Falls to ${location.name} (${location.driveTimeFromHQ}), we maintain reliable service delivery across all ${location.name} locations.`
+        }`
+      },
+      emergencyService: {
+        title: `24/7 Emergency ${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} in ${location.name}`,
+        description: `When ${isConstruction ? 'construction emergencies' : 'facility emergencies'} happen in ${location.name}, Imperial Cleaning Inc is available 24 hours a day, 7 days a week. Whether you need ${isConstruction ? 'urgent post-construction cleanup for an accelerated inspection deadline' : 'emergency cleanup after water damage or contamination incidents'}, our ${location.name} response team is ready to mobilize immediately. Call us anytime at 208-520-3202 for emergency ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} services in ${location.name}, ${location.state}.`
+      }
+    }
+  };
+}
+
+// Generate city-specific service process
+export function generateCitySpecificProcess(service: string, location: ServiceLocation) {
+  const isConstruction = service === 'construction-cleaning';
+  
+  return {
+    title: `Our ${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} Process in ${location.name}`,
+    intro: `Here's exactly how we deliver ${isConstruction ? 'post-construction cleanup services' : 'commercial cleaning services'} in ${location.name}, ${location.state}, with local expertise and proven processes:`,
+    steps: [
+      {
+        number: 1,
+        title: `${location.name} Site Assessment and Local Consultation`,
+        description: isConstruction 
+          ? `We begin every ${location.name} construction cleanup with an on-site assessment where we evaluate debris volume, surface types, and project-specific requirements. Our estimator discusses ${location.name} building department inspection criteria, ${location.county ? `${location.county}` : 'local'} permit requirements, and contractor timeline expectations. This assessment ensures our ${location.name} construction cleanup plan aligns with local inspection standards and project schedules.`
+          : `Our ${location.name} commercial cleaning program starts with a comprehensive facility walkthrough where we assess space layout, traffic patterns, and specific cleaning needs. We discuss your operational schedule, employee considerations, and any ${location.name} industry-specific requirements. This assessment allows us to design a cleaning program tailored to your ${location.name} facility's unique needs.`,
+        localContext: `Understanding ${location.name}'s specific ${isConstruction ? 'construction standards' : 'facility requirements'} is critical—we've worked extensively with ${location.county ? `${location.county}` : location.name} ${isConstruction ? 'building departments and contractors' : 'facility managers and businesses'}, so we know exactly what's expected.`
+      },
+      {
+        number: 2,
+        title: `Customized ${location.name} ${isConstruction ? 'Cleanup' : 'Cleaning'} Plan Development`,
+        description: isConstruction
+          ? `Based on the ${location.name} site assessment, we develop a detailed construction cleanup plan that includes debris removal procedures, specialized cleaning requirements for different surfaces, and a timeline that coordinates with your ${location.name} project schedule. We identify any ${location.state}-specific compliance requirements and plan for ${location.county ? `${location.county}` : 'local'} debris disposal according to ${location.name} regulations.`
+          : `We create a customized commercial cleaning plan for your ${location.name} facility that specifies cleaning frequencies, task lists, and quality standards for each area. The plan accommodates your business hours, coordinates with your ${location.name} staff schedules, and addresses any industry-specific requirements relevant to ${location.name} businesses.`,
+        localContext: `${location.state === 'Idaho' 
+          ? `For ${location.name} projects, our plans always include Idaho's required dust control measures and high desert climate considerations.`
+          : `All ${location.name} cleaning plans account for Utah's air quality concerns and seasonal climate variations that affect facility maintenance.`
+        }`
+      },
+      {
+        number: 3,
+        title: `Professional Crew Assignment and ${location.name} Mobilization`,
+        description: isConstruction
+          ? `We assign experienced ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} crews familiar with ${location.name} projects and equipped with tools optimized for ${location.state} conditions. ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? `As a local ${location.name} company, our crews arrive directly from our headquarters with full equipment.` : `Our crews depart from Idaho Falls with all necessary equipment, reaching your ${location.name} construction site within ${location.driveTimeFromHQ}.`} Before work begins, we conduct a safety briefing covering site-specific hazards and ${location.name} project requirements.`
+          : `We assign dedicated ${isConstruction ? 'construction cleanup' : 'commercial cleaning'} teams to your ${location.name} facility, introducing them to your staff and reviewing your facility's specific needs. ${location.driveTimeFromHQ === "0 minutes (Headquarters)" ? `As a local ${location.name} service, our teams maintain consistent presence at your facility.` : `Our teams establish regular service routes to ${location.name}, ensuring the same crew maintains your facility for consistency and familiarity.`} All crew members are background-checked, trained, and equipped with ${location.state}-approved cleaning products.`,
+        localContext: `${location.name} clients appreciate having crews who understand local ${isConstruction ? 'construction practices' : 'business environments'} and can work seamlessly with ${location.name} ${isConstruction ? 'contractors' : 'facility staff'}.`
+      },
+      {
+        number: 4,
+        title: `${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} Execution with ${location.name} Standards`,
+        description: isConstruction
+          ? `Our construction cleanup work in ${location.name} follows our proven three-phase process: rough cleaning and debris removal, detailed surface cleaning, and final inspection preparation. Throughout the process, we maintain ${location.name} building department standards, use ${location.state}-compliant disposal methods, and coordinate with your contractor team. We schedule work to minimize conflicts with other ${location.name} trades and adapt to ${location.name} project timeline changes.`
+          : `Our ${location.name} commercial cleaning services are executed according to the customized plan, with crews arriving at scheduled times and completing all tasks to established quality standards. We use color-coded equipment to prevent cross-contamination, follow your facility's security protocols, and maintain detailed service logs. All work is completed during your preferred hours, minimizing disruption to your ${location.name} business operations.`,
+        localContext: `${location.state === 'Idaho'
+          ? `In ${location.name}, we pay special attention to dust control throughout all work, using HEPA filtration and Idaho-proven techniques that address the high desert climate.`
+          : `Our ${location.name} work includes Utah-specific air quality measures, using low-VOC products and methods that maintain healthy indoor environments.`
+        }`
+      },
+      {
+        number: 5,
+        title: `Quality Verification and ${location.name} ${isConstruction ? 'Inspection Coordination' : 'Service Reporting'}`,
+        description: isConstruction
+          ? `Before calling any ${location.name} construction cleanup complete, our site supervisor performs a comprehensive quality inspection using our detailed checklist. We verify that all areas meet ${location.name} building department standards and are inspection-ready. For ${location.name} projects, we coordinate with building inspectors, attend final walkthroughs, and address any punch-list items immediately. We don't consider the job complete until your ${location.name} project passes inspection and you're satisfied.`
+          : `After each cleaning service in ${location.name}, our supervisor conducts quality checks using detailed checklists. We provide ${location.name} facility managers with service reports documenting completed tasks, any issues noted, and supplies restocked. Monthly quality audits ensure consistent standards at your ${location.name} facility. We maintain open communication, responding immediately to any ${location.name} client concerns.`,
+        localContext: `${location.name} ${isConstruction ? 'contractors know they can count on us for inspection-ready results that meet local building department standards' : 'businesses value our responsive communication and consistent quality that maintains their professional facility standards'}.`
+      },
+      {
+        number: 6,
+        title: `${location.name} ${isConstruction ? 'Project Completion and Documentation' : 'Ongoing Service Optimization'}`,
+        description: isConstruction
+          ? `Upon ${location.name} project completion, we provide comprehensive documentation including before/after photos, waste disposal receipts compliant with ${location.county ? `${location.county}` : location.name} requirements, and certificates of completion. We maintain project records according to ${location.state} requirements and can provide documentation for ${location.name} building departments or final inspections. Our goal is your complete satisfaction and successful project completion in ${location.name}.`
+          : `We continuously optimize your ${location.name} commercial cleaning program based on feedback and facility changes. Quarterly business reviews ensure our services evolve with your ${location.name} facility's needs. We track service quality metrics, address any concerns immediately, and proactively suggest improvements. Our goal is long-term partnership, keeping your ${location.name} facility consistently clean and professional.`,
+        localContext: `${location.name} clients receive the detailed documentation and responsive service that builds long-term cleaning partnerships throughout ${location.state}.`
+      }
+    ]
+  };
+}
+
+// Generate industry-specific applications
+export function generateIndustryApplications(service: string, location: ServiceLocation) {
+  const isConstruction = service === 'construction-cleaning';
+  const industries = location.demographics.economicBase;
+  const majorEmployers = location.demographics.majorEmployers || [];
+  
+  return {
+    title: `Industry-Specific ${isConstruction ? 'Construction Cleanup' : 'Commercial Cleaning'} Applications in ${location.name}`,
+    intro: `${location.name}'s diverse economy requires ${isConstruction ? 'construction cleanup expertise' : 'commercial cleaning programs'} tailored to each industry's unique requirements. Here's how we serve ${location.name}'s major business sectors:`,
+    industries: industries.map(industry => {
+      let app = {
+        name: industry,
+        title: '',
+        description: '',
+        requirements: [] as string[],
+        experience: ''
+      };
+
+      const employerMention = majorEmployers.find(emp => 
+        (industry === "Healthcare" && (emp.includes("Hospital") || emp.includes("Medical"))) ||
+        (industry === "Education" && (emp.includes("University") || emp.includes("College"))) ||
+        (industry === "Technology" && (emp.includes("Lab") || emp.includes("Tech"))) ||
+        (industry === "Government" && (emp.includes("Department") || emp.includes("Agency")))
+      );
+
+      if (isConstruction) {
+        if (industry === "Healthcare") {
+          app.title = `Healthcare Facility Construction in ${location.name}`;
+          app.description = `${location.name}'s healthcare sector demands the highest standards for post-construction cleanup. Medical facility construction requires contamination-free environments, strict infection control protocols, and adherence to healthcare regulations before patient occupancy can begin.`;
+          app.requirements = [
+            `Hospital-grade post-construction cleaning eliminating all dust and debris`,
+            `HEPA filtration and verified air quality testing for ${location.name} medical facilities`,
+            `Coordination with ${location.name} infection control staff and health department inspectors`,
+            `Healthcare-approved cleaning products and contamination-free procedures`,
+            `Detailed documentation meeting ${location.state} healthcare facility requirements`
+          ];
+          app.experience = employerMention 
+            ? `We've successfully completed healthcare construction cleanup projects supporting ${location.name} medical facilities, including work with organizations like ${employerMention}. Our healthcare construction expertise ensures ${location.name} medical facilities meet stringent cleanliness standards before patient services begin.`
+            : `Our healthcare construction cleanup experience in ${location.name} ensures medical facilities achieve the contamination-free, inspection-ready condition required for patient care operations.`;
+        } else if (industry === "Technology") {
+          app.title = `Technology Facility Construction in ${location.name}`;
+          app.description = `${location.name}'s technology sector requires specialized post-construction cleanup for controlled environments, clean rooms, and sensitive equipment areas. Tech facility construction cleanup must achieve ISO-certified cleanliness levels and prevent any contamination that could affect operations.`;
+          app.requirements = [
+            `ISO-certified clean room construction cleanup meeting ${location.name} tech standards`,
+            `Particle count verification and contamination control protocols`,
+            `ESD-safe cleaning procedures for sensitive equipment areas`,
+            `Specialized HEPA filtration calibrated for ${location.state} environmental conditions`,
+            `Coordination with ${location.name} technology facility commissioning teams`
+          ];
+          app.experience = employerMention
+            ? `We've provided construction cleanup services for ${location.name} technology facilities, including projects supporting organizations like ${employerMention}. Our clean room expertise and technology-sector experience ensure ${location.name} tech facilities achieve operational readiness.`
+            : `Our technology construction cleanup experience ensures ${location.name} tech facilities meet the exacting standards required for controlled environment operations and sensitive equipment protection.`;
+        } else if (industry === "Education") {
+          app.title = `Educational Facility Construction in ${location.name}`;
+          app.description = `${location.name}'s schools, colleges, and universities face strict timeline pressures for construction cleanup, particularly for projects that must complete before academic semesters begin. Educational facility cleanup requires child-safe cleaning methods, coordination with facility operations, and fast turnaround.`;
+          app.requirements = [
+            `Accelerated construction cleanup meeting tight ${location.name} academic deadlines`,
+            `Child-safe, non-toxic cleaning products appropriate for educational environments`,
+            `Coordination with ${location.name} school district or university facility managers`,
+            `Thorough removal of construction debris from classrooms, labs, and common areas`,
+            `Safety-focused final inspection preparation meeting ${location.state} educational facility standards`
+          ];
+          app.experience = employerMention
+            ? `Our educational construction cleanup experience in ${location.name} includes projects with institutions like ${employerMention}. We understand the critical importance of on-time completion for ${location.name} educational facilities.`
+            : `We've successfully completed educational facility construction cleanup throughout ${location.name}, consistently meeting the compressed timelines that schools and colleges require.`;
+        } else if (industry === "Government" || industry === "Energy") {
+          app.title = `Government & Energy Facility Construction in ${location.name}`;
+          app.description = `${location.name}'s government and energy sector construction projects often involve security-sensitive facilities requiring cleared personnel, strict protocol adherence, and specialized safety compliance. These ${location.name} facilities demand construction cleanup services that understand security requirements and regulatory standards.`;
+          app.requirements = [
+            `Security-cleared personnel for sensitive ${location.name} government facilities`,
+            `Strict adherence to facility security protocols and access procedures`,
+            `Specialized safety compliance for energy sector construction cleanup`,
+            `Detailed documentation meeting government facility standards in ${location.state}`,
+            `Coordination with ${location.name} facility security officers and project managers`
+          ];
+          app.experience = employerMention
+            ? `We maintain experience with ${location.name} government and energy sector construction, including work supporting facilities like ${employerMention}. Our teams understand the unique requirements that ${location.name}'s government and energy projects demand.`
+            : `Our government and energy sector experience ensures ${location.name} secure facilities receive construction cleanup services that meet their heightened security and safety requirements.`;
+        } else if (industry === "Retail") {
+          app.title = `Retail Construction and Renovation in ${location.name}`;
+          app.description = `${location.name}'s retail construction and renovation projects require fast, thorough post-construction cleanup that enables quick store openings and minimizes business disruption. Retail cleanup must achieve showroom-quality results for customer-facing areas.`;
+          app.requirements = [
+            `Showroom-quality final cleaning for ${location.name} retail spaces`,
+            `Fast turnaround construction cleanup minimizing ${location.name} business downtime`,
+            `Window and glass cleaning achieving crystal-clear display standards`,
+            `Floor care and protection for various retail flooring types`,
+            `After-hours scheduling to accommodate ${location.name} retail operations`
+          ];
+          app.experience = `We've completed retail construction cleanup throughout ${location.name}, from major shopping centers to individual store build-outs, consistently delivering the showroom-ready results that ${location.name} retailers need.`;
+        } else {
+          app.title = `${industry} Construction Projects in ${location.name}`;
+          app.description = `${location.name}'s ${industry.toLowerCase()} sector has specific construction cleanup requirements based on facility types, operational needs, and industry regulations. Our ${industry.toLowerCase()} construction cleanup experience ensures ${location.name} projects receive appropriate specialized services.`;
+          app.requirements = [
+            `Industry-specific post-construction cleaning for ${location.name} ${industry.toLowerCase()} facilities`,
+            `Compliance with ${location.state} ${industry.toLowerCase()} sector regulations`,
+            `Coordination with ${location.name} ${industry.toLowerCase()} contractors and facility managers`,
+            `Specialized equipment and techniques appropriate for ${industry.toLowerCase()} environments`,
+            `Quality standards meeting ${location.name} ${industry.toLowerCase()} industry expectations`
+          ];
+          app.experience = employerMention
+            ? `Our ${industry.toLowerCase()} construction cleanup experience in ${location.name} includes work supporting organizations like ${employerMention}, demonstrating our understanding of this sector's unique requirements.`
+            : `We've served ${location.name}'s ${industry.toLowerCase()} sector with construction cleanup services that meet the industry's specific standards and operational needs.`;
+        }
+      } else {
+        if (industry === "Healthcare") {
+          app.title = `Healthcare Facility Cleaning in ${location.name}`;
+          app.description = `${location.name}'s healthcare facilities require medical-grade commercial cleaning that maintains strict infection control, follows HIPAA privacy protocols, and uses healthcare-approved disinfectants. Healthcare cleaning must occur without disrupting patient care operations.`;
+          app.requirements = [
+            `Healthcare-grade disinfection protocols for ${location.name} medical facilities`,
+            `Color-coded equipment systems preventing cross-contamination between areas`,
+            `HIPAA-compliant cleaning procedures respecting patient privacy`,
+            `Coordination with ${location.name} infection control staff and facility managers`,
+            `Detailed documentation meeting ${location.state} healthcare facility standards`
+          ];
+          app.experience = employerMention
+            ? `We provide ongoing commercial cleaning for ${location.name} healthcare facilities, including relationships with organizations like ${employerMention}. Our healthcare cleaning expertise ensures ${location.name} medical environments maintain the highest infection control standards.`
+            : `Our healthcare cleaning experience throughout ${location.name} demonstrates our commitment to maintaining the stringent cleanliness standards that medical facilities require.`;
+        } else if (industry === "Technology") {
+          app.title = `Technology Campus Cleaning in ${location.name}`;
+          app.description = `${location.name}'s technology companies need commercial cleaning that protects sensitive equipment, maintains clean room standards, and uses ESD-safe procedures. Tech facility cleaning must avoid any contamination or static discharge that could affect operations.`;
+          app.requirements = [
+            `Clean room maintenance meeting ISO standards for ${location.name} tech facilities`,
+            `ESD-safe cleaning procedures protecting sensitive electronic equipment`,
+            `Particle-free cleaning methods appropriate for controlled environments`,
+            `Coordination with ${location.name} facility engineers and operations teams`,
+            `HEPA filtration equipment calibrated for ${location.state} conditions`
+          ];
+          app.experience = employerMention
+            ? `We serve ${location.name} technology companies with specialized commercial cleaning programs, including work with organizations like ${employerMention}. Our tech-sector expertise ensures ${location.name} technology facilities maintain pristine operational environments.`
+            : `Our technology sector cleaning experience in ${location.name} ensures tech facilities receive the specialized maintenance that controlled environments and sensitive equipment require.`;
+        } else if (industry === "Education") {
+          app.title = `Educational Institution Cleaning in ${location.name}`;
+          app.description = `${location.name}'s schools, colleges, and universities need reliable commercial cleaning that works around academic schedules, maintains safe environments for students, and uses child-safe cleaning products. Educational cleaning requires flexibility and consistent quality.`;
+          app.requirements = [
+            `After-hours cleaning schedules accommodating ${location.name} academic calendars`,
+            `Child-safe, non-toxic cleaning products appropriate for educational settings`,
+            `Coordination with ${location.name} school administrators and facility managers`,
+            `Summer deep cleaning and maintenance programs for educational facilities`,
+            `Emergency response capabilities for ${location.name} school facility incidents`
+          ];
+          app.experience = employerMention
+            ? `We provide ongoing janitorial services for ${location.name} educational institutions, including contracts with facilities like ${employerMention}. Our educational facility expertise ensures ${location.name} schools maintain clean, safe learning environments.`
+            : `Our educational facility cleaning experience throughout ${location.name} demonstrates our ability to maintain the consistent cleanliness that schools and universities require.`;
+        } else if (industry === "Retail") {
+          app.title = `Retail & Shopping Center Cleaning in ${location.name}`;
+          app.description = `${location.name}'s retail businesses need commercial cleaning that maintains inviting customer environments, works around operating hours, and addresses high-traffic area maintenance. Retail cleaning must enhance the shopping experience without disrupting business.`;
+          app.requirements = [
+            `Customer-focused cleaning maintaining attractive ${location.name} retail environments`,
+            `After-hours or early morning schedules for minimal customer disruption`,
+            `High-traffic area maintenance addressing ${location.name} retail wear patterns`,
+            `Window and glass care maintaining crystal-clear display areas`,
+            `Restroom sanitization meeting ${location.name} customer service standards`
+          ];
+          app.experience = `We serve ${location.name} retail businesses from individual stores to major shopping centers, consistently delivering the quality cleaning that enhances customer experience and protects retailer reputation.`;
+        } else if (industry === "Food Processing" || industry === "Agriculture") {
+          app.title = `Food Processing Facility Cleaning in ${location.name}`;
+          app.description = `${location.name}'s food processing facilities require commercial cleaning that meets FDA, USDA, and local health department standards. Food facility cleaning must maintain GMP compliance, use food-safe products, and coordinate with 24/7 production schedules.`;
+          app.requirements = [
+            `FDA and USDA-compliant cleaning protocols for ${location.name} food facilities`,
+            `Food-safe cleaning products and sanitation procedures`,
+            `GMP documentation meeting ${location.state} food safety requirements`,
+            `Coordination with ${location.name} plant managers and production schedules`,
+            `Sanitation schedules minimizing production disruption while maintaining compliance`
+          ];
+          app.experience = `Our food processing facility experience in ${location.name} ensures food production environments meet all regulatory requirements while maintaining operational efficiency.`;
+        } else {
+          app.title = `${industry} Commercial Cleaning in ${location.name}`;
+          app.description = `${location.name}'s ${industry.toLowerCase()} businesses need commercial cleaning programs tailored to their specific operational requirements, facility types, and industry standards. Our ${industry.toLowerCase()} cleaning expertise ensures ${location.name} facilities receive appropriate specialized services.`;
+          app.requirements = [
+            `Industry-specific cleaning protocols for ${location.name} ${industry.toLowerCase()} facilities`,
+            `Compliance with ${location.state} ${industry.toLowerCase()} sector standards`,
+            `Coordination with ${location.name} ${industry.toLowerCase()} facility managers`,
+            `Flexible scheduling accommodating ${industry.toLowerCase()} business operations`,
+            `Quality standards meeting ${location.name} ${industry.toLowerCase()} industry expectations`
+          ];
+          app.experience = employerMention
+            ? `Our ${industry.toLowerCase()} cleaning experience in ${location.name} includes ongoing relationships with organizations like ${employerMention}, demonstrating our understanding of this sector's unique needs.`
+            : `We've served ${location.name}'s ${industry.toLowerCase()} sector with commercial cleaning programs that meet the industry's specific operational and maintenance requirements.`;
+        }
+      }
+
+      return app;
+    }).slice(0, 4)
+  };
+}
