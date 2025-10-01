@@ -62,7 +62,7 @@ export default function HeroSection() {
         <span className="inline-block hover-lift-gentle">Professional </span>
         <br />
         <span className="inline-block hover-lift-gentle stagger-delay-2">cleaning </span>
-        <span className="inline-block hover-lift-gentle stagger-delay-2">for</span>
+        <span className="inline-block hover-lift-gentle stagger-delay-2"> for</span>
         <br />
         <span className="inline-block hover-lift-gentle stagger-delay-3 gradient-text-cyan-purple">businesses</span>
        </h1>
