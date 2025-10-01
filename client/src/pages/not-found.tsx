@@ -1,21 +1,25 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function NotFound() {
- return (
-  <div className="w-full flex items-center justify-center py-24">
-   <Card className="w-full max-w-md mx-4">
-    <CardContent className="pt-6">
-     <div className="flex mb-4 gap-2">
-      <AlertCircle className="h-8 w-8 text-red-500" />
-      <h1 className="text-2xl text-foreground">404 Page Not Found</h1>
-     </div>
+ useEffect(() => {
+  // Track 404 event for analytics
+  trackEvent(
+   '404_redirect',
+   'navigation',
+   `404 page → homepage redirect from ${window.location.pathname}`
+  );
+  
+  // Redirect to homepage for SEO
+  window.location.replace('/');
+ }, []);
 
-     <p className="mt-4 text-sm text-muted-foreground">
-      The page you're looking for doesn't exist or has been moved.
-     </p>
-    </CardContent>
-   </Card>
+ // Show brief loading message during redirect
+ return (
+  <div className="min-h-screen flex items-center justify-center">
+   <div className="text-center">
+    <div className="text-lg text-muted-foreground">Redirecting to homepage...</div>
+   </div>
   </div>
  );
 }
