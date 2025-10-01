@@ -403,7 +403,6 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
          <RelatedLinks
           currentService="construction-cleaning"
           location={locationData!}
-          serviceArea={locationData!.state}
           data-testid="related-links-intro"
          />
         </div>
@@ -1592,7 +1591,6 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
         <RelatedLinks
          currentService="construction-cleaning"
          location={locationData}
-         serviceArea={locationData.state}
          data-testid="related-links-before-faq"
         />
        </div>

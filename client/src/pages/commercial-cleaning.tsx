@@ -412,7 +412,6 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
          <RelatedLinks
           currentService="commercial-cleaning"
           location={locationData!}
-          serviceArea={locationData!.state}
           data-testid="related-links-intro"
          />
         </div>
@@ -1723,7 +1722,6 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
         <RelatedLinks
          currentService="commercial-cleaning"
          location={locationData}
-         serviceArea={locationData.state}
          data-testid="related-links-before-faq"
         />
        </div>
