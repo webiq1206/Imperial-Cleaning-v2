@@ -76,7 +76,7 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (October 1, 2025)
 
-### Advanced PageSpeed Optimization - Phase 3 (October 1, 2025)
+### Advanced PageSpeed Optimization - Phase 3 (October 1-2, 2025)
 - **Text compression enabled (Gzip/Brotli)**:
   - Added compression middleware to server/index.ts
   - Compresses all text-based responses (HTML, CSS, JavaScript, JSON) in production
@@ -86,7 +86,7 @@ Preferred communication style: Simple, everyday language.
   - Converted hero logo PNG (82KB) to WebP (34KB) = 58% file size reduction
   - Implemented picture elements with WebP primary source and PNG fallback
   - WebP images served to modern browsers, PNG fallback for legacy browsers
-  - Hero WebP stored in public/hero-logo.webp for stable URL (no fingerprinting)
+  - Hero WebP initially stored in public/hero-logo.webp, then moved to client/public/hero-logo.webp for proper Vite serving
 - **Critical asset preloading**:
   - Added preload hint for hero WebP image: `<link rel="preload" href="/hero-logo.webp" as="image" type="image/webp" fetchpriority="high">`
   - Preload ensures critical hero image loads immediately for improved LCP
@@ -96,8 +96,13 @@ Preferred communication style: Simple, everyday language.
   - TBT (Total Blocking Time): Reduced with compression and async loading
   - FCP (First Contentful Paint): Faster with compressed text assets
   - Bundle size: Reduced by 58% for hero images (82KB → 34KB)
-- **Files modified**: `server/index.ts`, `client/index.html`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`, `public/hero-logo.webp`
-- **Testing**: End-to-end tests confirmed WebP loading, picture element fallbacks, preload functionality, and zero regressions
+- **Critical bug fix (October 2)**:
+  - Fixed background logo not loading on mobile in production
+  - Root cause: Vite's root is set to `client/` directory (vite.config.ts line 29), so it serves public files from `client/public/`, not project root `public/`
+  - Solution: Moved hero-logo.webp from `public/` to `client/public/` for proper static file serving by Vite in development
+  - Verified: Mobile background logo now loads correctly with WebP format, proper opacity (0.2), and visible rendering
+- **Files modified**: `server/index.ts`, `client/index.html`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`, `client/public/hero-logo.webp`
+- **Testing**: End-to-end tests confirmed WebP loading, picture element fallbacks, preload functionality, mobile background logo visibility, and zero regressions
 
 ### Performance Optimization for PageSpeed Insights - Phase 2 (October 1, 2025)
 - **Eliminated render-blocking external fonts**:
