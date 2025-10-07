@@ -299,10 +299,12 @@ export default function Footer() {
            data-testid="link-footer-insurance"
            onClick={(e) => {
             e.preventDefault();
-            window.location.href = '/#compliance';
-            setTimeout(() => {
-             document.getElementById('compliance')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            const element = document.getElementById('compliance');
+            if (element) {
+             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (window.location.pathname !== '/') {
+             window.location.href = '/#compliance';
+            }
            }}
           >
            Insurance & Licensing
@@ -315,10 +317,12 @@ export default function Footer() {
            data-testid="link-footer-reviews"
            onClick={(e) => {
             e.preventDefault();
-            window.location.href = '/#testimonials';
-            setTimeout(() => {
-             document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            const element = document.getElementById('testimonials');
+            if (element) {
+             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (window.location.pathname !== '/') {
+             window.location.href = '/#testimonials';
+            }
            }}
           >
            Customer Reviews
@@ -331,10 +335,12 @@ export default function Footer() {
            data-testid="link-footer-case-studies"
            onClick={(e) => {
             e.preventDefault();
-            window.location.href = '/#case-studies';
-            setTimeout(() => {
-             document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            const element = document.getElementById('case-studies');
+            if (element) {
+             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (window.location.pathname !== '/') {
+             window.location.href = '/#case-studies';
+            }
            }}
           >
            Case Studies
@@ -347,10 +353,12 @@ export default function Footer() {
            data-testid="link-footer-faq"
            onClick={(e) => {
             e.preventDefault();
-            window.location.href = '/#faq';
-            setTimeout(() => {
-             document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            const element = document.getElementById('faq');
+            if (element) {
+             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (window.location.pathname !== '/') {
+             window.location.href = '/#faq';
+            }
            }}
           >
            FAQ
