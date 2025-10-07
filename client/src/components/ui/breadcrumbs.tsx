@@ -89,14 +89,21 @@ export default function Breadcrumbs({ items, className = "", includeStructuredDa
         >
          {item.name}
         </span>
-       ) : (
+       ) : item.href ? (
         <Link 
-         href={item.href || "#"}
+         href={item.href}
          className="hover:text-foreground transition-colors duration-200"
          data-testid={`breadcrumb-${index}`}
         >
          {item.name}
         </Link>
+       ) : (
+        <span 
+         className="text-muted-foreground"
+         data-testid={`breadcrumb-${index}`}
+        >
+         {item.name}
+        </span>
        )}
       </li>
      );
