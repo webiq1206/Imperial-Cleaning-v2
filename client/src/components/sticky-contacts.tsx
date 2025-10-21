@@ -66,7 +66,7 @@ export default function StickyContacts() {
    description: "Send detailed project information"
   },
   {
-   href: "#quote",
+   href: "#",
    title: "Get Free Quote",
    shortTitle: "Quote",
    method: "quote",

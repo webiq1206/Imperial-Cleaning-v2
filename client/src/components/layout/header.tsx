@@ -94,7 +94,7 @@ export default function Header() {
   setIsMegaMenuOpen(false);
   
   if (megaMenuButtonRef.current) {
-   megaMenuButtonRef.current.focus();
+   megaMenuButtonRef.current.focus({ preventScroll: true });
   }
  };
 
