@@ -33,35 +33,7 @@ export default function StickyQuoteButton() {
 
  return (
   <>
-   {/* Desktop Sticky Button - Bottom Right */}
-   <button
-    onClick={handleQuoteClick}
-    data-testid="button-sticky-quote-desktop"
-    aria-label="Request a Free Quote"
-    className="fixed bottom-6 right-6 z-[999] hidden md:flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-primary to-accent rounded-full shadow-2xl hover:shadow-primary/50 transition-all duration-500 hover:scale-105 hover:-translate-y-1 animate-fade-in-scale sophisticated-glow hover-lift-strong group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-   >
-    {/* Animated sparkle icon */}
-    <Sparkles 
-     className="w-5 h-5 text-black group-hover:rotate-12 transition-transform duration-300" 
-     strokeWidth={2.5}
-    />
-    
-    {/* Button text */}
-    <span className="text-black font-semibold tracking-tight">
-     Request Quote
-    </span>
-    
-    {/* Quote icon */}
-    <Quote 
-     className="w-5 h-5 text-black group-hover:scale-110 transition-transform duration-300" 
-     strokeWidth={2.5}
-    />
-    
-    {/* Pulse effect on hover */}
-    <div className="absolute inset-0 rounded-full bg-white/20 scale-0 group-hover:scale-110 group-hover:animate-ping opacity-75"></div>
-   </button>
-
-   {/* Mobile Sticky Button - Bottom Center */}
+   {/* Mobile Only Sticky Button - Bottom Center */}
    <button
     onClick={handleQuoteClick}
     data-testid="button-sticky-quote-mobile"
