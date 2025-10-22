@@ -79,7 +79,7 @@ export default function InternalHeroSection({
     {/* Content container */}
     <div className="max-w-7xl mx-auto px-6 lg:px-8 h-full">
      <div className={`flex items-center ${minHeight} relative -mt-12 md:mt-0`}>
-      {/* Content */}
+      {/* Left side - Content */}
       <div className="flex-1 max-w-2xl z-20">
        {/* Optional announcement pill */}
        {pillText && (
@@ -128,6 +128,42 @@ export default function InternalHeroSection({
           </Button>
          </Link>
         )}
+       </div>
+      </div>
+
+      {/* Right side - Desktop logo (hidden on mobile) */}
+      <div className="flex-1 items-center justify-center relative z-10 animate-fade-in-right stagger-delay-3 hidden md:flex">
+       <div className="relative parallax-depth">
+        {/* Logo with subtle 3D effect */}
+        <div className="logo-3d-container relative">
+         {/* Main logo */}
+         <picture>
+          <source srcSet={logoPathWebP} type="image/webp" />
+          <img 
+           src={logoPathPNG}
+           alt="Imperial Cleaning Inc - Professional Commercial and Construction Cleaning Services"
+           className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain opacity-25"
+           width="384"
+           height="384"
+           fetchPriority="high"
+           decoding="async"
+          />
+         </picture>
+         
+         {/* Overlay layers */}
+         <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/50 parallax-subtle"></div>
+         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+         
+         {/* Subtle glow */}
+         <div className="absolute inset-0 blur-2xl" style={{ background: 'radial-gradient(ellipse at center, hsl(195, 100%, 50%, 0.08), hsl(271, 81%, 56%, 0.04), transparent)' }}></div>
+         
+         {/* Orbital elements */}
+         <div className="absolute -inset-4">
+          <div className="absolute top-0 left-1/2 w-2 h-2 bg-cyan-400/30 rounded-full blur-sm"></div>
+          <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-purple-400/40 rounded-full blur-sm"></div>
+          <div className="absolute top-1/3 right-0 w-1 h-1 bg-cyan-300/50 rounded-full blur-sm"></div>
+         </div>
+        </div>
        </div>
       </div>
      </div>

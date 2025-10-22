@@ -200,7 +200,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
    const timer = setTimeout(() => {
     const currentInput = document.querySelector(`[data-testid="input-${currentStepData.field}"]`) as HTMLInputElement;
     if (currentInput) {
-     currentInput.focus();
+     currentInput.focus({ preventScroll: true });
     }
    }, 100);
    return () => clearTimeout(timer);

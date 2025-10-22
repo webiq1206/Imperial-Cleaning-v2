@@ -112,7 +112,7 @@ export default function SearchBar({ isOpen, onClose }: SearchBarProps) {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
-        inputRef.current?.focus();
+        inputRef.current?.focus({ preventScroll: true });
       }, 100);
     } else {
       setQuery("");

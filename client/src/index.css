@@ -118,6 +118,27 @@
     @apply border-border;
   }
 
+  /* Prevent non-interactive elements from becoming focusable and causing scroll */
+  div:not([tabindex]), 
+  span:not([tabindex]), 
+  p:not([tabindex]), 
+  h1:not([tabindex]), 
+  h2:not([tabindex]), 
+  h3:not([tabindex]), 
+  h4:not([tabindex]), 
+  h5:not([tabindex]), 
+  h6:not([tabindex]),
+  section:not([tabindex]),
+  article:not([tabindex]) {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent any element from scrolling into view when focused via click */
+  *:focus {
+    scroll-margin: 0;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;

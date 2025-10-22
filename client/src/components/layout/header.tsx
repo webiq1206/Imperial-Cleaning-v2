@@ -131,7 +131,7 @@ export default function Header() {
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
    );
    if (firstFocusable) {
-    firstFocusable.focus();
+    firstFocusable.focus({ preventScroll: true });
    }
   }
  }, [isMegaMenuOpen]);
