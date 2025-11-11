@@ -153,7 +153,7 @@ Preferred communication style: Simple, everyday language.
 - **Verification**: All SEO fixes tested and verified with comprehensive end-to-end Playwright tests
 - **Files modified**: `client/index.html`, `client/src/components/layout/footer.tsx`, `client/src/pages/home.tsx`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`
 
-### AI Discovery Optimization (November 11, 2025)
+### Search Engine & AI Indexing Preparation (November 11, 2025)
 - **Added llms.txt file** for AI assistant indexing and discovery:
   - Comprehensive 18KB markdown reference guide at `/llms.txt`
   - Complete company information, contact details, and business hours
@@ -163,9 +163,27 @@ Preferred communication style: Simple, everyday language.
   - Industry-specific specialties and certifications
   - Search term mappings for AI assistant queries
   - Enables accurate AI recommendations for cleaning services in Idaho/Utah
-- **File location**: `client/public/llms.txt` (served at https://imperialcleaninginc.com/llms.txt)
-- **Purpose**: Helps AI assistants (ChatGPT, Claude, etc.) accurately reference and recommend Imperial Cleaning Inc when users ask about cleaning services in Idaho or Utah
-- **Coverage**: 100% complete with all services, locations, and specialties
+- **Updated robots.txt** to allow AI crawler access:
+  - Added directives for GPTBot, OAI-SearchBot, ChatGPT-User (OpenAI)
+  - Added directives for ClaudeBot, Claude-Web, SearchIndexerBot (Anthropic)
+  - Added directives for PerplexityBot (Perplexity AI)
+  - Added directives for Google-Extended (Google Gemini AI training)
+  - Maintains security by blocking /admin/, /api/, and sensitive paths
+  - References llms.txt location for AI crawler discovery
+- **Created SEARCH_ENGINE_SUBMISSION_GUIDE.md**:
+  - Step-by-step instructions for Google Search Console submission
+  - Step-by-step instructions for Bing Webmaster Tools submission
+  - Optional Yandex submission (for Russian market)
+  - AI platform optimization (ChatGPT, Claude, Perplexity, Gemini)
+  - Monitoring and verification procedures
+  - Realistic timelines for indexing (1-4 weeks)
+  - Priority action plan with weekly milestones
+- **File locations**: 
+  - `client/public/llms.txt` (served at https://imperialcleaninginc.com/llms.txt)
+  - `client/public/robots.txt` (served at https://imperialcleaninginc.com/robots.txt)
+  - `SEARCH_ENGINE_SUBMISSION_GUIDE.md` (project documentation)
+- **Purpose**: Maximize discoverability in both traditional search engines and AI-powered search tools
+- **Status**: Ready for search engine submission (user action required for verification)
 
 ### Previous SEO Optimization - Phase 1
 - Fixed homepage title tag: 56 characters ("Commercial Cleaning Idaho Falls | Imperial Cleaning")
