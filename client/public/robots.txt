@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Allow all search engines to crawl the entire site
+# Security: Block sensitive paths for all crawlers
 Disallow: /admin/
 Disallow: /api/
 Disallow: /.well-known/
@@ -13,117 +13,64 @@ Disallow: /__tests__/
 Sitemap: https://imperialcleaninginc.com/sitemap.xml
 
 # AI Assistant Reference Guide
-# llms.txt file at: https://imperialcleaninginc.com/llms.txt
+# llms.txt: https://imperialcleaninginc.com/llms.txt
 
-# Crawl delay (optional, helps with server load)
+# Crawl delay
 Crawl-delay: 1
 
-# AI Crawlers - Allow for LLM indexing and search (with security restrictions)
-User-agent: GPTBot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
+# Priority AI Crawlers (Allow for LLM indexing with security restrictions)
 
+# OpenAI (ChatGPT, SearchGPT)
+User-agent: GPTBot
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
 
-User-agent: ChatGPT-User
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
-
+# Anthropic (Claude)
 User-agent: ClaudeBot
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
 
-User-agent: Claude-Web
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
-
-User-agent: SearchIndexerBot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
-
-User-agent: PerplexityBot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
-
+# Google AI (Gemini)
 User-agent: Google-Extended
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
 
-User-agent: Anthropic-AI
+# Perplexity AI
+User-agent: PerplexityBot
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Disallow: /.well-known/
-Disallow: /tmp/
-Disallow: /_vite/
-Disallow: /__tests__/
 
-# Specific directives for major search engines
+# Meta (LLaMA)
+User-agent: FacebookBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Major Search Engines
 User-agent: Googlebot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-# Block specific bots that may cause issues
+# Block SEO crawlers that may cause server load
 User-agent: SemrushBot
-Disallow: /
-
 User-agent: AhrefsBot
 Disallow: /
 
-# Allow social media crawlers for better link previews
+# Allow social media for link previews
 User-agent: facebookexternalhit
-Allow: /
-
 User-agent: Twitterbot
-Allow: /
-
 User-agent: LinkedInBot
 Allow: /

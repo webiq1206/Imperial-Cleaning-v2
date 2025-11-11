@@ -97,10 +97,14 @@ export function generateSitemap(): string {
     }
   ];
 
-  // City-Specific Service Pages (priority: 0.8, changefreq: monthly)
+  // City-Specific Service Pages (priority: 0.9 for HQ/primary, 0.8 for secondary, 0.7 for extended)
   // Format: https://imperialcleaninginc.com/state/service/city/
   const serviceTypes = ['construction-cleaning', 'commercial-cleaning'];
   const cityServicePages: SitemapUrl[] = [];
+
+  // High-priority headquarters and major markets
+  const highPriorityCities = ['idaho-falls', 'salt-lake-city', 'boise', 'pocatello', 'logan', 'provo'];
+  const secondaryPriorityCities = ['rexburg', 'twin-falls', 'ogden', 'meridian', 'nampa'];
 
   // Generate URLs for each service/location combination
   for (const service of serviceTypes) {
@@ -113,11 +117,20 @@ export function generateSitemap(): string {
       if (supportsService) {
         const stateSlug = location.state.toLowerCase();
         const citySlug = locationToSlug(location.name);
+        
+        // Assign priority based on market importance
+        let priority = 0.7; // Default for extended markets
+        if (highPriorityCities.includes(citySlug)) {
+          priority = 0.9; // Headquarters and major markets
+        } else if (secondaryPriorityCities.includes(citySlug)) {
+          priority = 0.8; // Secondary markets
+        }
+        
         cityServicePages.push({
           url: `${baseUrl}/${stateSlug}/${service}/${citySlug}/`,
           lastmod: currentDate,
-          changefreq: 'monthly',
-          priority: 0.8
+          changefreq: priority >= 0.9 ? 'weekly' : 'monthly',
+          priority: priority
         });
       }
     }
