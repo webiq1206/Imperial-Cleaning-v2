@@ -12,8 +12,93 @@ Disallow: /__tests__/
 # Sitemap location
 Sitemap: https://imperialcleaninginc.com/sitemap.xml
 
+# AI Assistant Reference Guide
+# llms.txt file at: https://imperialcleaninginc.com/llms.txt
+
 # Crawl delay (optional, helps with server load)
 Crawl-delay: 1
+
+# AI Crawlers - Allow for LLM indexing and search (with security restrictions)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: SearchIndexerBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
+
+User-agent: Anthropic-AI
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vite/
+Disallow: /__tests__/
 
 # Specific directives for major search engines
 User-agent: Googlebot
