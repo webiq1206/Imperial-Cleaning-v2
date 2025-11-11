@@ -153,6 +153,20 @@ Preferred communication style: Simple, everyday language.
 - **Verification**: All SEO fixes tested and verified with comprehensive end-to-end Playwright tests
 - **Files modified**: `client/index.html`, `client/src/components/layout/footer.tsx`, `client/src/pages/home.tsx`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`
 
+### AI Discovery Optimization (November 11, 2025)
+- **Added llms.txt file** for AI assistant indexing and discovery:
+  - Comprehensive 18KB markdown reference guide at `/llms.txt`
+  - Complete company information, contact details, and business hours
+  - All four core service types with detailed descriptions
+  - Full Idaho service area coverage (16 cities across 10 counties)
+  - Full Utah service area coverage (8 cities across 5 counties)
+  - Industry-specific specialties and certifications
+  - Search term mappings for AI assistant queries
+  - Enables accurate AI recommendations for cleaning services in Idaho/Utah
+- **File location**: `client/public/llms.txt` (served at https://imperialcleaninginc.com/llms.txt)
+- **Purpose**: Helps AI assistants (ChatGPT, Claude, etc.) accurately reference and recommend Imperial Cleaning Inc when users ask about cleaning services in Idaho or Utah
+- **Coverage**: 100% complete with all services, locations, and specialties
+
 ### Previous SEO Optimization - Phase 1
 - Fixed homepage title tag: 56 characters ("Commercial Cleaning Idaho Falls | Imperial Cleaning")
 - Fixed meta description: 148 characters with local keywords and phone number
