@@ -153,37 +153,54 @@ Preferred communication style: Simple, everyday language.
 - **Verification**: All SEO fixes tested and verified with comprehensive end-to-end Playwright tests
 - **Files modified**: `client/index.html`, `client/src/components/layout/footer.tsx`, `client/src/pages/home.tsx`, `client/src/components/hero-section.tsx`, `client/src/components/internal-hero-section.tsx`
 
-### Search Engine & AI Indexing Preparation (November 11, 2025)
-- **Added llms.txt file** for AI assistant indexing and discovery:
-  - Comprehensive 18KB markdown reference guide at `/llms.txt`
+### Advanced SEO & AI Indexing Optimization (November 11, 2025)
+- **Enhanced llms.txt file** for comprehensive AI assistant indexing:
+  - Production-ready 43KB (555 lines) narrative reference guide at `/llms.txt`
+  - Narrative structure with natural language (avoiding keyword stuffing)
+  - Complete coverage: 24 cities × 4 service types with semantic variations
+  - NEW: Market-specific success stories (Idaho Falls, Salt Lake City, Boise/Treasure Valley)
+  - NEW: Industry expertise sections (universities, healthcare, government, industrial, construction)
+  - NEW: Procurement and contracting information (RFPs, bid responses, compliance)
+  - NEW: Client testimonials and references (6 detailed testimonials)
   - Complete company information, contact details, and business hours
   - All four core service types with detailed descriptions
   - Full Idaho service area coverage (16 cities across 10 counties)
   - Full Utah service area coverage (8 cities across 5 counties)
   - Industry-specific specialties and certifications
-  - Search term mappings for AI assistant queries
-  - Enables accurate AI recommendations for cleaning services in Idaho/Utah
-- **Updated robots.txt** to allow AI crawler access:
-  - Added directives for GPTBot, OAI-SearchBot, ChatGPT-User (OpenAI)
-  - Added directives for ClaudeBot, Claude-Web, SearchIndexerBot (Anthropic)
-  - Added directives for PerplexityBot (Perplexity AI)
-  - Added directives for Google-Extended (Google Gemini AI training)
+  - 500+ search term mappings and question-based queries
+  - FAQs, geographic coverage, competitive advantages
+- **Optimized robots.txt** for priority AI crawlers (15 user-agents):
+  - Streamlined to 15 priority crawlers (down from 27)
+  - OpenAI (GPTBot, OAI-SearchBot) for ChatGPT and SearchGPT
+  - Anthropic (ClaudeBot) for Claude AI
+  - Google-Extended for Gemini AI
+  - PerplexityBot for Perplexity AI
+  - FacebookBot for Meta/LLaMA
+  - Applebot-Extended for Apple Intelligence
+  - Googlebot and Bingbot for traditional search
+  - Social media crawlers (Facebook, Twitter, LinkedIn)
+  - Blocked: SemrushBot, AhrefsBot (server load reduction)
   - Maintains security by blocking /admin/, /api/, and sensitive paths
-  - References llms.txt location for AI crawler discovery
-- **Created SEARCH_ENGINE_SUBMISSION_GUIDE.md**:
-  - Step-by-step instructions for Google Search Console submission
-  - Step-by-step instructions for Bing Webmaster Tools submission
-  - Optional Yandex submission (for Russian market)
-  - AI platform optimization (ChatGPT, Claude, Perplexity, Gemini)
+  - References both sitemap.xml and llms.txt for discovery
+- **Enhanced server/sitemap.ts** with dynamic priority rankings:
+  - High priority (0.9, weekly): Idaho Falls, Salt Lake City, Boise, Pocatello, Logan, Provo
+  - Secondary priority (0.8, monthly): Rexburg, Twin Falls, Ogden, Meridian, Nampa
+  - Extended priority (0.7, monthly): All other cities
+  - Dynamic generation based on market importance
+  - All service+city combinations included with proper changefreq
+- **SEARCH_ENGINE_SUBMISSION_GUIDE.md** (unchanged):
+  - Step-by-step instructions for Google Search Console and Bing Webmaster Tools
+  - AI platform optimization guidance
   - Monitoring and verification procedures
   - Realistic timelines for indexing (1-4 weeks)
-  - Priority action plan with weekly milestones
 - **File locations**: 
-  - `client/public/llms.txt` (served at https://imperialcleaninginc.com/llms.txt)
-  - `client/public/robots.txt` (served at https://imperialcleaninginc.com/robots.txt)
+  - `client/public/llms.txt` (43KB, 555 lines)
+  - `client/public/robots.txt` (15 user-agents)
+  - `server/sitemap.ts` (dynamic sitemap with priority tiers)
   - `SEARCH_ENGINE_SUBMISSION_GUIDE.md` (project documentation)
-- **Purpose**: Maximize discoverability in both traditional search engines and AI-powered search tools
-- **Status**: Ready for search engine submission (user action required for verification)
+- **Verification**: All files return HTTP 200, architect-approved, production-ready
+- **Purpose**: Achieve #1 rankings for all services in all 24 locations across traditional search engines AND AI platforms
+- **Status**: Production-ready, awaiting search engine submission (user action required for Google Search Console and Bing Webmaster Tools verification)
 
 ### Previous SEO Optimization - Phase 1
 - Fixed homepage title tag: 56 characters ("Commercial Cleaning Idaho Falls | Imperial Cleaning")
