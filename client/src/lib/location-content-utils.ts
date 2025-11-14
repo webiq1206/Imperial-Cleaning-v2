@@ -12,20 +12,21 @@ import {
  * Each function creates unique, highly customized content based on location data
  */
 
-// Generate location-specific page title
+// Generate location-specific page title (optimized for ~55 chars)
 export function generateLocationTitle(service: string, location: ServiceLocation): string {
-  const serviceName = service === 'construction-cleaning' ? 'Construction Cleaning' : 'Commercial Cleaning';
-  return `${serviceName} in ${location.name}, ${location.state} | Imperial Cleaning Inc.`;
+  const stateAbbr = location.state === 'Idaho' ? 'ID' : 'UT';
+  const serviceName = service === 'construction-cleaning' ? 'Construction Cleanup' : 'Commercial Cleaning';
+  return `${serviceName} ${location.name}, ${stateAbbr} | Imperial Cleaning`;
 }
 
-// Generate location-specific meta description
+// Generate location-specific meta description (optimized for ~155 chars)
 export function generateLocationDescription(service: string, location: ServiceLocation): string {
+  const stateAbbr = location.state === 'Idaho' ? 'ID' : 'UT';
   const serviceType = service === 'construction-cleaning' ? 'post-construction cleanup' : 'commercial cleaning';
-  const driveTime = location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 
-    "Based locally" : 
-    `${location.driveTimeFromHQ} from our Idaho Falls headquarters`;
+  const driveTime = location.driveTimeFromHQ === "0 minutes (Headquarters)" ? "Local" : `${location.driveTimeFromHQ} away`;
+  const county = location.county || location.name;
   
-  return `Professional ${serviceType} services in ${location.name}, ${location.state}. ${driveTime}, serving ${location.serviceRadius}. Trusted by ${location.demographics.economicBase.join(', ').toLowerCase()} businesses.`;
+  return `Professional ${serviceType} in ${location.name}, ${stateAbbr}. Licensed & insured. Serving ${county}. ${driveTime}. Call (208) 520-3202 for free quotes.`;
 }
 
 // Generate location-specific hero content

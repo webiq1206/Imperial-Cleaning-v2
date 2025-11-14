@@ -376,6 +376,10 @@ export default function CommercialCleaning({ locationData }: CommercialCleaningP
     title={isLocationSpecific ? locationHero!.title : "Professional Commercial Cleaning Services"}
     subtitle={isLocationSpecific ? locationHero!.subtitle : "Expert janitorial and commercial cleaning throughout Idaho and Utah. Flexible scheduling and reliable service for businesses."}
     pillText="Licensed & Insured • Professional Service"
+    imageAlt={isLocationSpecific 
+      ? `Commercial Cleaning Services in ${locationData!.name}, ${locationData!.state} | Imperial Cleaning Inc`
+      : "Commercial Cleaning Services Across Idaho & Utah | Imperial Cleaning Inc"
+    }
     primaryCTA={{
      text: "Request a Quote",
      onClick: () => setShowContactForm(true)

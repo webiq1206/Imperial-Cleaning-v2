@@ -194,9 +194,9 @@ export default function Home() {
  return (
   <>
    <SEOHead
-    title="Commercial Cleaning Idaho Falls | Imperial Cleaning"
-    description="Premier commercial & construction cleaning in Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Licensed, insured. Call (208) 520-3202."
-    keywords="Idaho Falls commercial cleaning, Eastern Idaho construction cleanup, Pocatello office cleaning, Twin Falls janitorial services, southeastern Idaho cleaning company, Bonneville County cleaning, Bannock County commercial cleaners, Blackfoot cleaning services, post construction cleanup"
+    title="Commercial & Construction Cleaning Services | Idaho Falls, ID & Utah | Imperial Cleaning"
+    description="Premier commercial & construction cleaning serving Idaho Falls, Pocatello, Twin Falls, Salt Lake City & Wasatch Front. Licensed & insured in Idaho and Utah. Call (208) 520-3202 for free quote!"
+    keywords="Idaho Falls commercial cleaning, Eastern Idaho construction cleanup, Pocatello office cleaning, Twin Falls janitorial services, Utah commercial cleaning, Salt Lake City cleaning, Wasatch Front cleaning, southeastern Idaho cleaning company, Bonneville County cleaning, Bannock County commercial cleaners, post construction cleanup"
     canonicalUrl="https://imperialcleaninginc.com/"
     author="Imperial Cleaning Inc"
     geography={{
@@ -205,8 +205,8 @@ export default function Home() {
      position: "43.4933;-112.0339"
     }}
     openGraph={{
-     title: "Idaho Falls Commercial Cleaning | Imperial Cleaning Inc.",
-     description: "Leading commercial and construction cleaning company serving Idaho Falls and Eastern Idaho. Professional cleaning solutions for businesses and contractors.",
+     title: "Commercial & Construction Cleaning | Idaho & Utah | Imperial Cleaning Inc.",
+     description: "Leading commercial and construction cleaning company serving Idaho Falls, Eastern Idaho, and Utah's Wasatch Front. Professional cleaning solutions for businesses and contractors across two states.",
      image: logoImage,
      imageAlt: "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah",
      type: "website",
@@ -216,8 +216,8 @@ export default function Home() {
     }}
     twitter={{
      card: "summary_large_image",
-     title: "Idaho Falls Commercial Cleaning | Imperial Cleaning Inc.",
-     description: "Professional commercial & construction cleaning throughout Idaho Falls, Pocatello & Eastern Idaho. Licensed & insured since 2015.",
+     title: "Commercial & Construction Cleaning | Idaho & Utah | Imperial Cleaning Inc.",
+     description: "Professional commercial & construction cleaning throughout Idaho and Utah. Serving Idaho Falls, Pocatello, Salt Lake City & Wasatch Front. Licensed & insured.",
      image: logoImage,
      imageAlt: "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah",
      site: "@imperialcleaning",
@@ -226,7 +226,7 @@ export default function Home() {
     structuredData={structuredData}
    />
    
-   <HeroSection />
+   <HeroSection imageAlt="Imperial Cleaning Inc - Idaho Falls Commercial & Construction Cleaning Services Serving Idaho and Utah" />
    <ServicesSection />
    <FeaturesSection />
    <div id="testimonials">

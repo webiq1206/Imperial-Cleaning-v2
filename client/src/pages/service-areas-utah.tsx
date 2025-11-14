@@ -189,6 +189,7 @@ export default function ServiceAreasUtah() {
     title="Utah Cleaning Services"
     subtitle="Professional construction and commercial cleaning services across the Wasatch Front and northern Utah. Serving Logan, Ogden, Salt Lake City, Provo, and surrounding areas."
     pillText="Utah's Professional Cleaning Solution • Licensed & Insured"
+    imageAlt="Utah Cleaning Services - Professional Commercial & Construction Cleaning Across Wasatch Front Salt Lake City Logan Ogden Provo | Imperial Cleaning Inc"
     primaryCTA={{
      text: "Request a Quote",
      onClick: () => setShowContactForm(true)

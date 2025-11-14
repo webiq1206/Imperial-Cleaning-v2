@@ -11,6 +11,7 @@ interface InternalHeroSectionProps {
  title: string;
  subtitle: string;
  pillText?: string;
+ imageAlt?: string;
  primaryCTA?: {
   text: string;
   onClick: () => void;
@@ -26,6 +27,7 @@ export default function InternalHeroSection({
  title,
  subtitle,
  pillText,
+ imageAlt = "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah",
  primaryCTA,
  secondaryCTA,
  minHeight = "min-h-[60vh]"
@@ -54,7 +56,7 @@ export default function InternalHeroSection({
         <source srcSet={logoPathWebP} type="image/webp" />
         <img 
          src={logoPathPNG}
-         alt="Imperial Cleaning Inc Logo - Commercial Cleaning Idaho"
+         alt={imageAlt}
          className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
          width="384"
          height="384"
@@ -141,7 +143,7 @@ export default function InternalHeroSection({
           <source srcSet={logoPathWebP} type="image/webp" />
           <img 
            src={logoPathPNG}
-           alt="Imperial Cleaning Inc - Professional Commercial and Construction Cleaning Services"
+           alt={imageAlt}
            className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain opacity-25"
            width="384"
            height="384"

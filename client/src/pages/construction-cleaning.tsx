@@ -367,6 +367,10 @@ export default function ConstructionCleaning({ locationData }: ConstructionClean
     title={isLocationSpecific ? locationHero!.title : "Professional Construction Cleanup Services"}
     subtitle={isLocationSpecific ? locationHero!.subtitle : "Expert post-construction cleanup across Idaho and Utah. From debris removal to final detailing, delivering inspection-ready results."}
     pillText="Licensed & Insured • Professional Service"
+    imageAlt={isLocationSpecific 
+      ? `Construction Cleanup Services in ${locationData!.name}, ${locationData!.state} | Imperial Cleaning Inc`
+      : "Construction Cleanup Services Across Idaho & Utah | Imperial Cleaning Inc"
+    }
     primaryCTA={{
      text: "Request a Quote",
      onClick: () => setShowContactForm(true)

@@ -291,6 +291,7 @@ export default function ServiceAreasIdaho() {
     title="Idaho Cleaning Services"
     subtitle="Professional construction and commercial cleaning throughout Eastern Idaho, Treasure Valley, and southeastern Idaho. Serving Idaho Falls, Pocatello, Boise, Twin Falls, and surrounding communities."
     pillText="Idaho's Trusted Cleaning Partner • Licensed & Insured"
+    imageAlt="Idaho Cleaning Services - Professional Commercial & Construction Cleaning Across Eastern Idaho and Treasure Valley | Imperial Cleaning Inc"
     primaryCTA={{
      text: "Request a Quote",
      onClick: () => setShowContactForm(true)

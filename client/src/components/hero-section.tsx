@@ -7,7 +7,13 @@ import logoPathPNG from "@assets/Imperial-Cleaning-Inc.-Commercial-Cleaning-in-I
 
 const logoPathWebP = "/hero-logo.webp";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  imageAlt?: string;
+}
+
+export default function HeroSection({ 
+  imageAlt = "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah" 
+}: HeroSectionProps = {}) {
  const [showContactForm, setShowContactForm] = useState(false);
 
  const handleRequestQuote = () => {
@@ -27,7 +33,7 @@ export default function HeroSection() {
         <source srcSet={logoPathWebP} type="image/webp" />
         <img 
          src={logoPathPNG}
-         alt="Imperial Cleaning Inc Logo - Commercial Cleaning Idaho"
+         alt={imageAlt}
          className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
          width="384"
          height="384"
@@ -114,7 +120,7 @@ export default function HeroSection() {
           <source srcSet={logoPathWebP} type="image/webp" />
           <img 
            src={logoPathPNG}
-           alt="Imperial Cleaning Inc - Professional Commercial and Construction Cleaning Services"
+           alt={imageAlt}
            className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[32rem] xl:h-[32rem] object-contain opacity-25"
            width="512"
            height="512"
