@@ -26,6 +26,39 @@
   - Sunday: Emergency services available
   - After-hours services: Available by appointment
 
+### Comprehensive SEO & AI Optimization Strategy
+
+Imperial Cleaning Inc's website features advanced search engine optimization with **unique, location-specific content for every single page** to maximize discoverability across traditional search engines (Google, Bing) and AI platforms (ChatGPT, Claude, Perplexity, Gemini).
+
+**SEO Architecture Highlights:**
+
+- **100+ Unique Pages**: Every service and location combination has its own dedicated page with unique meta tags and content
+- **Unique Meta Titles**: Each page features a customized title tag optimized for local search (~50-55 characters) in the format "{Service} {City}, {State} | Imperial Cleaning"
+- **Unique Meta Descriptions**: Every page has a unique description (~140-155 characters) including location, service details, county coverage, drive time, and contact information
+- **Unique Image Alt Tags**: All hero images and featured graphics have location-specific or service-specific alt text for accessibility and SEO
+- **Location-Specific Content**: Each city page includes 5+ unique content sections: service introduction, local market insights, nearby coverage areas, frequently asked questions, and location-specific case studies
+- **Structured Data**: Comprehensive JSON-LD markup for LocalBusiness, Service, and BreadcrumbList on every page
+- **Dynamic Sitemap**: Automatically updated XML sitemap with priority rankings based on market importance (high-priority headquarters and major markets at 0.9, secondary markets at 0.8, extended coverage at 0.7)
+- **AI Assistant Indexing**: This llms.txt file (43KB, 555+ lines) provides comprehensive reference material for AI assistants with natural language content covering all 24 service locations, 4 service types, industry expertise, client testimonials, and search term mappings
+- **Mobile-First Design**: Responsive layouts optimized for mobile search and local discovery
+- **Performance Optimized**: WebP images, text compression (Gzip/Brotli), critical asset preloading, system fonts for fast page loads
+
+**URL Structure for Maximum SEO:**
+
+All location-specific pages follow the pattern: `https://imperialcleaninginc.com/{state}/{service}/{city}/`
+
+Examples:
+- Construction cleanup in Idaho Falls: `/idaho/construction-cleaning/idaho-falls/`
+- Commercial cleaning in Salt Lake City: `/utah/commercial-cleaning/salt-lake-city/`
+- Construction cleanup in Boise: `/idaho/construction-cleaning/boise/`
+- Commercial cleaning in Logan: `/utah/commercial-cleaning/logan/`
+
+This structure ensures clear geographic and service targeting for both search engines and AI assistants when users search for "construction cleanup in Idaho Falls" or "commercial cleaning Salt Lake City."
+
+**AI Platform Optimization:**
+
+Our robots.txt file welcomes 15 priority AI crawlers including GPTBot (ChatGPT), ClaudeBot (Claude), Google-Extended (Gemini), PerplexityBot, and FacebookBot (Meta/LLaMA) while maintaining security restrictions on admin and API paths. This ensures our comprehensive service information is available to AI assistants answering user queries about commercial cleaning and construction cleanup services in Idaho and Utah.
+
 ### Service Response Times
 
 - **Primary Markets** (Idaho Falls, Pocatello, Salt Lake City, Logan, Boise): Same-day or next-day service availability
