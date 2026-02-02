@@ -1,17 +1,19 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
-import { useLocation } from 'wouter';
+import { usePathname } from 'next/navigation';
 import { trackPageView } from '../lib/analytics';
 
 export const useAnalytics = () => {
- const [location] = useLocation();
+ const pathname = usePathname();
  const prevLocationRef = useRef<string>('');
  
  useEffect(() => {
   // Track page views when location changes
-  if (location !== prevLocationRef.current) {
+  if (pathname !== prevLocationRef.current) {
    // Track the page view
-   trackPageView(location);
-   prevLocationRef.current = location;
+   trackPageView(pathname);
+   prevLocationRef.current = pathname;
   }
- }, [location]);
+ }, [pathname]);
 };

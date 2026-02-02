@@ -10,26 +10,6 @@
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/construction-cleaning/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/construction-cleaning/page.js"
-    ],
-    "/service-areas/idaho/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/service-areas/idaho/page.js"
-    ],
-    "/commercial-cleaning/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/commercial-cleaning/page.js"
-    ],
-    "/[state]/[service]/[city]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[state]/[service]/[city]/page.js"
     ]
   }
 }

@@ -72,7 +72,12 @@ export default function ProjectMetrics({
       {/* Icon and Label Row */}
       <div className="flex items-center gap-2 mb-1">
        <div className="text-primary group-hover/metric:scale-110 transition-transform duration-300">
-        {typeof metric.icon === 'string' ? getMetricIcon(metric.icon) : metric.icon}
+        {typeof metric.icon === 'string' 
+          ? getMetricIcon(metric.icon) 
+          : metric.icon 
+            ? (() => { const Icon = metric.icon; return <Icon className="w-4 h-4" />; })()
+            : <CheckCircle className="w-4 h-4" />
+        }
        </div>
        {showLabels && (
         <span className="text-xs text-muted-foreground ">

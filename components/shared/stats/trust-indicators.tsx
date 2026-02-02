@@ -72,12 +72,9 @@ export default function TrustIndicators({
      onClick={() => {
       // Track stats engagement
       trackContentEngagement(
-       'stats_click',
-       {
-        contentType: 'trust_indicator',
-        contentId: stat.label,
-        position: index + 1
-       }
+       'stats',
+       'click',
+       stat.label
       );
      }}
      data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}

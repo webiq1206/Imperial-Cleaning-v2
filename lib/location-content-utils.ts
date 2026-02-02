@@ -1,4 +1,4 @@
-import { ServiceLocation } from "@shared/service-locations";
+import { ServiceLocation } from "@/data/service-locations";
 import { buildServiceLocationUrl } from "./routing-utils";
 import { 
   getComplementaryServiceLink, 
