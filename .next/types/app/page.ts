@@ -1,4 +1,4 @@
-// File: C:\Users\brost\OneDrive\Desktop\Imperial-Cleaning-v2\app\page.tsx
+// File: /home/runner/workspace/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
