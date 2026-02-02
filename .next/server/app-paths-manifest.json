@@ -1,3 +1,7 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/construction-cleaning/page": "app/construction-cleaning/page.js",
+  "/service-areas/idaho/page": "app/service-areas/idaho/page.js",
+  "/commercial-cleaning/page": "app/commercial-cleaning/page.js",
+  "/[state]/[service]/[city]/page": "app/[state]/[service]/[city]/page.js"
 }
