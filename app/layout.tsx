@@ -158,6 +158,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        {/* Font Awesome - preload for better performance */}
+        <link 
+          rel="preload" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          as="style"
+        />
+        <link 
+          rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          media="print"
+        />
+      </head>
       <body suppressHydrationWarning>
         <Providers>
           <main id="main-content">
@@ -174,16 +187,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         
-        {/* Font Awesome - loaded asynchronously */}
+        {/* Font Awesome - switch from print to all media after load */}
         <Script
           id="font-awesome-loader"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         >
           {`
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
-            document.head.appendChild(link);
+            var faLink = document.querySelector('link[href*="font-awesome"][media="print"]');
+            if (faLink) faLink.media = 'all';
           `}
         </Script>
         

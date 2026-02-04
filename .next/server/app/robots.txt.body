@@ -1,0 +1,23 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: ChatGPT-User
+Allow: /
+
+User-Agent: Claude-Web
+Allow: /
+
+User-Agent: Anthropic-AI
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+Host: https://imperialcleaninginc.com
+Sitemap: https://imperialcleaninginc.com/sitemap.xml
