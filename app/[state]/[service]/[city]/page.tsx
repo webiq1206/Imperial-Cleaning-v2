@@ -61,32 +61,56 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
   
-  const title = `${location.name} ${serviceName} Services | Imperial Cleaning Inc`;
-  const description = `Professional ${serviceName.toLowerCase()} in ${location.name}, ${location.state}. Expert ${service === "construction-cleaning" ? "post-construction cleanup" : "janitorial and office cleaning"} services. Licensed & insured. Call (208) 520-3202 for free quote!`;
+  const stateAbbr = location.state === "Idaho" ? "ID" : "UT";
+  const isConstruction = service === "construction-cleaning";
+  
+  // Optimized title (55-60 chars) with primary keyword first
+  const title = `${location.name} ${serviceName} | Imperial Cleaning ${stateAbbr}`;
+  
+  // Enhanced description (150-160 chars) with location, service, and CTA
+  const serviceDesc = isConstruction 
+    ? "post-construction cleanup, debris removal & final inspection cleaning" 
+    : "commercial janitorial, office cleaning & facility maintenance";
+  const description = `Professional ${serviceName.toLowerCase()} in ${location.name}, ${stateAbbr}. ${location.county ? `Serving ${location.county}. ` : ""}Expert ${serviceDesc}. Licensed & insured. Call (208) 520-3202!`;
+  
+  // Enhanced keywords with local terms
+  const locationKeywords = location.keywords?.slice(0, 3).join(", ") || "";
+  const keywords = `${location.name} ${serviceName.toLowerCase()}, ${serviceName.toLowerCase()} ${location.name} ${stateAbbr}, ${location.county || location.name} cleaning services, ${locationKeywords}`;
   
   return {
     title,
     description,
-    keywords: `${location.name} ${serviceName.toLowerCase()}, ${location.state} cleaning services, ${location.name} cleaning company, ${service.replace("-", " ")} ${location.name}`,
+    keywords,
+    authors: [{ name: "Imperial Cleaning Inc" }],
     openGraph: {
-      title,
-      description,
+      title: `${location.name} ${serviceName} Services | Imperial Cleaning Inc`,
+      description: `Professional ${serviceName.toLowerCase()} in ${location.name}, ${location.state}. Expert ${isConstruction ? "post-construction cleanup" : "janitorial"} services. Licensed & insured.`,
       url: `https://imperialcleaninginc.com/${state}/${service}/${city}`,
       siteName: "Imperial Cleaning Inc",
       locale: "en_US",
       type: "website",
+      images: [{
+        url: "https://imperialcleaninginc.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${serviceName} Services in ${location.name}, ${location.state}`
+      }]
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: `${location.name} ${serviceName} | Imperial Cleaning`,
+      description: `Professional ${serviceName.toLowerCase()} in ${location.name}, ${stateAbbr}. Licensed & insured.`,
     },
     alternates: {
       canonical: `https://imperialcleaninginc.com/${state}/${service}/${city}`,
     },
     other: {
-      "geo.region": `US-${location.state === "Idaho" ? "ID" : "UT"}`,
+      "geo.region": `US-${stateAbbr}`,
       "geo.placename": `${location.name}, ${location.state}`,
+      ...(location.coordinates && {
+        "geo.position": `${location.coordinates.lat};${location.coordinates.lng}`,
+        "ICBM": `${location.coordinates.lat}, ${location.coordinates.lng}`
+      })
     },
   };
 }

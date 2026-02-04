@@ -60,8 +60,87 @@ export default function ServiceLocationClient({
       "@type": "LocalBusiness",
       "name": "Imperial Cleaning Inc",
       "url": "https://imperialcleaninginc.com",
-      "telephone": "+1-208-520-3202"
+      "telephone": "+1-208-520-3202",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Idaho Falls",
+        "addressRegion": "ID",
+        "addressCountry": "US"
+      },
+      ...(location.coordinates && {
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": location.coordinates.lat,
+          "longitude": location.coordinates.lng
+        }
+      })
     },
+    "areaServed": {
+      "@type": "City",
+      "name": location.name,
+      ...(location.coordinates && {
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": location.coordinates.lat,
+          "longitude": location.coordinates.lng
+        }
+      }),
+      "containedInPlace": {
+        "@type": "State",
+        "name": location.state
+      }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `${serviceName} Services`,
+      "itemListElement": serviceFeatures.features.slice(0, 5).map((feature: { title: string; description: string }, index: number) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": feature.title,
+          "description": feature.description
+        }
+      }))
+    }
+  };
+  
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+  
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Imperial Cleaning Inc",
+    "description": `Professional ${serviceName.toLowerCase()} services in ${location.name}, ${location.state}. Licensed, insured, and locally trusted.`,
+    "url": `https://imperialcleaninginc.com/${stateSlug}/${serviceType}/${location.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`,
+    "telephone": "+1-208-520-3202",
+    "priceRange": "$$",
+    "image": "https://imperialcleaninginc.com/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Idaho Falls",
+      "addressRegion": "ID",
+      "postalCode": "83401",
+      "addressCountry": "US"
+    },
+    ...(location.coordinates && {
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": location.coordinates.lat,
+        "longitude": location.coordinates.lng
+      }
+    }),
     "areaServed": {
       "@type": "City",
       "name": location.name,
@@ -69,7 +148,25 @@ export default function ServiceLocationClient({
         "@type": "State",
         "name": location.state
       }
-    }
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/imperialcleaninginc",
+      "https://www.linkedin.com/company/imperial-cleaning-inc"
+    ]
   };
 
   const breadcrumbSchema = {
@@ -87,7 +184,7 @@ export default function ServiceLocationClient({
 
   return (
     <>
-      <StructuredData data={[serviceSchema, breadcrumbSchema]} />
+      <StructuredData data={[serviceSchema, breadcrumbSchema, faqSchema, localBusinessSchema]} />
 
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">

@@ -7,6 +7,12 @@ import ContactFormModal from "@/components/contact-form-modal";
 import InternalHeroSection from "@/components/internal-hero-section";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function ServiceAreasUtahClient() {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -43,6 +49,45 @@ export default function ServiceAreasUtahClient() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What cities in Utah do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve Salt Lake City, Logan, Ogden, Provo, West Valley City, Sandy, Orem, and Layton. Our services cover the entire Wasatch Front corridor from Logan in the north to Provo in the south, including all of Salt Lake County and Utah County."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services do you offer in Utah?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide comprehensive construction cleanup and commercial cleaning services throughout Utah. This includes post-construction debris removal, final inspection cleaning, daily janitorial services, office cleaning, floor care, and specialized facility maintenance for healthcare, tech, and government buildings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can you respond to Utah cleaning requests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Logan and Ogden receive same-day response capability due to their proximity to our Idaho Falls headquarters. Salt Lake City and Provo projects typically see 24-48 hour deployment. Emergency services are available 24/7 across all Utah Wasatch Front service areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you licensed to work in Utah?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Imperial Cleaning Inc. is fully licensed, insured, and bonded for all cleaning projects in Utah. We maintain comprehensive insurance coverage and comply with all Utah state regulations for commercial cleaning services."
+        }
+      }
+    ]
+  };
+
   const utahCities = [
     { name: "Salt Lake City", county: "Salt Lake County", description: "Utah's capital with financial district, state government, and major medical centers." },
     { name: "Logan", county: "Cache County", description: "Home to Utah State University and research facilities. Closest Utah market to our Idaho headquarters." },
@@ -52,7 +97,7 @@ export default function ServiceAreasUtahClient() {
 
   return (
     <>
-      <StructuredData data={[utahServiceSchema, breadcrumbSchema]} />
+      <StructuredData data={[utahServiceSchema, breadcrumbSchema, faqSchema]} />
 
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
@@ -176,6 +221,74 @@ export default function ServiceAreasUtahClient() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl mb-6 text-foreground">Utah Cleaning Services FAQ</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Common questions about our cleaning services throughout Utah.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="cities" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    What cities in Utah do you serve?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    We serve Salt Lake City, Logan, Ogden, Provo, West Valley City, Sandy, Orem, and Layton. Our services cover the entire Wasatch Front corridor from Logan in the north to Provo in the south, including all of Salt Lake County and Utah County.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="services" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    What services do you offer in Utah?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    We provide comprehensive construction cleanup and commercial cleaning services throughout Utah. This includes post-construction debris removal, final inspection cleaning, daily janitorial services, office cleaning, floor care, and specialized facility maintenance for healthcare, tech, and government buildings.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="response" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    How quickly can you respond to Utah cleaning requests?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Logan and Ogden receive same-day response capability due to their proximity to our Idaho Falls headquarters. Salt Lake City and Provo projects typically see 24-48 hour deployment. Emergency services are available 24/7 across all Utah Wasatch Front service areas.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="licensed" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    Are you licensed to work in Utah?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Yes, Imperial Cleaning Inc. is fully licensed, insured, and bonded for all cleaning projects in Utah. We maintain comprehensive insurance coverage and comply with all Utah state regulations for commercial cleaning services.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>

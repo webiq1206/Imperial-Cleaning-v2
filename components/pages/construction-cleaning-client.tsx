@@ -62,9 +62,56 @@ export default function ConstructionCleaningClient() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does your post-construction cleanup process include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our construction cleanup follows a comprehensive 3-phase process: Phase 1 includes rough cleaning with debris removal, dust elimination, and surface preparation. Phase 2 covers detailed cleaning of windows, fixtures, floors, and all surfaces. Phase 3 is our final inspection-ready cleaning with touch-ups, floor protection, and complete project walkthrough."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you fully insured and compliant with construction site safety requirements?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Imperial Cleaning Inc. maintains comprehensive insurance coverage including general liability, workers' compensation, and bonding for all construction cleanup projects. We are OSHA compliant and our team is trained in construction site safety protocols."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you determine pricing for construction cleanup projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our construction cleanup pricing is based on square footage, project complexity, cleanup phase requirements, timeline constraints, and site accessibility. We provide detailed, transparent quotes with no hidden fees. We offer both per-square-foot pricing and flat-rate options depending on project scope."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve for construction cleaning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide construction cleanup services throughout Idaho and Utah, including Idaho Falls, Pocatello, Boise, Twin Falls, Salt Lake City, Logan, Ogden, Provo, and 24+ cities across both states. Our headquarters in Idaho Falls allows us to respond quickly to projects in the region."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can you start a construction cleanup project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For projects in our primary service areas (Idaho Falls, Pocatello), we can often begin same-day or next-day. For extended areas like Boise, Salt Lake City, and Twin Falls, we typically deploy within 24-48 hours. Emergency services are available 24/7."
+        }
+      }
+    ]
+  };
+
   return (
     <>
-      <StructuredData data={[constructionServiceSchema, breadcrumbSchema]} />
+      <StructuredData data={[constructionServiceSchema, breadcrumbSchema, faqSchema]} />
 
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">

@@ -7,6 +7,12 @@ import ContactFormModal from "@/components/contact-form-modal";
 import InternalHeroSection from "@/components/internal-hero-section";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function ServiceAreasIdahoClient() {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -44,6 +50,45 @@ export default function ServiceAreasIdahoClient() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What cities in Idaho do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve Idaho Falls (headquarters), Pocatello, Blackfoot, Rexburg, Twin Falls, Boise, Meridian, Nampa, Caldwell, Eagle, Ammon, Chubbuck, Shelley, Rigby, St. Anthony, and Driggs. Our Idaho Falls location allows us to provide same-day service throughout Eastern Idaho."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services do you offer in Idaho?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide comprehensive construction cleanup and commercial cleaning services. Construction cleanup includes debris removal, detailed cleaning, and final inspection preparation. Commercial cleaning includes daily janitorial, office cleaning, floor care, and specialized facility maintenance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can you respond to Idaho cleaning requests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Response times vary by location: Idaho Falls and Pocatello receive immediate to same-day response. Twin Falls, Boise, and Treasure Valley projects typically see 24-48 hour deployment. Emergency services are available 24/7 across all Idaho service areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you licensed and insured for Idaho cleaning projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Imperial Cleaning Inc. is fully licensed, insured, and bonded for all cleaning projects in Idaho. We maintain comprehensive general liability and workers' compensation coverage, and our team is OSHA safety compliant."
+        }
+      }
+    ]
+  };
+
   const primaryMarketCities = [
     { name: "Idaho Falls", population: "65,000+", county: "Bonneville County", description: "Our headquarters city and the heart of Eastern Idaho's commercial activity." },
     { name: "Pocatello", population: "56,000+", county: "Bannock County", description: "Major southeastern Idaho city and home to Idaho State University." },
@@ -65,7 +110,7 @@ export default function ServiceAreasIdahoClient() {
 
   return (
     <>
-      <StructuredData data={[idahoServiceSchema, breadcrumbSchema]} />
+      <StructuredData data={[idahoServiceSchema, breadcrumbSchema, faqSchema]} />
 
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
@@ -191,6 +236,74 @@ export default function ServiceAreasIdahoClient() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl mb-6 text-foreground">Idaho Cleaning Services FAQ</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Common questions about our cleaning services throughout Idaho.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="cities" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    What cities in Idaho do you serve?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    We serve Idaho Falls (headquarters), Pocatello, Blackfoot, Rexburg, Twin Falls, Boise, Meridian, Nampa, Caldwell, Eagle, Ammon, Chubbuck, Shelley, Rigby, St. Anthony, and Driggs. Our Idaho Falls location allows us to provide same-day service throughout Eastern Idaho.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="services" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    What services do you offer in Idaho?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    We provide comprehensive construction cleanup and commercial cleaning services. Construction cleanup includes debris removal, detailed cleaning, and final inspection preparation. Commercial cleaning includes daily janitorial, office cleaning, floor care, and specialized facility maintenance.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="response" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    How quickly can you respond to Idaho cleaning requests?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Response times vary by location: Idaho Falls and Pocatello receive immediate to same-day response. Twin Falls, Boise, and Treasure Valley projects typically see 24-48 hour deployment. Emergency services are available 24/7 across all Idaho service areas.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="licensed" className="resend-card rounded-lg border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                  <h3 className="text-lg text-foreground leading-tight">
+                    Are you licensed and insured for Idaho cleaning projects?
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Yes, Imperial Cleaning Inc. is fully licensed, insured, and bonded for all cleaning projects in Idaho. We maintain comprehensive general liability and workers&apos; compensation coverage, and our team is OSHA safety compliant.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>

@@ -62,9 +62,56 @@ export default function CommercialCleaningClient() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How flexible are your commercial cleaning schedules?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer extremely flexible commercial cleaning schedules to accommodate your business needs. Our services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What quality assurance measures do you have in place?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We guarantee 100% satisfaction on all commercial cleaning services. Every account includes regular supervisor inspections and quality audits. We provide detailed service reports and maintain constant communication with facility managers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you fully insured and bonded for commercial projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Imperial Cleaning Inc. maintains comprehensive insurance coverage including general liability, workers' compensation, and bonding for all commercial cleaning projects. We are fully bonded, providing complete protection for your property."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of businesses do you clean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide commercial cleaning for offices, medical facilities, retail stores, educational institutions, government buildings, manufacturing facilities, and more. Our trained staff understands the unique requirements of each industry."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you use eco-friendly cleaning products?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we prioritize environmentally friendly cleaning solutions that are effective yet safe for your employees and the environment. We can accommodate special requests for green cleaning products and can provide LEED-compliant cleaning services."
+        }
+      }
+    ]
+  };
+
   return (
     <>
-      <StructuredData data={[commercialServiceSchema, breadcrumbSchema]} />
+      <StructuredData data={[commercialServiceSchema, breadcrumbSchema, faqSchema]} />
 
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
