@@ -1,16 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/contact/route": "app/api/contact/route.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/about/page": "app/about/page.js",
-  "/commercial-cleaning/page": "app/commercial-cleaning/page.js",
-  "/[state]/[service]/[city]/page": "app/[state]/[service]/[city]/page.js",
-  "/page": "app/page.js",
-  "/construction-cleaning/page": "app/construction-cleaning/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/service-areas/idaho/page": "app/service-areas/idaho/page.js",
-  "/privacy-policy/page": "app/privacy-policy/page.js",
-  "/service-areas/utah/page": "app/service-areas/utah/page.js",
-  "/terms-of-service/page": "app/terms-of-service/page.js"
+  "/page": "app/page.js"
 }
