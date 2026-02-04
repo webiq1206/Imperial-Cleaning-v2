@@ -160,7 +160,9 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <Providers>
-          {children}
+          <main id="main-content">
+            {children}
+          </main>
           <Toaster />
         </Providers>
         
@@ -171,6 +173,19 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        
+        {/* Font Awesome - loaded asynchronously */}
+        <Script
+          id="font-awesome-loader"
+          strategy="lazyOnload"
+        >
+          {`
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+            document.head.appendChild(link);
+          `}
+        </Script>
         
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
