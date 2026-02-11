@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Settings, TrendingUp, Rocket } from "lucide-react";
 
 export default function ProcessTerminalSection() {
  const [currentStep, setCurrentStep] = useState(0);
@@ -121,7 +122,7 @@ export default function ProcessTerminalSection() {
      <div className="grid md:grid-cols-3 gap-6 mt-16">
       <div className="text-center">
        <div className="icon-gradient text-2xl mb-6">
-        <i className="fas fa-cogs"></i>
+        <Settings className="w-6 h-6" />
        </div>
        <h3 className="text-lg mb-2 text-foreground">Systematic Approach</h3>
        <p className="text-sm text-muted-foreground">
@@ -130,7 +131,7 @@ export default function ProcessTerminalSection() {
       </div>
       <div className="text-center">
        <div className="icon-gradient text-2xl mb-6">
-        <i className="fas fa-chart-line"></i>
+        <TrendingUp className="w-6 h-6" />
        </div>
        <h3 className="text-lg mb-2 text-foreground">Quality Tracking</h3>
        <p className="text-sm text-muted-foreground">
@@ -139,7 +140,7 @@ export default function ProcessTerminalSection() {
       </div>
       <div className="text-center">
        <div className="icon-gradient text-2xl mb-6">
-        <i className="fas fa-rocket"></i>
+        <Rocket className="w-6 h-6" />
        </div>
        <h3 className="text-lg mb-2 text-foreground">Efficient Execution</h3>
        <p className="text-sm text-muted-foreground">

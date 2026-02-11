@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { allServiceLocations } from "@/data/service-locations";
 import { locationToSlug, buildServiceLocationUrl } from "@/lib/routing-utils";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
-  // Get top locations by service type for footer display
   const getTopLocationsByService = (serviceType: 'construction' | 'commercial', limit: number = 4) => {
     return allServiceLocations
       .filter(loc => {
@@ -93,7 +93,7 @@ export default function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   aria-label="Visit our Facebook page"
                 >
-                  <i className="fab fa-facebook text-xl"></i>
+                  <Facebook className="w-5 h-5" />
                 </a>
                 <a 
                   href="https://www.instagram.com/imperialcleaninginc/" 
@@ -102,7 +102,7 @@ export default function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   aria-label="Follow us on Instagram"
                 >
-                  <i className="fab fa-instagram text-xl"></i>
+                  <Instagram className="w-5 h-5" />
                 </a>
                 <a 
                   href="https://www.linkedin.com/company/imperial-cleaning-inc" 
@@ -111,7 +111,7 @@ export default function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   aria-label="Visit our LinkedIn page"
                 >
-                  <i className="fab fa-linkedin text-xl"></i>
+                  <Linkedin className="w-5 h-5" />
                 </a>
               </div>
             </div>

@@ -19,7 +19,7 @@ Preferred communication style: Simple, everyday language.
 - **Tailwind CSS**: Utility-first styling with custom design system variables
 - **shadcn/ui**: Radix-based component library with new-york style variant
 - **CSS Variables**: Dark theme with cyan-to-purple gradient accent colors
-- **Framer Motion**: Animation library for interactive elements
+- **Lucide React**: Icon library replacing Font Awesome (inline SVGs, no CDN dependency)
 
 ### Data Management
 - **TanStack Query**: Server state management with caching
@@ -62,20 +62,24 @@ Location-specific pages follow the URL structure: `/{state}/{service}/{city}/`
 ### UI Components
 - **Radix UI**: Accessible component primitives (accordion, dialog, tabs, etc.)
 - **Embla Carousel**: Touch-friendly carousels with autoplay
-- **cmdk**: Command palette component
-- **input-otp**: OTP input handling
 
 ### Form Handling
 - **React Hook Form**: Form state management
 - **@hookform/resolvers**: Zod integration for validation
 
 ### Analytics
-- **Google Analytics 4**: Page views and event tracking via gtag
+- **Google Analytics 4**: Page views and event tracking via gtag (deferred with lazyOnload strategy)
 - Custom analytics utilities in `lib/analytics.ts`
 
 ### External Services
-- **Font Awesome**: Icon library loaded via CDN
 - **Google Fonts**: Inter font family
+
+### Performance Optimizations
+- **Mobile CSS**: Heavy effects (blur, parallax, grain, noise overlays, complex gradients) disabled on mobile via @media (max-width: 768px)
+- **Font Awesome removed**: Replaced entirely with lucide-react inline SVGs to eliminate 154KB font + 19KB CSS CDN load
+- **Unused packages removed**: framer-motion, cmdk, recharts, input-otp, vaul
+- **Decorative DOM hidden on mobile**: Parallax layers, background treatments, orbital elements hidden with `hidden md:block`
+- **GA deferred**: Google Analytics loads via `lazyOnload` strategy instead of `afterInteractive`
 
 ### Build Tools
 - **PostCSS + Autoprefixer**: CSS processing

@@ -158,19 +158,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <head>
-        {/* Font Awesome - preload for better performance */}
-        <link 
-          rel="preload" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-          as="style"
-        />
-        <link 
-          rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          media="print"
-        />
-      </head>
       <body suppressHydrationWarning>
         <Providers>
           <main id="main-content">
@@ -187,25 +174,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         
-        {/* Font Awesome - switch from print to all media after load */}
-        <Script
-          id="font-awesome-loader"
-          strategy="afterInteractive"
-        >
-          {`
-            var faLink = document.querySelector('link[href*="font-awesome"][media="print"]');
-            if (faLink) faLink.media = 'all';
-          `}
-        </Script>
-        
-        {/* Google Analytics */}
+        {/* Google Analytics - deferred to lazyOnload for better performance */}
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}

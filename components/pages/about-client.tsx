@@ -1,6 +1,7 @@
 "use client";
 
 import { StructuredData } from "@/components/structured-data";
+import { Star, Shield, Handshake, Lightbulb, type LucideIcon } from "lucide-react";
 
 export default function AboutClient() {
   const organizationSchema = {
@@ -39,26 +40,26 @@ export default function AboutClient() {
     { label: "Team Members", value: "25+", icon: "users" }
   ];
 
-  const coreValues = [
+  const coreValues: { title: string; description: string; icon: LucideIcon }[] = [
     {
       title: "Quality Excellence",
       description: "Every project meets our exacting standards through systematic processes and attention to detail.",
-      icon: "star"
+      icon: Star
     },
     {
       title: "Professional Integrity",
       description: "Licensed, bonded, and insured with transparent communication and reliable service.",
-      icon: "shield"
+      icon: Shield
     },
     {
       title: "Client Partnership",
       description: "We build lasting relationships by understanding unique needs and exceeding expectations.",
-      icon: "handshake"
+      icon: Handshake
     },
     {
       title: "Innovation Focus",
       description: "Continuous improvement through advanced techniques, equipment, and industry best practices.",
-      icon: "lightbulb"
+      icon: Lightbulb
     }
   ];
 
@@ -177,9 +178,7 @@ export default function AboutClient() {
             {coreValues.map((value, index) => (
               <div key={index} className="glass-card-elevated sophisticated-glow p-6 rounded-lg text-center hover-lift-moderate">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <div className="w-6 h-6 text-primary">
-                    <i className={`fas fa-${value.icon}`}></i>
-                  </div>
+                  <value.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-xl mb-3 text-foreground">{value.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>

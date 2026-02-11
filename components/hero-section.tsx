@@ -24,34 +24,32 @@ export default function HeroSection({
  return (
   <>
    <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
-    {/* Enhanced background logo - visible on mobile with darkening effect, hidden on desktop */}
+    {/* Background logo - visible on mobile, hidden on desktop */}
     <div 
-     className="fixed md:absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
-     style={{ transform: 'translate(-50%, -50%) translateZ(0)', willChange: 'transform' }}
+     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
     >
       <picture>
         <source srcSet={logoPathWebP} type="image/webp" />
         <img 
          src={logoPathPNG}
          alt={imageAlt}
-         className="w-full h-full object-contain opacity-20 md:opacity-0 pointer-events-none"
+         className="w-full h-full object-contain opacity-15 md:opacity-0 pointer-events-none"
          width="384"
          height="384"
-         fetchPriority="high"
+         loading="eager"
          decoding="async"
-         style={{ filter: 'brightness(0.4) contrast(1.2)', transform: 'translateZ(0)' }}
         />
       </picture>
     </div>
 
-    {/* Enhanced parallax background elements */}
-    <div className="absolute inset-0 parallax-subtle opacity-20">
-     <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-purple-500/5 rounded-full blur-xl "></div>
+    {/* Parallax background elements - hidden on mobile for performance */}
+    <div className="absolute inset-0 parallax-subtle opacity-20 hidden md:block">
+     <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-purple-500/5 rounded-full blur-xl"></div>
      <div className="absolute bottom-40 right-32 w-24 h-24 bg-gradient-to-br from-purple-500/8 to-cyan-500/4 rounded-full blur-lg"></div>
     </div>
     
-    <div className="absolute inset-0 parallax-gentle opacity-10">
-     <div className="absolute top-1/3 right-20 w-40 h-40 bg-gradient-to-br from-cyan-400/6 to-purple-600/3 rounded-full blur-2xl "></div>
+    <div className="absolute inset-0 parallax-gentle opacity-10 hidden md:block">
+     <div className="absolute top-1/3 right-20 w-40 h-40 bg-gradient-to-br from-cyan-400/6 to-purple-600/3 rounded-full blur-2xl"></div>
      <div className="absolute bottom-20 left-32 w-28 h-28 bg-gradient-to-br from-purple-400/5 to-cyan-600/2 rounded-full blur-xl"></div>
     </div>
 
@@ -148,19 +146,16 @@ export default function HeroSection({
      </div>
     </div>
 
-    {/* Enhanced Resend-style sophisticated background treatments */}
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-     {/* Layered sophisticated gradients */}
+    {/* Sophisticated background treatments - desktop only for performance */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
      <div className="absolute inset-0 sophisticated-bg-primary opacity-60"></div>
      
-     {/* Geometric elements with enhanced sophistication */}
      <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden opacity-8">
-      <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-gray-800/30 rotate-12 sophisticated-glow"></div>
-      <div className="absolute top-1/2 right-1/3 w-20 h-20 border border-gray-700/30 rotate-45 sophisticated-glow"></div>
-      <div className="absolute bottom-1/3 right-1/6 w-16 h-16 border border-gray-600/30 -rotate-12 sophisticated-glow"></div>
+      <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-gray-800/30 rotate-12"></div>
+      <div className="absolute top-1/2 right-1/3 w-20 h-20 border border-gray-700/30 rotate-45"></div>
+      <div className="absolute bottom-1/3 right-1/6 w-16 h-16 border border-gray-600/30 -rotate-12"></div>
      </div>
      
-     {/* Enhanced radial glow effects */}
      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-radial from-cyan-500/8 via-purple-500/4 to-transparent rounded-full blur-3xl"></div>
      <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-gradient-radial from-purple-500/6 via-transparent to-transparent rounded-full blur-2xl"></div>
     </div>

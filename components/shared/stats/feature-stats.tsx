@@ -42,9 +42,6 @@ export default function FeatureStats({
  };
 
  const renderIcon = (icon: any) => {
-  if (typeof icon === 'string') {
-   return <i className={`fas fa-${icon} icon-gradient`} />;
-  }
   const IconComponent = icon;
   return <IconComponent className="w-6 h-6 icon-gradient" />;
  };

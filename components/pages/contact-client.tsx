@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { StructuredData } from "@/components/structured-data";
+import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export default function ContactClient() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -63,13 +65,14 @@ export default function ContactClient() {
     ]
   };
 
-  const contactMethods = [
+  const contactMethods: { title: string; description: string; action: string; label: string; icon: LucideIcon; iconKey: string; available: string }[] = [
     {
       title: "Call Us",
       description: "Speak directly with our team",
       action: "tel:+12085203202",
       label: "(208) 520-3202",
-      icon: "phone",
+      icon: Phone,
+      iconKey: "phone",
       available: "Mon-Fri 7AM-6PM, Sat 8AM-4PM"
     },
     {
@@ -77,7 +80,8 @@ export default function ContactClient() {
       description: "Send us your project details",
       action: "mailto:service@imperialcleaninginc.com",
       label: "service@imperialcleaninginc.com",
-      icon: "envelope",
+      icon: Mail,
+      iconKey: "envelope",
       available: "24/7 - We respond within 4 hours"
     },
     {
@@ -85,7 +89,8 @@ export default function ContactClient() {
       description: "Meet us at our headquarters",
       action: "https://www.google.com/maps/place/Idaho+Falls,+ID",
       label: "Idaho Falls, ID",
-      icon: "map-marker-alt",
+      icon: MapPin,
+      iconKey: "map-marker-alt",
       available: "By appointment"
     }
   ];
@@ -109,24 +114,27 @@ export default function ContactClient() {
 
           {/* Contact Methods */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {contactMethods.map((method, index) => (
-              <a
-                key={index}
-                href={method.action}
-                target={method.action.startsWith('http') ? '_blank' : undefined}
-                rel={method.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="glass-card-elevated sophisticated-glow p-8 rounded-lg text-center hover-lift-moderate group transition-all duration-300"
-                data-testid={`contact-method-${method.icon}`}
-              >
-                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <i className={`fas fa-${method.icon} text-2xl text-primary`}></i>
-                </div>
-                <h3 className="text-2xl mb-3 text-foreground">{method.title}</h3>
-                <p className="text-muted-foreground mb-4">{method.description}</p>
-                <div className="text-primary text-lg mb-2">{method.label}</div>
-                <div className="text-sm text-muted-foreground">{method.available}</div>
-              </a>
-            ))}
+            {contactMethods.map((method, index) => {
+              const IconComponent = method.icon;
+              return (
+                <a
+                  key={index}
+                  href={method.action}
+                  target={method.action.startsWith('http') ? '_blank' : undefined}
+                  rel={method.action.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="glass-card-elevated sophisticated-glow p-8 rounded-lg text-center hover-lift-moderate group transition-all duration-300"
+                  data-testid={`contact-method-${method.iconKey}`}
+                >
+                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                    <IconComponent className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-2xl mb-3 text-foreground">{method.title}</h3>
+                  <p className="text-muted-foreground mb-4">{method.description}</p>
+                  <div className="text-primary text-lg mb-2">{method.label}</div>
+                  <div className="text-sm text-muted-foreground">{method.available}</div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -156,7 +164,7 @@ export default function ContactClient() {
               ) : (
                 <div className="glass-card-elevated sophisticated-glow p-12 rounded-lg text-center">
                   <div className="w-16 h-16 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                    <i className="fas fa-check-circle text-3xl text-green-500"></i>
+                    <CheckCircle className="w-8 h-8 text-green-500" />
                   </div>
                   <h3 className="text-2xl mb-4 text-foreground">Quote Request Received!</h3>
                   <p className="text-muted-foreground mb-6">
@@ -168,7 +176,7 @@ export default function ContactClient() {
                       href="tel:+12085203202"
                       className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200"
                     >
-                      <i className="fas fa-phone mr-2"></i>
+                      <Phone className="w-4 h-4 mr-2" />
                       Call Now for Faster Service
                     </a>
                     <button
@@ -414,7 +422,7 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }: Co
             }`}
           data-testid="button-prev-step"
         >
-          <i className="fas fa-arrow-left mr-2"></i>
+          <ArrowLeft className="w-4 h-4 mr-2 inline" />
           Back
         </button>
 
@@ -425,7 +433,7 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }: Co
             data-testid="button-next-step"
           >
             Next
-            <i className="fas fa-arrow-right ml-2"></i>
+            <ArrowRight className="w-4 h-4 ml-2 inline" />
           </button>
         ) : (
           <button

@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Atom, HeartPulse, Factory, Zap, Clock, PhoneCall, ClipboardList, Phone, Shield } from "lucide-react";
 
 export default function ServiceAreasIdahoClient() {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -149,7 +150,7 @@ export default function ServiceAreasIdahoClient() {
             <div className="resend-card p-6">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-atom text-blue-500 text-xl"></i>
+                  <Atom className="w-5 h-5 text-blue-500" />
                 </div>
                 <h3 className="text-xl text-foreground">Nuclear & Research</h3>
               </div>
@@ -161,7 +162,7 @@ export default function ServiceAreasIdahoClient() {
             <div className="resend-card p-6">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-heartbeat text-green-500 text-xl"></i>
+                  <HeartPulse className="w-5 h-5 text-green-500" />
                 </div>
                 <h3 className="text-xl text-foreground">Healthcare & Medical</h3>
               </div>
@@ -173,7 +174,7 @@ export default function ServiceAreasIdahoClient() {
             <div className="resend-card p-6">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <i className="fas fa-industry text-orange-500 text-xl"></i>
+                  <Factory className="w-5 h-5 text-orange-500" />
                 </div>
                 <h3 className="text-xl text-foreground">Food Processing & Agriculture</h3>
               </div>
@@ -188,21 +189,21 @@ export default function ServiceAreasIdahoClient() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4">
-                  <i className="fas fa-bolt text-green-500 text-2xl"></i>
+                  <Zap className="w-6 h-6 text-green-500" />
                 </div>
                 <h4 className="text-lg mb-2 text-foreground">Idaho Falls & Pocatello</h4>
                 <p className="text-sm text-muted-foreground">Immediate to same-day response</p>
               </div>
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full mb-4">
-                  <i className="fas fa-clock text-blue-500 text-2xl"></i>
+                  <Clock className="w-6 h-6 text-blue-500" />
                 </div>
                 <h4 className="text-lg mb-2 text-foreground">Boise & Twin Falls</h4>
                 <p className="text-sm text-muted-foreground">24-48 hour deployment</p>
               </div>
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-full mb-4">
-                  <i className="fas fa-phone-volume text-purple-500 text-2xl"></i>
+                  <PhoneCall className="w-6 h-6 text-purple-500" />
                 </div>
                 <h4 className="text-lg mb-2 text-foreground">Emergency Services</h4>
                 <p className="text-sm text-muted-foreground">24/7 rapid response</p>
@@ -323,7 +324,7 @@ export default function ServiceAreasIdahoClient() {
                 onClick={() => setShowContactForm(true)}
                 className="text-lg px-8 py-4 bg-white text-primary hover:bg-white/90"
               >
-                <i className="fas fa-clipboard-list mr-2"></i>
+                <ClipboardList className="w-5 h-5 mr-2" />
                 Request Your Free Quote
               </Button>
               <Button
@@ -333,14 +334,14 @@ export default function ServiceAreasIdahoClient() {
                 className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white/10"
               >
                 <a href="tel:+12085203202">
-                  <i className="fas fa-phone mr-2"></i>
+                  <Phone className="w-5 h-5 mr-2" />
                   Call (208) 520-3202
                 </a>
               </Button>
             </div>
 
             <p className="text-sm text-white/80 mt-8">
-              <i className="fas fa-shield-alt mr-2"></i>
+              <Shield className="w-4 h-4 mr-2 inline" />
               Licensed, insured, and compliant across all Idaho service areas
             </p>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, Clock, Shield, Award, CheckCircle, ArrowRight } from "lucide-react";
+import { ChevronDown, Clock, Shield, Award, CheckCircle, ArrowRight, HardHat, Building, Factory, Settings, Columns3, Wrench, MapPin, type LucideIcon } from "lucide-react";
 import {
  Accordion,
  AccordionContent,
@@ -18,12 +18,31 @@ export default function ServicePillarsSection() {
   setShowContactForm(true);
  };
 
- const servicePillars = [
+ const servicePillars: {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: LucideIcon;
+  description: string;
+  certification: string;
+  processSteps?: { phase: string; tasks: string[] }[];
+  equipment?: string[];
+  schedules?: { frequency: string; services: string[] }[];
+  businessTypes?: string[];
+  facilityTypes?: { type: string; location: string; services: string[] }[];
+  specialEquipment?: string[];
+  compliance?: string[];
+  equipmentCategories?: { category: string; equipment: string[]; applications: string }[];
+  techniques?: { technique: string; description: string; ideal: string }[];
+  safetyProtocols?: string[];
+  serviceAreas: string;
+  guarantee: string;
+ }[] = [
   {
    id: "post-construction-cleanup",
    title: "Post-Construction Cleanup Process",
    subtitle: "Available in All Service Areas Across Idaho & Utah",
-   icon: "fas fa-hard-hat",
+   icon: HardHat,
    description: "Comprehensive post-construction cleaning services available in all Imperial Cleaning service areas with systematic 3-phase approach ensuring your construction projects meet inspection standards and are ready for occupancy.",
    certification: "Professional Standards • Quality Assured",
    processSteps: [
@@ -68,7 +87,7 @@ export default function ServicePillarsSection() {
    id: "commercial-office-maintenance",
    title: "Commercial Office Maintenance",
    subtitle: "Available in All Service Areas Across Idaho & Utah",
-   icon: "fas fa-building",
+   icon: Building,
    description: "Professional commercial janitorial services available in all Imperial Cleaning service areas with flexible scheduling for office cleaning, business maintenance, and comprehensive facility management.",
    certification: "Environmentally Certified • Industry Member • Bonded",
    schedules: [
@@ -116,7 +135,7 @@ export default function ServicePillarsSection() {
    id: "industrial-facility-cleaning",
    title: "Industrial Facility Cleaning",
    subtitle: "Available in All Service Areas Across Idaho & Utah",
-   icon: "fas fa-industry",
+   icon: Factory,
    description: "Specialized industrial cleaning services available in all Imperial Cleaning service areas for manufacturing facilities, warehouses, and production environments.",
    certification: "Safety Certified • Environmentally Compliant • Professional Training",
    facilityTypes: [
@@ -170,7 +189,7 @@ export default function ServicePillarsSection() {
    id: "specialized-equipment-techniques",
    title: "Specialized Equipment & Techniques",
    subtitle: "Advanced Cleaning Technology & Professional Expertise",
-   icon: "fas fa-cogs",
+   icon: Settings,
    description: "State-of-the-art cleaning equipment and advanced techniques ensuring superior results for complex cleaning challenges throughout the Treasure Valley region.",
    certification: "Equipment Certified • Industry Trained • Manufacturer Authorized",
    equipmentCategories: [
@@ -250,7 +269,7 @@ export default function ServicePillarsSection() {
      {/* Section Header */}
      <div className="text-center mb-12 sm:mb-16 lg:mb-20">
       <div className="resend-icon mx-auto mb-8 hover-lift-gentle">
-       <i className="fas fa-columns icon-gradient text-4xl"></i>
+       <Columns3 className="icon-gradient w-10 h-10" />
       </div>
       
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 sm:mb-8 tracking-tight leading-tight">
@@ -264,236 +283,239 @@ export default function ServicePillarsSection() {
 
      {/* Service Pillars Grid */}
      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
-      {servicePillars.map((pillar, index) => (
-       <div 
-        key={pillar.id}
-        className="group"
-        data-testid={`service-pillar-${pillar.id}`}
-       >
-        <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-4 sm:p-6 lg:p-8 rounded-lg">
-         {/* Pillar Header */}
-         <div className="flex flex-col sm:flex-row items-start mb-4 sm:mb-6">
-          <div className="resend-icon mb-3 sm:mb-0 sm:mr-4 lg:mr-6 hover-lift-gentle group-hover:scale-105 transition-all duration-500 self-center sm:self-start">
-           <i className={`${pillar.icon} icon-gradient text-2xl`}></i>
-          </div>
-          <div className="flex-1">
-           <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-2 hover-lift-gentle break-words hyphens-auto" data-testid={`pillar-title-${pillar.id}`}>
-            {pillar.title}
-           </h3>
-           <p className="text-primary text-xs sm:text-sm break-words" data-testid={`pillar-subtitle-${pillar.id}`}>
-            {pillar.subtitle}
-           </p>
-          </div>
-         </div>
-
-         {/* Elegant divider */}
-         <div className="glass-divider-top mb-6"></div>
-
-         {/* Description */}
-         <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed break-words" data-testid={`pillar-description-${pillar.id}`}>
-          {pillar.description}
-         </p>
-
-         {/* Quick Info Cards */}
-         <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-4 sm:mb-6">
-          <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-           <div className="flex items-center mb-2">
-            <Shield className="h-4 w-4 text-primary mr-2" />
-            <span className="text-xs sm:text-sm ">Certification</span>
+      {servicePillars.map((pillar, index) => {
+       const PillarIcon = pillar.icon;
+       return (
+        <div 
+         key={pillar.id}
+         className="group"
+         data-testid={`service-pillar-${pillar.id}`}
+        >
+         <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-4 sm:p-6 lg:p-8 rounded-lg">
+          {/* Pillar Header */}
+          <div className="flex flex-col sm:flex-row items-start mb-4 sm:mb-6">
+           <div className="resend-icon mb-3 sm:mb-0 sm:mr-4 lg:mr-6 hover-lift-gentle group-hover:scale-105 transition-all duration-500 self-center sm:self-start">
+            <PillarIcon className="icon-gradient w-6 h-6" />
            </div>
-           <p className="text-xs text-muted-foreground break-words">{pillar.certification}</p>
+           <div className="flex-1">
+            <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-2 hover-lift-gentle break-words hyphens-auto" data-testid={`pillar-title-${pillar.id}`}>
+             {pillar.title}
+            </h3>
+            <p className="text-primary text-xs sm:text-sm break-words" data-testid={`pillar-subtitle-${pillar.id}`}>
+             {pillar.subtitle}
+            </p>
+           </div>
           </div>
-         </div>
 
-         {/* Expandable Details */}
-         <Accordion type="single" collapsible className="mb-4 sm:mb-6">
-          <AccordionItem value="details" className="border-0">
-           <AccordionTrigger 
-            className="hover:no-underline p-3 sm:p-4 glass-card-elevated rounded-lg hover-lift-gentle min-h-[48px] text-left"
-            data-testid={`expand-details-${pillar.id}`}
-           >
-            <div className="flex items-center flex-wrap">
-             <Award className="h-4 w-4 text-primary mr-2" />
-             <span className="font-light text-sm sm:text-base break-words">View Detailed Process & Equipment</span>
+          {/* Elegant divider */}
+          <div className="glass-divider-top mb-6"></div>
+
+          {/* Description */}
+          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed break-words" data-testid={`pillar-description-${pillar.id}`}>
+           {pillar.description}
+          </p>
+
+          {/* Quick Info Cards */}
+          <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-4 sm:mb-6">
+           <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+            <div className="flex items-center mb-2">
+             <Shield className="h-4 w-4 text-primary mr-2" />
+             <span className="text-xs sm:text-sm ">Certification</span>
             </div>
-           </AccordionTrigger>
-           
-           <AccordionContent className="pt-3 sm:pt-4">
-            <div className="space-y-4 sm:space-y-6">
-             {/* Process Steps (for construction cleanup) */}
-             {pillar.processSteps && (
-              <div>
-               <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
-                <CheckCircle className="h-4 w-4 text-primary mr-2" />
-                Systematic Process Breakdown
-               </h4>
-               <div className="space-y-3 sm:space-y-4">
-                {pillar.processSteps.map((step, stepIndex) => (
-                 <div key={stepIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-                  <div className="mb-2 sm:mb-3">
-                   <h5 className=" text-foreground text-sm sm:text-base break-words">{step.phase}</h5>
+            <p className="text-xs text-muted-foreground break-words">{pillar.certification}</p>
+           </div>
+          </div>
+
+          {/* Expandable Details */}
+          <Accordion type="single" collapsible className="mb-4 sm:mb-6">
+           <AccordionItem value="details" className="border-0">
+            <AccordionTrigger 
+             className="hover:no-underline p-3 sm:p-4 glass-card-elevated rounded-lg hover-lift-gentle min-h-[48px] text-left"
+             data-testid={`expand-details-${pillar.id}`}
+            >
+             <div className="flex items-center flex-wrap">
+              <Award className="h-4 w-4 text-primary mr-2" />
+              <span className="font-light text-sm sm:text-base break-words">View Detailed Process & Equipment</span>
+             </div>
+            </AccordionTrigger>
+            
+            <AccordionContent className="pt-3 sm:pt-4">
+             <div className="space-y-4 sm:space-y-6">
+              {/* Process Steps (for construction cleanup) */}
+              {pillar.processSteps && (
+               <div>
+                <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                 <CheckCircle className="h-4 w-4 text-primary mr-2" />
+                 Systematic Process Breakdown
+                </h4>
+                <div className="space-y-3 sm:space-y-4">
+                 {pillar.processSteps.map((step, stepIndex) => (
+                  <div key={stepIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                   <div className="mb-2 sm:mb-3">
+                    <h5 className=" text-foreground text-sm sm:text-base break-words">{step.phase}</h5>
+                   </div>
+                   <ul className="space-y-1 sm:space-y-2">
+                    {step.tasks.map((task, taskIndex) => (
+                     <li key={taskIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="break-words">{task}</span>
+                     </li>
+                    ))}
+                   </ul>
                   </div>
-                  <ul className="space-y-1 sm:space-y-2">
-                   {step.tasks.map((task, taskIndex) => (
-                    <li key={taskIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
-                     <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                     <span className="break-words">{task}</span>
-                    </li>
-                   ))}
-                  </ul>
-                 </div>
-                ))}
+                 ))}
+                </div>
                </div>
-              </div>
-             )}
+              )}
 
-             {/* Schedules (for commercial cleaning) */}
-             {pillar.schedules && (
-              <div>
-               <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
-                <Clock className="h-4 w-4 text-primary mr-2" />
-                Flexible Service Schedules
-               </h4>
-               <div className="space-y-3 sm:space-y-4">
-                {pillar.schedules.map((schedule, scheduleIndex) => (
-                 <div key={scheduleIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-                  <div className="mb-2 sm:mb-3">
-                   <h5 className=" text-foreground text-sm sm:text-base break-words">{schedule.frequency}</h5>
+              {/* Schedules (for commercial cleaning) */}
+              {pillar.schedules && (
+               <div>
+                <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                 <Clock className="h-4 w-4 text-primary mr-2" />
+                 Flexible Service Schedules
+                </h4>
+                <div className="space-y-3 sm:space-y-4">
+                 {pillar.schedules.map((schedule, scheduleIndex) => (
+                  <div key={scheduleIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                   <div className="mb-2 sm:mb-3">
+                    <h5 className=" text-foreground text-sm sm:text-base break-words">{schedule.frequency}</h5>
+                   </div>
+                   <ul className="space-y-1 sm:space-y-2">
+                    {schedule.services.map((service, serviceIndex) => (
+                     <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="break-words">{service}</span>
+                     </li>
+                    ))}
+                   </ul>
                   </div>
-                  <ul className="space-y-1 sm:space-y-2">
-                   {schedule.services.map((service, serviceIndex) => (
-                    <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
-                     <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                     <span className="break-words">{service}</span>
-                    </li>
-                   ))}
-                  </ul>
-                 </div>
-                ))}
+                 ))}
+                </div>
                </div>
-              </div>
-             )}
+              )}
 
-             {/* Facility Types (for industrial cleaning) */}
-             {pillar.facilityTypes && (
-              <div>
-               <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
-                <i className="fas fa-industry w-4 h-4 text-primary mr-2"></i>
-                Specialized Facility Expertise
-               </h4>
-               <div className="space-y-3 sm:space-y-4">
-                {pillar.facilityTypes.map((facility, facilityIndex) => (
-                 <div key={facilityIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-                  <div className="mb-2 sm:mb-3">
-                   <h5 className=" text-foreground text-sm sm:text-base break-words">{facility.type}</h5>
-                   <p className="text-xs text-primary break-words">{facility.location}</p>
+              {/* Facility Types (for industrial cleaning) */}
+              {pillar.facilityTypes && (
+               <div>
+                <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                 <Factory className="h-4 w-4 text-primary mr-2" />
+                 Specialized Facility Expertise
+                </h4>
+                <div className="space-y-3 sm:space-y-4">
+                 {pillar.facilityTypes.map((facility, facilityIndex) => (
+                  <div key={facilityIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                   <div className="mb-2 sm:mb-3">
+                    <h5 className=" text-foreground text-sm sm:text-base break-words">{facility.type}</h5>
+                    <p className="text-xs text-primary break-words">{facility.location}</p>
+                   </div>
+                   <ul className="space-y-1 sm:space-y-2">
+                    {facility.services.map((service, serviceIndex) => (
+                     <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="break-words">{service}</span>
+                     </li>
+                    ))}
+                   </ul>
                   </div>
-                  <ul className="space-y-1 sm:space-y-2">
-                   {facility.services.map((service, serviceIndex) => (
-                    <li key={serviceIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
-                     <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                     <span className="break-words">{service}</span>
-                    </li>
-                   ))}
-                  </ul>
-                 </div>
-                ))}
+                 ))}
+                </div>
                </div>
-              </div>
-             )}
+              )}
 
 
-             {/* Equipment Categories (for specialized equipment) */}
-             {pillar.equipmentCategories && (
-              <div>
-               <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
-                <i className="fas fa-cogs w-4 h-4 text-primary mr-2"></i>
-                Professional Equipment Arsenal
-               </h4>
-               <div className="space-y-3 sm:space-y-4">
-                {pillar.equipmentCategories.map((category, categoryIndex) => (
-                 <div key={categoryIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-                  <div className="mb-2 sm:mb-3">
-                   <h5 className=" text-foreground text-sm sm:text-base break-words">{category.category}</h5>
-                   <p className="text-xs text-primary break-words">{category.applications}</p>
+              {/* Equipment Categories (for specialized equipment) */}
+              {pillar.equipmentCategories && (
+               <div>
+                <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                 <Settings className="h-4 w-4 text-primary mr-2" />
+                 Professional Equipment Arsenal
+                </h4>
+                <div className="space-y-3 sm:space-y-4">
+                 {pillar.equipmentCategories.map((category, categoryIndex) => (
+                  <div key={categoryIndex} className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                   <div className="mb-2 sm:mb-3">
+                    <h5 className=" text-foreground text-sm sm:text-base break-words">{category.category}</h5>
+                    <p className="text-xs text-primary break-words">{category.applications}</p>
+                   </div>
+                   <ul className="space-y-1 sm:space-y-2">
+                    {category.equipment.map((item, itemIndex) => (
+                     <li key={itemIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="break-words">{item}</span>
+                     </li>
+                    ))}
+                   </ul>
                   </div>
-                  <ul className="space-y-1 sm:space-y-2">
-                   {category.equipment.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
-                     <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                     <span className="break-words">{item}</span>
-                    </li>
-                   ))}
-                  </ul>
-                 </div>
-                ))}
+                 ))}
+                </div>
                </div>
-              </div>
-             )}
+              )}
 
-             {/* Equipment List (simple list format) */}
-             {pillar.equipment && (
+              {/* Equipment List (simple list format) */}
+              {pillar.equipment && (
+               <div>
+                <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                 <Wrench className="h-4 w-4 text-primary mr-2" />
+                 Professional Equipment
+                </h4>
+                <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                 <ul className="space-y-1 sm:space-y-2">
+                  {pillar.equipment.map((item, itemIndex) => (
+                   <li key={itemIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                    <span className="break-words">{item}</span>
+                   </li>
+                  ))}
+                 </ul>
+                </div>
+               </div>
+              )}
+
+              {/* Service Areas */}
               <div>
-               <h4 className=" text-foreground mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
-                <i className="fas fa-tools w-4 h-4 text-primary mr-2"></i>
-                Professional Equipment
+               <h4 className=" text-foreground mb-2 sm:mb-3 flex items-center text-sm sm:text-base">
+                <MapPin className="h-4 w-4 text-primary mr-2" />
+                Service Coverage Area
                </h4>
                <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-                <ul className="space-y-1 sm:space-y-2">
-                 {pillar.equipment.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
-                   <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                   <span className="break-words">{item}</span>
-                  </li>
-                 ))}
-                </ul>
+                <p className="text-xs sm:text-sm text-muted-foreground break-words">{pillar.serviceAreas}</p>
                </div>
               </div>
-             )}
 
-             {/* Service Areas */}
-             <div>
-              <h4 className=" text-foreground mb-2 sm:mb-3 flex items-center text-sm sm:text-base">
-               <i className="fas fa-map-marker-alt w-4 h-4 text-primary mr-2"></i>
-               Service Coverage Area
-              </h4>
-              <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-               <p className="text-xs sm:text-sm text-muted-foreground break-words">{pillar.serviceAreas}</p>
+              {/* Guarantee */}
+              <div>
+               <h4 className=" text-foreground mb-2 sm:mb-3 flex items-center text-sm sm:text-base">
+                <Shield className="h-4 w-4 text-primary mr-2" />
+                Service Guarantee
+               </h4>
+               <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
+                <p className="text-xs sm:text-sm text-muted-foreground break-words">{pillar.guarantee}</p>
+               </div>
               </div>
              </div>
+            </AccordionContent>
+           </AccordionItem>
+          </Accordion>
 
-             {/* Guarantee */}
-             <div>
-              <h4 className=" text-foreground mb-2 sm:mb-3 flex items-center text-sm sm:text-base">
-               <Shield className="h-4 w-4 text-primary mr-2" />
-               Service Guarantee
-              </h4>
-              <div className="glass-card-elevated p-3 sm:p-4 rounded-lg">
-               <p className="text-xs sm:text-sm text-muted-foreground break-words">{pillar.guarantee}</p>
-              </div>
-             </div>
-            </div>
-           </AccordionContent>
-          </AccordionItem>
-         </Accordion>
+          {/* Elegant divider before button */}
+          <div className="glass-divider-top mb-4 sm:mb-6"></div>
 
-         {/* Elegant divider before button */}
-         <div className="glass-divider-top mb-4 sm:mb-6"></div>
-
-         {/* Call to Action */}
-         <Button 
-          variant="pill-secondary"
-          size="pill-lg"
-          className="w-full hover-lift-gentle button-ripple hover-shimmer group text-sm sm:text-base px-4 py-3 sm:px-6 sm:py-4"
-          onClick={() => handleGetQuote(pillar.id)}
-          data-testid={`button-get-quote-${pillar.id}`}
-         >
-          <span className="break-words text-center">Get Free Quote for {pillar.title}</span>
-          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-         </Button>
+          {/* Call to Action */}
+          <Button 
+           variant="pill-secondary"
+           size="pill-lg"
+           className="w-full hover-lift-gentle button-ripple hover-shimmer group text-sm sm:text-base px-4 py-3 sm:px-6 sm:py-4"
+           onClick={() => handleGetQuote(pillar.id)}
+           data-testid={`button-get-quote-${pillar.id}`}
+          >
+           <span className="break-words text-center">Get Free Quote for {pillar.title}</span>
+           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </Button>
+         </div>
         </div>
-       </div>
-      ))}
+       );
+      })}
      </div>
 
      {/* Bottom CTA Section */}

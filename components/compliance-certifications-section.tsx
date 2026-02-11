@@ -1,17 +1,25 @@
-import { Shield, CheckCircle, Award, AlertTriangle, Download, Clock, Globe } from "lucide-react";
+import { Shield, CheckCircle, Award, AlertTriangle, Download, Clock, Globe, HardHat, Medal, MapPin, Leaf, type LucideIcon } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export default function ComplianceCertificationsSection() {
  const handleDownloadClick = (document: string) => {
   trackEvent('download_compliance_doc', 'document', document);
-  // In a real implementation, this would trigger actual document downloads
  };
 
- const complianceCategories = [
+ const complianceCategories: {
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  badge: string;
+  status: string;
+  description: string;
+  details: any[];
+  keywords: string;
+ }[] = [
   {
    id: "insurance-protection",
    title: "Insurance & Protection",
-   icon: "fas fa-shield-alt",
+   icon: Shield,
    badge: "PROTECTED",
    status: "active",
    description: "Locally owned and operated company with comprehensive insurance coverage protecting your property and providing complete peace of mind for all commercial cleaning projects.",
@@ -40,7 +48,7 @@ export default function ComplianceCertificationsSection() {
   {
    id: "safety-standards",
    title: "Safety Standards",
-   icon: "fas fa-hard-hat",
+   icon: HardHat,
    badge: "SAFETY FOCUSED",
    status: "current",
    description: "Professional safety operations with comprehensive training protocols ensuring accident prevention and safe practices across all service locations.",
@@ -69,7 +77,7 @@ export default function ComplianceCertificationsSection() {
   {
    id: "professional-standards",
    title: "Professional Standards",
-   icon: "fas fa-medal",
+   icon: Medal,
    badge: "PROFESSIONAL",
    status: "established",
    description: "Locally-based professional cleaners with industry knowledge and specialized environmental cleaning practices demonstrating professional expertise.",
@@ -98,7 +106,7 @@ export default function ComplianceCertificationsSection() {
   {
    id: "local-compliance",
    title: "Licensed Operations",
-   icon: "fas fa-map-marker-alt",
+   icon: MapPin,
    badge: "LICENSED",
    status: "compliant",
    description: "Licensed cleaning contractor with full compliance across all service regions, meeting all municipal requirements for professional operations.",
@@ -127,7 +135,7 @@ export default function ComplianceCertificationsSection() {
   {
    id: "quality-assurance",
    title: "Quality Assurance",
-   icon: "fas fa-check-circle",
+   icon: CheckCircle,
    badge: "QUALITY FOCUSED",
    status: "guaranteed",
    description: "Professional quality standards with comprehensive quality control processes ensuring customer satisfaction for reliable cleaning services throughout all service areas.",
@@ -156,7 +164,7 @@ export default function ComplianceCertificationsSection() {
   {
    id: "environmental-compliance",
    title: "Environmental Compliance",
-   icon: "fas fa-leaf",
+   icon: Leaf,
    badge: "ECO-CERTIFIED",
    status: "certified",
    description: "Environmentally responsible cleaning operations using eco-friendly products and sustainable practices while maintaining the highest professional cleaning standards.",
@@ -209,98 +217,101 @@ export default function ComplianceCertificationsSection() {
 
      {/* Compliance Grid */}
      <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
-      {complianceCategories.map((category, index) => (
-       <div 
-        key={category.id} 
-        className={`group animate-fade-in-up stagger-delay-${index + 1}`}
-        data-testid={`compliance-card-${category.id}`}
-       >
-        <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-8 rounded-lg h-full flex flex-col">
-         {/* Header with Icon and Badge */}
-         <div className="flex items-start justify-between mb-6">
-          <div className="resend-icon hover-lift-gentle group-hover:scale-105 transition-all duration-500">
-           <i className={`${category.icon} icon-gradient text-3xl`}></i>
+      {complianceCategories.map((category, index) => {
+       const IconComponent = category.icon;
+       return (
+        <div 
+         key={category.id} 
+         className={`group animate-fade-in-up stagger-delay-${index + 1}`}
+         data-testid={`compliance-card-${category.id}`}
+        >
+         <div className="glass-card-elevated sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle p-8 rounded-lg h-full flex flex-col">
+          {/* Header with Icon and Badge */}
+          <div className="flex items-start justify-between mb-6">
+           <div className="resend-icon hover-lift-gentle group-hover:scale-105 transition-all duration-500">
+            <IconComponent className="icon-gradient w-8 h-8" />
+           </div>
+           <div className={`px-3 py-1 rounded-full text-xs uppercase tracking-wider ${
+            category.status === 'active' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+            category.status === 'current' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' :
+            category.status === 'certified' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' :
+            category.status === 'compliant' ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' :
+            'bg-orange-500/20 text-orange-400 border border-orange-500/30'
+           }`} data-testid={`badge-${category.id}`}>
+            {category.badge}
+           </div>
           </div>
-          <div className={`px-3 py-1 rounded-full text-xs uppercase tracking-wider ${
-           category.status === 'active' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
-           category.status === 'current' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' :
-           category.status === 'certified' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' :
-           category.status === 'compliant' ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' :
-           'bg-orange-500/20 text-orange-400 border border-orange-500/30'
-          }`} data-testid={`badge-${category.id}`}>
-           {category.badge}
-          </div>
-         </div>
 
-         {/* Elegant divider */}
-         <div className="glass-divider-top mb-6"></div>
+          {/* Elegant divider */}
+          <div className="glass-divider-top mb-6"></div>
 
-         {/* Title and Description */}
-         <h3 className="text-2xl lg:text-3xl mb-4 text-foreground" data-testid={`title-${category.id}`}>
-          {category.title}
-         </h3>
-         
-         <div className="glass-divider-top mb-4"></div>
-         
-         <p className="text-muted-foreground leading-relaxed mb-6" data-testid={`desc-${category.id}`}>
-          {category.description}
-         </p>
+          {/* Title and Description */}
+          <h3 className="text-2xl lg:text-3xl mb-4 text-foreground" data-testid={`title-${category.id}`}>
+           {category.title}
+          </h3>
+          
+          <div className="glass-divider-top mb-4"></div>
+          
+          <p className="text-muted-foreground leading-relaxed mb-6" data-testid={`desc-${category.id}`}>
+           {category.description}
+          </p>
 
-         {/* Compliance Details */}
-         <div className="space-y-4 flex-grow">
-          {category.details.map((detail, detailIndex) => (
-           <div 
-            key={detailIndex} 
-            className="glass-effect rounded-lg p-4 hover:bg-white/5 transition-all duration-300"
-            data-testid={`detail-${category.id}-${detailIndex}`}
-           >
-            <div className="flex items-start gap-3">
-             <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-             <div className="flex-grow">
-              <h4 className=" text-foreground text-sm mb-1">
-               {detail.type}
-              </h4>
-              {(detail as any).coverage && (
-               <p className="text-primary text-sm mb-1">
-                {(detail as any).coverage}
+          {/* Compliance Details */}
+          <div className="space-y-4 flex-grow">
+           {category.details.map((detail, detailIndex) => (
+            <div 
+             key={detailIndex} 
+             className="glass-effect rounded-lg p-4 hover:bg-white/5 transition-all duration-300"
+             data-testid={`detail-${category.id}-${detailIndex}`}
+            >
+             <div className="flex items-start gap-3">
+              <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+              <div className="flex-grow">
+               <h4 className=" text-foreground text-sm mb-1">
+                {detail.type}
+               </h4>
+               {(detail as any).coverage && (
+                <p className="text-primary text-sm mb-1">
+                 {(detail as any).coverage}
+                </p>
+               )}
+               {(detail as any).certification && (
+                <p className="text-primary text-sm mb-1">
+                 {(detail as any).certification}
+                </p>
+               )}
+               {(detail as any).license && (
+                <p className="text-primary text-sm mb-1">
+                 {(detail as any).license}
+                </p>
+               )}
+               {(detail as any).policy && (
+                <p className="text-primary text-sm mb-1">
+                 {(detail as any).policy}
+                </p>
+               )}
+               {(detail as any).protocol && (
+                <p className="text-primary text-sm mb-1">
+                 {(detail as any).protocol}
+                </p>
+               )}
+               {(detail as any).standard && (
+                <p className="text-primary text-sm mb-1">
+                 {(detail as any).standard}
+                </p>
+               )}
+               <p className="text-muted-foreground text-xs">
+                {(detail as any).provider || (detail as any).coverage || 'Provider'} • {detail.status}
                </p>
-              )}
-              {(detail as any).certification && (
-               <p className="text-primary text-sm mb-1">
-                {(detail as any).certification}
-               </p>
-              )}
-              {(detail as any).license && (
-               <p className="text-primary text-sm mb-1">
-                {(detail as any).license}
-               </p>
-              )}
-              {(detail as any).policy && (
-               <p className="text-primary text-sm mb-1">
-                {(detail as any).policy}
-               </p>
-              )}
-              {(detail as any).protocol && (
-               <p className="text-primary text-sm mb-1">
-                {(detail as any).protocol}
-               </p>
-              )}
-              {(detail as any).standard && (
-               <p className="text-primary text-sm mb-1">
-                {(detail as any).standard}
-               </p>
-              )}
-              <p className="text-muted-foreground text-xs">
-               {(detail as any).provider || (detail as any).coverage || 'Provider'} • {detail.status}
-              </p>
+              </div>
              </div>
             </div>
-           </div>
-          ))}
+           ))}
+          </div>
          </div>
         </div>
-       </div>
-      ))}
+       );
+      })}
      </div>
 
      {/* Trust Indicators Section */}

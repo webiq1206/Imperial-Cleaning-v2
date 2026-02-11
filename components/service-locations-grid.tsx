@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { allServiceLocations, type ServiceLocation } from "@/data/service-locations";
 import { locationToSlug } from "@/lib/routing-utils";
+import { MapPin, ArrowRight } from "lucide-react";
 
 interface ServiceLocationsGridProps {
   serviceType: "construction-cleaning" | "commercial-cleaning";
@@ -39,7 +40,7 @@ export default function ServiceLocationsGrid({
           <div>
             <h3 className="text-2xl mb-6 text-foreground flex items-center gap-3">
               <span className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <i className="fas fa-map-marker-alt text-primary"></i>
+                <MapPin className="w-5 h-5 text-primary" />
               </span>
               Idaho Service Areas
             </h3>
@@ -59,7 +60,7 @@ export default function ServiceLocationsGrid({
                         {location.state}
                       </span>
                     </div>
-                    <i className="fas fa-arrow-right text-muted-foreground group-hover:text-primary transition-colors"></i>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
                 </Link>
               ))}
@@ -70,7 +71,7 @@ export default function ServiceLocationsGrid({
           <div>
             <h3 className="text-2xl mb-6 text-foreground flex items-center gap-3">
               <span className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <i className="fas fa-map-marker-alt text-primary"></i>
+                <MapPin className="w-5 h-5 text-primary" />
               </span>
               Utah Service Areas
             </h3>
@@ -90,7 +91,7 @@ export default function ServiceLocationsGrid({
                         {location.state}
                       </span>
                     </div>
-                    <i className="fas fa-arrow-right text-muted-foreground group-hover:text-primary transition-colors"></i>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
                 </Link>
               ))}

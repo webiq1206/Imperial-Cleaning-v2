@@ -1,39 +1,41 @@
+import { Award, Shield, HardHat, Leaf, Star, Lock, type LucideIcon } from "lucide-react";
+
 export default function PartnersSection() {
- const partners = [
+ const partners: { name: string; description: string; icon: LucideIcon; type: string }[] = [
   {
    name: "Professional Standards",
    description: "Industry Best Practices",
-   icon: "fas fa-certificate",
+   icon: Award,
    type: "quality"
   },
   {
    name: "Comprehensive Coverage",
    description: "Full Protection",
-   icon: "fas fa-shield-alt",
+   icon: Shield,
    type: "insurance"
   },
   {
    name: "Safety Excellence",
    description: "Rigorous Safety Protocols",
-   icon: "fas fa-hard-hat",
+   icon: HardHat,
    type: "safety"
   },
   {
    name: "Environmental Responsibility",
    description: "Eco-Friendly Practices",
-   icon: "fas fa-leaf",
+   icon: Leaf,
    type: "environmental"
   },
   {
    name: "Quality Assurance",
    description: "Consistent Excellence",
-   icon: "fas fa-star",
+   icon: Star,
    type: "quality"
   },
   {
    name: "Protected Service",
    description: "Complete Peace of Mind",
-   icon: "fas fa-lock",
+   icon: Lock,
    type: "protection"
   }
  ];
@@ -51,27 +53,30 @@ export default function PartnersSection() {
     </div>
 
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-     {partners.map((partner, index) => (
-      <div 
-       key={index} 
-       className="glass-card-elevated sophisticated-glow group text-center p-6 transition-all duration-300 hover:-translate-y-1 rounded-lg"
-       data-testid={`partner-card-${index}`}
-      >
-       <div className="resend-icon mb-6 group-hover:scale-110 transition-transform duration-300">
-        <i className={partner.icon}></i>
+     {partners.map((partner, index) => {
+      const IconComponent = partner.icon;
+      return (
+       <div 
+        key={index} 
+        className="glass-card-elevated sophisticated-glow group text-center p-6 transition-all duration-300 hover:-translate-y-1 rounded-lg"
+        data-testid={`partner-card-${index}`}
+       >
+        <div className="resend-icon mb-6 group-hover:scale-110 transition-transform duration-300">
+         <IconComponent className="w-5 h-5" />
+        </div>
+        
+        {/* Elegant inset divider between icon and content */}
+        <div className="glass-divider-top mb-6"></div>
+        
+        <h3 className="text-sm mb-2 text-foreground" data-testid={`partner-name-${index}`}>
+         {partner.name}
+        </h3>
+        <p className="text-xs text-muted-foreground leading-tight" data-testid={`partner-desc-${index}`}>
+         {partner.description}
+        </p>
        </div>
-       
-       {/* Elegant inset divider between icon and content */}
-       <div className="glass-divider-top mb-6"></div>
-       
-       <h3 className="text-sm mb-2 text-foreground" data-testid={`partner-name-${index}`}>
-        {partner.name}
-       </h3>
-       <p className="text-xs text-muted-foreground leading-tight" data-testid={`partner-desc-${index}`}>
-        {partner.description}
-       </p>
-      </div>
-     ))}
+      );
+     })}
     </div>
 
     <div className="mt-16 text-center">

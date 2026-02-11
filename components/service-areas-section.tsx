@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Star, Crown, ArrowRight, Building2 } from "lucide-react";
 
 export default function ServiceAreasSection() {
  return (
@@ -19,7 +20,7 @@ export default function ServiceAreasSection() {
      <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
       <div className="flex items-center mb-6">
        <div className="resend-icon mr-4">
-        <i className="fas fa-star"></i>
+        <Star className="w-5 h-5" />
        </div>
        <div>
         <h3 className="text-2xl lg:text-3xl text-foreground">Idaho Service Area</h3>
@@ -28,7 +29,7 @@ export default function ServiceAreasSection() {
       </div>
       <div className="mb-6">
        <h4 className="text-lg text-foreground mb-4 flex items-center">
-        <i className="fas fa-crown text-primary mr-2"></i>
+        <Crown className="w-5 h-5 text-primary mr-2" />
         Idaho Cleaning Services
        </h4>
        <div className="grid grid-cols-1 gap-4">
@@ -38,7 +39,7 @@ export default function ServiceAreasSection() {
          </p>
          <Link href="/service-areas" className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors">
           View All Service Areas
-          <i className="fas fa-arrow-right ml-2 text-xs"></i>
+          <ArrowRight className="w-3 h-3 ml-2" />
          </Link>
         </div>
         <Link href="/service-areas/idaho#idaho-falls" className="group">
@@ -66,7 +67,7 @@ export default function ServiceAreasSection() {
      <div className="premium-card-bg sophisticated-glow transition-transform duration-300 ease-out hover:-translate-y-1 p-6 rounded-lg">
       <div className="flex items-center mb-6">
        <div className="resend-icon mr-4">
-        <i className="fas fa-city"></i>
+        <Building2 className="w-5 h-5" />
        </div>
        <div>
         <h3 className="text-2xl lg:text-3xl text-foreground">Utah Service Area</h3>
@@ -80,7 +81,7 @@ export default function ServiceAreasSection() {
         </p>
         <Link href="/service-areas" className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors">
          View Utah Coverage
-         <i className="fas fa-arrow-right ml-2 text-xs"></i>
+         <ArrowRight className="w-3 h-3 ml-2" />
         </Link>
        </div>
       </div>

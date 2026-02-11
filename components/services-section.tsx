@@ -3,6 +3,7 @@ import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 import ContactFormModal from "@/components/contact-form-modal";
 import { Button } from "@/components/ui/button";
+import { HardHat, Building } from "lucide-react";
 
 export default function ServicesSection() {
  const [showContactForm, setShowContactForm] = useState(false);
@@ -29,7 +30,7 @@ export default function ServicesSection() {
       <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand parallax-subtle animate-fade-in-left stagger-delay-1 p-6 rounded-lg group">
        <div className="flex items-center mb-6">
         <div className="resend-icon mr-4 hover-lift-gentle group-hover:scale-105 transition-all duration-500">
-         <i className="fas fa-hard-hat icon-gradient"></i>
+         <HardHat className="icon-gradient w-5 h-5" />
         </div>
         <h3 className="text-2xl lg:text-3xl hover-lift-gentle">Construction Cleanup Services</h3>
        </div>
@@ -104,7 +105,7 @@ export default function ServicesSection() {
       <div className="glass-card-premium sophisticated-glow hover-lift-moderate hover-glow-expand parallax-gentle animate-fade-in-right stagger-delay-2 p-6 rounded-lg group">
        <div className="flex items-center mb-6">
         <div className="resend-icon mr-4 hover-lift-gentle group-hover:scale-105 transition-all duration-500">
-         <i className="fas fa-building icon-gradient"></i>
+         <Building className="icon-gradient w-5 h-5" />
         </div>
         <h3 className="text-2xl lg:text-3xl hover-lift-gentle">Commercial Cleaning Services</h3>
        </div>

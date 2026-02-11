@@ -1560,4 +1560,85 @@
       transform: none !important;
     }
   }
+
+  @media (max-width: 768px) {
+    .parallax-subtle,
+    .parallax-gentle,
+    .parallax-depth {
+      animation: none !important;
+      will-change: auto !important;
+      transform: none !important;
+    }
+
+    .noise-overlay::before,
+    .grain-texture::after,
+    .vignette-radial::before,
+    .vignette-top::before,
+    .vignette-bottom::after {
+      display: none !important;
+    }
+
+    .glass-effect {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .hover-shimmer::before {
+      display: none !important;
+    }
+
+    .button-ripple::before {
+      display: none !important;
+    }
+
+    .hover-glow-expand {
+      will-change: auto !important;
+    }
+
+    .sophisticated-glow {
+      box-shadow: none !important;
+    }
+
+    .subtle-glow,
+    .subtle-glow:hover {
+      box-shadow: none !important;
+    }
+
+    .orbital-glow {
+      animation: none !important;
+    }
+
+    .animate-fade-in-up,
+    .animate-fade-in-left,
+    .animate-fade-in-right,
+    .animate-fade-in-scale {
+      animation-duration: 0.3s !important;
+    }
+
+    .stagger-delay-1,
+    .stagger-delay-2,
+    .stagger-delay-3,
+    .stagger-delay-4,
+    .stagger-delay-5,
+    .stagger-delay-6 {
+      animation-delay: 0s !important;
+    }
+
+    .hero-sophisticated-bg,
+    .services-sophisticated-bg,
+    .features-sophisticated-bg,
+    .testimonials-sophisticated-bg,
+    .footer-sophisticated-bg,
+    .process-sophisticated-bg,
+    .areas-sophisticated-bg,
+    .partners-sophisticated-bg {
+      background: hsl(0, 0%, 0%) !important;
+    }
+
+    .sophisticated-bg-primary,
+    .sophisticated-bg-secondary,
+    .sophisticated-bg-tertiary {
+      background: hsl(0, 0%, 0%) !important;
+    }
+  }
 }
