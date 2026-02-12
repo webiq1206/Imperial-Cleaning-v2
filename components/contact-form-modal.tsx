@@ -10,9 +10,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Progress } from "@/components/ui/progress";
 import { trackEvent, trackFormInteraction, trackUserJourney, trackConversionComplete } from "@/lib/analytics";
-import { useMutation } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+
+const modalQueryClient = new QueryClient({
+  defaultOptions: { mutations: { retry: false } },
+});
 
 const formSchema = z.object({
  name: z.string().min(2, "Name must be at least 2 characters"),
@@ -43,7 +47,15 @@ const steps = [
  { id: 7, field: "message", label: "Project details?", placeholder: "Tell us about your project..." },
 ];
 
-export default function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
+export default function ContactFormModal(props: ContactFormModalProps) {
+  return (
+    <QueryClientProvider client={modalQueryClient}>
+      <ContactFormModalInner {...props} />
+    </QueryClientProvider>
+  );
+}
+
+function ContactFormModalInner({ isOpen, onClose }: ContactFormModalProps) {
  const [currentStep, setCurrentStep] = useState(1);
  const { toast } = useToast();
 

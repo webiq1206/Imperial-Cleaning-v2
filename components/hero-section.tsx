@@ -1,11 +1,12 @@
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
-import ContactFormModal from "@/components/contact-form-modal";
 import { Button } from "@/components/ui/button";
 
+const ContactFormModal = dynamic(() => import("@/components/contact-form-modal"), { ssr: false });
+
 const logoPathPNG = "/hero-logo.png";
-const logoPathWebP = "/hero-logo.webp";
 
 interface HeroSectionProps {
   imageAlt?: string;
@@ -28,18 +29,15 @@ export default function HeroSection({
     <div 
      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
     >
-      <picture>
-        <source srcSet={logoPathWebP} type="image/webp" />
-        <img 
-         src={logoPathPNG}
-         alt={imageAlt}
-         className="w-full h-full object-contain opacity-15 md:opacity-0 pointer-events-none"
-         width="384"
-         height="384"
-         loading="eager"
-         decoding="async"
-        />
-      </picture>
+      <img 
+       src={logoPathPNG}
+       alt={imageAlt}
+       className="w-full h-full object-contain opacity-15 md:opacity-0 pointer-events-none"
+       width="384"
+       height="384"
+       loading="lazy"
+       decoding="async"
+      />
     </div>
 
     {/* Parallax background elements - hidden on mobile for performance */}
@@ -114,18 +112,15 @@ export default function HeroSection({
         {/* Enhanced logo with 3D effect and motion polish */}
         <div className="logo-3d-container relative">
          {/* Main logo */}
-         <picture>
-          <source srcSet={logoPathWebP} type="image/webp" />
-          <img 
+         <img 
            src={logoPathPNG}
            alt={imageAlt}
            className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[32rem] xl:h-[32rem] object-contain opacity-25"
            width="512"
            height="512"
-           fetchPriority="high"
+           loading="lazy"
            decoding="async"
           />
-         </picture>
          
          {/* Enhanced overlay layers with motion */}
          <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/50 parallax-subtle"></div>

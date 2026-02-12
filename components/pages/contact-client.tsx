@@ -1,13 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider, useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { StructuredData } from "@/components/structured-data";
 import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+const contactQueryClient = new QueryClient({
+  defaultOptions: { mutations: { retry: false } },
+});
+
 export default function ContactClient() {
+  return (
+    <QueryClientProvider client={contactQueryClient}>
+      <ContactClientInner />
+    </QueryClientProvider>
+  );
+}
+
+function ContactClientInner() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
 

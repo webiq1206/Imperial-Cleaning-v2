@@ -1,11 +1,12 @@
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
-import ContactFormModal from "@/components/contact-form-modal";
 import { Button } from "@/components/ui/button";
 
+const ContactFormModal = dynamic(() => import("@/components/contact-form-modal"), { ssr: false });
+
 const logoPathPNG = "/hero-logo.png";
-const logoPathWebP = "/hero-logo.webp";
 
 interface InternalHeroSectionProps {
  title: string;
@@ -51,18 +52,15 @@ export default function InternalHeroSection({
     <div 
      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
     >
-      <picture>
-        <source srcSet={logoPathWebP} type="image/webp" />
-        <img 
-         src={logoPathPNG}
-         alt={imageAlt}
-         className="w-full h-full object-contain opacity-15 md:opacity-0 pointer-events-none"
-         width="384"
-         height="384"
-         loading="eager"
-         decoding="async"
-        />
-      </picture>
+      <img 
+       src={logoPathPNG}
+       alt={imageAlt}
+       className="w-full h-full object-contain opacity-15 md:opacity-0 pointer-events-none"
+       width="384"
+       height="384"
+       loading="lazy"
+       decoding="async"
+      />
     </div>
 
     {/* Parallax background elements - hidden on mobile for performance */}
@@ -137,18 +135,15 @@ export default function InternalHeroSection({
         {/* Logo with subtle 3D effect */}
         <div className="logo-3d-container relative">
          {/* Main logo */}
-         <picture>
-          <source srcSet={logoPathWebP} type="image/webp" />
-          <img 
+         <img 
            src={logoPathPNG}
            alt={imageAlt}
            className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain opacity-25"
            width="384"
            height="384"
-           fetchPriority="high"
+           loading="lazy"
            decoding="async"
           />
-         </picture>
          
          {/* Overlay layers */}
          <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/50 parallax-subtle"></div>
