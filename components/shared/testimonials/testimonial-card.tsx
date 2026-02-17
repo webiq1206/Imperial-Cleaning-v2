@@ -98,7 +98,7 @@ export default function TestimonialCard({
  return (
   <div
    className={`${getCardClasses()} ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    onClick={handleCardClick}
    data-testid={`testimonial-card-${testimonial.id}`}
   >

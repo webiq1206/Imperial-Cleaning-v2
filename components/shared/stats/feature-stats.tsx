@@ -49,7 +49,7 @@ export default function FeatureStats({
  return (
   <section 
    className={`py-24 px-6 features-sophisticated-bg noise-overlay grain-texture section-transition-top section-transition-bottom ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid="feature-stats-section"
   >
    <div className="max-w-7xl mx-auto">

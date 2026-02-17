@@ -150,7 +150,7 @@ export default function InternalHeroSection({
          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
          
          {/* Subtle glow */}
-         <div className="absolute inset-0 blur-2xl" style={{ background: 'radial-gradient(ellipse at center, hsl(195, 100%, 50%, 0.08), hsl(271, 81%, 56%, 0.04), transparent)' }}></div>
+         <div className="absolute inset-0 blur-2xl hero-glow-gradient"></div>
          
          {/* Orbital elements */}
          <div className="absolute -inset-4">

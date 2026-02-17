@@ -103,7 +103,7 @@ export default function TestimonialsSection({
  return (
   <section 
    className={`py-12 md:py-16 lg:py-24 px-4 md:px-6 testimonials-sophisticated-bg noise-overlay vignette-top vignette-bottom ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid="testimonials-section"
   >
    <div className="max-w-7xl mx-auto">

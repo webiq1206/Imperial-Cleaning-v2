@@ -119,7 +119,7 @@ export default function ServiceTestimonials({
  return (
   <section 
    className={`py-16 px-6 ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid={`service-testimonials-${serviceType}`}
   >
    <div className="max-w-7xl mx-auto">

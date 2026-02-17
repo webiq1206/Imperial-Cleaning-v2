@@ -7,13 +7,15 @@ import ServiceAreasSection from "@/components/service-areas-section";
 import { StructuredData } from "@/components/structured-data";
 
 export const metadata: Metadata = {
-  title: "Commercial & Construction Cleaning Services | Idaho Falls, ID & Utah | Imperial Cleaning",
-  description: "Premier commercial & construction cleaning serving Idaho Falls, Pocatello, Twin Falls, Salt Lake City & Wasatch Front. Licensed & insured in Idaho and Utah. Call (208) 520-3202 for free quote!",
+  title: {
+    absolute: "Imperial Cleaning | Commercial & Construction Cleaning",
+  },
+  description: "Professional commercial & construction cleaning across Idaho and Utah. Licensed, insured, and trusted since 2015. Serving 24+ locations.",
   keywords: "Idaho Falls commercial cleaning, Eastern Idaho construction cleanup, Pocatello office cleaning, Twin Falls janitorial services, Utah commercial cleaning, Salt Lake City cleaning, Wasatch Front cleaning, southeastern Idaho cleaning company, Bonneville County cleaning, Bannock County commercial cleaners, post construction cleanup",
   authors: [{ name: "Imperial Cleaning Inc" }],
   openGraph: {
-    title: "Commercial & Construction Cleaning | Idaho & Utah | Imperial Cleaning Inc.",
-    description: "Leading commercial and construction cleaning company serving Idaho Falls, Eastern Idaho, and Utah's Wasatch Front. Professional cleaning solutions for businesses and contractors across two states.",
+    title: "Imperial Cleaning | Commercial & Construction Cleaning",
+    description: "Professional commercial & construction cleaning across Idaho and Utah. Licensed, insured, and trusted since 2015. Serving 24+ locations.",
     url: "https://imperialcleaninginc.com/",
     siteName: "Imperial Cleaning Inc",
     locale: "en_US",
@@ -21,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Commercial & Construction Cleaning | Idaho & Utah | Imperial Cleaning Inc.",
-    description: "Professional commercial & construction cleaning throughout Idaho and Utah. Serving Idaho Falls, Pocatello, Salt Lake City & Wasatch Front. Licensed & insured.",
+    title: "Imperial Cleaning | Commercial & Construction Cleaning",
+    description: "Professional commercial & construction cleaning across Idaho and Utah. Licensed, insured, and trusted since 2015. Serving 24+ locations.",
     site: "@imperialcleaning",
     creator: "@imperialcleaning",
   },
@@ -53,6 +55,13 @@ const localBusinessSchema = {
   "logo": "https://imperialcleaninginc.com/hero-logo.png",
   "image": "https://imperialcleaninginc.com/hero-logo.png",
   "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Idaho Falls",
+    "addressRegion": "ID",
+    "postalCode": "83404",
+    "addressCountry": "US"
+  },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": "43.4666",

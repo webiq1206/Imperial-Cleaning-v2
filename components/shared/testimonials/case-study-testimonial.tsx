@@ -22,7 +22,7 @@ export default function CaseStudyTestimonial({
  return (
   <div 
    className={`${getContainerClasses()} ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid="case-study-testimonial"
   >
    {/* Quote Icon */}

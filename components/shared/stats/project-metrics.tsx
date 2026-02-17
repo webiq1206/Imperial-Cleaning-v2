@@ -53,7 +53,7 @@ export default function ProjectMetrics({
  return (
   <div 
    className={`${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid={`project-metrics-${projectId || 'default'}`}
   >
    {showLabels && !compact && (

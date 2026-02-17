@@ -79,7 +79,7 @@ export default function LocationTestimonials({
  return (
   <section 
    className={`py-16 px-6 ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid={`location-testimonials-${locationName.toLowerCase().replace(/\s+/g, '-')}`}
   >
    <div className="max-w-7xl mx-auto">

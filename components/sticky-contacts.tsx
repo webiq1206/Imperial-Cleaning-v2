@@ -112,35 +112,32 @@ export default function StickyContacts() {
         aria-label={contact.title}
         role="button"
         tabIndex={0}
-        className={`orbital-contact-btn group relative w-14 h-14 rounded-2xl gradient-bg backdrop-blur-xl border border-gray-800/50 shadow-2xl transition-all duration-500 hover:scale-110 sophisticated-glow hover-lift-strong hover-glow-expand button-magnetic focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background ${
+        className={`orbital-contact-btn group relative w-14 h-14 rounded-2xl gradient-bg backdrop-blur-xl border border-gray-800/50 shadow-2xl transition-all duration-500 hover:scale-110 sophisticated-glow hover-lift-strong hover-glow-expand button-magnetic focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background sticky-delay-${index} ${
          contact.color === 'green' ? 'hover:shadow-green-500/20' :
          contact.color === 'blue' ? 'hover:shadow-blue-500/20' :
          contact.color === 'purple' ? 'hover:shadow-purple-500/20' :
          contact.color === 'orange' ? 'hover:shadow-orange-500/20' :
          'hover:shadow-cyan-500/20'
         }`}
-        style={{
-         animationDelay: `${index * 0.15}s`
-        }}
        >
         {/* Enhanced Orbital Rings with color variation */}
-        <div className={`orbital-ring orbital-ring-1 absolute inset-0 rounded-2xl border animate-spin ${
+        <div className={`orbital-ring orbital-ring-1 absolute inset-0 rounded-2xl border animate-spin spin-slow-8 ${
          contact.color === 'green' ? 'border-green-400/20' :
          contact.color === 'blue' ? 'border-blue-400/20' :
          contact.color === 'purple' ? 'border-purple-400/20' :
          contact.color === 'orange' ? 'border-orange-400/20' :
          'border-cyan-400/20'
-        }`} style={{ animationDuration: '8s' }}></div>
-        <div className="orbital-ring orbital-ring-2 absolute inset-0 rounded-2xl border border-gray-400/10 animate-spin" style={{ animationDuration: '12s', animationDirection: 'reverse' }}></div>
+        }`}></div>
+        <div className="orbital-ring orbital-ring-2 absolute inset-0 rounded-2xl border border-gray-400/10 animate-spin spin-slow-12-reverse"></div>
         
         {/* Enhanced Central Glow with color variation */}
-        <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 parallax-subtle hover-shimmer`} style={{ 
-         background: contact.color === 'green' ? 'linear-gradient(to bottom right, hsl(142, 76%, 36%, 0.08), hsl(142, 76%, 36%, 0.08))' :
-               contact.color === 'blue' ? 'linear-gradient(to bottom right, hsl(221, 83%, 53%, 0.08), hsl(221, 83%, 53%, 0.08))' :
-               contact.color === 'purple' ? 'linear-gradient(to bottom right, hsl(271, 81%, 56%, 0.08), hsl(271, 81%, 56%, 0.08))' :
-               contact.color === 'orange' ? 'linear-gradient(to bottom right, hsl(33, 100%, 52%, 0.08), hsl(33, 100%, 52%, 0.08))' :
-               'linear-gradient(to bottom right, hsl(195, 100%, 50%, 0.08), hsl(271, 81%, 56%, 0.08))'
-        }}></div>
+        <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 parallax-subtle hover-shimmer ${
+         contact.color === 'green' ? 'sticky-contact-glow-green' :
+         contact.color === 'blue' ? 'sticky-contact-glow-blue' :
+         contact.color === 'purple' ? 'sticky-contact-glow-purple' :
+         contact.color === 'orange' ? 'sticky-contact-glow-orange' :
+         'sticky-contact-glow-default'
+        }`}></div>
         
         {/* Center Icon with color variation */}
         <div className="relative z-10 w-full h-full flex items-center justify-center hover-lift-gentle">

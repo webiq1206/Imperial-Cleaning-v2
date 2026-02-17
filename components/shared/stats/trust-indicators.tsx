@@ -62,7 +62,7 @@ export default function TrustIndicators({
  return (
   <div 
    className={`${getLayoutClasses()} max-w-3xl mx-auto ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid="trust-indicators-container"
   >
    {statsToDisplay.map((stat, index) => (

@@ -114,7 +114,7 @@ export default function TestimonialsCarousel({
  return (
   <div 
    className={`overflow-hidden relative testimonials-container ${className}`}
-   style={{ animationDelay: `${animationDelay}ms` }}
+   {...(animationDelay > 0 ? { style: { animationDelay: `${animationDelay}ms` } } : {})}
    data-testid="testimonials-carousel"
   >
    {/* Embla carousel viewport */}
