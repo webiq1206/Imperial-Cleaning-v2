@@ -1,10 +1,4 @@
-import { useState } from "react";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { trackEvent } from "@/lib/analytics";
-import { Button } from "@/components/ui/button";
-
-const ContactFormModal = dynamic(() => import("@/components/contact-form-modal"), { ssr: false });
+import HeroCTAButtons from "@/components/hero-cta-buttons";
 
 const logoPathPNG = "/hero-logo.png";
 
@@ -15,15 +9,7 @@ interface HeroSectionProps {
 export default function HeroSection({ 
   imageAlt = "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah" 
 }: HeroSectionProps = {}) {
- const [showContactForm, setShowContactForm] = useState(false);
-
- const handleRequestQuote = () => {
-  trackEvent('quote_request', 'hero', 'main_cta');
-  setShowContactForm(true);
- };
-
  return (
-  <>
    <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
     {/* Background logo - visible on mobile, hidden on desktop */}
     <div 
@@ -60,7 +46,7 @@ export default function HeroSection({
        <div className="mb-6 md:mb-8 animate-fade-in-left stagger-delay-1">
         <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow hover-lift-gentle hover-shimmer">
          <span className="text-sm text-secondary-color tracking-tight">
-          Professional Cleaning Services • Licensed & Insured • Trusted Partner
+          Professional Cleaning Services • Licensed &amp; Insured • Trusted Partner
          </span>
          <svg className="ml-2 w-3.5 h-3.5 text-subtle-color group-hover:text-secondary-color transition-all duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
@@ -82,28 +68,8 @@ export default function HeroSection({
         Locally owned and operated commercial cleaning company providing premier construction cleanup and janitorial services for businesses that demand excellence across multiple markets.
        </p>
 
-       {/* Enhanced CTA buttons with local market focus */}
-       <div className="flex items-center gap-4 animate-fade-in-up stagger-delay-4">
-        <Button 
-         onClick={handleRequestQuote}
-         variant="pill-primary"
-         size="pill-lg"
-         className="pill-button-resend-primary hover-lift-moderate button-ripple"
-         data-testid="button-hero-get-started"
-        >
-         Get Free Quote
-        </Button>
-        <Link href="/service-areas/idaho">
-         <Button 
-          variant="pill-secondary"
-          size="pill-lg"
-          className="pill-button-resend-secondary hover-lift-gentle hover-shimmer"
-          data-testid="button-hero-documentation"
-         >
-          View Service Areas
-         </Button>
-        </Link>
-       </div>
+       {/* CTA buttons - client component for interactivity */}
+       <HeroCTAButtons />
       </div>
 
       {/* Right side - Enhanced 3D logo with sophisticated parallax (hidden on mobile) */}
@@ -155,13 +121,5 @@ export default function HeroSection({
      <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-gradient-radial from-purple-500/6 via-transparent to-transparent rounded-full blur-2xl"></div>
     </div>
    </section>
-
-   {showContactForm && (
-    <ContactFormModal 
-     isOpen={showContactForm} 
-     onClose={() => setShowContactForm(false)} 
-    />
-   )}
-  </>
  );
 }

@@ -1,5 +1,9 @@
 import { Metadata } from "next";
+import HeroSection from "@/components/hero-section";
 import HomeClient from "@/components/pages/home-client";
+import FeaturesSection from "@/components/features-section";
+import PartnersSection from "@/components/partners-section";
+import ServiceAreasSection from "@/components/service-areas-section";
 import { StructuredData } from "@/components/structured-data";
 
 export const metadata: Metadata = {
@@ -142,7 +146,12 @@ export default function HomePage() {
   return (
     <>
       <StructuredData data={[localBusinessSchema, organizationSchema, faqSchema, breadcrumbSchema]} />
-      <HomeClient />
+      <HeroSection imageAlt="Imperial Cleaning Inc - Idaho Falls Commercial & Construction Cleaning Services Serving Idaho and Utah" />
+      <HomeClient
+        featuresSection={<FeaturesSection />}
+        partnersSection={<PartnersSection />}
+        serviceAreasSection={<ServiceAreasSection />}
+      />
     </>
   );
 }

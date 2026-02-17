@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
-import { Providers } from './providers';
 import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ 
@@ -159,37 +157,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <Providers>
-          <main id="main-content">
-            {children}
-          </main>
-          <Toaster />
-        </Providers>
+        <main id="main-content">
+          {children}
+        </main>
+        <Toaster />
         
-        {/* JSON-LD Structured Data */}
-        <Script
-          id="organization-jsonld"
+        {/* JSON-LD Structured Data - inline, no JS execution needed */}
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         
-        {/* Google Analytics - deferred to lazyOnload for better performance */}
+        {/* Google Analytics - deferred to first user interaction for performance */}
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-              strategy="lazyOnload"
-            />
-            <Script id="google-analytics" strategy="lazyOnload">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
-              `}
-            </Script>
-          </>
+          <script
+            dangerouslySetInnerHTML={{ __html: `(function(){var l=false;function g(){if(l)return;l=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function t(){dataLayer.push(arguments)}t('js',new Date());t('config','${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}')};['scroll','click','touchstart'].forEach(function(e){document.removeEventListener(e,g,{passive:true,capture:true})})}['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,g,{passive:true,capture:true,once:true})})})();` }}
+          />
         )}
       </body>
     </html>

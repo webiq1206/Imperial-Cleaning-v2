@@ -1,4 +1,4 @@
-import { FeatureStats } from "@/components/shared";
+import FeatureStats from "@/components/shared/stats/feature-stats";
 import { Shield, Clock, Award } from "lucide-react";
 
 export default function FeaturesSection() {

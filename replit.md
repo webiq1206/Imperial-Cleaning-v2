@@ -68,7 +68,7 @@ Location-specific pages follow the URL structure: `/{state}/{service}/{city}/`
 - **@hookform/resolvers**: Zod integration for validation
 
 ### Analytics
-- **Google Analytics 4**: Page views and event tracking via gtag (deferred with lazyOnload strategy)
+- **Google Analytics 4**: Page views and event tracking via gtag (deferred to first user interaction - scroll/click/touch)
 - Custom analytics utilities in `lib/analytics.ts`
 
 ### External Services
@@ -79,7 +79,14 @@ Location-specific pages follow the URL structure: `/{state}/{service}/{city}/`
 - **Font Awesome removed**: Replaced entirely with lucide-react inline SVGs to eliminate 154KB font + 19KB CSS CDN load
 - **Unused packages removed**: framer-motion, cmdk, recharts, input-otp, vaul
 - **Decorative DOM hidden on mobile**: Parallax layers, background treatments, orbital elements hidden with `hidden md:block`
-- **GA deferred**: Google Analytics loads via `lazyOnload` strategy instead of `afterInteractive`
+- **GA deferred to interaction**: Google Analytics only loads on first user scroll/click/touch via inline script (no Next.js Script overhead)
+- **Server component slots**: FeaturesSection, PartnersSection, ServiceAreasSection rendered as server components passed as ReactNode slots to HomeClient, eliminating their client JS
+- **Direct imports**: FeaturesSection imports from `shared/stats/feature-stats` directly instead of barrel export to avoid pulling in client-side testimonial modules
+- **Package optimization**: `optimizePackageImports` for lucide-react and Radix UI packages in next.config.js
+- **JSON-LD inlined**: Structured data uses plain `<script>` tags instead of Next.js Script component
+- **Providers removed**: Empty Providers wrapper eliminated from root layout
+- **Console stripping**: `removeConsole` in production compiler options
+- **Static asset caching**: `Cache-Control: immutable` headers for `/_next/static/` assets
 
 ### Build Tools
 - **PostCSS + Autoprefixer**: CSS processing
