@@ -87,6 +87,9 @@ Location-specific pages follow the URL structure: `/{state}/{service}/{city}/`
 - **Providers removed**: Empty Providers wrapper eliminated from root layout
 - **Console stripping**: `removeConsole` in production compiler options
 - **Static asset caching**: `Cache-Control: immutable` headers for `/_next/static/` assets
+- **CSS dead code removal**: Removed 41 unused CSS classes and 25 unused CSS custom properties, reducing globals.css from 43.6KB to 34.2KB (21.5% less render-blocking CSS)
+- **LCP hero optimization**: Removed animation delays from hero h1/p LCP elements to prevent opacity:0 blocking first paint
+- **Below-fold lazy loading**: Below-fold sections (testimonials, FAQ, etc.) loaded with ssr:false to reduce initial bundle
 
 ### Build Tools
 - **PostCSS + Autoprefixer**: CSS processing

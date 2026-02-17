@@ -10,7 +10,7 @@ export default function HeroSection({
   imageAlt = "Imperial Cleaning Inc - Professional Commercial & Construction Cleaning Services Idaho Utah" 
 }: HeroSectionProps = {}) {
  return (
-   <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden animate-fade-in-up">
+   <section className="relative min-h-[85vh] md:min-h-screen hero-sophisticated-bg noise-overlay grain-texture vignette-radial overflow-hidden">
     {/* Background logo - visible on mobile, hidden on desktop */}
     <div 
      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
@@ -43,7 +43,7 @@ export default function HeroSection({
       {/* Left side - Content */}
       <div className="flex-1 max-w-2xl z-20">
        {/* Enhanced Resend-style announcement pill with motion polish */}
-       <div className="mb-6 md:mb-8 animate-fade-in-left stagger-delay-1">
+       <div className="mb-6 md:mb-8">
         <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect hover:border-gray-700/80 hover:bg-gray-950/60 transition-all duration-300 group sophisticated-glow hover-lift-gentle hover-shimmer">
          <span className="text-sm text-secondary-color tracking-tight">
           Professional Cleaning Services • Licensed &amp; Insured • Trusted Partner
@@ -54,17 +54,17 @@ export default function HeroSection({
         </div>
        </div>
 
-       {/* Main heading with enhanced animations */}
-       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tight mb-6 md:mb-8 animate-fade-in-up stagger-delay-2" data-testid="heading-hero-h1">
+       {/* Main heading - no animation delay for fastest LCP */}
+       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tight mb-6 md:mb-8" data-testid="heading-hero-h1">
         <span className="inline-block hover-lift-gentle">Professional </span>
         <br />
-        <span className="inline-block hover-lift-gentle stagger-delay-2">cleaning for</span>
+        <span className="inline-block hover-lift-gentle">cleaning for</span>
         <br />
-        <span className="inline-block hover-lift-gentle stagger-delay-3 gradient-text-cyan-purple">businesses</span>
+        <span className="inline-block hover-lift-gentle gradient-text-cyan-purple">businesses</span>
        </h1>
 
-       {/* Enhanced subtitle */}
-       <p className="text-lg md:text-xl text-secondary-color mb-8 md:mb-10 max-w-xl leading-[1.6] font-normal tracking-tight animate-fade-in-up stagger-delay-3">
+       {/* Enhanced subtitle - no animation for fastest LCP paint */}
+       <p className="text-lg md:text-xl text-secondary-color mb-8 md:mb-10 max-w-xl leading-[1.6] font-normal tracking-tight">
         Locally owned and operated commercial cleaning company providing premier construction cleanup and janitorial services for businesses that demand excellence across multiple markets.
        </p>
 

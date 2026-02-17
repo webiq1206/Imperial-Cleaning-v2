@@ -1086,9 +1086,6 @@ video {
 .testimonials-container:active {
     cursor: grabbing;
   }
-.testimonials-container:hover .animate-scroll-infinite {
-    animation-play-state: paused;
-  }
 .parallax-subtle {
     animation: parallaxFloat 8s ease-in-out infinite;
     will-change: transform;
@@ -1185,14 +1182,12 @@ video {
   }
 .no-hover-effects,
   .no-hover-effects.glass-card-elevated,
-  .no-hover-effects.glass-card-base,
   .no-hover-effects.glass-card-premium {
     transition: none !important;
     will-change: auto !important;
   }
 .no-hover-effects:hover,
   .no-hover-effects.glass-card-elevated:hover,
-  .no-hover-effects.glass-card-base:hover,
   .no-hover-effects.glass-card-premium:hover {
     transform: none !important;
     border-color: inherit !important;
@@ -1883,7 +1878,6 @@ video {
 @media (hover: none) and (pointer: coarse) {
     .hover-lift-gentle,
     .hover-lift-moderate,
-    .hover-lift-bold,
     .hover-shimmer,
     .button-magnetic {
       transform: none !important;
@@ -1891,8 +1885,7 @@ video {
     }
     
     .hover-lift-gentle:hover,
-    .hover-lift-moderate:hover,
-    .hover-lift-bold:hover {
+    .hover-lift-moderate:hover {
       transform: none !important;
     }
   }
@@ -1934,15 +1927,6 @@ video {
       box-shadow: none !important;
     }
 
-    .subtle-glow,
-    .subtle-glow:hover {
-      box-shadow: none !important;
-    }
-
-    .orbital-glow {
-      animation: none !important;
-    }
-
     .animate-fade-in-up,
     .animate-fade-in-left,
     .animate-fade-in-right,
@@ -1953,9 +1937,7 @@ video {
     .stagger-delay-1,
     .stagger-delay-2,
     .stagger-delay-3,
-    .stagger-delay-4,
-    .stagger-delay-5,
-    .stagger-delay-6 {
+    .stagger-delay-4 {
       animation-delay: 0s !important;
     }
 
@@ -1970,9 +1952,7 @@ video {
       background: hsl(0, 0%, 0%) !important;
     }
 
-    .sophisticated-bg-primary,
-    .sophisticated-bg-secondary,
-    .sophisticated-bg-tertiary {
+    .sophisticated-bg-primary {
       background: hsl(0, 0%, 0%) !important;
     }
   }
@@ -4129,13 +4109,6 @@ video {
   --input: hsl(0, 0%, 5%);
   --ring: hsl(195, 100%, 50%);
   
-  /* Updated chart colors using cyan-purple palette */
-  --chart-1: hsl(195, 100%, 50%);
-  --chart-2: hsl(271, 81%, 56%);
-  --chart-3: hsl(233, 78%, 60%);
-  --chart-4: hsl(158, 64%, 52%);
-  --chart-5: hsl(340, 82%, 52%);
-  
   /* Error states */
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 98%);
@@ -4158,46 +4131,12 @@ video {
   
   /* Unified Gradient System - Cyan to Purple */
   --gradient-primary: linear-gradient(135deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
-  --gradient-primary-reverse: linear-gradient(315deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
-  --gradient-primary-vertical: linear-gradient(180deg, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
   --gradient-primary-br: linear-gradient(to bottom right, hsl(195, 100%, 50%) 0%, hsl(271, 81%, 56%) 100%);
-  --gradient-primary-subtle: linear-gradient(135deg, hsl(195, 100%, 60%) 0%, hsl(271, 81%, 66%) 100%);
-  
-  /* Legacy support */
-  --resend-gradient: var(--gradient-primary);
-  --resend-gradient-text: var(--gradient-primary);
-  
-  /* ===== CONSISTENT SPACING TOKENS ===== */
-  --spacing-section: 4rem 1.5rem;
-  --spacing-section-mobile: 3rem 1rem;
-  --spacing-section-desktop: 6rem 2rem;
-  
-  --spacing-content-section: 4rem;
-  --spacing-content-large: 5rem;
-  --spacing-content-medium: 3rem;
-  --spacing-content-small: 2rem;
-  --spacing-content-tiny: 1.5rem;
-  
-  --spacing-card-padding: 1.5rem;
-  --spacing-card-padding-large: 2rem;
-  --spacing-card-gap: 2rem;
-  
-  --spacing-text-heading: 2rem;
-  --spacing-text-subheading: 1.5rem;
-  --spacing-text-paragraph: 1rem;
-  --spacing-text-small: 0.75rem;
   
   /* ===== CENTRALIZED TYPOGRAPHY TOKENS ===== */
   --text-primary: hsl(0, 0%, 100%);
   --text-secondary: hsl(0, 0%, 72%);
-  --text-tertiary: hsl(0, 0%, 68%);
   --text-subtle: hsl(0, 0%, 60%);
-  --text-inverse: hsl(0, 0%, 0%);
-  --text-accent: hsl(195, 100%, 50%);
-  --text-accent-alt: hsl(271, 81%, 56%);
-  --text-success: hsl(142, 76%, 36%);
-  --text-warning: hsl(38, 92%, 50%);
-  --text-danger: hsl(0, 84%, 60%);
 }
 
 .hero-glow-gradient {
