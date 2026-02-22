@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
     const [project] = await db.insert(constructionProjects).values({
       ...data,
       pipelineUpdatedAt: new Date(),
-    }).returning();
+    } as any).returning();
     return NextResponse.json(project, { status: 201 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

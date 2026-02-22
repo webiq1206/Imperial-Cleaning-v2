@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     const [proposal] = await db.insert(bidProposals).values({
       ...data,
       proposalNumber,
-    }).returning();
+    } as any).returning();
 
     return NextResponse.json(proposal, { status: 201 });
   } catch (error: any) {

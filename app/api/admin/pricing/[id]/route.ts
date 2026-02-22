@@ -7,7 +7,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   try {
     const body = await req.json();
     const [pricing] = await db.update(cleanupPricing)
-      .set(body)
+      .set(body as any)
       .where(eq(cleanupPricing.id, params.id))
       .returning();
     if (!pricing) return NextResponse.json({ error: "Not found" }, { status: 404 });

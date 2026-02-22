@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
           source: item.sourceName,
           sourceProjectId: item.sourceProjectId,
           pipelineStage: "discovered",
-        });
+        } as any);
         await db.update(discoveryQueue).set({ status: "added" }).where(eq(discoveryQueue.id, item.id));
       }
 
