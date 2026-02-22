@@ -1,0 +1,921 @@
+# Imperial Cleaning Inc — Construction Project Prospecting Pipeline (Admin Tool)
+
+## Project Context
+
+Imperial Cleaning Inc (imperialcleaninginc.com) is a commercial and construction cleaning company headquartered in Idaho Falls, serving Idaho and Utah. The business specializes in two core areas: post-construction cleanup (rough clean, light clean, final clean) and ongoing commercial janitorial services. The owner is Francisco.
+
+The site is built with Next.js, TypeScript, and Supabase.
+
+I need a construction project prospecting tool built into the admin panel at `/admin/projects` (or similar admin route). This tool helps Imperial Cleaning find active commercial construction projects that are approaching the cleanup phase, identify the decision makers (general contractors, project managers, construction managers), and manage outreach to win construction cleanup bids.
+
+-----
+
+## The Business Problem This Solves
+
+Construction cleanup is won by timing. By the time a building is finished, the general contractor has already hired their cleanup crew — usually months before. Imperial needs to find projects while they’re still in the framing or drywall phase, reach out to the GC or project manager, get on the bid list, and submit a proposal before the job is awarded.
+
+The construction cleanup sales cycle looks like this:
+
+1. **Commercial building permit is pulled** (months before cleanup is needed)
+1. **Project enters framing / rough-in phase** (Imperial should be making first contact here)
+1. **Drywall is installed** (the sweet spot — rough clean is needed soon, and final clean is on the horizon)
+1. **Interior finishes begin** (light clean / dust control phase)
+1. **Final finishes complete** (final clean needed — if Imperial isn’t already contracted, it’s too late)
+1. **Certificate of Occupancy** (building handed over)
+
+Imperial needs to catch projects at stages 1-3. That’s where this tool comes in.
+
+-----
+
+## What This Tool Does
+
+### Core Functions
+
+1. **Construction Project Discovery** — Find active commercial construction projects across Idaho and Utah through multiple data sources: building permit databases, plan rooms, construction project databases, Google Maps (active construction sites), and manual entry from Francisco’s network.
+1. **Project Database** — Store every project with building details, construction phase/timeline, general contractor info, project manager contacts, estimated cleanup scope, and bid status.
+1. **GC & Contact Management** — Build a database of general contractors, construction companies, and project managers that Imperial works with or wants to work with. Track relationships across multiple projects.
+1. **Bid Pipeline** — Track every project through the bid process: Discovered → Researching → Contacted GC → Plans Received → Bid Submitted → Awarded → Lost → Completed.
+1. **Bid/Proposal Generator** — Generate branded PDF proposals and bid sheets for construction cleanup jobs with scope of work, phased pricing (rough, light, final), and timeline.
+1. **Project Timeline Tracker** — Estimate when each project will need cleanup based on construction phase and permit dates, so Francisco can time outreach perfectly.
+1. **Relationship Dashboard** — Track which GCs have given Imperial work before, which ones are active in the market, and which relationships need nurturing.
+
+-----
+
+## Technical Requirements
+
+### Stack
+
+- **Frontend**: Next.js with TypeScript (matching the existing site)
+- **Backend**: Next.js API routes
+- **Database**: Supabase (PostgreSQL)
+- **PDF Generation**: Server-side for bid proposals
+- **Maps**: Google Maps for project location visualization
+- **Styling**: Match the imperialcleaninginc.com aesthetic — professional, dark/navy tones, clean and corporate. The admin panel should feel like a serious business tool.
+
+### API Keys (environment variables)
+
+- `GOOGLE_MAPS_API_KEY` — For geocoding project addresses and map display
+- `GOOGLE_PLACES_API_KEY` — For finding construction companies and GCs
+- `CONSTRUCTIONWIRE_API_KEY` — BuildCentral API for construction project leads (primary data source)
+- `CONSTRUCTION_MONITOR_API_KEY` — Construction Monitor API for building permit data
+- `SHOVELS_API_KEY` — Shovels.ai API for permit and contractor intelligence
+- `CONSTRUCT_A_LEAD_API_KEY` — Construct-A-Lead API for pre-bid project leads
+
+### Database Schema (Supabase)
+
+```sql
+-- ═══════════════════════════════════════════════════════
+-- CONSTRUCTION PROJECTS
+-- ═══════════════════════════════════════════════════════
+
+CREATE TABLE construction_projects (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW(),
+
+  -- Project Identification
+  project_name TEXT NOT NULL,              -- "Mountain View Medical Center", "Eagle Ridge Apartments"
+  permit_number TEXT,                      -- Building permit number if known
+  project_type TEXT NOT NULL,              -- See project types below
+
+  -- Location
+  address TEXT,
+  city TEXT NOT NULL,
+  state TEXT NOT NULL DEFAULT 'ID',        -- ID or UT
+  zip_code TEXT,
+  county TEXT,
+  latitude DECIMAL(10, 7),
+  longitude DECIMAL(10, 7),
+
+  -- Building Details
+  building_type TEXT,                      -- office, medical, retail, apartment, hotel, warehouse, school, church, government, mixed_use, industrial, restaurant, other
+  building_sqft INT,                       -- Total square footage
+  number_of_floors INT,
+  number_of_units INT,                     -- For apartments/condos
+  building_description TEXT,               -- "3-story, 45-unit apartment complex with underground parking"
+  
+  -- Construction Timeline
+  permit_date DATE,                        -- When the building permit was issued
+  estimated_start_date DATE,               -- When construction started or is expected to start
+  current_phase TEXT,                      -- See construction phases below
+  phase_updated_at TIMESTAMPTZ,
+  estimated_drywall_date DATE,             -- When drywall is expected to complete (the key timing trigger)
+  estimated_finish_date DATE,              -- When construction is expected to complete
+  estimated_cleanup_start DATE,            -- When cleanup work would begin
+  estimated_cleanup_duration_days INT,     -- How many days of cleanup work
+  
+  -- General Contractor
+  gc_company_id UUID REFERENCES contractors(id),  -- Link to contractors table
+  gc_company_name TEXT,                    -- Denormalized for quick display
+  gc_contact_name TEXT,                    -- PM or superintendent on this specific project
+  gc_contact_title TEXT,                   -- "Project Manager", "Superintendent", "Project Engineer"
+  gc_contact_email TEXT,
+  gc_contact_phone TEXT,
+  
+  -- Owner / Developer (who's paying for the building)
+  owner_company TEXT,                      -- "Mountain View Development LLC"
+  owner_contact TEXT,
+  owner_phone TEXT,
+  
+  -- Architect (sometimes the point of contact for cleanup specs)
+  architect_firm TEXT,
+  architect_contact TEXT,
+
+  -- Cleanup Scope
+  cleanup_type TEXT[],                     -- Array: rough_clean, light_clean, final_clean, window_cleaning, pressure_washing, floor_care
+  cleanup_notes TEXT,                      -- Special requirements, hazmat concerns, access restrictions, etc.
+  
+  -- Financials
+  estimated_project_value DECIMAL(12,2),   -- Total construction project value (for context)
+  estimated_cleanup_value DECIMAL(10,2),   -- What Imperial would charge for cleanup
+  bid_amount DECIMAL(10,2),                -- What Imperial actually bid
+  awarded_amount DECIMAL(10,2),            -- What was awarded (may differ from bid)
+  
+  -- Pipeline
+  pipeline_stage TEXT DEFAULT 'discovered', -- See pipeline stages below
+  pipeline_updated_at TIMESTAMPTZ DEFAULT NOW(),
+  priority TEXT DEFAULT 'medium',           -- hot, high, medium, low
+  lost_reason TEXT,                         -- If lost: "price", "relationship", "timing", "already_awarded", etc.
+  
+  -- Source
+  source TEXT,                             -- permit_database, plan_room, google_search, referral, drive_by, cold_call, network, dodge_data, construction_wire
+  source_url TEXT,                         -- Link to the permit record or listing
+  
+  -- Notes & Files
+  notes TEXT,
+  plan_documents TEXT[],                   -- URLs to uploaded plan documents (Supabase storage)
+  photos TEXT[],                           -- URLs to site photos
+  
+  -- Tags
+  tags TEXT[]
+);
+
+-- Construction phases enum reference:
+-- pre_construction, site_work, foundation, framing, rough_in, drywall, interior_finishes, exterior_finishes, punch_list, final_inspection, complete
+-- The KEY phases for Imperial are: drywall (time to reach out), interior_finishes (rough clean soon), punch_list (final clean imminent)
+
+-- Pipeline stages:
+-- discovered → researching → gc_contacted → plans_requested → plans_received → estimating → bid_submitted → bid_follow_up → awarded → in_progress → completed → lost → dormant
+
+CREATE INDEX idx_projects_city ON construction_projects (city, state);
+CREATE INDEX idx_projects_phase ON construction_projects (current_phase);
+CREATE INDEX idx_projects_pipeline ON construction_projects (pipeline_stage);
+CREATE INDEX idx_projects_gc ON construction_projects (gc_company_id);
+CREATE INDEX idx_projects_cleanup_date ON construction_projects (estimated_cleanup_start);
+
+-- ═══════════════════════════════════════════════════════
+-- GENERAL CONTRACTORS / CONSTRUCTION COMPANIES
+-- ═══════════════════════════════════════════════════════
+
+CREATE TABLE contractors (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW(),
+
+  -- Company Info
+  company_name TEXT NOT NULL,
+  website TEXT,
+  phone TEXT,
+  email TEXT,
+  address TEXT,
+  city TEXT,
+  state TEXT,
+
+  -- Key Contacts (multiple people at one company)
+  contacts JSONB DEFAULT '[]',
+  -- Structure: [
+  --   { "name": "John Smith", "title": "Project Manager", "email": "john@gc.com", "phone": "208-555-0101", "notes": "Handles eastern Idaho projects" },
+  --   { "name": "Jane Doe", "title": "Superintendent", "email": "jane@gc.com", "phone": "208-555-0102", "notes": "" }
+  -- ]
+
+  -- Relationship
+  relationship_status TEXT DEFAULT 'prospect',  -- prospect, contacted, active_partner, past_partner, cold
+  relationship_notes TEXT,
+  first_contact_date DATE,
+  last_contact_date DATE,
+  
+  -- Track Record
+  projects_bid INT DEFAULT 0,              -- How many projects we've bid with this GC
+  projects_won INT DEFAULT 0,              -- How many we've won
+  total_revenue DECIMAL(12,2) DEFAULT 0,   -- Total revenue from this GC
+  avg_project_size DECIMAL(10,2),          -- Average cleanup contract size with this GC
+  
+  -- Intel
+  typical_project_types TEXT[],            -- What kind of buildings they usually build
+  geographic_focus TEXT[],                 -- Where they mainly operate: "eastern_idaho", "boise", "utah"
+  company_size TEXT,                       -- small, medium, large, national
+  
+  -- Preferences
+  preferred_bid_format TEXT,               -- How they like to receive bids: email, plan_room, in_person
+  payment_terms TEXT,                      -- "Net 30", "Net 60", "Progress billing"
+  notes TEXT,
+
+  tags TEXT[]
+);
+
+CREATE INDEX idx_contractors_relationship ON contractors (relationship_status);
+CREATE INDEX idx_contractors_name ON contractors (company_name);
+
+-- ═══════════════════════════════════════════════════════
+-- ACTIVITY LOG (shared across projects and contractors)
+-- ═══════════════════════════════════════════════════════
+
+CREATE TABLE activity_log (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+
+  -- Can be linked to a project, a contractor, or both
+  project_id UUID REFERENCES construction_projects(id) ON DELETE CASCADE,
+  contractor_id UUID REFERENCES contractors(id) ON DELETE CASCADE,
+
+  activity_type TEXT NOT NULL,             -- email, phone_call, site_visit, meeting, bid_submitted, plans_received, follow_up, note, drive_by
+  subject TEXT,
+  details TEXT,
+  outcome TEXT,                            -- positive, neutral, negative, no_response, voicemail
+  
+  next_action TEXT,
+  next_action_date DATE,
+  
+  -- Attachments
+  attachments TEXT[],                      -- URLs to uploaded files
+  
+  completed_by TEXT DEFAULT 'Francisco'
+);
+
+CREATE INDEX idx_activity_project ON activity_log (project_id);
+CREATE INDEX idx_activity_contractor ON activity_log (contractor_id);
+CREATE INDEX idx_activity_followup ON activity_log (next_action_date) WHERE next_action_date IS NOT NULL;
+
+-- ═══════════════════════════════════════════════════════
+-- BID PROPOSALS
+-- ═══════════════════════════════════════════════════════
+
+CREATE TABLE bid_proposals (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  project_id UUID REFERENCES construction_projects(id) ON DELETE CASCADE,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+
+  -- Proposal Details
+  proposal_number TEXT,                    -- "ICI-2026-001"
+  title TEXT,                              -- "Post-Construction Cleanup Proposal — Mountain View Medical Center"
+  status TEXT DEFAULT 'draft',             -- draft, submitted, under_review, accepted, rejected, expired, revised
+  version INT DEFAULT 1,                   -- Track revisions
+
+  -- Scope of Work
+  scope_items JSONB NOT NULL DEFAULT '[]',
+  -- Structure: [
+  --   {
+  --     "phase": "Rough Clean",
+  --     "description": "Removal of all construction debris, sweeping of all floors, cleaning of window frames and sills, removal of protective coverings",
+  --     "estimated_hours": 40,
+  --     "crew_size": 4,
+  --     "estimated_days": 2,
+  --     "price": 3200
+  --   },
+  --   {
+  --     "phase": "Light Clean / Dust Control",
+  --     "description": "HEPA vacuum all surfaces, wipe down all horizontal and vertical surfaces, clean all light fixtures, clean HVAC vents and returns, detail clean restrooms and kitchen areas",
+  --     "estimated_hours": 80,
+  --     "crew_size": 6,
+  --     "estimated_days": 3,
+  --     "price": 6400
+  --   },
+  --   {
+  --     "phase": "Final Clean",
+  --     "description": "Touch-up all previously cleaned surfaces, final floor care (strip/wax VCT, buff concrete, clean carpet), final window cleaning inside and out, restroom detail, inspection-ready walkthrough",
+  --     "estimated_hours": 60,
+  --     "crew_size": 6,
+  --     "estimated_days": 2,
+  --     "price": 5400
+  --   }
+  -- ]
+
+  -- Pricing
+  subtotal DECIMAL(10,2),
+  tax_amount DECIMAL(10,2),
+  total DECIMAL(10,2),
+  
+  -- Additional costs
+  additional_items JSONB DEFAULT '[]',     -- Extras: window cleaning, pressure washing, floor sealant, etc.
+  
+  -- Terms
+  valid_until DATE,                        -- Proposal expiration
+  estimated_start_date DATE,
+  estimated_completion_date DATE,
+  payment_terms TEXT DEFAULT 'Net 30',
+  
+  -- Insurance & compliance
+  includes_insurance_cert BOOLEAN DEFAULT true,
+  includes_safety_plan BOOLEAN DEFAULT false,
+  
+  -- PDF
+  pdf_url TEXT,
+
+  submitted_at TIMESTAMPTZ,
+  accepted_at TIMESTAMPTZ,
+  rejected_at TIMESTAMPTZ
+);
+
+-- ═══════════════════════════════════════════════════════
+-- CLEANUP PRICING CALCULATOR
+-- ═══════════════════════════════════════════════════════
+
+CREATE TABLE cleanup_pricing (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  
+  building_type TEXT NOT NULL,             -- office, medical, retail, apartment, warehouse, etc.
+  cleanup_phase TEXT NOT NULL,             -- rough_clean, light_clean, final_clean
+  
+  -- Pricing per square foot (ranges by building type)
+  price_per_sqft_low DECIMAL(6,4),         -- Low end
+  price_per_sqft_mid DECIMAL(6,4),         -- Mid / typical
+  price_per_sqft_high DECIMAL(6,4),        -- High end (complex projects)
+  
+  -- Labor estimates
+  sqft_per_hour_per_person INT,            -- How many sqft one person can clean per hour for this phase
+  
+  notes TEXT,
+  is_active BOOLEAN DEFAULT true
+);
+
+-- Pre-populate with industry-standard construction cleanup pricing
+INSERT INTO cleanup_pricing (building_type, cleanup_phase, price_per_sqft_low, price_per_sqft_mid, price_per_sqft_high, sqft_per_hour_per_person) VALUES
+  -- Office Buildings
+  ('office', 'rough_clean', 0.04, 0.07, 0.12, 800),
+  ('office', 'light_clean', 0.06, 0.10, 0.18, 500),
+  ('office', 'final_clean', 0.08, 0.15, 0.25, 350),
+  -- Medical / Healthcare
+  ('medical', 'rough_clean', 0.06, 0.10, 0.15, 600),
+  ('medical', 'light_clean', 0.10, 0.15, 0.25, 350),
+  ('medical', 'final_clean', 0.12, 0.20, 0.35, 250),
+  -- Retail
+  ('retail', 'rough_clean', 0.03, 0.06, 0.10, 900),
+  ('retail', 'light_clean', 0.05, 0.08, 0.14, 600),
+  ('retail', 'final_clean', 0.07, 0.12, 0.20, 400),
+  -- Apartments / Multi-family
+  ('apartment', 'rough_clean', 0.05, 0.08, 0.12, 700),
+  ('apartment', 'light_clean', 0.08, 0.12, 0.20, 400),
+  ('apartment', 'final_clean', 0.10, 0.18, 0.28, 300),
+  -- Warehouse / Industrial
+  ('warehouse', 'rough_clean', 0.02, 0.04, 0.07, 1200),
+  ('warehouse', 'light_clean', 0.03, 0.06, 0.10, 800),
+  ('warehouse', 'final_clean', 0.05, 0.08, 0.14, 600),
+  -- Schools / Educational
+  ('school', 'rough_clean', 0.05, 0.08, 0.12, 750),
+  ('school', 'light_clean', 0.07, 0.12, 0.18, 450),
+  ('school', 'final_clean', 0.10, 0.16, 0.25, 300),
+  -- Hotels / Hospitality
+  ('hotel', 'rough_clean', 0.05, 0.09, 0.14, 650),
+  ('hotel', 'light_clean', 0.08, 0.14, 0.22, 400),
+  ('hotel', 'final_clean', 0.12, 0.20, 0.32, 280),
+  -- Religious / Churches
+  ('church', 'rough_clean', 0.04, 0.07, 0.10, 850),
+  ('church', 'light_clean', 0.06, 0.10, 0.15, 550),
+  ('church', 'final_clean', 0.08, 0.14, 0.22, 380),
+  -- Restaurants
+  ('restaurant', 'rough_clean', 0.06, 0.10, 0.16, 600),
+  ('restaurant', 'light_clean', 0.10, 0.16, 0.25, 350),
+  ('restaurant', 'final_clean', 0.14, 0.22, 0.35, 250),
+  -- Government
+  ('government', 'rough_clean', 0.05, 0.08, 0.12, 750),
+  ('government', 'light_clean', 0.08, 0.12, 0.18, 450),
+  ('government', 'final_clean', 0.10, 0.16, 0.25, 300);
+```
+
+Also create Supabase storage buckets: `bid-proposals` for PDF proposals, `project-plans` for uploaded plan documents, and `project-photos` for site photos.
+
+-----
+
+## Feature Specifications
+
+### 1. Construction Project Discovery — AUTOMATED DATA SOURCES
+
+This is the most critical feature. The goal is to have new commercial construction projects automatically flowing into the pipeline with minimal manual effort. There are multiple data sources that can feed this system, and the tool should support all of them.
+
+**TIER 1 — API-Based Automated Feeds (Primary Sources)**
+
+**a) ConstructionWire / BuildCentral API (RECOMMENDED — HIGHEST PRIORITY)**
+ConstructionWire (owned by BuildCentral) is the industry-standard database with 720,000+ commercial construction projects in planning, bidding, and pre-construction stages. They have a REST API called the BuildCentral API.
+
+The tool should integrate with this API:
+
+- API documentation is published on Postman: https://www.postman.com/buildcentral/public/documentation/gxn6y0g/constructionwire-api-2-0
+- Filter projects by: location (Idaho, Utah), project type (commercial, medical, retail, apartment, hotel, warehouse, school, etc.), project value ($500K+), project stage (pre-construction, bidding, early construction)
+- Pull: project name, address, project description, square footage, project value, stage, GC name, GC contact info, architect, owner/developer, key dates
+- Set up automated daily or weekly sync to pull new projects matching our criteria
+- Store the ConstructionWire project ID to avoid duplicates and enable updates
+- Environment variable: `CONSTRUCTIONWIRE_API_KEY`
+
+Francisco should sign up for ConstructionWire (they offer free trials) and get API access through the BuildCentral API program. Call 866-316-5300 to discuss API pricing.
+
+This is the #1 data source. If only one integration gets built, it should be this one.
+
+**b) Construction Monitor REST API (Building Permit Data)**
+Construction Monitor aggregates building permit data from 70+ metro areas nationwide, updated daily. They have a REST API.
+
+- Filter by: geography (Idaho Falls, Boise, Pocatello, Salt Lake City, Logan, etc.), permit type (commercial new construction), construction type, permit value
+- Pull: permit number, address, project description, contractor name, owner name, permit date, project value, construction type, geocode data
+- Permits are the earliest signal — a commercial building permit means construction is starting soon
+- Environment variable: `CONSTRUCTION_MONITOR_API_KEY`
+- Website: constructionmonitor.com/data
+
+**c) Shovels.ai API (Building Permit Intelligence)**
+Shovels provides a modern, developer-friendly API for building permit and contractor data. They cover residential and commercial.
+
+- Filter by: geography, permit type (commercial), property type, status
+- Pull: permit details, contractor information (including contact info), property data, inspection status
+- The inspection status data is valuable — it can indicate what phase a project is in (foundation inspection passed = framing soon, framing inspection passed = drywall soon)
+- Environment variable: `SHOVELS_API_KEY`
+- Website: shovels.ai/api
+
+**d) Construct-A-Lead API**
+Another construction project database with API access focused on pre-bid projects.
+
+- Provides project leads with GC contacts, materials lists, and bid stage info
+- Supports daily automated data feeds
+- Good for catching projects before they go to bid
+- Environment variable: `CONSTRUCT_A_LEAD_API_KEY`
+
+**TIER 2 — Scheduled Scraping / Monitoring**
+
+**e) City Permit Portal Monitoring**
+For Imperial’s primary markets, set up scheduled checks of public permit databases:
+
+- **Idaho Falls**: eTRAKiT portal (trakit.idahofallsidaho.gov) — search for new commercial (COM) permits
+- **Boise**: City of Boise PDS portal
+- **Pocatello / Twin Falls / Other Idaho cities**: Various municipal portals
+- **Utah cities**: Salt Lake City, Logan, Provo, Ogden permit portals
+
+Build a scraper module that:
+
+- Checks each portal on a configurable schedule (daily or weekly)
+- Filters for commercial new construction permits over a configurable dollar threshold
+- Extracts: permit number, address, description, contractor, owner, value, date
+- Auto-creates project records in the database with source = “permit_database”
+- Flags new permits on the dashboard for review
+
+Note: Some portals may not be scrapeable. For those, provide a quick-add form to manually enter permit data found during weekly manual checks.
+
+**f) Google Alerts / News Monitoring**
+Set up automated monitoring for construction news:
+
+- Scrape Google News or use Google Alerts webhook for terms like: “new construction Idaho Falls”, “commercial building permit Boise”, “groundbreaking ceremony Idaho”, “new development [city]”
+- When articles are found, extract project details and create a prospect record for review
+- This catches projects announced in local news before permits are even pulled
+
+**TIER 3 — Manual Entry (Still Important)**
+
+**g) Quick-Add from Field**
+Francisco and his team still find projects by:
+
+- Driving past construction sites
+- Hearing about projects from GC contacts
+- Plan room postings
+- Chamber of commerce announcements
+
+The mobile quick-add form is still essential (see original spec). These manual entries supplement the automated feeds.
+
+**h) CSV / Bulk Import**
+Support uploading a CSV of projects from any source (plan room exports, Dodge Data reports, etc.) with the same flexible column mapping from the webIQ pipeline.
+
+-----
+
+**DISCOVERY DASHBOARD**
+
+The discovery section of the admin should show:
+
+**Automated Feed Status:**
+
+- Connection status for each API (green = connected, yellow = needs attention, red = disconnected)
+- Last sync time and next scheduled sync for each source
+- Count of new projects pulled in the last 24 hours / 7 days
+
+**New Projects Queue:**
+
+- All newly discovered projects from automated feeds, sorted by discovery date
+- Each project shows: name, address, type, value, GC (if known), source
+- Actions per project: “Add to Pipeline”, “Dismiss”, “Need More Info”
+- Bulk add to pipeline
+
+**Discovery Settings:**
+
+- Configure which data sources are active
+- Set geographic filters (which cities/counties to monitor)
+- Set project type filters (which building types to include)
+- Set minimum project value threshold
+- Set sync frequency for each source
+- Manage API keys
+
+**Duplicate Detection:**
+When new projects come in from any source, check for duplicates by:
+
+1. Address matching (normalize addresses for comparison)
+1. Permit number matching
+1. Project name fuzzy matching
+1. GC + city matching
+
+If a potential duplicate is found, flag it for manual review rather than auto-creating.
+
+### 2. Project Database
+
+**List View:**
+
+- Filterable, sortable table of all projects
+- Filters: pipeline stage, construction phase, city/state, building type, GC, priority, estimated cleanup value range, estimated cleanup start date range
+- Quick search by project name, address, GC, or permit number
+- Bulk actions: update phase, change pipeline stage, export
+
+**Detail View:**
+
+- **Header**: Project name, building type badge, pipeline stage dropdown, priority, construction phase indicator
+- **Building Info Card**: Address (with embedded map), sqft, floors, units, building description, photos
+- **Timeline Card**: Visual timeline showing permit date → current phase → estimated milestones → estimated cleanup. Highlight where we are now. Show the “outreach window” (when to contact GC) in green.
+- **GC & Contacts Card**: General contractor company (linked), PM/superintendent contact, owner/developer, architect. Click to call or email directly.
+- **Bid Status Card**: Current bid status, amounts, proposal link. Quick action to generate a new proposal.
+- **Cleanup Scope Card**: Which phases needed (rough/light/final), special requirements, estimated value (auto-calculated from sqft × pricing rates for this building type)
+- **Activity Timeline**: All outreach, site visits, calls, notes
+- **Documents**: Uploaded plans, photos, proposals
+
+**Map View:**
+
+- All projects plotted on a map of Idaho and Utah
+- Color-coded pins by:
+  - Construction phase (gray = early, yellow = approaching drywall, orange = drywall/finishes, red = cleanup imminent, green = awarded/in-progress)
+  - Or pipeline stage
+- Toggle between views
+- Click pin for project summary card
+- Filter same as list view
+
+### 3. GC & Contact Management
+
+**Contractor Directory:**
+
+- List of all general contractors in the database
+- For each GC: company info, all known contacts (multiple people), relationship status, project history with Imperial, win rate
+- Search and filter by location, relationship status, project types, company size
+- Click into a GC to see all their projects (past, current, upcoming)
+
+**Relationship Tracking:**
+
+- Track history: when first contacted, projects bid together, projects won, total revenue generated
+- Relationship health indicator based on recency of contact and win rate
+- “Nurture” flag for GCs who haven’t been contacted in 90+ days
+- Birthday/holiday reminder system for key contacts (optional but powerful for relationship building)
+
+**Contact Discovery:**
+When a new project is added with a GC name but no contacts:
+
+- Search the contractors database for that GC — if they exist, auto-link and pull contacts
+- If they don’t exist, prompt to research: provide a link to search their website, LinkedIn, etc.
+- Quick-add contact form
+
+### 4. Bid Pipeline & Management
+
+**Pipeline Board (Kanban):**
+Stages:
+
+1. **Discovered** — Project found, basic info entered
+1. **Researching** — Gathering details: sqft, GC, timeline, scope
+1. **GC Contacted** — Reached out to the general contractor
+1. **Plans Requested** — Asked for plans/specs to bid
+1. **Plans Received** — Have the plans, ready to estimate
+1. **Estimating** — Working on the bid
+1. **Bid Submitted** — Proposal sent to GC
+1. **Bid Follow-Up** — Following up on submitted bid
+1. **Awarded** — Won the job
+1. **In Progress** — Actively performing cleanup
+1. **Completed** — Job finished
+1. **Lost** — Didn’t win (capture reason)
+1. **Dormant** — Project stalled or delayed
+
+- Drag and drop cards between stages
+- Cards show: project name, building type, GC, estimated value, days in stage
+- Stage transitions auto-log activities
+- “Awarded” and “Completed” stages should update the GC’s revenue tracking
+
+**Bid Calculator:**
+When viewing a project, provide a built-in calculator:
+
+- Input: building sqft, building type, cleanup phases needed
+- Auto-pull pricing from the `cleanup_pricing` table
+- Show: estimated hours, crew size, number of days, cost per phase
+- Apply markup/margin
+- Output: recommended bid price with breakdown
+- Allow manual override of any number
+- “Generate Proposal” button that takes this data into the PDF generator
+
+### 5. Bid Proposal Generator
+
+Generate professional, branded PDF proposals for construction cleanup bids.
+
+**Proposal PDF Layout:**
+
+**Cover Page:**
+
+- Imperial Cleaning Inc logo
+- “Post-Construction Cleanup Proposal”
+- Project name and address
+- Prepared for: [GC Company Name], Attn: [Contact Name]
+- Proposal #: ICI-2026-XXX (auto-generated)
+- Date
+- Contact: (208) 520-3202 | info@imperialcleaninginc.com
+
+**Page 2 — Company Overview:**
+
+- About Imperial Cleaning (established, licensed, insured, Idaho and Utah)
+- Key credentials: Mountain America Center experience, 500+ projects, safety certifications
+- Service philosophy
+
+**Page 3 — Scope of Work:**
+For each cleanup phase (rough, light, final):
+
+- Detailed task list specific to this building type
+- Estimated labor (crew size × hours)
+- Timeline (start and completion dates for this phase)
+- Price for this phase
+
+**Rough Clean tasks include:**
+
+- Remove all construction debris and waste materials
+- Sweep and scrape all floors
+- Remove plaster, cement, and drywall compound splatter
+- Clean window frames and sills of construction residue
+- Remove protective coverings from fixtures and surfaces
+- Clean all restroom rough-ins
+
+**Light Clean / Dust Control tasks include:**
+
+- HEPA vacuum all surfaces (walls, ceilings, ledges, sills)
+- Wipe down all horizontal and vertical surfaces
+- Clean all interior glass and mirrors
+- Clean all light fixtures and covers
+- Clean and dust all HVAC vents, returns, and diffusers
+- Detail clean all restrooms (fixtures, tile, grout, partitions)
+- Detail clean all kitchen/break room areas
+- Clean all cabinetry inside and out
+- Clean all door frames, hardware, and kick plates
+
+**Final Clean tasks include:**
+
+- Final touch-up of all previously cleaned surfaces
+- Floor care: strip and wax VCT, buff/seal concrete, extract carpet
+- Final interior and exterior window cleaning
+- Final restroom and kitchen detail
+- Remove all cleaning marks and residue
+- Inspection-ready walkthrough with PM/superintendent
+- Punch list cleaning as needed
+
+**Additional Services (if applicable):**
+
+- Exterior pressure washing
+- Parking structure cleaning
+- Floor sealing / coating
+- Window cleaning (ongoing)
+
+**Page 4 — Pricing Summary:**
+Table format:
+| Phase | Estimated Duration | Crew Size | Price |
+| Rough Clean | X days | X people | $X,XXX |
+| Light Clean | X days | X people | $X,XXX |
+| Final Clean | X days | X people | $X,XXX |
+| **Total** | | | **$XX,XXX** |
+
+**Page 5 — Terms & Conditions:**
+
+- Payment terms (Net 30 unless otherwise specified)
+- Proposal valid for 60 days
+- Insurance certificates available upon request
+- Change order process for additional work
+- Safety compliance
+- Scheduling flexibility
+
+**Acceptance signature block**
+
+### 6. Timeline & Reminders
+
+**Timeline Dashboard:**
+A calendar-style view showing:
+
+- Projects with upcoming cleanup dates (next 30/60/90 days)
+- Projects where the “outreach window” is now (approaching drywall phase)
+- Follow-up dates from the activity log
+- Bid expiration dates
+
+**Automated Reminders:**
+The tool should surface actionable reminders on the dashboard:
+
+- “3 projects are approaching drywall phase — reach out to GCs”
+- “2 bids expire this week — follow up”
+- “5 GCs haven’t been contacted in 90+ days — nurture relationships”
+- “Project X estimated cleanup start is in 3 weeks — confirm schedule”
+
+### 7. Dashboard (Admin Home)
+
+The main `/admin/projects` page should show:
+
+**Key Metrics (top row):**
+
+- Active projects in pipeline
+- Total pipeline value (sum of estimated cleanup value for all active projects)
+- Bids outstanding (submitted, waiting for response)
+- Win rate (projects won / projects bid, last 12 months)
+- Revenue this month / this quarter / YTD
+- Projects completing cleanup this month
+
+**Pipeline Board:**
+Kanban view of all active projects
+
+**Upcoming Timeline:**
+Next 30 days of cleanup dates, outreach windows, and follow-ups
+
+**Hot Projects:**
+Projects flagged as high priority or approaching cleanup phase
+
+**GC Relationships:**
+
+- Top GCs by revenue
+- GCs needing nurturing (no contact in 90+ days)
+
+**Recent Activity Feed:**
+Last 20 activities across all projects
+
+-----
+
+## API Route Structure
+
+```
+/api/admin/projects/
+  -- Discovery & Data Sources
+  GET    /sources                        — List all data source connections and status
+  PUT    /sources/[sourceId]            — Update source config (filters, frequency)
+  POST   /sources/[sourceId]/sync       — Trigger manual sync for a data source
+  GET    /sources/[sourceId]/status     — Check connection status
+  GET    /discovery/queue               — New projects pending review from automated feeds
+  POST   /discovery/queue/bulk-add      — Add multiple queued projects to pipeline
+  POST   /discovery/queue/[id]/dismiss  — Dismiss a queued project
+  POST   /discover/places              — Google Places search for GCs
+  POST   /projects/import              — CSV/bulk import of projects
+
+  -- Projects
+  GET    /projects                      — List projects (with filters)
+  POST   /projects                      — Create project
+  GET    /projects/[id]                — Get project details
+  PUT    /projects/[id]                — Update project
+  DELETE /projects/[id]                — Delete project
+  GET    /projects/export              — Export projects as CSV
+  GET    /projects/stats               — Dashboard stats
+  GET    /projects/timeline            — Timeline view data
+  GET    /projects/map                 — Map view data
+
+  -- Project Activities
+  GET    /projects/[id]/activities     — Activity log
+  POST   /projects/[id]/activities     — Log activity
+  
+  -- Bid Calculator
+  POST   /projects/[id]/calculate      — Calculate bid from sqft + building type
+  
+  -- Proposals
+  GET    /projects/[id]/proposals      — Proposals for project
+  POST   /proposals                    — Create proposal
+  GET    /proposals/[id]              — Proposal details
+  PUT    /proposals/[id]              — Update proposal
+  POST   /proposals/[id]/generate     — Generate PDF
+  GET    /proposals/[id]/pdf          — Download PDF
+
+  -- Contractors (GCs)
+  GET    /contractors                   — List all GCs
+  POST   /contractors                  — Create GC
+  GET    /contractors/[id]            — GC details with project history
+  PUT    /contractors/[id]            — Update GC
+  GET    /contractors/[id]/projects   — All projects with this GC
+  GET    /contractors/[id]/activities — Activity log for this GC
+
+  -- Follow-ups
+  GET    /follow-ups                   — All upcoming follow-ups
+  PUT    /activities/[id]             — Update activity (complete, reschedule)
+
+  -- Pricing
+  GET    /pricing                      — Get pricing table
+  PUT    /pricing/[id]                — Update pricing rates
+
+  -- Discovery
+  POST   /discover/places             — Google Places search for GCs
+  
+  -- Quick Add (mobile)
+  POST   /quick-add                    — Minimal project entry from mobile
+```
+
+-----
+
+## Admin UI Design
+
+### Styling
+
+Professional, corporate, functional. This is a bidding and sales management tool.
+
+- Dark mode with navy/dark blue accents to match Imperial Cleaning’s brand
+- Clean data tables with good information density
+- Kanban board for pipeline
+- Map integration throughout
+- Mobile-responsive — Francisco needs to add projects from the field
+- Calendar/timeline views for scheduling
+
+### Mobile-First Quick Add
+
+When accessed from a phone, the `/admin/projects/quick-add` page should be a streamlined form:
+
+- Take/upload photo
+- Drop pin on map (or enter address)
+- Project name
+- Building type (quick picker)
+- Estimated size (small/medium/large or sqft)
+- GC name (autocomplete from existing, or add new)
+- Notes
+- Save
+
+Everything else can be filled in later from desktop.
+
+### Key Pages
+
+```
+/admin/projects/                        — Dashboard (metrics, pipeline, timeline, activity)
+/admin/projects/pipeline                — Full Kanban pipeline board
+/admin/projects/list                    — Table view of all projects
+/admin/projects/map                     — Full-screen map view
+/admin/projects/timeline                — Calendar/timeline view
+/admin/projects/[id]                    — Individual project detail
+/admin/projects/quick-add               — Mobile-optimized quick entry
+/admin/projects/proposals               — All proposals list
+/admin/projects/proposals/new           — Proposal builder
+/admin/projects/contractors             — GC directory
+/admin/projects/contractors/[id]        — Individual GC profile
+/admin/projects/follow-ups              — Follow-up queue
+/admin/projects/pricing                 — Cleanup pricing settings
+/admin/projects/sources                 — Data source connections & configuration
+```
+
+-----
+
+## Data Source Integration Architecture
+
+### How Automated Feeds Work
+
+The system should use a cron-based sync architecture:
+
+1. **Scheduled Jobs**: A background task runs on a configurable schedule (default: daily at 6 AM) for each active data source.
+1. **Fetch & Filter**: The job calls the data source’s API with the configured geographic and project type filters.
+1. **Normalize**: Incoming data is normalized into the standard project schema regardless of source format.
+1. **Dedup Check**: Each incoming project is checked against existing records for duplicates.
+1. **Queue**: New, non-duplicate projects go into a “Discovery Queue” for Francisco to review.
+1. **Review**: Francisco reviews the queue, adds promising projects to the pipeline, dismisses irrelevant ones.
+1. **Enrich**: For projects added to the pipeline, the system can auto-enrich by cross-referencing other data sources (e.g., a project found via permit data might get GC contact info from ConstructionWire).
+
+### Data Source Settings Page (`/admin/projects/sources`)
+
+For each data source, show:
+
+- **Connection card**: Source name, logo/icon, connection status (connected/disconnected), API key status
+- **Filters**: Geographic scope (which cities/counties), project types, minimum value, project stages
+- **Schedule**: How often to sync (hourly, daily, weekly), last sync time, next scheduled sync
+- **Stats**: Projects pulled (total, last 7 days, last 30 days), projects added to pipeline from this source
+- **Test button**: Run a quick test query to verify the API connection and filters work
+- **Sync Now button**: Trigger an immediate sync
+
+### Source Priority & Enrichment
+
+When the same project appears in multiple sources (common for large projects), the system should:
+
+1. Link all source records to the single project
+1. Use the richest data from each source (ConstructionWire for contacts, Construction Monitor for permit dates, Shovels for inspection status)
+1. Show a “Sources” section on the project detail page listing where this project was found
+
+-----
+
+## Important Implementation Notes
+
+1. **Timing is everything.** The entire tool is oriented around catching projects at the right time. The timeline/reminder system is the most important feature after basic data entry. Francisco needs to know TODAY which projects are approaching the window where he should be calling the GC.
+1. **The GC relationship is the real asset.** Projects come and go, but a good relationship with a GC means automatic invitations to bid on every project they build. The contractor directory should make it easy to nurture these relationships and track the lifetime value of each GC.
+1. **The bid calculator saves hours.** Instead of manually estimating every job, the sqft × rate calculation gives a starting point that Francisco can adjust. The pre-populated pricing table is based on industry standards — he should update it with his actual experience over time.
+1. **Mobile entry is critical.** Francisco drives past construction sites daily. He needs to capture a project in 30 seconds from his truck: photo, pin, name, done. The quick-add form must be dead simple.
+1. **Idaho Falls is home base, but the tool scales.** The same pipeline works for Boise, Pocatello, Twin Falls, and Utah markets. The city/state fields and map views support multi-market operation.
+1. **Proposals should auto-fill from project data.** When generating a proposal, pull the project name, address, GC name, contact, sqft, building type, and calculated pricing into the PDF automatically. Francisco should only need to review and tweak, not start from scratch.
+1. **Track win rates and pricing data.** Over time, the system will reveal which building types are most profitable, which GCs are worth pursuing, and whether Imperial is pricing too high or too low. The data from won/lost bids is valuable.
+1. **Protect all admin routes** with authentication.
+
+-----
+
+## Summary
+
+Build a construction project prospecting and bid management tool at `/admin/projects` that lets Francisco:
+
+1. Discover and track commercial construction projects across Idaho and Utah
+1. Monitor construction phases and time outreach to the drywall/finish window
+1. Manage GC relationships and contacts across multiple projects
+1. Calculate cleanup bids based on sqft and building type
+1. Generate branded PDF bid proposals with detailed scope of work
+1. Track every project through a bid pipeline from discovery to completion
+1. Get daily reminders on who to call, which projects are approaching cleanup, and which bids need follow-up
+1. Quick-add projects from his phone while driving past construction sites
+1. See everything on a dashboard with pipeline, timeline, map, and revenue metrics
+
+The UI should be a dark, professional admin dashboard. Everything stores in Supabase. Maps and timeline views are core features. Mobile-responsive quick-add is essential. Make it production-ready.
