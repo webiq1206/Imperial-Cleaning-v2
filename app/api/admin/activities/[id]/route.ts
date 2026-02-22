@@ -9,7 +9,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     const body = await req.json();
     const data = convertKeysToCamel(body);
     const [activity] = await db.update(activityLog)
-      .set(data)
+      .set(data as any)
       .where(eq(activityLog.id, params.id))
       .returning();
     if (!activity) return NextResponse.json({ error: "Not found" }, { status: 404 });

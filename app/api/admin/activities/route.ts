@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const data = convertKeysToCamel(body);
-    const [activity] = await db.insert(activityLog).values(data).returning();
+    const [activity] = await db.insert(activityLog).values(data as any).returning();
     return NextResponse.json(activity, { status: 201 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

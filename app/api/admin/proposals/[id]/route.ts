@@ -19,7 +19,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     const body = await req.json();
     const data = convertKeysToCamel(body);
     const [proposal] = await db.update(bidProposals)
-      .set(data)
+      .set(data as any)
       .where(eq(bidProposals.id, params.id))
       .returning();
     if (!proposal) return NextResponse.json({ error: "Not found" }, { status: 404 });

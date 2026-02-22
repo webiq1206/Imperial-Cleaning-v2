@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const data = convertKeysToCamel(body);
-    const [contractor] = await db.insert(contractors).values(data).returning();
+    const [contractor] = await db.insert(contractors).values(data as any).returning();
     return NextResponse.json(contractor, { status: 201 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
