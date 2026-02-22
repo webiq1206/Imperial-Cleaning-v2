@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
@@ -39,7 +41,7 @@ export default function ServicesSection() {
        <div className="glass-divider-top mb-6"></div>
        
        <p className="text-muted-foreground mb-6 leading-relaxed">
-        Serving Idaho and Utah markets from debris removal to final detailing, we deliver major construction projects with consistent quality across every location.
+        Our <Link href="/construction-cleaning" className="text-primary hover:underline">construction cleaning services</Link> serve Idaho and Utah markets from debris removal to final detailing, delivering major construction projects with consistent quality across every location. We provide expert <Link href="/service-areas/utah" className="text-primary hover:underline">construction cleaning in Utah</Link> and throughout the region.
        </p>
        
        {/* Inset divider before features */}
@@ -114,7 +116,7 @@ export default function ServicesSection() {
        <div className="glass-divider-top mb-6"></div>
        
        <p className="text-muted-foreground mb-6 leading-relaxed">
-        Throughout Idaho and Utah, our professional janitorial services serve Fortune 500 companies, healthcare facilities, and government buildings with consistent quality.
+        Our <Link href="/commercial-cleaning" className="text-primary hover:underline">commercial cleaning services</Link> serve Fortune 500 companies, healthcare facilities, and government buildings with consistent quality. We provide <Link href="/service-areas/idaho" className="text-primary hover:underline">commercial cleaning throughout Idaho</Link> and <Link href="/service-areas/utah" className="text-primary hover:underline">Utah service areas</Link>.
        </p>
        
        {/* Inset divider before features */}

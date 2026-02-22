@@ -8,6 +8,7 @@ import InternalHeroSection from "@/components/internal-hero-section";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
 import { type ServiceLocation } from "@/data/service-locations";
+import { locationToSlug } from "@/lib/routing-utils";
 import { 
   generateLocationDescription,
   generateLocationHero,
@@ -31,6 +32,121 @@ import {
   Award
 } from "lucide-react";
 
+const nearbyCities: Record<string, { name: string; slug: string; state: string }[]> = {
+  "idaho-falls": [
+    { name: "Ammon", slug: "ammon", state: "idaho" },
+    { name: "Shelley", slug: "shelley", state: "idaho" },
+    { name: "Rigby", slug: "rigby", state: "idaho" },
+  ],
+  "ammon": [
+    { name: "Idaho Falls", slug: "idaho-falls", state: "idaho" },
+    { name: "Shelley", slug: "shelley", state: "idaho" },
+    { name: "Rigby", slug: "rigby", state: "idaho" },
+  ],
+  "shelley": [
+    { name: "Idaho Falls", slug: "idaho-falls", state: "idaho" },
+    { name: "Blackfoot", slug: "blackfoot", state: "idaho" },
+    { name: "Ammon", slug: "ammon", state: "idaho" },
+  ],
+  "rigby": [
+    { name: "Idaho Falls", slug: "idaho-falls", state: "idaho" },
+    { name: "Rexburg", slug: "rexburg", state: "idaho" },
+    { name: "St. Anthony", slug: "st-anthony", state: "idaho" },
+  ],
+  "blackfoot": [
+    { name: "Pocatello", slug: "pocatello", state: "idaho" },
+    { name: "Shelley", slug: "shelley", state: "idaho" },
+    { name: "Idaho Falls", slug: "idaho-falls", state: "idaho" },
+  ],
+  "pocatello": [
+    { name: "Chubbuck", slug: "chubbuck", state: "idaho" },
+    { name: "Blackfoot", slug: "blackfoot", state: "idaho" },
+    { name: "Idaho Falls", slug: "idaho-falls", state: "idaho" },
+  ],
+  "chubbuck": [
+    { name: "Pocatello", slug: "pocatello", state: "idaho" },
+    { name: "Blackfoot", slug: "blackfoot", state: "idaho" },
+  ],
+  "rexburg": [
+    { name: "Rigby", slug: "rigby", state: "idaho" },
+    { name: "St. Anthony", slug: "st-anthony", state: "idaho" },
+    { name: "Idaho Falls", slug: "idaho-falls", state: "idaho" },
+  ],
+  "st-anthony": [
+    { name: "Rexburg", slug: "rexburg", state: "idaho" },
+    { name: "Driggs", slug: "driggs", state: "idaho" },
+    { name: "Rigby", slug: "rigby", state: "idaho" },
+  ],
+  "driggs": [
+    { name: "St. Anthony", slug: "st-anthony", state: "idaho" },
+    { name: "Rexburg", slug: "rexburg", state: "idaho" },
+  ],
+  "twin-falls": [
+    { name: "Boise", slug: "boise", state: "idaho" },
+    { name: "Pocatello", slug: "pocatello", state: "idaho" },
+  ],
+  "boise": [
+    { name: "Meridian", slug: "meridian", state: "idaho" },
+    { name: "Eagle", slug: "eagle", state: "idaho" },
+    { name: "Nampa", slug: "nampa", state: "idaho" },
+  ],
+  "meridian": [
+    { name: "Boise", slug: "boise", state: "idaho" },
+    { name: "Eagle", slug: "eagle", state: "idaho" },
+    { name: "Nampa", slug: "nampa", state: "idaho" },
+  ],
+  "nampa": [
+    { name: "Caldwell", slug: "caldwell", state: "idaho" },
+    { name: "Meridian", slug: "meridian", state: "idaho" },
+    { name: "Boise", slug: "boise", state: "idaho" },
+  ],
+  "caldwell": [
+    { name: "Nampa", slug: "nampa", state: "idaho" },
+    { name: "Meridian", slug: "meridian", state: "idaho" },
+    { name: "Boise", slug: "boise", state: "idaho" },
+  ],
+  "eagle": [
+    { name: "Boise", slug: "boise", state: "idaho" },
+    { name: "Meridian", slug: "meridian", state: "idaho" },
+  ],
+  "logan": [
+    { name: "Ogden", slug: "ogden", state: "utah" },
+    { name: "Layton", slug: "layton", state: "utah" },
+  ],
+  "ogden": [
+    { name: "Layton", slug: "layton", state: "utah" },
+    { name: "Logan", slug: "logan", state: "utah" },
+    { name: "Salt Lake City", slug: "salt-lake-city", state: "utah" },
+  ],
+  "layton": [
+    { name: "Ogden", slug: "ogden", state: "utah" },
+    { name: "Salt Lake City", slug: "salt-lake-city", state: "utah" },
+  ],
+  "salt-lake-city": [
+    { name: "West Valley City", slug: "west-valley-city", state: "utah" },
+    { name: "Sandy", slug: "sandy", state: "utah" },
+    { name: "Provo", slug: "provo", state: "utah" },
+  ],
+  "west-valley-city": [
+    { name: "Salt Lake City", slug: "salt-lake-city", state: "utah" },
+    { name: "Sandy", slug: "sandy", state: "utah" },
+  ],
+  "sandy": [
+    { name: "Salt Lake City", slug: "salt-lake-city", state: "utah" },
+    { name: "Provo", slug: "provo", state: "utah" },
+    { name: "Orem", slug: "orem", state: "utah" },
+  ],
+  "provo": [
+    { name: "Orem", slug: "orem", state: "utah" },
+    { name: "Sandy", slug: "sandy", state: "utah" },
+    { name: "Salt Lake City", slug: "salt-lake-city", state: "utah" },
+  ],
+  "orem": [
+    { name: "Provo", slug: "provo", state: "utah" },
+    { name: "Sandy", slug: "sandy", state: "utah" },
+  ],
+};
+
 interface ServiceLocationClientProps {
   location: ServiceLocation;
   serviceType: "construction-cleaning" | "commercial-cleaning";
@@ -49,6 +165,10 @@ export default function ServiceLocationClient({
   const serviceFeatures = generateEnhancedServiceFeatures(serviceType, location);
   const faqs = generateLocationFAQ(serviceType, location);
   const stateSlug = location.state.toLowerCase();
+  const citySlug = locationToSlug(location.name);
+  const siblingService = serviceType === "commercial-cleaning" ? "construction-cleaning" : "commercial-cleaning";
+  const siblingServiceName = serviceType === "commercial-cleaning" ? "Construction Cleaning" : "Commercial Cleaning";
+  const nearby = nearbyCities[citySlug] || [];
   
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -374,6 +494,42 @@ export default function ServiceLocationClient({
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services & Areas */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl mb-8 text-foreground text-center">Explore Related Services &amp; Areas</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="glass-card-elevated p-6 rounded-lg">
+              <h3 className="text-lg mb-4 text-foreground">Parent Pages</h3>
+              <ul className="space-y-3">
+                <li><Link href={`/${serviceType}`} className="text-primary hover:underline">{serviceName} services</Link></li>
+                <li><Link href={`/service-areas/${stateSlug}`} className="text-primary hover:underline">{location.state} service areas</Link></li>
+              </ul>
+            </div>
+            <div className="glass-card-elevated p-6 rounded-lg">
+              <h3 className="text-lg mb-4 text-foreground">Also Available in {location.name}</h3>
+              <ul className="space-y-3">
+                <li><Link href={`/${stateSlug}/${siblingService}/${citySlug}`} className="text-primary hover:underline">{siblingServiceName} in {location.name}</Link></li>
+              </ul>
+            </div>
+            {nearby.length > 0 && (
+              <div className="glass-card-elevated p-6 rounded-lg">
+                <h3 className="text-lg mb-4 text-foreground">Nearby Cities</h3>
+                <ul className="space-y-3">
+                  {nearby.map((city) => (
+                    <li key={city.slug}>
+                      <Link href={`/${city.state}/${serviceType}/${city.slug}`} className="text-primary hover:underline">
+                        {serviceName} in {city.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </section>

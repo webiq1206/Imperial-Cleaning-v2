@@ -387,6 +387,20 @@ export default function Header() {
             </div>
 
             <Link 
+              href="/service-areas/idaho" 
+              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle"
+            >
+              Idaho
+            </Link>
+
+            <Link 
+              href="/service-areas/utah" 
+              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle"
+            >
+              Utah
+            </Link>
+
+            <Link 
               href="/about" 
               className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 nav-item-slide hover-lift-gentle"
             >

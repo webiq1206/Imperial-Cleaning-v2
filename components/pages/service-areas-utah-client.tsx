@@ -226,6 +226,77 @@ export default function ServiceAreasUtahClient() {
         </div>
       </section>
 
+      {/* Utah City Service Pages */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl mb-6 text-foreground">All Utah Cleaning Services</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Browse our <Link href="/commercial-cleaning" className="text-primary hover:underline">Commercial Cleaning Services</Link> and <Link href="/construction-cleaning" className="text-primary hover:underline">Construction Cleaning Services</Link> available throughout Utah.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Logan</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/logan" className="text-primary hover:underline text-sm">Logan commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/logan" className="text-primary hover:underline text-sm">Logan construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Salt Lake City</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/salt-lake-city" className="text-primary hover:underline text-sm">Salt Lake City commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/salt-lake-city" className="text-primary hover:underline text-sm">Salt Lake City construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Ogden</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/ogden" className="text-primary hover:underline text-sm">Ogden commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/ogden" className="text-primary hover:underline text-sm">Ogden construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Provo</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/provo" className="text-primary hover:underline text-sm">Provo commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/provo" className="text-primary hover:underline text-sm">Provo construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">West Valley City</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/west-valley-city" className="text-primary hover:underline text-sm">West Valley City commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/west-valley-city" className="text-primary hover:underline text-sm">West Valley City construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Sandy</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/sandy" className="text-primary hover:underline text-sm">Sandy commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/sandy" className="text-primary hover:underline text-sm">Sandy construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Orem</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/orem" className="text-primary hover:underline text-sm">Orem commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/orem" className="text-primary hover:underline text-sm">Orem construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Layton</h3>
+              <ul className="space-y-2">
+                <li><Link href="/utah/commercial-cleaning/layton" className="text-primary hover:underline text-sm">Layton commercial cleaning</Link></li>
+                <li><Link href="/utah/construction-cleaning/layton" className="text-primary hover:underline text-sm">Layton construction cleaning</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">

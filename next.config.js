@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: false,
   
   poweredByHeader: false,
   
@@ -24,7 +25,6 @@ const nextConfig = {
     ],
   },
   
-  // Redirect legacy URLs to new format
   async redirects() {
     return [
       // Legacy construction cleaning redirects
@@ -51,6 +51,34 @@ const nextConfig = {
         destination: 'https://imperialcleaninginc.com/:path*',
         permanent: true,
       },
+
+      // Old WordPress industry/service pages -> /commercial-cleaning
+      { source: '/restaurant-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/restaurant-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/medical-office-cleaning', destination: '/commercial-cleaning', permanent: true },
+      { source: '/medical-office-cleaning/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/school-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/school-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/church-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/church-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/car-dealership-cleaning', destination: '/commercial-cleaning', permanent: true },
+      { source: '/car-dealership-cleaning/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/bank-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/bank-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/electrostatic-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/electrostatic-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+
+      // Old structural pages
+      { source: '/industries', destination: '/commercial-cleaning', permanent: true },
+      { source: '/industries/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/apply', destination: '/contact', permanent: true },
+      { source: '/apply/', destination: '/contact', permanent: true },
+
+      // Broken pages from an earlier Next.js deploy
+      { source: '/retail-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/retail-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/business-office-cleaning', destination: '/commercial-cleaning', permanent: true },
+      { source: '/business-office-cleaning/', destination: '/commercial-cleaning', permanent: true },
     ];
   },
   

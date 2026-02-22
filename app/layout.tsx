@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import dynamic from 'next/dynamic';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(m => ({ default: m.Toaster })), { ssr: false });
 
@@ -159,9 +161,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <Header />
         <main id="main-content">
           {children}
         </main>
+        <Footer />
         <Toaster />
         
         {/* JSON-LD Structured Data - inline, no JS execution needed */}

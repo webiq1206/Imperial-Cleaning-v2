@@ -241,6 +241,133 @@ export default function ServiceAreasIdahoClient() {
         </div>
       </section>
 
+      {/* Idaho City Service Pages */}
+      <section className="py-16 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl mb-6 text-foreground">All Idaho Cleaning Services</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Browse our <Link href="/commercial-cleaning" className="text-primary hover:underline">Commercial Cleaning Services</Link> and <Link href="/construction-cleaning" className="text-primary hover:underline">Construction Cleaning Services</Link> available throughout Idaho.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Idaho Falls</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/idaho-falls" className="text-primary hover:underline text-sm">Idaho Falls commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/idaho-falls" className="text-primary hover:underline text-sm">Idaho Falls construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Pocatello</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/pocatello" className="text-primary hover:underline text-sm">Pocatello commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/pocatello" className="text-primary hover:underline text-sm">Pocatello construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Blackfoot</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/blackfoot" className="text-primary hover:underline text-sm">Blackfoot commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/blackfoot" className="text-primary hover:underline text-sm">Blackfoot construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Rexburg</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/rexburg" className="text-primary hover:underline text-sm">Rexburg commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/rexburg" className="text-primary hover:underline text-sm">Rexburg construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Twin Falls</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/twin-falls" className="text-primary hover:underline text-sm">Twin Falls commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/twin-falls" className="text-primary hover:underline text-sm">Twin Falls construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Boise</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/boise" className="text-primary hover:underline text-sm">Boise commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/boise" className="text-primary hover:underline text-sm">Boise construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Meridian</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/meridian" className="text-primary hover:underline text-sm">Meridian commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/meridian" className="text-primary hover:underline text-sm">Meridian construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Nampa</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/nampa" className="text-primary hover:underline text-sm">Nampa commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/nampa" className="text-primary hover:underline text-sm">Nampa construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Caldwell</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/caldwell" className="text-primary hover:underline text-sm">Caldwell commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/caldwell" className="text-primary hover:underline text-sm">Caldwell construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Eagle</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/eagle" className="text-primary hover:underline text-sm">Eagle commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/eagle" className="text-primary hover:underline text-sm">Eagle construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Ammon</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/ammon" className="text-primary hover:underline text-sm">Ammon commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/ammon" className="text-primary hover:underline text-sm">Ammon construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Chubbuck</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/chubbuck" className="text-primary hover:underline text-sm">Chubbuck commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/chubbuck" className="text-primary hover:underline text-sm">Chubbuck construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Shelley</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/shelley" className="text-primary hover:underline text-sm">Shelley commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/shelley" className="text-primary hover:underline text-sm">Shelley construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Rigby</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/rigby" className="text-primary hover:underline text-sm">Rigby commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/rigby" className="text-primary hover:underline text-sm">Rigby construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">St. Anthony</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/st-anthony" className="text-primary hover:underline text-sm">St. Anthony commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/st-anthony" className="text-primary hover:underline text-sm">St. Anthony construction cleaning</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-foreground">Driggs</h3>
+              <ul className="space-y-2">
+                <li><Link href="/idaho/commercial-cleaning/driggs" className="text-primary hover:underline text-sm">Driggs commercial cleaning</Link></li>
+                <li><Link href="/idaho/construction-cleaning/driggs" className="text-primary hover:underline text-sm">Driggs construction cleaning</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
