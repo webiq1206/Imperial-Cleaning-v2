@@ -2,8 +2,6 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-
-export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { FileText, Plus, DollarSign, Calendar, Building2 } from "lucide-react";
 
@@ -17,7 +15,7 @@ const STATUS_COLORS: Record<string, string> = {
   revised: "bg-purple-500/20 text-purple-400",
 };
 
-export default function ProposalsPage() {
+function ProposalsContent() {
   const searchParams = useSearchParams();
   const projectId = searchParams.get("project_id");
   const [proposals, setProposals] = useState<any[]>([]);
@@ -239,5 +237,13 @@ export default function ProposalsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ProposalsPage() {
+  return (
+    <Suspense fallback={<div className="p-8"><div className="h-8 bg-gray-800 rounded w-48 animate-pulse" /></div>}>
+      <ProposalsContent />
+    </Suspense>
   );
 }
