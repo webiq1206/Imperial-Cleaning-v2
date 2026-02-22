@@ -99,6 +99,15 @@ Location-specific pages follow the URL structure: `/{state}/{service}/{city}/`
 - **Nearby cities map**: Defined in service-location-client.tsx for all 24 service locations
 - **Header nav**: Includes direct links to Idaho and Utah service areas alongside Services dropdown
 
+### Construction Pipeline CRM (Feb 2026)
+- **Admin panel at `/admin/projects`**: Full project prospecting and bid management CRM
+- **Database schema**: 6 tables (contractors, construction_projects, activity_log, bid_proposals, cleanup_pricing, discovery_queue) in `lib/db/schema.ts`
+- **API routes**: 14 routes under `app/api/admin/` with full CRUD for all entities plus stats, bid calculator, follow-ups, and discovery queue
+- **API data contract**: Frontend sends snake_case keys → API converts via `convertKeysToCamel` (lib/db/utils.ts) → Drizzle ORM uses camelCase → responses return camelCase → frontend accesses camelCase properties
+- **Pages**: Dashboard, project list, project detail, new project form, quick-add (mobile), Kanban pipeline board (13 stages with drag-and-drop), contractor directory, contractor detail, proposals/bid calculator, follow-ups/reminders, timeline/calendar, map view, pricing management, data sources config
+- **Dark theme UI**: #0a0e1a background, cyan accent colors, responsive sidebar + mobile nav
+- **Exported constants**: PIPELINE_STAGES, BUILDING_TYPES, PRIORITY_LEVELS, CONSTRUCTION_PHASES, CLEANUP_TYPES, RELATIONSHIP_STATUSES, PROJECT_SOURCES from schema.ts
+
 ### Build Tools
 - **PostCSS + Autoprefixer**: CSS processing
 - **TypeScript**: Strict mode enabled with path aliases

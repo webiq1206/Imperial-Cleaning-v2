@@ -1,19 +1,11 @@
-import { neon } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-http';
+import { Pool } from 'pg';
+import { drizzle } from 'drizzle-orm/node-postgres';
 import * as schema from './schema';
 
-// For serverless environments (Next.js API routes)
-// Use neon() HTTP driver instead of Pool for better edge compatibility
-const getDatabaseUrl = () => {
-  const url = process.env.DATABASE_URL;
-  if (!url) {
-    console.warn('DATABASE_URL not set - database operations will fail');
-    return '';
-  }
-  return url;
-};
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
-const sql = neon(getDatabaseUrl());
-export const db = drizzle(sql, { schema });
+export const db = drizzle(pool, { schema });
 
 export { schema };
