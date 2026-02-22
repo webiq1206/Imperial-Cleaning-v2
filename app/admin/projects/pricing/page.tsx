@@ -30,7 +30,7 @@ export default function PricingPage() {
     }
   };
 
-  const buildingTypes = [...new Set(pricing.map(p => p.building_type))];
+  const buildingTypes = Array.from(new Set(pricing.map(p => p.building_type)));
 
   if (loading) return <div className="p-8"><div className="h-8 bg-gray-800 rounded w-48 animate-pulse" /></div>;
 
