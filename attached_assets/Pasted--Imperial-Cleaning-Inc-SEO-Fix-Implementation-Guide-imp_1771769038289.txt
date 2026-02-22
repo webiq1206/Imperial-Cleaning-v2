@@ -1,0 +1,456 @@
+# Imperial Cleaning Inc - SEO Fix Implementation Guide
+## imperialcleaninginc.com | Next.js Codebase
+## For Developer Implementation in Replit
+
+---
+
+## CONTEXT
+
+This is a Next.js website for a commercial cleaning and construction cleaning company serving Idaho and Utah. The site was recently rebuilt from WordPress to Next.js, and the migration broke SEO in several critical ways. This document contains all the fixes that need to be implemented.
+
+The site's live sitemap is at https://imperialcleaninginc.com/sitemap.xml and contains 57 URLs covering core pages, Idaho city pages, and Utah city pages.
+
+---
+
+## FIX 1: RESTORE THE NAVIGATION MENU
+
+The site's navigation menu is not rendering. Find the header/navbar component and ensure it is properly imported and rendered in the root layout (`app/layout.tsx` or `src/app/layout.tsx`).
+
+The navigation must include these links using Next.js `<Link>` components from `next/link`:
+
+```
+/                           "Home"
+/commercial-cleaning        "Commercial Cleaning"
+/construction-cleaning      "Construction Cleaning"
+/service-areas/idaho        "Idaho"
+/service-areas/utah         "Utah"
+/about                      "About"
+/contact                    "Contact"
+```
+
+The mobile/responsive version of the menu must also work. If using a hamburger toggle with `useState`, make sure the component has `"use client"` at the top.
+
+The footer on every page (in the root layout) must also include these links:
+
+```
+/commercial-cleaning        "Commercial Cleaning"
+/construction-cleaning      "Construction Cleaning"
+/service-areas/idaho        "Idaho Service Areas"
+/service-areas/utah         "Utah Service Areas"
+/about                      "About"
+/contact                    "Contact"
+```
+
+---
+
+## FIX 2: ADD 301 REDIRECTS TO next.config.js
+
+The old WordPress site had URLs that are still in Google's index but now return 404 errors. An earlier version of the Next.js site also had URLs that are now 404ing. All of these need permanent 301 redirects to the closest matching page on the current site.
+
+Add the following `redirects()` function to the existing `next.config.js` (or `.mjs` / `.ts`). Merge with any existing config rather than replacing the whole file. Also add `trailingSlash: false` at the top level of the config.
+
+```javascript
+// Add trailingSlash: false to the top level of the nextConfig object
+// trailingSlash: false,
+
+// Add this async redirects() function inside the nextConfig object
+async redirects() {
+  return [
+
+    // Old WordPress industry/service pages -> /commercial-cleaning
+    {
+      source: '/restaurant-cleaning-services',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/restaurant-cleaning-services/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/medical-office-cleaning',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/medical-office-cleaning/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/school-cleaning-services',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/school-cleaning-services/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/church-cleaning-services',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/church-cleaning-services/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/car-dealership-cleaning',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/car-dealership-cleaning/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/bank-cleaning-services',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/bank-cleaning-services/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/electrostatic-cleaning-services',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/electrostatic-cleaning-services/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+
+    // Old structural pages
+    {
+      source: '/industries',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/industries/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/apply',
+      destination: '/contact',
+      permanent: true,
+    },
+    {
+      source: '/apply/',
+      destination: '/contact',
+      permanent: true,
+    },
+
+    // Broken pages from an earlier Next.js deploy that got indexed
+    {
+      source: '/retail-cleaning-services',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/retail-cleaning-services/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/business-office-cleaning',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+    {
+      source: '/business-office-cleaning/',
+      destination: '/commercial-cleaning',
+      permanent: true,
+    },
+
+  ];
+},
+```
+
+After deploying, verify by visiting `https://imperialcleaninginc.com/restaurant-cleaning-services/` in a browser. It should 301 redirect to `/commercial-cleaning`. Test several others from the list to confirm.
+
+---
+
+## FIX 3: INTERNAL LINKING
+
+Every page on the site must have proper internal links to related pages. All internal links must use the Next.js `<Link>` component from `next/link`, never plain `<a>` tags. Anchor text should naturally incorporate target keywords (commercial cleaning, janitorial services, construction cleaning, construction cleanup, post-construction cleaning) combined with city/state names where appropriate.
+
+### 3A: Homepage Internal Links
+
+The homepage body content (not just the nav/footer, but within the actual page content) must contain contextual links to:
+
+```
+/commercial-cleaning              anchor text: "commercial cleaning services"
+/construction-cleaning            anchor text: "construction cleaning services" or "post-construction cleanup"
+/service-areas/idaho              anchor text: "commercial cleaning throughout Idaho" or "Idaho service areas"
+/service-areas/utah               anchor text: "construction cleaning in Utah" or "Utah service areas"
+```
+
+### 3B: /commercial-cleaning Page Internal Links
+
+This page must contain links to:
+
+```
+/construction-cleaning                         anchor: "construction cleanup services"
+/service-areas/idaho                           anchor: "Idaho commercial cleaning areas"
+/service-areas/utah                            anchor: "Utah commercial cleaning areas"
+/idaho/commercial-cleaning/idaho-falls         anchor: "commercial cleaning in Idaho Falls"
+/idaho/commercial-cleaning/boise               anchor: "commercial cleaning in Boise"
+/idaho/commercial-cleaning/pocatello           anchor: "commercial cleaning in Pocatello"
+/idaho/commercial-cleaning/twin-falls          anchor: "commercial cleaning in Twin Falls"
+/utah/commercial-cleaning/salt-lake-city       anchor: "commercial cleaning in Salt Lake City"
+/utah/commercial-cleaning/logan                anchor: "commercial cleaning in Logan"
+```
+
+### 3C: /construction-cleaning Page Internal Links
+
+Same pattern as above but for construction cleaning:
+
+```
+/commercial-cleaning                             anchor: "commercial cleaning services"
+/service-areas/idaho                             anchor: "Idaho construction cleaning areas"
+/service-areas/utah                              anchor: "Utah construction cleaning areas"
+/idaho/construction-cleaning/idaho-falls         anchor: "construction cleaning in Idaho Falls"
+/idaho/construction-cleaning/boise               anchor: "construction cleaning in Boise"
+/idaho/construction-cleaning/pocatello           anchor: "construction cleaning in Pocatello"
+/idaho/construction-cleaning/twin-falls          anchor: "construction cleaning in Twin Falls"
+/utah/construction-cleaning/salt-lake-city       anchor: "construction cleaning in Salt Lake City"
+/utah/construction-cleaning/logan                anchor: "construction cleaning in Logan"
+```
+
+### 3D: /service-areas/idaho Page Internal Links
+
+This page must link to EVERY Idaho city page (both commercial and construction). All 30 Idaho city URLs:
+
+```
+/idaho/commercial-cleaning/idaho-falls       anchor: "Idaho Falls commercial cleaning"
+/idaho/construction-cleaning/idaho-falls     anchor: "Idaho Falls construction cleaning"
+/idaho/commercial-cleaning/pocatello         anchor: "Pocatello commercial cleaning"
+/idaho/construction-cleaning/pocatello       anchor: "Pocatello construction cleaning"
+/idaho/commercial-cleaning/blackfoot         anchor: "Blackfoot commercial cleaning"
+/idaho/construction-cleaning/blackfoot       anchor: "Blackfoot construction cleaning"
+/idaho/commercial-cleaning/rexburg           anchor: "Rexburg commercial cleaning"
+/idaho/construction-cleaning/rexburg         anchor: "Rexburg construction cleaning"
+/idaho/commercial-cleaning/twin-falls        anchor: "Twin Falls commercial cleaning"
+/idaho/construction-cleaning/twin-falls      anchor: "Twin Falls construction cleaning"
+/idaho/commercial-cleaning/boise             anchor: "Boise commercial cleaning"
+/idaho/construction-cleaning/boise           anchor: "Boise construction cleaning"
+/idaho/commercial-cleaning/meridian          anchor: "Meridian commercial cleaning"
+/idaho/construction-cleaning/meridian        anchor: "Meridian construction cleaning"
+/idaho/commercial-cleaning/nampa             anchor: "Nampa commercial cleaning"
+/idaho/construction-cleaning/nampa           anchor: "Nampa construction cleaning"
+/idaho/commercial-cleaning/caldwell          anchor: "Caldwell commercial cleaning"
+/idaho/construction-cleaning/caldwell        anchor: "Caldwell construction cleaning"
+/idaho/commercial-cleaning/eagle             anchor: "Eagle commercial cleaning"
+/idaho/construction-cleaning/eagle           anchor: "Eagle construction cleaning"
+/idaho/commercial-cleaning/ammon             anchor: "Ammon commercial cleaning"
+/idaho/construction-cleaning/ammon           anchor: "Ammon construction cleaning"
+/idaho/commercial-cleaning/chubbuck         anchor: "Chubbuck commercial cleaning"
+/idaho/construction-cleaning/chubbuck       anchor: "Chubbuck construction cleaning"
+/idaho/commercial-cleaning/shelley           anchor: "Shelley commercial cleaning"
+/idaho/construction-cleaning/shelley         anchor: "Shelley construction cleaning"
+/idaho/commercial-cleaning/rigby             anchor: "Rigby commercial cleaning"
+/idaho/construction-cleaning/rigby           anchor: "Rigby construction cleaning"
+/idaho/commercial-cleaning/st-anthony        anchor: "St. Anthony commercial cleaning"
+/idaho/construction-cleaning/st-anthony      anchor: "St. Anthony construction cleaning"
+/idaho/commercial-cleaning/driggs            anchor: "Driggs commercial cleaning"
+/idaho/construction-cleaning/driggs          anchor: "Driggs construction cleaning"
+```
+
+Also link up to:
+```
+/commercial-cleaning        anchor: "Commercial Cleaning Services"
+/construction-cleaning      anchor: "Construction Cleaning Services"
+```
+
+### 3E: /service-areas/utah Page Internal Links
+
+Same pattern. Link to EVERY Utah city page (all 16 Utah city URLs):
+
+```
+/utah/commercial-cleaning/logan                anchor: "Logan commercial cleaning"
+/utah/construction-cleaning/logan              anchor: "Logan construction cleaning"
+/utah/commercial-cleaning/salt-lake-city       anchor: "Salt Lake City commercial cleaning"
+/utah/construction-cleaning/salt-lake-city     anchor: "Salt Lake City construction cleaning"
+/utah/commercial-cleaning/ogden                anchor: "Ogden commercial cleaning"
+/utah/construction-cleaning/ogden              anchor: "Ogden construction cleaning"
+/utah/commercial-cleaning/provo                anchor: "Provo commercial cleaning"
+/utah/construction-cleaning/provo              anchor: "Provo construction cleaning"
+/utah/commercial-cleaning/west-valley-city     anchor: "West Valley City commercial cleaning"
+/utah/construction-cleaning/west-valley-city   anchor: "West Valley City construction cleaning"
+/utah/commercial-cleaning/sandy                anchor: "Sandy commercial cleaning"
+/utah/construction-cleaning/sandy              anchor: "Sandy construction cleaning"
+/utah/commercial-cleaning/orem                 anchor: "Orem commercial cleaning"
+/utah/construction-cleaning/orem               anchor: "Orem construction cleaning"
+/utah/commercial-cleaning/layton               anchor: "Layton commercial cleaning"
+/utah/construction-cleaning/layton             anchor: "Layton construction cleaning"
+```
+
+Also link up to:
+```
+/commercial-cleaning        anchor: "Commercial Cleaning Services"
+/construction-cleaning      anchor: "Construction Cleaning Services"
+```
+
+### 3F: City Page Internal Links (applies to ALL 48 city pages)
+
+Every city page needs these links:
+
+**Link UP to parent pages:**
+```
+/                                   anchor: "Imperial Cleaning" or "Home"
+/commercial-cleaning                anchor: "commercial cleaning services" (if this is a commercial page)
+/construction-cleaning              anchor: "construction cleaning services" (if this is a construction page)
+/service-areas/idaho                anchor: "Idaho service areas" (if Idaho city)
+/service-areas/utah                 anchor: "Utah service areas" (if Utah city)
+```
+
+**Link ACROSS to the sibling service type for the same city.** For example:
+```
+If page is /idaho/commercial-cleaning/idaho-falls:
+  -> link to /idaho/construction-cleaning/idaho-falls   anchor: "Idaho Falls construction cleaning"
+
+If page is /idaho/construction-cleaning/idaho-falls:
+  -> link to /idaho/commercial-cleaning/idaho-falls     anchor: "Idaho Falls commercial cleaning"
+```
+
+This applies to every city page. The commercial version links to the construction version of the same city, and vice versa.
+
+**Link to 2-3 NEARBY city pages** for the same service type. Use these geographic groupings:
+
+Idaho nearby cities:
+```
+Idaho Falls   <-> Ammon, Shelley, Rigby, Blackfoot
+Pocatello     <-> Chubbuck, Blackfoot
+Blackfoot     <-> Idaho Falls, Pocatello, Chubbuck
+Rexburg       <-> Rigby, St. Anthony, Driggs
+Twin Falls    (standalone - link to Boise or Idaho Falls)
+Boise         <-> Meridian, Eagle, Nampa, Caldwell
+Meridian      <-> Boise, Eagle, Nampa
+Nampa         <-> Caldwell, Meridian, Boise
+Caldwell      <-> Nampa, Meridian, Boise
+Eagle         <-> Boise, Meridian
+Ammon         <-> Idaho Falls, Shelley, Rigby
+Chubbuck      <-> Pocatello, Blackfoot
+Shelley       <-> Idaho Falls, Ammon, Blackfoot
+Rigby         <-> Idaho Falls, Rexburg, Ammon
+St. Anthony   <-> Rexburg, Driggs
+Driggs        <-> Rexburg, St. Anthony
+```
+
+Utah nearby cities:
+```
+Salt Lake City    <-> West Valley City, Sandy
+West Valley City  <-> Salt Lake City, Sandy
+Sandy             <-> Salt Lake City, Provo, Orem
+Ogden             <-> Layton
+Layton            <-> Ogden, Salt Lake City
+Provo             <-> Orem, Sandy
+Orem              <-> Provo, Sandy
+Logan             (standalone - link to Ogden)
+```
+
+Anchor text for nearby city links should be: "[City Name] commercial cleaning" or "[City Name] construction cleaning" matching the service type of the current page.
+
+---
+
+## FIX 4: DUPLICATE CONTENT CHECK ON CITY PAGES
+
+Review all 48 city pages for duplicate content blocks within individual pages. The Blackfoot commercial cleaning page has a section ("Food Processing Facility Cleaning in Blackfoot") that appears twice with identical text. If other city pages have similar duplicate blocks, remove the duplicates.
+
+Also verify that each city page has at least some content that is unique to that specific city and not just the city name swapped into an otherwise identical template. Pages that are 95%+ identical across cities will be treated as thin/duplicate content by Google and may not be indexed.
+
+---
+
+## COMPLETE SITE URL REFERENCE
+
+These are all 57 live URLs from the sitemap. Every page listed below should be accessible, should render properly, and should contain the internal links specified above.
+
+**Core pages (9):**
+```
+https://imperialcleaninginc.com
+https://imperialcleaninginc.com/about
+https://imperialcleaninginc.com/contact
+https://imperialcleaninginc.com/commercial-cleaning
+https://imperialcleaninginc.com/construction-cleaning
+https://imperialcleaninginc.com/service-areas/idaho
+https://imperialcleaninginc.com/service-areas/utah
+https://imperialcleaninginc.com/privacy-policy
+https://imperialcleaninginc.com/terms-of-service
+```
+
+**Idaho city pages (30):**
+```
+https://imperialcleaninginc.com/idaho/commercial-cleaning/idaho-falls
+https://imperialcleaninginc.com/idaho/construction-cleaning/idaho-falls
+https://imperialcleaninginc.com/idaho/commercial-cleaning/pocatello
+https://imperialcleaninginc.com/idaho/construction-cleaning/pocatello
+https://imperialcleaninginc.com/idaho/commercial-cleaning/blackfoot
+https://imperialcleaninginc.com/idaho/construction-cleaning/blackfoot
+https://imperialcleaninginc.com/idaho/commercial-cleaning/rexburg
+https://imperialcleaninginc.com/idaho/construction-cleaning/rexburg
+https://imperialcleaninginc.com/idaho/commercial-cleaning/twin-falls
+https://imperialcleaninginc.com/idaho/construction-cleaning/twin-falls
+https://imperialcleaninginc.com/idaho/commercial-cleaning/boise
+https://imperialcleaninginc.com/idaho/construction-cleaning/boise
+https://imperialcleaninginc.com/idaho/commercial-cleaning/meridian
+https://imperialcleaninginc.com/idaho/construction-cleaning/meridian
+https://imperialcleaninginc.com/idaho/commercial-cleaning/nampa
+https://imperialcleaninginc.com/idaho/construction-cleaning/nampa
+https://imperialcleaninginc.com/idaho/commercial-cleaning/caldwell
+https://imperialcleaninginc.com/idaho/construction-cleaning/caldwell
+https://imperialcleaninginc.com/idaho/commercial-cleaning/eagle
+https://imperialcleaninginc.com/idaho/construction-cleaning/eagle
+https://imperialcleaninginc.com/idaho/commercial-cleaning/ammon
+https://imperialcleaninginc.com/idaho/construction-cleaning/ammon
+https://imperialcleaninginc.com/idaho/commercial-cleaning/chubbuck
+https://imperialcleaninginc.com/idaho/construction-cleaning/chubbuck
+https://imperialcleaninginc.com/idaho/commercial-cleaning/shelley
+https://imperialcleaninginc.com/idaho/construction-cleaning/shelley
+https://imperialcleaninginc.com/idaho/commercial-cleaning/rigby
+https://imperialcleaninginc.com/idaho/construction-cleaning/rigby
+https://imperialcleaninginc.com/idaho/commercial-cleaning/st-anthony
+https://imperialcleaninginc.com/idaho/construction-cleaning/st-anthony
+https://imperialcleaninginc.com/idaho/commercial-cleaning/driggs
+https://imperialcleaninginc.com/idaho/construction-cleaning/driggs
+```
+
+**Utah city pages (16):**
+```
+https://imperialcleaninginc.com/utah/commercial-cleaning/logan
+https://imperialcleaninginc.com/utah/construction-cleaning/logan
+https://imperialcleaninginc.com/utah/commercial-cleaning/salt-lake-city
+https://imperialcleaninginc.com/utah/construction-cleaning/salt-lake-city
+https://imperialcleaninginc.com/utah/commercial-cleaning/ogden
+https://imperialcleaninginc.com/utah/construction-cleaning/ogden
+https://imperialcleaninginc.com/utah/commercial-cleaning/provo
+https://imperialcleaninginc.com/utah/construction-cleaning/provo
+https://imperialcleaninginc.com/utah/commercial-cleaning/west-valley-city
+https://imperialcleaninginc.com/utah/construction-cleaning/west-valley-city
+https://imperialcleaninginc.com/utah/commercial-cleaning/sandy
+https://imperialcleaninginc.com/utah/construction-cleaning/sandy
+https://imperialcleaninginc.com/utah/commercial-cleaning/orem
+https://imperialcleaninginc.com/utah/construction-cleaning/orem
+https://imperialcleaninginc.com/utah/commercial-cleaning/layton
+https://imperialcleaninginc.com/utah/construction-cleaning/layton
+```
+
+---
+
+## IMPLEMENTATION ORDER
+
+1. Fix the navigation menu (FIX 1)
+2. Add the 301 redirects to next.config.js (FIX 2)
+3. Implement internal linking across all pages (FIX 3)
+4. Fix duplicate content blocks on city pages (FIX 4)
+5. Deploy and verify all redirects work by testing old URLs in browser
