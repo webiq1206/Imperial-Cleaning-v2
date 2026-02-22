@@ -91,6 +91,14 @@ Location-specific pages follow the URL structure: `/{state}/{service}/{city}/`
 - **LCP hero optimization**: Removed animation delays from hero h1/p LCP elements to prevent opacity:0 blocking first paint
 - **Below-fold lazy loading**: Below-fold sections (testimonials, FAQ, etc.) loaded with ssr:false to reduce initial bundle
 
+### SEO & Internal Linking (Feb 2026)
+- **301 Redirects**: Old WordPress URLs (restaurant-cleaning-services, medical-office-cleaning, etc.) redirect to /commercial-cleaning; /apply redirects to /contact
+- **trailingSlash: false**: Consistent URL format without trailing slashes
+- **Internal linking**: Every page has contextual internal links to related services, state areas, and nearby cities
+- **City page linking**: Each of 48 city pages links UP (parent service/state), ACROSS (sibling service type), and NEARBY (2-3 geographically close cities)
+- **Nearby cities map**: Defined in service-location-client.tsx for all 24 service locations
+- **Header nav**: Includes direct links to Idaho and Utah service areas alongside Services dropdown
+
 ### Build Tools
 - **PostCSS + Autoprefixer**: CSS processing
 - **TypeScript**: Strict mode enabled with path aliases
