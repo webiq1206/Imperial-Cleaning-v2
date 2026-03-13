@@ -20,15 +20,23 @@ export default function ServiceAreasIdahoClient() {
 
   const idahoServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Idaho Falls & Eastern Idaho Cleaning Services",
+    "@type": "LocalBusiness",
+    "name": "Imperial Cleaning Inc - Idaho Services",
     "description": "Headquartered in Idaho Falls, providing comprehensive commercial and construction cleaning services throughout southeastern Idaho, Magic Valley, and extending coverage to the Treasure Valley region.",
-    "serviceType": "Commercial and Construction Cleaning",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Imperial Cleaning Inc",
-      "url": "https://imperialcleaninginc.com",
-      "telephone": "+1-208-520-3202"
+    "url": "https://imperialcleaninginc.com/service-areas/idaho",
+    "telephone": "+1-208-520-3202",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Idaho Falls",
+      "addressRegion": "ID",
+      "postalCode": "83401",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.4666,
+      "longitude": -112.0336
     },
     "areaServed": [
       { "@type": "City", "name": "Idaho Falls", "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho" },
@@ -36,16 +44,43 @@ export default function ServiceAreasIdahoClient() {
       { "@type": "City", "name": "Blackfoot", "sameAs": "https://en.wikipedia.org/wiki/Blackfoot,_Idaho" },
       { "@type": "City", "name": "Twin Falls", "sameAs": "https://en.wikipedia.org/wiki/Twin_Falls,_Idaho" },
       { "@type": "City", "name": "Rexburg", "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho" },
-      { "@type": "AdministrativeArea", "name": "Bonneville County" },
-      { "@type": "AdministrativeArea", "name": "Bannock County" }
+      { "@type": "City", "name": "Boise", "sameAs": "https://en.wikipedia.org/wiki/Boise,_Idaho" },
+      { "@type": "City", "name": "Meridian", "sameAs": "https://en.wikipedia.org/wiki/Meridian,_Idaho" },
+      { "@type": "City", "name": "Nampa", "sameAs": "https://en.wikipedia.org/wiki/Nampa,_Idaho" },
+      { "@type": "City", "name": "Ammon" },
+      { "@type": "City", "name": "Chubbuck" },
+      { "@type": "City", "name": "Shelley" },
+      { "@type": "City", "name": "Rigby" },
+      { "@type": "City", "name": "St. Anthony" },
+      { "@type": "City", "name": "Driggs" },
+      { "@type": "City", "name": "Caldwell" },
+      { "@type": "City", "name": "Eagle" }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+      "ratingValue": 4.9,
+      "reviewCount": 127,
+      "bestRating": 5,
+      "worstRating": 1
+    },
+    "sameAs": [
+      "https://www.facebook.com/imperialcleaninginc",
+      "https://www.linkedin.com/company/imperial-cleaning-inc"
+    ]
   };
 
   const breadcrumbSchema = {

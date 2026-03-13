@@ -68,6 +68,20 @@ function ContactClientInner() {
     "priceRange": "$$"
   };
 
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Imperial Cleaning Inc",
+    "description": "Contact Imperial Cleaning Inc for professional cleaning services in Idaho & Utah. Call (208) 520-3202 for free quotes.",
+    "url": "https://imperialcleaninginc.com/contact",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Imperial Cleaning Inc",
+      "telephone": "+1-208-520-3202",
+      "email": "service@imperialcleaninginc.com"
+    }
+  };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -109,7 +123,7 @@ function ContactClientInner() {
 
   return (
     <>
-      <StructuredData data={[localBusinessSchema, breadcrumbSchema]} />
+      <StructuredData data={[localBusinessSchema, contactPageSchema, breadcrumbSchema]} />
 
       {/* Hero Section */}
       <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">

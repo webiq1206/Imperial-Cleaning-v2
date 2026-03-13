@@ -86,10 +86,10 @@ const localBusinessSchema = {
   "openingHours": ["Mo-Fr 07:00-18:00"],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "127",
-    "bestRating": "5",
-    "worstRating": "1"
+    "ratingValue": 4.9,
+    "reviewCount": 127,
+    "bestRating": 5,
+    "worstRating": 1
   },
   "contactPoint": {
     "@type": "ContactPoint",
@@ -114,6 +114,10 @@ const organizationSchema = {
   "serviceArea": [
     { "@type": "State", "name": "Idaho" },
     { "@type": "State", "name": "Utah" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/imperialcleaninginc",
+    "https://www.linkedin.com/company/imperial-cleaning-inc"
   ]
 };
 

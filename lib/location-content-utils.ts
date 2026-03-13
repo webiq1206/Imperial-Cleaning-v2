@@ -38,7 +38,7 @@ export function generateLocationHero(service: string, location: ServiceLocation)
     'comprehensive commercial cleaning and janitorial services';
 
   return {
-    title: `Professional ${serviceName} in ${location.name}, ${location.state}`,
+    title: `${location.name}, ${location.state} ${serviceName} Services`,
     subtitle: `Expert ${serviceDescription} serving ${location.name} and surrounding ${location.state} areas. ${
       location.driveTimeFromHQ === "0 minutes (Headquarters)" ? 
       "Based locally in Idaho Falls with immediate response capabilities." :

@@ -20,31 +20,54 @@ export default function ServiceAreasUtahClient() {
 
   const utahServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Wasatch Front Cleaning Services - Utah",
+    "@type": "LocalBusiness",
+    "name": "Imperial Cleaning Inc - Utah Services",
     "description": "Idaho Falls-headquartered professional commercial and construction cleaning services throughout Salt Lake City, Logan, Ogden, Provo and the entire Wasatch Front region.",
-    "serviceType": "Commercial and Construction Cleaning",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Imperial Cleaning Inc",
-      "url": "https://imperialcleaninginc.com",
-      "telephone": "+1-208-520-3202"
+    "url": "https://imperialcleaninginc.com/service-areas/utah",
+    "telephone": "+1-208-520-3202",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Idaho Falls",
+      "addressRegion": "ID",
+      "postalCode": "83401",
+      "addressCountry": "US"
     },
     "areaServed": [
       { "@type": "City", "name": "Salt Lake City", "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City" },
       { "@type": "City", "name": "Logan", "sameAs": "https://en.wikipedia.org/wiki/Logan,_Utah" },
       { "@type": "City", "name": "Ogden", "sameAs": "https://en.wikipedia.org/wiki/Ogden,_Utah" },
       { "@type": "City", "name": "Provo", "sameAs": "https://en.wikipedia.org/wiki/Provo,_Utah" },
-      { "@type": "AdministrativeArea", "name": "Salt Lake County" },
-      { "@type": "AdministrativeArea", "name": "Weber County" }
+      { "@type": "City", "name": "West Valley City" },
+      { "@type": "City", "name": "Sandy" },
+      { "@type": "City", "name": "Orem" },
+      { "@type": "City", "name": "Layton" }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+      "ratingValue": 4.9,
+      "reviewCount": 127,
+      "bestRating": 5,
+      "worstRating": 1
+    },
+    "sameAs": [
+      "https://www.facebook.com/imperialcleaninginc",
+      "https://www.linkedin.com/company/imperial-cleaning-inc"
+    ]
   };
 
   const breadcrumbSchema = {
