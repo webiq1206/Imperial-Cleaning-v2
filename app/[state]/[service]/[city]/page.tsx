@@ -67,11 +67,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Optimized title (55-60 chars) with primary keyword first
   const title = `${location.name} ${serviceName} | Imperial Cleaning ${stateAbbr}`;
   
-  // Enhanced description (150-160 chars) with location, service, and CTA
   const serviceDesc = isConstruction 
-    ? "post-construction cleanup, debris removal & final inspection cleaning" 
-    : "commercial janitorial, office cleaning & facility maintenance";
-  const description = `Professional ${serviceName.toLowerCase()} in ${location.name}, ${stateAbbr}. ${location.county ? `Serving ${location.county}. ` : ""}Expert ${serviceDesc}. Licensed & insured. Call (208) 520-3202!`;
+    ? "post-construction cleanup & debris removal" 
+    : "office cleaning & facility maintenance";
+  let description = `Professional ${serviceName.toLowerCase()} in ${location.name}, ${stateAbbr}. Expert ${serviceDesc}. Licensed & insured. Call (208) 520-3202!`;
+  if (description.length < 140 && location.county) {
+    description = `Professional ${serviceName.toLowerCase()} in ${location.name}, ${stateAbbr}. Serving ${location.county}. Expert ${serviceDesc}. Call (208) 520-3202!`;
+  }
+  if (description.length > 160) {
+    description = description.substring(0, 157) + "...";
+  }
   
   // Enhanced keywords with local terms
   const locationKeywords = location.keywords?.slice(0, 3).join(", ") || "";

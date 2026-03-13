@@ -8,13 +8,13 @@ import { StructuredData } from "@/components/structured-data";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Imperial Cleaning | Commercial & Construction Cleaning",
+    absolute: "Commercial & Construction Cleaning | Imperial Cleaning",
   },
   description: "Professional commercial & construction cleaning across Idaho and Utah. Licensed, insured, and trusted since 2015. Serving 24+ locations.",
   keywords: "Idaho Falls commercial cleaning, Eastern Idaho construction cleanup, Pocatello office cleaning, Twin Falls janitorial services, Utah commercial cleaning, Salt Lake City cleaning, Wasatch Front cleaning, southeastern Idaho cleaning company, Bonneville County cleaning, Bannock County commercial cleaners, post construction cleanup",
   authors: [{ name: "Imperial Cleaning Inc" }],
   openGraph: {
-    title: "Imperial Cleaning | Commercial & Construction Cleaning",
+    title: "Commercial & Construction Cleaning | Imperial Cleaning",
     description: "Professional commercial & construction cleaning across Idaho and Utah. Licensed, insured, and trusted since 2015. Serving 24+ locations.",
     url: "https://imperialcleaninginc.com/",
     siteName: "Imperial Cleaning Inc",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Imperial Cleaning | Commercial & Construction Cleaning",
+    title: "Commercial & Construction Cleaning | Imperial Cleaning",
     description: "Professional commercial & construction cleaning across Idaho and Utah. Licensed, insured, and trusted since 2015. Serving 24+ locations.",
     site: "@imperialcleaning",
     creator: "@imperialcleaning",
