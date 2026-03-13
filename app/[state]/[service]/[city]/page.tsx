@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       locale: "en_US",
       type: "website",
       images: [{
-        url: "https://imperialcleaninginc.com/og-image.jpg",
+        url: "https://imperialcleaninginc.com/og-image.png",
         width: 1200,
         height: 630,
         alt: `${serviceName} Services in ${location.name}, ${location.state}`

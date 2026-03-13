@@ -5903,6 +5903,14 @@ video {
 }
 @media (min-width: 1024px) {
 
+  .lg\:sticky {
+    position: sticky;
+  }
+
+  .lg\:top-24 {
+    top: 6rem;
+  }
+
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
   }

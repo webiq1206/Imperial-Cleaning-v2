@@ -13,7 +13,12 @@ import {
   generateLocationDescription,
   generateLocationHero,
   generateEnhancedServiceFeatures,
-  generateLocationFAQ
+  generateLocationFAQ,
+  generateMarketOverview,
+  generateLocalChallenges,
+  generateLocalSolutions,
+  generateServiceIntroduction,
+  generateWhyChoose
 } from "@/lib/location-content-utils";
 import {
   Accordion,
@@ -29,7 +34,11 @@ import {
   Phone,
   Calendar,
   Shield,
-  Award
+  Award,
+  TrendingUp,
+  AlertTriangle,
+  Wrench,
+  Star
 } from "lucide-react";
 
 const nearbyCities: Record<string, { name: string; slug: string; state: string }[]> = {
@@ -164,6 +173,11 @@ export default function ServiceLocationClient({
   const metaDescription = generateLocationDescription(serviceType, location);
   const serviceFeatures = generateEnhancedServiceFeatures(serviceType, location);
   const faqs = generateLocationFAQ(serviceType, location);
+  const marketOverview = generateMarketOverview(serviceType, location);
+  const localChallenges = generateLocalChallenges(serviceType, location);
+  const localSolutions = generateLocalSolutions(serviceType, location);
+  const serviceIntro = generateServiceIntroduction(serviceType, location);
+  const whyChoose = generateWhyChoose(serviceType, location);
   const stateSlug = location.state.toLowerCase();
   const citySlug = locationToSlug(location.name);
   const siblingService = serviceType === "commercial-cleaning" ? "construction-cleaning" : "commercial-cleaning";
@@ -246,7 +260,7 @@ export default function ServiceLocationClient({
     "url": `https://imperialcleaninginc.com/${stateSlug}/${serviceType}/${location.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`,
     "telephone": "+1-208-520-3202",
     "priceRange": "$$",
-    "image": "https://imperialcleaninginc.com/og-image.jpg",
+    "image": "https://imperialcleaninginc.com/og-image.png",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Idaho Falls",
@@ -331,27 +345,33 @@ export default function ServiceLocationClient({
         }}
       />
 
-      {/* Service Overview */}
+      {/* Service Introduction */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-4xl mb-6 text-foreground">
-                Professional {serviceName} in {location.name}
+                {serviceIntro.title}
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                {metaDescription}
-              </p>
-              <ul className="space-y-4">
-                {serviceFeatures.features.slice(0, 5).map((feature: { title: string; description: string; icon: string }, index: number) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-muted-foreground">{feature.title}</span>
-                  </li>
-                ))}
-              </ul>
+              {serviceIntro.paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  {paragraph}
+                </p>
+              ))}
+              {serviceIntro.internalLinks && (
+                <div className="flex flex-wrap gap-4 mt-4">
+                  {serviceIntro.internalLinks.complementary && (
+                    <Link href={serviceIntro.internalLinks.complementary.url} className="text-primary hover:underline text-sm">
+                      {serviceIntro.internalLinks.complementary.text}
+                    </Link>
+                  )}
+                  <Link href={serviceIntro.internalLinks.stateArea.url} className="text-primary hover:underline text-sm">
+                    {serviceIntro.internalLinks.stateArea.text}
+                  </Link>
+                </div>
+              )}
             </div>
-            <div className="glass-card-elevated p-8 rounded-lg">
+            <div className="glass-card-elevated p-8 rounded-lg lg:sticky lg:top-24">
               <div className="text-center mb-6">
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                   {isConstruction ? (
@@ -388,10 +408,38 @@ export default function ServiceLocationClient({
                 onClick={() => setShowContactForm(true)}
                 className="w-full mt-6"
                 size="lg"
+                data-testid="button-service-quote"
               >
                 Request Free Quote
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Market Overview */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <TrendingUp className="w-5 h-5 text-primary" />
+              <span className="text-sm text-primary uppercase tracking-wider">{marketOverview.marketTier} Market</span>
+            </div>
+            <h2 className="text-4xl mb-6 text-foreground">
+              {marketOverview.title}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              {marketOverview.description}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {marketOverview.economicBase.slice(0, 3).map((industry, index) => (
+              <div key={index} className="glass-card-elevated p-6 rounded-lg text-center">
+                <Building2 className="w-8 h-8 text-primary mx-auto mb-3" />
+                <h3 className="text-lg text-foreground mb-2">{industry}</h3>
+                <p className="text-sm text-muted-foreground">Key industry sector in {location.name}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -422,49 +470,90 @@ export default function ServiceLocationClient({
         </div>
       </section>
 
-      {/* Local Focus */}
+      {/* Local Challenges */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <AlertTriangle className="w-5 h-5 text-orange-500" />
+              <span className="text-sm text-orange-500 uppercase tracking-wider">Local Expertise</span>
+            </div>
             <h2 className="text-4xl mb-6 text-foreground">
-              Serving {location.name} and {location.state}
+              {localChallenges.title}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              As a trusted cleaning partner in {location.name}, we understand the unique needs of local businesses and contractors.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Understanding {location.name}&apos;s unique cleaning challenges allows us to deliver targeted, effective solutions.
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="glass-card-elevated p-8 rounded-lg">
-              <h3 className="text-2xl mb-4 text-foreground">Why Choose Us in {location.name}</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-1" />
-                  <span>Local presence with fast response times</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-1" />
-                  <span>Understanding of {location.state} building codes and regulations</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-1" />
-                  <span>Established relationships with local contractors</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-1" />
-                  <span>Competitive pricing for the {location.name} market</span>
-                </li>
-              </ul>
+            {localChallenges.challenges.map((challenge, index) => (
+              <div key={index} className="glass-card-elevated p-6 rounded-lg">
+                <h3 className="text-xl mb-3 text-foreground">{challenge.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{challenge.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local Solutions */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Wrench className="w-5 h-5 text-primary" />
+              <span className="text-sm text-primary uppercase tracking-wider">Proven Solutions</span>
             </div>
-            <div className="glass-card-elevated p-8 rounded-lg">
-              <h3 className="text-2xl mb-4 text-foreground">Our Commitment</h3>
-              <p className="text-muted-foreground mb-4">
-                Imperial Cleaning Inc. is committed to providing {location.name} businesses with the highest quality {serviceName.toLowerCase()} services. Our team of trained professionals uses industry-leading equipment and techniques to deliver exceptional results.
-              </p>
-              <p className="text-muted-foreground">
-                We&apos;re fully licensed and insured, giving you peace of mind for every project. Contact us today to discuss your {serviceName.toLowerCase()} needs in {location.name}.
-              </p>
+            <h2 className="text-4xl mb-6 text-foreground">
+              {localSolutions.title}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Tailored approaches developed specifically for {location.name}&apos;s business environment and climate conditions.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {localSolutions.solutions.map((solution, index) => (
+              <div key={index} className="glass-card-elevated p-6 rounded-lg hover-lift-gentle">
+                <div className="w-10 h-10 mb-4 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-lg mb-3 text-foreground">{solution.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{solution.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Star className="w-5 h-5 text-yellow-500" />
+              <span className="text-sm text-yellow-500 uppercase tracking-wider">Why Imperial Cleaning</span>
             </div>
+            <h2 className="text-4xl mb-6 text-foreground">
+              {whyChoose.title}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+              {whyChoose.intro}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {whyChoose.reasons.map((reason, index) => (
+              <div key={index} className="glass-card-elevated p-6 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">{index + 1}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg mb-3 text-foreground">{reason.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{reason.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

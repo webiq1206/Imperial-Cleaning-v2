@@ -37,7 +37,14 @@ export default function ServiceAreasUtahClient() {
       { "@type": "City", "name": "Provo", "sameAs": "https://en.wikipedia.org/wiki/Provo,_Utah" },
       { "@type": "AdministrativeArea", "name": "Salt Lake County" },
       { "@type": "AdministrativeArea", "name": "Weber County" }
-    ]
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   };
 
   const breadcrumbSchema = {

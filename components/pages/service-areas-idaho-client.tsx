@@ -38,7 +38,14 @@ export default function ServiceAreasIdahoClient() {
       { "@type": "City", "name": "Rexburg", "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho" },
       { "@type": "AdministrativeArea", "name": "Bonneville County" },
       { "@type": "AdministrativeArea", "name": "Bannock County" }
-    ]
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   };
 
   const breadcrumbSchema = {
