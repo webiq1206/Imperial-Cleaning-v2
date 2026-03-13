@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FeatureStats from "@/components/shared/stats/feature-stats";
 import { Shield, Clock, Award } from "lucide-react";
 
@@ -21,10 +22,18 @@ export default function FeaturesSection() {
  ];
 
  return (
-  <FeatureStats
-   features={features}
-   columns={3}
-   layout="grid"
-  />
+  <div>
+   <FeatureStats
+    features={features}
+    columns={3}
+    layout="grid"
+   />
+   <div className="max-w-4xl mx-auto px-6 pb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+    <Link href="/construction-cleaning" className="hover:text-primary transition-colors">Construction Cleaning Services</Link>
+    <Link href="/commercial-cleaning" className="hover:text-primary transition-colors">Commercial Cleaning Services</Link>
+    <Link href="/service-areas/idaho" className="hover:text-primary transition-colors">Idaho Service Areas</Link>
+    <Link href="/service-areas/utah" className="hover:text-primary transition-colors">Utah Service Areas</Link>
+   </div>
+  </div>
  );
 }
