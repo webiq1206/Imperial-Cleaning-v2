@@ -151,12 +151,13 @@ export default function Header() {
           <div className="flex items-center flex-shrink-0">
             <Link href="/" className="flex items-center hover:opacity-80 transition-all duration-300 hover-lift-gentle">
               <Image 
-                src="/header-logo.png" 
+                src="/header-logo.svg" 
                 alt="Imperial Cleaning Inc" 
-                className="h-5 w-auto brightness-0 invert opacity-40 hover:opacity-60 transition-all duration-300 mix-blend-overlay"
-                width={75}
+                className="h-5 w-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
+                width={200}
                 height={20}
                 priority
+                unoptimized
               />
             </Link>
           </div>

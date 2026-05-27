@@ -26,12 +26,13 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <div className="mb-8">
               <Image 
-                src="/header-logo.png" 
+                src="/header-logo.svg" 
                 alt="Imperial Cleaning Inc - Professional Commercial Cleaning Services" 
-                className="h-8 w-auto filter brightness-0 invert mb-6"
-                width={120}
+                className="h-8 w-auto mb-6"
+                width={320}
                 height={32}
                 loading="lazy"
+                unoptimized
               />
               <p className="text-muted-foreground text-base leading-relaxed max-w-md mb-6">
                 Idaho and Utah&apos;s most trusted cleaning company since 2015. Professional construction cleanup 
