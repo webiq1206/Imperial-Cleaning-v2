@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ContactFormModal from "@/components/contact-form-modal";
 import InternalHeroSection from "@/components/internal-hero-section";
+import RelatedContent from "@/components/shared/related-content";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
 import {
@@ -484,7 +485,7 @@ export default function ServiceAreasIdahoClient() {
           <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-12 text-center">
             <h2 className="text-4xl mb-6 text-white">Ready to Experience Industry-Leading Cleaning Services?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              From nuclear facilities in Idaho Falls to food processing plants in Twin Falls—we deliver specialized cleaning solutions that meet your industry&apos;s exact requirements.
+              From nuclear facilities in Idaho Falls to food processing plants in Twin Falls, we deliver specialized cleaning solutions that meet your industry&apos;s exact requirements.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -516,6 +517,13 @@ export default function ServiceAreasIdahoClient() {
           </div>
         </div>
       </section>
+
+      <RelatedContent
+        pageUrl="/service-areas/idaho"
+        heading="More Idaho Cleaning Resources"
+        description="Cross-references to related services, Idaho cities, and our Utah coverage."
+        limit={8}
+      />
 
       {showContactForm && (
         <ContactFormModal

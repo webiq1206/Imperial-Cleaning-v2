@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run links:generate && npm run audit:links",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "links:generate": "tsx scripts/internal-links.ts",
+    "audit:links": "tsx scripts/audit-internal-links.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -62,6 +65,7 @@
     "sharp": "^0.34.4",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "^4.22.3",
     "zod": "^3.24.2",
     "zod-validation-error": "^3.4.0"
   },

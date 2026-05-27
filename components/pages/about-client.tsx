@@ -1,6 +1,7 @@
 "use client";
 
 import { StructuredData } from "@/components/structured-data";
+import RelatedContent from "@/components/shared/related-content";
 import { Star, Shield, Handshake, Lightbulb, type LucideIcon } from "lucide-react";
 
 export default function AboutClient() {
@@ -291,6 +292,13 @@ export default function AboutClient() {
           </div>
         </div>
       </section>
+
+      <RelatedContent
+        pageUrl="/about"
+        heading="Continue Exploring Imperial Cleaning"
+        description="Learn more about our services, contact us for a quote, or browse our service areas."
+        limit={6}
+      />
     </>
   );
 }

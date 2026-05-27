@@ -3,27 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { allServiceLocations } from "@/data/service-locations";
-import { locationToSlug, buildServiceLocationUrl } from "@/lib/routing-utils";
+import { buildServiceLocationUrl } from "@/lib/routing-utils";
+import { getTopCitiesForState } from "@/lib/page-registry";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
-  const getTopLocationsByService = (serviceType: 'construction' | 'commercial', limit: number = 4) => {
-    return allServiceLocations
-      .filter(loc => {
-        if (serviceType === 'construction') {
-          return loc.services.constructionCleanup;
-        } else {
-          return loc.services.commercialCleaning;
-        }
-      })
-      .filter(loc => loc.marketTier === 'primary' || loc.marketTier === 'secondary')
-      .sort((a, b) => {
-        const tierOrder = { primary: 0, secondary: 1, extended: 2 };
-        const tierDiff = tierOrder[a.marketTier] - tierOrder[b.marketTier];
-        return tierDiff !== 0 ? tierDiff : a.name.localeCompare(b.name);
-      })
-      .slice(0, limit);
-  };
+  const topIdahoCities = getTopCitiesForState("Idaho", 4);
+  const topUtahCities = getTopCitiesForState("Utah", 4);
+  const idahoTotal = allServiceLocations.filter((loc) => loc.state === "Idaho").length;
+  const utahTotal = allServiceLocations.filter((loc) => loc.state === "Utah").length;
+  const topServiceCities = [
+    ...getTopCitiesForState("Idaho", 2),
+    ...getTopCitiesForState("Utah", 1),
+  ];
 
   return (
     <footer className="border-t border-border/30 py-20 px-6 footer-sophisticated-bg noise-overlay grain-texture vignette-top">
@@ -151,9 +143,9 @@ export default function Footer() {
                 Construction Cleaning
               </Link>
               <div className="ml-5 space-y-2 mb-4">
-                {getTopLocationsByService('construction', 3).map((loc) => (
+                {topServiceCities.map((loc) => (
                   <Link 
-                    key={loc.name}
+                    key={`construction-${loc.name}`}
                     href={buildServiceLocationUrl(loc.state, 'construction-cleaning', loc.name)}
                     className="block text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
                   >
@@ -184,9 +176,9 @@ export default function Footer() {
                 Commercial Cleaning
               </Link>
               <div className="ml-5 space-y-2 mb-4">
-                {getTopLocationsByService('commercial', 3).map((loc) => (
+                {topServiceCities.map((loc) => (
                   <Link 
-                    key={loc.name}
+                    key={`commercial-${loc.name}`}
                     href={buildServiceLocationUrl(loc.state, 'commercial-cleaning', loc.name)}
                     className="block text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
                   >
@@ -225,13 +217,18 @@ export default function Footer() {
                     View Idaho Service Areas →
                   </Link>
                   <ul className="space-y-1">
-                    {[...allServiceLocations.filter(loc => loc.state === "Idaho")].slice(0, 4).map((location) => (
+                    {topIdahoCities.map((location) => (
                       <li key={location.name}>
-                        <span className="text-muted-foreground text-sm">{location.name}</span>
+                        <Link
+                          href={buildServiceLocationUrl(location.state, "commercial-cleaning", location.name)}
+                          className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                        >
+                          {location.name}
+                        </Link>
                       </li>
                     ))}
-                    {allServiceLocations.filter(loc => loc.state === "Idaho").length > 4 && (
-                      <li className="text-muted-foreground text-sm">+ {allServiceLocations.filter(loc => loc.state === "Idaho").length - 4} more cities</li>
+                    {idahoTotal > 4 && (
+                      <li className="text-muted-foreground text-sm">+ {idahoTotal - 4} more cities</li>
                     )}
                   </ul>
                 </div>
@@ -245,13 +242,18 @@ export default function Footer() {
                     View Utah Service Areas →
                   </Link>
                   <ul className="space-y-1">
-                    {[...allServiceLocations.filter(loc => loc.state === "Utah")].slice(0, 4).map((location) => (
+                    {topUtahCities.map((location) => (
                       <li key={location.name}>
-                        <span className="text-muted-foreground text-sm">{location.name}</span>
+                        <Link
+                          href={buildServiceLocationUrl(location.state, "commercial-cleaning", location.name)}
+                          className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                        >
+                          {location.name}
+                        </Link>
                       </li>
                     ))}
-                    {allServiceLocations.filter(loc => loc.state === "Utah").length > 4 && (
-                      <li className="text-muted-foreground text-sm">+ {allServiceLocations.filter(loc => loc.state === "Utah").length - 4} more cities</li>
+                    {utahTotal > 4 && (
+                      <li className="text-muted-foreground text-sm">+ {utahTotal - 4} more cities</li>
                     )}
                   </ul>
                 </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { QueryClient, QueryClientProvider, useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { StructuredData } from "@/components/structured-data";
+import RelatedContent from "@/components/shared/related-content";
 import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -269,6 +270,13 @@ function ContactClientInner() {
           </div>
         </div>
       </section>
+
+      <RelatedContent
+        pageUrl="/contact"
+        heading="While You're Here: Explore Our Services"
+        description="Learn more about the services we offer and the cities we serve."
+        limit={8}
+      />
     </>
   );
 }

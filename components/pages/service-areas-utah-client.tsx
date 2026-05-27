@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ContactFormModal from "@/components/contact-form-modal";
 import InternalHeroSection from "@/components/internal-hero-section";
+import RelatedContent from "@/components/shared/related-content";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
 import {
@@ -401,7 +402,7 @@ export default function ServiceAreasUtahClient() {
           <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-12 text-center">
             <h2 className="text-4xl mb-6 text-white">Ready to Experience Professional Wasatch Front Cleaning?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              From financial institutions in Salt Lake City to research labs in Logan, from federal facilities in Ogden to tech campuses in Provo—we deliver specialized cleaning solutions.
+              From financial institutions in Salt Lake City to research labs in Logan, from federal facilities in Ogden to tech campuses in Provo, we deliver specialized cleaning solutions.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -433,6 +434,13 @@ export default function ServiceAreasUtahClient() {
           </div>
         </div>
       </section>
+
+      <RelatedContent
+        pageUrl="/service-areas/utah"
+        heading="More Utah Cleaning Resources"
+        description="Cross-references to related services, Utah cities, and our Idaho coverage."
+        limit={8}
+      />
 
       {showContactForm && (
         <ContactFormModal

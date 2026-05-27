@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
+import RelatedContent from "@/components/shared/related-content";
 import InternalHeroSection from "@/components/internal-hero-section";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
@@ -328,38 +329,12 @@ export default function CommercialCleaningClient() {
         </div>
       </section>
 
-      {/* Related Services & Areas */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl mb-8 text-foreground text-center">Explore Our Services & Areas</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="glass-card-elevated p-6 rounded-lg">
-              <h3 className="text-lg mb-4 text-foreground">Other Services</h3>
-              <ul className="space-y-3">
-                <li><Link href="/construction-cleaning" className="text-primary hover:underline">Construction cleanup services</Link></li>
-              </ul>
-            </div>
-            <div className="glass-card-elevated p-6 rounded-lg">
-              <h3 className="text-lg mb-4 text-foreground">Idaho Locations</h3>
-              <ul className="space-y-3">
-                <li><Link href="/service-areas/idaho" className="text-primary hover:underline">Idaho commercial cleaning areas</Link></li>
-                <li><Link href="/idaho/commercial-cleaning/idaho-falls" className="text-primary hover:underline">Commercial cleaning in Idaho Falls</Link></li>
-                <li><Link href="/idaho/commercial-cleaning/boise" className="text-primary hover:underline">Commercial cleaning in Boise</Link></li>
-                <li><Link href="/idaho/commercial-cleaning/pocatello" className="text-primary hover:underline">Commercial cleaning in Pocatello</Link></li>
-                <li><Link href="/idaho/commercial-cleaning/twin-falls" className="text-primary hover:underline">Commercial cleaning in Twin Falls</Link></li>
-              </ul>
-            </div>
-            <div className="glass-card-elevated p-6 rounded-lg">
-              <h3 className="text-lg mb-4 text-foreground">Utah Locations</h3>
-              <ul className="space-y-3">
-                <li><Link href="/service-areas/utah" className="text-primary hover:underline">Utah commercial cleaning areas</Link></li>
-                <li><Link href="/utah/commercial-cleaning/salt-lake-city" className="text-primary hover:underline">Commercial cleaning in Salt Lake City</Link></li>
-                <li><Link href="/utah/commercial-cleaning/logan" className="text-primary hover:underline">Commercial cleaning in Logan</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RelatedContent
+        pageUrl="/commercial-cleaning"
+        heading="Explore Our Commercial Cleaning Coverage"
+        description="Related services and the cities we serve across Idaho and Utah."
+        limit={8}
+      />
 
       {/* Service Areas Grid */}
       <ServiceLocationsGrid
