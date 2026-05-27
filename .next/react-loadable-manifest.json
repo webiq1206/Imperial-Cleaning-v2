@@ -1,1 +1,50 @@
-{}
+{
+  "components/hero-cta-buttons.tsx -> @/components/contact-form-modal": {
+    "id": "components/hero-cta-buttons.tsx -> @/components/contact-form-modal",
+    "files": [
+      "static/chunks/_app-pages-browser_components_contact-form-modal_tsx.js"
+    ]
+  },
+  "components/pages/home-client.tsx -> @/components/case-studies-section": {
+    "id": "components/pages/home-client.tsx -> @/components/case-studies-section",
+    "files": [
+      "static/chunks/_app-pages-browser_components_case-studies-section_tsx.js"
+    ]
+  },
+  "components/pages/home-client.tsx -> @/components/compliance-certifications-section": {
+    "id": "components/pages/home-client.tsx -> @/components/compliance-certifications-section",
+    "files": [
+      "static/chunks/_app-pages-browser_components_compliance-certifications-section_tsx.js"
+    ]
+  },
+  "components/pages/home-client.tsx -> @/components/faq-section": {
+    "id": "components/pages/home-client.tsx -> @/components/faq-section",
+    "files": [
+      "static/chunks/_app-pages-browser_components_faq-section_tsx.js"
+    ]
+  },
+  "components/pages/home-client.tsx -> @/components/process-terminal-section": {
+    "id": "components/pages/home-client.tsx -> @/components/process-terminal-section",
+    "files": [
+      "static/chunks/_app-pages-browser_components_process-terminal-section_tsx.js"
+    ]
+  },
+  "components/pages/home-client.tsx -> @/components/service-pillars-section": {
+    "id": "components/pages/home-client.tsx -> @/components/service-pillars-section",
+    "files": [
+      "static/chunks/_app-pages-browser_components_service-pillars-section_tsx.js"
+    ]
+  },
+  "components/pages/home-client.tsx -> @/components/services-section": {
+    "id": "components/pages/home-client.tsx -> @/components/services-section",
+    "files": [
+      "static/chunks/_app-pages-browser_components_services-section_tsx.js"
+    ]
+  },
+  "components/pages/home-client.tsx -> @/components/testimonials-section": {
+    "id": "components/pages/home-client.tsx -> @/components/testimonials-section",
+    "files": [
+      "static/chunks/_app-pages-browser_components_testimonials-section_tsx.js"
+    ]
+  }
+}
