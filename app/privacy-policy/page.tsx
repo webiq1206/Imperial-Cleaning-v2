@@ -13,7 +13,23 @@ export const metadata: Metadata = {
     title: "Privacy Policy | Imperial Cleaning Inc",
     description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
     url: "https://imperialcleaninginc.com/privacy-policy",
+    siteName: "Imperial Cleaning Inc",
+    locale: "en_US",
     type: "website",
+    images: [{
+      url: "https://imperialcleaninginc.com/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Imperial Cleaning Inc - Privacy Policy"
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Imperial Cleaning Inc",
+    description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
+    images: ["https://imperialcleaninginc.com/og-image.png"],
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/privacy-policy",

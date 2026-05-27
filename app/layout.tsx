@@ -61,7 +61,8 @@ export const metadata: Metadata = {
     title: 'Imperial Cleaning Inc | Professional Commercial & Construction Cleaning',
     description: 'Professional construction cleanup and commercial cleaning services across Idaho and Utah.',
     images: ['/og-image.png'],
-    creator: '@imperialclean',
+    site: '@imperialcleaninginc',
+    creator: '@imperialcleaninginc',
   },
   robots: {
     index: true,
@@ -102,7 +103,7 @@ const organizationJsonLd = {
   '@type': 'Organization',
   name: 'Imperial Cleaning Inc',
   url: 'https://imperialcleaninginc.com',
-  logo: 'https://imperialcleaninginc.com/header-logo.png',
+  logo: 'https://imperialcleaninginc.com/hero-logo.png',
   image: 'https://imperialcleaninginc.com/og-image.png',
   description: 'Professional construction cleanup and commercial cleaning services across Idaho and Utah. Licensed, insured, and trusted since 2015.',
   telephone: '+1-208-520-3202',

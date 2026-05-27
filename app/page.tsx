@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Commercial & Construction Cleaning | Imperial Cleaning",
     description: "Professional commercial & construction cleaning across Idaho and Utah. Licensed, insured, and trusted since 2015. Serving 24+ locations.",
-    site: "@imperialcleaning",
-    creator: "@imperialcleaning",
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/",

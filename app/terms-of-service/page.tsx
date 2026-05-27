@@ -13,7 +13,23 @@ export const metadata: Metadata = {
     title: "Terms of Service | Imperial Cleaning Inc",
     description: "Terms of service for Imperial Cleaning Inc professional cleaning services in Idaho and Utah.",
     url: "https://imperialcleaninginc.com/terms-of-service",
+    siteName: "Imperial Cleaning Inc",
+    locale: "en_US",
     type: "website",
+    images: [{
+      url: "https://imperialcleaninginc.com/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Imperial Cleaning Inc - Terms of Service"
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | Imperial Cleaning Inc",
+    description: "Terms of service for Imperial Cleaning Inc professional cleaning services in Idaho and Utah.",
+    images: ["https://imperialcleaninginc.com/og-image.png"],
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/terms-of-service",
