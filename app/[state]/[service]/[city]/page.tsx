@@ -64,8 +64,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const stateAbbr = location.state === "Idaho" ? "ID" : "UT";
   const isConstruction = service === "construction-cleaning";
   
-  // Optimized title (55-60 chars) with primary keyword first
-  const title = `${location.name} ${serviceName} | Imperial Cleaning ${stateAbbr}`;
+  // Optimized title (55-60 chars) with primary keyword first.
+  // Fall back to a shorter form for long region names so the title fits in SERP.
+  const shortService = isConstruction ? "Construction Cleanup" : "Commercial Cleaning";
+  let title = `${location.name} ${serviceName} | Imperial Cleaning ${stateAbbr}`;
+  if (title.length > 60) {
+    title = `${location.name} ${shortService} | Imperial ${stateAbbr}`;
+  }
+  if (title.length > 65) {
+    title = `${location.name} ${shortService} | Imperial Cleaning`;
+  }
   
   const serviceDesc = isConstruction 
     ? "post-construction cleanup & debris removal" 

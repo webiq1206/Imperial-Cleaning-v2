@@ -7,6 +7,7 @@ import ServiceAreasSection from "@/components/service-areas-section";
 import { StructuredData } from "@/components/structured-data";
 import RelatedContent from "@/components/shared/related-content";
 
+
 export const metadata: Metadata = {
   title: {
     absolute: "Commercial & Construction Cleaning | Imperial Cleaning",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "ID-UT",
     "geo.placename": "Idaho Falls, Idaho",
-    "geo.position": "43.4933;-112.0339",
+    "geo.position": "43.4666;-112.0336",
   },
 };
 
@@ -85,13 +86,6 @@ const localBusinessSchema = {
   ],
   "serviceType": ["Construction Cleaning", "Commercial Cleaning", "Post Construction Cleanup", "Janitorial Services", "Office Cleaning", "Industrial Cleaning"],
   "openingHours": ["Mo-Fr 07:00-18:00"],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": 4.9,
-    "reviewCount": 127,
-    "bestRating": 5,
-    "worstRating": 1
-  },
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-208-520-3202",
@@ -99,27 +93,6 @@ const localBusinessSchema = {
     "areaServed": ["ID", "UT"],
     "availableLanguage": "English"
   }
-};
-
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://imperialcleaninginc.com/#organization",
-  "name": "Imperial Cleaning Inc",
-  "alternateName": "Imperial Cleaning",
-  "url": "https://imperialcleaninginc.com",
-  "logo": "https://imperialcleaninginc.com/hero-logo.png",
-  "description": "Idaho Falls headquartered commercial and construction cleaning company serving Idaho and Utah with professional cleaning solutions for contractors and businesses.",
-  "foundingDate": "2015",
-  "numberOfEmployees": { "@type": "QuantitativeValue", "value": "25" },
-  "serviceArea": [
-    { "@type": "State", "name": "Idaho" },
-    { "@type": "State", "name": "Utah" }
-  ],
-  "sameAs": [
-    "https://www.facebook.com/imperialcleaninginc",
-    "https://www.linkedin.com/company/imperial-cleaning-inc"
-  ]
 };
 
 const faqSchema = {
@@ -165,7 +138,7 @@ const breadcrumbSchema = {
 export default function HomePage() {
   return (
     <>
-      <StructuredData data={[localBusinessSchema, organizationSchema, faqSchema, breadcrumbSchema]} />
+      <StructuredData data={[localBusinessSchema, faqSchema, breadcrumbSchema]} />
       <HeroSection imageAlt="Imperial Cleaning Inc - Idaho Falls Commercial & Construction Cleaning Services Serving Idaho and Utah" />
       <HomeClient
         featuresSection={<FeaturesSection />}

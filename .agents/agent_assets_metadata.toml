@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "712wlsc31rpihH-7d17yu"
+uri = "file://attached_assets/generated_images/professional_open_graph_social_ff7f.png"
+type = "image"
+title = "generated_image"
