@@ -350,7 +350,7 @@ export default function ConstructionCleaningClient() {
         pageUrl="/construction-cleaning"
         heading="Explore Our Construction Cleanup Coverage"
         description="Related services and the cities we serve across Idaho and Utah."
-        limit={8}
+        limit={5}
       />
 
       {/* Service Areas Grid */}

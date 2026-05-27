@@ -485,7 +485,7 @@ export default function ServiceLocationClient({
         pageUrl={pageUrl}
         heading={`Explore More Cleaning Services Near ${location.name}`}
         description={`Related ${serviceName.toLowerCase()} pages, nearby cities, and ${location.state} service areas.`}
-        limit={6}
+        limit={5}
       />
 
       {/* CTA Section */}

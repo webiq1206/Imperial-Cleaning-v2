@@ -127,6 +127,50 @@ function pickTop(source: PageEntry, all: PageEntry[], limit: number): RelatedLin
   return out;
 }
 
+const MIN_INCOMING = 5;
+const MAX_LINKS_AFTER_REBALANCE = 10;
+
+function rebalance(
+  registry: PageEntry[],
+  links: Record<string, RelatedLink[]>
+): void {
+  const incoming = new Map<string, number>();
+  registry.forEach((p) => incoming.set(p.url, 0));
+  Object.values(links).forEach((list) => {
+    list.forEach((l) => incoming.set(l.url, (incoming.get(l.url) || 0) + 1));
+  });
+
+  const needBoost = registry
+    .filter((p) => p.type !== "legal" && (incoming.get(p.url) || 0) < MIN_INCOMING)
+    .sort((a, b) => (incoming.get(a.url) || 0) - (incoming.get(b.url) || 0));
+
+  for (const target of needBoost) {
+    while ((incoming.get(target.url) || 0) < MIN_INCOMING) {
+      const candidates = registry
+        .filter((source) => {
+          if (source.url === target.url) return false;
+          if (source.type === "legal") return false;
+          if (links[source.url].length >= MAX_LINKS_AFTER_REBALANCE) return false;
+          return !links[source.url].some((l) => l.url === target.url);
+        })
+        .sort((a, b) => {
+          const lenDiff = links[a.url].length - links[b.url].length;
+          if (lenDiff !== 0) return lenDiff;
+          return -similarity(a, target) + similarity(b, target);
+        });
+      if (candidates.length === 0) break;
+      const picked = candidates[0];
+      const score = Math.max(0.001, similarity(picked, target));
+      links[picked.url].push({
+        url: target.url,
+        anchor: target.anchor,
+        score: Math.round(score * 1000) / 1000,
+      });
+      incoming.set(target.url, (incoming.get(target.url) || 0) + 1);
+    }
+  }
+}
+
 function main() {
   const registry = getPageRegistry();
   const links: Record<string, RelatedLink[]> = {};
@@ -135,6 +179,8 @@ function main() {
     const limit = page.type === "legal" ? 5 : 8;
     links[page.url] = pickTop(page, registry, limit);
   }
+
+  rebalance(registry, links);
 
   const manifest: LinksManifest = {
     totalPages: registry.length,

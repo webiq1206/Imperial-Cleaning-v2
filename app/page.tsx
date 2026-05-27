@@ -5,6 +5,7 @@ import FeaturesSection from "@/components/features-section";
 import PartnersSection from "@/components/partners-section";
 import ServiceAreasSection from "@/components/service-areas-section";
 import { StructuredData } from "@/components/structured-data";
+import RelatedContent from "@/components/shared/related-content";
 
 export const metadata: Metadata = {
   title: {
@@ -170,6 +171,12 @@ export default function HomePage() {
         featuresSection={<FeaturesSection />}
         partnersSection={<PartnersSection />}
         serviceAreasSection={<ServiceAreasSection />}
+      />
+      <RelatedContent
+        pageUrl="/"
+        heading="Explore Imperial Cleaning"
+        description="Jump straight to our services, service areas, or get a free quote."
+        limit={5}
       />
     </>
   );

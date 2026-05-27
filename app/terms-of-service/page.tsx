@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { StructuredData } from "@/components/structured-data";
+import RelatedContent from "@/components/shared/related-content";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -187,6 +188,11 @@ export default function TermsOfServicePage() {
           </div>
         </div>
       </section>
+      <RelatedContent
+        pageUrl="/terms-of-service"
+        heading="Continue Exploring Imperial Cleaning"
+        limit={5}
+      />
     </>
   );
 }

@@ -297,7 +297,7 @@ export default function AboutClient() {
         pageUrl="/about"
         heading="Continue Exploring Imperial Cleaning"
         description="Learn more about our services, contact us for a quote, or browse our service areas."
-        limit={6}
+        limit={5}
       />
     </>
   );

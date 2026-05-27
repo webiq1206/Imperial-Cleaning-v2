@@ -275,7 +275,7 @@ function ContactClientInner() {
         pageUrl="/contact"
         heading="While You're Here: Explore Our Services"
         description="Learn more about the services we offer and the cities we serve."
-        limit={8}
+        limit={5}
       />
     </>
   );

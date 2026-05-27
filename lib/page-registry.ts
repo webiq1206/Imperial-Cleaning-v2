@@ -130,7 +130,7 @@ function staticEntries(): PageEntry[] {
       h1: "About Imperial Cleaning Inc",
       anchor: "About Imperial Cleaning",
       industries: [],
-      authorityBoost: 0.2,
+      authorityBoost: 0.8,
       isMoneyPage: false,
     },
     {
@@ -140,7 +140,7 @@ function staticEntries(): PageEntry[] {
       h1: "Contact Imperial Cleaning",
       anchor: "Request a free cleaning quote",
       industries: [],
-      authorityBoost: 1.2,
+      authorityBoost: 2.0,
       isMoneyPage: true,
     },
     {

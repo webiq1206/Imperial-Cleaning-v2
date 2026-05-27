@@ -439,7 +439,7 @@ export default function ServiceAreasUtahClient() {
         pageUrl="/service-areas/utah"
         heading="More Utah Cleaning Resources"
         description="Cross-references to related services, Utah cities, and our Idaho coverage."
-        limit={8}
+        limit={5}
       />
 
       {showContactForm && (

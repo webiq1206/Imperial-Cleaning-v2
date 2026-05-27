@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { StructuredData } from "@/components/structured-data";
+import RelatedContent from "@/components/shared/related-content";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -209,6 +210,11 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
+      <RelatedContent
+        pageUrl="/privacy-policy"
+        heading="Continue Exploring Imperial Cleaning"
+        limit={5}
+      />
     </>
   );
 }

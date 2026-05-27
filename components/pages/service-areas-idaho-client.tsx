@@ -522,7 +522,7 @@ export default function ServiceAreasIdahoClient() {
         pageUrl="/service-areas/idaho"
         heading="More Idaho Cleaning Resources"
         description="Cross-references to related services, Idaho cities, and our Utah coverage."
-        limit={8}
+        limit={5}
       />
 
       {showContactForm && (
