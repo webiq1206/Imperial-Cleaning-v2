@@ -31,7 +31,7 @@ export default function ServiceAreasIdahoClient() {
       "@type": "PostalAddress",
       "addressLocality": "Idaho Falls",
       "addressRegion": "ID",
-      "postalCode": "83401",
+      "postalCode": "83404",
       "addressCountry": "US"
     },
     "geo": {
@@ -71,13 +71,7 @@ export default function ServiceAreasIdahoClient() {
         "closes": "16:00"
       }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "reviewCount": 127,
-      "bestRating": 5,
-      "worstRating": 1
-    },
+    // TODO(real-data): add aggregateRating + Review entities once a verifiable review feed exists.
     "sameAs": [
       "https://www.facebook.com/imperialcleaninginc",
       "https://www.linkedin.com/company/imperial-cleaning-inc"
@@ -160,6 +154,7 @@ export default function ServiceAreasIdahoClient() {
       <div className="bg-card/30 border-b border-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <Breadcrumbs
+            includeStructuredData={false}
             items={[
               { name: "Service Areas", href: "/#service-areas" },
               { name: "Idaho Locations" }

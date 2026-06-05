@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import {
  Accordion,
  AccordionContent,
@@ -9,6 +11,11 @@ import {
 import { Button } from "@/components/ui/button";
 import ContactFormModal from "@/components/contact-form-modal";
 import { trackEvent } from "@/lib/analytics";
+import { homeFaqs, type HomeFaq } from "@/data/home-faqs";
+
+// Re-exported for backward compatibility; canonical source is @/data/home-faqs.
+export { homeFaqs };
+export type { HomeFaq };
 
 export default function FAQSection() {
  const [showContactForm, setShowContactForm] = useState(false);
@@ -18,63 +25,7 @@ export default function FAQSection() {
   setShowContactForm(true);
  };
 
- const faqs = [
-  {
-   id: "service-areas-boise",
-   question: "What areas in Boise and the Treasure Valley do you serve?",
-   answer: "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout the entire Treasure Valley region, including Boise, Meridian, Nampa, Caldwell, Eagle, Star, and Kuna. We also serve outlying areas like Mountain Home, Emmett, and Middleton. Our Boise commercial cleaning team can typically reach any location within 30 minutes, ensuring prompt response times for both scheduled maintenance and urgent cleanup needs."
-  },
-  {
-   id: "construction-cleanup-process",
-   question: "What does your post-construction cleanup process include?",
-   answer: "Our Treasure Valley construction cleanup services follow a comprehensive 3-phase process: Phase 1 includes rough cleaning with debris removal, dust elimination, and surface preparation. Phase 2 covers detailed cleaning of windows, fixtures, floors, and all surfaces. Phase 3 is our final inspection-ready cleaning with touch-ups, floor protection, and complete project walkthrough. This systematic approach ensures your construction project in Boise, Meridian, or anywhere in Idaho meets inspection standards and is ready for occupancy."
-  },
-  {
-   id: "commercial-cleaning-scheduling",
-   question: "How flexible are your commercial cleaning schedules in Idaho?",
-   answer: "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Meridian office cleaning and Boise commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Urgent cleanup services are available across the Treasure Valley with same-day response when needed."
-  },
-  {
-   id: "insurance-bonding-compliance",
-   question: "Are you fully insured and bonded for commercial projects?",
-   answer: "Yes, Imperial Cleaning Inc. maintains comprehensive insurance coverage including general liability, workers' compensation, and bonding for all commercial and construction cleaning projects in our service areas. We carry substantial liability coverage and are fully bonded, providing complete protection for your property and peace of mind. Our insurance certificates are readily available and we can add your business as an additional insured for larger projects."
-  },
-  {
-   id: "pricing-quote-process",
-   question: "How do you determine pricing for Nampa and Treasure Valley cleaning services?",
-   answer: "Our pricing for Nampa post-construction services and Treasure Valley commercial cleaning is based on several factors: square footage, frequency of service, type of facility, specific cleaning requirements, and accessibility. We provide detailed, transparent quotes with no hidden fees. Most commercial cleaning estimates in the Boise area can be provided within 24 hours. For construction cleanup projects, we offer both per-square-foot pricing and flat-rate options depending on project scope."
-  },
-  {
-   id: "construction-timeline-coordination",
-   question: "How do you coordinate with construction timelines and contractors?",
-   answer: "We work closely with general contractors, project managers, and construction teams throughout Idaho to ensure seamless timeline coordination. Our Treasure Valley construction cleanup team integrates with your project schedule, providing cleaning services at critical milestones: rough clean after drywall, detailed clean after painting and flooring, and final clean before inspection. We maintain constant communication and can adjust our schedule to meet accelerated deadlines or address weather-related delays common in Idaho construction projects."
-  },
-  {
-   id: "specialized-equipment-techniques",
-   question: "What specialized equipment do you use for construction and commercial cleaning?",
-   answer: "Imperial Cleaning Inc. utilizes professional-grade equipment specifically designed for construction and commercial cleaning in the Treasure Valley. This includes HEPA filtration systems for dust removal, commercial floor scrubbers, high-reach window cleaning equipment, and specialized post-construction vacuum systems. For Boise commercial cleaning, we use eco-friendly cleaning solutions and state-of-the-art carpet cleaning equipment. All equipment is regularly maintained and operated by trained professionals."
-  },
-  {
-   id: "quality-assurance-guarantees",
-   question: "What quality assurance measures and guarantees do you provide?",
-   answer: "We guarantee 100% satisfaction on all cleaning services throughout Idaho and Utah. Every project includes a comprehensive quality checklist and final walkthrough with the client. For commercial cleaning accounts in Meridian, Boise, and Nampa, we conduct regular quality audits and provide detailed service reports. If any aspect of our work doesn't meet your standards, we return within 24 hours to address the issue at no additional cost. Our quality assurance process ensures consistent, professional results."
-  },
-  {
-   id: "environmental-safety-practices",
-   question: "What environmental and safety practices do you follow?",
-   answer: "Imperial Cleaning Inc. prioritizes environmental responsibility and safety in all operations across our service areas. We use EPA-approved, eco-friendly cleaning products whenever possible and follow all required safety guidelines. Our team is trained in proper chemical handling, blood-borne pathogen procedures, and construction site safety protocols. We maintain all required safety certifications and provide regular training updates. For commercial clients in our service areas, we offer green cleaning programs that meet professional building standards."
-  },
-  {
-   id: "staff-training-background",
-   question: "How do you ensure your cleaning staff is properly trained and vetted?",
-   answer: "All Imperial Cleaning Inc. employees undergo comprehensive background checks, drug screening, and professional training before serving clients in the Treasure Valley. Our training program covers proper cleaning techniques, safety protocols, customer service standards, and equipment operation. Staff receive ongoing education and certification updates. For commercial accounts requiring additional security clearance, we can accommodate higher-level background verification. Our team is fully bonded and insured, providing additional protection for your Boise or Meridian facility."
-  },
-  {
-   id: "payment-terms-invoicing",
-   question: "What are your payment terms and invoicing procedures?",
-   answer: "We offer flexible payment terms for both commercial cleaning contracts and construction cleanup projects throughout Idaho. Standard terms include net 15 or net 30 for established commercial accounts, with discounts available for annual contracts. We accept various payment methods including ACH transfers, checks, and credit cards. Detailed invoices are provided with itemized services and can be customized to match your accounting requirements. For large construction projects in the Treasure Valley, we can arrange progress billing to align with project milestones."
-  }
- ];
+ const faqs = homeFaqs;
 
  return (
   <>
@@ -91,7 +42,7 @@ export default function FAQSection() {
       </h2>
       
       <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
-       Get answers to common questions about our Boise commercial cleaning and Treasure Valley construction cleanup services.
+       Get answers to common questions about our commercial cleaning and construction cleanup services across Idaho and Utah.
       </p>
      </div>
 
@@ -148,8 +99,8 @@ export default function FAQSection() {
         <div className="glass-divider-top mb-6"></div>
         
         <p className="text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
-         Our experienced team is ready to discuss your specific cleaning needs in Boise, 
-         Meridian, Nampa, or anywhere in the Treasure Valley. Get a customized quote today.
+         Our experienced team is ready to discuss your specific cleaning needs in Idaho Falls,
+         eastern Idaho, or anywhere across Idaho and Utah. Get a customized quote today.
         </p>
         
         <div className="glass-divider-top mb-6"></div>

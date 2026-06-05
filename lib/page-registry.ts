@@ -1,13 +1,17 @@
 import { allServiceLocations, type ServiceLocation } from "@/data/service-locations";
 import { buildServiceLocationUrl, locationToSlug } from "@/lib/routing-utils";
+import { guides } from "@/data/guides";
 
 export type PageType =
   | "home"
   | "service-hub"
   | "state-hub"
+  | "service-areas-hub"
   | "city-service"
   | "about"
   | "contact"
+  | "resource-hub"
+  | "resource"
   | "legal";
 
 export interface PageEntry {
@@ -102,6 +106,16 @@ function staticEntries(): PageEntry[] {
       isMoneyPage: true,
     },
     {
+      url: "/service-areas",
+      type: "service-areas-hub",
+      title: "Service Areas | Idaho & Utah | Imperial Cleaning",
+      h1: "Our Service Areas",
+      anchor: "Idaho & Utah service areas",
+      industries: [],
+      authorityBoost: 0.7,
+      isMoneyPage: false,
+    },
+    {
       url: "/service-areas/idaho",
       type: "state-hub",
       title: "Idaho Cleaning Service Areas | Imperial Cleaning Inc",
@@ -144,6 +158,26 @@ function staticEntries(): PageEntry[] {
       isMoneyPage: true,
     },
     {
+      url: "/resources",
+      type: "resource-hub",
+      title: "Cleaning Resources & Guides | Imperial Cleaning Inc",
+      h1: "Cleaning Guides & Resources",
+      anchor: "Cleaning guides & resources",
+      industries: [],
+      authorityBoost: 0.5,
+      isMoneyPage: false,
+    },
+    {
+      url: "/sitemap",
+      type: "legal",
+      title: "Sitemap | Imperial Cleaning Inc",
+      h1: "Sitemap",
+      anchor: "Site map",
+      industries: [],
+      authorityBoost: 0,
+      isMoneyPage: false,
+    },
+    {
       url: "/privacy-policy",
       type: "legal",
       title: "Privacy Policy | Imperial Cleaning Inc",
@@ -166,11 +200,29 @@ function staticEntries(): PageEntry[] {
   ];
 }
 
+function resourceEntries(): PageEntry[] {
+  return guides.map((guide) => ({
+    url: `/resources/${guide.slug}`,
+    type: "resource" as const,
+    title: guide.metaTitle,
+    h1: guide.title,
+    anchor: guide.title,
+    industries:
+      guide.category === "Commercial Cleaning"
+        ? ["Commercial"]
+        : guide.category === "Construction Cleaning"
+        ? ["Construction"]
+        : [],
+    authorityBoost: 0.2,
+    isMoneyPage: false,
+  }));
+}
+
 let cached: PageEntry[] | null = null;
 
 export function getPageRegistry(): PageEntry[] {
   if (cached) return cached;
-  cached = [...staticEntries(), ...cityEntries()];
+  cached = [...staticEntries(), ...resourceEntries(), ...cityEntries()];
   return cached;
 }
 

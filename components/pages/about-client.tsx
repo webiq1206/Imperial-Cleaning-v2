@@ -5,24 +5,24 @@ import RelatedContent from "@/components/shared/related-content";
 import { Star, Shield, Handshake, Lightbulb, type LucideIcon } from "lucide-react";
 
 export default function AboutClient() {
-  const organizationSchema = {
+  // The canonical Organization entity is declared once sitewide in app/layout.tsx
+  // (@id: .../#organization). Here we only emit an AboutPage that references it,
+  // to avoid duplicate/conflicting Organization nodes.
+  const aboutPageSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://imperialcleaninginc.com/#organization",
-    "name": "Imperial Cleaning Inc",
-    "alternateName": "Imperial Cleaning",
-    "url": "https://imperialcleaninginc.com",
-    "logo": "https://imperialcleaninginc.com/hero-logo.png",
+    "@type": "AboutPage",
+    "@id": "https://imperialcleaninginc.com/about#aboutpage",
+    "url": "https://imperialcleaninginc.com/about",
+    "name": "About Imperial Cleaning Inc",
     "description": "Professional construction and commercial cleaning company serving Idaho and Utah since 2015. Headquartered in Idaho Falls with comprehensive cleaning solutions for businesses and contractors.",
-    "foundingDate": "2015",
-    "areaServed": [
-      { "@type": "State", "name": "Idaho", "sameAs": "https://en.wikipedia.org/wiki/Idaho" },
-      { "@type": "State", "name": "Utah", "sameAs": "https://en.wikipedia.org/wiki/Utah" }
-    ],
-    "serviceType": ["Construction Cleaning", "Commercial Cleaning", "Post Construction Cleanup", "Janitorial Services"],
-    "telephone": "+1-208-520-3202",
-    "email": "service@imperialcleaninginc.com",
-    "numberOfEmployees": { "@type": "QuantitativeValue", "value": "25" }
+    "mainEntity": { "@id": "https://imperialcleaninginc.com/#organization" },
+    "isPartOf": { "@id": "https://imperialcleaninginc.com/#website" }
+    // TODO(real-data): once the owner/leadership consent to attribution, add a
+    // "Person" founder node here and reference it from the Organization "founder"
+    // field in app/layout.tsx, e.g.:
+    //   { "@type": "Person", "@id": ".../#founder", "name": "<Owner Name>",
+    //     "jobTitle": "Founder & Owner", "worksFor": { "@id": ".../#organization" } }
+    // Real, named leadership materially strengthens E-E-A-T for a local service brand.
   };
 
   const breadcrumbSchema = {
@@ -34,9 +34,10 @@ export default function AboutClient() {
     ]
   };
 
+  // TODO(real-data): confirm canonical figures with the business and update sitewide.
   const companyStats = [
     { label: "Years of Excellence", value: "10+", icon: "calendar" },
-    { label: "Projects Completed", value: "2,500+", icon: "building" },
+    { label: "Projects Completed", value: "500+", icon: "building" },
     { label: "States Served", value: "2", icon: "map" },
     { label: "Team Members", value: "25+", icon: "users" }
   ];
@@ -74,7 +75,7 @@ export default function AboutClient() {
 
   return (
     <>
-      <StructuredData data={[organizationSchema, breadcrumbSchema]} />
+      <StructuredData data={[aboutPageSchema, breadcrumbSchema]} />
 
       {/* Hero Section */}
       <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">
@@ -121,7 +122,7 @@ export default function AboutClient() {
                   unwavering commitment to quality, safety, and customer satisfaction.
                 </p>
                 <p>
-                  Today, with over 2,500 completed projects and a team of 25+ professionals, we continue
+                  Today, with over 500 completed projects and a team of 25+ professionals, we continue
                   to set the standard for cleaning excellence in the Intermountain West.
                 </p>
               </div>
@@ -245,11 +246,11 @@ export default function AboutClient() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="glass-card-elevated sophisticated-glow p-6 rounded-lg text-center">
                 <div className="text-3xl text-primary mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction Rate</div>
+                <div className="text-sm text-muted-foreground">Satisfaction Guarantee</div>
               </div>
               <div className="glass-card-elevated sophisticated-glow p-6 rounded-lg text-center">
-                <div className="text-3xl text-primary mb-2">Zero</div>
-                <div className="text-sm text-muted-foreground">Safety Incidents</div>
+                <div className="text-3xl text-primary mb-2">Safety-First</div>
+                <div className="text-sm text-muted-foreground">Trained & Insured Crews</div>
               </div>
               <div className="glass-card-elevated sophisticated-glow p-6 rounded-lg text-center">
                 <div className="text-3xl text-primary mb-2">24/7</div>
@@ -272,7 +273,7 @@ export default function AboutClient() {
               Ready to Experience the Imperial Difference?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Join over 2,500 satisfied clients who trust Imperial Cleaning for their most important projects.
+              Join the businesses across Idaho and Utah who trust Imperial Cleaning for their most important projects.
               Let&apos;s discuss how we can exceed your expectations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

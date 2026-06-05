@@ -2,6 +2,11 @@ import { TestimonialsSection } from "@/components/shared";
 import { TestimonialData } from "@/components/shared/types";
 
 export default function TestimonialsSectionWrapper() {
+ // TODO(real-data): replace these representative testimonials with verified client
+ // reviews (with consent). These are intentionally NOT emitted as Review/AggregateRating
+ // JSON-LD anywhere, so no unverifiable ratings are exposed to search engines.
+ // The previous `avatar: "/api/placeholder/60/60"` values were removed because that
+ // endpoint does not exist and the avatar is not rendered (initials are used instead).
  const testimonials: TestimonialData[] = [
   {
    id: 1,
@@ -10,8 +15,7 @@ export default function TestimonialsSectionWrapper() {
    position: "Project Manager",
    company: "Mountain View Construction",
    location: "Idaho Falls, ID",
-   initials: "MT",
-   avatar: "/api/placeholder/60/60"
+   initials: "MT"
   },
   {
    id: 2,
@@ -20,8 +24,7 @@ export default function TestimonialsSectionWrapper() {
    position: "Operations Director", 
    company: "Tech Solutions Utah",
    location: "Salt Lake City, UT",
-   initials: "SC",
-   avatar: "/api/placeholder/60/60"
+   initials: "SC"
   },
   {
    id: 3,
@@ -30,8 +33,7 @@ export default function TestimonialsSectionWrapper() {
    position: "Facilities Manager",
    company: "Logan Manufacturing", 
    location: "Logan, UT",
-   initials: "RM",
-   avatar: "/api/placeholder/60/60"
+   initials: "RM"
   },
   {
    id: 4,
@@ -40,8 +42,7 @@ export default function TestimonialsSectionWrapper() {
    position: "General Contractor",
    company: "Pocatello Builders",
    location: "Pocatello, ID", 
-   initials: "JW",
-   avatar: "/api/placeholder/60/60"
+   initials: "JW"
   },
   {
    id: 5,
@@ -50,8 +51,7 @@ export default function TestimonialsSectionWrapper() {
    position: "Facility Director",
    company: "Boise Medical Center",
    location: "Boise, ID",
-   initials: "DK", 
-   avatar: "/api/placeholder/60/60"
+   initials: "DK"
   },
   {
    id: 6,
@@ -60,8 +60,7 @@ export default function TestimonialsSectionWrapper() {
    position: "Property Manager",
    company: "Wasatch Commercial Properties",
    location: "Provo, UT",
-   initials: "LR",
-   avatar: "/api/placeholder/60/60"
+   initials: "LR"
   }
  ];
 

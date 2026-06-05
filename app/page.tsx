@@ -6,6 +6,7 @@ import PartnersSection from "@/components/partners-section";
 import ServiceAreasSection from "@/components/service-areas-section";
 import { StructuredData } from "@/components/structured-data";
 import RelatedContent from "@/components/shared/related-content";
+import { homeFaqs } from "@/data/home-faqs";
 
 
 export const metadata: Metadata = {
@@ -95,36 +96,16 @@ const localBusinessSchema = {
   }
 };
 
+// Built from the same homeFaqs array rendered by FAQSection, so the structured
+// data always matches the visible FAQ (no schema/content mismatch).
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What areas in Idaho Falls and Eastern Idaho do you serve?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Imperial Cleaning Inc. provides comprehensive commercial and construction cleaning services throughout Eastern Idaho, including Idaho Falls, Pocatello, Blackfoot, Twin Falls, and Rexburg. We also serve the greater Bonneville County and Bannock County areas, as well as extending coverage to the Treasure Valley including Boise, Meridian, and Nampa. Our Idaho Falls headquarters ensures immediate response times for Eastern Idaho projects, with same-day service available for urgent cleanup needs." }
-    },
-    {
-      "@type": "Question",
-      "name": "What does your post-construction cleanup process include?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Our Eastern Idaho construction cleanup services follow a comprehensive 3-phase process: Phase 1 includes rough cleaning with debris removal, dust elimination, and surface preparation. Phase 2 covers detailed cleaning of windows, fixtures, floors, and all surfaces. Phase 3 is our final inspection-ready cleaning with touch-ups, floor protection, and complete project walkthrough. This systematic approach ensures your construction project in Idaho Falls, Pocatello, or anywhere in Idaho meets inspection standards and is ready for occupancy." }
-    },
-    {
-      "@type": "Question",
-      "name": "How flexible are your commercial cleaning schedules in Idaho?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We offer extremely flexible commercial cleaning schedules throughout Idaho to accommodate your business needs. Our Idaho Falls and Pocatello commercial cleaning services include daily, weekly, bi-weekly, and monthly options. We work around your business hours - before opening, after closing, or during off-peak times. For 24/7 facilities, we provide overnight and weekend services. Urgent cleanup services are available across Eastern Idaho with same-day response when needed." }
-    },
-    {
-      "@type": "Question",
-      "name": "Are you fully insured and bonded for commercial projects?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes, Imperial Cleaning Inc. maintains comprehensive insurance coverage including general liability, workers' compensation, and bonding for all commercial and construction cleaning projects in Idaho and Utah. We carry substantial liability coverage and are fully bonded, providing complete protection for your property and peace of mind. Our insurance certificates are readily available and we can add your business as an additional insured for larger projects." }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you determine pricing for Nampa and Treasure Valley cleaning services?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Our pricing for Idaho Falls construction services and Eastern Idaho commercial cleaning is based on several factors: square footage, frequency of service, type of facility, specific cleaning requirements, and accessibility. We provide detailed, transparent quotes with no hidden fees. Most commercial cleaning estimates in the Idaho Falls area can be provided within 24 hours. For construction cleanup projects, we offer both per-square-foot pricing and flat-rate options depending on project scope." }
-    }
-  ]
+  "mainEntity": homeFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+  })),
 };
 
 const breadcrumbSchema = {

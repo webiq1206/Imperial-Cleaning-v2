@@ -41,23 +41,13 @@ export default function CommercialCleaningClient() {
     "name": "Idaho & Utah Commercial Cleaning Services",
     "description": "Professional commercial cleaning and janitorial services for businesses across Idaho and Utah. Daily, weekly, and monthly cleaning schedules for offices, medical facilities, retail stores, and commercial buildings throughout the region.",
     "serviceType": "Commercial Cleaning",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Imperial Cleaning Inc",
-      "url": "https://imperialcleaninginc.com",
-      "telephone": "+1-208-520-3202"
-    },
+    "url": "https://imperialcleaninginc.com/commercial-cleaning",
+    "provider": { "@id": "https://imperialcleaninginc.com/#organization" },
     "areaServed": [
       { "@type": "State", "name": "Idaho", "sameAs": "https://en.wikipedia.org/wiki/Idaho" },
       { "@type": "State", "name": "Utah", "sameAs": "https://en.wikipedia.org/wiki/Utah" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "reviewCount": 127,
-      "bestRating": 5,
-      "worstRating": 1
-    }
+    ]
+    // TODO(real-data): add aggregateRating + Review entities once a verifiable review feed exists.
   };
 
   const breadcrumbSchema = {
@@ -125,6 +115,7 @@ export default function CommercialCleaningClient() {
       <div className="bg-card/30 border-b border-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <Breadcrumbs
+            includeStructuredData={false}
             items={[
               { name: "Services", href: "/#services" },
               { name: "Commercial Cleaning" }
@@ -391,6 +382,32 @@ export default function CommercialCleaningClient() {
                   <AccordionContent className="px-6 pb-6">
                     <p className="text-muted-foreground leading-relaxed">
                       Yes, Imperial Cleaning Inc. maintains comprehensive insurance coverage including general liability, workers&apos; compensation, and bonding for all commercial cleaning projects. We are fully bonded, providing complete protection for your property.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="business-types" className="glass-card-elevated rounded-lg border-0 overflow-hidden">
+                  <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                    <h3 className="text-lg text-foreground leading-tight">
+                      What types of businesses do you clean?
+                    </h3>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      We provide commercial cleaning for offices, medical facilities, retail stores, educational institutions, government buildings, manufacturing facilities, and more. Our trained staff understands the unique requirements of each industry.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="eco-friendly" className="glass-card-elevated rounded-lg border-0 overflow-hidden">
+                  <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                    <h3 className="text-lg text-foreground leading-tight">
+                      Do you use eco-friendly cleaning products?
+                    </h3>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      Yes, we prioritize environmentally friendly cleaning solutions that are effective yet safe for your employees and the environment. We can accommodate special requests for green cleaning products and can provide LEED-compliant cleaning services.
                     </p>
                   </AccordionContent>
                 </AccordionItem>

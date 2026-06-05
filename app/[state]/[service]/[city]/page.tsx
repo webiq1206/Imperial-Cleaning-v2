@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceLocationClient from "@/components/pages/service-location-client";
 import { allServiceLocations, type ServiceLocation } from "@/data/service-locations";
-import { locationToSlug } from "@/lib/routing-utils";
+import { locationToSlug, isValidServiceLocation } from "@/lib/routing-utils";
 
 interface PageProps {
   params: Promise<{
@@ -31,11 +31,13 @@ export async function generateStaticParams() {
     const stateSlug = location.state.toLowerCase();
     const citySlug = locationToSlug(location.name);
     
-    // Generate for both service types
-    params.push(
-      { state: stateSlug, service: "construction-cleaning", city: citySlug },
-      { state: stateSlug, service: "commercial-cleaning", city: citySlug }
-    );
+    // Only generate pages for service/location combinations the business actually
+    // offers, so we never ship a thin page for an unavailable service.
+    (["construction-cleaning", "commercial-cleaning"] as const).forEach((service) => {
+      if (isValidServiceLocation(service, citySlug, stateSlug)) {
+        params.push({ state: stateSlug, service, city: citySlug });
+      }
+    });
   });
   
   return params;
@@ -133,7 +135,7 @@ export default async function ServiceLocationPage({ params }: PageProps) {
   const location = findLocation(state, city);
   const serviceName = serviceNames[service];
   
-  if (!location || !serviceName) {
+  if (!location || !serviceName || !isValidServiceLocation(service, city, state)) {
     notFound();
   }
   

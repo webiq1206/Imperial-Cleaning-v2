@@ -41,23 +41,13 @@ export default function ConstructionCleaningClient() {
     "name": "Idaho & Utah Construction Cleaning Services",
     "description": "Professional post-construction cleanup services across Idaho and Utah. Comprehensive debris removal, detailed cleaning, and inspection-ready finishing for contractors and builders throughout the region.",
     "serviceType": "Construction Cleaning",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Imperial Cleaning Inc",
-      "url": "https://imperialcleaninginc.com",
-      "telephone": "+1-208-520-3202"
-    },
+    "url": "https://imperialcleaninginc.com/construction-cleaning",
+    "provider": { "@id": "https://imperialcleaninginc.com/#organization" },
     "areaServed": [
       { "@type": "State", "name": "Idaho", "sameAs": "https://en.wikipedia.org/wiki/Idaho" },
       { "@type": "State", "name": "Utah", "sameAs": "https://en.wikipedia.org/wiki/Utah" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "reviewCount": 127,
-      "bestRating": 5,
-      "worstRating": 1
-    }
+    ]
+    // TODO(real-data): add aggregateRating + Review entities once a verifiable review feed exists.
   };
 
   const breadcrumbSchema = {
@@ -125,6 +115,7 @@ export default function ConstructionCleaningClient() {
       <div className="bg-card/30 border-b border-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <Breadcrumbs
+            includeStructuredData={false}
             items={[
               { name: "Services", href: "/#services" },
               { name: "Construction Cleaning" }
@@ -408,6 +399,32 @@ export default function ConstructionCleaningClient() {
                   <AccordionContent className="px-6 pb-6">
                     <p className="text-muted-foreground leading-relaxed">
                       Our construction cleanup pricing is based on square footage, project complexity, cleanup phase requirements, timeline constraints, and site accessibility. We provide detailed, transparent quotes with no hidden fees. We offer both per-square-foot pricing and flat-rate options depending on project scope.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="construction-areas" className="glass-card-elevated rounded-lg border-0 overflow-hidden">
+                  <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                    <h3 className="text-lg text-foreground leading-tight">
+                      What areas do you serve for construction cleaning?
+                    </h3>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      We provide construction cleanup services throughout Idaho and Utah, including Idaho Falls, Pocatello, Boise, Twin Falls, Salt Lake City, Logan, Ogden, Provo, and 24+ cities across both states. Our headquarters in Idaho Falls allows us to respond quickly to projects in the region.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="construction-start" className="glass-card-elevated rounded-lg border-0 overflow-hidden">
+                  <AccordionTrigger className="px-6 py-6 text-left hover:no-underline">
+                    <h3 className="text-lg text-foreground leading-tight">
+                      How quickly can you start a construction cleanup project?
+                    </h3>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      For projects in our primary service areas (Idaho Falls, Pocatello), we can often begin same-day or next-day. For extended areas like Boise, Salt Lake City, and Twin Falls, we typically deploy within 24-48 hours. Emergency services are available 24/7.
                     </p>
                   </AccordionContent>
                 </AccordionItem>

@@ -97,62 +97,83 @@ export const viewport: Viewport = {
   themeColor: '#000000',
 };
 
-// Organization JSON-LD for entire site
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Imperial Cleaning Inc',
-  url: 'https://imperialcleaninginc.com',
-  logo: 'https://imperialcleaninginc.com/hero-logo.png',
-  image: 'https://imperialcleaninginc.com/og-image.png',
-  description: 'Professional construction cleanup and commercial cleaning services across Idaho and Utah. Licensed, insured, and trusted since 2015.',
-  telephone: '+1-208-520-3202',
-  email: 'service@imperialcleaninginc.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Idaho Falls',
-    addressRegion: 'ID',
-    addressCountry: 'US',
-  },
-  areaServed: [
-    { '@type': 'State', name: 'Idaho' },
-    { '@type': 'State', name: 'Utah' },
-  ],
-  sameAs: [
-    'https://www.facebook.com/Imperialcleaninginc',
-    'https://www.instagram.com/imperialcleaninginc/',
-    'https://www.linkedin.com/company/imperial-cleaning-inc',
-  ],
-  foundingDate: '2015',
-  numberOfEmployees: {
-    '@type': 'QuantitativeValue',
-    minValue: 10,
-    maxValue: 50,
-  },
-  priceRange: '$$',
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Cleaning Services',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Construction Cleaning',
-          description: 'Post-construction cleanup, debris removal, and final cleaning services',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Commercial Cleaning',
-          description: 'Office cleaning, facility maintenance, and industrial cleaning services',
-        },
-      },
+// Sitewide JSON-LD graph: canonical Organization (stable @id) + WebSite.
+// Every other page references these via @id rather than re-declaring them.
+// NOTE: A WebSite SearchAction is intentionally omitted - the on-site search is a
+// client-only modal with no query-string results route, and Google has deprecated
+// the sitelinks searchbox. Add a SearchAction only if a real /search?q= route ships.
+const ORG_ID = 'https://imperialcleaninginc.com/#organization';
+const WEBSITE_ID = 'https://imperialcleaninginc.com/#website';
+
+const siteJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': ORG_ID,
+    name: 'Imperial Cleaning Inc',
+    url: 'https://imperialcleaninginc.com',
+    logo: 'https://imperialcleaninginc.com/hero-logo.png',
+    image: 'https://imperialcleaninginc.com/og-image.png',
+    description: 'Professional construction cleanup and commercial cleaning services across Idaho and Utah. Licensed, insured, and trusted since 2015.',
+    telephone: '+1-208-520-3202',
+    email: 'service@imperialcleaninginc.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Idaho Falls',
+      addressRegion: 'ID',
+      postalCode: '83404',
+      addressCountry: 'US',
+    },
+    areaServed: [
+      { '@type': 'State', name: 'Idaho' },
+      { '@type': 'State', name: 'Utah' },
     ],
+    sameAs: [
+      'https://www.facebook.com/imperialcleaninginc',
+      'https://www.instagram.com/imperialcleaninginc/',
+      'https://www.linkedin.com/company/imperial-cleaning-inc',
+    ],
+    foundingDate: '2015',
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      minValue: 10,
+      maxValue: 50,
+    },
+    priceRange: '$$',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Cleaning Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Construction Cleaning',
+            description: 'Post-construction cleanup, debris removal, and final cleaning services',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Commercial Cleaning',
+            description: 'Office cleaning, facility maintenance, and industrial cleaning services',
+          },
+        },
+      ],
+    },
   },
-};
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': WEBSITE_ID,
+    url: 'https://imperialcleaninginc.com',
+    name: 'Imperial Cleaning Inc',
+    description: 'Professional construction cleanup and commercial cleaning services across Idaho and Utah.',
+    publisher: { '@id': ORG_ID },
+    inLanguage: 'en-US',
+  },
+];
 
 export default function RootLayout({
   children,
@@ -172,7 +193,7 @@ export default function RootLayout({
         {/* JSON-LD Structured Data - inline, no JS execution needed */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         
         {/* Google Analytics - deferred to first user interaction for performance */}

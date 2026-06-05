@@ -16,9 +16,13 @@ export default function HeroCTAButtons() {
     setShowContactForm(true);
   };
 
+  const handleCallClick = () => {
+    trackEvent('phone_call', 'hero', 'click_to_call');
+  };
+
   return (
     <>
-      <div className="flex items-center gap-4 animate-fade-in-up stagger-delay-4">
+      <div className="flex flex-wrap items-center gap-4 animate-fade-in-up stagger-delay-4">
         <Button 
           onClick={handleRequestQuote}
           variant="pill-primary"
@@ -28,7 +32,16 @@ export default function HeroCTAButtons() {
         >
           Get Free Quote
         </Button>
-        <Link href="/service-areas/idaho" prefetch={false}>
+        <a href="tel:+12085203202" onClick={handleCallClick} data-testid="button-hero-call">
+          <Button 
+            variant="pill-secondary"
+            size="pill-lg"
+            className="pill-button-resend-secondary hover-lift-gentle hover-shimmer"
+          >
+            Call (208) 520-3202
+          </Button>
+        </a>
+        <Link href="/service-areas" prefetch={false}>
           <Button 
             variant="pill-secondary"
             size="pill-lg"

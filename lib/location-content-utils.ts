@@ -1033,13 +1033,7 @@ export function generateLocationStructuredData(service: string, location: Servic
         "priceCurrency": "USD"
       }))
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
+    // TODO(real-data): add aggregateRating + Review entities once a verifiable review feed exists.
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-208-520-3202",

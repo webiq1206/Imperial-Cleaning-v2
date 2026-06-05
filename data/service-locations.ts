@@ -34,6 +34,14 @@ export interface ServiceLocation {
   neighborhoods?: string[];
   keywords: string[];
   notes?: string;
+  // Optional per-city differentiators. Leave undefined unless the value is factual
+  // for that specific city - do NOT fabricate. Rendered conditionally on city pages
+  // to increase genuine local uniqueness and reduce template/doorway risk.
+  localLandmarks?: string[];
+  regulatoryNote?: string;
+  climateNote?: string;
+  // TODO(real-data): add real, named local projects (with client permission) per city.
+  localProjects?: { title: string; summary: string }[];
 }
 
 export interface ServiceRegion {
@@ -74,6 +82,7 @@ export const idahoLocations: ServiceLocation[] = [
     },
     businessDistricts: ["Downtown Idaho Falls", "Snake River Landing", "Westside Business District"],
     neighborhoods: ["Downtown", "West Side", "Ammon", "Lincoln Road Corridor"],
+    localLandmarks: ["the Snake River and Greenbelt", "Snake River Landing", "Idaho National Laboratory", "Eastern Idaho Regional Medical Center"],
     keywords: ["Idaho Falls commercial cleaning", "Idaho Falls construction cleanup", "Snake River Landing cleaning", "INL cleaning services"],
     notes: "Headquarters location - full service capabilities and immediate response"
   },
@@ -100,6 +109,7 @@ export const idahoLocations: ServiceLocation[] = [
     },
     businessDistricts: ["Downtown Pocatello", "University District", "Industrial Park"],
     neighborhoods: ["Old Town", "Highland", "Chubbuck", "Inkom"],
+    localLandmarks: ["Idaho State University", "Historic Old Town Pocatello", "Portneuf Medical Center"],
     keywords: ["Pocatello industrial cleaning", "ISU cleaning services", "Bannock County commercial cleaning", "eastern Idaho cleaning services"]
   },
   {
@@ -144,6 +154,7 @@ export const idahoLocations: ServiceLocation[] = [
       specializedServices: ["University Facilities", "Educational Institutions", "Student Housing"]
     },
     businessDistricts: ["Downtown Rexburg", "University District"],
+    localLandmarks: ["Brigham Young University-Idaho", "Madison Memorial Hospital", "the Rexburg Temple"],
     keywords: ["Rexburg cleaning services", "BYU-Idaho cleaning", "Madison County commercial cleaning"]
   },
   // MAGIC VALLEY - SECONDARY
@@ -170,6 +181,7 @@ export const idahoLocations: ServiceLocation[] = [
     },
     businessDistricts: ["Downtown Twin Falls", "Magic Valley Mall Area", "Industrial District"],
     neighborhoods: ["Downtown", "Filer", "Buhl", "Jerome"],
+    localLandmarks: ["Shoshone Falls", "Perrine Bridge and the Snake River Canyon", "St. Luke's Magic Valley Medical Center"],
     keywords: ["Twin Falls commercial cleaning", "Magic Valley cleaning services", "Twin Falls construction cleanup", "Jerome County cleaning"]
   },
   // TREASURE VALLEY - EXTENDED
@@ -196,6 +208,7 @@ export const idahoLocations: ServiceLocation[] = [
     },
     businessDistricts: ["Downtown Financial District", "Vista Village", "Boise Town Square", "WestPark Center"],
     neighborhoods: ["Downtown Boise", "West Boise", "North End", "Bench", "Southeast Boise"],
+    localLandmarks: ["the Boise River Greenbelt", "downtown Boise's financial district", "Boise State University", "St. Luke's Boise Medical Center"],
     keywords: ["Boise commercial cleaning", "Treasure Valley cleaning services", "downtown Boise cleaning", "Ada County commercial cleaning"],
     notes: "Major market - suitable for large projects and contracts"
   },
@@ -318,6 +331,7 @@ export const utahLocations: ServiceLocation[] = [
       specializedServices: ["University Facilities", "Healthcare Facilities", "Research Facilities", "Agricultural Processing"]
     },
     businessDistricts: ["Downtown Logan", "University District", "Cache Valley Mall Area"],
+    localLandmarks: ["Utah State University", "Historic Downtown Logan", "Logan Regional Hospital"],
     keywords: ["Logan commercial cleaning", "Utah State University cleaning", "Cache County cleaning services", "northern Utah cleaning"]
   },
   // WASATCH FRONT - PRIMARY UTAH MARKET
@@ -344,6 +358,7 @@ export const utahLocations: ServiceLocation[] = [
     },
     businessDistricts: ["Downtown Salt Lake City", "Gateway District", "University District", "Sugar House"],
     neighborhoods: ["Capitol Hill", "Avenues", "Sugar House", "Millcreek", "Murray"],
+    localLandmarks: ["Temple Square", "the Utah State Capitol", "University of Utah", "the Wasatch Front"],
     keywords: ["Salt Lake City commercial cleaning", "downtown Salt Lake cleaning", "Utah government facility cleaning", "Wasatch Front cleaning services"],
     notes: "Major Utah market - state capital with significant commercial opportunities"
   },
@@ -369,6 +384,7 @@ export const utahLocations: ServiceLocation[] = [
       specializedServices: ["Government Facilities", "Military Facilities", "Healthcare Facilities", "University Facilities"]
     },
     businessDistricts: ["Downtown Ogden", "Weber State University District", "Industrial District"],
+    localLandmarks: ["Historic 25th Street", "Weber State University", "Hill Air Force Base", "McKay-Dee Hospital"],
     keywords: ["Ogden commercial cleaning", "Weber County cleaning services", "Hill Air Force Base cleaning", "Weber State cleaning"]
   },
   {
@@ -393,6 +409,7 @@ export const utahLocations: ServiceLocation[] = [
       specializedServices: ["University Facilities", "Technology Centers", "Healthcare Facilities", "Research Facilities"]
     },
     businessDistricts: ["Downtown Provo", "BYU Campus District", "Technology Corridor", "Riverwoods"],
+    localLandmarks: ["Brigham Young University", "Utah Lake", "Provo Towne Centre", "Utah Valley Hospital"],
     keywords: ["Provo commercial cleaning", "BYU cleaning services", "Utah County cleaning", "Utah Valley cleaning services"]
   }
 ];
@@ -693,7 +710,7 @@ export const headquarters = {
   phone: "+1-208-520-3202",
   email: "service@imperialcleaninginc.com",
   serviceRadius: "Multi-state operations across Idaho and Utah",
-  establishedYear: "2010+",
+  establishedYear: "2015",
   coverage: {
     immediateResponse: "30 mile radius from Idaho Falls",
     primaryMarkets: "Southeastern Idaho, Northern Utah",

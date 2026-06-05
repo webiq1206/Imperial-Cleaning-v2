@@ -80,7 +80,7 @@ export default function Footer() {
               <h4 className="text-sm text-foreground mb-3">Connect With Us</h4>
               <div className="flex gap-4">
                 <a 
-                  href="https://www.facebook.com/Imperialcleaninginc" 
+                  href="https://www.facebook.com/imperialcleaninginc" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -278,6 +278,22 @@ export default function Footer() {
                       className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
                     >
                       Contact & Quote
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/service-areas" 
+                      className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                    >
+                      Service Areas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/resources" 
+                      className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 font-normal"
+                    >
+                      Resources
                     </Link>
                   </li>
                   <li>

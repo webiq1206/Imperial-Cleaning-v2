@@ -19,7 +19,10 @@ import {
   generateLocalChallenges,
   generateLocalSolutions,
   generateServiceIntroduction,
-  generateWhyChoose
+  generateWhyChoose,
+  generateCitySpecificProcess,
+  generateIndustryApplications,
+  generateServiceCoverageDetails
 } from "@/lib/location-content-utils";
 import {
   Accordion,
@@ -39,7 +42,11 @@ import {
   TrendingUp,
   AlertTriangle,
   Wrench,
-  Star
+  Star,
+  Clock,
+  ClipboardList,
+  Factory,
+  Landmark
 } from "lucide-react";
 
 // Nearby city relationships are derived automatically by the internal
@@ -68,35 +75,26 @@ export default function ServiceLocationClient({
   const localSolutions = generateLocalSolutions(serviceType, location);
   const serviceIntro = generateServiceIntroduction(serviceType, location);
   const whyChoose = generateWhyChoose(serviceType, location);
+  const cityProcess = generateCitySpecificProcess(serviceType, location);
+  const industryApplications = generateIndustryApplications(serviceType, location);
+  const coverageDetails = generateServiceCoverageDetails(serviceType, location);
   const stateSlug = location.state.toLowerCase();
   const pageUrl = buildServiceLocationUrl(location.state, serviceType, location.name);
   
+  // City pages describe a Service offered in a specific city. The provider is the
+  // canonical Organization declared sitewide (referenced by @id) - we deliberately
+  // do NOT emit a separate per-city LocalBusiness, which would falsely imply a
+  // physical branch in each city (a doorway/spam signal). No aggregateRating is
+  // emitted until a verifiable review source exists.
+  // TODO(real-data): wire aggregateRating + Review entities to a real review feed.
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": `${location.name} ${serviceName} Services`,
     "description": metaDescription,
     "serviceType": serviceName,
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Imperial Cleaning Inc",
-      "url": "https://imperialcleaninginc.com",
-      "telephone": "+1-208-520-3202",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Idaho Falls",
-        "addressRegion": "ID",
-        "addressCountry": "US"
-      },
-      ...(location.coordinates && {
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": location.coordinates.lat,
-          "longitude": location.coordinates.lng
-        }
-      })
-    },
+    "url": `https://imperialcleaninginc.com${pageUrl}`,
+    "provider": { "@id": "https://imperialcleaninginc.com/#organization" },
     "areaServed": {
       "@type": "City",
       "name": location.name,
@@ -115,7 +113,7 @@ export default function ServiceLocationClient({
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": `${serviceName} Services`,
-      "itemListElement": serviceFeatures.features.slice(0, 5).map((feature: { title: string; description: string }, index: number) => ({
+      "itemListElement": serviceFeatures.features.slice(0, 5).map((feature: { title: string; description: string }) => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
@@ -123,13 +121,6 @@ export default function ServiceLocationClient({
           "description": feature.description
         }
       }))
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "reviewCount": 127,
-      "bestRating": 5,
-      "worstRating": 1
     }
   };
   
@@ -144,57 +135,6 @@ export default function ServiceLocationClient({
         "text": faq.answer
       }
     }))
-  };
-  
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Imperial Cleaning Inc",
-    "description": `Professional ${serviceName.toLowerCase()} services in ${location.name}, ${location.state}. Licensed, insured, and locally trusted.`,
-    "url": `https://imperialcleaninginc.com/${stateSlug}/${serviceType}/${location.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`,
-    "telephone": "+1-208-520-3202",
-    "priceRange": "$$",
-    "image": "https://imperialcleaninginc.com/og-image.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Idaho Falls",
-      "addressRegion": "ID",
-      "postalCode": "83401",
-      "addressCountry": "US"
-    },
-    ...(location.coordinates && {
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": location.coordinates.lat,
-        "longitude": location.coordinates.lng
-      }
-    }),
-    "areaServed": {
-      "@type": "City",
-      "name": location.name,
-      "containedInPlace": {
-        "@type": "State",
-        "name": location.state
-      }
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "16:00"
-      }
-    ],
-    "sameAs": [
-      "https://www.facebook.com/imperialcleaninginc",
-      "https://www.linkedin.com/company/imperial-cleaning-inc"
-    ]
   };
 
   const breadcrumbSchema = {
@@ -212,12 +152,13 @@ export default function ServiceLocationClient({
 
   return (
     <>
-      <StructuredData data={[serviceSchema, breadcrumbSchema, faqSchema, localBusinessSchema]} />
+      <StructuredData data={[serviceSchema, breadcrumbSchema, faqSchema]} />
 
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <Breadcrumbs
+            includeStructuredData={false}
             items={[
               { name: `${location.state} Service Areas`, href: `/service-areas/${stateSlug}` },
               { name: serviceName, href: `/${serviceType}` },
@@ -361,6 +302,12 @@ export default function ServiceLocationClient({
               </div>
             ))}
           </div>
+
+          {serviceFeatures.localContext && (
+            <div className="glass-card-elevated p-6 rounded-lg mt-8 max-w-4xl mx-auto border-l-2 border-primary/40">
+              <p className="text-sm text-muted-foreground leading-relaxed">{serviceFeatures.localContext}</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -452,8 +399,147 @@ export default function ServiceLocationClient({
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Our Process in {city} */}
       <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <ClipboardList className="w-5 h-5 text-primary" />
+              <span className="text-sm text-primary uppercase tracking-wider">How We Work</span>
+            </div>
+            <h2 className="text-4xl mb-6 text-foreground">{cityProcess.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">{cityProcess.intro}</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {cityProcess.steps.map((step) => (
+              <div key={step.number} className="glass-card-elevated p-6 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">{step.number}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg mb-3 text-foreground">{step.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">{step.description}</p>
+                    {step.localContext && (
+                      <p className="text-sm text-primary/90 leading-relaxed italic">{step.localContext}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Applications in {city} */}
+      {industryApplications.industries.length > 0 && (
+        <section className="py-24 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <Factory className="w-5 h-5 text-primary" />
+                <span className="text-sm text-primary uppercase tracking-wider">Industry Expertise</span>
+              </div>
+              <h2 className="text-4xl mb-6 text-foreground">{industryApplications.title}</h2>
+              <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">{industryApplications.intro}</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {industryApplications.industries.map((industry, index) => (
+                industry && (
+                  <div key={index} className="glass-card-elevated p-8 rounded-lg">
+                    <h3 className="text-xl mb-3 text-foreground">{industry.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{industry.description}</p>
+                    {industry.requirements.length > 0 && (
+                      <ul className="space-y-2 mb-4">
+                        {industry.requirements.map((req, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                            <span>{req}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {industry.experience && (
+                      <p className="text-sm text-muted-foreground/90 leading-relaxed italic border-t border-border/30 pt-4">{industry.experience}</p>
+                    )}
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Coverage in {city} */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <MapPin className="w-5 h-5 text-primary" />
+              <span className="text-sm text-primary uppercase tracking-wider">Local Coverage</span>
+            </div>
+            <h2 className="text-4xl mb-6 text-foreground">{coverageDetails.title}</h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">{coverageDetails.intro}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {coverageDetails.coverage.districts && (
+              <div className="glass-card-elevated p-6 rounded-lg">
+                <h3 className="text-lg mb-4 text-foreground">{coverageDetails.coverage.districts.title}</h3>
+                <ul className="space-y-3">
+                  {coverageDetails.coverage.districts.areas.map((area, i) => (
+                    <li key={i} className="text-sm text-muted-foreground leading-relaxed">
+                      <span className="text-foreground">{area.name}</span> &mdash; {area.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="glass-card-elevated p-6 rounded-lg">
+              <h3 className="text-lg mb-4 text-foreground">{coverageDetails.coverage.facilityTypes.title}</h3>
+              <ul className="space-y-2">
+                {coverageDetails.coverage.facilityTypes.types.map((type, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span>{type}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="glass-card-elevated p-6 rounded-lg">
+              <div className="flex items-center gap-2 mb-4">
+                <Clock className="w-5 h-5 text-primary" />
+                <h3 className="text-lg text-foreground">{coverageDetails.coverage.responseTime.title}</h3>
+              </div>
+              <p className="text-sm text-foreground mb-2">{coverageDetails.coverage.responseTime.standard}</p>
+              <p className="text-sm text-foreground mb-3">{coverageDetails.coverage.responseTime.emergency}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{coverageDetails.coverage.responseTime.description}</p>
+            </div>
+
+            <div className="glass-card-elevated p-6 rounded-lg">
+              <h3 className="text-lg mb-4 text-foreground">{coverageDetails.coverage.emergencyService.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{coverageDetails.coverage.emergencyService.description}</p>
+            </div>
+          </div>
+
+          {location.localLandmarks && location.localLandmarks.length > 0 && (
+            <div className="glass-card-elevated p-6 rounded-lg mt-8 max-w-5xl mx-auto">
+              <div className="flex items-center gap-2 mb-3">
+                <Landmark className="w-5 h-5 text-primary" />
+                <h3 className="text-lg text-foreground">Serving Businesses Across {location.name}</h3>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                We provide {serviceName.toLowerCase()} for facilities throughout {location.name}, including those near {location.localLandmarks.slice(0, -1).join(", ")}{location.localLandmarks.length > 1 ? `, and ${location.localLandmarks[location.localLandmarks.length - 1]}` : location.localLandmarks[0]}.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">

@@ -19,22 +19,20 @@ import { Cpu, Landmark, GraduationCap, Zap, Clock, PhoneCall, ClipboardList, Pho
 export default function ServiceAreasUtahClient() {
   const [showContactForm, setShowContactForm] = useState(false);
 
+  // Imperial Cleaning has no physical branch in Utah (HQ is Idaho Falls), so this
+  // page describes a Service with Utah cities as areaServed and the canonical
+  // Organization as provider - it does NOT declare a Utah LocalBusiness.
+  // TODO(real-data): add aggregateRating + Review entities once a verifiable review feed exists.
   const utahServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Imperial Cleaning Inc - Utah Services",
+    "@type": "Service",
+    "name": "Utah Commercial & Construction Cleaning Services",
     "description": "Idaho Falls-headquartered professional commercial and construction cleaning services throughout Salt Lake City, Logan, Ogden, Provo and the entire Wasatch Front region.",
     "url": "https://imperialcleaninginc.com/service-areas/utah",
-    "telephone": "+1-208-520-3202",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Idaho Falls",
-      "addressRegion": "ID",
-      "postalCode": "83401",
-      "addressCountry": "US"
-    },
+    "serviceType": ["Commercial Cleaning", "Construction Cleaning"],
+    "provider": { "@id": "https://imperialcleaninginc.com/#organization" },
     "areaServed": [
+      { "@type": "State", "name": "Utah", "sameAs": "https://en.wikipedia.org/wiki/Utah" },
       { "@type": "City", "name": "Salt Lake City", "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City" },
       { "@type": "City", "name": "Logan", "sameAs": "https://en.wikipedia.org/wiki/Logan,_Utah" },
       { "@type": "City", "name": "Ogden", "sameAs": "https://en.wikipedia.org/wiki/Ogden,_Utah" },
@@ -43,31 +41,6 @@ export default function ServiceAreasUtahClient() {
       { "@type": "City", "name": "Sandy" },
       { "@type": "City", "name": "Orem" },
       { "@type": "City", "name": "Layton" }
-    ],
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "16:00"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "reviewCount": 127,
-      "bestRating": 5,
-      "worstRating": 1
-    },
-    "sameAs": [
-      "https://www.facebook.com/imperialcleaninginc",
-      "https://www.linkedin.com/company/imperial-cleaning-inc"
     ]
   };
 
@@ -135,6 +108,7 @@ export default function ServiceAreasUtahClient() {
       <div className="bg-card/30 border-b border-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <Breadcrumbs
+            includeStructuredData={false}
             items={[
               { name: "Service Areas", href: "/#service-areas" },
               { name: "Utah Locations" }

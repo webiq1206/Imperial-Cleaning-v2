@@ -23,6 +23,7 @@ export default function HeroSection({
        height="384"
        loading="lazy"
        decoding="async"
+       fetchPriority="low"
       />
     </div>
 
@@ -86,6 +87,7 @@ export default function HeroSection({
            height="512"
            loading="lazy"
            decoding="async"
+           fetchPriority="low"
           />
          
          {/* Enhanced overlay layers with motion */}

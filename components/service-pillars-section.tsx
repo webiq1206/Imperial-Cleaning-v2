@@ -190,7 +190,7 @@ export default function ServicePillarsSection() {
    title: "Specialized Equipment & Techniques",
    subtitle: "Advanced Cleaning Technology & Professional Expertise",
    icon: Settings,
-   description: "State-of-the-art cleaning equipment and advanced techniques ensuring superior results for complex cleaning challenges throughout the Treasure Valley region.",
+   description: "State-of-the-art cleaning equipment and advanced techniques ensuring superior results for complex cleaning challenges throughout Idaho and Utah.",
    certification: "Equipment Certified • Industry Trained • Manufacturer Authorized",
    equipmentCategories: [
     {
@@ -525,7 +525,7 @@ export default function ServicePillarsSection() {
         Ready to Experience Imperial Cleaning Excellence?
        </h3>
        <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto break-words px-2">
-        Contact us today for a comprehensive consultation and discover how our specialized cleaning expertise can support your Treasure Valley business or construction project.
+        Contact us today for a comprehensive consultation and discover how our specialized cleaning expertise can support your Idaho or Utah business or construction project.
        </p>
        
        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -543,10 +543,10 @@ export default function ServicePillarsSection() {
          variant="pill-secondary"
          size="pill-lg"
          className=" hover-lift-gentle button-ripple hover-shimmer text-sm sm:text-base px-4 py-3 sm:px-6 sm:py-4"
-         onClick={() => window.open('tel:+1-208-555-0123', '_self')}
+         onClick={() => window.open('tel:+1-208-520-3202', '_self')}
          data-testid="button-call-now"
         >
-         Call Now: (208) 555-0123
+         Call Now: (208) 520-3202
         </Button>
        </div>
       </div>
