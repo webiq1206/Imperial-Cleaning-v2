@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import ContactFormModal from "@/components/contact-form-modal";
 import InternalHeroSection from "@/components/internal-hero-section";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
-import { StructuredData } from "@/components/structured-data";
 import { type ServiceLocation } from "@/data/service-locations";
+import { BUSINESS_HOURS_SHORT } from "@/data/business-info";
 import { buildServiceLocationUrl } from "@/lib/routing-utils";
 import RelatedContent from "@/components/shared/related-content";
+import RelatedLinks from "@/components/related-links";
 import { 
-  generateLocationDescription,
   generateLocationHero,
   generateEnhancedServiceFeatures,
   generateLocationFAQ,
@@ -67,7 +67,6 @@ export default function ServiceLocationClient({
   const [showContactForm, setShowContactForm] = useState(false);
 
   const heroContent = generateLocationHero(serviceType, location);
-  const metaDescription = generateLocationDescription(serviceType, location);
   const serviceFeatures = generateEnhancedServiceFeatures(serviceType, location);
   const faqs = generateLocationFAQ(serviceType, location);
   const marketOverview = generateMarketOverview(serviceType, location);
@@ -80,80 +79,14 @@ export default function ServiceLocationClient({
   const coverageDetails = generateServiceCoverageDetails(serviceType, location);
   const stateSlug = location.state.toLowerCase();
   const pageUrl = buildServiceLocationUrl(location.state, serviceType, location.name);
-  
-  // City pages describe a Service offered in a specific city. The provider is the
-  // canonical Organization declared sitewide (referenced by @id) - we deliberately
-  // do NOT emit a separate per-city LocalBusiness, which would falsely imply a
-  // physical branch in each city (a doorway/spam signal). No aggregateRating is
-  // emitted until a verifiable review source exists.
-  // TODO(real-data): wire aggregateRating + Review entities to a real review feed.
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": `${location.name} ${serviceName} Services`,
-    "description": metaDescription,
-    "serviceType": serviceName,
-    "url": `https://imperialcleaninginc.com${pageUrl}`,
-    "provider": { "@id": "https://imperialcleaninginc.com/#organization" },
-    "areaServed": {
-      "@type": "City",
-      "name": location.name,
-      ...(location.coordinates && {
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": location.coordinates.lat,
-          "longitude": location.coordinates.lng
-        }
-      }),
-      "containedInPlace": {
-        "@type": "State",
-        "name": location.state
-      }
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": `${serviceName} Services`,
-      "itemListElement": serviceFeatures.features.slice(0, 5).map((feature: { title: string; description: string }) => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": feature.title,
-          "description": feature.description
-        }
-      }))
-    }
-  };
-  
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imperialcleaninginc.com/" },
-      { "@type": "ListItem", "position": 2, "name": `${location.state} Service Areas`, "item": `https://imperialcleaninginc.com/service-areas/${stateSlug}` },
-      { "@type": "ListItem", "position": 3, "name": serviceName, "item": `https://imperialcleaninginc.com/${serviceType}` },
-      { "@type": "ListItem", "position": 4, "name": `${location.name} ${serviceName}`, "item": `https://imperialcleaninginc.com/${stateSlug}/${serviceType}/${location.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}` }
-    ]
-  };
+  // JSON-LD (Service, BreadcrumbList, FAQPage) is rendered server-side by
+  // app/[state]/[service]/[city]/page.tsx so it is guaranteed in initial HTML.
 
   const isConstruction = serviceType === "construction-cleaning";
 
   return (
     <>
-      <StructuredData data={[serviceSchema, breadcrumbSchema, faqSchema]} />
-
       {/* Breadcrumbs */}
       <div className="bg-card/30 border-b border-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
@@ -222,13 +155,21 @@ export default function ServiceLocationClient({
                   <MapPin className="w-5 h-5 text-primary" />
                   <span>{location.name}, {location.state}</span>
                 </div>
+                {location.zipCodes && location.zipCodes.length > 0 && (
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-primary mt-0.5" />
+                    <span className="text-sm text-muted-foreground">
+                      ZIP codes served: {location.zipCodes.join(", ")}
+                    </span>
+                  </div>
+                )}
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
                   <a href="tel:+12085203202" className="text-primary hover:underline">(208) 520-3202</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-primary" />
-                  <span>Mon-Fri 7AM-6PM, Sat 8AM-4PM</span>
+                  <span>{BUSINESS_HOURS_SHORT}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Shield className="w-5 h-5 text-primary" />
@@ -564,6 +505,13 @@ export default function ServiceLocationClient({
               ))}
             </Accordion>
           </div>
+        </div>
+      </section>
+
+      {/* Nearby cities + complementary service (geo-proximity links) */}
+      <section className="px-4">
+        <div className="max-w-7xl mx-auto">
+          <RelatedLinks currentService={serviceType} location={location} />
         </div>
       </section>
 

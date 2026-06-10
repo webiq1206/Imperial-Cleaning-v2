@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import { BUSINESS_HOURS } from "@/data/business-info";
 import Image from "next/image";
 import { allServiceLocations } from "@/data/service-locations";
 import { buildServiceLocationUrl } from "@/lib/routing-utils";
@@ -70,7 +71,7 @@ export default function Footer() {
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span>Idaho Falls, ID 83404 | Serving ID &amp; UT</span>
+                  <span>Idaho Falls, ID 83402 | Serving ID &amp; UT</span>
                 </address>
               </div>
             </div>
@@ -311,15 +312,15 @@ export default function Footer() {
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Mon - Fri:</span>
-                      <span>7:00 AM - 6:00 PM</span>
+                      <span>{BUSINESS_HOURS.weekday.label}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Saturday:</span>
-                      <span>8:00 AM - 4:00 PM</span>
+                      <span>{BUSINESS_HOURS.saturday.label}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Sunday:</span>
-                      <span>Emergency Only</span>
+                      <span>{BUSINESS_HOURS.sunday.label}</span>
                     </div>
                   </div>
                 </div>

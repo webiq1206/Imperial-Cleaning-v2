@@ -65,6 +65,41 @@ export default function AboutClient() {
     }
   ];
 
+  // Rendered visibly below AND emitted as FAQPage schema, so the structured
+  // data always matches on-page content.
+  const aboutFaqs = [
+    {
+      question: "Who is Imperial Cleaning Inc?",
+      answer: "Imperial Cleaning Inc is a local, family-owned commercial and construction cleaning company founded in 2015 and headquartered in Idaho Falls, Idaho. We provide post-construction cleanup and commercial janitorial services to businesses and contractors across 24 cities in Idaho and Utah."
+    },
+    {
+      question: "Is Imperial Cleaning licensed and insured?",
+      answer: "Yes. Imperial Cleaning Inc is fully insured and bonded in both Idaho and Utah, carrying general liability insurance and workers' compensation coverage. Certificates of insurance and additional insured documentation are available on request."
+    },
+    {
+      question: "How long has Imperial Cleaning been in business?",
+      answer: "Imperial Cleaning Inc was founded in 2015 in Idaho Falls, giving us over a decade of experience in construction cleanup and commercial cleaning across the Intermountain West."
+    },
+    {
+      question: "What areas does Imperial Cleaning serve?",
+      answer: "We serve 16 cities in Idaho, including Idaho Falls, Pocatello, Rexburg, Twin Falls, and Boise, and 8 cities in Utah, including Salt Lake City, Logan, Ogden, and Provo. Same-day service is available in our Eastern Idaho primary markets."
+    },
+    {
+      question: "What makes Imperial Cleaning different from other cleaning companies?",
+      answer: "We are a local company headquartered in Idaho Falls, not a national franchise. Clients work directly with our team, get free quotes within 24 hours, and every project is backed by a 100% satisfaction promise with a 24-hour callback guarantee."
+    }
+  ];
+
+  const aboutFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": aboutFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+    }))
+  };
+
   const milestones = [
     { year: "2015", title: "Company Founded", description: "Imperial Cleaning Inc. established in Idaho Falls with a focus on construction cleanup." },
     { year: "2018", title: "Service Expansion", description: "Expanded to comprehensive commercial cleaning services for office buildings and facilities." },
@@ -75,7 +110,7 @@ export default function AboutClient() {
 
   return (
     <>
-      <StructuredData data={[aboutPageSchema, breadcrumbSchema]} />
+      <StructuredData data={[aboutPageSchema, breadcrumbSchema, aboutFaqSchema]} />
 
       {/* Hero Section */}
       <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">
@@ -261,6 +296,28 @@ export default function AboutClient() {
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl mb-6 tracking-tight text-foreground">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Common questions about our company, coverage, and credentials.
+            </p>
+          </div>
+          <div className="space-y-6">
+            {aboutFaqs.map((faq) => (
+              <div key={faq.question} className="glass-card-elevated p-6 rounded-lg">
+                <h3 className="text-lg text-foreground mb-3">{faq.question}</h3>
+                <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

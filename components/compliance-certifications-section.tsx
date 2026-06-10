@@ -165,14 +165,14 @@ export default function ComplianceCertificationsSection() {
    id: "environmental-compliance",
    title: "Environmental Compliance",
    icon: Leaf,
-   badge: "ECO-CERTIFIED",
+   badge: "ECO-FRIENDLY",
    status: "certified",
    description: "Environmentally responsible cleaning operations using eco-friendly products and sustainable practices while maintaining the highest professional cleaning standards.",
    details: [
     {
      type: "Green Cleaning Products",
-     standard: "EPA-approved cleaning solutions",
-     provider: "Environmental certification",
+     standard: "Eco-friendly cleaning solutions",
+     provider: "Sustainable product options",
      status: "Eco-friendly operations"
     },
     {
@@ -318,11 +318,11 @@ export default function ComplianceCertificationsSection() {
      <div className="glass-card-premium sophisticated-glow rounded-lg p-8 mb-16">
       <div className="text-center mb-8">
        <h3 className="text-2xl lg:text-3xl mb-4 text-foreground" data-testid="heading-trust-indicators">
-        Verified Trust Indicators
+        Trust Indicators
        </h3>
        <p className="text-muted-foreground max-w-3xl mx-auto" data-testid="desc-trust-indicators">
-        Imperial Cleaning Inc. undergoes regular third-party verification and maintains transparent compliance documentation 
-        for all regional clients seeking trusted, professional cleaning services.
+        Imperial Cleaning Inc. is fully insured and bonded, with certificates of insurance and 
+        additional insured documentation available on request for every client.
        </p>
       </div>
       
@@ -367,8 +367,8 @@ export default function ComplianceCertificationsSection() {
        Local Compliance Across All Service Areas
       </h3>
       <p className="text-muted-foreground mb-6 max-w-4xl mx-auto" data-testid="desc-service-area-compliance">
-       Imperial Cleaning Inc. maintains full compliance and certification in all service areas across our regional markets. 
-       Our comprehensive licensing covers both commercial cleaning and post-construction cleanup services throughout all service regions.
+       Imperial Cleaning Inc. operates in full compliance with local requirements across our regional markets, 
+       covering both commercial cleaning and post-construction cleanup services throughout Idaho and Utah.
       </p>
       
       <div className="flex flex-wrap justify-center gap-2 mb-6">

@@ -8,7 +8,7 @@ import { idahoLocations, utahLocations, extendedIdahoLocations, extendedUtahLoca
 import { buildServiceLocationUrl } from "@/lib/routing-utils";
 
 export const metadata: Metadata = {
-  title: "Service Areas | Idaho & Utah Cleaning | Imperial Cleaning",
+  title: { absolute: "Service Areas | Idaho & Utah Cleaning | Imperial Cleaning Inc" },
   description:
     "Imperial Cleaning Inc serves 24+ cities across Idaho and Utah from our Idaho Falls headquarters. Explore our commercial and construction cleaning service areas.",
   keywords:

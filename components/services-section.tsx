@@ -116,7 +116,7 @@ export default function ServicesSection() {
        <div className="glass-divider-top mb-6"></div>
        
        <p className="text-muted-foreground mb-6 leading-relaxed">
-        Our <Link href="/commercial-cleaning" className="text-primary hover:underline">commercial cleaning services</Link> serve Fortune 500 companies, healthcare facilities, and government buildings with consistent quality. We provide <Link href="/service-areas/idaho" className="text-primary hover:underline">commercial cleaning throughout Idaho</Link> and <Link href="/service-areas/utah" className="text-primary hover:underline">Utah service areas</Link>.
+        Our <Link href="/commercial-cleaning" className="text-primary hover:underline">commercial cleaning services</Link> serve offices, healthcare facilities, and government buildings with consistent quality. We provide <Link href="/service-areas/idaho" className="text-primary hover:underline">commercial cleaning throughout Idaho</Link> and <Link href="/service-areas/utah" className="text-primary hover:underline">Utah service areas</Link>.
        </p>
        
        {/* Inset divider before features */}

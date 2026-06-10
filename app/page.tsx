@@ -4,6 +4,7 @@ import HomeClient from "@/components/pages/home-client";
 import FeaturesSection from "@/components/features-section";
 import PartnersSection from "@/components/partners-section";
 import ServiceAreasSection from "@/components/service-areas-section";
+import ReviewsSection from "@/components/reviews-section";
 import { StructuredData } from "@/components/structured-data";
 import RelatedContent from "@/components/shared/related-content";
 import { homeFaqs } from "@/data/home-faqs";
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     creator: "@imperialcleaninginc",
   },
   alternates: {
-    canonical: "https://imperialcleaninginc.com/",
+    canonical: "https://imperialcleaninginc.com",
   },
   robots: {
     index: true,
@@ -51,49 +52,18 @@ export const metadata: Metadata = {
   },
 };
 
-const localBusinessSchema = {
+// The canonical Organization/LocalBusiness entity (full NAP, geo, hours,
+// areaServed) is declared once in app/layout.tsx with @id #organization.
+// The home WebPage node references it instead of re-declaring a divergent copy.
+const webPageSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://imperialcleaninginc.com/#localbusiness",
-  "name": "Imperial Cleaning Inc",
-  "alternateName": "Imperial Cleaning",
-  "description": "Leading commercial and construction cleaning company headquartered in Idaho Falls, serving Eastern Idaho, southeastern Idaho, and extending to the Treasure Valley region. Professional post-construction cleanup and commercial janitorial services for Idaho and Utah businesses.",
+  "@type": "WebPage",
+  "@id": "https://imperialcleaninginc.com/#webpage",
   "url": "https://imperialcleaninginc.com",
-  "telephone": "+1-208-520-3202",
-  "email": "service@imperialcleaninginc.com",
-  "logo": "https://imperialcleaninginc.com/hero-logo.png",
-  "image": "https://imperialcleaninginc.com/hero-logo.png",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Idaho Falls",
-    "addressRegion": "ID",
-    "postalCode": "83404",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "43.4666",
-    "longitude": "-112.0336"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Idaho Falls", "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho" },
-    { "@type": "City", "name": "Pocatello", "sameAs": "https://en.wikipedia.org/wiki/Pocatello,_Idaho" },
-    { "@type": "City", "name": "Blackfoot", "sameAs": "https://en.wikipedia.org/wiki/Blackfoot,_Idaho" },
-    { "@type": "City", "name": "Twin Falls", "sameAs": "https://en.wikipedia.org/wiki/Twin_Falls,_Idaho" },
-    { "@type": "City", "name": "Rexburg", "sameAs": "https://en.wikipedia.org/wiki/Rexburg,_Idaho" },
-    { "@type": "State", "name": "Idaho", "sameAs": "https://en.wikipedia.org/wiki/Idaho" },
-    { "@type": "State", "name": "Utah", "sameAs": "https://en.wikipedia.org/wiki/Utah" }
-  ],
-  "serviceType": ["Construction Cleaning", "Commercial Cleaning", "Post Construction Cleanup", "Janitorial Services", "Office Cleaning", "Industrial Cleaning"],
-  "openingHours": ["Mo-Fr 07:00-18:00"],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-208-520-3202",
-    "contactType": "customer service",
-    "areaServed": ["ID", "UT"],
-    "availableLanguage": "English"
-  }
+  "name": "Commercial & Construction Cleaning | Imperial Cleaning",
+  "isPartOf": { "@id": "https://imperialcleaninginc.com/#website" },
+  "about": { "@id": "https://imperialcleaninginc.com/#organization" },
+  "inLanguage": "en-US"
 };
 
 // Built from the same homeFaqs array rendered by FAQSection, so the structured
@@ -119,12 +89,13 @@ const breadcrumbSchema = {
 export default function HomePage() {
   return (
     <>
-      <StructuredData data={[localBusinessSchema, faqSchema, breadcrumbSchema]} />
+      <StructuredData data={[webPageSchema, faqSchema, breadcrumbSchema]} />
       <HeroSection imageAlt="Imperial Cleaning Inc - Idaho Falls Commercial & Construction Cleaning Services Serving Idaho and Utah" />
       <HomeClient
         featuresSection={<FeaturesSection />}
         partnersSection={<PartnersSection />}
         serviceAreasSection={<ServiceAreasSection />}
+        reviewsSection={<ReviewsSection />}
       />
       <RelatedContent
         pageUrl="/"

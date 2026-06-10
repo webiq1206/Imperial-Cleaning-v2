@@ -1,169 +1,88 @@
-# Imperial Cleaning Inc - Complete AI Reference Guide
+# Imperial Cleaning Inc - AI Reference Guide
 
-> Professional commercial cleaning, construction cleanup, industrial cleaning, and janitorial services across Idaho and Utah.  
-> Serving contractors, businesses, government facilities, and healthcare providers since 2015.  
-> **Headquarters:** Idaho Falls, ID | **Phone:** (208) 520-3202 | **Email:** service@imperialcleaninginc.com
+> Professional commercial cleaning, post-construction cleanup, and janitorial services across Idaho and Utah.
+> Serving contractors, businesses, and facility managers since 2015.
+> **Headquarters:** 2653 Clarence Pl, Idaho Falls, ID 83402 | **Phone:** (208) 520-3202 | **Email:** service@imperialcleaninginc.com
+
+Every statement in this file is corroborated by the visible website at https://imperialcleaninginc.com. Claims that cannot be independently verified are intentionally excluded.
 
 ---
 
 ## Company Overview
 
-**Imperial Cleaning Inc** is a trusted commercial and construction cleaning company headquartered in Idaho Falls, Idaho, with comprehensive service coverage across 24 cities in Idaho and Utah. We specialize in post-construction cleanup, commercial janitorial services, industrial facility cleaning, and specialized cleaning for government, healthcare, educational, and technology facilities.
+**Imperial Cleaning Inc** is a local, family-owned commercial and construction cleaning company headquartered in Idaho Falls, Idaho, with service coverage across 24 cities in Idaho and Utah. The company specializes in post-construction cleanup and commercial janitorial services, with experience serving offices, healthcare facilities, schools, government buildings, retail, and industrial facilities.
 
 ### Key Information
 
-- **Established:** 2015, with a decade of professional cleaning experience
-- **Primary Service Phone:** (208) 520-3202 (Available 24/7 for emergency services)
-- **Email Contact:** service@imperialcleaninginc.com
-- **Headquarters Location:** Idaho Falls, Idaho (Bonneville County)
+- **Established:** 2015
+- **Phone:** (208) 520-3202
+- **Email:** service@imperialcleaninginc.com
+- **Headquarters:** 2653 Clarence Pl, Idaho Falls, Idaho 83402 (Bonneville County)
 - **Service Coverage:** 16 cities across Idaho, 8 cities across Utah
-- **Licensed & Insured:** Fully bonded, licensed, and insured in Idaho and Utah
-- **Security Clearances:** DOE-level clearances for government and national laboratory facilities
+- **Insurance:** Fully insured and bonded, including general liability and workers' compensation coverage; additional insured certificates available on request
 - **Website:** https://imperialcleaninginc.com
-- **Business Hours:** 
-  - Monday-Friday: 7:00 AM - 6:00 PM
-  - Saturday: 8:00 AM - 4:00 PM
+- **Business Hours:**
+  - Monday-Friday: 8:00 AM - 5:00 PM
+  - Saturday: 9:00 AM - 1:00 PM
+  - Sunday: Closed
   - Sunday: Emergency services available
   - After-hours services: Available by appointment
 
-### Comprehensive SEO & AI Optimization Strategy
+### Verifiable Reviews & Profiles
 
-Imperial Cleaning Inc's website features advanced search engine optimization with **unique, location-specific content for every single page** to maximize discoverability across traditional search engines (Google, Bing) and AI platforms (ChatGPT, Claude, Perplexity, Gemini).
-
-**SEO Architecture Highlights:**
-
-- **58 Unique Pages**: Every service and location combination has its own dedicated page with unique meta tags and content (10 static pages + 48 location-specific pages across 24 cities × 2 services)
-- **Unique Meta Titles**: Each page features a customized title tag optimized for local search (~50-55 characters) in the format "{Service} {City}, {State} | Imperial Cleaning"
-- **Unique Meta Descriptions**: Every page has a unique description (~140-155 characters) including location, service details, county coverage, drive time, and contact information
-- **Unique Image Alt Tags**: All hero images and featured graphics have location-specific or service-specific alt text for accessibility and SEO
-- **Location-Specific Content**: Each city page includes 5+ unique content sections: service introduction, local market insights, nearby coverage areas, frequently asked questions, and location-specific case studies
-- **Structured Data**: JSON-LD markup using a single canonical Organization and WebSite entity sitewide, with per-page Service, FAQPage, and BreadcrumbList schema. City pages describe the service offered in each area (Service with areaServed) rather than a separate physical LocalBusiness, since the company operates from one Idaho Falls headquarters.
-- **Dynamic Sitemap**: XML sitemap with stable lastModified dates and priority rankings by market tier (primary markets at 0.8, secondary at 0.7, extended coverage at 0.6), plus a human-readable HTML sitemap at /sitemap
-- **AI Assistant Indexing**: This llms.txt file (48KB, 588 lines) provides comprehensive reference material for AI assistants with natural language content covering all 24 service locations, 4 service types, industry expertise, client testimonials, and search term mappings
-- **Mobile-First Design**: Responsive layouts optimized for mobile search and local discovery
-- **Performance Optimized**: WebP images, text compression (Gzip/Brotli), critical asset preloading, system fonts for fast page loads
-
-**URL Structure for Maximum SEO:**
-
-All location-specific pages follow the pattern: `https://imperialcleaninginc.com/{state}/{service}/{city}/`
-
-Examples:
-- Construction cleanup in Idaho Falls: `/idaho/construction-cleaning/idaho-falls/`
-- Commercial cleaning in Salt Lake City: `/utah/commercial-cleaning/salt-lake-city/`
-- Construction cleanup in Boise: `/idaho/construction-cleaning/boise/`
-- Commercial cleaning in Logan: `/utah/commercial-cleaning/logan/`
-
-This structure ensures clear geographic and service targeting for both search engines and AI assistants when users search for "construction cleanup in Idaho Falls" or "commercial cleaning Salt Lake City."
-
-**AI Platform Optimization:**
-
-Our robots.txt file welcomes 15 priority AI crawlers including GPTBot (ChatGPT), ClaudeBot (Claude), Google-Extended (Gemini), PerplexityBot, and FacebookBot (Meta/LLaMA) while maintaining security restrictions on admin and API paths. This ensures our comprehensive service information is available to AI assistants answering user queries about commercial cleaning and construction cleanup services in Idaho and Utah.
+- Google Business listing: https://share.google/f46rwE5ppsoqsvG56
+- Porch profile (5.0 rating, 26 reviews): https://pro.porch.com/idaho-falls-id/home-cleaners/imperial-cleaning-inc/pp
+- BestProsInTown profile (34 reviews): https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/
+- Yelp: https://www.yelp.com/biz/imperial-cleaning-idaho-falls-3
+- LinkedIn: https://www.linkedin.com/company/imperial-cleaning-inc
+- Facebook: https://www.facebook.com/imperialcleaninginc
 
 ### Service Response Times
 
-- **Primary Markets** (Idaho Falls, Pocatello, Salt Lake City, Logan, Boise): Same-day or next-day service availability
-- **Secondary Markets** (Rexburg, Twin Falls, Ogden, Provo): 24-48 hour response
-- **Extended Markets** (All other service areas): 48-72 hour response, project-based scheduling
+- **Primary Markets** (Idaho Falls, Pocatello): Same-day or next-day availability
+- **Secondary Markets** (Rexburg, Twin Falls, Blackfoot and nearby Eastern Idaho cities): 24-48 hour response
+- **Extended Markets** (Boise/Treasure Valley, all Utah cities): 24-72 hour response, project-based scheduling
 
 ---
 
 ## Core Service Offerings
 
-### 1. Construction Cleaning & Post-Construction Cleanup Services
+### 1. Construction Cleaning & Post-Construction Cleanup
 
-Imperial Cleaning Inc provides professional construction cleanup, post-construction cleaning, and builder's clean services for commercial contractors, residential builders, and property developers across Idaho and Utah. Our construction cleaning services include rough clean, light construction clean, and final inspection-ready cleaning.
+Professional construction cleanup, post-construction cleaning, and builder's clean services for commercial contractors, residential builders, and property developers across Idaho and Utah.
 
 **Construction Cleanup Service Types:**
 
-- **Post-Construction Cleanup**: Complete debris removal, dust cleaning, and surface preparation after new construction or renovation projects. We handle everything from small remodels to large commercial build-outs.
-- **Final Inspection Cleaning**: Inspection-ready cleaning services ensuring projects meet building department standards and are move-in ready for occupants or tenants.
-- **Rough Construction Clean**: Initial cleanup during construction phases including debris removal, floor protection, and basic surface cleaning.
-- **Light Construction Clean**: Mid-phase cleaning to remove dust, protect finished surfaces, and maintain safe working conditions.
-- **Final Construction Clean**: Comprehensive detailing including window cleaning, floor care, fixture polishing, and complete removal of all construction materials and residues.
-- **Renovation Cleanup**: Specialized cleaning for remodeling projects, interior renovations, and commercial space upgrades.
-- **Commercial Build-Out Cleaning**: Tenant improvement cleaning, retail space preparation, and office build-out finishing.
-- **New Construction Final Cleaning**: Brand-new building cleaning including all surfaces, windows, floors, fixtures, and detailed finishing work.
-- **Construction Debris Removal**: Heavy debris hauling, construction waste disposal, and site cleanup services.
-- **Paint Splatter Removal**: Window, floor, and fixture cleaning to remove paint overspray and construction residues.
+- Post-construction cleanup: debris removal, dust cleaning, and surface preparation after new construction or renovation
+- Final inspection cleaning: inspection-ready cleaning to building department standards
+- Rough construction clean: initial cleanup during construction phases
+- Light construction clean: mid-phase dust removal and surface protection
+- Final construction clean: window cleaning, floor care, fixture polishing, complete residue removal
+- Renovation and remodel cleanup
+- Commercial build-out and tenant improvement cleaning
+- Construction debris removal and site cleanup
+- Paint splatter and overspray removal
 
-**Construction Industries Served:**
+**Three-Phase Process:** Phase 1 Rough Clean (debris and dust removal), Phase 2 Detailed Clean (surface preparation and detailing), Phase 3 Final Clean (inspection-ready finishing and walkthrough preparation).
 
-Commercial construction projects, residential construction and custom homes, industrial facilities and manufacturing plants, government construction and federal projects, healthcare facility construction (hospitals, clinics, medical offices), educational facility construction (schools, universities, daycare centers), technology centers and data center construction, retail and hospitality construction, multi-family residential projects, office building construction, warehouse and distribution center construction.
-
-**Post-Construction Cleaning Process:**
-
-Our three-phase approach includes Phase 1 Rough Clean (debris and dust removal), Phase 2 Light Clean (surface preparation and protection), and Phase 3 Final Clean (detailed finishing and inspection preparation).
-
----
+**Construction Project Types Served:** Commercial buildings, residential projects, industrial facilities, healthcare construction, educational facilities, retail centers, multi-family housing, government buildings.
 
 ### 2. Commercial Cleaning & Janitorial Services
 
-Full-service commercial cleaning, office cleaning, and professional janitorial services for businesses, corporate offices, retail stores, medical facilities, and professional buildings throughout Idaho and Utah. We offer daily janitorial services, weekly cleaning schedules, monthly deep cleaning programs, and custom cleaning plans tailored to your business needs.
+Full-service commercial cleaning, office cleaning, and professional janitorial services for businesses throughout Idaho and Utah, with daily, weekly, monthly, and custom schedules.
 
-**Commercial Janitorial Service Types:**
+**Commercial Service Types:**
 
-- **Office Cleaning Services**: Daily, weekly, or monthly professional office cleaning including desks, conference rooms, break rooms, and common areas.
-- **Corporate Office Cleaning**: Executive office cleaning, corporate campus maintenance, and professional building janitorial services.
-- **Daily Facility Maintenance**: Consistent, reliable daily cleaning services to maintain professional appearance and workplace hygiene.
-- **Weekly Deep Cleaning Schedules**: Comprehensive weekly cleaning programs including floor care, restroom deep cleaning, and detailed surface sanitization.
-- **Monthly Maintenance Programs**: Scheduled deep cleaning services including carpet cleaning, floor stripping and waxing, and high-touch surface disinfection.
-- **Retail Cleaning Services**: Store cleaning, shopping center maintenance, and after-hours retail janitorial services.
-- **Professional Building Maintenance**: Multi-tenant building cleaning, common area maintenance, and property management support.
-- **Restroom Sanitation & Restocking**: Complete restroom cleaning, disinfection, and supply restocking services.
-- **Floor Care & Carpet Cleaning**: Commercial floor cleaning, VCT maintenance, tile and grout cleaning, carpet extraction, and upholstery cleaning.
-- **Window Cleaning**: Interior and exterior commercial window cleaning, storefront glass cleaning, and high-rise window washing.
-- **Day Porter Services**: On-site daytime cleaning staff for high-traffic facilities requiring constant maintenance.
-- **Night Porter Services**: After-hours cleaning services to minimize disruption to business operations.
-- **Move-in/Move-out Cleaning**: Tenant turnover cleaning for office spaces and commercial properties.
+- Office cleaning: desks, conference rooms, break rooms, common areas
+- Restroom sanitation and restocking
+- Break room and kitchen cleaning
+- Floor care: vacuuming, mopping, buffing, VCT maintenance, tile and grout
+- Carpet cleaning and window cleaning
+- Trash removal and recycling
+- Day porter and after-hours cleaning
+- Move-in/move-out cleaning for commercial spaces
 
-**Commercial Industries Served:**
-
-Corporate offices and business parks, medical facilities and healthcare centers, retail stores and shopping centers, educational institutions (K-12 schools, colleges, universities), government facilities (federal, state, local), professional offices (legal, accounting, financial), technology campuses and data centers, financial institutions (banks, credit unions), insurance companies, real estate offices, property management companies, hospitality (hotels, conference centers), fitness centers and gyms, religious facilities, nonprofit organizations.
-
----
-
-### 3. Industrial Cleaning Services
-
-Specialized industrial facility cleaning, manufacturing plant cleaning, food processing facility sanitation, warehouse cleaning, and production floor maintenance for factories, distribution centers, and industrial operations across Idaho and Utah.
-
-**Industrial Cleaning Service Types:**
-
-- **Manufacturing Facility Cleaning**: Production floor cleaning, equipment cleaning, and industrial workspace maintenance.
-- **Food Processing Facility Sanitation**: FDA-compliant cleaning, food safety sanitation, and processing equipment cleaning.
-- **Warehouse Cleaning**: Distribution center cleaning, logistics facility maintenance, and warehouse floor care.
-- **Industrial Equipment Cleaning**: Machinery cleaning, production line cleaning, and equipment decontamination.
-- **Production Floor Maintenance**: Daily floor cleaning, spill response, and industrial floor coating maintenance.
-- **Cleanroom Cleaning**: Controlled environment cleaning for technology manufacturing and pharmaceutical facilities.
-- **Contamination Control**: Industrial hygiene services, particulate control, and environmental compliance cleaning.
-- **Cold Storage Cleaning**: Freezer and refrigerated warehouse cleaning for food storage and distribution facilities.
-
-**Industrial Sectors Served:**
-
-Manufacturing plants, food processing and packaging facilities, agricultural processing facilities, distribution centers and logistics hubs, industrial parks, technology manufacturing (semiconductor, electronics), pharmaceutical production, cold storage and food distribution, automotive manufacturing and repair facilities.
-
----
-
-### 4. Specialized Cleaning Services
-
-**Government & Security Facilities:**
-
-Imperial Cleaning Inc holds DOE-level security clearances and provides specialized cleaning services for government facilities, federal buildings, national laboratories, and secure facilities. We serve the Idaho National Laboratory (INL), military installations, federal courthouses, state capitol buildings, city and county government offices, and law enforcement facilities with strict security protocols and clearance verification.
-
-**Healthcare Facility Cleaning:**
-
-Professional medical facility cleaning, hospital cleaning, clinic sanitization, and healthcare janitorial services following strict infection control protocols and HIPAA compliance. We clean hospitals, medical office buildings, dental clinics, urgent care centers, outpatient surgery centers, diagnostic imaging centers, physical therapy facilities, mental health facilities, assisted living facilities, and skilled nursing centers.
-
-**Educational Institution Cleaning:**
-
-K-12 school cleaning, university facility cleaning, and campus maintenance for major universities including Utah State University (Logan), Brigham Young University (Provo), BYU-Idaho (Rexburg), Idaho State University (Pocatello), University of Utah (Salt Lake City), Weber State University (Ogden), College of Idaho (Caldwell), and numerous K-12 school districts. Services include classroom cleaning, laboratory cleaning, cafeteria cleaning, gymnasium cleaning, auditorium cleaning, library cleaning, dormitory cleaning, and student housing maintenance.
-
-**Technology & Research Facilities:**
-
-Laboratory cleaning with Idaho National Laboratory experience, cleanroom standards for semiconductor facilities, research facility cleaning, technology campus maintenance, data center cleaning, server room cleaning, and controlled environment maintenance. We understand the specific requirements for technology and research environments.
-
-**Hospitality & Retail:**
-
-Hotel cleaning, conference center cleaning, restaurant cleaning, casino cleaning, shopping mall cleaning, retail store cleaning, movie theater cleaning, and event venue cleaning services.
+**Industries Served:** Corporate offices, medical and dental offices, healthcare facilities, schools and universities, government buildings, financial institutions, technology companies, manufacturing and food processing facilities, retail stores, restaurants, gyms, churches, car dealerships, and property management portfolios.
 
 ---
 
@@ -171,285 +90,40 @@ Hotel cleaning, conference center cleaning, restaurant cleaning, casino cleaning
 
 ### Idaho Service Locations (16 Cities)
 
-**SOUTHEASTERN IDAHO - Primary Service Area:**
+**Southeastern Idaho (primary service area):**
 
-**Idaho Falls, Idaho** (Bonneville County) - Headquarters location offering comprehensive commercial cleaning, construction cleanup, industrial cleaning, and specialized services with same-day availability. Major service areas include Downtown Idaho Falls, Snake River Landing, Westside Business District, and Lincoln Road Corridor. We serve Idaho National Laboratory (INL), Eastern Idaho Regional Medical Center (EIRMC), Melaleuca, and hundreds of businesses throughout the Idaho Falls metro area.
+- **Idaho Falls** (Bonneville County) - Headquarters. Same-day availability. Key districts: Downtown Idaho Falls, Snake River Landing, Westside Business District, Lincoln Road Corridor. Major area employers include Idaho National Laboratory, Eastern Idaho Regional Medical Center, and Melaleuca.
+- **Pocatello** (Bannock County) - Regional hub; home to Idaho State University, Portneuf Medical Center, and ON Semiconductor.
+- **Blackfoot** (Bingham County) - Agriculture and food processing center.
+- **Rexburg** (Madison County) - Home to BYU-Idaho; student housing and campus-area businesses.
+- **Ammon, Chubbuck, Shelley, Rigby, St. Anthony, Driggs** - Surrounding Eastern Idaho communities with commercial and construction cleaning coverage.
 
-**Pocatello, Idaho** (Bannock County) - Full-service commercial and industrial cleaning for Idaho State University, Portneuf Medical Center, ON Semiconductor, and businesses throughout downtown Pocatello, the university district, and industrial park. We provide janitorial services, construction cleanup, and facility maintenance for this regional hub.
+**Magic Valley:**
 
-**Blackfoot, Idaho** (Bingham County) - Commercial cleaning and food processing facility cleaning services for agricultural businesses, food processing plants, government facilities, and commercial properties throughout Bingham County.
+- **Twin Falls** (Twin Falls County) - Regional commercial center with significant food processing activity.
 
-**Rexburg, Idaho** (Madison County) - Specialized university cleaning services for Brigham Young University-Idaho (BYU-I), student housing cleaning, campus facility maintenance, commercial cleaning for downtown Rexburg businesses, and construction cleanup services.
+**Treasure Valley (extended service area):**
 
-**Ammon, Idaho** (Bonneville County) - Commercial cleaning, retail cleaning, and professional office cleaning for businesses in this growing Idaho Falls suburb with immediate response times.
-
-**Chubbuck, Idaho** (Bannock County) - Retail facility cleaning, commercial cleaning, and small business janitorial services for the Pocatello metropolitan area.
-
-**Shelley, Idaho** (Bingham County) - Commercial cleaning, agricultural facility cleaning, and small business support services.
-
-**Rigby, Idaho** (Jefferson County) - Commercial cleaning, educational facility cleaning, and agricultural facility services.
-
-**St. Anthony, Idaho** (Fremont County) - Commercial cleaning, tourism facility cleaning, and agricultural support services.
-
-**Driggs, Idaho** (Teton County) - Tourism facility cleaning, ski resort support cleaning, recreation center cleaning, and commercial cleaning for this mountain resort community.
-
-**MAGIC VALLEY - Secondary Service Area:**
-
-**Twin Falls, Idaho** (Twin Falls County) - Commercial cleaning, food processing facility cleaning, healthcare facility cleaning, and construction cleanup for businesses throughout the Magic Valley region including downtown Twin Falls, Magic Valley Mall area, and surrounding communities of Filer, Buhl, and Jerome.
-
-**TREASURE VALLEY - Extended Service Area (Major Market):**
-
-**Boise, Idaho** (Ada County) - Commercial cleaning services for Idaho's capital city including downtown Boise financial district, corporate office cleaning, technology campus cleaning (Micron Technology area), healthcare facility cleaning (St. Luke's Health System), government facility cleaning, and construction cleanup. Service areas include Downtown Boise, Vista Village, Boise Town Square, and WestPark Center.
-
-**Meridian, Idaho** (Ada County) - Commercial and construction cleaning for Idaho's fastest-growing city including The Village at Meridian retail complex, Eagle Road Corridor offices, medical facility cleaning, and commercial development cleanup.
-
-**Nampa, Idaho** (Canyon County) - Industrial cleaning, manufacturing facility cleaning, food processing plant cleaning, warehouse cleaning, and commercial cleaning for Canyon County businesses.
-
-**Caldwell, Idaho** (Canyon County) - Commercial cleaning, food processing facility cleaning, educational institution cleaning (College of Idaho), and agricultural facility cleaning.
-
-**Eagle, Idaho** (Ada County) - Executive office cleaning, luxury commercial cleaning, medical facility cleaning, and professional office services for high-end commercial properties.
-
----
+- **Boise** (Ada County) - State capital; downtown financial district, technology sector (Micron Technology area), healthcare (St. Luke's Health System area).
+- **Meridian, Nampa, Caldwell, Eagle** - Treasure Valley cities with commercial and construction cleaning coverage.
 
 ### Utah Service Locations (8 Cities)
 
-**NORTHERN UTAH / CACHE VALLEY:**
+- **Logan** (Cache County) - Home to Utah State University and Logan Regional Hospital.
+- **Salt Lake City** (Salt Lake County) - Utah's capital; downtown, Gateway District, University District, Sugar House.
+- **Ogden** (Weber County) - Weber State University and McKay-Dee Hospital area; near Hill Air Force Base.
+- **Provo** (Utah County) - Home to Brigham Young University and Utah Valley Hospital.
+- **West Valley City, Sandy, Orem, Layton** - Wasatch Front cities with commercial and construction cleaning coverage.
 
-**Logan, Utah** (Cache County) - Commercial cleaning and university facility cleaning for Utah State University (USU), healthcare facility cleaning (Logan Regional Hospital), technology facility cleaning, research facility cleaning, agricultural processing facility cleaning, and downtown Logan commercial cleaning services.
+Note: employer and institution names above describe the markets served, not client engagements.
 
-**WASATCH FRONT - Primary Utah Market:**
+### Counties Served
 
-**Salt Lake City, Utah** (Salt Lake County) - Utah's capital city receiving comprehensive commercial cleaning, government facility cleaning (state capitol, federal buildings), healthcare facility cleaning (University of Utah Hospital, Intermountain Healthcare), technology campus cleaning (Adobe, Goldman Sachs offices), financial institution cleaning, university facility cleaning, and construction cleanup. Service areas include Downtown Salt Lake City, Gateway District, University District, Sugar House, Capitol Hill, Avenues, and Millcreek.
+**Idaho:** Bonneville, Bannock, Bingham, Madison, Jefferson, Fremont, Teton, Twin Falls, Ada, Canyon.
+**Utah:** Cache, Salt Lake, Weber, Utah, Davis.
 
-**Ogden, Utah** (Weber County) - Commercial cleaning, government facility cleaning, military facility cleaning (Hill Air Force Base support), healthcare facility cleaning (McKay-Dee Hospital), university facility cleaning (Weber State University), and industrial cleaning for manufacturing facilities.
+### Drive Times from Idaho Falls Headquarters
 
-**Provo, Utah** (Utah County) - University facility cleaning for Brigham Young University (BYU), technology campus cleaning (Nu Skin, Qualtrics), healthcare facility cleaning (Utah Valley Hospital), research facility cleaning, and commercial cleaning throughout downtown Provo and Utah County.
-
-**West Valley City, Utah** (Salt Lake County) - Manufacturing facility cleaning, retail center cleaning, government facility cleaning, and commercial cleaning for this major Salt Lake County city.
-
-**Sandy, Utah** (Salt Lake County) - Retail center cleaning, professional office cleaning, medical facility cleaning, and commercial cleaning for businesses throughout Sandy and south Salt Lake County.
-
-**Orem, Utah** (Utah County) - Technology center cleaning, educational facility cleaning, healthcare facility cleaning, retail cleaning, and commercial cleaning for this Utah Valley city.
-
-**Layton, Utah** (Davis County) - Government facility cleaning, retail center cleaning, healthcare facility cleaning, manufacturing support cleaning, and commercial cleaning for Davis County businesses.
-
----
-
-## Search Terms & Question-Based Queries
-
-### Common Search Queries We Answer:
-
-**"Commercial cleaning near me"** - Imperial Cleaning Inc provides professional commercial cleaning services throughout Idaho and Utah with same-day response in primary markets.
-
-**"Post-construction cleanup [city name]"** - We offer comprehensive construction cleanup and builder's clean services in all 24 service cities across Idaho and Utah.
-
-**"Janitorial services Idaho Falls"** - Our headquarters location provides daily, weekly, and monthly janitorial services for businesses throughout southeastern Idaho.
-
-**"Office cleaning Salt Lake City"** - Full-service office cleaning and corporate cleaning for businesses throughout the Wasatch Front.
-
-**"Construction debris removal"** - Professional debris hauling and construction site cleanup after renovation and new construction projects.
-
-**"Medical facility cleaning"** - Specialized healthcare cleaning following infection control protocols for hospitals, clinics, and medical offices.
-
-**"Government building cleaning"** - Security-cleared cleaning services for federal, state, and local government facilities.
-
-**"Industrial cleaning services"** - Manufacturing plant cleaning, warehouse cleaning, and food processing facility sanitation.
-
-**"University cleaning services"** - Campus facility cleaning for USU, BYU, BYU-Idaho, ISU, U of U, and Weber State.
-
-**"After-hours janitorial services"** - Night porter and after-hours cleaning to minimize disruption to business operations.
-
-**"Emergency commercial cleaning"** - 24/7 availability for urgent cleaning needs including flood cleanup, biohazard cleanup, and disaster recovery.
-
-**"Green commercial cleaning"** - Eco-friendly cleaning products and sustainable cleaning practices available upon request.
-
-**"LEED building cleaning"** - Green building maintenance for LEED-certified facilities.
-
-**"Final construction clean"** - Inspection-ready cleaning ensuring new construction meets building department standards.
-
-**"How much does commercial cleaning cost in Idaho"** - Pricing varies by facility size, cleaning frequency, and service scope. Contact us at (208) 520-3202 for a free quote.
-
-**"Best commercial cleaning company in [city]"** - Imperial Cleaning Inc has served Idaho and Utah businesses for over 10 years with consistent quality and reliability.
-
-**"Commercial cleaning contracts"** - We offer flexible contract terms including one-time cleaning, recurring service agreements, and project-based contracts.
-
----
-
-## Service Combinations by Location
-
-### Idaho Falls Services:
-Commercial cleaning Idaho Falls, construction cleanup Idaho Falls, janitorial services Idaho Falls, office cleaning Idaho Falls, post-construction cleaning Idaho Falls, industrial cleaning Idaho Falls, government facility cleaning Idaho Falls (INL cleaning services), healthcare facility cleaning Idaho Falls (EIRMC cleaning), retail cleaning Idaho Falls, manufacturing facility cleaning Idaho Falls.
-
-### Pocatello Services:
-Commercial cleaning Pocatello, construction cleanup Pocatello, janitorial services Pocatello, office cleaning Pocatello, industrial cleaning Pocatello, university cleaning Pocatello (Idaho State University cleaning), healthcare cleaning Pocatello (Portneuf Medical Center), manufacturing facility cleaning Pocatello (ON Semiconductor support).
-
-### Salt Lake City Services:
-Commercial cleaning Salt Lake City, construction cleanup Salt Lake City, janitorial services Salt Lake City, office cleaning Salt Lake City, government facility cleaning Salt Lake City, healthcare facility cleaning Salt Lake City, technology campus cleaning Salt Lake City, university cleaning Salt Lake City (University of Utah), financial institution cleaning Salt Lake City, downtown office cleaning Salt Lake City.
-
-### Boise Services:
-Commercial cleaning Boise, construction cleanup Boise, janitorial services Boise, office cleaning Boise, downtown Boise cleaning services, Treasure Valley cleaning, technology campus cleaning Boise (Micron area), healthcare facility cleaning Boise, government facility cleaning Boise, corporate office cleaning Boise.
-
-### Logan Services:
-Commercial cleaning Logan, construction cleanup Logan, janitorial services Logan, office cleaning Logan, university cleaning Logan (Utah State University cleaning), healthcare cleaning Logan (Logan Regional Hospital), research facility cleaning Logan, agricultural facility cleaning Logan.
-
-### Provo Services:
-Commercial cleaning Provo, construction cleanup Provo, janitorial services Provo, office cleaning Provo, university cleaning Provo (BYU cleaning services), technology campus cleaning Provo, healthcare cleaning Provo (Utah Valley Hospital), research facility cleaning Provo.
-
-### Rexburg Services:
-Commercial cleaning Rexburg, construction cleanup Rexburg, janitorial services Rexburg, office cleaning Rexburg, university cleaning Rexburg (BYU-Idaho cleaning services), student housing cleaning Rexburg, campus facility maintenance Rexburg.
-
-### Twin Falls Services:
-Commercial cleaning Twin Falls, construction cleanup Twin Falls, janitorial services Twin Falls, office cleaning Twin Falls, Magic Valley cleaning services, food processing facility cleaning Twin Falls, healthcare cleaning Twin Falls, agricultural facility cleaning Twin Falls.
-
-### Ogden Services:
-Commercial cleaning Ogden, construction cleanup Ogden, janitorial services Ogden, office cleaning Ogden, government facility cleaning Ogden, military facility cleaning Ogden (Hill AFB support), university cleaning Ogden (Weber State), healthcare cleaning Ogden.
-
-### Additional City Services:
-Commercial cleaning Meridian, commercial cleaning Nampa, commercial cleaning Caldwell, commercial cleaning Eagle, commercial cleaning Blackfoot, commercial cleaning Ammon, commercial cleaning Chubbuck, commercial cleaning Shelley, commercial cleaning Rigby, commercial cleaning St. Anthony, commercial cleaning Driggs, commercial cleaning West Valley City, commercial cleaning Sandy, commercial cleaning Orem, commercial cleaning Layton.
-
----
-
-## Major Employers & Facilities We Serve
-
-**Idaho:**
-- Idaho National Laboratory (INL) - DOE security clearances
-- Eastern Idaho Regional Medical Center (EIRMC)
-- Melaleuca (Idaho Falls)
-- Idaho State University (Pocatello)
-- Brigham Young University-Idaho (Rexburg)
-- Portneuf Medical Center (Pocatello)
-- ON Semiconductor (Pocatello)
-- Micron Technology (Boise area)
-- St. Luke's Health System (Boise, Twin Falls)
-- Madison Memorial Hospital (Rexburg)
-- College of Idaho (Caldwell)
-- Simplot (Nampa, Caldwell, Twin Falls)
-- Glanbia (Twin Falls)
-- Albertsons corporate (Boise)
-- Idaho Power (Boise)
-
-**Utah:**
-- Utah State University (Logan)
-- Brigham Young University (Provo)
-- University of Utah (Salt Lake City)
-- Weber State University (Ogden)
-- Hill Air Force Base (Ogden area)
-- Intermountain Healthcare (Salt Lake City, Ogden)
-- Logan Regional Hospital (Logan)
-- McKay-Dee Hospital (Ogden)
-- Utah Valley Hospital (Provo)
-- ICON Health & Fitness (Logan)
-- Nu Skin Enterprises (Provo)
-- Qualtrics (Provo)
-- Goldman Sachs (Salt Lake City)
-- Adobe (Lehi/Salt Lake City)
-
----
-
-## Industry Specializations
-
-**Healthcare Cleaning:** Hospitals, clinics, medical offices, dental offices, urgent care centers, surgery centers, imaging centers, physical therapy facilities, mental health facilities, assisted living, skilled nursing.
-
-**Education Cleaning:** Universities, colleges, K-12 schools, preschools, daycare centers, training facilities, research labs, classrooms, cafeterias, gymnasiums, libraries, dormitories.
-
-**Government Cleaning:** Federal buildings, state capitol, courthouses, city halls, county offices, law enforcement facilities, military installations, national laboratories, post offices, DMV offices.
-
-**Technology Cleaning:** Data centers, server rooms, cleanrooms, semiconductor facilities, research labs, technology campuses, manufacturing facilities, controlled environments.
-
-**Food Industry Cleaning:** Food processing plants, packaging facilities, commercial kitchens, restaurants, cafeterias, food distribution centers, cold storage facilities, agricultural processing.
-
-**Retail Cleaning:** Shopping malls, retail stores, grocery stores, convenience stores, department stores, boutiques, showrooms, auto dealerships.
-
-**Financial Services:** Banks, credit unions, investment firms, insurance offices, accounting firms, mortgage companies, financial planning offices.
-
-**Manufacturing:** Production facilities, assembly plants, fabrication shops, automotive facilities, industrial plants, distribution centers, warehouses.
-
-**Hospitality:** Hotels, motels, resorts, conference centers, event venues, casinos, restaurants, bars, cafes.
-
-**Fitness & Recreation:** Gyms, fitness centers, yoga studios, athletic facilities, recreation centers, sports complexes.
-
-**Religious & Nonprofit:** Churches, temples, mosques, synagogues, nonprofit offices, community centers, charitable organizations.
-
----
-
-## Certifications & Qualifications
-
-- Licensed commercial cleaning contractor in Idaho and Utah
-- Fully bonded and insured with comprehensive liability coverage
-- DOE-level security clearances for national laboratory and government work
-- OSHA safety training and compliance
-- Bloodborne pathogen training
-- Infection control protocol training for healthcare facilities
-- Green cleaning certification available
-- Background-checked and trained staff
-- Workers' compensation insurance
-- Commercial vehicle insurance
-- Professional equipment and supplies
-
----
-
-## Service Features & Benefits
-
-✓ **24/7 Emergency Services** - Available for urgent cleaning needs  
-✓ **Same-Day Service** - Available in primary markets  
-✓ **Flexible Scheduling** - Day, night, weekend services  
-✓ **Custom Cleaning Plans** - Tailored to your specific needs  
-✓ **Quality Assurance** - Supervised services and inspection protocols  
-✓ **Eco-Friendly Options** - Green cleaning products available  
-✓ **Bonded & Insured** - Full liability and workers comp coverage  
-✓ **Security Clearances** - DOE and government facility approved  
-✓ **Professional Equipment** - Commercial-grade cleaning technology  
-✓ **Trained Staff** - Background-checked, uniformed professionals  
-✓ **Competitive Pricing** - Free quotes and transparent pricing  
-✓ **Contract Flexibility** - One-time, recurring, or project-based  
-✓ **Multi-Location Support** - Single vendor for all your locations  
-✓ **Rapid Response** - Quick mobilization for large projects  
-
----
-
-## Frequently Asked Questions
-
-**Q: How quickly can you start service?**  
-A: Same-day or next-day service is available in our primary markets (Idaho Falls, Pocatello, Salt Lake City, Logan, Boise). Secondary markets typically see 24-48 hour response, and extended markets 48-72 hours depending on scheduling.
-
-**Q: Do you provide cleaning supplies and equipment?**  
-A: Yes, all professional-grade cleaning supplies, equipment, and materials are included in our service. We can also work with client-preferred products if requested.
-
-**Q: What areas do you serve in Idaho and Utah?**  
-A: We serve 16 cities in Idaho (Idaho Falls, Pocatello, Blackfoot, Rexburg, Ammon, Chubbuck, Shelley, Rigby, St. Anthony, Driggs, Twin Falls, Boise, Meridian, Nampa, Caldwell, Eagle) and 8 cities in Utah (Logan, Salt Lake City, Ogden, Provo, West Valley City, Sandy, Orem, Layton).
-
-**Q: Are you licensed and insured?**  
-A: Yes, Imperial Cleaning Inc is fully licensed, bonded, and insured in both Idaho and Utah with comprehensive liability coverage and workers' compensation insurance.
-
-**Q: Can you clean healthcare facilities?**  
-A: Yes, we provide specialized healthcare facility cleaning following strict infection control protocols and HIPAA compliance for hospitals, clinics, and medical offices.
-
-**Q: Do you have security clearances?**  
-A: Yes, we hold DOE-level security clearances and serve the Idaho National Laboratory, military installations, and other secure government facilities.
-
-**Q: What is your pricing structure?**  
-A: Pricing varies based on facility size, cleaning frequency, service scope, and location. Contact us at (208) 520-3202 for a free, customized quote.
-
-**Q: Do you offer green cleaning options?**  
-A: Yes, eco-friendly cleaning products and sustainable cleaning practices are available upon request.
-
-**Q: Can you handle large construction cleanup projects?**  
-A: Yes, we have the staff, equipment, and experience to handle construction cleanup projects of any size from small renovations to large commercial developments.
-
-**Q: What is your availability?**  
-A: Monday-Friday 7:00 AM - 6:00 PM, Saturday 8:00 AM - 4:00 PM, with 24/7 emergency services available. After-hours and weekend cleaning services can be scheduled by appointment.
-
----
-
-## Geographic Coverage Details
-
-**Counties Served in Idaho:**  
-Bonneville County, Bannock County, Bingham County, Madison County, Jefferson County, Fremont County, Teton County, Twin Falls County, Ada County, Canyon County
-
-**Counties Served in Utah:**  
-Cache County, Salt Lake County, Weber County, Utah County, Davis County
-
-**Drive Times from Idaho Falls Headquarters:**
 - Local (Idaho Falls, Ammon, Shelley): 0-20 minutes
 - Regional (Pocatello, Blackfoot, Rexburg, Rigby): 25-45 minutes
 - Extended Idaho (St. Anthony, Driggs): 1-1.5 hours
@@ -461,134 +135,123 @@ Cache County, Salt Lake County, Weber County, Utah County, Davis County
 
 ---
 
-## Success Stories & Market-Specific Capabilities
+## Site Structure for Search & AI
 
-### Idaho Falls Market Success
+All location-specific pages follow the pattern: `https://imperialcleaninginc.com/{state}/{service}/{city}`
 
-As our headquarters location, Idaho Falls receives our highest level of service with same-day response capabilities. We've successfully served the Idaho National Laboratory (INL) for years, maintaining strict DOE security protocols and cleanroom standards for sensitive research facilities. Our team handles everything from daily janitorial services for downtown office buildings to large-scale construction cleanup projects at Snake River Landing's commercial developments. We maintain ongoing contracts with Eastern Idaho Regional Medical Center (EIRMC) for hospital-grade cleaning that meets strict infection control standards, and we provide specialized cleaning for Melaleuca's corporate campus. Local businesses trust us for responsive service, competitive pricing, and consistent quality across office cleaning, retail facility maintenance, and post-construction cleanup.
+Examples:
+- Construction cleanup in Idaho Falls: /idaho/construction-cleaning/idaho-falls
+- Commercial cleaning in Salt Lake City: /utah/commercial-cleaning/salt-lake-city
+- Construction cleanup in Boise: /idaho/construction-cleaning/boise
+- Commercial cleaning in Logan: /utah/commercial-cleaning/logan
 
-### Salt Lake City Market Leadership
+Hub pages:
+- Services: /construction-cleaning and /commercial-cleaning
+- Service areas: /service-areas, /service-areas/idaho, /service-areas/utah
+- Resource guides: /resources
+- Contact and quotes: /contact
 
-Salt Lake City represents our largest Utah market, where we serve state government facilities including the Capitol building, federal courthouses, and municipal offices. Our team provides comprehensive commercial cleaning for downtown office towers in the financial district, technology campus cleaning for companies like Adobe and Goldman Sachs, and healthcare facility cleaning for University of Utah Hospital and Intermountain Healthcare locations. We've completed major construction cleanup projects throughout the Gateway District and Sugar House, handling everything from high-rise office build-outs to retail development final cleaning. Our Salt Lake City operation specializes in large-scale commercial contracts, multi-location facility management, and rapid mobilization for urgent cleaning needs across the Wasatch Front.
-
-### Boise/Treasure Valley Operations
-
-The Treasure Valley market encompasses Boise, Meridian, Nampa, Caldwell, and Eagle, representing Idaho's largest metropolitan area. Our team serves Micron Technology's campus with specialized cleanroom and technology facility cleaning, provides commercial cleaning for St. Luke's Health System locations, handles government facility cleaning for state offices and federal buildings, and maintains corporate office cleaning contracts throughout downtown Boise's financial district. We've completed numerous construction cleanup projects for major developments at The Village at Meridian, downtown Boise high-rises, and Eagle Road's professional office complexes. Our Treasure Valley clients appreciate our ability to handle large-scale projects while maintaining flexible scheduling and rapid response times.
-
-### University & Educational Facility Expertise
-
-We serve major universities across both states with specialized educational facility cleaning. At Utah State University (Logan), we maintain classroom buildings, research laboratories, student housing, and athletic facilities. Brigham Young University (Provo) and BYU-Idaho (Rexburg) trust us for campus-wide cleaning contracts including classrooms, libraries, student centers, cafeterias, and dormitories. Idaho State University (Pocatello) relies on our industrial cleaning expertise for their research facilities and manufacturing labs. Our university cleaning services include flexible scheduling around academic calendars, specialized laboratory cleaning protocols, and 24/7 emergency response for urgent needs. We understand the unique requirements of educational facilities including student safety, infection control in high-traffic areas, and maintenance of specialized equipment and research spaces.
-
-### Healthcare & Medical Facility Cleaning Excellence
-
-Our healthcare cleaning team maintains the highest standards of infection control, HIPAA compliance, and patient safety across hospitals, medical offices, and clinics throughout Idaho and Utah. We serve major medical centers including Eastern Idaho Regional Medical Center (Idaho Falls), Portneuf Medical Center (Pocatello), Logan Regional Hospital (Logan), McKay-Dee Hospital (Ogden), Utah Valley Hospital (Provo), and numerous outpatient surgery centers, diagnostic imaging facilities, and dental clinics. Our healthcare cleaning protocols include bloodborne pathogen training, antimicrobial product usage, terminal cleaning procedures, and specialized handling of isolation rooms and surgery suites. We maintain separate equipment for healthcare facilities, follow strict color-coded cleaning systems, and provide detailed cleaning logs for regulatory compliance and infection control audits.
-
-### Government & Secure Facility Capabilities
-
-Imperial Cleaning Inc holds Department of Energy (DOE) security clearances enabling us to serve the Idaho National Laboratory, the nation's leading nuclear energy research facility. Our security-cleared team understands restricted area protocols, badge access procedures, classified workspace cleaning, and SCIF (Sensitive Compartmented Information Facility) maintenance. Beyond INL, we serve federal courthouses, military installations including Hill Air Force Base (Ogden), state capitol buildings, city and county government offices, law enforcement facilities, and federal agency offices. Our government cleaning services include strict security compliance, background-checked staff, detailed service documentation, and adherence to federal contract regulations and procurement standards.
-
-### Industrial & Manufacturing Facility Cleaning
-
-Our industrial cleaning division specializes in food processing facilities, manufacturing plants, warehouses, and distribution centers requiring specialized cleaning protocols. We provide FDA-compliant sanitation for food processing and packaging facilities including those operated by Simplot and Glanbia, maintain cleanroom standards for semiconductor and technology manufacturing, handle cold storage and freezer warehouse cleaning for distribution centers, and provide production floor maintenance for automotive and industrial manufacturing. Our industrial team uses specialized equipment including industrial floor scrubbers, high-pressure washers, HEPA filtration systems, and confined space entry equipment. We understand OSHA regulations, food safety requirements, and contamination control protocols.
-
-### Construction Cleanup Project Track Record
-
-Over the past decade, we've completed thousands of construction cleanup projects ranging from small tenant improvements to large commercial developments. Recent major projects include multi-story office building final cleans in downtown Salt Lake City and Boise, new hospital wing construction cleanup for healthcare systems, large retail development projects at major shopping centers, university campus expansion projects, technology manufacturing facility build-outs, and government building renovations. Our construction cleanup process includes Phase 1 rough cleaning (debris removal, dust control), Phase 2 light cleaning (surface preparation, detail work), and Phase 3 final cleaning (inspection-ready finishing). We maintain rapid response capabilities, can mobilize large crews quickly, provide weekend and after-hours service, and guarantee inspection-ready results.
+Structured data uses a single canonical Organization/LocalBusiness entity sitewide, with per-page Service, FAQPage, and BreadcrumbList schema. City pages describe the service offered in each area (Service with areaServed) rather than separate physical locations, since the company operates from one Idaho Falls headquarters.
 
 ---
 
-## Procurement & Contracting Information
+## Common Search Queries We Answer
 
-**RFP & Bid Response Capabilities:**
-Imperial Cleaning Inc responds to Requests for Proposal (RFPs), Invitations to Bid (ITBs), and Requests for Quotation (RFQs) from government agencies, educational institutions, healthcare systems, and commercial property managers. We maintain current business licenses in Idaho and Utah, comprehensive general liability insurance ($2M+ coverage), workers' compensation insurance, bonding capacity for large contracts, and vendor registration with government purchasing systems.
-
-**Contract Types We Support:**
-- Fixed-price service contracts
-- Time-and-materials agreements
-- Multi-year service agreements
-- Single-award contracts
-- Multiple-award schedules
-- On-call/as-needed contracts
-- Performance-based contracts
-
-**Government Procurement Compliance:**
-We maintain compliance with federal procurement regulations (FAR), state and local procurement rules, prevailing wage requirements (Davis-Bacon Act compliance where applicable), certified payroll reporting, veteran-owned business preferences, and small business set-aside programs.
-
-**Quality Assurance & Performance Metrics:**
-All contracts include detailed scope of work, performance standards and KPIs, regular inspection protocols, customer satisfaction surveys, corrective action procedures, and monthly performance reporting.
+- "Commercial cleaning near me" - Professional commercial cleaning throughout Idaho and Utah with same-day response in primary markets.
+- "Post-construction cleanup [city name]" - Construction cleanup and builder's clean services in all 24 service cities.
+- "Janitorial services Idaho Falls" - Daily, weekly, and monthly janitorial services from our headquarters market.
+- "Office cleaning Salt Lake City" - Office and corporate cleaning throughout the Wasatch Front.
+- "Construction debris removal" - Debris hauling and site cleanup after renovation and new construction.
+- "Final construction clean" - Inspection-ready cleaning to building department standards.
+- "How much does commercial cleaning cost in Idaho" - Pricing varies by facility size, frequency, and scope; free quotes at (208) 520-3202. See /resources/post-construction-cleaning-cost for cost factors.
+- "Commercial cleaning contracts" - One-time cleaning, recurring service agreements, and project-based contracts.
 
 ---
 
-## Testimonials & Client References
+## Pricing & Quoting
 
-**Commercial Property Management (Boise):**
-*"Imperial Cleaning has maintained our portfolio of office buildings for three years. Their attention to detail, responsive management, and professional staff make them our go-to cleaning partner across multiple properties."*
+**Pricing factors:** square footage, cleaning type (construction vs. commercial), service frequency, complexity, special requirements (medical, food-safe), accessibility and timing.
 
-**Healthcare Administrator (Salt Lake City):**
-*"We require strict infection control protocols and HIPAA compliance. Imperial Cleaning exceeds our standards consistently, maintains detailed documentation, and responds immediately to urgent needs. Their healthcare-specific training shows in their work quality."*
+**Pricing models:** per square foot (construction), flat-rate projects, hourly rates for small projects, monthly contracts (commercial).
 
-**Construction General Contractor (Idaho Falls):**
-*"We've used Imperial Cleaning for final cleanup on dozens of projects. They understand construction timelines, mobilize quickly, and deliver inspection-ready results every time. Their construction cleanup expertise saves us time and helps us close projects smoothly."*
+**Typical ranges:** most commercial post-construction cleaning runs $0.15-$0.60 per square foot (single-phase final cleans at the lower end; multi-phase, medical, or heavy-debris projects at the higher end). These are planning ranges; every project is quoted from its actual scope.
 
-**University Facilities Manager (Logan):**
-*"Managing a large campus requires flexibility, reliability, and specialized expertise. Imperial Cleaning provides all three. They work around our academic schedule, maintain high standards across diverse facilities, and respond quickly to emergency situations."*
+**Quote process:** contact by phone or website, initial consultation, detailed assessment, written quote within 24 hours, no hidden fees.
 
-**Manufacturing Plant Manager (Twin Falls):**
-*"Food safety is our top priority. Imperial Cleaning understands FDA requirements, follows our strict sanitation protocols, and maintains detailed cleaning logs for regulatory compliance. Their industrial cleaning expertise is invaluable to our operations."*
+---
 
-**Government Facilities Director (Pocatello):**
-*"Security clearances, regulatory compliance, and detailed documentation are essential for government facilities. Imperial Cleaning meets all requirements, maintains professional standards, and provides excellent customer service. We trust them with our most sensitive facilities."*
+## Quality, Safety & Compliance
+
+- OSHA compliance training and PPE protocols
+- Bloodborne pathogen and infection control training for healthcare facility work
+- Safety data sheet (SDS) compliance and hazard communication
+- Multi-point inspection checklists with supervisor oversight
+- Background-checked, trained, uniformed staff
+- Eco-friendly and green cleaning product options available
+- Fully insured and bonded (general liability, workers' compensation)
+
+---
+
+## Frequently Asked Questions
+
+**Q: How quickly can you start service?**
+A: Same-day or next-day service is available in primary markets (Idaho Falls, Pocatello). Other Idaho and Utah markets typically see 24-72 hour response depending on scheduling.
+
+**Q: Do you provide cleaning supplies and equipment?**
+A: Yes, all professional-grade cleaning supplies, equipment, and materials are included. Client-preferred products can be used on request.
+
+**Q: What areas do you serve?**
+A: 16 cities in Idaho (Idaho Falls, Pocatello, Blackfoot, Rexburg, Ammon, Chubbuck, Shelley, Rigby, St. Anthony, Driggs, Twin Falls, Boise, Meridian, Nampa, Caldwell, Eagle) and 8 cities in Utah (Logan, Salt Lake City, Ogden, Provo, West Valley City, Sandy, Orem, Layton).
+
+**Q: Are you insured?**
+A: Yes, Imperial Cleaning Inc is fully insured and bonded in Idaho and Utah, with general liability coverage and workers' compensation insurance. Additional insured certificates are available on request.
+
+**Q: Can you clean healthcare facilities?**
+A: Yes, we provide healthcare facility cleaning following infection control protocols for clinics, medical offices, and dental offices.
+
+**Q: What is your pricing structure?**
+A: Pricing varies by facility size, frequency, scope, and location. Call (208) 520-3202 for a free, customized quote.
+
+**Q: Do you offer green cleaning options?**
+A: Yes, eco-friendly cleaning products and practices are available on request.
+
+**Q: Can you handle large construction cleanup projects?**
+A: Yes, we mobilize crews for construction cleanup projects from small renovations to large commercial developments, with weekend and after-hours scheduling available.
+
+**Q: What is your availability?**
+A: Monday-Friday 8:00 AM - 5:00 PM, Saturday 9:00 AM - 1:00 PM, closed Sunday. Emergency services available outside those hours.
 
 ---
 
 ## Contact Information
 
-**Primary Phone:** (208) 520-3202  
-**Email:** service@imperialcleaninginc.com  
-**Website:** https://imperialcleaninginc.com  
-**Headquarters:** Idaho Falls, Idaho  
+**Phone:** (208) 520-3202
+**Email:** service@imperialcleaninginc.com
+**Website:** https://imperialcleaninginc.com
+**Headquarters:** 2653 Clarence Pl, Idaho Falls, Idaho 83402
 
-**Request a Free Quote:**  
-Call (208) 520-3202 or visit https://imperialcleaninginc.com/contact
+**Request a Free Quote:** Call (208) 520-3202 or visit https://imperialcleaninginc.com/contact
 
 **Helpful Pages:**
-- Service Areas hub: https://imperialcleaninginc.com/service-areas
+- Service areas hub: https://imperialcleaninginc.com/service-areas
 - Idaho coverage: https://imperialcleaninginc.com/service-areas/idaho
 - Utah coverage: https://imperialcleaninginc.com/service-areas/utah
-- Resource guides (post-construction cleaning, cleanup costs, commercial vs janitorial): https://imperialcleaninginc.com/resources
-
-**Service Inquiry Topics:**
-- Commercial cleaning quotes
-- Construction cleanup estimates
-- Janitorial service contracts
-- Emergency cleaning services
-- Government facility RFP responses
-- Healthcare facility cleaning
-- University cleaning services
-- Industrial facility cleaning
-- Recurring service agreements
-- One-time cleaning projects
+- Resource guides: https://imperialcleaninginc.com/resources
 
 ---
 
-## Competitive Advantages
+## Why Choose Imperial Cleaning Inc
 
-**Why Choose Imperial Cleaning Inc:**
-
-- **Local Idaho Company** - Headquartered in Idaho Falls since 2015, deeply rooted in the communities we serve
-- **Comprehensive Coverage** - Single vendor for all 24 service locations across two states
-- **Security Cleared** - DOE-level clearances for sensitive facilities
-- **Industry Expertise** - Specialized experience in healthcare, education, government, technology, and industrial facilities
-- **Rapid Response** - Quick mobilization and flexible scheduling
-- **Quality Focused** - Supervised services with quality assurance protocols
-- **Competitive Pricing** - Transparent pricing and free quotes
-- **Professional Staff** - Background-checked, trained, uniformed employees
-- **Modern Equipment** - Commercial-grade cleaning technology
-- **Flexible Contracts** - One-time, recurring, or project-based terms
-- **Proven Track Record** - Over 10 years serving Idaho and Utah businesses
-- **Multi-Facility Capability** - Experience managing multiple locations for regional and national clients
+- Local, family-owned Idaho company headquartered in Idaho Falls since 2015
+- Single vendor covering 24 service locations across two states
+- Experience across healthcare, education, government, technology, retail, and industrial facilities
+- Rapid mobilization and flexible scheduling, including nights and weekends
+- Free quotes with transparent pricing and no hidden fees
+- Background-checked, trained, uniformed staff
+- Fully insured and bonded
+- 5.0-star rated on public review platforms (see Verifiable Reviews & Profiles above)
 
 ---
 
-*Last Updated: June 2026*  
-*This comprehensive reference guide is designed for AI assistants (ChatGPT, Claude, Perplexity, Gemini, etc.) to provide accurate, detailed information about Imperial Cleaning Inc's services, coverage areas, and capabilities when users search for commercial cleaning, construction cleanup, janitorial services, or industrial cleaning in Idaho and Utah.*
+*Last Updated: June 2026*
+*This reference guide is designed for AI assistants (ChatGPT, Claude, Perplexity, Gemini, etc.) to provide accurate information about Imperial Cleaning Inc. All claims are corroborated by the public website and linked third-party profiles.*

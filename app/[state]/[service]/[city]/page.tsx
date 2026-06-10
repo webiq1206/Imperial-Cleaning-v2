@@ -1,8 +1,14 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceLocationClient from "@/components/pages/service-location-client";
+import { StructuredData } from "@/components/structured-data";
 import { allServiceLocations, type ServiceLocation } from "@/data/service-locations";
-import { locationToSlug, isValidServiceLocation } from "@/lib/routing-utils";
+import { locationToSlug, isValidServiceLocation, buildServiceLocationUrl } from "@/lib/routing-utils";
+import {
+  generateLocationDescription,
+  generateEnhancedServiceFeatures,
+  generateLocationFAQ,
+} from "@/lib/location-content-utils";
 
 interface PageProps {
   params: Promise<{
@@ -93,7 +99,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const keywords = `${location.name} ${serviceName.toLowerCase()}, ${serviceName.toLowerCase()} ${location.name} ${stateAbbr}, ${location.county || location.name} cleaning services, ${locationKeywords}`;
   
   return {
-    title,
+    // Absolute: city titles already carry the brand; the layout template
+    // would otherwise append a second "| Imperial Cleaning Inc".
+    title: { absolute: title },
     description,
     keywords,
     authors: [{ name: "Imperial Cleaning Inc" }],
@@ -130,6 +138,94 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+// JSON-LD is built and rendered server-side so structured data is guaranteed
+// to be present in the initial HTML for every crawler, independent of any
+// client-side hydration.
+function buildCitySchemas(
+  location: ServiceLocation,
+  serviceType: "construction-cleaning" | "commercial-cleaning",
+  serviceName: string
+) {
+  const metaDescription = generateLocationDescription(serviceType, location);
+  const serviceFeatures = generateEnhancedServiceFeatures(serviceType, location);
+  const faqs = generateLocationFAQ(serviceType, location);
+  const stateSlug = location.state.toLowerCase();
+  const pageUrl = buildServiceLocationUrl(location.state, serviceType, location.name);
+  const citySlug = locationToSlug(location.name);
+
+  // City pages describe a Service offered in a specific city. The provider is
+  // the canonical Organization declared sitewide (referenced by @id) - we
+  // deliberately do NOT emit a separate per-city LocalBusiness, which would
+  // falsely imply a physical branch in each city (a doorway/spam signal).
+  // No aggregateRating is emitted until a verifiable review source exists
+  // (see data/reviews.ts).
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${location.name} ${serviceName} Services`,
+    "description": metaDescription,
+    "serviceType": serviceName,
+    "url": `https://imperialcleaninginc.com${pageUrl}`,
+    "image": "https://imperialcleaninginc.com/og-image.png",
+    "provider": { "@id": "https://imperialcleaninginc.com/#organization" },
+    "areaServed": {
+      "@type": "City",
+      "name": location.name,
+      ...(location.coordinates && {
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": location.coordinates.lat,
+          "longitude": location.coordinates.lng,
+        },
+      }),
+      "containedInPlace": location.county
+        ? {
+            "@type": "AdministrativeArea",
+            "name": location.county,
+            "containedInPlace": { "@type": "State", "name": location.state },
+          }
+        : { "@type": "State", "name": location.state },
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `${serviceName} Services`,
+      "itemListElement": serviceFeatures.features
+        .slice(0, 5)
+        .map((feature: { title: string; description: string }) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": feature.title,
+            "description": feature.description,
+          },
+        })),
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq: { question: string; answer: string }) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imperialcleaninginc.com/" },
+      { "@type": "ListItem", "position": 2, "name": `${location.state} Service Areas`, "item": `https://imperialcleaninginc.com/service-areas/${stateSlug}` },
+      { "@type": "ListItem", "position": 3, "name": serviceName, "item": `https://imperialcleaninginc.com/${serviceType}` },
+      { "@type": "ListItem", "position": 4, "name": `${location.name} ${serviceName}`, "item": `https://imperialcleaninginc.com/${stateSlug}/${serviceType}/${citySlug}` },
+    ],
+  };
+
+  return [serviceSchema, breadcrumbSchema, faqSchema];
+}
+
 export default async function ServiceLocationPage({ params }: PageProps) {
   const { state, service, city } = await params;
   const location = findLocation(state, city);
@@ -138,12 +234,18 @@ export default async function ServiceLocationPage({ params }: PageProps) {
   if (!location || !serviceName || !isValidServiceLocation(service, city, state)) {
     notFound();
   }
-  
+
+  const serviceType = service as "construction-cleaning" | "commercial-cleaning";
+  const schemas = buildCitySchemas(location, serviceType, serviceName);
+
   return (
-    <ServiceLocationClient
-      location={location}
-      serviceType={service as "construction-cleaning" | "commercial-cleaning"}
-      serviceName={serviceName}
-    />
+    <>
+      <StructuredData data={schemas} />
+      <ServiceLocationClient
+        location={location}
+        serviceType={serviceType}
+        serviceName={serviceName}
+      />
+    </>
   );
 }

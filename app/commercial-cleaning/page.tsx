@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import CommercialCleaningClient from "@/components/pages/commercial-cleaning-client";
 
 export const metadata: Metadata = {
-  title: "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc",
+  title: { absolute: "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc" },
   description: "Professional commercial cleaning services across Idaho & Utah. Daily, weekly & monthly schedules for offices & businesses. Call (208) 520-3202 today!",
   keywords: "commercial cleaning Idaho Utah, office cleaning, janitorial services, business cleaning Idaho Falls, medical facility cleaning, retail cleaning services",
   authors: [{ name: "Imperial Cleaning Inc" }],

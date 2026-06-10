@@ -36,7 +36,7 @@ export const homeFaqs: HomeFaq[] = [
   {
     id: "pricing-quote-process",
     question: "How do you determine pricing for cleaning services?",
-    answer: "Our pricing for post-construction and commercial cleaning is based on several factors: square footage, frequency of service, type of facility, specific cleaning requirements, and accessibility. We provide detailed, transparent quotes with no hidden fees. Most commercial cleaning estimates can be provided within 24 hours. For construction cleanup projects, we offer both per-square-foot pricing and flat-rate options depending on project scope."
+    answer: "Most post-construction cleaning runs $0.15 to $0.60 per square foot, with single-phase final cleans at the lower end and multi-phase or specialized projects at the higher end. Commercial cleaning is typically priced as a monthly contract based on square footage, frequency, and scope. We provide detailed, transparent quotes with no hidden fees - most estimates are delivered within 24 hours, with both per-square-foot and flat-rate options for construction cleanup."
   },
   {
     id: "construction-timeline-coordination",

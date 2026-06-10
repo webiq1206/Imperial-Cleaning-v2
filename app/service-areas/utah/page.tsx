@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ServiceAreasUtahClient from "@/components/pages/service-areas-utah-client";
 
 export const metadata: Metadata = {
-  title: "Wasatch Front Cleaning Services | Imperial Cleaning Utah",
+  title: { absolute: "Utah Cleaning Services | Wasatch Front | Imperial Cleaning Inc" },
   description: "Professional commercial & construction cleaning in Salt Lake City, Logan, Ogden, Provo & Wasatch Front. Expert Utah cleaning services. Call today!",
   keywords: "Salt Lake City cleaning, Utah commercial cleaning, Wasatch Front janitorial, Logan construction cleanup, Ogden office cleaning, Provo cleaning services, Utah County cleaning, Weber County cleaners",
   authors: [{ name: "Imperial Cleaning Inc" }],

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import AboutClient from "@/components/pages/about-client";
 
 export const metadata: Metadata = {
-  title: "About Imperial Cleaning Inc | Idaho & Utah Cleaning",
+  title: { absolute: "About Imperial Cleaning Inc | Idaho & Utah Cleaning" },
   description: "Imperial Cleaning Inc: Idaho's trusted cleaning company since 2015. Licensed, bonded & insured. Expert construction & commercial cleaning in ID & UT. Get a free quote!",
   keywords: "about Imperial Cleaning, Idaho cleaning company, Utah cleaning services, professional cleaners, construction cleanup experts, commercial cleaning specialists, Idaho Falls headquarters",
   authors: [{ name: "Imperial Cleaning Inc" }],

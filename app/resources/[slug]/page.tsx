@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
+import RelatedContent from "@/components/shared/related-content";
 import { guides, getGuideBySlug } from "@/data/guides";
 
 interface GuidePageProps {
@@ -21,7 +22,8 @@ export function generateMetadata({ params }: GuidePageProps): Metadata {
   }
   const url = `https://imperialcleaninginc.com/resources/${guide.slug}`;
   return {
-    title: guide.metaTitle,
+    // Absolute: guide metaTitles already carry the brand suffix.
+    title: { absolute: guide.metaTitle },
     description: guide.description,
     authors: [{ name: "Imperial Cleaning Inc" }],
     alternates: { canonical: url },
@@ -212,6 +214,14 @@ export default function GuidePage({ params }: GuidePageProps) {
           )}
         </div>
       </article>
+
+      {/* Algorithmic cross-links from the internal linking manifest */}
+      <RelatedContent
+        pageUrl={url.replace("https://imperialcleaninginc.com", "")}
+        heading="Keep Reading"
+        description="More guides and services related to this topic."
+        limit={5}
+      />
     </>
   );
 }

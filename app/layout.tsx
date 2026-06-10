@@ -4,6 +4,13 @@ import './globals.css';
 import dynamic from 'next/dynamic';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_EMAIL,
+  BUSINESS_GEO,
+  BUSINESS_OPENING_HOURS_SCHEMA,
+  BUSINESS_PHONE_TEL,
+} from '@/data/business-info';
 
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(m => ({ default: m.Toaster })), { ssr: false });
 
@@ -108,30 +115,59 @@ const WEBSITE_ID = 'https://imperialcleaninginc.com/#website';
 const siteJsonLd = [
   {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    // Dual type: one canonical entity node for the whole site. Every page
+    // (home, contact, state hubs, city Service providers) references this
+    // node via @id instead of re-declaring divergent LocalBusiness copies.
+    '@type': ['Organization', 'LocalBusiness'],
     '@id': ORG_ID,
     name: 'Imperial Cleaning Inc',
     url: 'https://imperialcleaninginc.com',
     logo: 'https://imperialcleaninginc.com/hero-logo.png',
     image: 'https://imperialcleaninginc.com/og-image.png',
     description: 'Professional construction cleanup and commercial cleaning services across Idaho and Utah. Licensed, insured, and trusted since 2015.',
-    telephone: '+1-208-520-3202',
-    email: 'service@imperialcleaninginc.com',
+    telephone: BUSINESS_PHONE_TEL,
+    email: BUSINESS_EMAIL,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Idaho Falls',
-      addressRegion: 'ID',
-      postalCode: '83404',
-      addressCountry: 'US',
+      streetAddress: BUSINESS_ADDRESS.street,
+      addressLocality: BUSINESS_ADDRESS.city,
+      addressRegion: BUSINESS_ADDRESS.state,
+      postalCode: BUSINESS_ADDRESS.postalCode,
+      addressCountry: BUSINESS_ADDRESS.country,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: BUSINESS_GEO.latitude,
+      longitude: BUSINESS_GEO.longitude,
+    },
+    openingHoursSpecification: BUSINESS_OPENING_HOURS_SCHEMA,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: BUSINESS_PHONE_TEL,
+      contactType: 'customer service',
+      email: 'service@imperialcleaninginc.com',
+      areaServed: ['US-ID', 'US-UT'],
+      availableLanguage: 'English',
     },
     areaServed: [
-      { '@type': 'State', name: 'Idaho' },
-      { '@type': 'State', name: 'Utah' },
+      { '@type': 'State', name: 'Idaho', sameAs: 'https://en.wikipedia.org/wiki/Idaho' },
+      { '@type': 'State', name: 'Utah', sameAs: 'https://en.wikipedia.org/wiki/Utah' },
+      { '@type': 'City', name: 'Idaho Falls', sameAs: 'https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho' },
+      { '@type': 'City', name: 'Pocatello', sameAs: 'https://en.wikipedia.org/wiki/Pocatello,_Idaho' },
+      { '@type': 'City', name: 'Boise', sameAs: 'https://en.wikipedia.org/wiki/Boise,_Idaho' },
+      { '@type': 'City', name: 'Twin Falls', sameAs: 'https://en.wikipedia.org/wiki/Twin_Falls,_Idaho' },
+      { '@type': 'City', name: 'Rexburg', sameAs: 'https://en.wikipedia.org/wiki/Rexburg,_Idaho' },
+      { '@type': 'City', name: 'Salt Lake City', sameAs: 'https://en.wikipedia.org/wiki/Salt_Lake_City' },
+      { '@type': 'City', name: 'Logan', sameAs: 'https://en.wikipedia.org/wiki/Logan,_Utah' },
+      { '@type': 'City', name: 'Ogden', sameAs: 'https://en.wikipedia.org/wiki/Ogden,_Utah' },
+      { '@type': 'City', name: 'Provo', sameAs: 'https://en.wikipedia.org/wiki/Provo,_Utah' },
     ],
     sameAs: [
       'https://www.facebook.com/imperialcleaninginc',
       'https://www.instagram.com/imperialcleaninginc/',
       'https://www.linkedin.com/company/imperial-cleaning-inc',
+      'https://www.yelp.com/biz/imperial-cleaning-idaho-falls-3',
+      'https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/',
     ],
     foundingDate: '2015',
     numberOfEmployees: {
@@ -140,6 +176,16 @@ const siteJsonLd = [
       maxValue: 50,
     },
     priceRange: '$$',
+    knowsAbout: [
+      'Post-construction cleaning',
+      'Construction debris removal',
+      'Final clean and inspection preparation',
+      'Commercial janitorial services',
+      'Office cleaning',
+      'Medical office cleaning',
+      'Floor care and maintenance',
+      'OSHA-compliant site cleanup',
+    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Cleaning Services',

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import HeroCTAButtons from "@/components/hero-cta-buttons";
 
 const logoPathPNG = "/hero-logo.png";
@@ -15,14 +16,13 @@ export default function HeroSection({
     <div 
      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
     >
-      <img 
+      <Image
        src={logoPathPNG}
        alt={imageAlt}
        className="w-full h-full object-contain opacity-15 md:opacity-0 pointer-events-none"
-       width="384"
-       height="384"
+       width={384}
+       height={384}
        loading="lazy"
-       decoding="async"
        fetchPriority="low"
       />
     </div>
@@ -79,14 +79,13 @@ export default function HeroSection({
         {/* Enhanced logo with 3D effect and motion polish */}
         <div className="logo-3d-container relative">
          {/* Main logo */}
-         <img 
+         <Image
            src={logoPathPNG}
            alt={imageAlt}
            className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[32rem] xl:h-[32rem] object-contain opacity-25"
-           width="512"
-           height="512"
+           width={512}
+           height={512}
            loading="lazy"
-           decoding="async"
            fetchPriority="low"
           />
          

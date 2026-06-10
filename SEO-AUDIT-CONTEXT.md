@@ -7,7 +7,8 @@ Auto-extracted from the codebase on 2026-05-27.
 - **Domain:** https://imperialcleaninginc.com
 - **Subtype:** LocalBusiness (commercial and construction cleaning)
 - **Founded:** 2015
-- **Headquarters:** Idaho Falls, ID 83404
+- **Headquarters:** 2653 Clarence Pl, Idaho Falls, ID 83402 (Google listing canonical; owner-confirmed 2026-06-10)
+- **Hours (Google canonical):** Mon-Fri 8AM-5PM, Sat 9AM-1PM, Sun closed
 - **Phone:** +1-208-520-3202
 - **Email:** service@imperialcleaninginc.com
 - **Geo:** 43.4666, -112.0336

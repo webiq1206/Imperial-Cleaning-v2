@@ -6,7 +6,7 @@ import { buildServiceLocationUrl, isValidServiceLocation, locationToSlug } from 
 import { guides } from "@/data/guides";
 
 export const metadata: Metadata = {
-  title: "Sitemap | Imperial Cleaning Inc",
+  title: { absolute: "Sitemap | Imperial Cleaning Inc" },
   description:
     "Browse every page on the Imperial Cleaning Inc website - services, service areas across Idaho and Utah, resource guides, and company pages.",
   alternates: { canonical: "https://imperialcleaninginc.com/sitemap" },

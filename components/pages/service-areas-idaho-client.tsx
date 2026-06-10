@@ -19,27 +19,20 @@ import { Atom, HeartPulse, Factory, Zap, Clock, PhoneCall, ClipboardList, Phone,
 export default function ServiceAreasIdahoClient() {
   const [showContactForm, setShowContactForm] = useState(false);
 
+  // Mirrors the Utah hub pattern: a Service with Idaho cities as areaServed
+  // and the canonical Organization/LocalBusiness (app/layout.tsx) as provider.
+  // Avoids declaring a second, divergent LocalBusiness entity.
+  // TODO(real-data): add aggregateRating + Review entities once a verifiable review feed exists.
   const idahoServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Imperial Cleaning Inc - Idaho Services",
+    "@type": "Service",
+    "name": "Idaho Commercial & Construction Cleaning Services",
     "description": "Headquartered in Idaho Falls, providing comprehensive commercial and construction cleaning services throughout southeastern Idaho, Magic Valley, and extending coverage to the Treasure Valley region.",
     "url": "https://imperialcleaninginc.com/service-areas/idaho",
-    "telephone": "+1-208-520-3202",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Idaho Falls",
-      "addressRegion": "ID",
-      "postalCode": "83404",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 43.4666,
-      "longitude": -112.0336
-    },
+    "serviceType": ["Commercial Cleaning", "Construction Cleaning"],
+    "provider": { "@id": "https://imperialcleaninginc.com/#organization" },
     "areaServed": [
+      { "@type": "State", "name": "Idaho", "sameAs": "https://en.wikipedia.org/wiki/Idaho" },
       { "@type": "City", "name": "Idaho Falls", "sameAs": "https://en.wikipedia.org/wiki/Idaho_Falls,_Idaho" },
       { "@type": "City", "name": "Pocatello", "sameAs": "https://en.wikipedia.org/wiki/Pocatello,_Idaho" },
       { "@type": "City", "name": "Blackfoot", "sameAs": "https://en.wikipedia.org/wiki/Blackfoot,_Idaho" },
@@ -56,25 +49,6 @@ export default function ServiceAreasIdahoClient() {
       { "@type": "City", "name": "Driggs" },
       { "@type": "City", "name": "Caldwell" },
       { "@type": "City", "name": "Eagle" }
-    ],
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "16:00"
-      }
-    ],
-    // TODO(real-data): add aggregateRating + Review entities once a verifiable review feed exists.
-    "sameAs": [
-      "https://www.facebook.com/imperialcleaninginc",
-      "https://www.linkedin.com/company/imperial-cleaning-inc"
     ]
   };
 

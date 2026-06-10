@@ -32,10 +32,9 @@ const buildSearchIndex = (): SearchResult[] => {
     
     // Page Sections
     { title: "Compliance & Certifications", description: "Our certifications and compliance standards", url: "/#compliance", category: "section", icon: "page", section: "compliance" },
-    { title: "Testimonials", description: "Client reviews and success stories", url: "/#testimonials", category: "section", icon: "page", section: "testimonials" },
+    { title: "Reviews", description: "Verified customer reviews on Google and other platforms", url: "/#reviews", category: "section", icon: "page", section: "reviews" },
     { title: "Company Statistics", description: "Our experience and achievements", url: "/#stats", category: "section", icon: "page", section: "stats" },
     { title: "FAQ", description: "Frequently asked questions", url: "/construction-cleaning#faq", category: "section", icon: "page", section: "faq" },
-    { title: "Case Studies", description: "Real project examples and results", url: "/#case-studies", category: "section", icon: "page", section: "case-studies" },
     
     // Legal
     { title: "Privacy Policy", description: "Our privacy policy and data protection", url: "/privacy-policy", category: "page", icon: "page" },

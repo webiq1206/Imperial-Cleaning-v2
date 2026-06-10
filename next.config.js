@@ -52,17 +52,14 @@ const nextConfig = {
         permanent: true,
       },
 
-      // Old WordPress industry/service pages -> /commercial-cleaning
-      { source: '/restaurant-cleaning-services', destination: '/commercial-cleaning', permanent: true },
-      { source: '/restaurant-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
-      { source: '/medical-office-cleaning', destination: '/commercial-cleaning', permanent: true },
-      { source: '/medical-office-cleaning/', destination: '/commercial-cleaning', permanent: true },
-      { source: '/school-cleaning-services', destination: '/commercial-cleaning', permanent: true },
-      { source: '/school-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      // Old WordPress industry/service pages.
+      // medical-office-cleaning, restaurant-cleaning-services,
+      // school-cleaning-services, and car-dealership-cleaning were REBUILT as
+      // live pages at their original URLs (no redirect needed - direct
+      // restoration of legacy link equity). The remaining low-volume legacy
+      // URLs still 301 to /commercial-cleaning.
       { source: '/church-cleaning-services', destination: '/commercial-cleaning', permanent: true },
       { source: '/church-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
-      { source: '/car-dealership-cleaning', destination: '/commercial-cleaning', permanent: true },
-      { source: '/car-dealership-cleaning/', destination: '/commercial-cleaning', permanent: true },
       { source: '/bank-cleaning-services', destination: '/commercial-cleaning', permanent: true },
       { source: '/bank-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
       { source: '/electrostatic-cleaning-services', destination: '/commercial-cleaning', permanent: true },

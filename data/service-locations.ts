@@ -18,6 +18,8 @@ export interface ServiceLocation {
     lat: number;
     lng: number;
   };
+  /** Real USPS ZIP codes for the city - rendered on city pages and in geo schema. */
+  zipCodes?: string[];
   demographics: {
     economicBase: string[];
     majorEmployers?: string[];
@@ -68,6 +70,7 @@ export const idahoLocations: ServiceLocation[] = [
     driveTimeFromHQ: "0 minutes (Headquarters)",
     serviceRadius: "30 mile radius",
     coordinates: { lat: 43.4933, lng: -112.0339 },
+    zipCodes: ["83401", "83402", "83404", "83406"],
     demographics: {
       economicBase: ["Healthcare", "Government", "Technology", "Energy", "Education"],
       majorEmployers: ["Idaho National Laboratory", "Eastern Idaho Regional Medical Center", "Melaleuca"],
@@ -95,6 +98,7 @@ export const idahoLocations: ServiceLocation[] = [
     driveTimeFromHQ: "30 minutes",
     serviceRadius: "25 mile radius",
     coordinates: { lat: 42.8713, lng: -112.4455 },
+    zipCodes: ["83201", "83204", "83209"],
     demographics: {
       economicBase: ["Education", "Healthcare", "Manufacturing", "Transportation", "Government"],
       majorEmployers: ["Idaho State University", "Portneuf Medical Center", "ON Semiconductor"],
@@ -120,6 +124,8 @@ export const idahoLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "25 minutes",
     serviceRadius: "15 mile radius",
+    coordinates: { lat: 43.1905, lng: -112.3450 },
+    zipCodes: ["83221"],
     demographics: {
       economicBase: ["Agriculture", "Food Processing", "Government", "Healthcare"],
       constructionActivity: "low",
@@ -131,6 +137,8 @@ export const idahoLocations: ServiceLocation[] = [
       industrialCleaning: true,
       specializedServices: ["Food Processing Facilities", "Agricultural Facilities"]
     },
+    businessDistricts: ["Downtown Blackfoot", "US-91 Commercial Corridor"],
+    localLandmarks: ["the Idaho Potato Museum", "the Eastern Idaho State Fair grounds", "Bingham Memorial Hospital"],
     keywords: ["Blackfoot commercial cleaning", "Bingham County cleaning services", "food processing facility cleaning"]
   },
   {
@@ -141,6 +149,8 @@ export const idahoLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "45 minutes",
     serviceRadius: "20 mile radius",
+    coordinates: { lat: 43.8260, lng: -111.7897 },
+    zipCodes: ["83440"],
     demographics: {
       economicBase: ["Education", "Agriculture", "Small Business", "Technology"],
       majorEmployers: ["Brigham Young University-Idaho", "Madison Memorial Hospital"],
@@ -167,6 +177,7 @@ export const idahoLocations: ServiceLocation[] = [
     driveTimeFromHQ: "2 hours",
     serviceRadius: "30 mile radius",
     coordinates: { lat: 42.5630, lng: -114.4608 },
+    zipCodes: ["83301"],
     demographics: {
       economicBase: ["Agriculture", "Food Processing", "Healthcare", "Tourism", "Technology"],
       majorEmployers: ["St. Luke's Magic Valley", "Glanbia", "Simplot"],
@@ -194,6 +205,7 @@ export const idahoLocations: ServiceLocation[] = [
     driveTimeFromHQ: "3.5 hours",
     serviceRadius: "30 mile radius",
     coordinates: { lat: 43.6150, lng: -116.2023 },
+    zipCodes: ["83702", "83704", "83706", "83709"],
     demographics: {
       economicBase: ["Technology", "Healthcare", "Government", "Finance", "Education"],
       majorEmployers: ["Micron Technology", "St. Luke's Health System", "Idaho Power", "Albertsons"],
@@ -220,6 +232,8 @@ export const idahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "3.5 hours",
     serviceRadius: "20 mile radius",
+    coordinates: { lat: 43.6121, lng: -116.3915 },
+    zipCodes: ["83642", "83646"],
     demographics: {
       economicBase: ["Residential Development", "Retail", "Healthcare", "Technology"],
       constructionActivity: "high",
@@ -233,6 +247,7 @@ export const idahoLocations: ServiceLocation[] = [
     },
     businessDistricts: ["The Village at Meridian", "Eagle Road Corridor", "Meridian Crossroads"],
     neighborhoods: ["Meridian Ranch", "Bridgetower", "Ustick Station", "Tuscany"],
+    localLandmarks: ["The Village at Meridian", "the Eagle Road corridor", "St. Luke's Meridian Medical Center"],
     keywords: ["Meridian construction cleanup", "Village at Meridian cleaning", "Eagle Road cleaning services"]
   },
   {
@@ -243,6 +258,8 @@ export const idahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "3.5 hours",
     serviceRadius: "25 mile radius",
+    coordinates: { lat: 43.5407, lng: -116.5635 },
+    zipCodes: ["83651", "83686", "83687"],
     demographics: {
       economicBase: ["Manufacturing", "Agriculture", "Food Processing", "Transportation"],
       constructionActivity: "medium",
@@ -256,6 +273,7 @@ export const idahoLocations: ServiceLocation[] = [
     },
     businessDistricts: ["Karcher Corridor", "Downtown Nampa", "Industrial Park"],
     neighborhoods: ["Historic Downtown Nampa", "Karcher Mall Area", "Greenhurst", "South Nampa"],
+    localLandmarks: ["the Ford Idaho Center", "Northwest Nazarene University", "Historic Downtown Nampa"],
     keywords: ["Nampa industrial cleaning", "Canyon County cleaning services", "Karcher Corridor cleaning"]
   },
   {
@@ -266,6 +284,8 @@ export const idahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "3.5 hours",
     serviceRadius: "20 mile radius",
+    coordinates: { lat: 43.6629, lng: -116.6874 },
+    zipCodes: ["83605", "83607"],
     demographics: {
       economicBase: ["Agriculture", "Food Processing", "Education", "Manufacturing"],
       majorEmployers: ["College of Idaho", "Simplot"],
@@ -279,6 +299,7 @@ export const idahoLocations: ServiceLocation[] = [
       specializedServices: ["Food Processing Facilities", "Educational Institutions", "Agricultural Facilities"]
     },
     businessDistricts: ["Downtown Caldwell", "Cleveland Boulevard", "College of Idaho District"],
+    localLandmarks: ["the College of Idaho", "Indian Creek Plaza", "downtown Caldwell"],
     keywords: ["Caldwell commercial cleaning", "College of Idaho cleaning", "Canyon County cleaning services"]
   },
   {
@@ -289,6 +310,8 @@ export const idahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "3.5 hours",
     serviceRadius: "15 mile radius",
+    coordinates: { lat: 43.6954, lng: -116.3540 },
+    zipCodes: ["83616"],
     demographics: {
       economicBase: ["Luxury Residential", "Professional Services", "Healthcare", "Corporate Offices"],
       constructionActivity: "high",
@@ -302,6 +325,7 @@ export const idahoLocations: ServiceLocation[] = [
     },
     businessDistricts: ["Eagle Road Corporate District", "Downtown Eagle", "Medical Plaza"],
     neighborhoods: ["Eagle Hills", "Banbury", "Seven Oaks", "Baneberry"],
+    localLandmarks: ["downtown Eagle", "the Boise River greenbelt", "Eagle Island State Park"],
     keywords: ["Eagle commercial cleaning", "Eagle Road cleaning services", "luxury office cleaning"]
   }
 ];
@@ -318,6 +342,7 @@ export const utahLocations: ServiceLocation[] = [
     driveTimeFromHQ: "2.5 hours",
     serviceRadius: "25 mile radius",
     coordinates: { lat: 41.7370, lng: -111.8338 },
+    zipCodes: ["84321", "84341"],
     demographics: {
       economicBase: ["Education", "Agriculture", "Technology", "Healthcare", "Manufacturing"],
       majorEmployers: ["Utah State University", "Logan Regional Hospital", "ICON Health & Fitness"],
@@ -344,6 +369,7 @@ export const utahLocations: ServiceLocation[] = [
     driveTimeFromHQ: "3.5 hours",
     serviceRadius: "35 mile radius",
     coordinates: { lat: 40.7589, lng: -111.8883 },
+    zipCodes: ["84101", "84102", "84103", "84111", "84115"],
     demographics: {
       economicBase: ["Government", "Healthcare", "Technology", "Finance", "Education", "Tourism"],
       majorEmployers: ["University of Utah", "Intermountain Healthcare", "Goldman Sachs", "Adobe"],
@@ -371,6 +397,7 @@ export const utahLocations: ServiceLocation[] = [
     driveTimeFromHQ: "3 hours",
     serviceRadius: "25 mile radius",
     coordinates: { lat: 41.2230, lng: -111.9738 },
+    zipCodes: ["84401", "84403", "84404"],
     demographics: {
       economicBase: ["Government", "Transportation", "Manufacturing", "Healthcare", "Education"],
       majorEmployers: ["Hill Air Force Base", "Weber State University", "McKay-Dee Hospital"],
@@ -396,6 +423,7 @@ export const utahLocations: ServiceLocation[] = [
     driveTimeFromHQ: "4 hours",
     serviceRadius: "25 mile radius",
     coordinates: { lat: 40.2338, lng: -111.6585 },
+    zipCodes: ["84601", "84604", "84606"],
     demographics: {
       economicBase: ["Education", "Technology", "Healthcare", "Manufacturing", "Professional Services"],
       majorEmployers: ["Brigham Young University", "Utah Valley Hospital", "Nu Skin", "Qualtrics"],
@@ -424,6 +452,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "10 minutes",
     serviceRadius: "Local coverage",
+    coordinates: { lat: 43.4747, lng: -111.9666 },
+    zipCodes: ["83406"],
     demographics: {
       economicBase: ["Residential", "Retail", "Professional Services"],
       constructionActivity: "medium",
@@ -435,6 +465,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Retail Facilities", "Professional Offices"]
     },
+    businessDistricts: ["Hitt Road Retail Corridor", "Ammon Town Center Area"],
+    localLandmarks: ["the Hitt Road retail corridor bordering Idaho Falls", "Sandcreek area commercial growth"],
     keywords: ["Ammon commercial cleaning", "Bonneville County cleaning"]
   },
   {
@@ -445,6 +477,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "35 minutes",
     serviceRadius: "Local coverage",
+    coordinates: { lat: 42.9208, lng: -112.4661 },
+    zipCodes: ["83202"],
     demographics: {
       economicBase: ["Residential", "Retail", "Small Business"],
       constructionActivity: "low",
@@ -456,6 +490,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Retail Facilities", "Small Business Support"]
     },
+    businessDistricts: ["Yellowstone Avenue Retail Corridor", "Pine Ridge Mall Area"],
+    localLandmarks: ["Pine Ridge Mall", "the Yellowstone Avenue retail corridor"],
     keywords: ["Chubbuck cleaning services", "Bannock County commercial cleaning"]
   },
   {
@@ -466,6 +502,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "20 minutes",
     serviceRadius: "Local coverage",
+    coordinates: { lat: 43.3813, lng: -112.1233 },
+    zipCodes: ["83274"],
     demographics: {
       economicBase: ["Agriculture", "Small Business"],
       constructionActivity: "low",
@@ -477,6 +515,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Agricultural Facilities", "Small Business Support"]
     },
+    businessDistricts: ["Downtown Shelley along US-91"],
+    localLandmarks: ["downtown Shelley along US-91", "the annual Idaho Spud Day celebration grounds"],
     keywords: ["Shelley commercial cleaning", "Bingham County cleaning services"]
   },
   {
@@ -487,6 +527,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "25 minutes",
     serviceRadius: "Local coverage",
+    coordinates: { lat: 43.6724, lng: -111.9149 },
+    zipCodes: ["83442"],
     demographics: {
       economicBase: ["Agriculture", "Small Business", "Education"],
       constructionActivity: "low",
@@ -498,6 +540,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Educational Facilities", "Agricultural Support"]
     },
+    businessDistricts: ["Downtown Rigby", "US-20 Commercial Corridor"],
+    localLandmarks: ["Rigby Lake (Jefferson County Lake)", "the Farnsworth TV & Pioneer Museum"],
     keywords: ["Rigby cleaning services", "Jefferson County commercial cleaning"]
   },
   {
@@ -508,6 +552,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "1 hour",
     serviceRadius: "Local coverage",
+    coordinates: { lat: 43.9663, lng: -111.6816 },
+    zipCodes: ["83445"],
     demographics: {
       economicBase: ["Agriculture", "Tourism", "Small Business"],
       constructionActivity: "low",
@@ -519,6 +565,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Tourism Facilities", "Agricultural Support"]
     },
+    businessDistricts: ["Downtown St. Anthony"],
+    localLandmarks: ["the St. Anthony Sand Dunes", "Henry's Fork of the Snake River"],
     keywords: ["St. Anthony cleaning services", "Fremont County commercial cleaning"]
   },
   {
@@ -529,6 +577,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
     marketTier: "extended",
     driveTimeFromHQ: "1.5 hours",
     serviceRadius: "Local coverage",
+    coordinates: { lat: 43.7233, lng: -111.1114 },
+    zipCodes: ["83422"],
     demographics: {
       economicBase: ["Tourism", "Recreation", "Agriculture"],
       constructionActivity: "medium",
@@ -540,6 +590,8 @@ export const extendedIdahoLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Tourism Facilities", "Recreation Centers", "Ski Resort Support"]
     },
+    businessDistricts: ["Downtown Driggs"],
+    localLandmarks: ["Grand Targhee Resort", "the Teton Valley", "downtown Driggs"],
     keywords: ["Driggs cleaning services", "Teton County commercial cleaning", "ski resort cleaning"]
   }
 ];
@@ -553,6 +605,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "3.5 hours",
     serviceRadius: "20 mile radius",
+    coordinates: { lat: 40.6916, lng: -112.0011 },
+    zipCodes: ["84119", "84120", "84128"],
     demographics: {
       economicBase: ["Manufacturing", "Retail", "Healthcare", "Government"],
       constructionActivity: "medium",
@@ -564,6 +618,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
       industrialCleaning: true,
       specializedServices: ["Manufacturing Facilities", "Retail Centers", "Government Facilities"]
     },
+    businessDistricts: ["Valley Fair Mall Area", "Decker Lake Business District"],
+    localLandmarks: ["the Maverik Center", "Valley Fair Mall"],
     keywords: ["West Valley City cleaning", "Salt Lake County commercial cleaning"]
   },
   {
@@ -574,6 +630,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "4 hours",
     serviceRadius: "15 mile radius",
+    coordinates: { lat: 40.5649, lng: -111.8389 },
+    zipCodes: ["84070", "84092", "84093", "84094"],
     demographics: {
       economicBase: ["Retail", "Professional Services", "Healthcare", "Technology"],
       constructionActivity: "medium",
@@ -585,6 +643,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Retail Centers", "Professional Offices", "Medical Facilities"]
     },
+    businessDistricts: ["The Shops at South Town Area", "Sandy Civic Center District"],
+    localLandmarks: ["America First Field", "The Shops at South Town", "the gateway to Little Cottonwood Canyon"],
     keywords: ["Sandy Utah cleaning", "Salt Lake County cleaning services"]
   },
   {
@@ -595,6 +655,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "4 hours",
     serviceRadius: "15 mile radius",
+    coordinates: { lat: 40.2969, lng: -111.6946 },
+    zipCodes: ["84057", "84058", "84097"],
     demographics: {
       economicBase: ["Technology", "Education", "Healthcare", "Retail"],
       constructionActivity: "high",
@@ -606,6 +668,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
       industrialCleaning: false,
       specializedServices: ["Technology Centers", "Educational Facilities", "Healthcare Facilities"]
     },
+    businessDistricts: ["University Place Area", "State Street Commercial Corridor"],
+    localLandmarks: ["Utah Valley University", "University Place"],
     keywords: ["Orem commercial cleaning", "Utah County cleaning services"]
   },
   {
@@ -616,6 +680,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
     marketTier: "secondary",
     driveTimeFromHQ: "3 hours",
     serviceRadius: "15 mile radius",
+    coordinates: { lat: 41.0602, lng: -111.9711 },
+    zipCodes: ["84040", "84041"],
     demographics: {
       economicBase: ["Government", "Retail", "Healthcare", "Manufacturing"],
       constructionActivity: "medium",
@@ -627,6 +693,8 @@ export const extendedUtahLocations: ServiceLocation[] = [
       industrialCleaning: true,
       specializedServices: ["Government Facilities", "Retail Centers", "Manufacturing Support"]
     },
+    businessDistricts: ["Layton Hills Mall Area", "Main Street Commercial Corridor"],
+    localLandmarks: ["Layton Hills Mall", "the area adjacent to Hill Air Force Base"],
     keywords: ["Layton cleaning services", "Davis County commercial cleaning"]
   }
 ];

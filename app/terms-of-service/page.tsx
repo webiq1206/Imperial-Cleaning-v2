@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Imperial Cleaning Inc - Professional Cleaning Services",
+  title: { absolute: "Terms of Service | Imperial Cleaning Inc" },
   description: "Terms of service for Imperial Cleaning Inc professional cleaning services in Idaho and Utah. Read our service agreement, policies, and terms for construction and commercial cleaning.",
   keywords: "terms of service, Imperial Cleaning terms, service agreement, Idaho cleaning terms, Utah cleaning policies, cleaning service contract",
   authors: [{ name: "Imperial Cleaning Inc" }],

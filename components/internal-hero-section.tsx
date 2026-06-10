@@ -1,5 +1,6 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
@@ -52,14 +53,13 @@ export default function InternalHeroSection({
     <div 
      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-72 h-72 md:w-96 md:h-96"
     >
-      <img 
+      <Image
        src={logoPathPNG}
        alt={imageAlt}
        className="w-full h-full object-contain opacity-15 md:opacity-0 pointer-events-none"
-       width="384"
-       height="384"
+       width={384}
+       height={384}
        loading="lazy"
-       decoding="async"
       />
     </div>
 
@@ -135,14 +135,13 @@ export default function InternalHeroSection({
         {/* Logo with subtle 3D effect */}
         <div className="logo-3d-container relative">
          {/* Main logo */}
-         <img 
+         <Image
            src={logoPathPNG}
            alt={imageAlt}
            className="w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain opacity-25"
-           width="384"
-           height="384"
+           width={384}
+           height={384}
            loading="lazy"
-           decoding="async"
           />
          
          {/* Overlay layers */}

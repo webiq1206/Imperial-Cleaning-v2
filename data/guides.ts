@@ -191,8 +191,16 @@ export const guides: Guide[] = [
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
     intro:
-      "Post-construction cleaning is usually priced by square footage or as a flat project rate, and the total depends on the size of the space, the type of project, how many cleanup phases are needed, the volume of debris, and site accessibility. Getting an on-site assessment is the most accurate way to estimate cost.",
+      "Post-construction cleaning in Idaho and Utah typically runs $0.15 to $0.60 per square foot for most commercial projects, with a single final clean at the lower end and multi-phase programs (rough, final, and touch-up cleans) at the higher end. The total depends on the size of the space, the type of project, the number of cleanup phases, debris volume, and site accessibility. An on-site assessment is the most accurate way to estimate cost.",
     sections: [
+      {
+        heading: "Typical price ranges",
+        body: [
+          "Per square foot: Most commercial post-construction cleaning falls between $0.15 and $0.60 per square foot. A standard single-phase final clean of an office or retail space usually lands in the $0.15-$0.30 range, while multi-phase programs, medical builds, and projects with heavy debris run $0.30-$0.60 or more.",
+          "By project size: As a rough guide, a 5,000 sq ft office final clean often falls in the $750-$1,500 range; a 20,000 sq ft commercial build with rough and final phases commonly runs $6,000-$12,000. Small remodels may instead be quoted as a flat rate or hourly.",
+          "These are planning ranges, not quotes - every project is priced from its actual scope. Free, written quotes are delivered within 24 hours.",
+        ],
+      },
       {
         heading: "The main factors that affect cost",
         body: [
@@ -212,6 +220,11 @@ export const guides: Guide[] = [
       },
     ],
     faqs: [
+      {
+        question: "How much does post-construction cleaning cost per square foot?",
+        answer:
+          "Most commercial post-construction cleaning in Idaho and Utah runs $0.15 to $0.60 per square foot. Single-phase final cleans of standard offices typically fall at $0.15-$0.30; multi-phase programs, medical builds, and heavy-debris projects run $0.30-$0.60 or more. Exact pricing depends on scope - free quotes are provided within 24 hours.",
+      },
       {
         question: "How is post-construction cleaning priced?",
         answer:

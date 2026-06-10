@@ -7,7 +7,7 @@ import RelatedContent from "@/components/shared/related-content";
 import { guides } from "@/data/guides";
 
 export const metadata: Metadata = {
-  title: "Cleaning Resources & Guides | Imperial Cleaning Inc",
+  title: { absolute: "Cleaning Resources & Guides | Imperial Cleaning Inc" },
   description:
     "Practical guides on post-construction cleaning, commercial cleaning, and cleanup costs from Imperial Cleaning Inc, serving Idaho and Utah.",
   keywords:

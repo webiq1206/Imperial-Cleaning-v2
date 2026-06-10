@@ -85,7 +85,7 @@ export default function ConstructionCleaningClient() {
         "name": "How do you determine pricing for construction cleanup projects?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our construction cleanup pricing is based on square footage, project complexity, cleanup phase requirements, timeline constraints, and site accessibility. We provide detailed, transparent quotes with no hidden fees. We offer both per-square-foot pricing and flat-rate options depending on project scope."
+          "text": "Most commercial post-construction cleaning runs $0.15 to $0.60 per square foot: single-phase final cleans of standard offices typically fall at $0.15-$0.30, while multi-phase programs, medical builds, and heavy-debris projects run $0.30-$0.60 or more. Pricing reflects square footage, project complexity, cleanup phases, timeline, and site access. We provide detailed, transparent quotes with no hidden fees - both per-square-foot and flat-rate options are available."
         }
       },
       {
@@ -398,7 +398,7 @@ export default function ConstructionCleaningClient() {
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-6">
                     <p className="text-muted-foreground leading-relaxed">
-                      Our construction cleanup pricing is based on square footage, project complexity, cleanup phase requirements, timeline constraints, and site accessibility. We provide detailed, transparent quotes with no hidden fees. We offer both per-square-foot pricing and flat-rate options depending on project scope.
+                      Most commercial post-construction cleaning runs $0.15 to $0.60 per square foot: single-phase final cleans of standard offices typically fall at $0.15&ndash;$0.30, while multi-phase programs, medical builds, and heavy-debris projects run $0.30&ndash;$0.60 or more. Pricing reflects square footage, project complexity, cleanup phases, timeline, and site access. We provide detailed, transparent quotes with no hidden fees &mdash; both per-square-foot and flat-rate options are available.
                     </p>
                   </AccordionContent>
                 </AccordionItem>

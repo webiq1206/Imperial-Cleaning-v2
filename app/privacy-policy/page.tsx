@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Imperial Cleaning Inc - Professional Cleaning Services",
+  title: { absolute: "Privacy Policy | Imperial Cleaning Inc" },
   description: "Learn how Imperial Cleaning Inc protects your privacy and personal information. Our privacy policy explains data collection, use, and protection for customers in Idaho and Utah.",
   keywords: "privacy policy, Imperial Cleaning privacy, data protection, customer information, Idaho cleaning company privacy, Utah cleaning services privacy",
   authors: [{ name: "Imperial Cleaning Inc" }],

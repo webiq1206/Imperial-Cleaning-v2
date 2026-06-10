@@ -1,4 +1,8 @@
 import { ServiceLocation } from "@/data/service-locations";
+import {
+  BUSINESS_HOURS,
+  BUSINESS_OPENING_HOURS_STRING,
+} from "@/data/business-info";
 import { buildServiceLocationUrl } from "./routing-utils";
 import { 
   getComplementaryServiceLink, 
@@ -268,205 +272,6 @@ export function generateLocalSolutions(service: string, location: ServiceLocatio
   return {
     title: `Our Solutions for ${location.name}`,
     solutions: solutions.slice(0, 6)
-  };
-}
-
-// Generate realistic local case studies
-export function generateLocalCaseStudies(service: string, location: ServiceLocation) {
-  const isConstruction = service === 'construction-cleaning';
-  const caseStudies: Array<{
-    title: string;
-    client: string;
-    location: string;
-    challenge: string;
-    solution: string;
-    results: string[];
-  }> = [];
-  
-  // Generate case studies based on major employers
-  if (location.demographics.majorEmployers && location.demographics.majorEmployers.length > 0) {
-    const employers = location.demographics.majorEmployers;
-    
-    employers.slice(0, 2).forEach((employer, index) => {
-      const district = location.businessDistricts?.[index] || location.neighborhoods?.[index] || `${location.name} business district`;
-      
-      if (employer.includes("Laboratory") || employer.includes("INL")) {
-        if (isConstruction) {
-          caseStudies.push({
-            title: "Research Facility Expansion Cleanup",
-            client: "Major Research Laboratory",
-            location: `${district}, ${location.name}`,
-            challenge: `A 50,000 sq ft laboratory expansion required meticulous post-construction cleaning to meet strict contamination-free standards before sensitive equipment installation. The project timeline allowed only 10 days between construction completion and equipment delivery.`,
-            solution: `We deployed a specialized team with clean room cleaning certification, using HEPA-filtered equipment and verified cleaning protocols. Multi-stage cleaning progressed from rough clean to final detail, with particle count verification at each stage.`,
-            results: [
-              "Achieved ISO Class 7 clean room standards in all laboratory spaces",
-              "Completed cleaning 2 days ahead of schedule, enabling early equipment installation",
-              "Zero contamination issues during facility startup and validation",
-              "Established ongoing maintenance contract for laboratory facilities"
-            ]
-          });
-        } else {
-          caseStudies.push({
-            title: "Research Laboratory Ongoing Maintenance",
-            client: "Major Research Facility",
-            location: `${district}, ${location.name}`,
-            challenge: `Multiple laboratory buildings totaling 200,000 sq ft required daily janitorial services that wouldn't compromise sensitive research areas or controlled environments. Cleaning had to accommodate 24/7 research operations and strict security protocols.`,
-            solution: `Implemented a specialized cleaning program with security-cleared staff trained in laboratory protocols. Developed custom schedules for each building, using approved cleaning products and contamination control procedures.`,
-            results: [
-              "Maintained consistent cleanliness across all facility types without operational interruption",
-              "Zero cross-contamination incidents in controlled research areas",
-              "95% client satisfaction rating on quarterly facility assessments",
-              "Expanded service to include additional laboratory facilities"
-            ]
-          });
-        }
-      } else if (employer.includes("Hospital") || employer.includes("Medical")) {
-        if (isConstruction) {
-          caseStudies.push({
-            title: "Hospital Wing Renovation Cleanup",
-            client: "Regional Medical Center",
-            location: `${location.name} healthcare district`,
-            challenge: `A major hospital wing renovation required final post-construction cleaning that met healthcare facility infection control standards. The area needed to be patient-ready within 72 hours of construction completion.`,
-            solution: `Executed a comprehensive healthcare-grade cleaning protocol using hospital-approved disinfectants and equipment. Our team coordinated closely with hospital infection control staff, following strict access protocols and documentation requirements.`,
-            results: [
-              "Passed all hospital infection control inspections on first review",
-              "Completed cleaning and sterilization 12 hours ahead of patient transfer deadline",
-              "Zero infection control deficiencies noted during first-month audits",
-              "Awarded ongoing cleaning contracts for hospital construction projects"
-            ]
-          });
-        } else {
-          caseStudies.push({
-            title: "Multi-Facility Healthcare Cleaning Program",
-            client: "Healthcare System",
-            location: `${location.name} area`,
-            challenge: `A healthcare system with multiple facilities needed consistent, high-quality cleaning services that met stringent infection control standards across medical offices, outpatient centers, and administrative buildings.`,
-            solution: `Developed a standardized healthcare cleaning program with facility-specific protocols. All staff completed healthcare cleaning certification and followed color-coded equipment systems to prevent cross-contamination between areas.`,
-            results: [
-              "Achieved 98% compliance on healthcare facility audits",
-              "Reduced healthcare-acquired infection indicators in cleaned areas",
-              "Streamlined service delivery across 8 separate facilities",
-              "Recognized by facility management as 'Preferred Vendor' for healthcare cleaning"
-            ]
-          });
-        }
-      } else if (employer.includes("University") || employer.includes("College")) {
-        if (isConstruction) {
-          caseStudies.push({
-            title: "University Building Construction Cleanup",
-            client: "Regional University",
-            location: `University district, ${location.name}`,
-            challenge: `A new academic building required complete post-construction cleaning before fall semester opening. The 75,000 sq ft facility included classrooms, laboratories, and technology centers, each with different cleaning requirements. Deadline was non-negotiable.`,
-            solution: `Mobilized multiple crews working overlapping shifts to complete the project in 14 days. Implemented zone-specific cleaning protocols for classrooms, labs, and tech areas, with final inspection coordination with university facilities management.`,
-            results: [
-              "Building opened on schedule for fall semester",
-              "All 45 classrooms and 12 laboratories passed final inspection",
-              "Positive feedback from faculty on facility cleanliness",
-              "Secured ongoing maintenance contract for the new building"
-            ]
-          });
-        } else {
-          caseStudies.push({
-            title: "Campus-Wide Janitorial Services",
-            client: "University Campus",
-            location: `${location.name}`,
-            challenge: `University required comprehensive cleaning services for academic buildings, student centers, and athletic facilities. Services needed to work around class schedules, events, and 24/7 student activity.`,
-            solution: `Created flexible staffing model with multiple shift times aligned to building usage patterns. Implemented green cleaning program using sustainable products and practices important to campus community.`,
-            results: [
-              "Maintained cleanliness standards across 15 campus buildings",
-              "Achieved 90% satisfaction rating in student facility surveys",
-              "Reduced cleaning-related complaints by 60% compared to previous provider",
-              "Expanded services to include event cleaning and emergency response"
-            ]
-          });
-        }
-      } else if (employer.includes("Technology") || employer.toLowerCase().includes("micron") || employer.toLowerCase().includes("adobe")) {
-        if (isConstruction) {
-          caseStudies.push({
-            title: "Technology Center Build-Out Cleaning",
-            client: "Technology Company",
-            location: `${district}, ${location.name}`,
-            challenge: `A technology company's new facility required final cleaning of office spaces, data centers, and controlled environment areas. Data center spaces required Class 100,000 clean room standards before equipment installation.`,
-            solution: `Deployed specialized teams for different facility zones. Data center cleaning used ESD-safe equipment and protocols, while office areas received standard commercial final cleaning. Coordinated closely with IT installation teams.`,
-            results: [
-              "Data centers met all particle count and cleanliness specifications",
-              "Office spaces ready for furniture installation on schedule",
-              "Zero delays to equipment installation timeline",
-              "Established ongoing contract for facility maintenance"
-            ]
-          });
-        }
-      } else if (employer.toLowerCase().includes("simplot") || employer.toLowerCase().includes("chobani") || location.demographics.economicBase.includes("Food Processing")) {
-        if (isConstruction) {
-          caseStudies.push({
-            title: "Food Processing Facility Expansion",
-            client: "Food Manufacturing Company",
-            location: `Industrial area, ${location.name}`,
-            challenge: `A 30,000 sq ft processing facility expansion required complete post-construction cleaning to meet FDA and USDA standards before production equipment installation. No construction residue could remain in any area.`,
-            solution: `Implemented food-grade cleaning protocols with multi-stage verification. Used only approved cleaning products and equipment. Coordinated with health department inspectors for pre-operational approval.`,
-            results: [
-              "Passed all FDA and health department pre-operational inspections",
-              "Facility approved for equipment installation ahead of schedule",
-              "Zero compliance issues during startup phase",
-              "Awarded ongoing sanitation services contract"
-            ]
-          });
-        } else {
-          caseStudies.push({
-            title: "Food Processing Facility Sanitation",
-            client: "Food Production Facility",
-            location: `${location.name} industrial district`,
-            challenge: `A food processing facility needed comprehensive sanitation services that met all regulatory requirements while accommodating 24/7 production schedules. Previous cleaning provider had compliance issues.`,
-            solution: `Developed detailed sanitation program with documented procedures for all facility areas. Staff trained in GMP requirements and food safety protocols. Implemented color-coded equipment and rigorous schedule adherence.`,
-            results: [
-              "100% compliance on health department inspections",
-              "Zero production delays due to cleaning activities",
-              "Improved facility ATP testing results by 40%",
-              "Recognized as key partner in facility's food safety program"
-            ]
-          });
-        }
-      }
-    });
-  }
-  
-  // Generate business district-specific case study if no employer-based studies
-  if (caseStudies.length === 0 && location.businessDistricts && location.businessDistricts.length > 0) {
-    const district = location.businessDistricts[0];
-    if (isConstruction) {
-      caseStudies.push({
-        title: "Commercial Development Final Cleaning",
-        client: "Commercial Real Estate Developer",
-        location: `${district}, ${location.name}`,
-        challenge: `A new mixed-use development in ${district} required final cleaning of 100,000 sq ft across retail, office, and restaurant spaces. Each tenant had different move-in timelines and specific cleaning requirements.`,
-        solution: `Coordinated with the general contractor to create phased cleaning schedule aligned with tenant move-in dates. Provided customized cleaning for each space type - retail storefronts, office suites, and restaurant kitchens.`,
-        results: [
-          "All tenants received their spaces on schedule",
-          "100% of spaces passed final inspection",
-          "Three tenants requested our company for ongoing maintenance",
-          "Developer provided testimonial for future projects"
-        ]
-      });
-    } else {
-      caseStudies.push({
-        title: "Business District Office Complex",
-        client: "Property Management Company",
-        location: `${district}, ${location.name}`,
-        challenge: `An office complex in ${district} with 15 different tenants needed consistent, high-quality cleaning across diverse business types including law firms, medical offices, and tech companies.`,
-        solution: `Implemented tenant-specific cleaning protocols while maintaining efficient service delivery. Created communication system for tenant requests and quality assurance feedback.`,
-        results: [
-          "Tenant satisfaction increased from 70% to 94%",
-          "Renewal rate for property management contract: 100%",
-          "Expanded to manage cleaning for three additional properties",
-          "Reduced tenant complaints by 75%"
-        ]
-      });
-    }
-  }
-  
-  return {
-    title: `${location.name} ${isConstruction ? 'Construction' : 'Commercial'} Cleaning Success Stories`,
-    caseStudies: caseStudies.slice(0, 3)
   };
 }
 
@@ -784,115 +589,6 @@ export function generateLocationFAQ(service: string, location: ServiceLocation) 
   return faqs;
 }
 
-// Generate location-specific testimonial structures
-export function generateLocalTestimonials(service: string, location: ServiceLocation) {
-  const isConstruction = service === 'construction-cleaning';
-  const testimonials: Array<{
-    businessType: string;
-    location: string;
-    quote: string;
-    context: string;
-  }> = [];
-  
-  // Generate testimonials based on major employers and industries
-  if (location.demographics.majorEmployers && location.demographics.majorEmployers.length > 0) {
-    const employer = location.demographics.majorEmployers[0];
-    const district = location.businessDistricts?.[0] || `${location.name} area`;
-    
-    if (employer.includes("Laboratory") || employer.includes("Research")) {
-      testimonials.push({
-        businessType: "Research Facility Manager",
-        location: `${district}, ${location.name}`,
-        quote: isConstruction ?
-          `Imperial Cleaning's attention to detail during our laboratory expansion cleanup was exceptional. They understood the critical cleanliness standards we required and delivered particle-free environments ready for sensitive equipment installation.` :
-          `We require cleaning services that understand contamination control and controlled environments. Imperial Cleaning's team has the specialized training and protocols necessary for our research facilities.`,
-        context: isConstruction ?
-          `50,000 sq ft laboratory expansion project requiring clean room standards` :
-          `Ongoing maintenance of multiple research laboratory buildings with controlled environments`
-      });
-    } else if (employer.includes("Hospital") || employer.includes("Medical")) {
-      testimonials.push({
-        businessType: "Healthcare Facilities Director",
-        location: `${location.name}`,
-        quote: isConstruction ?
-          `Our hospital renovation required cleaning services that met the highest infection control standards. Imperial Cleaning's healthcare-certified team delivered patient-ready spaces that passed all inspections on the first review.` :
-          `Maintaining cleanliness in healthcare facilities is critical for patient safety. Imperial Cleaning consistently delivers hospital-grade cleaning with meticulous attention to infection control protocols and documentation.`,
-        context: isConstruction ?
-          `Major hospital wing renovation with strict healthcare facility requirements` :
-          `Multi-facility healthcare system with rigorous infection control standards`
-      });
-    } else if (employer.includes("University") || employer.includes("College")) {
-      testimonials.push({
-        businessType: "University Facilities Manager",
-        location: `${location.name}`,
-        quote: isConstruction ?
-          `Imperial Cleaning completed our new academic building cleanup on an extremely tight timeline before fall semester. Their project management and crew coordination ensured we opened on schedule with every classroom inspection-ready.` :
-          `Managing cleaning services across a university campus requires flexibility and reliability. Imperial Cleaning works seamlessly around our academic calendar and provides consistent quality across all our buildings.`,
-        context: isConstruction ?
-          `75,000 sq ft academic building with classrooms, laboratories, and technology centers` :
-          `Campus-wide cleaning services for multiple academic and student buildings`
-      });
-    }
-  }
-  
-  // Add business district-based testimonial
-  if (location.businessDistricts && location.businessDistricts.length > 0) {
-    const district = location.businessDistricts[0];
-    testimonials.push({
-      businessType: isConstruction ? "Commercial General Contractor" : "Property Management Company",
-      location: `${district}, ${location.name}`,
-      quote: isConstruction ?
-        `We've worked with Imperial Cleaning on multiple projects in ${district}. Their reliability, quality of work, and ability to meet tight deadlines make them our preferred post-construction cleaning partner.` :
-        `Managing properties in ${district} requires a cleaning partner who can handle diverse tenant needs and maintain high standards. Imperial Cleaning has consistently exceeded our expectations and our tenants appreciate the quality.`,
-      context: isConstruction ?
-        `Multiple commercial construction projects in ${location.name}'s business district` :
-        `Office complex with 15 diverse tenants in ${location.name}'s commercial center`
-    });
-  }
-  
-  // Add industry-specific testimonial
-  const industries = location.demographics.economicBase;
-  if (industries.includes("Technology")) {
-    testimonials.push({
-      businessType: "Technology Company Facilities Director",
-      location: `${location.name}`,
-      quote: isConstruction ?
-        `Our data center and office build-out required specialized cleaning for controlled environments. Imperial Cleaning delivered clean room-certified work that allowed us to install equipment on schedule.` :
-        `Our technology facility has specific requirements for ESD-safe cleaning and controlled environment maintenance. Imperial Cleaning's specialized expertise gives us confidence in protecting our sensitive equipment.`,
-      context: isConstruction ?
-        `Technology center with data center clean room requirements` :
-        `Ongoing maintenance of technology facility with controlled environment areas`
-    });
-  } else if (industries.includes("Food Processing")) {
-    testimonials.push({
-      businessType: "Food Processing Plant Manager",
-      location: `${location.name} industrial area`,
-      quote: isConstruction ?
-        `Our facility expansion required cleaning that met FDA and USDA standards before we could install equipment. Imperial Cleaning's food-grade protocols and documentation ensured we passed all pre-operational inspections.` :
-        `Food safety is paramount in our operation. Imperial Cleaning understands GMP requirements and consistently delivers sanitation services that meet all regulatory standards while accommodating our 24/7 production schedule.`,
-      context: isConstruction ?
-        `30,000 sq ft food processing facility expansion with strict regulatory requirements` :
-        `Food production facility requiring ongoing sanitation and regulatory compliance`
-    });
-  } else if (industries.includes("Manufacturing")) {
-    testimonials.push({
-      businessType: "Manufacturing Facility Manager",
-      location: `${location.name}`,
-      quote: isConstruction ?
-        `Imperial Cleaning handled the final cleanup of our manufacturing expansion with professionalism and attention to detail. They understood our timeline pressures and delivered quality work that allowed us to start equipment installation immediately.` :
-        `Our manufacturing facility requires specialized cleaning that doesn't interfere with production schedules. Imperial Cleaning's team works efficiently around our operations and maintains the cleanliness standards our processes demand.`,
-      context: isConstruction ?
-        `Manufacturing facility expansion with tight equipment installation deadline` :
-        `Active manufacturing facility with specialized cleaning requirements`
-    });
-  }
-  
-  return {
-    title: `What ${location.name} Clients Say`,
-    testimonials: testimonials.slice(0, 4)
-  };
-}
-
 // Generate service coverage details
 export function generateServiceCoverage(service: string, location: ServiceLocation) {
   const isConstruction = service === 'construction-cleaning';
@@ -1008,7 +704,7 @@ export function generateLocationStructuredData(service: string, location: Servic
       ["Post Construction Cleanup", "Construction Site Cleaning", "Debris Removal", "Final Inspection Cleaning"] :
       ["Commercial Cleaning", "Janitorial Services", "Office Cleaning", "Facility Maintenance"],
     "openingHours": [
-      "Mo-Fr 07:00-18:00"
+      BUSINESS_OPENING_HOURS_STRING
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -1043,8 +739,8 @@ export function generateLocationStructuredData(service: string, location: Servic
       "hoursAvailable": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
+        "opens": BUSINESS_HOURS.weekday.opens,
+        "closes": BUSINESS_HOURS.weekday.closes
       }
     }
   };

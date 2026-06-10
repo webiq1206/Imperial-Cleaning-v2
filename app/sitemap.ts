@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { allServiceLocations } from "@/data/service-locations";
 import { locationToSlug, isValidServiceLocation } from "@/lib/routing-utils";
 import { guides } from "@/data/guides";
+import { industries } from "@/data/industries";
 
 // Stable lastModified so the sitemap doesn't report every URL as changed on every
 // build (which dilutes the signal). Bump this date when content is meaningfully updated.
@@ -29,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/service-areas/idaho`, lastModified: LAST_UPDATED, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/service-areas/utah`, lastModified: LAST_UPDATED, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/resources`, lastModified: LAST_UPDATED, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/sitemap`, lastModified: LAST_UPDATED, changeFrequency: "monthly", priority: 0.4 },
     { url: `${baseUrl}/privacy-policy`, lastModified: LAST_UPDATED, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/terms-of-service`, lastModified: LAST_UPDATED, changeFrequency: "yearly", priority: 0.3 },
   ];
@@ -39,6 +41,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: LAST_UPDATED,
     changeFrequency: "monthly",
     priority: 0.6,
+  }));
+
+  // Industry pages (restored legacy URLs)
+  const industryPages: MetadataRoute.Sitemap = industries.map((industry) => ({
+    url: `${baseUrl}/${industry.slug}`,
+    lastModified: LAST_UPDATED,
+    changeFrequency: "monthly",
+    priority: 0.8,
   }));
 
   // Dynamic location pages (only valid service/location combinations)
@@ -61,5 +71,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  return [...staticPages, ...guidePages, ...locationPages];
+  return [...staticPages, ...industryPages, ...guidePages, ...locationPages];
 }

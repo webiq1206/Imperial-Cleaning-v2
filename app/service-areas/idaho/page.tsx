@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ServiceAreasIdahoClient from "@/components/pages/service-areas-idaho-client";
 
 export const metadata: Metadata = {
-  title: "Idaho Cleaning Services | Imperial Cleaning Inc",
+  title: { absolute: "Idaho Cleaning Services | Imperial Cleaning Inc" },
   description: "Construction & commercial cleaning in Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Serving Bonneville & Bannock County. Free quotes!",
   keywords: "Idaho Falls cleaning, Eastern Idaho construction cleanup, Pocatello commercial cleaning, Twin Falls janitorial services, Rexburg cleaning company, Boise cleaning services, Bonneville County cleaning, Bannock County cleaners",
   authors: [{ name: "Imperial Cleaning Inc" }],

@@ -295,27 +295,33 @@ export default function CommercialCleaningClient() {
               <h3 className="text-lg mb-3 text-foreground">Corporate Offices</h3>
               <p className="text-sm text-muted-foreground">Professional office buildings, executive suites, and corporate headquarters</p>
             </div>
-            <div className="glass-card-elevated p-6 text-center hover-lift-gentle group">
+            <Link href="/medical-office-cleaning" className="glass-card-elevated p-6 text-center hover-lift-gentle group block">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Hospital className="w-8 h-8 text-red-500" />
               </div>
-              <h3 className="text-lg mb-3 text-foreground">Healthcare Facilities</h3>
+              <h3 className="text-lg mb-3 text-foreground group-hover:text-primary transition-colors">Medical Office Cleaning</h3>
               <p className="text-sm text-muted-foreground">Medical offices, clinics, dental practices, and healthcare centers</p>
-            </div>
-            <div className="glass-card-elevated p-6 text-center hover-lift-gentle group">
+            </Link>
+            <Link href="/restaurant-cleaning-services" className="glass-card-elevated p-6 text-center hover-lift-gentle group block">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <ShoppingCart className="w-8 h-8 text-green-500" />
               </div>
-              <h3 className="text-lg mb-3 text-foreground">Retail & Shopping</h3>
-              <p className="text-sm text-muted-foreground">Retail stores, shopping centers, and commercial retail spaces</p>
-            </div>
-            <div className="glass-card-elevated p-6 text-center hover-lift-gentle group">
+              <h3 className="text-lg mb-3 text-foreground group-hover:text-primary transition-colors">Restaurant Cleaning</h3>
+              <p className="text-sm text-muted-foreground">Restaurants, dining rooms, and food-service facilities</p>
+            </Link>
+            <Link href="/school-cleaning-services" className="glass-card-elevated p-6 text-center hover-lift-gentle group block">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <GraduationCap className="w-8 h-8 text-yellow-500" />
               </div>
-              <h3 className="text-lg mb-3 text-foreground">Educational Institutions</h3>
-              <p className="text-sm text-muted-foreground">Schools, universities, training centers, and educational facilities</p>
-            </div>
+              <h3 className="text-lg mb-3 text-foreground group-hover:text-primary transition-colors">School Cleaning</h3>
+              <p className="text-sm text-muted-foreground">Schools, daycare centers, training centers, and educational facilities</p>
+            </Link>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link href="/car-dealership-cleaning" className="text-primary hover:underline">
+              Also serving car dealerships: showroom and dealership cleaning →
+            </Link>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ConstructionCleaningClient from "@/components/pages/construction-cleaning-client";
 
 export const metadata: Metadata = {
-  title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc",
+  title: { absolute: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc" },
   description: "Professional post-construction cleanup across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call (208) 520-3202 today!",
   keywords: "construction cleanup Idaho Utah, post construction cleaning, debris removal, final inspection cleaning, construction site cleaning Idaho Falls, building cleanup services",
   authors: [{ name: "Imperial Cleaning Inc" }],

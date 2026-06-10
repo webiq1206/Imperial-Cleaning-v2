@@ -7,6 +7,11 @@ import { StructuredData } from "@/components/structured-data";
 import RelatedContent from "@/components/shared/related-content";
 import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import {
+  BUSINESS_FULL_ADDRESS,
+  BUSINESS_HOURS_SENTENCE,
+  BUSINESS_HOURS_SHORT,
+} from "@/data/business-info";
 
 const contactQueryClient = new QueryClient({
   defaultOptions: { mutations: { retry: false } },
@@ -24,63 +29,17 @@ function ContactClientInner() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://imperialcleaninginc.com/#localbusiness",
-    "name": "Imperial Cleaning Inc",
-    "alternateName": "Imperial Cleaning",
-    "description": "Professional construction and commercial cleaning services in Idaho Falls and throughout Idaho and Utah. Contact us for free cleaning quotes and reliable service.",
-    "url": "https://imperialcleaninginc.com",
-    "telephone": "+1-208-520-3202",
-    "email": "service@imperialcleaninginc.com",
-    "logo": "https://imperialcleaninginc.com/hero-logo.png",
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "43.4666",
-      "longitude": "-112.0336"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "16:00"
-      }
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-208-520-3202",
-      "email": "service@imperialcleaninginc.com",
-      "contactType": "customer service",
-      "areaServed": ["ID", "UT"],
-      "availableLanguage": "English"
-    },
-    "areaServed": [
-      { "@type": "State", "name": "Idaho", "sameAs": "https://en.wikipedia.org/wiki/Idaho" },
-      { "@type": "State", "name": "Utah", "sameAs": "https://en.wikipedia.org/wiki/Utah" }
-    ],
-    "priceRange": "$$"
-  };
-
+  // The canonical Organization/LocalBusiness entity (full NAP, geo, hours)
+  // lives in app/layout.tsx with @id #organization. The contact page only
+  // references it so Google never sees two divergent LocalBusiness copies.
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Imperial Cleaning Inc",
     "description": "Contact Imperial Cleaning Inc for professional cleaning services in Idaho & Utah. Call (208) 520-3202 for free quotes.",
     "url": "https://imperialcleaninginc.com/contact",
-    "mainEntity": {
-      "@type": "LocalBusiness",
-      "name": "Imperial Cleaning Inc",
-      "telephone": "+1-208-520-3202",
-      "email": "service@imperialcleaninginc.com"
-    }
+    "isPartOf": { "@id": "https://imperialcleaninginc.com/#website" },
+    "mainEntity": { "@id": "https://imperialcleaninginc.com/#organization" }
   };
 
   const breadcrumbSchema = {
@@ -92,6 +51,41 @@ function ContactClientInner() {
     ]
   };
 
+  // Rendered visibly below AND emitted as FAQPage schema, so the structured
+  // data always matches on-page content.
+  const contactFaqs = [
+    {
+      question: "How fast will I get a quote?",
+      answer: "Most quotes are delivered within 24 hours. For urgent projects, call (208) 520-3202 directly and we can often provide a same-day estimate over the phone or schedule a site visit."
+    },
+    {
+      question: "Is the quote really free?",
+      answer: "Yes. All estimates are free with no obligation, whether you call, email, or use the quote form. There are no hidden fees or surprise charges - the price we quote is the price you pay."
+    },
+    {
+      question: "What information should I have ready for my quote?",
+      answer: "The approximate square footage, the type of cleaning needed (post-construction or commercial), your project location, and your preferred timeline. Photos of the space help us quote faster and more accurately."
+    },
+    {
+      question: "What are your business hours?",
+      answer: `We answer calls ${BUSINESS_HOURS_SENTENCE}`
+    },
+    {
+      question: "Do you travel to my city?",
+      answer: "We serve 24 cities across Idaho and Utah from our Idaho Falls headquarters, including Pocatello, Rexburg, Twin Falls, Boise, Salt Lake City, Logan, Ogden, and Provo. If you are nearby one of these markets, contact us - we regularly take on projects in surrounding communities."
+    }
+  ];
+
+  const contactFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": contactFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+    }))
+  };
+
   const contactMethods: { title: string; description: string; action: string; label: string; icon: LucideIcon; iconKey: string; available: string }[] = [
     {
       title: "Call Us",
@@ -100,7 +94,7 @@ function ContactClientInner() {
       label: "(208) 520-3202",
       icon: Phone,
       iconKey: "phone",
-      available: "Mon-Fri 7AM-6PM, Sat 8AM-4PM"
+      available: BUSINESS_HOURS_SHORT
     },
     {
       title: "Email Us",
@@ -114,17 +108,17 @@ function ContactClientInner() {
     {
       title: "Visit Us",
       description: "Meet us at our headquarters",
-      action: "https://www.google.com/maps/place/Idaho+Falls,+ID",
-      label: "Idaho Falls, ID",
+      action: "https://www.google.com/maps/search/?api=1&query=2653+Clarence+Pl+Idaho+Falls+ID+83402",
+      label: BUSINESS_FULL_ADDRESS,
       icon: MapPin,
       iconKey: "map-marker-alt",
-      available: "By appointment"
+      available: BUSINESS_HOURS_SHORT
     }
   ];
 
   return (
     <>
-      <StructuredData data={[localBusinessSchema, contactPageSchema, breadcrumbSchema]} />
+      <StructuredData data={[contactPageSchema, breadcrumbSchema, contactFaqSchema]} />
 
       {/* Hero Section */}
       <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">
@@ -267,6 +261,28 @@ function ContactClientInner() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 px-6 bg-card/30">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl mb-6 tracking-tight text-foreground">
+              Quote & Contact FAQ
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Answers to the most common questions about quotes, pricing, and scheduling.
+            </p>
+          </div>
+          <div className="space-y-6">
+            {contactFaqs.map((faq) => (
+              <div key={faq.question} className="glass-card-elevated p-6 rounded-lg">
+                <h3 className="text-lg text-foreground mb-3">{faq.question}</h3>
+                <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
