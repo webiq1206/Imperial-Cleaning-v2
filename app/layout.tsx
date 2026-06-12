@@ -248,6 +248,13 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: `(function(){var l=false;function g(){if(l)return;l=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function t(){dataLayer.push(arguments)}t('js',new Date());t('config','${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}')};['scroll','click','touchstart'].forEach(function(e){document.removeEventListener(e,g,{passive:true,capture:true})})}['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,g,{passive:true,capture:true,once:true})})})();` }}
           />
         )}
+
+        {/* Microsoft Clarity - user behavior analytics */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window, document, "clarity", "script", "x5wa4ucb26");`,
+          }}
+        />
       </body>
     </html>
   );
