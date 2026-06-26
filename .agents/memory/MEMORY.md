@@ -1,0 +1,1 @@
+- [Next metadata inheritance pitfalls](next-metadata-inheritance-pitfalls.md) — App Router nested metadata objects can replace parent OG/Twitter defaults instead of merging them.
