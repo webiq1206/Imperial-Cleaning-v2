@@ -170,7 +170,7 @@ export default function TermsOfServicePage() {
                   <div>
                     <h4 className="text-foreground mb-2">Email</h4>
                     <a href="mailto:service@imperialcleaninginc.com" className="text-primary hover:text-primary/80">
-                      service@imperialcleaninginc.com
+                      Email Us
                     </a>
                   </div>
                   <div>

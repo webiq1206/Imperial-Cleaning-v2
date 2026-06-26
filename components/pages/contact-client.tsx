@@ -100,7 +100,7 @@ function ContactClientInner() {
       title: "Email Us",
       description: "Send us your project details",
       action: "mailto:service@imperialcleaninginc.com",
-      label: "service@imperialcleaninginc.com",
+      label: "Email Us",
       icon: Mail,
       iconKey: "envelope",
       available: "24/7 - We respond within 4 hours"

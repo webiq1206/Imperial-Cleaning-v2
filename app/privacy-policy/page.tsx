@@ -183,7 +183,7 @@ export default function PrivacyPolicyPage() {
                       href="mailto:service@imperialcleaninginc.com"
                       className="text-primary hover:text-primary/80 transition-colors"
                     >
-                      service@imperialcleaninginc.com
+                      Email Us
                     </a>
                   </div>
                   <div>

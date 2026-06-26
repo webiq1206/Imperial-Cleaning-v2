@@ -4,10 +4,10 @@ import { ReactNode } from "react";
 import dynamic from "next/dynamic";
 
 const ServicesSection = dynamic(() => import("@/components/services-section"), { ssr: true });
-const ProcessTerminalSection = dynamic(() => import("@/components/process-terminal-section"), { ssr: false });
-const ComplianceCertificationsSection = dynamic(() => import("@/components/compliance-certifications-section"), { ssr: false });
-const ServicePillarsSection = dynamic(() => import("@/components/service-pillars-section"), { ssr: false });
-const FAQSection = dynamic(() => import("@/components/faq-section"), { ssr: false });
+const ProcessTerminalSection = dynamic(() => import("@/components/process-terminal-section"), { ssr: true });
+const ComplianceCertificationsSection = dynamic(() => import("@/components/compliance-certifications-section"), { ssr: true });
+const ServicePillarsSection = dynamic(() => import("@/components/service-pillars-section"), { ssr: true });
+const FAQSection = dynamic(() => import("@/components/faq-section"), { ssr: true });
 
 interface HomeClientProps {
   featuresSection: ReactNode;

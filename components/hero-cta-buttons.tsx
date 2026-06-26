@@ -6,7 +6,7 @@ import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 
-const ContactFormModal = dynamic(() => import("@/components/contact-form-modal"), { ssr: false });
+const ContactFormModal = dynamic(() => import("@/components/contact-form-modal"), { ssr: false }); // modal: no visible content on initial load
 
 export default function HeroCTAButtons() {
   const [showContactForm, setShowContactForm] = useState(false);

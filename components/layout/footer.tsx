@@ -56,6 +56,7 @@ export default function Footer() {
                 <a 
                   href="mailto:service@imperialcleaninginc.com" 
                   className="flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+                  aria-label="Email us at service at imperialcleaninginc dot com"
                 >
                   <div className="w-5 h-5 mr-3 opacity-70 group-hover:opacity-100 transition-opacity">
                     <svg fill="currentColor" viewBox="0 0 20 20">
@@ -63,7 +64,7 @@ export default function Footer() {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
                   </div>
-                  <span>service@imperialcleaninginc.com</span>
+                  <span>Email Us</span>
                 </a>
                 <address className="not-italic flex items-center text-muted-foreground">
                   <div className="w-5 h-5 mr-3 opacity-70">

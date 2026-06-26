@@ -57,7 +57,7 @@ export default function StickyContacts() {
   },
   {
    href: "mailto:service@imperialcleaninginc.com",
-   title: "Email Us - service@imperialcleaninginc.com",
+   title: "Email Us",
    shortTitle: "Email",
    method: "email", 
    icon: Mail,
