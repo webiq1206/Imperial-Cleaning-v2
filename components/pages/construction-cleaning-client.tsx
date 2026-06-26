@@ -55,8 +55,7 @@ export default function ConstructionCleaningClient() {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imperialcleaninginc.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://imperialcleaninginc.com/#services" },
-      { "@type": "ListItem", "position": 3, "name": "Construction Cleaning", "item": "https://imperialcleaninginc.com/construction-cleaning" }
+      { "@type": "ListItem", "position": 2, "name": "Construction Cleaning", "item": "https://imperialcleaninginc.com/construction-cleaning" }
     ]
   };
 
@@ -117,7 +116,6 @@ export default function ConstructionCleaningClient() {
           <Breadcrumbs
             includeStructuredData={false}
             items={[
-              { name: "Services", href: "/#services" },
               { name: "Construction Cleaning" }
             ]}
           />
