@@ -10,43 +10,27 @@ import { GOOGLE_LISTING_URL } from "@/data/reviews";
 
 const ContactFormModal = dynamic(() => import("@/components/contact-form-modal"), { ssr: false }); // modal: no visible content on initial load
 
+/** Returns true if it is currently Mon-Fri 8AM-5PM Mountain Time */
+function computeMtAvailability(): boolean {
+  const mtString = new Date().toLocaleString("en-US", { timeZone: "America/Denver" });
+  const mt = new Date(mtString);
+  const day = mt.getDay(); // 0=Sun, 6=Sat
+  const timeVal = mt.getHours() * 60 + mt.getMinutes();
+  const isWeekday = day >= 1 && day <= 5;
+  return isWeekday && timeVal >= 8 * 60 && timeVal < 17 * 60;
+}
+
 function useAvailability() {
-  const [label, setLabel] = useState<string | null>(null);
-
+  const [available, setAvailable] = useState<boolean | null>(null);
   useEffect(() => {
-    const compute = () => {
-      const now = new Date();
-      // Convert to Mountain Time (UTC-6 MDT / UTC-7 MST)
-      // Use a reliable approach: format to MT and parse back
-      const mtString = now.toLocaleString("en-US", { timeZone: "America/Denver" });
-      const mt = new Date(mtString);
-      const day = mt.getDay(); // 0=Sun, 6=Sat
-      const hour = mt.getHours();
-      const min = mt.getMinutes();
-      const timeVal = hour * 60 + min;
-
-      const isWeekday = day >= 1 && day <= 5;
-      const isSaturday = day === 6;
-      const weekdayOpen = 8 * 60;   // 8:00 AM
-      const weekdayClose = 17 * 60; // 5:00 PM
-      const satOpen = 9 * 60;       // 9:00 AM
-      const satClose = 13 * 60;     // 1:00 PM
-
-      const open =
-        (isWeekday && timeVal >= weekdayOpen && timeVal < weekdayClose) ||
-        (isSaturday && timeVal >= satOpen && timeVal < satClose);
-
-      return open ? "open" : "responds";
-    };
-    setLabel(compute());
+    setAvailable(computeMtAvailability());
   }, []);
-
-  return label;
+  return available;
 }
 
 export default function HeroCTAButtons() {
   const [showContactForm, setShowContactForm] = useState(false);
-  const availability = useAvailability();
+  const available = useAvailability();
 
   const handleRequestQuote = () => {
     trackEvent('quote_request', 'hero', 'main_cta');
@@ -59,8 +43,8 @@ export default function HeroCTAButtons() {
 
   return (
     <>
-      {/* Google review badge */}
-      <div className="flex items-center gap-2 mb-6 animate-fade-in-up stagger-delay-3">
+      {/* Google review badge + availability */}
+      <div className="flex flex-wrap items-center gap-3 mb-6 animate-fade-in-up stagger-delay-3">
         <a
           href={GOOGLE_LISTING_URL}
           target="_blank"
@@ -79,11 +63,11 @@ export default function HeroCTAButtons() {
           </span>
         </a>
 
-        {/* Live availability indicator */}
-        {availability && (
+        {/* Live availability indicator — only renders after hydration */}
+        {available !== null && (
           <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground" data-testid="badge-availability">
-            <span className={`w-1.5 h-1.5 rounded-full ${availability === "open" ? "bg-green-400 animate-pulse" : "bg-amber-400"}`} />
-            {availability === "open" ? "Available now" : "Replies within 2 hrs"}
+            <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${available ? "bg-green-400 animate-pulse" : "bg-amber-400"}`} />
+            {available ? "Available now" : "We respond within 4 hours"}
           </span>
         )}
       </div>

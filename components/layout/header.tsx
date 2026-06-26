@@ -20,6 +20,7 @@ export default function Header() {
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const megaMenuButtonRef = useRef<HTMLButtonElement>(null);
   const megaMenuPanelRef = useRef<HTMLDivElement>(null);
+  const [headerAvailable, setHeaderAvailable] = useState<boolean | null>(null);
 
   // Memoize filtered locations by service type and state
   const getLocationsByService = useMemo(() => {
@@ -142,6 +143,16 @@ export default function Header() {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscapeKey);
     };
+  }, []);
+
+  // Compute business-hours availability client-side (Mon–Fri 8AM–5PM MT)
+  useEffect(() => {
+    const mtString = new Date().toLocaleString('en-US', { timeZone: 'America/Denver' });
+    const mt = new Date(mtString);
+    const day = mt.getDay();
+    const timeVal = mt.getHours() * 60 + mt.getMinutes();
+    const isWeekday = day >= 1 && day <= 5;
+    setHeaderAvailable(isWeekday && timeVal >= 8 * 60 && timeVal < 17 * 60);
   }, []);
 
   return (
@@ -433,15 +444,24 @@ export default function Header() {
               <span className="hidden lg:inline">Text</span>
               <span className="lg:hidden">SMS</span>
             </a>
-            <Link href="/contact">
-              <Button
-                variant="pill-secondary"
-                size="pill-md"
-                className="hover-lift-moderate button-ripple hover-shimmer"
-              >
-                Request Quote
-              </Button>
-            </Link>
+            <div className="flex flex-col items-end gap-0.5">
+              <Link href="/contact">
+                <Button
+                  variant="pill-secondary"
+                  size="pill-md"
+                  className="hover-lift-moderate button-ripple hover-shimmer"
+                  data-testid="button-header-request-quote"
+                >
+                  Request Quote
+                </Button>
+              </Link>
+              {headerAvailable !== null && (
+                <span className="hidden lg:flex items-center gap-1 text-xs text-muted-foreground" data-testid="badge-header-availability">
+                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${headerAvailable ? 'bg-green-400 animate-pulse' : 'bg-amber-400'}`} />
+                  {headerAvailable ? 'Available now' : 'We respond within 4 hours'}
+                </span>
+              )}
+            </div>
           </div>
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>

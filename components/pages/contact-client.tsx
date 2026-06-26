@@ -5,7 +5,8 @@ import { QueryClient, QueryClientProvider, useMutation } from "@tanstack/react-q
 import { useToast } from "@/hooks/use-toast";
 import { StructuredData } from "@/components/structured-data";
 import RelatedContent from "@/components/shared/related-content";
-import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight, Star, Home } from "lucide-react";
+import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   BUSINESS_FULL_ADDRESS,
@@ -305,21 +306,29 @@ function PageSuccessScreen({ name, phone, onReset }: { name: string; phone: stri
         ))}
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col gap-3">
         <a
           href="tel:+12085203202"
-          className="inline-flex items-center justify-center gap-2 flex-1 px-5 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors font-medium"
+          className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors font-medium"
           data-testid="button-success-call"
         >
           <Phone className="w-4 h-4" />
           Call (208) 520-3202
         </a>
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 border border-border bg-card text-muted-foreground rounded-full hover:text-foreground hover:border-border/80 transition-colors text-sm"
+          data-testid="link-success-home"
+        >
+          <Home className="w-4 h-4" />
+          Back to homepage
+        </Link>
         <button
           onClick={onReset}
-          className="inline-flex items-center justify-center flex-1 px-5 py-3 border border-border bg-card text-muted-foreground rounded-full hover:text-foreground hover:border-border/80 transition-colors text-sm"
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
           data-testid="button-success-new-request"
         >
-          Submit Another Request
+          Submit another request
         </button>
       </div>
     </div>
@@ -344,6 +353,9 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
     location: "",
     message: ""
   });
+  // Quick callback (phone-only fast path)
+  const [cbPhone, setCbPhone] = useState("");
+  const [cbSubmitting, setCbSubmitting] = useState(false);
 
   const TOTAL = 3;
 
@@ -417,6 +429,34 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
     submitMutation.mutate(formData);
   };
 
+  const handleCallbackSubmit = async () => {
+    const stripped = cbPhone.replace(/\D/g, "");
+    if (stripped.length < 10) {
+      toast({ title: "Invalid number", description: "Please enter a valid 10-digit phone number.", variant: "destructive" });
+      return;
+    }
+    setCbSubmitting(true);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Quick Callback",
+          email: "callback@queued.local",
+          phone: cbPhone,
+          service: "callback",
+          location: "To be confirmed",
+          message: "Quick callback request — no additional details provided",
+        }),
+      });
+      onSubmitComplete("", cbPhone);
+    } catch {
+      toast({ title: "Error", description: "Failed to send. Please call us directly.", variant: "destructive" });
+    } finally {
+      setCbSubmitting(false);
+    }
+  };
+
   const progress = (currentScreen / TOTAL) * 100;
 
   return (
@@ -463,11 +503,32 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
               data-testid="input-phone"
             />
           </div>
-          <p className="text-xs text-muted-foreground">
-            Prefer to talk?{" "}
-            <a href="tel:+12085203202" className="text-primary hover:underline">(208) 520-3202</a>
-            {" "}— we pick up during business hours.
-          </p>
+          {/* Quick callback fast path */}
+          <div className="mt-2 pt-5 border-t border-border/40">
+            <p className="text-sm font-medium text-foreground mb-3">Or just leave your number — we'll call you</p>
+            <div className="flex gap-2">
+              <input
+                type="tel"
+                placeholder="(208) 555-0123"
+                value={cbPhone}
+                autoComplete="tel"
+                onChange={(e) => setCbPhone(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") handleCallbackSubmit(); }}
+                className="flex-1 p-3 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-sm"
+                data-testid="input-callback-phone"
+              />
+              <button
+                type="button"
+                onClick={handleCallbackSubmit}
+                disabled={cbSubmitting || !cbPhone.trim()}
+                className="px-4 py-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+                data-testid="button-callback-submit"
+              >
+                {cbSubmitting ? "Sending..." : "Call me"}
+              </button>
+            </div>
+            <p className="text-xs text-muted-foreground mt-2">We call back within 4 hours on business days.</p>
+          </div>
         </div>
       )}
 
