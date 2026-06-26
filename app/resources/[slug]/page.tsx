@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Clock, CheckCircle2, Calendar } from "lucide-react";
 import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import RelatedContent from "@/components/shared/related-content";
@@ -129,6 +129,18 @@ export default function GuidePage({ params }: GuidePageProps) {
               </span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl tracking-tight text-foreground mb-6">{guide.title}</h1>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-6">
+              <span>By <strong className="text-foreground/80">Imperial Cleaning Inc</strong></span>
+              <span className="inline-flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5" />
+                Published <time dateTime={guide.datePublished}>{new Date(guide.datePublished).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</time>
+              </span>
+              {guide.dateModified !== guide.datePublished && (
+                <span className="inline-flex items-center gap-1">
+                  · Updated <time dateTime={guide.dateModified}>{new Date(guide.dateModified).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</time>
+                </span>
+              )}
+            </div>
             {/* Lead answer up top for AEO / featured-snippet eligibility */}
             <p className="text-lg text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-4">
               {guide.intro}

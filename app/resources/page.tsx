@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, ArrowRight, Clock } from "lucide-react";
+import { BookOpen, ArrowRight, Clock, Calendar } from "lucide-react";
 import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import RelatedContent from "@/components/shared/related-content";
@@ -95,6 +95,10 @@ export default function ResourcesHubPage() {
                 <span className="px-2 py-1 bg-primary/10 text-primary rounded-full">{guide.category}</span>
                 <span className="inline-flex items-center gap-1">
                   <Clock className="w-3 h-3" /> {guide.readTime}
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  <time dateTime={guide.dateModified}>{new Date(guide.dateModified).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" })}</time>
                 </span>
               </div>
               <h2 className="text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
