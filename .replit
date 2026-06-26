@@ -48,3 +48,7 @@ outputType = "webview"
 
 [userenv.shared]
 NEXT_PUBLIC_GA_MEASUREMENT_ID = "G-LGVNS5VTDL"
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 20000
