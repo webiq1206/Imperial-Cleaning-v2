@@ -1,5 +1,5 @@
 {
-  "totalPages": 64,
+  "totalPages": 68,
   "links": {
     "/": [
       {
@@ -18,34 +18,34 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
       },
       {
-        "url": "/service-areas",
-        "anchor": "Idaho & Utah service areas",
-        "score": 0.7
-      },
-      {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
         "url": "/resources",
         "anchor": "Cleaning guides & resources",
         "score": 0.5
-      },
-      {
-        "url": "/idaho/commercial-cleaning/meridian",
-        "anchor": "Commercial Cleaning in Meridian",
-        "score": 0.05
       }
     ],
     "/construction-cleaning": [
@@ -90,13 +90,8 @@
         "score": 1.4
       },
       {
-        "url": "/resources/what-is-post-construction-cleaning",
-        "anchor": "What Is Post-Construction Cleaning? A Complete Guide",
-        "score": 0.41
-      },
-      {
-        "url": "/resources",
-        "anchor": "Cleaning guides & resources",
+        "url": "/",
+        "anchor": "Imperial Cleaning home",
         "score": 0.5
       }
     ],
@@ -105,6 +100,26 @@
         "url": "/contact",
         "anchor": "Request a free cleaning quote",
         "score": 2.3
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.7
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.7
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.7
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.7
       },
       {
         "url": "/idaho/commercial-cleaning/idaho-falls",
@@ -122,29 +137,9 @@
         "score": 1.6
       },
       {
-        "url": "/utah/commercial-cleaning/salt-lake-city",
-        "anchor": "Commercial Cleaning in Salt Lake City",
-        "score": 1.56
-      },
-      {
-        "url": "/idaho/commercial-cleaning/ammon",
-        "anchor": "Commercial Cleaning in Ammon",
-        "score": 1.4
-      },
-      {
-        "url": "/idaho/commercial-cleaning/blackfoot",
-        "anchor": "Commercial Cleaning in Blackfoot",
-        "score": 1.4
-      },
-      {
-        "url": "/idaho/commercial-cleaning/chubbuck",
-        "anchor": "Commercial Cleaning in Chubbuck",
-        "score": 1.4
-      },
-      {
-        "url": "/resources/commercial-cleaning-vs-janitorial",
-        "anchor": "Commercial Cleaning vs. Janitorial Services: What's the Difference?",
-        "score": 0.275
+        "url": "/",
+        "anchor": "Imperial Cleaning home",
+        "score": 0.5
       }
     ],
     "/service-areas": [
@@ -164,34 +159,34 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
       },
       {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
         "url": "/",
         "anchor": "Imperial Cleaning home",
         "score": 0.5
-      },
-      {
-        "url": "/resources",
-        "anchor": "Cleaning guides & resources",
-        "score": 0.5
-      },
-      {
-        "url": "/idaho/construction-cleaning/caldwell",
-        "anchor": "Construction Cleaning in Caldwell",
-        "score": 0.05
       }
     ],
     "/service-areas/idaho": [
@@ -236,9 +231,9 @@
         "score": 1.3
       },
       {
-        "url": "/idaho/construction-cleaning/shelley",
-        "anchor": "Construction Cleaning in Shelley",
-        "score": 1.15
+        "url": "/",
+        "anchor": "Imperial Cleaning home",
+        "score": 0.5
       }
     ],
     "/service-areas/utah": [
@@ -283,9 +278,9 @@
         "score": 1.3
       },
       {
-        "url": "/idaho/construction-cleaning/caldwell",
-        "anchor": "Construction Cleaning in Caldwell",
-        "score": 0.05
+        "url": "/",
+        "anchor": "Imperial Cleaning home",
+        "score": 0.5
       }
     ],
     "/about": [
@@ -305,34 +300,34 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/service-areas",
         "anchor": "Idaho & Utah service areas",
         "score": 0.7
       },
       {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/",
-        "anchor": "Imperial Cleaning home",
-        "score": 0.5
-      },
-      {
         "url": "/resources",
         "anchor": "Cleaning guides & resources",
         "score": 0.5
-      },
-      {
-        "url": "/idaho/commercial-cleaning/caldwell",
-        "anchor": "Commercial Cleaning in Caldwell",
-        "score": 0.05
       }
     ],
     "/contact": [
@@ -347,6 +342,26 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
@@ -357,29 +372,9 @@
         "score": 0.7
       },
       {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/",
-        "anchor": "Imperial Cleaning home",
-        "score": 0.5
-      },
-      {
         "url": "/resources",
         "anchor": "Cleaning guides & resources",
         "score": 0.5
-      },
-      {
-        "url": "/idaho/commercial-cleaning/caldwell",
-        "anchor": "Commercial Cleaning in Caldwell",
-        "score": 0.05
       }
     ],
     "/resources": [
@@ -399,6 +394,26 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
@@ -407,26 +422,6 @@
         "url": "/service-areas",
         "anchor": "Idaho & Utah service areas",
         "score": 0.7
-      },
-      {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/",
-        "anchor": "Imperial Cleaning home",
-        "score": 0.5
-      },
-      {
-        "url": "/idaho/construction-cleaning/eagle",
-        "anchor": "Construction Cleaning in Eagle",
-        "score": 0.05
       }
     ],
     "/sitemap": [
@@ -446,14 +441,14 @@
         "score": 0.8
       },
       {
-        "url": "/about",
-        "anchor": "About Imperial Cleaning",
-        "score": 0.3
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 0.6
       },
       {
-        "url": "/service-areas",
-        "anchor": "Idaho & Utah service areas",
-        "score": 0.2
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 0.6
       }
     ],
     "/privacy-policy": [
@@ -473,14 +468,14 @@
         "score": 0.8
       },
       {
-        "url": "/about",
-        "anchor": "About Imperial Cleaning",
-        "score": 0.3
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 0.6
       },
       {
-        "url": "/service-areas",
-        "anchor": "Idaho & Utah service areas",
-        "score": 0.2
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 0.6
       }
     ],
     "/terms-of-service": [
@@ -500,14 +495,202 @@
         "score": 0.8
       },
       {
-        "url": "/about",
-        "anchor": "About Imperial Cleaning",
-        "score": 0.3
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 0.6
       },
       {
-        "url": "/service-areas",
-        "anchor": "Idaho & Utah service areas",
-        "score": 0.2
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 0.6
+      }
+    ],
+    "/medical-office-cleaning": [
+      {
+        "url": "/contact",
+        "anchor": "Request a free cleaning quote",
+        "score": 2.3
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.97
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.95
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.936
+      },
+      {
+        "url": "/commercial-cleaning",
+        "anchor": "Commercial Cleaning Services",
+        "score": 1.9
+      },
+      {
+        "url": "/construction-cleaning",
+        "anchor": "Construction Cleaning Services",
+        "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/idaho-falls",
+        "anchor": "Commercial Cleaning in Idaho Falls",
+        "score": 1.05
+      },
+      {
+        "url": "/idaho/commercial-cleaning/pocatello",
+        "anchor": "Commercial Cleaning in Pocatello",
+        "score": 1.05
+      },
+      {
+        "url": "/resources",
+        "anchor": "Cleaning guides & resources",
+        "score": 0.5
+      }
+    ],
+    "/restaurant-cleaning-services": [
+      {
+        "url": "/contact",
+        "anchor": "Request a free cleaning quote",
+        "score": 2.3
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.97
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.97
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.95
+      },
+      {
+        "url": "/commercial-cleaning",
+        "anchor": "Commercial Cleaning Services",
+        "score": 1.9
+      },
+      {
+        "url": "/construction-cleaning",
+        "anchor": "Construction Cleaning Services",
+        "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/idaho-falls",
+        "anchor": "Commercial Cleaning in Idaho Falls",
+        "score": 1.06
+      },
+      {
+        "url": "/idaho/commercial-cleaning/pocatello",
+        "anchor": "Commercial Cleaning in Pocatello",
+        "score": 1.06
+      },
+      {
+        "url": "/resources",
+        "anchor": "Cleaning guides & resources",
+        "score": 0.5
+      }
+    ],
+    "/school-cleaning-services": [
+      {
+        "url": "/contact",
+        "anchor": "Request a free cleaning quote",
+        "score": 2.3
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.95
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.936
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.936
+      },
+      {
+        "url": "/commercial-cleaning",
+        "anchor": "Commercial Cleaning Services",
+        "score": 1.9
+      },
+      {
+        "url": "/construction-cleaning",
+        "anchor": "Construction Cleaning Services",
+        "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/idaho-falls",
+        "anchor": "Commercial Cleaning in Idaho Falls",
+        "score": 1.043
+      },
+      {
+        "url": "/idaho/commercial-cleaning/pocatello",
+        "anchor": "Commercial Cleaning in Pocatello",
+        "score": 1.043
+      },
+      {
+        "url": "/resources/commercial-cleaning-vs-janitorial",
+        "anchor": "Commercial Cleaning vs. Janitorial Services: What's the Difference?",
+        "score": 0.35
+      }
+    ],
+    "/car-dealership-cleaning": [
+      {
+        "url": "/contact",
+        "anchor": "Request a free cleaning quote",
+        "score": 2.3
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.97
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.95
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.936
+      },
+      {
+        "url": "/commercial-cleaning",
+        "anchor": "Commercial Cleaning Services",
+        "score": 1.9
+      },
+      {
+        "url": "/construction-cleaning",
+        "anchor": "Construction Cleaning Services",
+        "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/idaho-falls",
+        "anchor": "Commercial Cleaning in Idaho Falls",
+        "score": 1.05
+      },
+      {
+        "url": "/idaho/commercial-cleaning/pocatello",
+        "anchor": "Commercial Cleaning in Pocatello",
+        "score": 1.05
+      },
+      {
+        "url": "/resources/commercial-cleaning-vs-janitorial",
+        "anchor": "Commercial Cleaning vs. Janitorial Services: What's the Difference?",
+        "score": 0.35
       }
     ],
     "/resources/what-is-post-construction-cleaning": [
@@ -527,29 +710,29 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
-      },
-      {
-        "url": "/service-areas",
-        "anchor": "Idaho & Utah service areas",
-        "score": 0.7
-      },
-      {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/",
-        "anchor": "Imperial Cleaning home",
-        "score": 0.5
       },
       {
         "url": "/resources/construction-cleanup-process-checklist",
@@ -574,29 +757,29 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
-      },
-      {
-        "url": "/service-areas",
-        "anchor": "Idaho & Utah service areas",
-        "score": 0.7
-      },
-      {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/",
-        "anchor": "Imperial Cleaning home",
-        "score": 0.5
       },
       {
         "url": "/resources/what-is-post-construction-cleaning",
@@ -621,29 +804,29 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.1
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.1
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
-      },
-      {
-        "url": "/service-areas",
-        "anchor": "Idaho & Utah service areas",
-        "score": 0.7
-      },
-      {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/",
-        "anchor": "Imperial Cleaning home",
-        "score": 0.5
       },
       {
         "url": "/resources/what-is-post-construction-cleaning",
@@ -668,6 +851,26 @@
         "score": 1.3
       },
       {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.25
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.25
+      },
+      {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.25
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.25
+      },
+      {
         "url": "/about",
         "anchor": "About Imperial Cleaning",
         "score": 0.8
@@ -676,26 +879,6 @@
         "url": "/service-areas",
         "anchor": "Idaho & Utah service areas",
         "score": 0.7
-      },
-      {
-        "url": "/service-areas/idaho",
-        "anchor": "Idaho service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/service-areas/utah",
-        "anchor": "Utah service areas",
-        "score": 0.6
-      },
-      {
-        "url": "/",
-        "anchor": "Imperial Cleaning home",
-        "score": 0.5
-      },
-      {
-        "url": "/idaho/commercial-cleaning/meridian",
-        "anchor": "Commercial Cleaning in Meridian",
-        "score": 0.1
       }
     ],
     "/idaho/construction-cleaning/idaho-falls": [
@@ -745,9 +928,9 @@
         "score": 0.243
       },
       {
-        "url": "/idaho/construction-cleaning/eagle",
-        "anchor": "Construction Cleaning in Eagle",
-        "score": 1.45
+        "url": "/idaho/construction-cleaning/meridian",
+        "anchor": "Construction Cleaning in Meridian",
+        "score": 1.6
       }
     ],
     "/idaho/commercial-cleaning/idaho-falls": [
@@ -797,9 +980,9 @@
         "score": 0.25
       },
       {
-        "url": "/idaho/commercial-cleaning/eagle",
-        "anchor": "Commercial Cleaning in Eagle",
-        "score": 1.45
+        "url": "/idaho/commercial-cleaning/blackfoot",
+        "anchor": "Commercial Cleaning in Blackfoot",
+        "score": 1.75
       }
     ],
     "/idaho/construction-cleaning/pocatello": [
@@ -847,6 +1030,11 @@
         "url": "/resources/what-is-post-construction-cleaning",
         "anchor": "What Is Post-Construction Cleaning? A Complete Guide",
         "score": 0.243
+      },
+      {
+        "url": "/idaho/construction-cleaning/meridian",
+        "anchor": "Construction Cleaning in Meridian",
+        "score": 1.45
       }
     ],
     "/idaho/commercial-cleaning/pocatello": [
@@ -881,13 +1069,13 @@
         "score": 1.85
       },
       {
-        "url": "/idaho/commercial-cleaning/blackfoot",
-        "anchor": "Commercial Cleaning in Blackfoot",
-        "score": 1.75
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
       },
       {
-        "url": "/idaho/commercial-cleaning/boise",
-        "anchor": "Commercial Cleaning in Boise",
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
         "score": 1.75
       },
       {
@@ -896,9 +1084,9 @@
         "score": 0.25
       },
       {
-        "url": "/idaho/commercial-cleaning/eagle",
-        "anchor": "Commercial Cleaning in Eagle",
-        "score": 1.45
+        "url": "/idaho/commercial-cleaning/blackfoot",
+        "anchor": "Commercial Cleaning in Blackfoot",
+        "score": 1.75
       }
     ],
     "/idaho/construction-cleaning/blackfoot": [
@@ -943,9 +1131,14 @@
         "score": 1.85
       },
       {
-        "url": "/resources/construction-cleanup-process-checklist",
-        "anchor": "Construction Cleanup Process & Checklist",
-        "score": 0.25
+        "url": "/resources/what-is-post-construction-cleaning",
+        "anchor": "What Is Post-Construction Cleaning? A Complete Guide",
+        "score": 0.243
+      },
+      {
+        "url": "/idaho/construction-cleaning/caldwell",
+        "anchor": "Construction Cleaning in Caldwell",
+        "score": 1.6
       }
     ],
     "/idaho/commercial-cleaning/blackfoot": [
@@ -993,6 +1186,11 @@
         "url": "/resources/commercial-cleaning-vs-janitorial",
         "anchor": "Commercial Cleaning vs. Janitorial Services: What's the Difference?",
         "score": 0.25
+      },
+      {
+        "url": "/idaho/commercial-cleaning/meridian",
+        "anchor": "Commercial Cleaning in Meridian",
+        "score": 1.45
       }
     ],
     "/idaho/construction-cleaning/rexburg": [
@@ -1042,8 +1240,8 @@
         "score": 0.25
       },
       {
-        "url": "/idaho/construction-cleaning/chubbuck",
-        "anchor": "Construction Cleaning in Chubbuck",
+        "url": "/idaho/construction-cleaning/st-anthony",
+        "anchor": "Construction Cleaning in St. Anthony",
         "score": 1.6
       }
     ],
@@ -1079,23 +1277,23 @@
         "score": 1.8
       },
       {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.75
+      },
+      {
         "url": "/idaho/commercial-cleaning/rigby",
         "anchor": "Commercial Cleaning in Rigby",
         "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/twin-falls",
-        "anchor": "Commercial Cleaning in Twin Falls",
-        "score": 1.72
-      },
-      {
-        "url": "/resources/commercial-cleaning-vs-janitorial",
-        "anchor": "Commercial Cleaning vs. Janitorial Services: What's the Difference?",
-        "score": 0.25
-      },
-      {
-        "url": "/idaho/commercial-cleaning/chubbuck",
-        "anchor": "Commercial Cleaning in Chubbuck",
+        "url": "/idaho/commercial-cleaning/shelley",
+        "anchor": "Commercial Cleaning in Shelley",
         "score": 1.6
       }
     ],
@@ -1144,6 +1342,11 @@
         "url": "/idaho/construction-cleaning/driggs",
         "anchor": "Construction Cleaning in Driggs",
         "score": 1.57
+      },
+      {
+        "url": "/idaho/construction-cleaning/st-anthony",
+        "anchor": "Construction Cleaning in St. Anthony",
+        "score": 1.57
       }
     ],
     "/idaho/commercial-cleaning/twin-falls": [
@@ -1183,13 +1386,18 @@
         "score": 1.77
       },
       {
-        "url": "/idaho/commercial-cleaning/rexburg",
-        "anchor": "Commercial Cleaning in Rexburg",
-        "score": 1.72
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/driggs",
-        "anchor": "Commercial Cleaning in Driggs",
+        "url": "/idaho/commercial-cleaning/st-anthony",
+        "anchor": "Commercial Cleaning in St. Anthony",
+        "score": 1.57
+      },
+      {
+        "url": "/idaho/commercial-cleaning/meridian",
+        "anchor": "Commercial Cleaning in Meridian",
         "score": 1.57
       }
     ],
@@ -1238,6 +1446,11 @@
         "url": "/resources/construction-cleanup-process-checklist",
         "anchor": "Construction Cleanup Process & Checklist",
         "score": 0.25
+      },
+      {
+        "url": "/idaho/construction-cleaning/caldwell",
+        "anchor": "Construction Cleaning in Caldwell",
+        "score": 1.45
       }
     ],
     "/idaho/commercial-cleaning/boise": [
@@ -1282,9 +1495,14 @@
         "score": 1.85
       },
       {
-        "url": "/idaho/commercial-cleaning/shelley",
-        "anchor": "Commercial Cleaning in Shelley",
+        "url": "/idaho/commercial-cleaning/driggs",
+        "anchor": "Commercial Cleaning in Driggs",
         "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/rexburg",
+        "anchor": "Commercial Cleaning in Rexburg",
+        "score": 1.75
       }
     ],
     "/idaho/construction-cleaning/meridian": [
@@ -1381,9 +1599,14 @@
         "score": 1.8
       },
       {
-        "url": "/idaho/commercial-cleaning/shelley",
-        "anchor": "Commercial Cleaning in Shelley",
+        "url": "/idaho/commercial-cleaning/driggs",
+        "anchor": "Commercial Cleaning in Driggs",
         "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/twin-falls",
+        "anchor": "Commercial Cleaning in Twin Falls",
+        "score": 1.72
       }
     ],
     "/idaho/construction-cleaning/nampa": [
@@ -1428,9 +1651,14 @@
         "score": 1.72
       },
       {
-        "url": "/resources/post-construction-cleaning-cost",
-        "anchor": "Post-Construction Cleaning Cost: What Drives the Price",
-        "score": 0.238
+        "url": "/resources/construction-cleanup-process-checklist",
+        "anchor": "Construction Cleanup Process & Checklist",
+        "score": 0.25
+      },
+      {
+        "url": "/idaho/construction-cleaning/eagle",
+        "anchor": "Construction Cleaning in Eagle",
+        "score": 1.3
       }
     ],
     "/idaho/commercial-cleaning/nampa": [
@@ -1465,19 +1693,24 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/blackfoot",
-        "anchor": "Commercial Cleaning in Blackfoot",
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
         "score": 1.75
+      },
+      {
+        "url": "/idaho/commercial-cleaning/st-anthony",
+        "anchor": "Commercial Cleaning in St. Anthony",
+        "score": 1.45
       },
       {
         "url": "/idaho/commercial-cleaning/twin-falls",
         "anchor": "Commercial Cleaning in Twin Falls",
         "score": 1.72
-      },
-      {
-        "url": "/idaho/commercial-cleaning/driggs",
-        "anchor": "Commercial Cleaning in Driggs",
-        "score": 1.45
       }
     ],
     "/idaho/construction-cleaning/caldwell": [
@@ -1525,6 +1758,11 @@
         "url": "/resources/post-construction-cleaning-cost",
         "anchor": "Post-Construction Cleaning Cost: What Drives the Price",
         "score": 0.238
+      },
+      {
+        "url": "/idaho/construction-cleaning/rigby",
+        "anchor": "Construction Cleaning in Rigby",
+        "score": 1.6
       }
     ],
     "/idaho/commercial-cleaning/caldwell": [
@@ -1564,14 +1802,19 @@
         "score": 1.8
       },
       {
-        "url": "/idaho/commercial-cleaning/blackfoot",
-        "anchor": "Commercial Cleaning in Blackfoot",
-        "score": 1.75
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
       },
       {
-        "url": "/idaho/commercial-cleaning/driggs",
-        "anchor": "Commercial Cleaning in Driggs",
-        "score": 1.45
+        "url": "/idaho/commercial-cleaning/rigby",
+        "anchor": "Commercial Cleaning in Rigby",
+        "score": 1.6
+      },
+      {
+        "url": "/idaho/commercial-cleaning/rexburg",
+        "anchor": "Commercial Cleaning in Rexburg",
+        "score": 1.75
       }
     ],
     "/idaho/construction-cleaning/eagle": [
@@ -1619,6 +1862,11 @@
         "url": "/resources/post-construction-cleaning-cost",
         "anchor": "Post-Construction Cleaning Cost: What Drives the Price",
         "score": 0.238
+      },
+      {
+        "url": "/idaho/construction-cleaning/chubbuck",
+        "anchor": "Construction Cleaning in Chubbuck",
+        "score": 1.45
       }
     ],
     "/idaho/commercial-cleaning/eagle": [
@@ -1663,9 +1911,14 @@
         "score": 1.8
       },
       {
-        "url": "/idaho/commercial-cleaning/shelley",
-        "anchor": "Commercial Cleaning in Shelley",
+        "url": "/idaho/commercial-cleaning/driggs",
+        "anchor": "Commercial Cleaning in Driggs",
         "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/ammon",
+        "anchor": "Commercial Cleaning in Ammon",
+        "score": 1.6
       }
     ],
     "/utah/construction-cleaning/logan": [
@@ -1762,9 +2015,9 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/rigby",
-        "anchor": "Commercial Cleaning in Rigby",
-        "score": 1.01
+        "url": "/service-areas",
+        "anchor": "Idaho & Utah service areas",
+        "score": 0.7
       },
       {
         "url": "/utah/commercial-cleaning/layton",
@@ -1814,9 +2067,9 @@
         "score": 1.85
       },
       {
-        "url": "/idaho/construction-cleaning/rigby",
-        "anchor": "Construction Cleaning in Rigby",
-        "score": 0.843
+        "url": "/idaho/commercial-cleaning/shelley",
+        "anchor": "Commercial Cleaning in Shelley",
+        "score": 0.05
       },
       {
         "url": "/utah/construction-cleaning/orem",
@@ -1866,14 +2119,14 @@
         "score": 1.85
       },
       {
-        "url": "/idaho/construction-cleaning/st-anthony",
-        "anchor": "Construction Cleaning in St. Anthony",
-        "score": 0.2
+        "url": "/idaho/commercial-cleaning/caldwell",
+        "anchor": "Commercial Cleaning in Caldwell",
+        "score": 0.843
       },
       {
-        "url": "/utah/commercial-cleaning/orem",
-        "anchor": "Commercial Cleaning in Orem",
-        "score": 1.85
+        "url": "/idaho/commercial-cleaning/boise",
+        "anchor": "Commercial Cleaning in Boise",
+        "score": 1.443
       }
     ],
     "/utah/construction-cleaning/ogden": [
@@ -1970,9 +2223,9 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/rigby",
-        "anchor": "Commercial Cleaning in Rigby",
-        "score": 0.86
+        "url": "/idaho/commercial-cleaning/nampa",
+        "anchor": "Commercial Cleaning in Nampa",
+        "score": 1.01
       },
       {
         "url": "/utah/commercial-cleaning/west-valley-city",
@@ -2022,9 +2275,9 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/construction-cleaning/shelley",
-        "anchor": "Construction Cleaning in Shelley",
-        "score": 0.71
+        "url": "/resources/post-construction-cleaning-cost",
+        "anchor": "Post-Construction Cleaning Cost: What Drives the Price",
+        "score": 0.238
       },
       {
         "url": "/utah/construction-cleaning/layton",
@@ -2074,9 +2327,9 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/st-anthony",
-        "anchor": "Commercial Cleaning in St. Anthony",
-        "score": 0.71
+        "url": "/idaho/commercial-cleaning/nampa",
+        "anchor": "Commercial Cleaning in Nampa",
+        "score": 0.86
       },
       {
         "url": "/utah/commercial-cleaning/sandy",
@@ -2129,6 +2382,11 @@
         "url": "/idaho/construction-cleaning/nampa",
         "anchor": "Construction Cleaning in Nampa",
         "score": 1.3
+      },
+      {
+        "url": "/idaho/construction-cleaning/eagle",
+        "anchor": "Construction Cleaning in Eagle",
+        "score": 1.45
       }
     ],
     "/idaho/commercial-cleaning/ammon": [
@@ -2158,24 +2416,29 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/chubbuck",
-        "anchor": "Commercial Cleaning in Chubbuck",
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
         "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/pocatello",
-        "anchor": "Commercial Cleaning in Pocatello",
-        "score": 1.65
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/blackfoot",
-        "anchor": "Commercial Cleaning in Blackfoot",
-        "score": 1.45
-      },
-      {
-        "url": "/idaho/commercial-cleaning/rigby",
-        "anchor": "Commercial Cleaning in Rigby",
+        "url": "/idaho/commercial-cleaning/driggs",
+        "anchor": "Commercial Cleaning in Driggs",
         "score": 1.3
+      },
+      {
+        "url": "/idaho/commercial-cleaning/eagle",
+        "anchor": "Commercial Cleaning in Eagle",
+        "score": 1.45
       }
     ],
     "/idaho/construction-cleaning/chubbuck": [
@@ -2252,24 +2515,29 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/ammon",
-        "anchor": "Commercial Cleaning in Ammon",
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
         "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/idaho-falls",
-        "anchor": "Commercial Cleaning in Idaho Falls",
-        "score": 1.65
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/rexburg",
-        "anchor": "Commercial Cleaning in Rexburg",
-        "score": 1.6
+        "url": "/idaho/commercial-cleaning/nampa",
+        "anchor": "Commercial Cleaning in Nampa",
+        "score": 1.3
       },
       {
-        "url": "/idaho/construction-cleaning/shelley",
-        "anchor": "Construction Cleaning in Shelley",
-        "score": 0.76
+        "url": "/idaho/commercial-cleaning/eagle",
+        "anchor": "Commercial Cleaning in Eagle",
+        "score": 1.3
       }
     ],
     "/idaho/construction-cleaning/shelley": [
@@ -2317,6 +2585,11 @@
         "url": "/idaho/construction-cleaning/driggs",
         "anchor": "Construction Cleaning in Driggs",
         "score": 1.45
+      },
+      {
+        "url": "/idaho/construction-cleaning/rigby",
+        "anchor": "Construction Cleaning in Rigby",
+        "score": 1.6
       }
     ],
     "/idaho/commercial-cleaning/shelley": [
@@ -2346,23 +2619,28 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/rexburg",
-        "anchor": "Commercial Cleaning in Rexburg",
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
         "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/idaho-falls",
-        "anchor": "Commercial Cleaning in Idaho Falls",
-        "score": 1.65
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/pocatello",
-        "anchor": "Commercial Cleaning in Pocatello",
-        "score": 1.65
+        "url": "/idaho/commercial-cleaning/rigby",
+        "anchor": "Commercial Cleaning in Rigby",
+        "score": 1.6
       },
       {
-        "url": "/idaho/commercial-cleaning/nampa",
-        "anchor": "Commercial Cleaning in Nampa",
+        "url": "/idaho/commercial-cleaning/ammon",
+        "anchor": "Commercial Cleaning in Ammon",
         "score": 1.45
       }
     ],
@@ -2411,6 +2689,11 @@
         "url": "/idaho/construction-cleaning/driggs",
         "anchor": "Construction Cleaning in Driggs",
         "score": 1.45
+      },
+      {
+        "url": "/idaho/construction-cleaning/st-anthony",
+        "anchor": "Construction Cleaning in St. Anthony",
+        "score": 1.6
       }
     ],
     "/idaho/commercial-cleaning/rigby": [
@@ -2450,14 +2733,19 @@
         "score": 1.8
       },
       {
-        "url": "/idaho/commercial-cleaning/caldwell",
-        "anchor": "Commercial Cleaning in Caldwell",
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
+      },
+      {
+        "url": "/idaho/commercial-cleaning/st-anthony",
+        "anchor": "Commercial Cleaning in St. Anthony",
         "score": 1.6
       },
       {
-        "url": "/idaho/commercial-cleaning/nampa",
-        "anchor": "Commercial Cleaning in Nampa",
-        "score": 1.45
+        "url": "/idaho/commercial-cleaning/shelley",
+        "anchor": "Commercial Cleaning in Shelley",
+        "score": 1.6
       }
     ],
     "/idaho/construction-cleaning/st-anthony": [
@@ -2505,6 +2793,11 @@
         "url": "/idaho/construction-cleaning/driggs",
         "anchor": "Construction Cleaning in Driggs",
         "score": 1.6
+      },
+      {
+        "url": "/idaho/construction-cleaning/rigby",
+        "anchor": "Construction Cleaning in Rigby",
+        "score": 1.6
       }
     ],
     "/idaho/commercial-cleaning/st-anthony": [
@@ -2529,28 +2822,28 @@
         "score": 1.9
       },
       {
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
+      },
+      {
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.75
+      },
+      {
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.75
+      },
+      {
         "url": "/idaho/commercial-cleaning/rexburg",
         "anchor": "Commercial Cleaning in Rexburg",
         "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/twin-falls",
-        "anchor": "Commercial Cleaning in Twin Falls",
-        "score": 1.72
-      },
-      {
-        "url": "/idaho/commercial-cleaning/idaho-falls",
-        "anchor": "Commercial Cleaning in Idaho Falls",
-        "score": 1.65
-      },
-      {
-        "url": "/idaho/commercial-cleaning/pocatello",
-        "anchor": "Commercial Cleaning in Pocatello",
-        "score": 1.65
-      },
-      {
-        "url": "/idaho/commercial-cleaning/driggs",
-        "anchor": "Commercial Cleaning in Driggs",
+        "url": "/idaho/commercial-cleaning/rigby",
+        "anchor": "Commercial Cleaning in Rigby",
         "score": 1.6
       }
     ],
@@ -2623,29 +2916,29 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/twin-falls",
-        "anchor": "Commercial Cleaning in Twin Falls",
-        "score": 1.72
+        "url": "/restaurant-cleaning-services",
+        "anchor": "Restaurant Cleaning",
+        "score": 1.76
       },
       {
-        "url": "/idaho/commercial-cleaning/idaho-falls",
-        "anchor": "Commercial Cleaning in Idaho Falls",
-        "score": 1.65
+        "url": "/car-dealership-cleaning",
+        "anchor": "Car Dealership Cleaning",
+        "score": 1.75
       },
       {
-        "url": "/idaho/commercial-cleaning/pocatello",
-        "anchor": "Commercial Cleaning in Pocatello",
-        "score": 1.65
+        "url": "/medical-office-cleaning",
+        "anchor": "Medical Office Cleaning",
+        "score": 1.75
+      },
+      {
+        "url": "/school-cleaning-services",
+        "anchor": "School Cleaning",
+        "score": 1.743
       },
       {
         "url": "/idaho/commercial-cleaning/st-anthony",
         "anchor": "Commercial Cleaning in St. Anthony",
         "score": 1.6
-      },
-      {
-        "url": "/idaho/commercial-cleaning/nampa",
-        "anchor": "Commercial Cleaning in Nampa",
-        "score": 1.45
       }
     ],
     "/utah/construction-cleaning/west-valley-city": [
@@ -2690,9 +2983,9 @@
         "score": 1.86
       },
       {
-        "url": "/idaho/construction-cleaning/st-anthony",
-        "anchor": "Construction Cleaning in St. Anthony",
-        "score": 0.693
+        "url": "/idaho/commercial-cleaning/chubbuck",
+        "anchor": "Commercial Cleaning in Chubbuck",
+        "score": 0.35
       }
     ],
     "/utah/commercial-cleaning/west-valley-city": [
@@ -2737,9 +3030,9 @@
         "score": 1.86
       },
       {
-        "url": "/idaho/construction-cleaning/meridian",
-        "anchor": "Construction Cleaning in Meridian",
-        "score": 0.35
+        "url": "/idaho/commercial-cleaning/chubbuck",
+        "anchor": "Commercial Cleaning in Chubbuck",
+        "score": 0.993
       }
     ],
     "/utah/construction-cleaning/sandy": [
@@ -2784,8 +3077,8 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/construction-cleaning/rigby",
-        "anchor": "Construction Cleaning in Rigby",
+        "url": "/idaho/construction-cleaning/shelley",
+        "anchor": "Construction Cleaning in Shelley",
         "score": 0.71
       },
       {
@@ -2836,9 +3129,9 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/st-anthony",
-        "anchor": "Commercial Cleaning in St. Anthony",
-        "score": 0.71
+        "url": "/idaho/commercial-cleaning/chubbuck",
+        "anchor": "Commercial Cleaning in Chubbuck",
+        "score": 1.01
       },
       {
         "url": "/utah/commercial-cleaning/provo",
@@ -2888,9 +3181,9 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/construction-cleaning/rigby",
-        "anchor": "Construction Cleaning in Rigby",
-        "score": 0.86
+        "url": "/idaho/construction-cleaning/shelley",
+        "anchor": "Construction Cleaning in Shelley",
+        "score": 0.71
       }
     ],
     "/utah/commercial-cleaning/orem": [
@@ -2935,9 +3228,9 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/commercial-cleaning/st-anthony",
-        "anchor": "Commercial Cleaning in St. Anthony",
-        "score": 0.71
+        "url": "/idaho/commercial-cleaning/caldwell",
+        "anchor": "Commercial Cleaning in Caldwell",
+        "score": 0.86
       }
     ],
     "/utah/construction-cleaning/layton": [
@@ -2982,8 +3275,8 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/construction-cleaning/st-anthony",
-        "anchor": "Construction Cleaning in St. Anthony",
+        "url": "/idaho/construction-cleaning/shelley",
+        "anchor": "Construction Cleaning in Shelley",
         "score": 0.71
       },
       {
@@ -3034,9 +3327,14 @@
         "score": 1.9
       },
       {
-        "url": "/idaho/construction-cleaning/meridian",
-        "anchor": "Construction Cleaning in Meridian",
-        "score": 0.35
+        "url": "/idaho/commercial-cleaning/caldwell",
+        "anchor": "Commercial Cleaning in Caldwell",
+        "score": 0.86
+      },
+      {
+        "url": "/utah/commercial-cleaning/orem",
+        "anchor": "Commercial Cleaning in Orem",
+        "score": 1.75
       }
     ]
   }

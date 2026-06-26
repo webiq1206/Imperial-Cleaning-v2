@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CheckCircle, Phone, ArrowRight, Building2 } from "lucide-react";
 import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
+import RelatedContent from "@/components/shared/related-content";
 import type { IndustryPage } from "@/data/industries";
 
 interface IndustryCleaningPageProps {
@@ -171,26 +172,17 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
         </div>
       </section>
 
-      {/* Cross links */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl text-foreground mb-6 text-center">Explore More</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/commercial-cleaning" className="text-primary hover:underline">
-              Commercial Cleaning Services
-            </Link>
-            <Link href="/construction-cleaning" className="text-primary hover:underline">
-              Construction Cleaning Services
-            </Link>
-            <Link href="/service-areas/idaho" className="text-primary hover:underline">
-              Idaho Service Areas
-            </Link>
-            <Link href="/service-areas/utah" className="text-primary hover:underline">
-              Utah Service Areas
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Related Content */}
+      <RelatedContent
+        pageUrl={`/${industry.slug}`}
+        heading="Related Cleaning Services"
+        description="Explore more commercial cleaning specialties and service areas across Idaho and Utah."
+        override={{
+          pin: [
+            { url: "/commercial-cleaning", anchor: "Commercial Cleaning Services" },
+          ],
+        }}
+      />
 
       {/* CTA */}
       <section className="py-24 px-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">

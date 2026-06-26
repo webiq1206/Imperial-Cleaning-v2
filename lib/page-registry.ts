@@ -1,6 +1,7 @@
 import { allServiceLocations, type ServiceLocation } from "@/data/service-locations";
 import { buildServiceLocationUrl, locationToSlug } from "@/lib/routing-utils";
 import { guides } from "@/data/guides";
+import { industries } from "@/data/industries";
 
 export type PageType =
   | "home"
@@ -8,6 +9,7 @@ export type PageType =
   | "state-hub"
   | "service-areas-hub"
   | "city-service"
+  | "industry"
   | "about"
   | "contact"
   | "resource-hub"
@@ -218,11 +220,25 @@ function resourceEntries(): PageEntry[] {
   }));
 }
 
+function industryEntries(): PageEntry[] {
+  return industries.map((industry) => ({
+    url: `/${industry.slug}`,
+    type: "industry" as const,
+    title: industry.metaTitle,
+    h1: industry.h1,
+    anchor: industry.name,
+    service: "commercial-cleaning" as const,
+    industries: ["Commercial"],
+    authorityBoost: 0.8,
+    isMoneyPage: true,
+  }));
+}
+
 let cached: PageEntry[] | null = null;
 
 export function getPageRegistry(): PageEntry[] {
   if (cached) return cached;
-  cached = [...staticEntries(), ...resourceEntries(), ...cityEntries()];
+  cached = [...staticEntries(), ...industryEntries(), ...resourceEntries(), ...cityEntries()];
   return cached;
 }
 
