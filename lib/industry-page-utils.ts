@@ -31,6 +31,9 @@ export function buildIndustryMetadata(industry: IndustryPage): Metadata {
       card: "summary_large_image",
       title: industry.metaTitle,
       description: industry.metaDescription,
+      site: "@imperialcleaninginc",
+      creator: "@imperialcleaninginc",
+      images: ["https://imperialcleaninginc.com/og-image.png"],
     },
     other: {
       "geo.region": "ID-UT",

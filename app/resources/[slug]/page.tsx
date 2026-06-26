@@ -36,11 +36,22 @@ export function generateMetadata({ params }: GuidePageProps): Metadata {
       type: "article",
       publishedTime: guide.datePublished,
       modifiedTime: guide.dateModified,
+      images: [
+        {
+          url: "https://imperialcleaninginc.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${guide.metaTitle}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: guide.metaTitle,
       description: guide.description,
+      site: "@imperialcleaninginc",
+      creator: "@imperialcleaninginc",
+      images: ["https://imperialcleaninginc.com/og-image.png"],
     },
   };
 }

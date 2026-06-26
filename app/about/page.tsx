@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Imperial Cleaning Inc | Idaho & Utah Cleaning Experts",
     description: "Learn about Imperial Cleaning Inc - Idaho's premier cleaning company since 2015. Licensed, bonded & insured cleaning services across Idaho and Utah.",
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
+    images: ["https://imperialcleaninginc.com/og-image.png"],
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/about",

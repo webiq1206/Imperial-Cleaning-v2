@@ -123,6 +123,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: `${location.name} ${serviceName} | Imperial Cleaning`,
       description: `Professional ${serviceName.toLowerCase()} in ${location.name}, ${stateAbbr}. Licensed & insured.`,
+      site: "@imperialcleaninginc",
+      creator: "@imperialcleaninginc",
+      images: ["https://imperialcleaninginc.com/og-image.png"],
     },
     alternates: {
       canonical: `https://imperialcleaninginc.com/${state}/${service}/${city}`,

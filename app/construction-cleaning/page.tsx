@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc",
     description: "Professional post-construction cleanup across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors.",
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
+    images: ["https://imperialcleaninginc.com/og-image.png"],
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/construction-cleaning",

@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Eastern Idaho Cleaning Services | Imperial Cleaning Inc",
     description: "Expert cleaning services across Idaho Falls, Pocatello, Twin Falls & Eastern Idaho. Professional construction & commercial cleaning solutions from our headquarters.",
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
+    images: ["https://imperialcleaninginc.com/og-image.png"],
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/service-areas/idaho",

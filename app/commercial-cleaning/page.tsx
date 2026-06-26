@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc",
     description: "Professional commercial cleaning services across Idaho & Utah. Daily, weekly & monthly schedules for offices & businesses.",
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
+    images: ["https://imperialcleaninginc.com/og-image.png"],
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/commercial-cleaning",

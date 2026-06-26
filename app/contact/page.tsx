@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Imperial Cleaning Inc | Free Cleaning Quotes",
     description: "Get professional cleaning services in Idaho & Utah. Call (208) 520-3202 for free construction cleanup and commercial cleaning quotes.",
+    site: "@imperialcleaninginc",
+    creator: "@imperialcleaninginc",
+    images: ["https://imperialcleaninginc.com/og-image.png"],
   },
   alternates: {
     canonical: "https://imperialcleaninginc.com/contact",
