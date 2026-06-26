@@ -20,7 +20,6 @@ export default function Header() {
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const megaMenuButtonRef = useRef<HTMLButtonElement>(null);
   const megaMenuPanelRef = useRef<HTMLDivElement>(null);
-  const [headerAvailable, setHeaderAvailable] = useState<boolean | null>(null);
 
   // Memoize filtered locations by service type and state
   const getLocationsByService = useMemo(() => {
@@ -145,16 +144,6 @@ export default function Header() {
     };
   }, []);
 
-  // Compute business-hours availability client-side (Mon–Fri 8AM–5PM MT)
-  useEffect(() => {
-    const mtString = new Date().toLocaleString('en-US', { timeZone: 'America/Denver' });
-    const mt = new Date(mtString);
-    const day = mt.getDay();
-    const timeVal = mt.getHours() * 60 + mt.getMinutes();
-    const isWeekday = day >= 1 && day <= 5;
-    setHeaderAvailable(isWeekday && timeVal >= 8 * 60 && timeVal < 17 * 60);
-  }, []);
-
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/20 glass-effect sophisticated-glow animate-fade-in-up">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -194,10 +183,9 @@ export default function Header() {
                 id="services-mega-menu-panel"
                 ref={megaMenuPanelRef}
                 role="menu"
-                className={`absolute top-full left-1/2 mt-3 w-[700px] bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl transition-opacity transition-visibility duration-300 ease-out glass-card-elevated sophisticated-glow ${
+                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[700px] bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl transition-opacity transition-visibility duration-300 ease-out glass-card-elevated sophisticated-glow ${
                   isMegaMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
-                style={{ transform: 'translateX(-50%)' }}
               >
                 <div className="border-b border-border/20">
                   <div className="flex p-2 gap-2">
@@ -444,24 +432,15 @@ export default function Header() {
               <span className="hidden lg:inline">Text</span>
               <span className="lg:hidden">SMS</span>
             </a>
-            <div className="flex flex-col items-end gap-0.5">
-              <Link href="/contact">
-                <Button
-                  variant="pill-secondary"
-                  size="pill-md"
-                  className="hover-lift-moderate button-ripple hover-shimmer"
-                  data-testid="button-header-request-quote"
-                >
-                  Request Quote
-                </Button>
-              </Link>
-              {headerAvailable !== null && (
-                <span className="hidden lg:flex items-center gap-1 text-xs text-muted-foreground" data-testid="badge-header-availability">
-                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${headerAvailable ? 'bg-green-400 animate-pulse' : 'bg-amber-400'}`} />
-                  {headerAvailable ? 'Available now' : 'We respond within 4 hours'}
-                </span>
-              )}
-            </div>
+            <Link href="/contact">
+              <Button
+                variant="pill-secondary"
+                size="pill-md"
+                className="hover-lift-moderate button-ripple hover-shimmer"
+              >
+                Request Quote
+              </Button>
+            </Link>
           </div>
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>

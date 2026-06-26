@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { StructuredData } from "@/components/structured-data";
 import RelatedContent from "@/components/shared/related-content";
 import { Star, Shield, Handshake, Lightbulb, type LucideIcon } from "lucide-react";
@@ -340,13 +341,13 @@ export default function AboutClient() {
               >
                 Call (208) 520-3202
               </a>
-              <a
-                href="mailto:service@imperialcleaninginc.com"
-                aria-label="Email us"
+              <Link
+                href="/contact"
+                aria-label="Send us a message"
                 className="inline-flex items-center justify-center px-8 py-4 border border-border bg-card text-card-foreground rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
               >
                 Email Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

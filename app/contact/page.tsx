@@ -4,7 +4,7 @@ import ContactClient from "@/components/pages/contact-client";
 export const metadata: Metadata = {
   title: { absolute: "Contact Imperial Cleaning Inc | Free Quote Idaho & Utah" },
   description: "Contact Imperial Cleaning Inc for cleaning services in Idaho & Utah. Call (208) 520-3202 for free construction cleanup & commercial cleaning quotes!",
-  keywords: "contact Imperial Cleaning, cleaning quote Idaho, Utah cleaning services, (208) 520-3202, service@imperialcleaninginc.com, Idaho Falls cleaning company, free cleaning estimate",
+  keywords: "contact Imperial Cleaning, cleaning quote Idaho, Utah cleaning services, (208) 520-3202, Idaho Falls cleaning company, free cleaning estimate",
   authors: [{ name: "Imperial Cleaning Inc" }],
   openGraph: {
     title: "Contact Imperial Cleaning Inc | Professional Cleaning Services Idaho & Utah",
