@@ -27,18 +27,65 @@ const nextConfig = {
   
   async redirects() {
     return [
-      // Legacy construction cleaning redirects
-      {
-        source: '/construction-cleaning/:location',
-        destination: '/idaho/construction-cleaning/:location',
-        permanent: true,
-      },
-      // Legacy commercial cleaning redirects
-      {
-        source: '/commercial-cleaning/:location',
-        destination: '/idaho/commercial-cleaning/:location',
-        permanent: true,
-      },
+      // Legacy construction-cleaning city redirects — state-aware
+      // Idaho cities
+      { source: '/construction-cleaning/idaho-falls',        destination: '/idaho/construction-cleaning/idaho-falls',        permanent: true },
+      { source: '/construction-cleaning/pocatello',          destination: '/idaho/construction-cleaning/pocatello',          permanent: true },
+      { source: '/construction-cleaning/blackfoot',          destination: '/idaho/construction-cleaning/blackfoot',          permanent: true },
+      { source: '/construction-cleaning/rexburg',            destination: '/idaho/construction-cleaning/rexburg',            permanent: true },
+      { source: '/construction-cleaning/twin-falls',         destination: '/idaho/construction-cleaning/twin-falls',         permanent: true },
+      { source: '/construction-cleaning/boise',              destination: '/idaho/construction-cleaning/boise',              permanent: true },
+      { source: '/construction-cleaning/meridian',           destination: '/idaho/construction-cleaning/meridian',           permanent: true },
+      { source: '/construction-cleaning/nampa',              destination: '/idaho/construction-cleaning/nampa',              permanent: true },
+      { source: '/construction-cleaning/caldwell',           destination: '/idaho/construction-cleaning/caldwell',           permanent: true },
+      { source: '/construction-cleaning/eagle',              destination: '/idaho/construction-cleaning/eagle',              permanent: true },
+      { source: '/construction-cleaning/ammon',              destination: '/idaho/construction-cleaning/ammon',              permanent: true },
+      { source: '/construction-cleaning/chubbuck',           destination: '/idaho/construction-cleaning/chubbuck',           permanent: true },
+      { source: '/construction-cleaning/shelley',            destination: '/idaho/construction-cleaning/shelley',            permanent: true },
+      { source: '/construction-cleaning/rigby',              destination: '/idaho/construction-cleaning/rigby',              permanent: true },
+      { source: '/construction-cleaning/st-anthony',         destination: '/idaho/construction-cleaning/st-anthony',         permanent: true },
+      { source: '/construction-cleaning/driggs',             destination: '/idaho/construction-cleaning/driggs',             permanent: true },
+      // Utah cities
+      { source: '/construction-cleaning/logan',              destination: '/utah/construction-cleaning/logan',               permanent: true },
+      { source: '/construction-cleaning/salt-lake-city',     destination: '/utah/construction-cleaning/salt-lake-city',      permanent: true },
+      { source: '/construction-cleaning/ogden',              destination: '/utah/construction-cleaning/ogden',               permanent: true },
+      { source: '/construction-cleaning/provo',              destination: '/utah/construction-cleaning/provo',               permanent: true },
+      { source: '/construction-cleaning/west-valley-city',   destination: '/utah/construction-cleaning/west-valley-city',    permanent: true },
+      { source: '/construction-cleaning/sandy',              destination: '/utah/construction-cleaning/sandy',               permanent: true },
+      { source: '/construction-cleaning/orem',               destination: '/utah/construction-cleaning/orem',                permanent: true },
+      { source: '/construction-cleaning/layton',             destination: '/utah/construction-cleaning/layton',              permanent: true },
+      // Unknown legacy slugs fall back to the service hub
+      { source: '/construction-cleaning/:location',          destination: '/construction-cleaning',                          permanent: true },
+
+      // Legacy commercial-cleaning city redirects — state-aware
+      // Idaho cities
+      { source: '/commercial-cleaning/idaho-falls',          destination: '/idaho/commercial-cleaning/idaho-falls',          permanent: true },
+      { source: '/commercial-cleaning/pocatello',            destination: '/idaho/commercial-cleaning/pocatello',            permanent: true },
+      { source: '/commercial-cleaning/blackfoot',            destination: '/idaho/commercial-cleaning/blackfoot',            permanent: true },
+      { source: '/commercial-cleaning/rexburg',              destination: '/idaho/commercial-cleaning/rexburg',              permanent: true },
+      { source: '/commercial-cleaning/twin-falls',           destination: '/idaho/commercial-cleaning/twin-falls',           permanent: true },
+      { source: '/commercial-cleaning/boise',                destination: '/idaho/commercial-cleaning/boise',                permanent: true },
+      { source: '/commercial-cleaning/meridian',             destination: '/idaho/commercial-cleaning/meridian',             permanent: true },
+      { source: '/commercial-cleaning/nampa',                destination: '/idaho/commercial-cleaning/nampa',                permanent: true },
+      { source: '/commercial-cleaning/caldwell',             destination: '/idaho/commercial-cleaning/caldwell',             permanent: true },
+      { source: '/commercial-cleaning/eagle',                destination: '/idaho/commercial-cleaning/eagle',                permanent: true },
+      { source: '/commercial-cleaning/ammon',                destination: '/idaho/commercial-cleaning/ammon',                permanent: true },
+      { source: '/commercial-cleaning/chubbuck',             destination: '/idaho/commercial-cleaning/chubbuck',             permanent: true },
+      { source: '/commercial-cleaning/shelley',              destination: '/idaho/commercial-cleaning/shelley',              permanent: true },
+      { source: '/commercial-cleaning/rigby',                destination: '/idaho/commercial-cleaning/rigby',                permanent: true },
+      { source: '/commercial-cleaning/st-anthony',           destination: '/idaho/commercial-cleaning/st-anthony',           permanent: true },
+      { source: '/commercial-cleaning/driggs',               destination: '/idaho/commercial-cleaning/driggs',               permanent: true },
+      // Utah cities
+      { source: '/commercial-cleaning/logan',                destination: '/utah/commercial-cleaning/logan',                 permanent: true },
+      { source: '/commercial-cleaning/salt-lake-city',       destination: '/utah/commercial-cleaning/salt-lake-city',        permanent: true },
+      { source: '/commercial-cleaning/ogden',                destination: '/utah/commercial-cleaning/ogden',                 permanent: true },
+      { source: '/commercial-cleaning/provo',                destination: '/utah/commercial-cleaning/provo',                 permanent: true },
+      { source: '/commercial-cleaning/west-valley-city',     destination: '/utah/commercial-cleaning/west-valley-city',      permanent: true },
+      { source: '/commercial-cleaning/sandy',                destination: '/utah/commercial-cleaning/sandy',                 permanent: true },
+      { source: '/commercial-cleaning/orem',                 destination: '/utah/commercial-cleaning/orem',                  permanent: true },
+      { source: '/commercial-cleaning/layton',               destination: '/utah/commercial-cleaning/layton',                permanent: true },
+      // Unknown legacy slugs fall back to the service hub
+      { source: '/commercial-cleaning/:location',            destination: '/commercial-cleaning',                            permanent: true },
       // WWW to non-WWW redirect
       {
         source: '/:path*',
