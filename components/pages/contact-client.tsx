@@ -5,13 +5,14 @@ import { QueryClient, QueryClientProvider, useMutation } from "@tanstack/react-q
 import { useToast } from "@/hooks/use-toast";
 import { StructuredData } from "@/components/structured-data";
 import RelatedContent from "@/components/shared/related-content";
-import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight } from "lucide-react";
+import { CheckCircle, Phone, MapPin, Mail, ArrowLeft, ArrowRight, Star } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
   BUSINESS_FULL_ADDRESS,
   BUSINESS_HOURS_SENTENCE,
   BUSINESS_HOURS_SHORT,
 } from "@/data/business-info";
+import { GOOGLE_LISTING_URL } from "@/data/reviews";
 
 const contactQueryClient = new QueryClient({
   defaultOptions: { mutations: { retry: false } },
@@ -26,12 +27,8 @@ export default function ContactClient() {
 }
 
 function ContactClientInner() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState<{ name: string; phone: string } | null>(null);
 
-  // The canonical Organization/LocalBusiness entity (full NAP, geo, hours)
-  // lives in app/layout.tsx with @id #organization. The contact page only
-  // references it so Google never sees two divergent LocalBusiness copies.
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -51,8 +48,6 @@ function ContactClientInner() {
     ]
   };
 
-  // Rendered visibly below AND emitted as FAQPage schema, so the structured
-  // data always matches on-page content.
   const contactFaqs = [
     {
       question: "How fast will I get a quote?",
@@ -103,7 +98,7 @@ function ContactClientInner() {
       label: "Email Us",
       icon: Mail,
       iconKey: "envelope",
-      available: "24/7 - We respond within 4 hours"
+      available: "We respond within 4 hours"
     },
     {
       title: "Visit Us",
@@ -123,10 +118,29 @@ function ContactClientInner() {
       {/* Hero Section */}
       <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl mb-8 tracking-tight leading-tight text-foreground">
+          <div className="text-center mb-10">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl mb-6 tracking-tight leading-tight text-foreground">
               Get Your Free Quote
             </h1>
+            {/* Review badge */}
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <a
+                href={GOOGLE_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 glass-effect hover:border-border transition-colors"
+                data-testid="badge-contact-reviews"
+              >
+                <span className="flex items-center gap-0.5">
+                  {[1,2,3,4,5].map((i) => (
+                    <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                  ))}
+                </span>
+                <span className="text-sm text-muted-foreground">
+                  <span className="text-foreground font-medium">5.0</span> · 60+ reviews on Google
+                </span>
+              </a>
+            </div>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal">
               Connect with Idaho and Utah&apos;s most trusted cleaning professionals.
               Fast responses, transparent pricing, exceptional results.
@@ -166,48 +180,23 @@ function ContactClientInner() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Form Section */}
             <div>
-              <div className="mb-12">
-                <h2 className="text-4xl lg:text-5xl mb-6 tracking-tight text-foreground">
+              <div className="mb-10">
+                <h2 className="text-4xl lg:text-5xl mb-4 tracking-tight text-foreground">
                   Tell Us About Your Project
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Complete our quick survey to receive a personalized quote tailored to your specific cleaning needs.
-                  Takes less than 2 minutes.
+                  3 quick steps. We&apos;ll call you back within 2 business hours.
                 </p>
               </div>
 
-              {!isSubmitted ? (
-                <ContactFormSurvey
-                  currentStep={currentStep}
-                  setCurrentStep={setCurrentStep}
-                  onSubmitComplete={() => setIsSubmitted(true)}
-                />
+              {!submitted ? (
+                <ContactFormSurvey onSubmitComplete={(name, phone) => setSubmitted({ name, phone })} />
               ) : (
-                <div className="glass-card-elevated sophisticated-glow p-12 rounded-lg text-center">
-                  <div className="w-16 h-16 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-8 h-8 text-green-500" />
-                  </div>
-                  <h3 className="text-2xl mb-4 text-foreground">Quote Request Received!</h3>
-                  <p className="text-muted-foreground mb-6">
-                    Thank you for choosing Imperial Cleaning. We&apos;ll review your project details and contact you
-                    within 24 hours with a detailed quote.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a
-                      href="tel:+12085203202"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200"
-                    >
-                      <Phone className="w-4 h-4 mr-2" />
-                      Call Now for Faster Service
-                    </a>
-                    <button
-                      onClick={() => { setIsSubmitted(false); setCurrentStep(1); }}
-                      className="inline-flex items-center justify-center px-6 py-3 border border-border bg-card text-card-foreground rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
-                    >
-                      Submit Another Request
-                    </button>
-                  </div>
-                </div>
+                <PageSuccessScreen
+                  name={submitted.name}
+                  phone={submitted.phone}
+                  onReset={() => setSubmitted(null)}
+                />
               )}
             </div>
 
@@ -216,34 +205,20 @@ function ContactClientInner() {
               <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg mb-8">
                 <h3 className="text-2xl mb-6 text-foreground">Why Choose Imperial Cleaning?</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
-                    <div>
-                      <div className="text-foreground">Fast Response</div>
-                      <div className="text-sm text-muted-foreground">All quotes delivered within 24 hours</div>
+                  {[
+                    { title: "Fast Response", desc: "We call back within 2 business hours" },
+                    { title: "Transparent Pricing", desc: "No hidden fees or surprise charges" },
+                    { title: "Licensed & Insured", desc: "Full liability and workers\u2019 compensation coverage" },
+                    { title: "Satisfaction Guarantee", desc: "100% satisfaction or we\u2019ll make it right" },
+                  ].map((item) => (
+                    <div key={item.title} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                      <div>
+                        <div className="text-foreground">{item.title}</div>
+                        <div className="text-sm text-muted-foreground">{item.desc}</div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
-                    <div>
-                      <div className="text-foreground">Transparent Pricing</div>
-                      <div className="text-sm text-muted-foreground">No hidden fees or surprise charges</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
-                    <div>
-                      <div className="text-foreground">Licensed & Insured</div>
-                      <div className="text-sm text-muted-foreground">Full liability and workers&apos; compensation coverage</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3"></div>
-                    <div>
-                      <div className="text-foreground">Satisfaction Guarantee</div>
-                      <div className="text-sm text-muted-foreground">100% satisfaction or we&apos;ll make it right</div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
@@ -270,7 +245,7 @@ function ContactClientInner() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl mb-6 tracking-tight text-foreground">
-              Quote & Contact FAQ
+              Quote &amp; Contact FAQ
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Answers to the most common questions about quotes, pricing, and scheduling.
@@ -297,15 +272,69 @@ function ContactClientInner() {
   );
 }
 
-// Contact Form Survey Component
-interface ContactFormSurveyProps {
-  currentStep: number;
-  setCurrentStep: (step: number) => void;
-  onSubmitComplete: () => void;
+// ---- Success screen ----
+
+function PageSuccessScreen({ name, phone, onReset }: { name: string; phone: string; onReset: () => void }) {
+  const firstName = name.split(" ")[0];
+  return (
+    <div className="glass-card-elevated sophisticated-glow p-10 rounded-lg text-center" data-testid="contact-success-screen">
+      <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+        <CheckCircle className="w-8 h-8 text-green-500" />
+      </div>
+      <h3 className="text-2xl mb-3 text-foreground">Thanks, {firstName}!</h3>
+      <p className="text-muted-foreground mb-2 leading-relaxed">
+        We received your request and will call{phone ? ` ${phone}` : " you"} within{" "}
+        <strong className="text-foreground">2 business hours</strong> (Mon–Fri, 8AM–5PM MT).
+      </p>
+      <p className="text-muted-foreground text-sm mb-8">
+        Urgent? Call us directly and we will pick up.
+      </p>
+
+      {/* What happens next */}
+      <div className="text-left bg-card/50 rounded-lg p-5 mb-8 space-y-3">
+        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">What happens next</p>
+        {[
+          "We review your project details",
+          "We call you to confirm scope and answer questions",
+          "You receive a written quote within 24 hours",
+        ].map((step, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+            <span className="text-sm text-muted-foreground">{step}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-3">
+        <a
+          href="tel:+12085203202"
+          className="inline-flex items-center justify-center gap-2 flex-1 px-5 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors font-medium"
+          data-testid="button-success-call"
+        >
+          <Phone className="w-4 h-4" />
+          Call (208) 520-3202
+        </a>
+        <button
+          onClick={onReset}
+          className="inline-flex items-center justify-center flex-1 px-5 py-3 border border-border bg-card text-muted-foreground rounded-full hover:text-foreground hover:border-border/80 transition-colors text-sm"
+          data-testid="button-success-new-request"
+        >
+          Submit Another Request
+        </button>
+      </div>
+    </div>
+  );
 }
 
-function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }: ContactFormSurveyProps) {
+// ---- 3-screen form ----
+
+interface ContactFormSurveyProps {
+  onSubmitComplete: (name: string, phone: string) => void;
+}
+
+function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
   const { toast } = useToast();
+  const [currentScreen, setCurrentScreen] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -316,21 +345,7 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }: Co
     message: ""
   });
 
-  const steps: Array<{
-    id: number;
-    field: keyof typeof formData;
-    label: string;
-    placeholder?: string;
-    required: boolean;
-  }> = [
-    { id: 1, field: "name", label: "What's your name?", placeholder: "Your full name", required: true },
-    { id: 2, field: "company", label: "Company name?", placeholder: "Your company (optional)", required: false },
-    { id: 3, field: "email", label: "Email address?", placeholder: "your@email.com", required: true },
-    { id: 4, field: "phone", label: "Phone number?", placeholder: "(208) 555-0123", required: true },
-    { id: 5, field: "service", label: "What service do you need?", required: true },
-    { id: 6, field: "location", label: "Project location?", placeholder: "City, State", required: true },
-    { id: 7, field: "message", label: "Project details?", placeholder: "Tell us about your project...", required: false }
-  ];
+  const TOTAL = 3;
 
   const submitMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
@@ -343,14 +358,9 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }: Co
       return response.json();
     },
     onSuccess: () => {
-      toast({
-        title: "Quote Request Sent!",
-        description: "We'll contact you within 24 hours with your quote.",
-      });
-      onSubmitComplete();
+      onSubmitComplete(formData.name, formData.phone);
     },
-    onError: (error) => {
-      console.error("Form submission error:", error);
+    onError: () => {
       toast({
         title: "Error",
         description: "Failed to send quote request. Please try again.",
@@ -359,140 +369,227 @@ function ContactFormSurvey({ currentStep, setCurrentStep, onSubmitComplete }: Co
     },
   });
 
-  const handleFieldChange = (field: keyof typeof formData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const set = (field: keyof typeof formData, value: string) =>
+    setFormData((prev) => ({ ...prev, [field]: value }));
+
+  const validateScreen = (): boolean => {
+    if (currentScreen === 1) {
+      if (!formData.name.trim() || formData.name.trim().length < 2) {
+        toast({ title: "Required", description: "Please enter your name.", variant: "destructive" });
+        return false;
+      }
+      if (!formData.phone.trim() || formData.phone.trim().length < 10) {
+        toast({ title: "Required", description: "Please enter a valid phone number.", variant: "destructive" });
+        return false;
+      }
+    }
+    if (currentScreen === 2) {
+      if (!formData.service) {
+        toast({ title: "Required", description: "Please select a service.", variant: "destructive" });
+        return false;
+      }
+      if (!formData.location.trim() || formData.location.trim().length < 2) {
+        toast({ title: "Required", description: "Please enter your project location.", variant: "destructive" });
+        return false;
+      }
+    }
+    if (currentScreen === 3) {
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!formData.email.trim() || !emailRe.test(formData.email)) {
+        toast({ title: "Required", description: "Please enter a valid email address.", variant: "destructive" });
+        return false;
+      }
+    }
+    return true;
   };
 
-  const nextStep = () => {
-    const step = steps[currentStep - 1];
-    const fieldValue = formData[step.field];
-
-    if (step.required && (!fieldValue || fieldValue.trim() === "")) {
-      toast({
-        title: "Required Field",
-        description: `Please fill in ${step.label.toLowerCase()}`,
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (currentStep < steps.length) {
-      setCurrentStep(currentStep + 1);
-    }
+  const next = () => {
+    if (!validateScreen()) return;
+    if (currentScreen < TOTAL) setCurrentScreen((s) => s + 1);
   };
 
-  const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
+  const prev = () => {
+    if (currentScreen > 1) setCurrentScreen((s) => s - 1);
   };
 
-  const handleSubmit = () => {
+  const submit = () => {
+    if (!validateScreen()) return;
     submitMutation.mutate(formData);
   };
 
-  const progress = (currentStep / steps.length) * 100;
-  const currentStepData = steps[currentStep - 1];
+  const progress = (currentScreen / TOTAL) * 100;
 
   return (
     <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
-      {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="h-2 bg-muted rounded-full mb-4 overflow-hidden">
+      {/* Progress */}
+      <div className="mb-7">
+        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-300"
+            className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
-        <p className="text-sm text-muted-foreground">
-          Step <span className="text-foreground">{currentStep}</span> of {steps.length}
+        <p className="text-xs text-muted-foreground mt-2">
+          Step <span className="text-foreground">{currentScreen}</span> of {TOTAL}
         </p>
       </div>
 
-      {/* Current Step */}
-      <div className="mb-8">
-        <h3 className="text-2xl mb-6 text-foreground">
-          {currentStepData.label}
-        </h3>
-
-        {currentStepData.field === "service" ? (
-          <div className="space-y-3">
-            {["construction", "commercial", "both"].map((option) => (
-              <button
-                key={option}
-                onClick={() => handleFieldChange("service", option)}
-                className={`w-full p-4 text-left border rounded-lg transition-all duration-200 ${formData.service === option
-                  ? "border-primary bg-primary/5 text-foreground"
-                  : "border-border bg-card text-card-foreground hover:border-primary/50"
-                  }`}
-                data-testid={`option-${option}`}
-              >
-                <div className="">
-                  {option === "construction" && "Construction Cleaning"}
-                  {option === "commercial" && "Commercial Cleaning"}
-                  {option === "both" && "Both Services"}
-                </div>
-                <div className="text-sm text-muted-foreground mt-1">
-                  {option === "construction" && "Post-construction cleanup and debris removal"}
-                  {option === "commercial" && "Office buildings, facilities, and ongoing maintenance"}
-                  {option === "both" && "Complete cleaning solutions for all your needs"}
-                </div>
-              </button>
-            ))}
+      {/* Screen 1: Name + Phone */}
+      {currentScreen === 1 && (
+        <div className="space-y-5 mb-8" data-testid="form-step-1">
+          <div>
+            <label className="block text-sm text-foreground mb-2">Your name</label>
+            <input
+              type="text"
+              placeholder="Full name"
+              value={formData.name}
+              autoComplete="name"
+              onChange={(e) => set("name", e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") next(); }}
+              className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 text-base"
+              data-testid="input-name"
+            />
           </div>
-        ) : currentStepData.field === "message" ? (
-          <textarea
-            placeholder={currentStepData.placeholder}
-            value={formData[currentStepData.field]}
-            onChange={(e) => handleFieldChange(currentStepData.field, e.target.value)}
-            rows={4}
-            className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200"
-            data-testid={`input-${currentStepData.field}`}
-          />
-        ) : (
-          <input
-            type={currentStepData.field === "email" ? "email" : currentStepData.field === "phone" ? "tel" : "text"}
-            placeholder={currentStepData.placeholder}
-            value={formData[currentStepData.field]}
-            onChange={(e) => handleFieldChange(currentStepData.field, e.target.value)}
-            className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 text-lg"
-            data-testid={`input-${currentStepData.field}`}
-          />
-        )}
-      </div>
+          <div>
+            <label className="block text-sm text-foreground mb-2">Phone number</label>
+            <input
+              type="tel"
+              placeholder="(208) 555-0123"
+              value={formData.phone}
+              autoComplete="tel"
+              onChange={(e) => set("phone", e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") next(); }}
+              className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 text-base"
+              data-testid="input-phone"
+            />
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Prefer to talk?{" "}
+            <a href="tel:+12085203202" className="text-primary hover:underline">(208) 520-3202</a>
+            {" "}— we pick up during business hours.
+          </p>
+        </div>
+      )}
+
+      {/* Screen 2: Service + Location */}
+      {currentScreen === 2 && (
+        <div className="space-y-5 mb-8" data-testid="form-step-2">
+          <div>
+            <label className="block text-sm text-foreground mb-3">What service do you need?</label>
+            <div className="space-y-2">
+              {(
+                [
+                  { value: "construction", label: "Construction Cleaning", desc: "Post-construction cleanup and debris removal" },
+                  { value: "commercial", label: "Commercial Cleaning", desc: "Offices, facilities, and ongoing maintenance" },
+                  { value: "both", label: "Both Services", desc: "Complete cleaning solutions for all your needs" },
+                ] as const
+              ).map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => set("service", opt.value)}
+                  data-testid={`option-${opt.value}`}
+                  className={`w-full p-4 text-left border rounded-lg transition-all duration-200 ${
+                    formData.service === opt.value
+                      ? "border-primary bg-primary/5 text-foreground"
+                      : "border-border bg-card text-card-foreground hover:border-primary/50"
+                  }`}
+                >
+                  <div className="font-medium text-sm">{opt.label}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{opt.desc}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm text-foreground mb-2">Project location</label>
+            <input
+              type="text"
+              placeholder="City, State"
+              value={formData.location}
+              onChange={(e) => set("location", e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") next(); }}
+              className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 text-base"
+              data-testid="input-location"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Screen 3: Email + optional company + optional message */}
+      {currentScreen === 3 && (
+        <div className="space-y-5 mb-8" data-testid="form-step-3">
+          <div>
+            <label className="block text-sm text-foreground mb-2">Email address</label>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={formData.email}
+              autoComplete="email"
+              onChange={(e) => set("email", e.target.value)}
+              className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 text-base"
+              data-testid="input-email"
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-muted-foreground mb-2">Company <span className="text-xs">(optional)</span></label>
+            <input
+              type="text"
+              placeholder="Your company name"
+              value={formData.company}
+              autoComplete="organization"
+              onChange={(e) => set("company", e.target.value)}
+              className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 text-base"
+              data-testid="input-company"
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-muted-foreground mb-2">Project details <span className="text-xs">(optional)</span></label>
+            <textarea
+              placeholder="Tell us about your project — size, timeline, anything helpful..."
+              value={formData.message}
+              onChange={(e) => set("message", e.target.value)}
+              rows={3}
+              className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 resize-none"
+              data-testid="input-message"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Navigation */}
       <div className="flex justify-between items-center">
         <button
-          onClick={prevStep}
-          disabled={currentStep === 1}
-          className={`px-6 py-3 rounded-lg transition-all duration-200 ${currentStep === 1
-            ? "invisible"
-            : "border border-border bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground"
-            }`}
+          onClick={prev}
+          disabled={currentScreen === 1}
+          className={`px-6 py-3 rounded-full transition-all duration-200 text-sm ${
+            currentScreen === 1
+              ? "invisible"
+              : "border border-border bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground"
+          }`}
           data-testid="button-prev-step"
         >
-          <ArrowLeft className="w-4 h-4 mr-2 inline" />
+          <ArrowLeft className="w-4 h-4 mr-1.5 inline" />
           Back
         </button>
 
-        {currentStep < steps.length ? (
+        {currentScreen < TOTAL ? (
           <button
-            onClick={nextStep}
-            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200"
+            onClick={next}
+            className="px-8 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors duration-200 text-sm font-medium"
             data-testid="button-next-step"
           >
             Next
-            <ArrowRight className="w-4 h-4 ml-2 inline" />
+            <ArrowRight className="w-4 h-4 ml-1.5 inline" />
           </button>
         ) : (
           <button
-            onClick={handleSubmit}
+            onClick={submit}
             disabled={submitMutation.isPending}
-            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200 disabled:opacity-50"
+            className="px-8 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors duration-200 disabled:opacity-50 text-sm font-medium"
             data-testid="button-submit-form"
           >
-            {submitMutation.isPending ? "Submitting..." : "Get My Quote"}
+            {submitMutation.isPending ? "Sending..." : "Get My Quote"}
           </button>
         )}
       </div>
