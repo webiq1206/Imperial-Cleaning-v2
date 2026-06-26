@@ -416,15 +416,33 @@ export default function Header() {
             </Link>
           </nav>
 
-          <Link href="/contact">
-            <Button 
-              variant="pill-secondary"
-              size="pill-md"
-              className="hidden md:inline-flex hover-lift-moderate button-ripple hover-shimmer"
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:+12085203202"
+              className="text-sm text-muted-foreground hover:text-primary-color transition-colors duration-200"
+              aria-label="Call us at (208) 520-3202"
             >
-              Request Quote
-            </Button>
-          </Link>
+              <span className="hidden lg:inline">(208) 520-3202</span>
+              <span className="lg:hidden">Call</span>
+            </a>
+            <a
+              href="sms:+12085203202"
+              className="text-sm text-muted-foreground hover:text-primary-color transition-colors duration-200"
+              aria-label="Text us at (208) 520-3202"
+            >
+              <span className="hidden lg:inline">Text</span>
+              <span className="lg:hidden">SMS</span>
+            </a>
+            <Link href="/contact">
+              <Button
+                variant="pill-secondary"
+                size="pill-md"
+                className="hover-lift-moderate button-ripple hover-shimmer"
+              >
+                Request Quote
+              </Button>
+            </Link>
+          </div>
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -676,12 +694,20 @@ export default function Header() {
                       Request Quote
                     </Button>
                   </Link>
-                  <div className="text-center">
-                    <a 
-                      href="tel:+12085203202" 
-                      className="text-sm text-secondary-color hover:text-primary-color transition-colors duration-200"
+                  <div className="text-center space-y-2">
+                    <a
+                      href="tel:+12085203202"
+                      className="block text-sm text-secondary-color hover:text-primary-color transition-colors duration-200"
+                      aria-label="Call us at (208) 520-3202"
                     >
                       📞 (208) 520-3202
+                    </a>
+                    <a
+                      href="sms:+12085203202"
+                      className="block text-sm text-secondary-color hover:text-primary-color transition-colors duration-200"
+                      aria-label="Text us at (208) 520-3202"
+                    >
+                      💬 Text (208) 520-3202
                     </a>
                   </div>
                 </div>

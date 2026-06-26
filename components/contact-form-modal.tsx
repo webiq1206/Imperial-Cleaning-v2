@@ -319,10 +319,15 @@ function ContactFormModalInner({ isOpen, onClose }: ContactFormModalProps) {
              value={field.value || ""}
              onChange={(e) => {
               field.onChange(e);
-              // Ensure we're only updating the current field
               form.setValue(currentStepData.field as keyof FormData, e.target.value);
              }}
              onBlur={field.onBlur}
+             onKeyDown={(e) => {
+              if (e.key === "Enter" && currentStepData.field !== "message") {
+                e.preventDefault();
+                nextStep();
+              }
+             }}
              name={field.name}
              type={currentStepData.field === "email" ? "email" : currentStepData.field === "phone" ? "tel" : "text"}
              data-testid={`input-${currentStepData.field}`}
