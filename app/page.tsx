@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "geo.region": "ID-UT",
+    "geo.region": "US-ID",
     "geo.placename": "Idaho Falls, Idaho",
-    "geo.position": "43.4666;-112.0336",
+    "geo.position": "43.5102;-112.0842",
   },
 };
 

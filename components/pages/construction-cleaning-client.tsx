@@ -7,6 +7,7 @@ import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
 import RelatedContent from "@/components/shared/related-content";
 import InternalHeroSection from "@/components/internal-hero-section";
+import AnswerBlock from "@/components/shared/answer-block";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
 import {
@@ -132,6 +133,18 @@ export default function ConstructionCleaningClient() {
           text: "Request a Quote",
           onClick: () => setShowContactForm(true)
         }}
+      />
+
+      <AnswerBlock
+        className="pt-14"
+        question="What is post-construction cleaning, and what does it cost in Idaho and Utah?"
+        answer="Post-construction cleaning is the debris removal, dust elimination, and detail cleaning that turns a finished build into an inspection-ready, occupancy-ready space. Imperial Cleaning Inc has provided it to contractors across Idaho and Utah since 2015. Most commercial projects run $0.15 to $0.60 per square foot, priced from the actual scope."
+        facts={[
+          { label: "Typical price range", value: "$0.15 - $0.60 per square foot" },
+          { label: "Phases offered", value: "Rough, final, and touch-up cleans" },
+          { label: "Coverage", value: "24 cities across Idaho and Utah" },
+          { label: "Quote turnaround", value: "Written quote within 24 hours" },
+        ]}
       />
 
       {/* Comprehensive Service Overview */}

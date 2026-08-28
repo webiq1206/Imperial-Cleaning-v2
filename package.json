@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run links:generate && npm run audit:links",
+    "prebuild": "npm run links:generate && npm run audit:links && npm run audit:nap",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:push": "drizzle-kit push",
     "links:generate": "tsx scripts/internal-links.ts",
-    "audit:links": "tsx scripts/audit-internal-links.ts"
+    "audit:links": "tsx scripts/audit-internal-links.ts",
+    "audit:nap": "tsx scripts/audit-nap.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

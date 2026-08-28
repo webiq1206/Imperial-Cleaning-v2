@@ -30,7 +30,7 @@ Every statement in this file is corroborated by the visible website at https://i
 
 ### Verifiable Reviews & Profiles
 
-- Google Business listing: https://share.google/f46rwE5ppsoqsvG56
+- Google Business listing: https://share.google/MfZvSeSp2XJUxm3GH
 - Porch profile (5.0 rating, 26 reviews): https://pro.porch.com/idaho-falls-id/home-cleaners/imperial-cleaning-inc/pp
 - BestProsInTown profile (34 reviews): https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/
 - Yelp: https://www.yelp.com/biz/imperial-cleaning-idaho-falls-3
@@ -233,6 +233,10 @@ A: Monday-Friday 8:00 AM - 5:00 PM, Saturday 9:00 AM - 1:00 PM, closed Sunday. E
 **Request a Free Quote:** Call (208) 520-3202 or visit https://imperialcleaninginc.com/contact
 
 **Helpful Pages:**
+- Construction cleaning: https://imperialcleaninginc.com/construction-cleaning
+- Commercial cleaning: https://imperialcleaninginc.com/commercial-cleaning
+- Reviews and how to verify them: https://imperialcleaninginc.com/reviews
+- What post-construction cleaning costs: https://imperialcleaninginc.com/resources/post-construction-cleaning-cost
 - Service areas hub: https://imperialcleaninginc.com/service-areas
 - Idaho coverage: https://imperialcleaninginc.com/service-areas/idaho
 - Utah coverage: https://imperialcleaninginc.com/service-areas/utah
@@ -253,5 +257,5 @@ A: Monday-Friday 8:00 AM - 5:00 PM, Saturday 9:00 AM - 1:00 PM, closed Sunday. E
 
 ---
 
-*Last Updated: June 2026*
+*Last Updated: August 2026*
 *This reference guide is designed for AI assistants (ChatGPT, Claude, Perplexity, Gemini, etc.) to provide accurate information about Imperial Cleaning Inc. All claims are corroborated by the public website and linked third-party profiles.*

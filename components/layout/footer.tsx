@@ -1,11 +1,19 @@
 'use client';
 
 import Link from "next/link";
-import { BUSINESS_HOURS } from "@/data/business-info";
+import {
+  BUSINESS_HOURS,
+  BUSINESS_NAME,
+  BUSINESS_ADDRESS,
+  BUSINESS_CITY_LINE,
+  BUSINESS_PHONE,
+  BUSINESS_EMAIL,
+  GOOGLE_LISTING_URL,
+} from "@/data/business-info";
 import Image from "next/image";
 import { allServiceLocations } from "@/data/service-locations";
 import { buildServiceLocationUrl } from "@/lib/routing-utils";
-import { getTopCitiesForState } from "@/lib/page-registry";
+import { getTopCitiesForState, getIndustryNavLinks, getGuideNavLinks } from "@/lib/page-registry";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -17,6 +25,8 @@ export default function Footer() {
     ...getTopCitiesForState("Idaho", 2),
     ...getTopCitiesForState("Utah", 1),
   ];
+  const industryLinks = getIndustryNavLinks();
+  const guideLinks = getGuideNavLinks();
 
   return (
     <footer className="border-t border-border/30 py-20 px-6 footer-sophisticated-bg noise-overlay grain-texture vignette-top">
@@ -341,6 +351,114 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* Sitewide NAP.
+            The street address previously appeared only inside JSON-LD, which
+            meant 68 of 69 pages carried no crawlable postal address in their
+            visible text. Local ranking wants name, address, and phone as real
+            text on the page, matching the structured data and the Google
+            listing exactly - so it is rendered here, once, from the canonical
+            business-info module. */}
+        <div className="pt-10 border-t border-border/20">
+          <h3 className="text-lg text-foreground mb-5">Visit or Contact Us</h3>
+          <address className="not-italic text-sm text-muted-foreground leading-relaxed grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+              <span className="block text-foreground mb-1">{BUSINESS_NAME}</span>
+              <span className="block">{BUSINESS_ADDRESS.street}</span>
+              <span className="block">{BUSINESS_CITY_LINE}</span>
+            </div>
+            <div>
+              <span className="block text-foreground mb-1">Phone</span>
+              <a href="tel:+12085203202" className="hover:text-foreground transition-colors">
+                {BUSINESS_PHONE}
+              </a>
+            </div>
+            <div>
+              <span className="block text-foreground mb-1">Email</span>
+              <a href={`mailto:${BUSINESS_EMAIL}`} className="hover:text-foreground transition-colors break-words">
+                {BUSINESS_EMAIL}
+              </a>
+            </div>
+            <div>
+              <span className="block text-foreground mb-1">Find us on Google</span>
+              <a
+                href={GOOGLE_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                Google Business Profile
+              </a>
+            </div>
+          </address>
+        </div>
+
+        {/* Industries & Guides - sitewide crawl paths.
+            These pages previously had no link outside in-body RelatedContent
+            blocks, leaving them three clicks deep and unindexed. */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16 pt-10 border-t border-border/20">
+          <div>
+            <h3 className="text-lg text-foreground mb-5">Industries We Clean</h3>
+            <ul className="space-y-3">
+              {industryLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg text-foreground mb-5">Cleaning Guides</h3>
+            <ul className="space-y-3">
+              {guideLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg text-foreground mb-5">Proof &amp; Pricing</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/reviews"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                >
+                  Customer Reviews
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resources/post-construction-cleaning-cost"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                >
+                  What Cleaning Costs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                >
+                  Request a Free Quote
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom Section */}

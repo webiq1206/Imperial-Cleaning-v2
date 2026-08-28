@@ -10,6 +10,8 @@ import {
   BUSINESS_GEO,
   BUSINESS_OPENING_HOURS_SCHEMA,
   BUSINESS_PHONE_TEL,
+  GOOGLE_LISTING_URL,
+  DIRECTORY_CITATIONS,
 } from '@/data/business-info';
 
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(m => ({ default: m.Toaster })), { ssr: false });
@@ -115,10 +117,13 @@ const WEBSITE_ID = 'https://imperialcleaninginc.com/#website';
 const siteJsonLd = [
   {
     '@context': 'https://schema.org',
-    // Dual type: one canonical entity node for the whole site. Every page
-    // (home, contact, state hubs, city Service providers) references this
-    // node via @id instead of re-declaring divergent LocalBusiness copies.
-    '@type': ['Organization', 'LocalBusiness'],
+    // One canonical entity node for the whole site. Every page (home, contact,
+    // state hubs, city Service providers) references this node via @id instead
+    // of re-declaring divergent LocalBusiness copies.
+    // ProfessionalService is a LocalBusiness subtype - naming the narrower type
+    // gives search and answer engines a clearer category than a bare
+    // Organization/LocalBusiness pair.
+    '@type': ['Organization', 'ProfessionalService'],
     '@id': ORG_ID,
     name: 'Imperial Cleaning Inc',
     url: 'https://imperialcleaninginc.com',
@@ -163,12 +168,14 @@ const siteJsonLd = [
       { '@type': 'City', name: 'Provo', sameAs: 'https://en.wikipedia.org/wiki/Provo,_Utah' },
     ],
     sameAs: [
+      GOOGLE_LISTING_URL,
+      ...DIRECTORY_CITATIONS,
       'https://www.facebook.com/imperialcleaninginc',
       'https://www.instagram.com/imperialcleaninginc/',
       'https://www.linkedin.com/company/imperial-cleaning-inc',
-      'https://www.yelp.com/biz/imperial-cleaning-idaho-falls-3',
-      'https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/',
     ],
+    hasMap: GOOGLE_LISTING_URL,
+    slogan: 'Construction cleanup and commercial cleaning across Idaho and Utah.',
     foundingDate: '2015',
     numberOfEmployees: {
       '@type': 'QuantitativeValue',
