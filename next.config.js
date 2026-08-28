@@ -118,6 +118,41 @@ const nextConfig = {
       { source: '/apply', destination: '/contact', permanent: true },
       { source: '/apply/', destination: '/contact', permanent: true },
 
+      // Legacy WordPress URLs that were still earning impressions but had no
+      // redirect, so every one of them returned a 404. Measured over the last
+      // 16 months of Search Console data, these accounted for ~13,700
+      // impressions - including /post-construction-cleaning/ at 3,849, which is
+      // the exact service the business sells. Each is mapped to its closest
+      // live equivalent rather than blanket-redirected to the homepage, so the
+      // redirect stays relevant and keeps the link equity.
+      { source: '/post-construction-cleaning', destination: '/construction-cleaning', permanent: true },
+      { source: '/post-construction-cleaning/', destination: '/construction-cleaning', permanent: true },
+      { source: '/daycare-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/daycare-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/gym-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/gym-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/government-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/government-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/idaho-falls-office-cleaning-services', destination: '/idaho/commercial-cleaning/idaho-falls', permanent: true },
+      { source: '/idaho-falls-office-cleaning-services/', destination: '/idaho/commercial-cleaning/idaho-falls', permanent: true },
+      { source: '/schedule-a-consultation', destination: '/contact', permanent: true },
+      { source: '/schedule-a-consultation/', destination: '/contact', permanent: true },
+
+      // Legacy WordPress blog. The posts are gone; the resource centre is the
+      // closest live equivalent. The wildcard covers the paginated archive and
+      // its cache-busting query strings (/blog/page/6/?ignorenitro=...).
+      { source: '/blog', destination: '/resources', permanent: true },
+      { source: '/blog/:path*', destination: '/resources', permanent: true },
+      { source: '/category/:path*', destination: '/resources', permanent: true },
+      { source: '/top-10-benefits-of-using-professional-commercial-cleaning-services', destination: '/commercial-cleaning', permanent: true },
+      { source: '/top-10-benefits-of-using-professional-commercial-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/what-is-electrostatic-disinfection-and-how-does-it-work', destination: '/commercial-cleaning', permanent: true },
+      { source: '/what-is-electrostatic-disinfection-and-how-does-it-work/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/getting-your-business-ready-for-reopening-during-covid19', destination: '/commercial-cleaning', permanent: true },
+      { source: '/getting-your-business-ready-for-reopening-during-covid19/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/bacteria-infested-surfaces-missed-by-other-cleaning-companies', destination: '/commercial-cleaning', permanent: true },
+      { source: '/bacteria-infested-surfaces-missed-by-other-cleaning-companies/', destination: '/commercial-cleaning', permanent: true },
+
       // Broken pages from an earlier Next.js deploy
       { source: '/retail-cleaning-services', destination: '/commercial-cleaning', permanent: true },
       { source: '/retail-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
