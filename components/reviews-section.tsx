@@ -1,5 +1,5 @@
 import { Star, ExternalLink } from "lucide-react";
-import { verifiedReviews, RATING_SOURCES, GOOGLE_LISTING_URL } from "@/data/reviews";
+import { verifiedReviews, RATING_SOURCES, GOOGLE_REVIEW_COUNT, GOOGLE_LISTING_URL } from "@/data/reviews";
 
 // Real-review section. Replaces the former placeholder testimonials and
 // illustrative case studies (removed 2026-06-10 per owner decision: only
@@ -7,7 +7,11 @@ import { verifiedReviews, RATING_SOURCES, GOOGLE_LISTING_URL } from "@/data/revi
 // data/reviews.ts when present; otherwise links to the live third-party
 // profiles where ratings can be verified.
 export default function ReviewsSection() {
-  const totalReviews = RATING_SOURCES.reduce((sum, s) => sum + s.reviewCount, 0);
+  // Google is not in RATING_SOURCES (see the note in data/reviews.ts), so it has
+  // to be added explicitly - otherwise this line names Google in the copy below
+  // while counting none of its reviews.
+  const totalReviews =
+    GOOGLE_REVIEW_COUNT + RATING_SOURCES.reduce((sum, s) => sum + s.reviewCount, 0);
 
   return (
     <section className="py-24 px-6" id="reviews">

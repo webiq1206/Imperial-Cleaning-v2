@@ -32,6 +32,21 @@ export interface VerifiedReview {
 export { GOOGLE_LISTING_URL };
 
 /**
+ * Total reviews on the Google Business Profile as of 2026-08-28.
+ *
+ * This is deliberately NOT `verifiedReviews.length`. That array holds only the
+ * 38 reviews that carry written text and can therefore be quoted; the listing
+ * also carries four star-only reviews with no text (Christina B., Burton B.,
+ * Tracy P., Thomas D.). Both kinds count toward the listing's public total, so
+ * any "N reviews" claim must use this number, not the array length.
+ *
+ * Google is intentionally kept out of RATING_SOURCES below: the /reviews page
+ * already renders a dedicated Google Business Profile card, and adding it to
+ * that array would render a second one.
+ */
+export const GOOGLE_REVIEW_COUNT = 42;
+
+/**
  * Independently verifiable third-party rating snapshots.
  * Verified 2026-06-10 against the public profile pages.
  */
