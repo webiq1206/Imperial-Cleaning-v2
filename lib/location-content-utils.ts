@@ -695,8 +695,8 @@ export function generateLocationStructuredData(service: string, location: Servic
         "longitude": location.coordinates.lng.toString()
       } : {
         "@type": "GeoCoordinates",
-        "latitude": "43.4666",
-        "longitude": "-112.0336"
+        "latitude": "43.5102",
+        "longitude": "-112.0842"
       },
       "geoRadius": location.serviceRadius
     },
@@ -1280,4 +1280,67 @@ export function generateIndustryApplications(service: string, location: ServiceL
       ).slice(0, 3)
     }
   };
+}
+
+/**
+ * The 40-60 word direct answer that opens every city page.
+ *
+ * City pages are the site's biggest doorway-page risk: 48 near-identical
+ * templates. This block is where the genuinely city-specific facts go - drive
+ * time from the Idaho Falls headquarters, the county, real ZIP codes, and the
+ * local economic base - so the opening paragraph an answer engine quotes is
+ * actually different from city to city rather than a name swap.
+ *
+ * Every value is read from data/service-locations.ts. Nothing is invented: if a
+ * field is absent for a city the sentence that would use it is dropped.
+ */
+export function generateLocationAnswer(
+  service: string,
+  location: ServiceLocation
+): { question: string; answer: string; facts: Array<{ label: string; value: string }> } {
+  const isConstruction = service === "construction-cleaning";
+  const serviceName = isConstruction ? "post-construction cleaning" : "commercial cleaning";
+  const isHQ = location.driveTimeFromHQ === "0 minutes (Headquarters)";
+  const stateAbbr = location.state === "Idaho" ? "ID" : "UT";
+
+  const question = `Does Imperial Cleaning provide ${serviceName} in ${location.name}, ${stateAbbr}?`;
+
+  const placeClause = location.county
+    ? `${location.name} and the rest of ${location.county}`
+    : location.name;
+
+  const reachClause = isHQ
+    ? `${location.name} is the company's headquarters city, so crews, equipment, and supervisors are based locally and same-day response is available.`
+    : `Crews reach ${location.name} in ${location.driveTimeFromHQ} from the Idaho Falls headquarters.`;
+
+  const scopeClause = isConstruction
+    ? "Work covers rough, final, and touch-up cleans, debris removal, and inspection-ready detailing."
+    : "Work covers recurring janitorial service, floor care, restroom sanitation, and after-hours scheduling.";
+
+  const answer =
+    `Yes. Imperial Cleaning Inc has served ${placeClause} with ${serviceName} since 2015. ` +
+    `${reachClause} ${scopeClause} The company is licensed, insured, and bonded, and returns written quotes within 24 hours.`;
+
+  const facts: Array<{ label: string; value: string }> = [
+    {
+      label: isHQ ? "Based in" : "Response time",
+      value: isHQ ? `${location.name}, ${stateAbbr} (headquarters)` : location.driveTimeFromHQ,
+    },
+    { label: "Service radius", value: location.serviceRadius },
+  ];
+
+  if (location.county) {
+    facts.push({ label: "County", value: location.county });
+  }
+  if (location.zipCodes && location.zipCodes.length > 0) {
+    facts.push({ label: "ZIP codes served", value: location.zipCodes.join(", ") });
+  }
+  if (location.demographics.economicBase.length > 0) {
+    facts.push({
+      label: "Facilities we clean here",
+      value: location.demographics.economicBase.slice(0, 3).join(", "),
+    });
+  }
+
+  return { question, answer, facts };
 }

@@ -6,16 +6,31 @@ import { MetadataRoute } from "next";
 // file, so keeping both would have silently ignored these rules).
 const SENSITIVE_PATHS = ["/api/", "/admin/", "/.well-known/", "/tmp/", "/__tests__/"];
 
+// Every major AI crawler is named and allowed explicitly. Leaving them to the
+// wildcard block is ambiguous, and a cautious crawler that cannot confirm it is
+// welcome may skip the site entirely - which is how a site becomes invisible to
+// answer engines without any visible error.
 const ALLOWED_AI_AGENTS = [
   "GPTBot",
   "OAI-SearchBot",
   "ChatGPT-User",
   "ClaudeBot",
   "Claude-Web",
+  "Claude-SearchBot",
+  "anthropic-ai",
   "Anthropic-AI",
   "Google-Extended",
   "PerplexityBot",
+  "Perplexity-User",
+  "Applebot",
   "Applebot-Extended",
+  "CCBot",
+  "cohere-ai",
+  "Amazonbot",
+  "Bytespider",
+  "meta-externalagent",
+  "DuckAssistBot",
+  "MistralAI-User",
 ];
 
 const SOCIAL_AGENTS = ["facebookexternalhit", "Twitterbot", "LinkedInBot"];

@@ -36,7 +36,7 @@ export function buildIndustryMetadata(industry: IndustryPage): Metadata {
       images: ["https://imperialcleaninginc.com/og-image.png"],
     },
     other: {
-      "geo.region": "ID-UT",
+      "geo.region": "US-ID",
       "geo.placename": "Idaho Falls, Idaho",
     },
   };

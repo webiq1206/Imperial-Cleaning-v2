@@ -170,6 +170,16 @@ function staticEntries(): PageEntry[] {
       isMoneyPage: false,
     },
     {
+      url: "/reviews",
+      type: "about",
+      title: "Imperial Cleaning Reviews | Idaho & Utah Cleaning",
+      h1: "Imperial Cleaning Reviews",
+      anchor: "Imperial Cleaning customer reviews",
+      industries: [],
+      authorityBoost: 0.9,
+      isMoneyPage: false,
+    },
+    {
       url: "/sitemap",
       type: "legal",
       title: "Sitemap | Imperial Cleaning Inc",
@@ -264,3 +274,29 @@ export function getTopCitiesForState(
 }
 
 export { locationToSlug };
+
+/**
+ * Flat nav links for the footer.
+ *
+ * Industry and guide pages were reachable only through in-body `RelatedContent`
+ * blocks, which put them three clicks from the homepage. On a low-authority
+ * domain Google spends crawl budget on shallow URLs first, so those pages sat
+ * at "Discovered - currently not indexed" and were never fetched. Linking them
+ * sitewide from the footer puts every one of them one click from every page,
+ * which is the cheapest crawl-priority signal available on-site.
+ */
+export function getIndustryNavLinks(): Array<{ href: string; label: string }> {
+  return industries.map((industry) => ({
+    href: `/${industry.slug}`,
+    label: industry.name,
+  }));
+}
+
+export function getGuideNavLinks(): Array<{ href: string; label: string }> {
+  // Guide titles carry a subtitle after a colon or dash for the page itself;
+  // the footer only needs the topic, so trim to the part before the separator.
+  return guides.map((guide) => ({
+    href: `/resources/${guide.slug}`,
+    label: guide.title.split(/[:?]/)[0].trim(),
+  }));
+}

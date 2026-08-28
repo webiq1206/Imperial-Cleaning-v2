@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ContactFormModal from "@/components/contact-form-modal";
 import InternalHeroSection from "@/components/internal-hero-section";
+import AnswerBlock from "@/components/shared/answer-block";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { type ServiceLocation } from "@/data/service-locations";
 import { BUSINESS_HOURS_SHORT } from "@/data/business-info";
@@ -22,7 +23,8 @@ import {
   generateWhyChoose,
   generateCitySpecificProcess,
   generateIndustryApplications,
-  generateServiceCoverageDetails
+  generateServiceCoverageDetails,
+  generateLocationAnswer
 } from "@/lib/location-content-utils";
 import {
   Accordion,
@@ -67,6 +69,7 @@ export default function ServiceLocationClient({
   const [showContactForm, setShowContactForm] = useState(false);
 
   const heroContent = generateLocationHero(serviceType, location);
+  const locationAnswer = generateLocationAnswer(serviceType, location);
   const serviceFeatures = generateEnhancedServiceFeatures(serviceType, location);
   const faqs = generateLocationFAQ(serviceType, location);
   const marketOverview = generateMarketOverview(serviceType, location);
@@ -111,6 +114,13 @@ export default function ServiceLocationClient({
           text: "Get Free Quote",
           onClick: () => setShowContactForm(true)
         }}
+      />
+
+      <AnswerBlock
+        className="pt-14"
+        question={locationAnswer.question}
+        answer={locationAnswer.answer}
+        facts={locationAnswer.facts}
       />
 
       {/* Service Introduction */}

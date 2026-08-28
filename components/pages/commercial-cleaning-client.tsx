@@ -7,6 +7,7 @@ import ContactFormModal from "@/components/contact-form-modal";
 import ServiceLocationsGrid from "@/components/service-locations-grid";
 import RelatedContent from "@/components/shared/related-content";
 import InternalHeroSection from "@/components/internal-hero-section";
+import AnswerBlock from "@/components/shared/answer-block";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { StructuredData } from "@/components/structured-data";
 import {
@@ -132,6 +133,18 @@ export default function CommercialCleaningClient() {
           text: "Request a Quote",
           onClick: () => setShowContactForm(true)
         }}
+      />
+
+      <AnswerBlock
+        className="pt-14"
+        question="What does Imperial Cleaning's commercial cleaning cover?"
+        answer="Imperial Cleaning Inc provides recurring janitorial and commercial cleaning for offices, medical practices, schools, restaurants, dealerships, and industrial facilities across Idaho and Utah. Services run on a fixed scope and schedule, typically nightly or weekly, with supervisor inspections. The company has operated from Idaho Falls since 2015 and is licensed, insured, and bonded."
+        facts={[
+          { label: "Common schedules", value: "Nightly, weekly, or after-hours" },
+          { label: "Facility types", value: "Office, medical, school, retail, industrial" },
+          { label: "Coverage", value: "24 cities across Idaho and Utah" },
+          { label: "Quote turnaround", value: "Written quote within 24 hours" },
+        ]}
       />
 
       {/* Comprehensive Service Overview */}

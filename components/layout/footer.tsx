@@ -5,7 +5,7 @@ import { BUSINESS_HOURS } from "@/data/business-info";
 import Image from "next/image";
 import { allServiceLocations } from "@/data/service-locations";
 import { buildServiceLocationUrl } from "@/lib/routing-utils";
-import { getTopCitiesForState } from "@/lib/page-registry";
+import { getTopCitiesForState, getIndustryNavLinks, getGuideNavLinks } from "@/lib/page-registry";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -17,6 +17,8 @@ export default function Footer() {
     ...getTopCitiesForState("Idaho", 2),
     ...getTopCitiesForState("Utah", 1),
   ];
+  const industryLinks = getIndustryNavLinks();
+  const guideLinks = getGuideNavLinks();
 
   return (
     <footer className="border-t border-border/30 py-20 px-6 footer-sophisticated-bg noise-overlay grain-texture vignette-top">
@@ -341,6 +343,73 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* Industries & Guides - sitewide crawl paths.
+            These pages previously had no link outside in-body RelatedContent
+            blocks, leaving them three clicks deep and unindexed. */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16 pt-10 border-t border-border/20">
+          <div>
+            <h3 className="text-lg text-foreground mb-5">Industries We Clean</h3>
+            <ul className="space-y-3">
+              {industryLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg text-foreground mb-5">Cleaning Guides</h3>
+            <ul className="space-y-3">
+              {guideLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg text-foreground mb-5">Proof &amp; Pricing</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/reviews"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                >
+                  Customer Reviews
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resources/post-construction-cleaning-cost"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                >
+                  What Cleaning Costs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                >
+                  Request a Free Quote
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom Section */}

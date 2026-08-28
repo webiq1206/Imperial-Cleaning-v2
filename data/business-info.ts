@@ -63,8 +63,8 @@ export const BUSINESS_OPENING_HOURS_STRING = "Mo-Fr 08:00-17:00, Sa 09:00-13:00"
 
 /** HQ coordinates (2653 Clarence Pl, Idaho Falls) */
 export const BUSINESS_GEO = {
-  latitude: 43.4782,
-  longitude: -111.9968,
+  latitude: 43.5102,
+  longitude: -112.0842,
 } as const;
 
 export const GOOGLE_LISTING_URL = "https://share.google/f46rwE5ppsoqsvG56";
