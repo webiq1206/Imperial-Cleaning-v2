@@ -1,7 +1,15 @@
 'use client';
 
 import Link from "next/link";
-import { BUSINESS_HOURS } from "@/data/business-info";
+import {
+  BUSINESS_HOURS,
+  BUSINESS_NAME,
+  BUSINESS_ADDRESS,
+  BUSINESS_CITY_LINE,
+  BUSINESS_PHONE,
+  BUSINESS_EMAIL,
+  GOOGLE_LISTING_URL,
+} from "@/data/business-info";
 import Image from "next/image";
 import { allServiceLocations } from "@/data/service-locations";
 import { buildServiceLocationUrl } from "@/lib/routing-utils";
@@ -343,6 +351,47 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* Sitewide NAP.
+            The street address previously appeared only inside JSON-LD, which
+            meant 68 of 69 pages carried no crawlable postal address in their
+            visible text. Local ranking wants name, address, and phone as real
+            text on the page, matching the structured data and the Google
+            listing exactly - so it is rendered here, once, from the canonical
+            business-info module. */}
+        <div className="pt-10 border-t border-border/20">
+          <h3 className="text-lg text-foreground mb-5">Visit or Contact Us</h3>
+          <address className="not-italic text-sm text-muted-foreground leading-relaxed grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+              <span className="block text-foreground mb-1">{BUSINESS_NAME}</span>
+              <span className="block">{BUSINESS_ADDRESS.street}</span>
+              <span className="block">{BUSINESS_CITY_LINE}</span>
+            </div>
+            <div>
+              <span className="block text-foreground mb-1">Phone</span>
+              <a href="tel:+12085203202" className="hover:text-foreground transition-colors">
+                {BUSINESS_PHONE}
+              </a>
+            </div>
+            <div>
+              <span className="block text-foreground mb-1">Email</span>
+              <a href={`mailto:${BUSINESS_EMAIL}`} className="hover:text-foreground transition-colors break-words">
+                {BUSINESS_EMAIL}
+              </a>
+            </div>
+            <div>
+              <span className="block text-foreground mb-1">Find us on Google</span>
+              <a
+                href={GOOGLE_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                Google Business Profile
+              </a>
+            </div>
+          </address>
         </div>
 
         {/* Industries & Guides - sitewide crawl paths.

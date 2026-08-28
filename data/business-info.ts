@@ -67,4 +67,23 @@ export const BUSINESS_GEO = {
   longitude: -112.0842,
 } as const;
 
-export const GOOGLE_LISTING_URL = "https://share.google/f46rwE5ppsoqsvG56";
+/**
+ * Google Business Profile share link, supplied by the owner 2026-08-28.
+ * This replaces an earlier share link that pointed elsewhere. It is the single
+ * source for every Google listing reference on the site (schema sameAs, hasMap,
+ * the reviews hub, and llms.txt) so the site can never cite two different
+ * listings for the same business.
+ */
+export const GOOGLE_LISTING_URL = "https://share.google/MfZvSeSp2XJUxm3GH";
+
+/**
+ * Independent directory citations that carry the same NAP. Used in schema
+ * sameAs so search and answer engines have corroborating sources for the
+ * entity rather than only first-party claims.
+ */
+export const DIRECTORY_CITATIONS = [
+  "https://www.yelp.com/biz/imperial-cleaning-idaho-falls-3",
+  "https://www.yellowpages.com/idaho-falls-id/mip/imperial-cleaning-inc-554345832",
+  "https://pro.porch.com/idaho-falls-id/home-cleaners/imperial-cleaning-inc/pp",
+  "https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/",
+] as const;

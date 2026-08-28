@@ -11,6 +11,7 @@ import {
   BUSINESS_OPENING_HOURS_SCHEMA,
   BUSINESS_PHONE_TEL,
   GOOGLE_LISTING_URL,
+  DIRECTORY_CITATIONS,
 } from '@/data/business-info';
 
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(m => ({ default: m.Toaster })), { ssr: false });
@@ -168,12 +169,10 @@ const siteJsonLd = [
     ],
     sameAs: [
       GOOGLE_LISTING_URL,
-      'https://pro.porch.com/idaho-falls-id/home-cleaners/imperial-cleaning-inc/pp',
+      ...DIRECTORY_CITATIONS,
       'https://www.facebook.com/imperialcleaninginc',
       'https://www.instagram.com/imperialcleaninginc/',
       'https://www.linkedin.com/company/imperial-cleaning-inc',
-      'https://www.yelp.com/biz/imperial-cleaning-idaho-falls-3',
-      'https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/',
     ],
     hasMap: GOOGLE_LISTING_URL,
     slogan: 'Construction cleanup and commercial cleaning across Idaho and Utah.',
