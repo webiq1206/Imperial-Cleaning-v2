@@ -13,7 +13,7 @@ import {
   BUSINESS_HOURS_SENTENCE,
   BUSINESS_HOURS_SHORT,
 } from "@/data/business-info";
-import { GOOGLE_LISTING_URL } from "@/data/reviews";
+import { GOOGLE_LISTING_URL, GOOGLE_REVIEW_COUNT } from "@/data/reviews";
 
 const contactQueryClient = new QueryClient({
   defaultOptions: { mutations: { retry: false } },
@@ -138,7 +138,7 @@ function ContactClientInner() {
                   ))}
                 </span>
                 <span className="text-sm text-muted-foreground">
-                  <span className="text-foreground font-medium">5.0</span> · 60+ reviews on Google
+                  <span className="text-foreground font-medium">5.0</span> · {GOOGLE_REVIEW_COUNT} reviews on Google
                 </span>
               </a>
             </div>

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { GOOGLE_LISTING_URL } from "@/data/reviews";
+import { GOOGLE_LISTING_URL, GOOGLE_REVIEW_COUNT } from "@/data/reviews";
 
 const ContactFormModal = dynamic(() => import("@/components/contact-form-modal"), { ssr: false }); // modal: no visible content on initial load
 
@@ -59,7 +59,7 @@ export default function HeroCTAButtons() {
             ))}
           </span>
           <span className="text-xs text-secondary-color tracking-tight">
-            <span className="text-foreground font-medium">5.0</span> · 60+ reviews on Google
+            <span className="text-foreground font-medium">5.0</span> · {GOOGLE_REVIEW_COUNT} reviews on Google
           </span>
         </a>
 
