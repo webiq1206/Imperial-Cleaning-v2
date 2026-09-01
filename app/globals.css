@@ -441,21 +441,68 @@
     background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
   }
 
+  /* Continuous review marquee.
+   *
+   * The track holds the same group of cards twice; the animation translates it
+   * left by exactly one group plus one gap, at which point the second copy sits
+   * where the first started and the loop repeats with no visible seam. The
+   * "- gap/2" matters: -50% alone lands half a gap short, which shows up as a
+   * jitter once per cycle.
+   *
+   * Motion pauses on hover and on keyboard focus, and is dropped entirely under
+   * prefers-reduced-motion, where the row becomes a normal scrollable strip -
+   * continuously moving content that cannot be paused fails WCAG 2.2.2. */
   @keyframes scrollInfinite {
-    0% {
-      transform: translateX(0%);
+    from {
+      transform: translateX(0);
     }
-    100% {
-      transform: translateX(-50%);
+    to {
+      transform: translateX(calc(-50% - (var(--marquee-gap) / 2)));
     }
   }
-  
-  .testimonials-container {
-    cursor: grab;
+
+  .marquee {
+    --marquee-gap: 1.5rem;
+    overflow: hidden;
+    /* Cards dissolve at the edges instead of being sliced off mid-word. */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   }
-  
-  .testimonials-container:active {
-    cursor: grabbing;
+
+  .marquee__track {
+    display: flex;
+    gap: var(--marquee-gap);
+    width: max-content;
+    animation: scrollInfinite var(--marquee-duration, 90s) linear infinite;
+    will-change: transform;
+  }
+
+  .marquee__track--reverse {
+    animation-direction: reverse;
+  }
+
+  .marquee:hover .marquee__track,
+  .marquee:focus-within .marquee__track {
+    animation-play-state: paused;
+  }
+
+  .marquee__group {
+    display: flex;
+    gap: var(--marquee-gap);
+    /* stretch keeps every card in a row the same height as its tallest sibling */
+    align-items: stretch;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      overflow-x: auto;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+
+    .marquee__track {
+      animation: none;
+    }
   }
   
   .parallax-subtle {
