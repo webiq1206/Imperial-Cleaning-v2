@@ -178,6 +178,44 @@ export default function ServicesSection() {
        </div>
       </div>
      </div>
+
+     <div className="text-center mb-10">
+      <h3 className="text-3xl lg:text-4xl mb-4 tracking-tight text-foreground">
+       Choose a service path
+      </h3>
+      <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+       Start with the job you need. Each path opens a dedicated page with scope, process, and a quote form. Construction phases and commercial specialties are listed separately so you can send the right request the first time.
+      </p>
+     </div>
+
+     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+      {[
+       { href: "/janitorial-services", title: "Janitorial services", blurb: "Recurring commercial janitorial for offices and facilities." },
+       { href: "/office-cleaning", title: "Office cleaning", blurb: "Nightly and scheduled office cleaning with a written scope." },
+       { href: "/commercial-floor-care", title: "Commercial floor care", blurb: "Strip, wax, burnish, and hard-surface floor programs." },
+       { href: "/day-porter-services", title: "Day porter services", blurb: "Daytime coverage for restrooms, lobbies, and high-traffic areas." },
+       { href: "/industrial-cleaning", title: "Industrial cleaning", blurb: "Production floors, shops, and industrial facilities." },
+       { href: "/warehouse-cleaning", title: "Warehouse cleaning", blurb: "Aisles, docks, and warehouse floors kept inspection-ready." },
+       { href: "/construction-cleaning/rough-clean", title: "Rough clean", blurb: "Debris and dust removal while trades are still on site." },
+       { href: "/construction-cleaning/final-clean", title: "Final clean", blurb: "Punch-list and owner-walk construction final clean." },
+       { href: "/construction-cleaning/touch-up-clean", title: "Touch-up clean", blurb: "Post-punch touch-up before turnover or grand opening." },
+       { href: "/commercial-cleaning-cost", title: "Commercial cleaning cost", blurb: "What drives price, what to compare, and how to request a quote." },
+       { href: "/property-management-cleaning", title: "Property management", blurb: "Common areas and tenant-ready cleaning for managers." },
+       { href: "/medical-office-cleaning", title: "Medical office cleaning", blurb: "Clinic and medical office cleaning with documented process." },
+      ].map((path) => (
+       <Link
+        key={path.href}
+        href={path.href}
+        className="glass-card-elevated p-5 rounded-lg hover-lift-gentle group block"
+        onClick={() => handleLearnMore(path.title)}
+       >
+        <h4 className="text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+         {path.title}
+        </h4>
+        <p className="text-sm text-muted-foreground leading-relaxed">{path.blurb}</p>
+       </Link>
+      ))}
+     </div>
     </div>
    </section>
 

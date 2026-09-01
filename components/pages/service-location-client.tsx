@@ -12,6 +12,7 @@ import { BUSINESS_HOURS_SHORT } from "@/data/business-info";
 import { buildServiceLocationUrl } from "@/lib/routing-utils";
 import RelatedContent from "@/components/shared/related-content";
 import RelatedLinks from "@/components/related-links";
+import LocationVerifiedReviews from "@/components/location-verified-reviews";
 import { 
   generateLocationHero,
   generateEnhancedServiceFeatures,
@@ -488,6 +489,12 @@ export default function ServiceLocationClient({
           )}
         </div>
       </section>
+
+      <LocationVerifiedReviews
+        city={location.name}
+        state={location.state}
+        service={serviceType}
+      />
 
       {/* FAQ Section */}
       <section className="py-24 px-4">

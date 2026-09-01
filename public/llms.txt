@@ -146,8 +146,18 @@ Examples:
 
 Hub pages:
 - Services: /construction-cleaning and /commercial-cleaning
+- Janitorial: /janitorial-services
+- Office cleaning: /office-cleaning
+- Floor care: /commercial-floor-care
+- Day porter: /day-porter-services
+- Industrial: /industrial-cleaning
+- Warehouse: /warehouse-cleaning
+- Cost guide: /commercial-cleaning-cost
+- Construction phases: /construction-cleaning/rough-clean, /construction-cleaning/final-clean, /construction-cleaning/touch-up-clean
+- Industries: /medical-office-cleaning, /car-dealership-cleaning, /restaurant-cleaning-services, /school-cleaning-services, /property-management-cleaning, /office-building-cleaning, /manufacturing-facility-cleaning
 - Service areas: /service-areas, /service-areas/idaho, /service-areas/utah
 - Resource guides: /resources
+- Reviews: /reviews
 - Contact and quotes: /contact
 
 Structured data uses a single canonical Organization/LocalBusiness entity sitewide, with per-page Service, FAQPage, and BreadcrumbList schema. City pages describe the service offered in each area (Service with areaServed) rather than separate physical locations, since the company operates from one Idaho Falls headquarters.
@@ -235,7 +245,12 @@ A: Monday-Friday 8:00 AM - 5:00 PM, Saturday 9:00 AM - 1:00 PM, closed Sunday. E
 - Construction cleaning: https://imperialcleaninginc.com/construction-cleaning
 - Commercial cleaning: https://imperialcleaninginc.com/commercial-cleaning
 - Reviews and how to verify them: https://imperialcleaninginc.com/reviews
+- Commercial cleaning cost: https://imperialcleaninginc.com/commercial-cleaning-cost
 - What post-construction cleaning costs: https://imperialcleaninginc.com/resources/post-construction-cleaning-cost
+- Janitorial services: https://imperialcleaninginc.com/janitorial-services
+- Office cleaning: https://imperialcleaninginc.com/office-cleaning
+- Switch cleaning companies: https://imperialcleaninginc.com/resources/switch-commercial-cleaning-companies
+- Commercial cleaning RFP template: https://imperialcleaninginc.com/resources/commercial-cleaning-rfp-template
 - Service areas hub: https://imperialcleaninginc.com/service-areas
 - Idaho coverage: https://imperialcleaninginc.com/service-areas/idaho
 - Utah coverage: https://imperialcleaninginc.com/service-areas/utah

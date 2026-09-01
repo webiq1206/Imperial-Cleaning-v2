@@ -10,8 +10,10 @@
  * claims, or certifications that cannot be verified (owner decision 2026-06-10).
  */
 
+import { serviceHubs } from "@/data/service-hubs";
+
 export interface IndustryPage {
-  /** URL slug, matching the legacy WordPress URL exactly */
+  /** URL slug. Nested routes use a path-style slug (e.g. construction-cleaning/rough-clean). */
   slug: string;
   name: string;
   metaTitle: string;
@@ -24,9 +26,14 @@ export interface IndustryPage {
   whyUs: { title: string; description: string }[];
   faqs: { question: string; answer: string }[];
   keywords: string;
+  parentName?: string;
+  parentHref?: string;
+  ctaLabel?: string;
+  ctaHeading?: string;
+  serviceLine?: "commercial-cleaning" | "construction-cleaning";
 }
 
-export const industries: IndustryPage[] = [
+const coreIndustries: IndustryPage[] = [
   {
     slug: "medical-office-cleaning",
     name: "Medical Office Cleaning",
@@ -208,6 +215,8 @@ export const industries: IndustryPage[] = [
       "car dealership cleaning Idaho, dealership showroom cleaning Utah, auto dealership janitorial, showroom floor polishing Idaho Falls",
   },
 ];
+
+export const industries: IndustryPage[] = [...coreIndustries, ...serviceHubs];
 
 export function getIndustryBySlug(slug: string): IndustryPage | undefined {
   return industries.find((industry) => industry.slug === slug);

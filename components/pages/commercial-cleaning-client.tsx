@@ -130,7 +130,7 @@ export default function CommercialCleaningClient() {
         pillText="Licensed & Insured • Professional Service"
         imageAlt="Commercial Cleaning Services Across Idaho & Utah | Imperial Cleaning Inc"
         primaryCTA={{
-          text: "Request a Quote",
+          text: "Schedule Walkthrough",
           onClick: () => setShowContactForm(true)
         }}
       />
@@ -248,7 +248,7 @@ export default function CommercialCleaningClient() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="glass-card-elevated p-6 hover-lift-gentle">
+            <Link href="/office-cleaning" className="glass-card-elevated p-6 hover-lift-gentle block">
               <div className="w-12 h-12 mb-4 rounded-full bg-blue-500/10 flex items-center justify-center">
                 <Briefcase className="w-6 h-6 text-blue-500" />
               </div>
@@ -259,7 +259,67 @@ export default function CommercialCleaningClient() {
                 <li>• Reception area care</li>
                 <li>• Floor care and vacuuming</li>
               </ul>
-            </div>
+            </Link>
+            <Link href="/janitorial-services" className="glass-card-elevated p-6 hover-lift-gentle block">
+              <div className="w-12 h-12 mb-4 rounded-full bg-teal-500/10 flex items-center justify-center">
+                <ClipboardList className="w-6 h-6 text-teal-500" />
+              </div>
+              <h3 className="text-lg mb-3 text-foreground">Janitorial Services</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• Recurring nightly or weekly routes</li>
+                <li>• Restroom sanitation and restocking</li>
+                <li>• Trash, floors, and high-touch surfaces</li>
+                <li>• Supervisor inspections</li>
+              </ul>
+            </Link>
+            <Link href="/commercial-floor-care" className="glass-card-elevated p-6 hover-lift-gentle block">
+              <div className="w-12 h-12 mb-4 rounded-full bg-amber-500/10 flex items-center justify-center">
+                <Sparkles className="w-6 h-6 text-amber-500" />
+              </div>
+              <h3 className="text-lg mb-3 text-foreground">Commercial Floor Care</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• Strip and wax programs</li>
+                <li>• Auto-scrub and burnish</li>
+                <li>• Tile, VCT, and hard floors</li>
+                <li>• Periodic restoration</li>
+              </ul>
+            </Link>
+            <Link href="/day-porter-services" className="glass-card-elevated p-6 hover-lift-gentle block">
+              <div className="w-12 h-12 mb-4 rounded-full bg-indigo-500/10 flex items-center justify-center">
+                <Users className="w-6 h-6 text-indigo-500" />
+              </div>
+              <h3 className="text-lg mb-3 text-foreground">Day Porter Services</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• Daytime restroom checks</li>
+                <li>• Lobby and entry presentation</li>
+                <li>• Spill and trash response</li>
+                <li>• Occupied-building support</li>
+              </ul>
+            </Link>
+            <Link href="/industrial-cleaning" className="glass-card-elevated p-6 hover-lift-gentle block">
+              <div className="w-12 h-12 mb-4 rounded-full bg-slate-500/10 flex items-center justify-center">
+                <Factory className="w-6 h-6 text-slate-500" />
+              </div>
+              <h3 className="text-lg mb-3 text-foreground">Industrial Cleaning</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• Plant and production support areas</li>
+                <li>• Floor soil and dust control</li>
+                <li>• Shift-friendly scheduling</li>
+                <li>• Restroom and locker coverage</li>
+              </ul>
+            </Link>
+            <Link href="/warehouse-cleaning" className="glass-card-elevated p-6 hover-lift-gentle block">
+              <div className="w-12 h-12 mb-4 rounded-full bg-orange-500/10 flex items-center justify-center">
+                <Building2 className="w-6 h-6 text-orange-500" />
+              </div>
+              <h3 className="text-lg mb-3 text-foreground">Warehouse Cleaning</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• Aisle and dock floor care</li>
+                <li>• Dust control for inventory</li>
+                <li>• Restroom and office zones</li>
+                <li>• Distribution facility programs</li>
+              </ul>
+            </Link>
             <div className="glass-card-elevated p-6 hover-lift-gentle">
               <div className="w-12 h-12 mb-4 rounded-full bg-green-500/10 flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-green-500" />
@@ -299,13 +359,13 @@ export default function CommercialCleaningClient() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="glass-card-elevated p-6 text-center hover-lift-gentle group">
+            <Link href="/office-building-cleaning" className="glass-card-elevated p-6 text-center hover-lift-gentle group block">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Briefcase className="w-8 h-8 text-blue-500" />
               </div>
-              <h3 className="text-lg mb-3 text-foreground">Corporate Offices</h3>
+              <h3 className="text-lg mb-3 text-foreground group-hover:text-primary transition-colors">Office Building Cleaning</h3>
               <p className="text-sm text-muted-foreground">Professional office buildings, executive suites, and corporate headquarters</p>
-            </div>
+            </Link>
             <Link href="/medical-office-cleaning" className="glass-card-elevated p-6 text-center hover-lift-gentle group block">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Hospital className="w-8 h-8 text-red-500" />
@@ -329,9 +389,18 @@ export default function CommercialCleaningClient() {
             </Link>
           </div>
 
-          <div className="text-center mt-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <Link href="/car-dealership-cleaning" className="text-primary hover:underline">
-              Also serving car dealerships: showroom and dealership cleaning →
+              Car dealership cleaning
+            </Link>
+            <Link href="/property-management-cleaning" className="text-primary hover:underline">
+              Property management cleaning
+            </Link>
+            <Link href="/manufacturing-facility-cleaning" className="text-primary hover:underline">
+              Manufacturing facility cleaning
+            </Link>
+            <Link href="/commercial-cleaning-cost" className="text-primary hover:underline">
+              Commercial cleaning cost guide
             </Link>
           </div>
         </div>
@@ -341,7 +410,16 @@ export default function CommercialCleaningClient() {
         pageUrl="/commercial-cleaning"
         heading="Explore Our Commercial Cleaning Coverage"
         description="Related services and the cities we serve across Idaho and Utah."
-        limit={5}
+        limit={8}
+        override={{
+          pin: [
+            { url: "/janitorial-services", anchor: "Janitorial Services" },
+            { url: "/office-cleaning", anchor: "Office Cleaning Services" },
+            { url: "/commercial-cleaning-cost", anchor: "Commercial cleaning cost guide" },
+            { url: "/day-porter-services", anchor: "Day Porter Services" },
+            { url: "/office-building-cleaning", anchor: "Office Building Cleaning" },
+          ],
+        }}
       />
 
       {/* Service Areas Grid */}
@@ -450,7 +528,7 @@ export default function CommercialCleaningClient() {
                 className="px-8 py-4"
                 size="lg"
               >
-                Get Your Free Quote
+                Schedule Walkthrough
               </Button>
               <a href="tel:+12085203202">
                 <Button variant="outline" size="lg" className="px-8 py-4">

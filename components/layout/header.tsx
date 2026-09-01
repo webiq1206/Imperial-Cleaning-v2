@@ -183,7 +183,7 @@ export default function Header() {
                 id="services-mega-menu-panel"
                 ref={megaMenuPanelRef}
                 role="menu"
-                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[700px] bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl transition-opacity transition-visibility duration-300 ease-out glass-card-elevated sophisticated-glow ${
+                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[780px] bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-2xl transition-opacity transition-visibility duration-300 ease-out glass-card-elevated sophisticated-glow ${
                   isMegaMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
               >
@@ -236,6 +236,12 @@ export default function Header() {
                         >
                           View All →
                         </Link>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-2 pb-4 border-b border-border/20">
+                        <Link href="/construction-cleaning/rough-clean" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Rough clean</Link>
+                        <Link href="/construction-cleaning/final-clean" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Final clean</Link>
+                        <Link href="/construction-cleaning/touch-up-clean" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Touch-up clean</Link>
                       </div>
 
                       <div>
@@ -319,6 +325,18 @@ export default function Header() {
                         >
                           View All →
                         </Link>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-2 pb-4 border-b border-border/20">
+                        <Link href="/janitorial-services" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Janitorial</Link>
+                        <Link href="/office-cleaning" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Office cleaning</Link>
+                        <Link href="/commercial-floor-care" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Floor care</Link>
+                        <Link href="/day-porter-services" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Day porter</Link>
+                        <Link href="/industrial-cleaning" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Industrial</Link>
+                        <Link href="/warehouse-cleaning" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Warehouse</Link>
+                        <Link href="/commercial-cleaning-cost" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Cost guide</Link>
+                        <Link href="/medical-office-cleaning" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Medical</Link>
+                        <Link href="/property-management-cleaning" role="menuitem" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg" onClick={closeMegaMenu}>Property management</Link>
                       </div>
 
                       <div>
@@ -506,6 +524,9 @@ export default function Header() {
                             <span className="font-medium">View All Construction Cleaning</span>
                           </div>
                         </Link>
+                        <Link href="/construction-cleaning/rough-clean" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Rough clean</Link>
+                        <Link href="/construction-cleaning/final-clean" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Final clean</Link>
+                        <Link href="/construction-cleaning/touch-up-clean" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Touch-up clean</Link>
                         
                         <div>
                           <div className="flex items-center gap-2 px-4 mb-2">
@@ -604,6 +625,15 @@ export default function Header() {
                             <span className="font-medium">View All Commercial Cleaning</span>
                           </div>
                         </Link>
+                        <Link href="/janitorial-services" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Janitorial services</Link>
+                        <Link href="/office-cleaning" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Office cleaning</Link>
+                        <Link href="/commercial-floor-care" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Floor care</Link>
+                        <Link href="/day-porter-services" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Day porter</Link>
+                        <Link href="/industrial-cleaning" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Industrial cleaning</Link>
+                        <Link href="/warehouse-cleaning" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Warehouse cleaning</Link>
+                        <Link href="/commercial-cleaning-cost" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Cost guide</Link>
+                        <Link href="/medical-office-cleaning" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Medical office cleaning</Link>
+                        <Link href="/property-management-cleaning" className="block px-4 py-2 text-sm text-secondary-color hover:text-primary-color hover:bg-secondary/20 rounded-lg" onClick={closeMobileMenu}>Property management</Link>
                         
                         <div>
                           <div className="flex items-center gap-2 px-4 mb-2">

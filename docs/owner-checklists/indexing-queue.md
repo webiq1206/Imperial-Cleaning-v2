@@ -31,7 +31,35 @@ Requesting is not a guarantee. It puts the URL in a priority queue; indexing
 still typically lands within days rather than instantly, and a page can be
 crawled and still not indexed. Re-request anything still missing after two weeks.
 
-### Day 1 — Money pages and service/industry pages
+### Day 0 — New money hubs (request these first after publish)
+
+These URLs were added in the September 2026 playbook ship. Request them the same day production returns 200.
+
+- [ ] `https://imperialcleaninginc.com/janitorial-services`
+- [ ] `https://imperialcleaninginc.com/office-cleaning`
+- [ ] `https://imperialcleaninginc.com/commercial-floor-care`
+- [ ] `https://imperialcleaninginc.com/day-porter-services`
+- [ ] `https://imperialcleaninginc.com/industrial-cleaning`
+- [ ] `https://imperialcleaninginc.com/warehouse-cleaning`
+- [ ] `https://imperialcleaninginc.com/commercial-cleaning-cost`
+- [ ] `https://imperialcleaninginc.com/construction-cleaning/rough-clean`
+- [ ] `https://imperialcleaninginc.com/construction-cleaning/final-clean`
+- [ ] `https://imperialcleaninginc.com/construction-cleaning/touch-up-clean`
+
+### Day 0b — Remaining new hubs (next day if quota is used)
+
+- [ ] `https://imperialcleaninginc.com/property-management-cleaning`
+- [ ] `https://imperialcleaninginc.com/office-building-cleaning`
+- [ ] `https://imperialcleaninginc.com/manufacturing-facility-cleaning`
+- [ ] `https://imperialcleaninginc.com/resources/commercial-cleaning-rfp-template`
+- [ ] `https://imperialcleaninginc.com/resources/janitorial-scope-of-work-template`
+- [ ] `https://imperialcleaninginc.com/resources/switch-commercial-cleaning-companies`
+- [ ] `https://imperialcleaninginc.com/resources/office-cleaning-frequency-guide`
+- [ ] `https://imperialcleaninginc.com/resources/how-to-compare-commercial-cleaning-companies`
+- [ ] `https://imperialcleaninginc.com/resources/commercial-cleaning-proposal-checklist`
+- [ ] `https://imperialcleaninginc.com/resources/night-cleaning-vs-day-cleaning`
+
+### Day 1 — Existing money pages and service/industry pages
 
 - [ ] `https://imperialcleaninginc.com/construction-cleaning`
 - [ ] `https://imperialcleaninginc.com/about`

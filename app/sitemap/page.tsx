@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { idahoLocations, utahLocations, extendedIdahoLocations, extendedUtahLocations, type ServiceLocation } from "@/data/service-locations";
 import { buildServiceLocationUrl, isValidServiceLocation, locationToSlug } from "@/lib/routing-utils";
 import { guides } from "@/data/guides";
+import { industries } from "@/data/industries";
 
 export const metadata: Metadata = {
   title: { absolute: "Sitemap | Imperial Cleaning Inc" },
@@ -112,6 +113,11 @@ export default function HtmlSitemapPage() {
                 links={[
                   { href: "/construction-cleaning", label: "Construction Cleaning" },
                   { href: "/commercial-cleaning", label: "Commercial Cleaning" },
+                  { href: "/reviews", label: "Customer Reviews" },
+                  ...industries.map((industry) => ({
+                    href: `/${industry.slug}`,
+                    label: industry.name,
+                  })),
                 ]}
               />
 

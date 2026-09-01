@@ -230,6 +230,12 @@ function resourceEntries(): PageEntry[] {
   }));
 }
 
+const MONEY_HUB_SLUGS = new Set([
+  "janitorial-services",
+  "office-cleaning",
+  "commercial-cleaning-cost",
+]);
+
 function industryEntries(): PageEntry[] {
   return industries.map((industry) => ({
     url: `/${industry.slug}`,
@@ -237,9 +243,9 @@ function industryEntries(): PageEntry[] {
     title: industry.metaTitle,
     h1: industry.h1,
     anchor: industry.name,
-    service: "commercial-cleaning" as const,
-    industries: ["Commercial"],
-    authorityBoost: 0.8,
+    service: industry.serviceLine ?? "commercial-cleaning",
+    industries: industry.serviceLine === "construction-cleaning" ? ["Construction"] : ["Commercial"],
+    authorityBoost: MONEY_HUB_SLUGS.has(industry.slug) ? 1.0 : 0.8,
     isMoneyPage: true,
   }));
 }

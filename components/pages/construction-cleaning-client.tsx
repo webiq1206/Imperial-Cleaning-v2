@@ -130,7 +130,7 @@ export default function ConstructionCleaningClient() {
         pillText="Licensed & Insured • Professional Service"
         imageAlt="Construction Cleanup Services Across Idaho & Utah | Imperial Cleaning Inc"
         primaryCTA={{
-          text: "Request a Quote",
+          text: "Get Project Quote",
           onClick: () => setShowContactForm(true)
         }}
       />
@@ -249,7 +249,7 @@ export default function ConstructionCleaningClient() {
 
           <div className="space-y-12">
             {/* Phase 1 */}
-            <div className="glass-card-elevated p-8 rounded-lg">
+            <Link href="/construction-cleaning/rough-clean" className="glass-card-elevated p-8 rounded-lg block hover-lift-gentle">
               <div className="flex items-start gap-6">
                 <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl text-primary">1</span>
@@ -257,17 +257,18 @@ export default function ConstructionCleaningClient() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <ClipboardList className="w-6 h-6 text-primary" />
-                    <h3 className="text-2xl text-foreground">Phase 1: Rough Cleaning & Assessment</h3>
+                    <h3 className="text-2xl text-foreground">Phase 1: Rough Cleaning &amp; Assessment</h3>
                   </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Initial site assessment and removal of major construction debris, materials, and safety hazards.
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Initial site assessment and removal of major construction debris, materials, and safety hazards so finishing trades can work.
                   </p>
+                  <span className="text-sm text-primary">Rough construction cleaning details</span>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Phase 2 */}
-            <div className="glass-card-elevated p-8 rounded-lg">
+            <Link href="/construction-cleaning/final-clean" className="glass-card-elevated p-8 rounded-lg block hover-lift-gentle">
               <div className="flex items-start gap-6">
                 <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl text-primary">2</span>
@@ -275,17 +276,18 @@ export default function ConstructionCleaningClient() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <Sparkles className="w-6 h-6 text-primary" />
-                    <h3 className="text-2xl text-foreground">Phase 2: Detailed Cleaning & Surface Preparation</h3>
+                    <h3 className="text-2xl text-foreground">Phase 2: Final Clean &amp; Surface Preparation</h3>
                   </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Comprehensive cleaning of all surfaces, fixtures, and systems. Focus on removing construction dust, adhesives, and preparing surfaces for final inspection.
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Comprehensive cleaning of all surfaces, fixtures, and systems. Focus on removing construction dust, adhesives, and preparing the space for turnover.
                   </p>
+                  <span className="text-sm text-primary">Final construction cleaning details</span>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Phase 3 */}
-            <div className="glass-card-elevated p-8 rounded-lg">
+            <Link href="/construction-cleaning/touch-up-clean" className="glass-card-elevated p-8 rounded-lg block hover-lift-gentle">
               <div className="flex items-start gap-6">
                 <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl text-primary">3</span>
@@ -293,14 +295,15 @@ export default function ConstructionCleaningClient() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <CheckCircle className="w-6 h-6 text-primary" />
-                    <h3 className="text-2xl text-foreground">Phase 3: Final Inspection & Quality Assurance</h3>
+                    <h3 className="text-2xl text-foreground">Phase 3: Touch-Up Clean &amp; Closeout</h3>
                   </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Final quality checks, touch-ups, and preparation for client walkthrough or occupancy permit inspection.
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Punch-list cleaning after other trades return, plus a walkthrough so the space is inspection-ready.
                   </p>
+                  <span className="text-sm text-primary">Touch-up construction cleaning details</span>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -352,7 +355,15 @@ export default function ConstructionCleaningClient() {
         pageUrl="/construction-cleaning"
         heading="Explore Our Construction Cleanup Coverage"
         description="Related services and the cities we serve across Idaho and Utah."
-        limit={5}
+        limit={8}
+        override={{
+          pin: [
+            { url: "/construction-cleaning/rough-clean", anchor: "Rough construction cleaning" },
+            { url: "/construction-cleaning/final-clean", anchor: "Final construction cleaning" },
+            { url: "/construction-cleaning/touch-up-clean", anchor: "Touch-up construction cleaning" },
+            { url: "/resources/post-construction-cleaning-cost", anchor: "Post-construction cleaning cost" },
+          ],
+        }}
       />
 
       {/* Service Areas Grid */}
@@ -461,7 +472,7 @@ export default function ConstructionCleaningClient() {
                 className="px-8 py-4"
                 size="lg"
               >
-                Get Your Free Quote
+                Get Project Quote
               </Button>
               <a href="tel:+12085203202">
                 <Button variant="outline" size="lg" className="px-8 py-4">

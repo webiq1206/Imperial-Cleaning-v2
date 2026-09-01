@@ -442,12 +442,20 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/resources/post-construction-cleaning-cost"
-                  className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
-                >
-                  What Cleaning Costs
-                </Link>
+                  <Link
+                    href="/commercial-cleaning-cost"
+                    className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                  >
+                    Commercial Cleaning Cost
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/resources/post-construction-cleaning-cost"
+                    className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                  >
+                    Post-Construction Cleaning Cost
+                  </Link>
               </li>
               <li>
                 <Link

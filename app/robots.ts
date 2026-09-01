@@ -17,6 +17,8 @@ const ALLOWED_AI_AGENTS = [
   "ClaudeBot",
   "Claude-Web",
   "Claude-SearchBot",
+  "Claude-User",
+  "Bingbot",
   "anthropic-ai",
   "Anthropic-AI",
   "Google-Extended",

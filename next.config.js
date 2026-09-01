@@ -54,8 +54,8 @@ const nextConfig = {
       { source: '/construction-cleaning/sandy',              destination: '/utah/construction-cleaning/sandy',               permanent: true },
       { source: '/construction-cleaning/orem',               destination: '/utah/construction-cleaning/orem',                permanent: true },
       { source: '/construction-cleaning/layton',             destination: '/utah/construction-cleaning/layton',              permanent: true },
-      // Unknown legacy slugs fall back to the service hub
-      { source: '/construction-cleaning/:location',          destination: '/construction-cleaning',                          permanent: true },
+      // Phase pages (rough-clean, final-clean, touch-up-clean) are live routes.
+      // Do not catch-all remaining /construction-cleaning/:slug values.
 
       // Legacy commercial-cleaning city redirects — state-aware
       // Idaho cities
@@ -84,8 +84,7 @@ const nextConfig = {
       { source: '/commercial-cleaning/sandy',                destination: '/utah/commercial-cleaning/sandy',                 permanent: true },
       { source: '/commercial-cleaning/orem',                 destination: '/utah/commercial-cleaning/orem',                  permanent: true },
       { source: '/commercial-cleaning/layton',               destination: '/utah/commercial-cleaning/layton',                permanent: true },
-      // Unknown legacy slugs fall back to the service hub
-      { source: '/commercial-cleaning/:location',            destination: '/commercial-cleaning',                            permanent: true },
+      // Nested commercial service pages are live routes. Do not catch-all.
       // WWW to non-WWW redirect
       {
         source: '/:path*',
@@ -156,8 +155,8 @@ const nextConfig = {
       // Broken pages from an earlier Next.js deploy
       { source: '/retail-cleaning-services', destination: '/commercial-cleaning', permanent: true },
       { source: '/retail-cleaning-services/', destination: '/commercial-cleaning', permanent: true },
-      { source: '/business-office-cleaning', destination: '/commercial-cleaning', permanent: true },
-      { source: '/business-office-cleaning/', destination: '/commercial-cleaning', permanent: true },
+      { source: '/business-office-cleaning', destination: '/office-cleaning', permanent: true },
+      { source: '/business-office-cleaning/', destination: '/office-cleaning', permanent: true },
     ];
   },
   

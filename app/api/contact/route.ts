@@ -4,7 +4,22 @@ export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
     
-    const { name, company, email, phone, service, location, message } = data;
+    const {
+      name,
+      company,
+      email,
+      phone,
+      service,
+      location,
+      message,
+      facilityType,
+      squareFootage,
+      frequency,
+      startDate,
+      projectPhase,
+      currentVendor,
+      multipleLocations,
+    } = data;
     
     // Validate required fields
     if (!name || !email || !phone || !service || !location) {
@@ -24,6 +39,13 @@ export async function POST(request: NextRequest) {
       service,
       location,
       message,
+      facilityType,
+      squareFootage,
+      frequency,
+      startDate,
+      projectPhase,
+      currentVendor,
+      multipleLocations,
       timestamp: new Date().toISOString()
     });
     

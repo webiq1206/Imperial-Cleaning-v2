@@ -6,6 +6,8 @@
  * FAQPage (and optional HowTo) JSON-LD. The /resources hub lists all guides.
  */
 
+import { playbookGuides } from "@/data/playbook-guides";
+
 export interface GuideSection {
   heading: string;
   body: string[];
@@ -49,7 +51,7 @@ export interface Guide {
 const DATE_PUBLISHED = "2026-06-05";
 const DATE_MODIFIED = "2026-06-05";
 
-export const guides: Guide[] = [
+const coreGuides: Guide[] = [
   {
     slug: "what-is-post-construction-cleaning",
     title: "What Is Post-Construction Cleaning? A Complete Guide",
@@ -295,6 +297,8 @@ export const guides: Guide[] = [
     ],
   },
 ];
+
+export const guides: Guide[] = [...coreGuides, ...playbookGuides];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
   return guides.find((g) => g.slug === slug);

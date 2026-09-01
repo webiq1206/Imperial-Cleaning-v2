@@ -14,6 +14,10 @@ interface IndustryCleaningPageProps {
 // so JSON-LD and content render fully server-side.
 export default function IndustryCleaningPage({ industry }: IndustryCleaningPageProps) {
   const url = `https://imperialcleaninginc.com/${industry.slug}`;
+  const parentName = industry.parentName ?? "Commercial Cleaning";
+  const parentHref = industry.parentHref ?? "/commercial-cleaning";
+  const ctaLabel = industry.ctaLabel ?? "Get a Free Quote";
+  const ctaHeading = industry.ctaHeading ?? `Ready for Professional ${industry.name}?`;
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -58,7 +62,7 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imperialcleaninginc.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Commercial Cleaning", "item": "https://imperialcleaninginc.com/commercial-cleaning" },
+      { "@type": "ListItem", "position": 2, "name": parentName, "item": `https://imperialcleaninginc.com${parentHref}` },
       { "@type": "ListItem", "position": 3, "name": industry.name, "item": url },
     ],
   };
@@ -73,7 +77,7 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
           <Breadcrumbs
             includeStructuredData={false}
             items={[
-              { name: "Commercial Cleaning", href: "/commercial-cleaning" },
+              { name: parentName, href: parentHref },
               { name: industry.name },
             ]}
           />
@@ -94,7 +98,7 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-lg"
             >
-              Get a Free Quote <ArrowRight className="w-4 h-4" />
+              {ctaLabel} <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="tel:+12085203202"
@@ -179,7 +183,8 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
         description="Explore more commercial cleaning specialties and service areas across Idaho and Utah."
         override={{
           pin: [
-            { url: "/commercial-cleaning", anchor: "Commercial Cleaning Services" },
+            { url: parentHref, anchor: parentName === "Construction Cleaning" ? "Construction Cleaning Services" : "Commercial Cleaning Services" },
+            { url: "/contact", anchor: "Request a free cleaning quote" },
           ],
         }}
       />
@@ -189,7 +194,7 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
         <div className="max-w-4xl mx-auto text-center">
           <div className="glass-card-elevated sophisticated-glow p-12 rounded-lg">
             <h2 className="text-3xl lg:text-4xl mb-6 tracking-tight text-foreground">
-              Ready for Professional {industry.name}?
+              {ctaHeading}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Free quotes within 24 hours. Serving Idaho and Utah from our Idaho Falls headquarters.
@@ -199,7 +204,7 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
-                Get Your Free Quote
+                {ctaLabel}
               </Link>
               <a
                 href="tel:+12085203202"

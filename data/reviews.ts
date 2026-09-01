@@ -27,6 +27,12 @@ export interface VerifiedReview {
   source: "Google" | "Porch" | "Yelp" | "Facebook";
   /** Public URL where the review can be verified */
   sourceUrl: string;
+  /** Cities named in the review text, or venues that exist only in that city */
+  mentionedCities?: string[];
+  /** Service types named in the review text */
+  mentionedServices?: Array<"construction-cleaning" | "commercial-cleaning">;
+  /** True when the review names a region (e.g. southeast Idaho) rather than one city */
+  mentionedRegion?: "eastern-idaho";
 }
 
 export { GOOGLE_LISTING_URL };
@@ -100,6 +106,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Imperial Cleaning has done several construction final cleans for us over the last year or more. Francisco and the crews have been very professional and have done great work for us. Also, their pricing is reasonable compared to others I’ve seen. Very responsive and easy to coordinate with! We will continue using Imperial Cleaning for future projects! Thanks Francisco!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Kaleb E.",
@@ -109,6 +116,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Had a tight schedule on a remodel that was finishing up. Needing someone fast and professional to help get the place clean after all the other trades had just finished that day. These guys stepped up to the plate and knocked it out of the park. Professional, extremely skilled, had all the right tools and machines, and was able to get the job done quickly. Went above and beyond!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Amber V.",
@@ -118,6 +126,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Great to work with. They were very thorough cleaning our large warehouse and production equipment. They went above and beyond to make sure we were very happy with the results. I would highly recommend them for commercial buildings.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "V Josephson",
@@ -127,6 +136,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "I've used Imperial on multiple large-scale construction projects for final cleaning and they are definitely my go-to. Plus, you won't meet a nicer guy than the owner himself!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Dustin P.",
@@ -136,6 +146,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "We’ve used this cleaning company for the past five years to keep our store clean and looking great, and they’ve been fantastic to work with. They’re consistent, reliable, and always go the extra mile to make sure everything looks professional. We’re really grateful for their hard work and partnership over the years. Highly recommend!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "Shawna J.",
@@ -145,6 +156,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Highly recommend Imperial for your commercial cleaning needs. The owner and crew offer top notch service and work diligently and quickly to address any concerns our office has had. They have been great to work with for several years and I can't say enough good things about them :)",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "Farrell H.",
@@ -154,6 +166,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Super impressed with Francisco's professional service. His crew made little work and worry out of the job. They even came in under budget! Highly recommended for commercial services.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "Andy L.",
@@ -163,6 +176,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Francisco and his staff are a great service they worked around my subs and long weekend hours so that I was able to complete the project on time and receive a CO for are customer thanks guys",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "CJ D.",
@@ -172,6 +186,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Imperial Cleaning did an amazing job! I bought a new house and the builder didn’t clean up after construction. I had tried cleaning up myself and also hired house cleaning service but the job seemed insurmountable. A few broken vacuums and lots of frustration later, a came across Imperial Cleaning and they took care of everything and made it look easy. They paid attention to every detail during the cleaning process and even scheduling and having my questions answers was such a breeze as Fernando was so patient and accommodating. Highly recommend, a hundred percent!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Office Manager",
@@ -181,6 +196,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "We are lucky to work with a great partner such as Imperial Cleaning. They do a wonderful job with our building. If there is ever a need it's easy to get ahold of Francisco or a team member and they respond timely.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "McKenna K.",
@@ -199,6 +215,8 @@ export const verifiedReviews: VerifiedReview[] = [
       "Imperial Cleaning serviced our fitness center. They do a fantastic job at explaining their process and will provide consistent, quality service. Would recommend to any companies/families/offices in southeast Idaho.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
+    mentionedRegion: "eastern-idaho",
   },
   {
     author: "Gregory S.",
@@ -226,6 +244,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Francisco and his team at Imperial Cleaning have continued to provide our clinic with a clean space for us to work! We enjoy their responsiveness and attention to detail.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "Brent T.",
@@ -253,6 +272,8 @@ export const verifiedReviews: VerifiedReview[] = [
       "I work for a commercial general contractor Okland Construction, we’ve used Imperial on various big projects in Idaho falls, both were short notice to get them on. They manned up right away and got it done quickly to meet our schedule, but also did a quality job. We’ve had multiple owners very pleased with how clean we turn the buildings over. Fransisco is very organized, and structured with his crews. Very pleased with Imperial, we will definitely use them on future projects!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedCities: ["Idaho Falls"],
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Chris E.",
@@ -262,6 +283,8 @@ export const verifiedReviews: VerifiedReview[] = [
       "Bateman-Hall project for new ICCU Shelley branch. Imperial Cleaning did a great job. Easy to work with and went above and beyond what I expected.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedCities: ["Shelley"],
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Shawn F.",
@@ -289,6 +312,8 @@ export const verifiedReviews: VerifiedReview[] = [
       "On behalf of Bateman Hall Inc we can’t say enough good things about Imperial Cleaning Inc. Francisco, and his staff of cleaning professionals are incredibly hard working, super productive , courteous and detail oriented. They performed a monumental task construction cleaning and final cleaning the newly opened Mountain America Center and Hero Arena. ICI is the best in the business.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedCities: ["Idaho Falls"],
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Deb M.",
@@ -307,6 +332,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "This company has cleaned my office building for years. They are thorough and reliable. They are always friendly and efficient and any issues received attention immediately. They are conscientious about doing a great job and they do!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "Cody C.",
@@ -343,6 +369,8 @@ export const verifiedReviews: VerifiedReview[] = [
       "Francisco and his cleaning crew did an outstanding job cleaning in our office. They were professional and timely in their efforts and I was truly impressed with their standards of care and quality. I would be happy to recommend them in all future jobs and endeavors. Christine Clark, Idaho Falls Clinic.",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedCities: ["Idaho Falls"],
+    mentionedServices: ["commercial-cleaning"],
   },
   {
     author: "Jordan S.",
@@ -361,6 +389,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "By far the best cleaning company that I have ever used! We had completely remodeled the inside of our house which left a thick layer of construction dust over everything, ceiling to floor! Imperial Cleaning went above and beyond my expectations in cleaning every inch of the house, and I couldn’t be more pleased with how sparkling clean the house was left. The owner, Francisco, was quick and easy to correspond with. Would highly recommend them for any of your cleaning needs!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Travis S.",
@@ -406,6 +435,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "We use Imperial Cleaning for our office buildings. Francisco is very attentive to our needs. His crew is very dependable and we have been very happy with their work. They did construction cleaning when we were finishing a new building and they did great at that as well. We highly recommend them!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning", "construction-cleaning"],
   },
   {
     author: "Shayla P.",
@@ -415,6 +445,7 @@ export const verifiedReviews: VerifiedReview[] = [
       "Imperial Cleaning did such an amazing job cleaning my new home we built before we moved in! There was SO much construction dust and dirt and now it is sparkling clean! They took the time to clean out each and every crevasse in my kitchen and bathroom cabinets! Very impressed with the attention to detail!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["construction-cleaning"],
   },
   {
     author: "Ann Michelle C.",
@@ -424,5 +455,46 @@ export const verifiedReviews: VerifiedReview[] = [
       "I highly recommend Imperial Cleaning! We have been using Francisco and his team to clean our buildings for over five years. They do the same awesome work today as they did the first day we hired them. They are professional, thorough and take pride in their work. Francisco stops in frequently to check on things and ensure we are satisfied with their service. If we have ever had a concern, it only takes one call and he takes care of it immediately. We have used several cleaning companies over the years and Imperial Cleaning Service is by far the best!",
     source: "Google",
     sourceUrl: GOOGLE_LISTING_URL,
+    mentionedServices: ["commercial-cleaning"],
   },
 ];
+
+const EASTERN_IDAHO_CITIES = new Set([
+  "Idaho Falls",
+  "Ammon",
+  "Pocatello",
+  "Rexburg",
+  "Blackfoot",
+  "Shelley",
+  "Rigby",
+  "Chubbuck",
+]);
+
+/** Reviews that name this city, or name southeast Idaho when the city is in that region. */
+export function reviewsForCity(
+  city: string,
+  service?: "construction-cleaning" | "commercial-cleaning",
+  limit = 3
+): VerifiedReview[] {
+  return verifiedReviews
+    .filter((review) => {
+      const cityMatch = review.mentionedCities?.includes(city);
+      const regionMatch = review.mentionedRegion === "eastern-idaho" && EASTERN_IDAHO_CITIES.has(city);
+      if (!cityMatch && !regionMatch) return false;
+      if (service && review.mentionedServices && !review.mentionedServices.includes(service)) {
+        return false;
+      }
+      return true;
+    })
+    .slice(0, limit);
+}
+
+/** Reviews that name this service in the verbatim text. Used when a city has no named quotes. */
+export function reviewsForService(
+  service: "construction-cleaning" | "commercial-cleaning",
+  limit = 3
+): VerifiedReview[] {
+  return verifiedReviews
+    .filter((review) => review.mentionedServices?.includes(service))
+    .slice(0, limit);
+}

@@ -6,7 +6,7 @@ import { industries } from "@/data/industries";
 
 // Stable lastModified so the sitemap doesn't report every URL as changed on every
 // build (which dilutes the signal). Bump this date when content is meaningfully updated.
-const LAST_UPDATED = new Date("2026-08-28");
+const LAST_UPDATED = new Date("2026-09-01");
 
 // City-page priority by market tier, so primary markets carry more weight than
 // extended/sparse markets rather than all sitting at a flat 0.7.

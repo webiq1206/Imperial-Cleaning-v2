@@ -298,6 +298,7 @@ function PageSuccessScreen({ name, phone, onReset }: { name: string; phone: stri
           "We review your project details",
           "We call you to confirm scope and answer questions",
           "You receive a written quote within 24 hours",
+          "Certificates of insurance are available on request once scope is confirmed",
         ].map((step, i) => (
           <div key={i} className="flex items-start gap-3">
             <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
@@ -315,6 +316,13 @@ function PageSuccessScreen({ name, phone, onReset }: { name: string; phone: stri
           <Phone className="w-4 h-4" />
           Call (208) 520-3202
         </a>
+        <Link
+          href="/reviews"
+          className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 border border-border bg-card text-muted-foreground rounded-full hover:text-foreground hover:border-border/80 transition-colors text-sm"
+          data-testid="link-success-reviews"
+        >
+          Read customer reviews
+        </Link>
         <Link
           href="/"
           className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 border border-border bg-card text-muted-foreground rounded-full hover:text-foreground hover:border-border/80 transition-colors text-sm"
@@ -351,7 +359,14 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
     phone: "",
     service: "",
     location: "",
-    message: ""
+    message: "",
+    facilityType: "",
+    squareFootage: "",
+    frequency: "",
+    startDate: "",
+    projectPhase: "",
+    currentVendor: "",
+    multipleLocations: "",
   });
   // Quick callback (phone-only fast path)
   const [cbPhone, setCbPhone] = useState("");
@@ -446,7 +461,7 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
           phone: cbPhone,
           service: "callback",
           location: "To be confirmed",
-          message: "Quick callback request — no additional details provided",
+          message: "Quick callback request. No additional details provided.",
         }),
       });
       onSubmitComplete("", cbPhone);
@@ -505,7 +520,7 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
           </div>
           {/* Quick callback fast path */}
           <div className="mt-2 pt-5 border-t border-border/40">
-            <p className="text-sm font-medium text-foreground mb-3">Or just leave your number — we'll call you</p>
+            <p className="text-sm font-medium text-foreground mb-3">Or just leave your number and we will call you</p>
             <div className="flex gap-2">
               <input
                 type="tel"
@@ -541,8 +556,10 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
               {(
                 [
                   { value: "construction", label: "Construction Cleaning", desc: "Post-construction cleanup and debris removal" },
-                  { value: "commercial", label: "Commercial Cleaning", desc: "Offices, facilities, and ongoing maintenance" },
-                  { value: "both", label: "Both Services", desc: "Complete cleaning solutions for all your needs" },
+                  { value: "commercial", label: "Commercial / Janitorial", desc: "Recurring office and facility maintenance" },
+                  { value: "office", label: "Office Cleaning", desc: "Workstations, conference rooms, and restrooms" },
+                  { value: "medical", label: "Medical Office Cleaning", desc: "Clinics, dental, and clinical environments" },
+                  { value: "both", label: "Both Commercial and Construction", desc: "Recurring service plus project cleanup" },
                 ] as const
               ).map((opt) => (
                 <button
@@ -604,10 +621,117 @@ function ContactFormSurvey({ onSubmitComplete }: ContactFormSurveyProps) {
               data-testid="input-company"
             />
           </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm text-muted-foreground mb-2">Facility type <span className="text-xs">(optional)</span></label>
+              <select
+                value={formData.facilityType}
+                onChange={(e) => set("facilityType", e.target.value)}
+                className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-base"
+                data-testid="input-facility-type"
+              >
+                <option value="">Select one</option>
+                <option value="office">Office</option>
+                <option value="medical">Medical / dental</option>
+                <option value="school">School / education</option>
+                <option value="restaurant">Restaurant / food service</option>
+                <option value="dealership">Car dealership</option>
+                <option value="warehouse">Warehouse / industrial</option>
+                <option value="property">Property management / multi-site</option>
+                <option value="construction">Construction project</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm text-muted-foreground mb-2">Approximate square footage <span className="text-xs">(optional)</span></label>
+              <input
+                type="text"
+                placeholder="e.g. 8,000"
+                value={formData.squareFootage}
+                onChange={(e) => set("squareFootage", e.target.value)}
+                className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-base"
+                data-testid="input-square-footage"
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-muted-foreground mb-2">Desired frequency <span className="text-xs">(optional)</span></label>
+              <select
+                value={formData.frequency}
+                onChange={(e) => set("frequency", e.target.value)}
+                className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-base"
+                data-testid="input-frequency"
+              >
+                <option value="">Select one</option>
+                <option value="nightly">Nightly</option>
+                <option value="weekly">Weekly</option>
+                <option value="custom">Custom / a few times per week</option>
+                <option value="one-time">One-time project</option>
+                <option value="construction-phase">Construction phase (rough / final / touch-up)</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm text-muted-foreground mb-2">Desired start date <span className="text-xs">(optional)</span></label>
+              <input
+                type="text"
+                placeholder="e.g. October 1 or ASAP"
+                value={formData.startDate}
+                onChange={(e) => set("startDate", e.target.value)}
+                className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-base"
+                data-testid="input-start-date"
+              />
+            </div>
+          </div>
+          {formData.service === "construction" && (
+            <div>
+              <label className="block text-sm text-muted-foreground mb-2">Construction phase needed <span className="text-xs">(optional)</span></label>
+              <select
+                value={formData.projectPhase}
+                onChange={(e) => set("projectPhase", e.target.value)}
+                className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-base"
+                data-testid="input-project-phase"
+              >
+                <option value="">Select one</option>
+                <option value="rough">Rough clean</option>
+                <option value="final">Final clean</option>
+                <option value="touch-up">Touch-up / punch list</option>
+                <option value="all-phases">All three phases</option>
+              </select>
+            </div>
+          )}
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm text-muted-foreground mb-2">Current vendor status <span className="text-xs">(optional)</span></label>
+              <select
+                value={formData.currentVendor}
+                onChange={(e) => set("currentVendor", e.target.value)}
+                className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-base"
+                data-testid="input-current-vendor"
+              >
+                <option value="">Select one</option>
+                <option value="none">No current vendor</option>
+                <option value="switching">Looking to switch</option>
+                <option value="adding">Adding a second site or service</option>
+                <option value="project-only">Project only</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm text-muted-foreground mb-2">Multiple locations? <span className="text-xs">(optional)</span></label>
+              <select
+                value={formData.multipleLocations}
+                onChange={(e) => set("multipleLocations", e.target.value)}
+                className="w-full p-4 border border-border bg-input rounded-lg focus:border-primary focus:outline-none transition-colors text-base"
+                data-testid="input-multiple-locations"
+              >
+                <option value="">Select one</option>
+                <option value="one">One location</option>
+                <option value="multi">Multiple locations</option>
+              </select>
+            </div>
+          </div>
           <div>
             <label className="block text-sm text-muted-foreground mb-2">Project details <span className="text-xs">(optional)</span></label>
             <textarea
-              placeholder="Tell us about your project — size, timeline, anything helpful..."
+              placeholder="Size, timeline, floor types, restrooms, special requirements..."
               value={formData.message}
               onChange={(e) => set("message", e.target.value)}
               rows={3}
