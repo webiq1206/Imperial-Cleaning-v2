@@ -56,9 +56,12 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: SOCIAL_AGENTS,
         allow: "/",
       },
-      // Aggressive SEO scrapers that add server load without user benefit.
+      // SemrushBot adds server load without user benefit and is blocked.
+      // AhrefsBot is deliberately NOT listed: the owner uses Ahrefs, and
+      // blocking its crawler here meant Ahrefs could not audit this site or
+      // show its own backlink data. It now falls under the wildcard allow.
       {
-        userAgent: ["SemrushBot", "AhrefsBot"],
+        userAgent: ["SemrushBot"],
         disallow: "/",
       },
     ],
