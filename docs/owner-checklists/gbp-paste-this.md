@@ -71,6 +71,23 @@ Where price genuinely helps, these figures are published on the website and are 
 
 Link each service to the matching page on the website where one exists: /construction-cleaning, /commercial-cleaning, /medical-office-cleaning, /restaurant-cleaning-services, /school-cleaning-services, /car-dealership-cleaning, and the cost guide at /resources/post-construction-cleaning-cost.
 
+## Phase 3b — Products
+
+Products are a separate surface from Services and render as tappable tiles with
+a photo, price, and link. The profile currently has none.
+
+All 37 are written and ready to paste in `gbp-products-catalog.md` — name,
+category, price, link, photo brief, and a 650–950 character description each.
+Work from that file rather than improvising: the names fit the 58-character
+limit, the prices are only ones already published on the website, and every
+entry links back to a real page.
+
+Two things that file insists on and this one repeats because they cause
+rejections: add them in the order listed (construction first — the profile
+surfaces the earliest entries most prominently), and use real photos at
+1200 × 1200. A stock image or an AI render with text baked in is the fastest
+way to get a product rejected.
+
 ## Phase 4 — Service areas
 
 Set the service area to exactly these 24 cities and no others. Claiming areas the company does not serve is both a suspension risk and the reason it is currently drawing worthless impressions from north Idaho.

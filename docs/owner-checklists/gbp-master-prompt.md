@@ -4,22 +4,29 @@ Paste everything below the line into a **local** Claude Code session (one with r
 browser access and where you are signed into the Google account that owns the
 listing). It is self-contained: it assumes no prior conversation.
 
-## Relationship to `gbp-optimization.md`
+## Relationship to the other Business Profile documents
 
-`gbp-optimization.md` in this folder is the **human** checklist for the same profile.
-This file is the **agent** brief: same goal, written to be executed by Claude Code
-driving a browser. Keep both, but where they disagree this file is newer and correct:
+This file is the **agent** brief: written to be executed by Claude Code driving a
+browser, signed in as the profile owner. The others are for a human working the
+editor by hand.
 
-- The earlier checklist predates the discovery that the profile is **not discoverable
-  in Google's Places index at all** — by name, address, or phone. Fixing that comes
-  before any optimization, and is Phase 1 here.
-- It lists 18 service areas; the real coverage is **24 cities** (it omits Caldwell,
-  Eagle, West Valley City, Sandy, Orem, and Layton).
-- It suggests `House cleaning service` as a secondary category. This is a commercial
-  and construction cleaner; that category invites residential leads the business does
-  not want and muddies the primary category signal.
-- It points at `business.google.com`. Google retired that dashboard for
-  single-location businesses; management now happens through Search and Maps.
+- `gbp-paste-this.md` — the same work as a paste-ready human checklist. Setup
+  fields (categories, hours, description, service areas, Services) are
+  authoritative there and here; the two are kept in sync.
+- `gbp-products-catalog.md` — the 37 Products, authoritative for product names,
+  categories, prices, links, and copy.
+- `gbp-optimization.md` — recurring upkeep only: photos, Posts, Q&A, review
+  replies, monthly maintenance.
+
+Reconciled 2026-09-06. An earlier version of this section listed four ways
+`gbp-optimization.md` contradicted this file — 18 service areas instead of 24,
+`House cleaning service` as a secondary category, a `business.google.com` link,
+and no awareness of the Places-index problem. All four are fixed; that document
+no longer restates setup fields at all.
+
+**Phase 1 still comes first.** The profile is not discoverable in Google's
+Places index — not by name, address, or phone. Every optimization phase is
+wasted effort until that is resolved.
 
 ---
 
@@ -175,6 +182,21 @@ Link each service to the matching page on the website where one exists:
 `/restaurant-cleaning-services`, `/school-cleaning-services`,
 `/car-dealership-cleaning`, and the cost guide at
 `/resources/post-construction-cleaning-cost`.
+
+## Phase 3b — Products
+
+Products are a separate surface from Services: tappable tiles with a photo,
+price, and link. The profile has none.
+
+Read `gbp-products-catalog.md` in this folder and create all 37 products from
+it, in the order listed. Do not improvise names, prices, or copy — that file is
+authoritative, its prices are only ones already published on the website, and
+its names already fit the 58-character limit.
+
+Every product needs a photo at 1200 × 1200 minimum. **Stop and ask me for
+photos rather than sourcing any image yourself** — no stock, no AI renders, no
+images pulled from the website's own pages unless I confirm each one. Create the
+products whose photos I supply and report which are left waiting on a photo.
 
 ## Phase 4 — Service areas
 
