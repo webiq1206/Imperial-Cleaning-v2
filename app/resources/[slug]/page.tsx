@@ -6,6 +6,7 @@ import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import RelatedContent from "@/components/shared/related-content";
 import { guides, getGuideBySlug } from "@/data/guides";
+import PreferredSourceButton from "@/components/preferred-source-button";
 
 interface GuidePageProps {
   params: { slug: string };
@@ -201,6 +202,17 @@ export default function GuidePage({ params }: GuidePageProps) {
                 ))}
               </div>
             </section>
+          </div>
+
+          {/* Google Preferred Sources. Placed after the article body: it asks the
+              reader to commit to the site, which only makes sense once they
+              have read something. */}
+          <div className="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row sm:items-center gap-4">
+            <p className="text-sm text-muted-foreground flex-1">
+              Find this useful? Add Imperial Cleaning Inc as a preferred source
+              in Google to see our guides more often.
+            </p>
+            <PreferredSourceButton className="flex-shrink-0" />
           </div>
 
           {/* CTA */}

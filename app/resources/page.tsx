@@ -5,6 +5,7 @@ import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import RelatedContent from "@/components/shared/related-content";
 import { guides } from "@/data/guides";
+import PreferredSourceButton from "@/components/preferred-source-button";
 
 export const metadata: Metadata = {
   title: { absolute: "Cleaning Resources & Guides | Imperial Cleaning Inc" },
@@ -90,6 +91,10 @@ export default function ResourcesHubPage() {
             Clear, practical answers about post-construction cleanup, commercial cleaning, and what
             drives the cost - from the Imperial Cleaning team serving Idaho and Utah.
           </p>
+          {/* Google Preferred Sources. The resource index is the one page whose
+              whole purpose is "we publish guides", so the ask fits above the fold
+              here in a way it would not on a service page. */}
+          <PreferredSourceButton className="mt-8 flex justify-center" />
         </div>
       </section>
 
