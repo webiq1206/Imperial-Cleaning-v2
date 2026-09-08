@@ -18,29 +18,88 @@ These are verified against the Google listing, the live website's structured dat
 
 Existing profiles, for consistency: Facebook /imperialcleaninginc, Instagram /imperialcleaninginc, LinkedIn /company/imperial-cleaning-inc, Yelp imperial-cleaning-idaho-falls-3, Porch (5.0, 26 reviews), BestProsInTown (34 reviews).
 
-## The diagnosis you are inheriting
+## The state of the profile — verified 2026-09-08
 
-Probes against Google's own Places API, run four times, all returned the same thing:
+Re-probed against Google's Places API. **The profile is live and healthy.** An
+earlier version of this document said it was missing from the index. That was
+wrong, and the error is worth understanding so it is not repeated: the Places
+API **excludes pure service-area businesses from text search by default**
+(`includePureServiceAreaBusinesses` defaults to false). Searching the name and
+address returned competitors and not this business because the API was filtering
+it out, not because Google had lost it.
 
-- Searching the exact business name plus exact address returns Imperial Cleaners LLC (an unrelated dry cleaner) and Royal Imperial Cleaning. Not this business.
-- Searching the phone number returns zero results for this business.
-- Autocomplete on the full business name returns a completely empty response.
-- Eleven competitors return normally for "commercial cleaning Idaho Falls", so the index itself is healthy.
-- The owner's share link does open the profile.
+Queried with that flag on, the profile resolves immediately:
 
-A profile that opens by direct link but returns nothing on its own name-and-address search is not published to the index. Relevant context: the company's website was previously compromised and served injected gambling spam for months, which can trigger a profile suspension because Google associates profiles with their websites. That site has since been rebuilt on a new stack, the injected pages are gone, and the old hosting account has been deleted.
+| Field | Value on the profile | Matches the site? |
+|---|---|---|
+| Place ID | `ChIJpafCyllbVFMRog7P3zscyNo` | — |
+| Name | Imperial Cleaning Inc | yes, and not keyword-stuffed |
+| Phone | (208) 520-3202 | yes |
+| Website | https://imperialcleaninginc.com/ | yes |
+| Hours | Mon–Fri 8–5, Sat 9–1, Sun closed | exactly matches `data/business-info.ts` |
+| Rating | 5.0 from 42 reviews | exactly matches `data/reviews.ts` |
+| Status | OPERATIONAL | — |
 
-## Phase 1 — Restore visibility
+So there is no suspension, no verification gap, no duplicate, and no NAP
+mismatch to repair. Those were the four things the old Phase 1 sent you to
+check, and all four are clean.
 
-Open the profile as the owner. Google retired the standalone dashboard for single-location businesses, so sign in to the owning Google account, search "my business" on Google, and open the profile panel. Report which of these four states you find, then act.
+## The real constraint
 
-1. Unverified (a "Verify now" banner or verification prompt). Most likely, and it matches every symptom. Start verification. For a service-area business, video verification is usually offered and is fastest. Tell me what the recording needs to show before I record it — typically signage or a branded vehicle, equipment and supplies, something establishing the Clarence Pl location, and proof of management such as a bill, keys, or a business licence. It must be one unbroken take; cuts are the most common rejection reason.
+`pureServiceAreaBusiness: true`. The profile hides its address, so it has no map
+pin.
 
-2. Suspended or disabled. Do not create a second profile — that compounds it. Draft the reinstatement appeal for my review. Supporting documents: Idaho business registration, certificate of insurance, a utility bill at 2653 Clarence Pl, photos of signage and vehicles. State plainly in the notes that the website was compromised, has been rebuilt, the injected pages are gone, and the old hosting account is deleted.
+It does not appear in Places results for `commercial cleaning service Idaho
+Falls ID` or `post construction cleaning Idaho Falls ID`. Both returned 13
+competitors. **Every single one of them has a physical street address.**
 
-3. Duplicate or merged. Search Maps for the address and for the phone number. If a second listing exists under any name — including anything left by a previous agency — report it as a duplicate rather than deleting the primary. Watch specifically for conflation with Imperial Cleaners LLC, a dry cleaner about two miles away with 93 reviews that is already absorbing this company's brand searches.
+The local pack ranks primarily on proximity to a pin. A business with no
+displayed address has nothing to be near, which is the structural reason a pure
+SAB underperforms against addressed competitors in its own city.
 
-4. Verified and published and apparently normal. Then it is soft-suppressed. Use the in-profile Support option and ask directly why the listing does not return for its own name and address while competitors return normally for the same category.
+One thing this evidence cannot tell you, and the earlier version got wrong by
+assuming otherwise: **API absence is not proof of map-pack absence.** The API
+structurally excludes pure SABs from text search, so it cannot measure where
+this profile ranks in the live local pack. That has to be checked in a browser,
+signed out, from an Idaho Falls location.
+
+A category problem was also considered and ruled out: `primaryType` is
+`service` / "Services", but so is every ranking competitor's, including Diamond
+Post Construction Cleaning, which ranks second for post-construction. Generic
+`primaryType` is how the API reports this whole category. It is not the issue.
+
+## Phase 1 — Confirm state, then make the address decision
+
+The profile is verified, published, and correct (see the table above). Phase 1
+is no longer a recovery task. Do not file a reinstatement appeal, do not start
+re-verification, and do not contact Support about suppression — there is no
+suspension to appeal, and opening a support case about a healthy profile invites
+a review you do not need.
+
+Two things to do instead.
+
+**1. Confirm the map-pack position with your own eyes.** Signed out, from Idaho
+Falls, search `commercial cleaning idaho falls` and `post construction cleaning
+idaho falls`. Note whether Imperial appears in the three-result map pack, below
+it in the local finder, or not at all. This is the measurement the API cannot
+give us. Everything below depends on the answer.
+
+**2. Decide whether to display the address.** This is the highest-leverage
+change available on the profile, and it is a genuine business decision rather
+than a settings fix.
+
+- Displaying 2653 Clarence Pl gives the profile a pin, which is what the pack
+  ranks on. It also makes the address public.
+- Google's rule is that a displayed address must be staffed during stated
+  business hours. If Clarence Pl is a residence that is not staffed, displaying
+  it is a suspension risk, and hiding it stays correct.
+- Never rent a virtual office or coworking address to manufacture a pin. Those
+  are detected and suspended, and a suspension on a clean 5.0 profile with 42
+  reviews would cost far more than the pack position is worth.
+
+If the address cannot be displayed, accept that the Idaho Falls pack is
+structurally hard, and put the effort into the organic city pages and reviews
+instead — which is where this site already ranks and already converts.
 
 ## Phase 2 — Core profile fields
 
