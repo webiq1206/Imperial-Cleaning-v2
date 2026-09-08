@@ -7,7 +7,7 @@ channel = "stable-24_05"
 
 [deployment]
 deploymentTarget = "autoscale"
-build = ["npm", "run", "build"]
+build = ["sh", "-c", "npm run build && (npm run indexnow || true)"]
 run = ["npm", "run", "start"]
 
 [[ports]]
@@ -38,7 +38,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node scripts/submit-indexnow.mjs && npm run dev"
+args = "npm run dev"
 waitForPort = 5000
 
 [workflows.workflow.metadata]
