@@ -1,12 +1,7 @@
 import { Metadata } from "next";
 import HeroSection from "@/components/hero-section";
 import HomeClient from "@/components/pages/home-client";
-import FeaturesSection from "@/components/features-section";
-import PartnersSection from "@/components/partners-section";
-import ServiceAreasSection from "@/components/service-areas-section";
-import ReviewsSection from "@/components/reviews-section";
 import { StructuredData } from "@/components/structured-data";
-import RelatedContent from "@/components/shared/related-content";
 import { homeFaqs } from "@/data/home-faqs";
 
 
@@ -91,18 +86,8 @@ export default function HomePage() {
     <>
       <StructuredData data={[webPageSchema, faqSchema, breadcrumbSchema]} />
       <HeroSection imageAlt="Imperial Cleaning Inc - Idaho Falls Commercial & Construction Cleaning Services Serving Idaho and Utah" />
-      <HomeClient
-        featuresSection={<FeaturesSection />}
-        partnersSection={<PartnersSection />}
-        serviceAreasSection={<ServiceAreasSection />}
-        reviewsSection={<ReviewsSection />}
-      />
-      <RelatedContent
-        pageUrl="/"
-        heading="Explore Imperial Cleaning"
-        description="Jump straight to our services, service areas, or get a free quote."
-        limit={5}
-      />
+      <HomeClient />
     </>
   );
 }
+

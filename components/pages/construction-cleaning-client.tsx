@@ -134,6 +134,7 @@ export default function ConstructionCleaningClient() {
           onClick: () => setShowContactForm(true)
         }}
       />
+      <nav className="jump-links" aria-label="On this page"><a href="#cleaning-phases">Cleaning phases</a><a href="#industries">Project types</a><a href="#faq">Common questions</a></nav>
 
       <AnswerBlock
         className="pt-14"
@@ -148,7 +149,7 @@ export default function ConstructionCleaningClient() {
       />
 
       {/* Comprehensive Service Overview */}
-      <section className="py-24 px-4">
+      <section id="overview" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Comprehensive Construction Cleanup Services</h2>
@@ -238,7 +239,7 @@ export default function ConstructionCleaningClient() {
       </section>
 
       {/* 3-Phase Process */}
-      <section className="py-24 px-4 bg-card/50">
+      <section id="cleaning-phases" className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Our 3-Phase Construction Cleanup Process</h2>
@@ -309,7 +310,7 @@ export default function ConstructionCleaningClient() {
       </section>
 
       {/* Industries Served */}
-      <section className="py-24 px-4">
+      <section id="industries" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Industries We Serve</h2>
@@ -374,7 +375,7 @@ export default function ConstructionCleaningClient() {
       />
 
       {/* FAQ Section */}
-      <section className="py-24 px-4">
+      <section id="faq" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Construction Cleanup FAQ</h2>
@@ -457,7 +458,7 @@ export default function ConstructionCleaningClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
+      <section id="quote" className="py-24 px-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
         <div className="max-w-4xl mx-auto text-center">
           <div className="glass-card-elevated sophisticated-glow p-12 rounded-lg">
             <h2 className="text-3xl lg:text-4xl mb-6 tracking-tight text-foreground">
@@ -493,3 +494,4 @@ export default function ConstructionCleaningClient() {
     </>
   );
 }
+

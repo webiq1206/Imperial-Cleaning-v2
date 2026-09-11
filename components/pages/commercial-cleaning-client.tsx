@@ -130,10 +130,11 @@ export default function CommercialCleaningClient() {
         pillText="Licensed & Insured • Professional Service"
         imageAlt="Commercial Cleaning Services Across Idaho & Utah | Imperial Cleaning Inc"
         primaryCTA={{
-          text: "Schedule Walkthrough",
+          text: "Get a free quote",
           onClick: () => setShowContactForm(true)
         }}
       />
+      <nav className="jump-links" aria-label="On this page"><a href="#cleaning-services">What’s included</a><a href="#industries">Industries</a><a href="#faq">Common questions</a></nav>
 
       <AnswerBlock
         className="pt-14"
@@ -148,7 +149,7 @@ export default function CommercialCleaningClient() {
       />
 
       {/* Comprehensive Service Overview */}
-      <section className="py-24 px-4">
+      <section id="overview" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Professional Commercial Cleaning Services</h2>
@@ -238,7 +239,7 @@ export default function CommercialCleaningClient() {
       </section>
 
       {/* Service Offerings */}
-      <section className="py-24 px-4 bg-card/30">
+      <section id="cleaning-services" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Complete Commercial Cleaning Solutions</h2>
@@ -349,7 +350,7 @@ export default function CommercialCleaningClient() {
       </section>
 
       {/* Industries Served */}
-      <section className="py-24 px-4">
+      <section id="industries" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Industries We Serve</h2>
@@ -430,7 +431,7 @@ export default function CommercialCleaningClient() {
       />
 
       {/* FAQ Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section id="faq" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">Commercial Cleaning FAQ</h2>
@@ -513,7 +514,7 @@ export default function CommercialCleaningClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
+      <section id="quote" className="py-24 px-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
         <div className="max-w-4xl mx-auto text-center">
           <div className="glass-card-elevated sophisticated-glow p-12 rounded-lg">
             <h2 className="text-3xl lg:text-4xl mb-6 tracking-tight text-foreground">
@@ -549,3 +550,4 @@ export default function CommercialCleaningClient() {
     </>
   );
 }
+

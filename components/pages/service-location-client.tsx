@@ -116,6 +116,7 @@ export default function ServiceLocationClient({
           onClick: () => setShowContactForm(true)
         }}
       />
+      <nav className="jump-links" aria-label="On this page"><a href="#cleaning-services">What’s included</a><a href="#our-process">Our process</a><a href="#coverage">Local coverage</a><a href="#faq">Questions</a></nav>
 
       <AnswerBlock
         className="pt-14"
@@ -125,7 +126,7 @@ export default function ServiceLocationClient({
       />
 
       {/* Service Introduction */}
-      <section className="py-24 px-4">
+      <section id="overview" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -205,7 +206,7 @@ export default function ServiceLocationClient({
       </section>
 
       {/* Market Overview */}
-      <section className="py-24 px-4 bg-card/30">
+      <section id="local-market" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -232,7 +233,7 @@ export default function ServiceLocationClient({
       </section>
 
       {/* Services Offered */}
-      <section className="py-24 px-4 bg-card/30">
+      <section id="cleaning-services" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">
@@ -264,7 +265,7 @@ export default function ServiceLocationClient({
       </section>
 
       {/* Local Challenges */}
-      <section className="py-24 px-4">
+      <section id="local-challenges" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -290,7 +291,7 @@ export default function ServiceLocationClient({
       </section>
 
       {/* Local Solutions */}
-      <section className="py-24 px-4 bg-card/30">
+      <section id="local-solutions" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -319,7 +320,7 @@ export default function ServiceLocationClient({
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-4">
+      <section id="why-imperial" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -352,7 +353,7 @@ export default function ServiceLocationClient({
       </section>
 
       {/* Our Process in {city} */}
-      <section className="py-24 px-4 bg-card/30">
+      <section id="our-process" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -385,7 +386,7 @@ export default function ServiceLocationClient({
 
       {/* Industry Applications in {city} */}
       {industryApplications.industries.length > 0 && (
-        <section className="py-24 px-4">
+        <section id="industries" className="py-24 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 mb-4">
@@ -423,7 +424,7 @@ export default function ServiceLocationClient({
       )}
 
       {/* Coverage in {city} */}
-      <section className="py-24 px-4 bg-card/30">
+      <section id="coverage" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -497,7 +498,7 @@ export default function ServiceLocationClient({
       />
 
       {/* FAQ Section */}
-      <section className="py-24 px-4">
+      <section id="faq" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">
@@ -526,7 +527,7 @@ export default function ServiceLocationClient({
       </section>
 
       {/* Nearby cities + complementary service (geo-proximity links) */}
-      <section className="px-4">
+      <section id="related" className="px-4">
         <div className="max-w-7xl mx-auto">
           <RelatedLinks currentService={serviceType} location={location} />
         </div>
@@ -540,7 +541,7 @@ export default function ServiceLocationClient({
       />
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
+      <section id="quote" className="py-24 px-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
         <div className="max-w-4xl mx-auto text-center">
           <div className="glass-card-elevated sophisticated-glow p-12 rounded-lg">
             <h2 className="text-3xl lg:text-4xl mb-6 tracking-tight text-foreground">
@@ -576,3 +577,4 @@ export default function ServiceLocationClient({
     </>
   );
 }
+

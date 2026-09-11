@@ -159,9 +159,11 @@ export default function GuidePage({ params }: GuidePageProps) {
             </p>
           </header>
 
+          <nav className="article-toc" aria-label="In this guide"><strong>In this guide</strong><ul>{guide.sections.map((section, i) => <li key={section.heading}><a href={`#section-${i}`}>{section.heading}</a></li>)}</ul></nav>
+
           <div className="space-y-10">
-            {guide.sections.map((section) => (
-              <section key={section.heading}>
+            {guide.sections.map((section, sectionIndex) => (
+              <section key={section.heading} id={`section-${sectionIndex}`}>
                 <h2 className="text-2xl text-foreground mb-4">{section.heading}</h2>
                 <div className="space-y-4">
                   {section.body.map((para, i) => (
@@ -260,3 +262,4 @@ export default function GuidePage({ params }: GuidePageProps) {
     </>
   );
 }
+

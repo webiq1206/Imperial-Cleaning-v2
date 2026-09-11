@@ -130,7 +130,7 @@ export default function ServiceAreasIdahoClient() {
           <Breadcrumbs
             includeStructuredData={false}
             items={[
-              { name: "Service Areas", href: "/#service-areas" },
+              { name: "Service Areas", href: "/service-areas" },
               { name: "Idaho Locations" }
             ]}
           />
@@ -147,86 +147,10 @@ export default function ServiceAreasIdahoClient() {
           onClick: () => setShowContactForm(true)
         }}
       />
-
-      {/* Market Overview Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-primary/5 to-primary/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl mb-6 text-foreground">Eastern Idaho Market Overview</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-              Imperial Cleaning Inc. is headquartered in Idaho Falls, positioned at the heart of Eastern Idaho&apos;s diverse industrial landscape.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="resend-card p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <Atom className="w-5 h-5 text-blue-500" />
-                </div>
-                <h3 className="text-xl text-foreground">Nuclear & Research</h3>
-              </div>
-              <p className="text-muted-foreground text-sm mb-4">
-                Idaho National Laboratory (INL) represents one of the nation&apos;s premier nuclear research facilities.
-              </p>
-            </div>
-
-            <div className="resend-card p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <HeartPulse className="w-5 h-5 text-green-500" />
-                </div>
-                <h3 className="text-xl text-foreground">Healthcare & Medical</h3>
-              </div>
-              <p className="text-muted-foreground text-sm mb-4">
-                Eastern Idaho Regional Medical Center, Portneuf Medical Center, and numerous healthcare facilities.
-              </p>
-            </div>
-
-            <div className="resend-card p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
-                  <Factory className="w-5 h-5 text-orange-500" />
-                </div>
-                <h3 className="text-xl text-foreground">Food Processing & Agriculture</h3>
-              </div>
-              <p className="text-muted-foreground text-sm mb-4">
-                Magic Valley food processing (Chobani, Clif Bar) and Eastern Idaho&apos;s agricultural sector.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-xl p-8">
-            <h3 className="text-2xl mb-6 text-foreground text-center">Response Time Commitments</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4">
-                  <Zap className="w-6 h-6 text-green-500" />
-                </div>
-                <h4 className="text-lg mb-2 text-foreground">Idaho Falls & Pocatello</h4>
-                <p className="text-sm text-muted-foreground">Immediate to same-day response</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full mb-4">
-                  <Clock className="w-6 h-6 text-blue-500" />
-                </div>
-                <h4 className="text-lg mb-2 text-foreground">Boise & Twin Falls</h4>
-                <p className="text-sm text-muted-foreground">24-48 hour deployment</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-full mb-4">
-                  <PhoneCall className="w-6 h-6 text-purple-500" />
-                </div>
-                <h4 className="text-lg mb-2 text-foreground">Emergency Services</h4>
-                <p className="text-sm text-muted-foreground">24/7 rapid response</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <nav className="jump-links" aria-label="On this page"><a href="#all-cities">Find your city</a><a href="#primary-cities">Primary service areas</a><a href="#faq">Questions</a></nav>
 
       {/* Primary Markets */}
-      <section className="py-24 px-4">
+      <section id="primary-cities" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">Primary Service Areas</h2>
@@ -254,7 +178,7 @@ export default function ServiceAreasIdahoClient() {
       </section>
 
       {/* Idaho City Service Pages */}
-      <section className="py-16 px-4 bg-card/30">
+      <section id="all-cities" className="py-16 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl mb-6 text-foreground">All Idaho Cleaning Services</h2>
@@ -381,7 +305,85 @@ export default function ServiceAreasIdahoClient() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-4 bg-card/30">
+      {/* Market Overview Section */}
+      <section id="local-market" className="py-24 px-4 bg-gradient-to-br from-primary/5 to-primary/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl mb-6 text-foreground">Eastern Idaho Market Overview</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Imperial Cleaning Inc. is headquartered in Idaho Falls, positioned at the heart of Eastern Idaho&apos;s diverse industrial landscape.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="resend-card p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <Atom className="w-5 h-5 text-blue-500" />
+                </div>
+                <h3 className="text-xl text-foreground">Nuclear & Research</h3>
+              </div>
+              <p className="text-muted-foreground text-sm mb-4">
+                Idaho National Laboratory (INL) represents one of the nation&apos;s premier nuclear research facilities.
+              </p>
+            </div>
+
+            <div className="resend-card p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <HeartPulse className="w-5 h-5 text-green-500" />
+                </div>
+                <h3 className="text-xl text-foreground">Healthcare & Medical</h3>
+              </div>
+              <p className="text-muted-foreground text-sm mb-4">
+                Eastern Idaho Regional Medical Center, Portneuf Medical Center, and numerous healthcare facilities.
+              </p>
+            </div>
+
+            <div className="resend-card p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <Factory className="w-5 h-5 text-orange-500" />
+                </div>
+                <h3 className="text-xl text-foreground">Food Processing & Agriculture</h3>
+              </div>
+              <p className="text-muted-foreground text-sm mb-4">
+                Magic Valley food processing (Chobani, Clif Bar) and Eastern Idaho&apos;s agricultural sector.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-xl p-8">
+            <h3 className="text-2xl mb-6 text-foreground text-center">Response Time Commitments</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4">
+                  <Zap className="w-6 h-6 text-green-500" />
+                </div>
+                <h4 className="text-lg mb-2 text-foreground">Idaho Falls & Pocatello</h4>
+                <p className="text-sm text-muted-foreground">Immediate to same-day response</p>
+              </div>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full mb-4">
+                  <Clock className="w-6 h-6 text-blue-500" />
+                </div>
+                <h4 className="text-lg mb-2 text-foreground">Boise & Twin Falls</h4>
+                <p className="text-sm text-muted-foreground">24-48 hour deployment</p>
+              </div>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-full mb-4">
+                  <PhoneCall className="w-6 h-6 text-purple-500" />
+                </div>
+                <h4 className="text-lg mb-2 text-foreground">Emergency Services</h4>
+                <p className="text-sm text-muted-foreground">24/7 rapid response</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="faq" className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">Idaho Cleaning Services FAQ</h2>
@@ -449,7 +451,7 @@ export default function ServiceAreasIdahoClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4">
+      <section id="quote" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-12 text-center">
             <h2 className="text-4xl mb-6 text-white">Ready to Experience Industry-Leading Cleaning Services?</h2>
@@ -503,3 +505,4 @@ export default function ServiceAreasIdahoClient() {
     </>
   );
 }
+

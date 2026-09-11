@@ -1,66 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
-
+import { Resend } from "resend";
+import { contactSchema } from "@/lib/contact-schema";
+import { BUSINESS_EMAIL } from "@/data/business-info";
 export async function POST(request: NextRequest) {
+  if (process.env.NEXT_PUBLIC_DESIGN_PREVIEW === "1") return NextResponse.json({error:"Design preview: submissions are disabled."},{status:403});
   try {
-    const data = await request.json();
-    
-    const {
-      name,
-      company,
-      email,
-      phone,
-      service,
-      location,
-      message,
-      facilityType,
-      squareFootage,
-      frequency,
-      startDate,
-      projectPhase,
-      currentVendor,
-      multipleLocations,
-    } = data;
-    
-    // Validate required fields
-    if (!name || !email || !phone || !service || !location) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
-    }
-    
-    // For now, log the contact request
-    // In production, this would send to a database or email service
-    console.log("Contact form submission:", {
-      name,
-      company,
-      email,
-      phone,
-      service,
-      location,
-      message,
-      facilityType,
-      squareFootage,
-      frequency,
-      startDate,
-      projectPhase,
-      currentVendor,
-      multipleLocations,
-      timestamp: new Date().toISOString()
+    const text = await request.text();
+    if (text.length > 12000) return NextResponse.json({error:"Request is too large."},{status:413});
+    let payload; try {payload=JSON.parse(text);} catch {return NextResponse.json({error:"Invalid request."},{status:400});}
+    const parsed = contactSchema.safeParse(payload);
+    if (!parsed.success) return NextResponse.json({error:"Please check your contact details and try again."},{status:400});
+    const apiKey = process.env.RESEND_API_KEY;
+    const from = process.env.CONTACT_FROM_EMAIL;
+    if (!apiKey || !from) return NextResponse.json({error:"Online requests are temporarily unavailable. Please call (208) 520-3202 or email service@imperialcleaninginc.com."},{status:503});
+    const data=parsed.data;
+    const result = await new Resend(apiKey).emails.send({
+      from, to: BUSINESS_EMAIL, replyTo: data.email,
+      subject: `Cleaning quote request: ${data.service}`,
+      text: [`Name: ${data.name}`,`Company: ${data.company || "Not provided"}`,`Email: ${data.email}`,`Phone: ${data.phone}`,`Service: ${data.service}`,`Location: ${data.location}`,"",data.message || "No additional notes."].join("\n"),
     });
-    
-    // If database is configured, save to database
-    // This is a placeholder - integrate with your actual database setup
-    
-    return NextResponse.json({ 
-      success: true,
-      message: "Contact request received successfully" 
-    });
-  } catch (error) {
-    console.error("Contact form error:", error);
-    return NextResponse.json(
-      { error: "Failed to process contact request" },
-      { status: 500 }
-    );
+    if (result.error || !result.data?.id) return NextResponse.json({error:"We couldn’t send your request. Please try again or call (208) 520-3202."},{status:502});
+    return NextResponse.json({success:true});
+  } catch {
+    return NextResponse.json({error:"We couldn’t send your request. Please call (208) 520-3202."},{status:500});
   }
 }

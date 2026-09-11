@@ -110,6 +110,8 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
         </div>
       </section>
 
+      <nav className="jump-links" aria-label="On this page"><a href="#included">What’s included</a><a href="#why-imperial">Why Imperial</a><a href="#faq">Common questions</a></nav>
+
       {/* Direct answer for AEO / featured snippets */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
@@ -120,7 +122,7 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
       </section>
 
       {/* Services */}
-      <section className="py-24 px-6 bg-card/30">
+      <section id="included" className="py-24 px-6 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">What Our {industry.name} Includes</h2>
@@ -140,7 +142,7 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
       </section>
 
       {/* Why us */}
-      <section className="py-24 px-6">
+      <section id="why-imperial" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">Why Imperial Cleaning</h2>
@@ -160,17 +162,14 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
       </section>
 
       {/* FAQ */}
-      <section className="py-24 px-6 bg-card/30">
+      <section id="faq" className="py-24 px-6 bg-card/30">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-6 text-foreground">{industry.name} FAQ</h2>
           </div>
           <div className="space-y-6">
             {industry.faqs.map((faq) => (
-              <div key={faq.question} className="glass-card-elevated p-6 rounded-lg">
-                <h3 className="text-lg text-foreground mb-3">{faq.question}</h3>
-                <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-              </div>
+              <details key={faq.question} className="service-faq-item"><summary>{faq.question}</summary><p>{faq.answer}</p></details>
             ))}
           </div>
         </div>
@@ -219,3 +218,4 @@ export default function IndustryCleaningPage({ industry }: IndustryCleaningPageP
     </>
   );
 }
+

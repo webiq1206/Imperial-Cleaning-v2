@@ -1229,11 +1229,7 @@
   }
 
   @media (max-width: 768px) {
-    [class*="fixed"] {
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-      will-change: transform;
-    }
+    /* Fixed dialogs retain their positioning transform on small screens. */
     
     .parallax-subtle,
     .parallax-gentle,
@@ -1373,3 +1369,4 @@
 .sticky-delay-2 { animation-delay: 0.3s; }
 .sticky-delay-3 { animation-delay: 0.45s; }
 .sticky-delay-4 { animation-delay: 0.6s; }
+

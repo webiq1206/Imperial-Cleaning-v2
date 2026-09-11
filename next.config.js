@@ -215,4 +215,6 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+// Separate development output prevents preview/build cache collisions.
+module.exports = phase => ({ ...nextConfig, distDir: phase === 'phase-development-server' ? '.next-dev' : '.next' });
+

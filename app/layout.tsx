@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
+import './redesign.css';
 import dynamic from 'next/dynamic';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -16,11 +16,6 @@ import {
 
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(m => ({ default: m.Toaster })), { ssr: false });
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://imperialcleaninginc.com'),
@@ -234,8 +229,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={inter.variable} suppressHydrationWarning>
-      <body suppressHydrationWarning>
+    <html lang="en-US" suppressHydrationWarning>
+      <body className="imperial-site" suppressHydrationWarning>
         <Header />
         <main id="main-content">
           {children}
@@ -250,19 +245,20 @@ export default function RootLayout({
         />
         
         {/* Google Analytics - deferred to first user interaction for performance */}
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        {process.env.NEXT_PUBLIC_DESIGN_PREVIEW !== "1" && process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <script
             dangerouslySetInnerHTML={{ __html: `(function(){var l=false;function g(){if(l)return;l=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function t(){dataLayer.push(arguments)}t('js',new Date());t('config','${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}')};['scroll','click','touchstart'].forEach(function(e){document.removeEventListener(e,g,{passive:true,capture:true})})}['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,g,{passive:true,capture:true,once:true})})})();` }}
           />
         )}
 
-        {/* Microsoft Clarity - user behavior analytics */}
-        <script
+        {/* Keep preview browsing out of live analytics. */}
+        {process.env.NEXT_PUBLIC_DESIGN_PREVIEW !== "1" && <script
           dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window, document, "clarity", "script", "x5wa4ucb26");`,
           }}
-        />
+        />}
       </body>
     </html>
   );
 }
+

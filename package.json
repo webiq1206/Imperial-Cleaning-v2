@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/dev.mjs",
     "prebuild": "npm run links:generate && npm run audit:links && npm run audit:nap",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:push": "drizzle-kit push",
-    "links:generate": "tsx scripts/internal-links.ts",
-    "audit:links": "tsx scripts/audit-internal-links.ts",
-    "audit:nap": "tsx scripts/audit-nap.ts",
+    "links:generate": "node --import tsx scripts/internal-links.ts",
+    "audit:links": "node --import tsx scripts/audit-internal-links.ts",
+    "audit:nap": "node --import tsx scripts/audit-nap.ts",
     "indexnow": "node scripts/submit-indexnow.mjs --submit"
   },
   "dependencies": {
