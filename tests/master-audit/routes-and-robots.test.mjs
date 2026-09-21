@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import robots from './robots.mjs';
+import {publicRoutePaths,safeAnalyticsPath} from './public-route-paths.mjs';
+test('route allowlist contains exactly 95 unique current public paths',()=>{assert.equal(publicRoutePaths.length,95);assert.equal(new Set(publicRoutePaths).size,95);});
+test('all registered pages preserve a clean path',()=>{for(const path of publicRoutePaths)assert.equal(safeAnalyticsPath(path+'?email=private@example.test'),path);});
+test('public query and fragment never enter analytics path',()=>assert.equal(safeAnalyticsPath('https://imperialcleaninginc.com/contact?email=private#token'),'/contact'));
+test('foreign host, private, unknown and infrastructure routes excluded',()=>{for(const path of ['/admin','/api/contact','/private-customer','https://attacker.example/contact','/_next/static/a'])assert.equal(safeAnalyticsPath(path),null);});
+test('legacy www and slash forms normalize for analytics only',()=>assert.equal(safeAnalyticsPath('https://www.imperialcleaninginc.com/contact/'),'/contact'));
+test('public robots uses one group with consistent exclusions',()=>{process.env.NEXT_PUBLIC_DESIGN_PREVIEW='0';const value=robots();assert.equal(value.rules.length,1);assert.equal(value.rules[0].userAgent,'*');assert.equal(value.rules[0].allow,'/');assert.deepEqual(value.rules[0].disallow,['/api','/admin','/tmp/','/__tests__/']);});
+test('preview blocks automatic crawling',()=>{process.env.NEXT_PUBLIC_DESIGN_PREVIEW='1';assert.deepEqual(robots().rules,[{userAgent:'*',disallow:'/'}]);});
+test('production robots links canonical sitemap',()=>{process.env.NEXT_PUBLIC_DESIGN_PREVIEW='0';assert.equal(robots().sitemap,'https://imperialcleaninginc.com/sitemap.xml');});
