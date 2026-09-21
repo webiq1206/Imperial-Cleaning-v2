@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-21",
+  "node": "22.16.0",
+  "base_commit": "190adb02d981ce11d19dea477020401a1228b5cd",
+  "isolated_tests": {
+    "total": 168,
+    "passed": 168,
+    "failed": 0,
+    "providers": "mocked",
+    "database": "mocked"
+  },
+  "syntax_transpilation": {
+    "local_TS_TSX_files": 38,
+    "diagnostics": 0
+  },
+  "not_verified": [
+    "full dependency installation",
+    "full TypeScript project check",
+    "Next build",
+    "real browser/device/accessibility behavior",
+    "actual database operation",
+    "provider delivery and inbox receipt",
+    "GA4/Clarity receiving account",
+    "Replit workspace pull",
+    "production publication"
+  ],
+  "full_master_assignment": "incomplete"
+}

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import robots from './robots.mjs';
 import {publicRoutePaths,safeAnalyticsPath} from './public-route-paths.mjs';
-test('route allowlist contains exactly 95 unique current public paths',()=>{assert.equal(publicRoutePaths.length,95);assert.equal(new Set(publicRoutePaths).size,95);});
+test('generated route allowlist is nonempty and unique',()=>{assert.ok(publicRoutePaths.length>0);assert.equal(new Set(publicRoutePaths).size,publicRoutePaths.length);assert.ok(publicRoutePaths.includes('/contact'));});
 test('all registered pages preserve a clean path',()=>{for(const path of publicRoutePaths)assert.equal(safeAnalyticsPath(path+'?email=private@example.test'),path);});
 test('public query and fragment never enter analytics path',()=>assert.equal(safeAnalyticsPath('https://imperialcleaninginc.com/contact?email=private#token'),'/contact'));
 test('foreign host, private, unknown and infrastructure routes excluded',()=>{for(const path of ['/admin','/api/contact','/private-customer','https://attacker.example/contact','/_next/static/a'])assert.equal(safeAnalyticsPath(path),null);});

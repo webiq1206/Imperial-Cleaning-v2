@@ -1,236 +1,46 @@
-import { Metadata } from "next";
-import { StructuredData } from "@/components/structured-data";
-import RelatedContent from "@/components/shared/related-content";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { StructuredData } from '@/components/structured-data';
+import RelatedContent from '@/components/shared/related-content';
+import PrivacySettingsButton from '@/components/privacy-settings-button';
+import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_TEL } from '@/data/business-info';
 
+const canonical = 'https://imperialcleaninginc.com/privacy-policy';
+const description = 'How Imperial Cleaning Inc uses information you provide, handles optional website analytics, and lets you change your privacy choices or contact the team.';
 export const metadata: Metadata = {
-  title: { absolute: "Privacy Policy | Imperial Cleaning Inc" },
-  description: "Learn how Imperial Cleaning Inc protects your privacy and personal information. Our privacy policy explains data collection, use, and protection for customers in Idaho and Utah.",
-  keywords: "privacy policy, Imperial Cleaning privacy, data protection, customer information, Idaho cleaning company privacy, Utah cleaning services privacy",
-  authors: [{ name: "Imperial Cleaning Inc" }],
-  openGraph: {
-    title: "Privacy Policy | Imperial Cleaning Inc",
-    description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
-    url: "https://imperialcleaninginc.com/privacy-policy",
-    siteName: "Imperial Cleaning Inc",
-    locale: "en_US",
-    type: "website",
-    images: [{
-      url: "https://imperialcleaninginc.com/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "Imperial Cleaning Inc - Privacy Policy"
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Privacy Policy | Imperial Cleaning Inc",
-    description: "Learn how Imperial Cleaning Inc protects your privacy and personal information in Idaho and Utah.",
-    images: ["https://imperialcleaninginc.com/og-image.png"],
-    site: "@imperialcleaninginc",
-    creator: "@imperialcleaninginc",
-  },
-  alternates: {
-    canonical: "https://imperialcleaninginc.com/privacy-policy",
-  },
+  title: { absolute: 'Privacy Policy | Imperial Cleaning Inc' }, description,
+  alternates: { canonical },
+  openGraph: { title: 'Privacy Policy | Imperial Cleaning Inc', description, url: canonical, type: 'website', images: ['/og-image.png'] },
+  twitter: { card: 'summary_large_image', title: 'Privacy Policy | Imperial Cleaning Inc', description, images: ['/og-image.png'] },
 };
-
 export default function PrivacyPolicyPage() {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "PrivacyPolicy",
-    "@id": "https://imperialcleaninginc.com/privacy-policy#privacy",
-    "name": "Imperial Cleaning Inc Privacy Policy",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Imperial Cleaning Inc",
-      "url": "https://imperialcleaninginc.com"
-    },
-    "datePublished": "2024-01-01",
-    "dateModified": "2025-09-29",
-    "description": "Privacy policy for Imperial Cleaning Inc explaining how we collect, use, and protect customer information."
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imperialcleaninginc.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://imperialcleaninginc.com/privacy-policy" }
-    ]
-  };
-
-  return (
-    <>
-      <StructuredData data={[organizationSchema, breadcrumbSchema]} />
-
-      {/* Hero Section */}
-      <section className="py-24 px-6 hero-sophisticated-bg noise-overlay grain-texture section-transition-bottom">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl mb-8 tracking-tight leading-tight text-foreground">
-            Privacy Policy
-          </h1>
-          <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed font-normal">
-            Your privacy and data protection are important to us. Learn how we collect, use, and safeguard your information.
-          </p>
-          <p className="text-sm text-muted-foreground mt-4">
-            Last updated: September 29, 2025
-          </p>
-        </div>
-      </section>
-
-      {/* Privacy Policy Content */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-12">
-
-            {/* Introduction */}
-            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
-              <h2 className="text-2xl mb-6 text-foreground">Introduction</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Imperial Cleaning Inc (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and personal information.
-                  This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our
-                  website, use our services, or interact with us in any way.
-                </p>
-                <p>
-                  We operate throughout Idaho and Utah, providing professional construction cleanup and commercial cleaning
-                  services. This policy applies to all our business operations and digital platforms.
-                </p>
-              </div>
-            </div>
-
-            {/* Information We Collect */}
-            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
-              <h2 className="text-2xl mb-6 text-foreground">Information We Collect</h2>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg mb-3 text-foreground">Personal Information</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-3">
-                    We may collect personal information that you provide directly to us, including:
-                  </p>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                      <span>Name, email address, and phone number</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                      <span>Company name and job title</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                      <span>Project location and service requirements</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                      <span>Billing and payment information</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* How We Use Your Information */}
-            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
-              <h2 className="text-2xl mb-6 text-foreground">How We Use Your Information</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>We use your information for the following business purposes:</p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <span>Providing cleaning services and project quotes</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <span>Communicating about services, schedules, and billing</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <span>Improving our services and customer experience</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <span>Complying with legal and regulatory requirements</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Data Security */}
-            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
-              <h2 className="text-2xl mb-6 text-foreground">Data Security</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  We implement appropriate technical and organizational security measures to protect your personal information against
-                  unauthorized access, alteration, disclosure, or destruction.
-                </p>
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
-              <h2 className="text-2xl mb-6 text-foreground">Contact Us</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:
-                </p>
-                <div className="grid md:grid-cols-2 gap-6 mt-6">
-                  <div>
-                    <h4 className="text-foreground mb-2">Email</h4>
-                    <a
-                      href="mailto:service@imperialcleaninginc.com"
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      Email Us
-                    </a>
-                  </div>
-                  <div>
-                    <h4 className="text-foreground mb-2">Phone</h4>
-                    <a
-                      href="tel:+12085203202"
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      (208) 520-3202
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* CTA Section */}
-          <div className="mt-16 text-center">
-            <div className="glass-card-elevated sophisticated-glow p-8 rounded-lg">
-              <h3 className="text-2xl mb-4 text-foreground">
-                Questions About Our Privacy Practices?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                We&apos;re committed to transparency and protecting your privacy. Contact us anytime with your questions or concerns.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:service@imperialcleaninginc.com">
-                  <Button size="lg">
-                    Contact Us
-                  </Button>
-                </a>
-                <Link href="/contact">
-                  <Button variant="outline" size="lg">
-                    General Contact
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <RelatedContent
-        pageUrl="/privacy-policy"
-        heading="Continue Exploring Imperial Cleaning"
-        limit={5}
-      />
-    </>
-  );
+  return <>
+    <StructuredData data={[
+      { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: 'Imperial Cleaning Inc Privacy Policy', description, dateModified: '2026-09-21', publisher: { '@id': 'https://imperialcleaninginc.com/#organization' } },
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://imperialcleaninginc.com/' }, { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: canonical }] },
+    ]} />
+    <section className="ic-section"><div className="site-width policy-content">
+      <span className="eyebrow">IMPERIAL CLEANING INC</span><h1>Privacy policy</h1>
+      <p>Learn how we collect, use, and safeguard your information.</p><p>Last updated: September 21, 2026</p>
+      <h2>Introduction</h2>
+      <p>Imperial Cleaning Inc (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.</p>
+      <p>We operate throughout Idaho and Utah, providing construction cleanup and commercial cleaning services. This policy applies to our business operations and digital platforms.</p>
+      <h2>Information you provide</h2>
+      <p>We may collect your name, email address, phone number, company name and job title, project location and service requirements, and billing and payment information when you provide it in the course of requesting or receiving services.</p>
+      <p>The website quote form requests your contact details, service, city and state. Company details and project notes are optional. The form sends this information through our email delivery provider so the team can respond to your request.</p>
+      <h2>How we use your information</h2>
+      <p>We use your information to provide cleaning services and project quotes, communicate about services, schedules and billing, improve our services and customer experience, and comply with legal and regulatory requirements.</p>
+      <h2>Optional website analytics</h2>
+      <p>The website uses Google Analytics and Microsoft Clarity only after you allow optional analytics. These providers may process technical information about your browser and device and how you use the site. Clarity provides session replay and interaction analysis.</p>
+      <p>Our custom analytics events exclude the contact details and project notes entered in the quote form. The form is masked for session replay. The page addresses sent by our custom analytics code omit query strings and fragments. Replay is disabled on pages with query strings or fragments, and optional tracking is excluded from admin and unrecognized routes.</p>
+      <p>Accepting analytics is not required to browse services, request a quote, call or email us. Your preference is stored in this browser for up to 180 days. You can change it using <PrivacySettingsButton /> in the footer. A Global Privacy Control signal keeps optional analytics off.</p>
+      <p>Turning analytics off prevents future optional collection through these site controls and removes known analytics cookies that this site can remove. It does not erase information already received by a provider. Requests already in transit may finish. Essential hosting and security logs and the information you submit to contact us are separate from optional analytics.</p>
+      <h2>Data security</h2>
+      <p>We use technical and organizational measures intended to protect personal information against unauthorized access, alteration, disclosure or destruction. No website or transmission method can be guaranteed completely secure.</p>
+      <h2>Contact us</h2>
+      <p>For questions about this policy or requests concerning your personal information, email <a href={`mailto:${BUSINESS_EMAIL}`}>{BUSINESS_EMAIL}</a> or call <a href={`tel:${BUSINESS_PHONE_TEL}`}>{BUSINESS_PHONE}</a>.</p>
+      <Link href="/contact" className="ic-button">Contact Imperial Cleaning</Link>
+    </div></section>
+    <RelatedContent pageUrl="/privacy-policy" heading="Continue exploring Imperial Cleaning" limit={5} />
+  </>;
 }

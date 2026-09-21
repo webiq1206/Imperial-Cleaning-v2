@@ -9,7 +9,7 @@ const service = (value?: string) => value === 'construction-cleaning' || value =
 const tier = (value?: string) => ['primary', 'secondary', 'extended'].includes(value || '') ? value! : 'general';
 // Only controlled labels are transmitted. Callers' arbitrary text and location arguments are intentionally omitted.
 function token(value: string | undefined, allowed: readonly string[], fallback = 'other') { return value && allowed.includes(value) ? value : fallback; }
-function enabled() { return typeof window !== 'undefined' && process.env.NEXT_PUBLIC_DESIGN_PREVIEW !== '1' && typeof window.gtag === 'function'; }
+function enabled() { return typeof window !== 'undefined' && process.env.NEXT_PUBLIC_DESIGN_PREVIEW !== '1' && window.__imperialAnalyticsConsent === true && typeof window.gtag === 'function'; }
 function event(name: string, parameters: Params = {}) {
   if (!enabled()) return;
   const path = safeAnalyticsPath(window.location?.href || 'https://imperialcleaninginc.com/');
@@ -17,16 +17,10 @@ function event(name: string, parameters: Params = {}) {
   try { window.gtag('event', name, { page_location: `https://imperialcleaninginc.com${path}`, page_referrer: '', ...parameters }); } catch { /* Tracking must never change a completed business action. */ }
 }
 export function initGA() {
-  if (typeof window === 'undefined' || process.env.NEXT_PUBLIC_DESIGN_PREVIEW === '1') return;
-  const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  if (!id || !/^G-[A-Z0-9]+$/.test(id)) return;
-  // The layout owns loading and consent. A second initializer must not create duplicate tags or page views.
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  // Loading and consent are owned by AnalyticsConsent. Legacy callers do not add tags.
 }
 export function trackPageView(url: string) {
-  const path = safeAnalyticsPath(url);
-  if (path) event('page_view', { page_path: path, page_location: `https://imperialcleaninginc.com${path}` });
+  if (typeof window !== 'undefined') window.__imperialTrackPage?.(url);
 }
 export function trackEvent(action: string, category?: string, label?: string, _value?: number) {
   const name = token(action, ['form_start', 'form_submit', 'form_error', 'quote_form_open', 'phone_click', 'email_click', 'file_download', 'checklist_use', 'checklist_download', 'checklist_print', 'consent_update'], 'interaction');

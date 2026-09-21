@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "prebuild": "npm run links:generate && npm run audit:links && npm run audit:nap",
+    "prebuild": "npm run discovery:generate && npm run links:generate && npm run audit:links && npm run audit:nap",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +12,10 @@
     "links:generate": "node --import tsx scripts/internal-links.ts",
     "audit:links": "node --import tsx scripts/audit-internal-links.ts",
     "audit:nap": "node --import tsx scripts/audit-nap.ts",
-    "indexnow": "node scripts/submit-indexnow.mjs --submit"
+    "indexnow": "node scripts/submit-indexnow.mjs --submit",
+    "discovery:generate": "node --import tsx scripts/generate-public-discovery.ts",
+    "discovery:check": "node --import tsx scripts/generate-public-discovery.ts --check",
+    "test:audit": "node scripts/check-master-audit.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

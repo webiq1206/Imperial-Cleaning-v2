@@ -1,0 +1,35 @@
+.imperial-site .privacy-panel {position:fixed;z-index:45;inset:auto max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));max-width:760px;margin-inline:auto;background:#101419;color:#fff;border:1px solid #536275;border-radius:12px;padding:24px;box-shadow:0 12px 48px #0008;max-height:70dvh;overflow-y:auto;}
+.imperial-site .privacy-panel h2 {font-size:1.25rem;margin:0 0 12px;}
+.imperial-site .privacy-panel p {font-size:.9375rem;line-height:1.6;margin:0 0 16px;color:#d3dce7;}
+.imperial-site .privacy-panel a {text-decoration:underline;text-underline-offset:3px;color:#67d8ff;}
+.imperial-site .privacy-actions {display:flex;gap:12px;flex-wrap:wrap;}
+.imperial-site .privacy-actions button {display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;flex:1 1 200px;color:#fff;background:#18222e;border:1px solid #8494a9;border-radius:6px;cursor:pointer;}
+.imperial-site .privacy-actions button:hover {background:#25384a;}
+.imperial-site .privacy-actions button:disabled {opacity:.55;cursor:not-allowed;}
+.imperial-site .privacy-settings-button {font:inherit;text-decoration:underline;text-underline-offset:3px;min-height:44px;padding:8px 0;color:inherit;cursor:pointer;}
+html[data-privacy-open=true] .imperial-site :is(.mobile-contact-bar,.mobile-cta,.sticky-contacts,.sticky-quote-button,.sticky-cta,.floating-cta) {visibility:hidden;pointer-events:none;}
+.imperial-site .privacy-panel :focus-visible {outline:3px solid #67d8ff;outline-offset:3px;}
+@media(max-width:430px) {.imperial-site .privacy-panel {padding:18px;}.imperial-site .privacy-actions {gap:8px;}}
+@media(prefers-reduced-motion:reduce) {.imperial-site .privacy-panel * {scroll-behavior:auto!important;transition:none!important;}}
+.imperial-site .policy-content {max-width:850px;}
+.imperial-site .policy-content h1 {margin:18px 0 24px;}
+.imperial-site .policy-content h2 {font-size:clamp(1.35rem,2.5vw,2rem);margin:40px 0 16px;}
+.imperial-site .policy-content p {margin:0 0 18px;color:#d3dce7;}
+.imperial-site .policy-content p a {color:#67d8ff;text-decoration:underline;text-underline-offset:3px;}
+.imperial-site .policy-content .ic-button {margin-top:12px;}
+.imperial-site .footer-bottom>div {display:flex;flex-wrap:wrap;align-items:center;gap:20px;}
+.imperial-site .contextual-contact {position:fixed;z-index:35;inset:auto 0 0;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:#080c12;border-top:1px solid #405065;}
+.imperial-site .contextual-contact .ic-button {min-height:48px;padding:10px 14px;font-size:.9375rem;gap:10px;}
+.imperial-site .contextual-call {min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #8494a9;border-radius:7px;color:#fff;text-decoration:none;}
+html[data-privacy-open=true] .imperial-site .contextual-contact {display:none;}
+@media(max-width:767px) {.imperial-site .site-footer {padding-bottom:calc(90px + env(safe-area-inset-bottom));}}
+.imperial-site .handover-tool {padding:28px;border:1px solid #405065;border-radius:10px;background:#0b1119;margin:40px 0;}
+.imperial-site .handover-tool h2 {font-size:clamp(1.45rem,3vw,2rem);margin:0 0 18px;}
+.imperial-site .handover-tool p {font-size:1rem;color:#d3dce7;margin:12px 0;}
+.imperial-site .handover-tool fieldset {margin:24px 0;border:0;padding:0;}
+.imperial-site .handover-tool legend {font-size:1.1rem;font-weight:600;margin-bottom:10px;}
+.imperial-site .handover-tool label {display:flex;align-items:flex-start;gap:14px;padding:12px 0;min-height:48px;cursor:pointer;line-height:1.6;color:#e2e9f1;}
+.imperial-site .handover-tool input {width:24px;height:24px;flex:0 0 24px;margin-top:1px;accent-color:#00bfff;}
+.imperial-site .handover-actions {display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px;}
+@media(max-width:430px) {.imperial-site .handover-tool {padding:20px;}.imperial-site .handover-actions>* {width:100%;}}
+@media print {.imperial-site .site-header,.imperial-site .site-footer,.imperial-site .contextual-contact,.imperial-site .privacy-panel,.imperial-site .handover-actions {display:none!important;} .imperial-site {background:white!important;color:black!important;} .imperial-site .handover-tool {break-inside:avoid-page;background:white;color:black;border:1px solid black;} .imperial-site .handover-tool p,.imperial-site .handover-tool label {color:black;} .imperial-site .handover-tool fieldset {break-inside:avoid;}}

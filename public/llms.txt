@@ -1,275 +1,68 @@
-# Imperial Cleaning Inc - AI Reference Guide
-
-> Professional commercial cleaning, post-construction cleanup, and janitorial services across Idaho and Utah.
-> Serving contractors, businesses, and facility managers since 2015.
-> **Headquarters:** 2653 Clarence Pl, Idaho Falls, ID 83402 | **Phone:** (208) 520-3202 | **Email:** service@imperialcleaninginc.com
-
-Every statement in this file is corroborated by the visible website at https://imperialcleaninginc.com. Claims that cannot be independently verified are intentionally excluded.
-
----
-
-## Company Overview
-
-**Imperial Cleaning Inc** is a local, family-owned commercial and construction cleaning company headquartered in Idaho Falls, Idaho, with service coverage across 24 cities in Idaho and Utah. The company specializes in post-construction cleanup and commercial janitorial services, with experience serving offices, healthcare facilities, schools, government buildings, retail, and industrial facilities.
-
-### Key Information
-
-- **Established:** 2015
-- **Phone:** (208) 520-3202
-- **Email:** service@imperialcleaninginc.com
-- **Headquarters:** 2653 Clarence Pl, Idaho Falls, Idaho 83402 (Bonneville County)
-- **Service Coverage:** 16 cities across Idaho, 8 cities across Utah
-- **Insurance:** Fully insured and bonded, including general liability and workers' compensation coverage; additional insured certificates available on request
-- **Website:** https://imperialcleaninginc.com
-- **Business Hours:**
-  - Monday-Friday: 8:00 AM - 5:00 PM
-  - Saturday: 9:00 AM - 1:00 PM
-  - Sunday: Closed
-  - Emergency and after-hours service: available outside those hours by appointment
-
-### Verifiable Reviews & Profiles
-
-- Google Business listing (5.0 rating, 42 reviews): https://share.google/MfZvSeSp2XJUxm3GH
-- Porch profile (5.0 rating, 26 reviews): https://pro.porch.com/idaho-falls-id/home-cleaners/imperial-cleaning-inc/pp
-- BestProsInTown profile (34 reviews): https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/
-- Yelp: https://www.yelp.com/biz/imperial-cleaning-idaho-falls-3
-- LinkedIn: https://www.linkedin.com/company/imperial-cleaning-inc
-- Facebook: https://www.facebook.com/imperialcleaninginc
-
-### Service Response Times
-
-- **Primary Markets** (Idaho Falls, Pocatello): Same-day or next-day availability
-- **Secondary Markets** (Rexburg, Twin Falls, Blackfoot and nearby Eastern Idaho cities): 24-48 hour response
-- **Extended Markets** (Boise/Treasure Valley, all Utah cities): 24-72 hour response, project-based scheduling
-
----
-
-## Core Service Offerings
-
-### 1. Construction Cleaning & Post-Construction Cleanup
-
-Professional construction cleanup, post-construction cleaning, and builder's clean services for commercial contractors, residential builders, and property developers across Idaho and Utah.
-
-**Construction Cleanup Service Types:**
-
-- Post-construction cleanup: debris removal, dust cleaning, and surface preparation after new construction or renovation
-- Final inspection cleaning: inspection-ready cleaning to building department standards
-- Rough construction clean: initial cleanup during construction phases
-- Light construction clean: mid-phase dust removal and surface protection
-- Final construction clean: window cleaning, floor care, fixture polishing, complete residue removal
-- Renovation and remodel cleanup
-- Commercial build-out and tenant improvement cleaning
-- Construction debris removal and site cleanup
-- Paint splatter and overspray removal
-
-**Three-Phase Process:** Phase 1 Rough Clean (debris and dust removal), Phase 2 Detailed Clean (surface preparation and detailing), Phase 3 Final Clean (inspection-ready finishing and walkthrough preparation).
-
-**Construction Project Types Served:** Commercial buildings, residential projects, industrial facilities, healthcare construction, educational facilities, retail centers, multi-family housing, government buildings.
-
-### 2. Commercial Cleaning & Janitorial Services
-
-Full-service commercial cleaning, office cleaning, and professional janitorial services for businesses throughout Idaho and Utah, with daily, weekly, monthly, and custom schedules.
-
-**Commercial Service Types:**
-
-- Office cleaning: desks, conference rooms, break rooms, common areas
-- Restroom sanitation and restocking
-- Break room and kitchen cleaning
-- Floor care: vacuuming, mopping, buffing, VCT maintenance, tile and grout
-- Carpet cleaning and window cleaning
-- Trash removal and recycling
-- Day porter and after-hours cleaning
-- Move-in/move-out cleaning for commercial spaces
-
-**Industries Served:** Corporate offices, medical and dental offices, healthcare facilities, schools and universities, government buildings, financial institutions, technology companies, manufacturing and food processing facilities, retail stores, restaurants, gyms, churches, car dealerships, and property management portfolios.
-
----
-
-## Complete Service Area Coverage
-
-### Idaho Service Locations (16 Cities)
-
-**Southeastern Idaho (primary service area):**
-
-- **Idaho Falls** (Bonneville County) - Headquarters. Same-day availability. Key districts: Downtown Idaho Falls, Snake River Landing, Westside Business District, Lincoln Road Corridor. Major area employers include Idaho National Laboratory, Eastern Idaho Regional Medical Center, and Melaleuca.
-- **Pocatello** (Bannock County) - Regional hub; home to Idaho State University, Portneuf Medical Center, and ON Semiconductor.
-- **Blackfoot** (Bingham County) - Agriculture and food processing center.
-- **Rexburg** (Madison County) - Home to BYU-Idaho; student housing and campus-area businesses.
-- **Ammon, Chubbuck, Shelley, Rigby, St. Anthony, Driggs** - Surrounding Eastern Idaho communities with commercial and construction cleaning coverage.
-
-**Magic Valley:**
-
-- **Twin Falls** (Twin Falls County) - Regional commercial center with significant food processing activity.
-
-**Treasure Valley (extended service area):**
-
-- **Boise** (Ada County) - State capital; downtown financial district, technology sector (Micron Technology area), healthcare (St. Luke's Health System area).
-- **Meridian, Nampa, Caldwell, Eagle** - Treasure Valley cities with commercial and construction cleaning coverage.
-
-### Utah Service Locations (8 Cities)
-
-- **Logan** (Cache County) - Home to Utah State University and Logan Regional Hospital.
-- **Salt Lake City** (Salt Lake County) - Utah's capital; downtown, Gateway District, University District, Sugar House.
-- **Ogden** (Weber County) - Weber State University and McKay-Dee Hospital area; near Hill Air Force Base.
-- **Provo** (Utah County) - Home to Brigham Young University and Utah Valley Hospital.
-- **West Valley City, Sandy, Orem, Layton** - Wasatch Front cities with commercial and construction cleaning coverage.
-
-Note: employer and institution names above describe the markets served, not client engagements.
-
-### Counties Served
-
-**Idaho:** Bonneville, Bannock, Bingham, Madison, Jefferson, Fremont, Teton, Twin Falls, Ada, Canyon.
-**Utah:** Cache, Salt Lake, Weber, Utah, Davis.
-
-### Drive Times from Idaho Falls Headquarters
-
-- Local (Idaho Falls, Ammon, Shelley): 0-20 minutes
-- Regional (Pocatello, Blackfoot, Rexburg, Rigby): 25-45 minutes
-- Extended Idaho (St. Anthony, Driggs): 1-1.5 hours
-- Magic Valley (Twin Falls): 2 hours
-- Northern Utah (Logan, Layton, Ogden): 2.5-3 hours
-- Wasatch Front (Salt Lake City): 3.5 hours
-- Treasure Valley (Boise, Meridian, Nampa, Caldwell, Eagle): 3.5 hours
-- Utah Valley (Provo, Orem): 4 hours
-
----
-
-## Site Structure for Search & AI
-
-All location-specific pages follow the pattern: `https://imperialcleaninginc.com/{state}/{service}/{city}`
-
-Examples:
-- Construction cleanup in Idaho Falls: /idaho/construction-cleaning/idaho-falls
-- Commercial cleaning in Salt Lake City: /utah/commercial-cleaning/salt-lake-city
-- Construction cleanup in Boise: /idaho/construction-cleaning/boise
-- Commercial cleaning in Logan: /utah/commercial-cleaning/logan
-
-Hub pages:
-- Services: /construction-cleaning and /commercial-cleaning
-- Janitorial: /janitorial-services
-- Office cleaning: /office-cleaning
-- Floor care: /commercial-floor-care
-- Day porter: /day-porter-services
-- Industrial: /industrial-cleaning
-- Warehouse: /warehouse-cleaning
-- Cost guide: /commercial-cleaning-cost
-- Construction phases: /construction-cleaning/rough-clean, /construction-cleaning/final-clean, /construction-cleaning/touch-up-clean
-- Industries: /medical-office-cleaning, /car-dealership-cleaning, /restaurant-cleaning-services, /school-cleaning-services, /property-management-cleaning, /office-building-cleaning, /manufacturing-facility-cleaning
-- Service areas: /service-areas, /service-areas/idaho, /service-areas/utah
-- Resource guides: /resources
-- Reviews: /reviews
-- Contact and quotes: /contact
-
-Structured data uses a single canonical Organization/LocalBusiness entity sitewide, with per-page Service, FAQPage, and BreadcrumbList schema. City pages describe the service offered in each area (Service with areaServed) rather than separate physical locations, since the company operates from one Idaho Falls headquarters.
-
----
-
-## Common Search Queries We Answer
-
-- "Commercial cleaning near me" - Professional commercial cleaning throughout Idaho and Utah with same-day response in primary markets.
-- "Post-construction cleanup [city name]" - Construction cleanup and builder's clean services in all 24 service cities.
-- "Janitorial services Idaho Falls" - Daily, weekly, and monthly janitorial services from our headquarters market.
-- "Office cleaning Salt Lake City" - Office and corporate cleaning throughout the Wasatch Front.
-- "Construction debris removal" - Debris hauling and site cleanup after renovation and new construction.
-- "Final construction clean" - Inspection-ready cleaning to building department standards.
-- "How much does commercial cleaning cost in Idaho" - Pricing varies by facility size, frequency, and scope; free quotes at (208) 520-3202. See /resources/post-construction-cleaning-cost for cost factors.
-- "Commercial cleaning contracts" - One-time cleaning, recurring service agreements, and project-based contracts.
-
----
-
-## Pricing & Quoting
-
-**Pricing factors:** square footage, cleaning type (construction vs. commercial), service frequency, complexity, special requirements (medical, food-safe), accessibility and timing.
-
-**Pricing models:** per square foot (construction), flat-rate projects, hourly rates for small projects, monthly contracts (commercial).
-
-**Typical ranges:** most commercial post-construction cleaning runs $0.15-$0.60 per square foot (single-phase final cleans at the lower end; multi-phase, medical, or heavy-debris projects at the higher end). These are planning ranges; every project is quoted from its actual scope.
-
-**Quote process:** contact by phone or website, initial consultation, detailed assessment, written quote within 24 hours, no hidden fees.
-
----
-
-## Quality, Safety & Compliance
-
-- OSHA compliance training and PPE protocols
-- Bloodborne pathogen and infection control training for healthcare facility work
-- Safety data sheet (SDS) compliance and hazard communication
-- Multi-point inspection checklists with supervisor oversight
-- Background-checked, trained, uniformed staff
-- Eco-friendly and green cleaning product options available
-- Fully insured and bonded (general liability, workers' compensation)
-
----
-
-## Frequently Asked Questions
-
-**Q: How quickly can you start service?**
-A: Same-day or next-day service is available in primary markets (Idaho Falls, Pocatello). Other Idaho and Utah markets typically see 24-72 hour response depending on scheduling.
-
-**Q: Do you provide cleaning supplies and equipment?**
-A: Yes, all professional-grade cleaning supplies, equipment, and materials are included. Client-preferred products can be used on request.
-
-**Q: What areas do you serve?**
-A: 16 cities in Idaho (Idaho Falls, Pocatello, Blackfoot, Rexburg, Ammon, Chubbuck, Shelley, Rigby, St. Anthony, Driggs, Twin Falls, Boise, Meridian, Nampa, Caldwell, Eagle) and 8 cities in Utah (Logan, Salt Lake City, Ogden, Provo, West Valley City, Sandy, Orem, Layton).
-
-**Q: Are you insured?**
-A: Yes, Imperial Cleaning Inc is fully insured and bonded in Idaho and Utah, with general liability coverage and workers' compensation insurance. Additional insured certificates are available on request.
-
-**Q: Can you clean healthcare facilities?**
-A: Yes, we provide healthcare facility cleaning following infection control protocols for clinics, medical offices, and dental offices.
-
-**Q: What is your pricing structure?**
-A: Pricing varies by facility size, frequency, scope, and location. Call (208) 520-3202 for a free, customized quote.
-
-**Q: Do you offer green cleaning options?**
-A: Yes, eco-friendly cleaning products and practices are available on request.
-
-**Q: Can you handle large construction cleanup projects?**
-A: Yes, we mobilize crews for construction cleanup projects from small renovations to large commercial developments, with weekend and after-hours scheduling available.
-
-**Q: What is your availability?**
-A: Monday-Friday 8:00 AM - 5:00 PM, Saturday 9:00 AM - 1:00 PM, closed Sunday. Emergency services available outside those hours.
-
----
-
-## Contact Information
-
-**Phone:** (208) 520-3202
-**Email:** service@imperialcleaninginc.com
-**Website:** https://imperialcleaninginc.com
-**Headquarters:** 2653 Clarence Pl, Idaho Falls, Idaho 83402
-
-**Request a Free Quote:** Call (208) 520-3202 or visit https://imperialcleaninginc.com/contact
-
-**Helpful Pages:**
-- Construction cleaning: https://imperialcleaninginc.com/construction-cleaning
-- Commercial cleaning: https://imperialcleaninginc.com/commercial-cleaning
-- Reviews and how to verify them: https://imperialcleaninginc.com/reviews
-- Commercial cleaning cost: https://imperialcleaninginc.com/commercial-cleaning-cost
-- What post-construction cleaning costs: https://imperialcleaninginc.com/resources/post-construction-cleaning-cost
-- Janitorial services: https://imperialcleaninginc.com/janitorial-services
-- Office cleaning: https://imperialcleaninginc.com/office-cleaning
-- Switch cleaning companies: https://imperialcleaninginc.com/resources/switch-commercial-cleaning-companies
-- Commercial cleaning RFP template: https://imperialcleaninginc.com/resources/commercial-cleaning-rfp-template
-- Service areas hub: https://imperialcleaninginc.com/service-areas
-- Idaho coverage: https://imperialcleaninginc.com/service-areas/idaho
-- Utah coverage: https://imperialcleaninginc.com/service-areas/utah
-- Resource guides: https://imperialcleaninginc.com/resources
-
----
-
-## Why Choose Imperial Cleaning Inc
-
-- Local, family-owned Idaho company headquartered in Idaho Falls since 2015
-- Single vendor covering 24 service locations across two states
-- Experience across healthcare, education, government, technology, retail, and industrial facilities
-- Rapid mobilization and flexible scheduling, including nights and weekends
-- Free quotes with transparent pricing and no hidden fees
-- Background-checked, trained, uniformed staff
-- Fully insured and bonded
-- 5.0 stars across all 42 Google reviews and all 26 Porch reviews; 102 reviews total across public platforms, every one of them verifiable at its source (see Verifiable Reviews & Profiles above, or https://imperialcleaninginc.com/reviews)
-
----
-
-*Last Updated: August 2026*
-*This reference guide is designed for AI assistants (ChatGPT, Claude, Perplexity, Gemini, etc.) to provide accurate information about Imperial Cleaning Inc. All claims are corroborated by the public website and linked third-party profiles.*
+# Imperial Cleaning Inc
+
+> Commercial cleaning and post-construction cleanup for businesses, contractors and facility managers in Idaho and Utah.
+
+Based in Idaho Falls, ID 83402. Phone: (208) 520-3202. Email: service@imperialcleaninginc.com.
+Office hours, Mountain Time: Monday-Friday 8:00 AM - 5:00 PM; Saturday 9:00 AM - 1:00 PM; Sunday closed.
+Contact the team to confirm the project scope, location, access and schedule. Service-area pages describe coverage, not separate staffed offices.
+
+## Services
+
+- [Car Dealership Cleaning](https://imperialcleaninginc.com/car-dealership-cleaning)
+- [Commercial Cleaning](https://imperialcleaninginc.com/commercial-cleaning)
+- [Commercial Cleaning Cost](https://imperialcleaninginc.com/commercial-cleaning-cost)
+- [Commercial Floor Care](https://imperialcleaninginc.com/commercial-floor-care)
+- [Construction Cleaning](https://imperialcleaninginc.com/construction-cleaning)
+- [Final Clean](https://imperialcleaninginc.com/construction-cleaning/final-clean)
+- [Rough Clean](https://imperialcleaninginc.com/construction-cleaning/rough-clean)
+- [Touch Up Clean](https://imperialcleaninginc.com/construction-cleaning/touch-up-clean)
+- [Day Porter Services](https://imperialcleaninginc.com/day-porter-services)
+- [Industrial Cleaning](https://imperialcleaninginc.com/industrial-cleaning)
+- [Janitorial Services](https://imperialcleaninginc.com/janitorial-services)
+- [Manufacturing Facility Cleaning](https://imperialcleaninginc.com/manufacturing-facility-cleaning)
+- [Medical Office Cleaning](https://imperialcleaninginc.com/medical-office-cleaning)
+- [Office Building Cleaning](https://imperialcleaninginc.com/office-building-cleaning)
+- [Office Cleaning](https://imperialcleaninginc.com/office-cleaning)
+- [Property Management Cleaning](https://imperialcleaninginc.com/property-management-cleaning)
+- [Restaurant Cleaning Services](https://imperialcleaninginc.com/restaurant-cleaning-services)
+- [School Cleaning Services](https://imperialcleaninginc.com/school-cleaning-services)
+- [Warehouse Cleaning](https://imperialcleaninginc.com/warehouse-cleaning)
+
+## Coverage
+
+- [Service areas](https://imperialcleaninginc.com/service-areas)
+- [Idaho service areas](https://imperialcleaninginc.com/service-areas/idaho)
+- [Utah service areas](https://imperialcleaninginc.com/service-areas/utah)
+
+## Guides and tools
+
+- [Cleaning guides and resources](https://imperialcleaninginc.com/resources)
+- [Car Dealership Nightly Cleaning Checklist](https://imperialcleaninginc.com/resources/car-dealership-nightly-cleaning-checklist)
+- [Commercial Cleaning Proposal Checklist](https://imperialcleaninginc.com/resources/commercial-cleaning-proposal-checklist)
+- [Commercial Cleaning Rfp Template](https://imperialcleaninginc.com/resources/commercial-cleaning-rfp-template)
+- [Commercial Cleaning Vs Janitorial](https://imperialcleaninginc.com/resources/commercial-cleaning-vs-janitorial)
+- [Commercial Floor Strip And Wax Cost](https://imperialcleaninginc.com/resources/commercial-floor-strip-and-wax-cost)
+- [Construction Cleanup Process Checklist](https://imperialcleaninginc.com/resources/construction-cleanup-process-checklist)
+- [How To Compare Commercial Cleaning Companies](https://imperialcleaninginc.com/resources/how-to-compare-commercial-cleaning-companies)
+- [Janitorial Scope Of Work Template](https://imperialcleaninginc.com/resources/janitorial-scope-of-work-template)
+- [Medical Office Cleaning Checklist](https://imperialcleaninginc.com/resources/medical-office-cleaning-checklist)
+- [Night Cleaning Vs Day Cleaning](https://imperialcleaninginc.com/resources/night-cleaning-vs-day-cleaning)
+- [Office Cleaning Frequency Guide](https://imperialcleaninginc.com/resources/office-cleaning-frequency-guide)
+- [Post Construction Cleaning Cost](https://imperialcleaninginc.com/resources/post-construction-cleaning-cost)
+- [School Janitorial Checklist](https://imperialcleaninginc.com/resources/school-janitorial-checklist)
+- [Switch Commercial Cleaning Companies](https://imperialcleaninginc.com/resources/switch-commercial-cleaning-companies)
+- [Warehouse Cleaning Scope Of Work](https://imperialcleaninginc.com/resources/warehouse-cleaning-scope-of-work)
+- [What Does A Day Porter Do](https://imperialcleaninginc.com/resources/what-does-a-day-porter-do)
+- [What Is Post Construction Cleaning](https://imperialcleaninginc.com/resources/what-is-post-construction-cleaning)
+
+## Company and contact
+
+- [Imperial Cleaning Inc](https://imperialcleaninginc.com/)
+- [About Imperial Cleaning](https://imperialcleaninginc.com/about)
+- [Request a cleaning quote](https://imperialcleaninginc.com/contact)
+- [Privacy policy](https://imperialcleaninginc.com/privacy-policy)
+- [Reviews and source profiles](https://imperialcleaninginc.com/reviews)
+- [Site directory](https://imperialcleaninginc.com/sitemap)
+- [Terms of service](https://imperialcleaninginc.com/terms-of-service)
+
+Review ratings, availability, insurance documents and project pricing should be confirmed at their source. This guide does not promise inspection approval or any search-engine outcome.
