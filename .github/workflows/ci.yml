@@ -1,17 +1,10 @@
 name: CI
 
-# The SEO guards (audit:links, audit:nap) were wired into `prebuild`, which
-# means they only ran when someone happened to build - locally or on deploy.
-# By then a bad merge is already on main. Running them here makes a coordinate
-# drift, a malformed region code, a broken internal link, or a stale Google
-# listing URL block the pull request instead.
-
 on:
   pull_request:
   push:
     branches: [main]
 
-# A new push supersedes the run in flight for the same ref.
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -21,30 +14,22 @@ permissions:
 
 jobs:
   verify:
-    name: Typecheck, audits, build
+    name: Typecheck, audits, regression tests, build
     runs-on: ubuntu-latest
     timeout-minutes: 15
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
-          # Next 14.2 targets Node 18/20/22; 20 is the conservative LTS here.
-          node-version: "20"
+          # Match the Node major used by the isolated review tests.
+          node-version: "22"
           cache: npm
-
       - name: Install dependencies
         run: npm ci
-
       - name: Typecheck
         run: npx tsc --noEmit
-
-      # The link manifest is generated from the page registry and committed.
-      # If a page was added or renamed without regenerating, the committed file
-      # is stale and RelatedContent silently renders the wrong links - so treat
-      # any drift as a failure rather than regenerating it here. The generator
-      # is deterministic, so a diff means the file was genuinely not updated.
+      - name: Quote delivery, analytics and crawler regression tests
+        run: node scripts/check-master-audit.mjs
       - name: Internal link manifest is up to date
         run: |
           npm run links:generate
@@ -53,12 +38,9 @@ jobs:
             git diff --stat -- data/internal-links.json
             exit 1
           fi
-
       - name: Internal link audit
         run: npm run audit:links
-
       - name: NAP consistency audit
         run: npm run audit:nap
-
       - name: Build
         run: npm run build
