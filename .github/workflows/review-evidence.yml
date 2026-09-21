@@ -1,0 +1,60 @@
+name: Review evidence
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: review-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  snapshot:
+    if: startsWith(github.head_ref, 'review/imperial-master-audit-')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Prepare recoverable review source
+        shell: python
+        run: |
+          import hashlib, json, pathlib, subprocess, tarfile
+          root = pathlib.Path.cwd()
+          files = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          source_roots = {'app', 'components', 'data', 'lib', 'hooks', 'scripts', 'shared', 'styles', 'docs', 'public', '.github'}
+          text_extensions = {'.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.mts', '.json', '.css', '.scss', '.md', '.txt', '.html', '.svg', '.yml', '.yaml', '.xml', '.py'}
+          selected, omitted = [], []
+          for name in files:
+              if not name:
+                  continue
+              path = pathlib.Path(name)
+              if path.name.startswith('.env') or any(part in {'node_modules', '.git', 'uploads', 'private', 'attached_assets'} for part in path.parts):
+                  continue
+              if len(path.parts) > 1 and path.parts[0] not in source_roots:
+                  continue
+              if not path.is_file() or path.is_symlink():
+                  continue
+              size = path.stat().st_size
+              keep = path.suffix in text_extensions or (path.parts[0] == 'public' and size <= 2_000_000) or len(path.parts) == 1
+              if keep and size <= 10_000_000:
+                  selected.append(name)
+              else:
+                  omitted.append({'path': name, 'bytes': size})
+          out = root / 'review-evidence'
+          out.mkdir()
+          manifest = {'commit': subprocess.check_output(['git','rev-parse','HEAD']).decode().strip(), 'files': [{'path': f, 'sha256': hashlib.sha256(pathlib.Path(f).read_bytes()).hexdigest()} for f in selected], 'omitted_assets': omitted, 'privacy': 'Tracked source only; no secrets, environment files, runtime database, customer uploads or dependency directories.'}
+          (out / 'source-manifest.json').write_text(json.dumps(manifest, indent=2))
+          with tarfile.open(out / 'review-source.tar.gz', 'w:gz') as archive:
+              for name in selected:
+                  archive.add(name, arcname=name, recursive=False)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: imperial-review-source
+          path: review-evidence/
+          retention-days: 1
+          if-no-files-found: error
