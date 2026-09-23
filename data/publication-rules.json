@@ -1,4 +1,11 @@
 {
-  "/privacy-policy": { "modified": "2026-09-21" },
-  "/resources/construction-cleanup-process-checklist": { "modified": "2026-09-21" }
+  "/privacy-policy": {
+    "modified": "2026-09-21"
+  },
+  "/resources/construction-cleanup-process-checklist": {
+    "modified": "2026-09-21"
+  },
+  "/": {
+    "modified": "2026-09-23"
+  }
 }

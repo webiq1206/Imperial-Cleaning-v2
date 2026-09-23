@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import './globals.css';
 import './redesign.css';
 import './audit-improvements.css';
+import './construction-priority.css';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import AnalyticsConsent from '@/components/analytics-consent';
@@ -16,20 +17,20 @@ import {
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(m => ({ default: m.Toaster })), { ssr: false });
 const preview = process.env.NEXT_PUBLIC_DESIGN_PREVIEW === '1';
 const origin = 'https://imperialcleaninginc.com';
-const description = 'Commercial cleaning and post-construction cleanup for businesses, contractors and facility managers across Idaho and Utah. Request a cleaning quote.';
+const description = 'Construction cleanup and post-construction cleaning for commercial contractors and builders across Idaho and Utah. Recurring commercial cleaning is also available.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(origin),
-  title: { default: 'Commercial & Construction Cleaning | Imperial Cleaning', template: '%s | Imperial Cleaning Inc' },
+  title: { default: 'Construction Cleanup & Cleaning | Imperial Cleaning', template: '%s | Imperial Cleaning Inc' },
   description,
   authors: [{ name: 'Imperial Cleaning Inc' }], creator: 'Imperial Cleaning Inc', publisher: 'Imperial Cleaning Inc',
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: 'website', locale: 'en_US', url: origin, siteName: 'Imperial Cleaning Inc',
-    title: 'Imperial Cleaning Inc | Commercial & Construction Cleaning', description,
+    title: 'Imperial Cleaning Inc | Construction Cleanup & Cleaning', description,
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Imperial Cleaning Inc' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Imperial Cleaning Inc | Commercial & Construction Cleaning', description, images: ['/og-image.png'] },
+  twitter: { card: 'summary_large_image', title: 'Imperial Cleaning Inc | Construction Cleanup & Cleaning', description, images: ['/og-image.png'] },
   robots: {
     index: !preview, follow: !preview,
     googleBot: { index: !preview, follow: !preview, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },

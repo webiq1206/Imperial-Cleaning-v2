@@ -22,7 +22,7 @@ export default function ContextualContact() {
       const modal = !!document.querySelector('[role=dialog][data-state=open],[role=dialog][aria-modal=true]');
       const privacy = document.documentElement.dataset.privacyOpen === 'true';
       const height = window.visualViewport?.height || window.innerHeight;
-      const otherCTA = Array.from(document.querySelectorAll<HTMLElement>('a[href="/contact"],[data-primary-cta],.quote-form')).some(element => {
+      const otherCTA = Array.from(document.querySelectorAll<HTMLElement>('a[href="/contact"],a[href^="/contact?"],[data-primary-cta],.quote-form')).some(element => {
         if (element.closest('[data-contextual-contact]')) return false;
         const rect = element.getBoundingClientRect();
         const style = window.getComputedStyle(element);

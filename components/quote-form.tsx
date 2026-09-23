@@ -1,5 +1,5 @@
 "use client";
-import { useState, useId, useRef } from "react";
+import { useState, useId, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,6 +7,7 @@ import { ArrowUpRight, ArrowLeft, CheckCircle2, Phone, ShieldCheck } from "lucid
 import { contactSchema, type ContactData } from "@/lib/contact-schema";
 import { trackConversionComplete, trackEvent } from "@/lib/analytics";
 import { BUSINESS_PHONE, BUSINESS_PHONE_TEL } from "@/data/business-info";
+import { quoteServices, quoteServiceFromSearch } from "@/data/service-priorities";
 export default function QuoteForm() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "preview">("idle");
@@ -17,6 +18,12 @@ export default function QuoteForm() {
   const inFlight = useRef(false);
   const attempt = useRef({ payload: "", key: "" });
   const form = useForm<ContactData>({ resolver: zodResolver(contactSchema), defaultValues: { name:"", email:"", phone:"", location:"", company:"", message:"", website:"" }, shouldFocusError: true });
+  useEffect(() => {
+    // Do not replace a visitor's existing service choice.
+    if (form.getValues("service")) return;
+    const service = quoteServiceFromSearch(window.location.search);
+    if (service) form.setValue("service", service);
+  }, [form]);
   const { errors } = form.formState;
   const focusTitle = () => requestAnimationFrame(() => titleRef.current?.focus());
   const next = async () => { if (await form.trigger(["service", "location", "message"], { shouldFocus: true })) { setStep(2); focusTitle(); } };
@@ -61,7 +68,7 @@ export default function QuoteForm() {
     <h2 ref={titleRef} tabIndex={-1}>{step === 1 ? "Tell us about your space." : "How can we reach you?"}</h2>
     <p className="form-intro">{step === 1 ? "A few details help us prepare the right quote. Fields marked with * are required." : "We will follow up about your cleaning needs. No obligation."}</p>
     {step === 1 ? <>
-      <fieldset><legend>What do you need? <span aria-hidden="true">*</span></legend><div className="service-options">{[{value:"commercial",name:"Commercial cleaning",detail:"Recurring or one-time facility care"},{value:"construction",name:"Construction cleanup",detail:"Rough, final, or touch-up cleaning"},{value:"both",name:"Both / help me decide",detail:"We will work through the scope together"}].map(s => <label key={s.value} className={form.watch("service") === s.value ? "selected" : ""}><input type="radio" value={s.value} {...form.register("service")} aria-invalid={!!errors.service} aria-describedby={errors.service ? `${id}-service-error` : undefined} /><span><strong>{s.name}</strong><small>{s.detail}</small></span></label>)}</div>{fieldError("service")}</fieldset>
+      <fieldset><legend>What do you need? <span aria-hidden="true">*</span></legend><div className="service-options">{quoteServices.map(s => <label key={s.value} className={form.watch("service") === s.value ? "selected" : ""}><input type="radio" value={s.value} {...form.register("service")} aria-invalid={!!errors.service} aria-describedby={errors.service ? `${id}-service-error` : undefined} /><span><strong>{s.name}</strong><small>{s.detail}</small></span></label>)}</div>{fieldError("service")}</fieldset>
       <label htmlFor={`${id}-location`}>City and state <span aria-hidden="true">*</span></label><input {...attrs("location")} {...form.register("location")} placeholder="e.g., Idaho Falls, ID" autoComplete="address-level2" maxLength={180} />{fieldError("location")}
       <details className="optional-details"><summary>Add project notes (optional)</summary><label htmlFor={`${id}-message`}>Anything we should know?</label><textarea {...attrs("message")} {...form.register("message")} rows={3} maxLength={5000} placeholder="Approximate size, cleaning schedule, or project deadline" />{fieldError("message")}</details>
       <button className="ic-button form-next" type="button" onClick={next}>Continue <ArrowUpRight size={18} /></button>

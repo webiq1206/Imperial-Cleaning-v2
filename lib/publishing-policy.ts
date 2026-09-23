@@ -73,14 +73,24 @@ export function buildLLMS(paths: readonly string[], facts: PublicBusinessFacts, 
     }
   }
   const groups: [string, string[]][] = [ ['Services',[]], ['Coverage',[]], ['Guides and tools',[]], ['Company and contact',[]] ];
-  for (const path of paths.filter(isPublicPath)) {
+  const constructionOrder = [
+    '/construction-cleaning', '/construction-cleaning/rough-clean',
+    '/construction-cleaning/final-clean', '/construction-cleaning/touch-up-clean',
+  ];
+  const priority = (path: string) => {
+    const index = constructionOrder.indexOf(path);
+    return index < 0 ? constructionOrder.length : index;
+  };
+  // Only editorial link order changes. Sitemap membership and canonical policy do not.
+  const ordered = paths.filter(isPublicPath).sort((a, b) => priority(a) - priority(b) || a.localeCompare(b));
+  for (const path of ordered) {
     const city = /^\/(idaho|utah)\//.test(path);
     if (city && !full) continue;
     const group = city || path.startsWith('/service-areas') ? 1 : path.startsWith('/resources') ? 2 : names[path] ? 3 : 0;
     groups[group][1].push(`- [${label(path)}](${PUBLIC_ORIGIN}${path === '/' ? '/' : path})`);
   }
   groups[3][1].push(`- [Google Business Profile](${facts.googleListingUrl})`);
-  return [`# ${facts.name}`, '', '> Commercial cleaning and post-construction cleanup for businesses, contractors and facility managers in Idaho and Utah.', '',
+  return [`# ${facts.name}`, '', '> Construction cleanup and post-construction cleaning for commercial contractors and builders in Idaho and Utah. Recurring commercial cleaning is our secondary service.', '',
     `Based in ${facts.city}. Phone: ${facts.phone}. Email: ${facts.email}.`,
     `Business address: ${facts.fullAddress}.`, `Office hours, Mountain Time: ${facts.hours}.`,
     'Contact the team to confirm the project scope, location, access and schedule. Service-area pages describe coverage, not separate staffed offices.', '',
