@@ -56,7 +56,22 @@ function label(path: string): string {
   if (pieces.length === 3 && ['idaho','utah'].includes(pieces[0])) return `${humanize(pieces[1])} in ${humanize(pieces[2])}, ${humanize(pieces[0])}`;
   return humanize(pieces.at(-1) || 'Home');
 }
-export function buildLLMS(paths: readonly string[], facts: {name:string;phone:string;email:string;city:string;hours:string}, full = false): string {
+export type PublicBusinessFacts = {
+  name: string;
+  phone: string;
+  email: string;
+  city: string;
+  hours: string;
+  fullAddress: string;
+  googleListingUrl: string;
+};
+export function buildLLMS(paths: readonly string[], facts: PublicBusinessFacts, full = false): string {
+  // Fail before writing either file rather than publishing incomplete business facts.
+  for (const key of ['fullAddress', 'googleListingUrl'] as const) {
+    if (typeof facts[key] !== 'string' || !facts[key].trim()) {
+      throw new Error(`Missing required public business fact: ${key}.`);
+    }
+  }
   const groups: [string, string[]][] = [ ['Services',[]], ['Coverage',[]], ['Guides and tools',[]], ['Company and contact',[]] ];
   for (const path of paths.filter(isPublicPath)) {
     const city = /^\/(idaho|utah)\//.test(path);
@@ -64,8 +79,10 @@ export function buildLLMS(paths: readonly string[], facts: {name:string;phone:st
     const group = city || path.startsWith('/service-areas') ? 1 : path.startsWith('/resources') ? 2 : names[path] ? 3 : 0;
     groups[group][1].push(`- [${label(path)}](${PUBLIC_ORIGIN}${path === '/' ? '/' : path})`);
   }
+  groups[3][1].push(`- [Google Business Profile](${facts.googleListingUrl})`);
   return [`# ${facts.name}`, '', '> Commercial cleaning and post-construction cleanup for businesses, contractors and facility managers in Idaho and Utah.', '',
-    `Based in ${facts.city}. Phone: ${facts.phone}. Email: ${facts.email}.`, `Office hours, Mountain Time: ${facts.hours}.`,
+    `Based in ${facts.city}. Phone: ${facts.phone}. Email: ${facts.email}.`,
+    `Business address: ${facts.fullAddress}.`, `Office hours, Mountain Time: ${facts.hours}.`,
     'Contact the team to confirm the project scope, location, access and schedule. Service-area pages describe coverage, not separate staffed offices.', '',
     ...groups.flatMap(([heading,links]) => links.length ? [`## ${heading}`, '', ...links, ''] : []),
     'Review ratings, availability, insurance documents and project pricing should be confirmed at their source. This guide does not promise inspection approval or any search-engine outcome.', ''
