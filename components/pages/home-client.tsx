@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowUpRight, HardHat, ClipboardCheck, CalendarClock, MapPin, Check } from "lucide-react";
+import { ArrowUpRight, HardHat, Building2, ClipboardCheck, CalendarClock, MapPin, Check } from "lucide-react";
 import { verifiedReviews } from "@/data/reviews";
 import { homeFaqs } from "@/data/home-faqs";
 import { constructionPhases, constructionResources, CONSTRUCTION_QUOTE_HREF } from "@/data/service-priorities";
@@ -13,8 +13,27 @@ export default function HomeClient() {
     return review ? [review] : [];
   });
   return <>
-    <section id="services" className="ic-section"><div className="site-width">
-      <div className="section-heading"><div><span className="eyebrow">OUR PRIMARY SERVICE</span><h2>Construction cleaning.<br />From rough to final.</h2></div><p>Keep your trades focused on the build. Plan the cleanup around released work areas, new finishes, and the handover ahead.</p></div>
+    <section id="services" className="ic-section service-overview" aria-labelledby="service-overview-title"><div className="site-width">
+      <div className="section-heading"><div><span className="eyebrow">FOR YOUR PROJECT. FOR YOUR WORKPLACE.</span><h2 id="service-overview-title">Construction cleanup<br />and commercial cleaning.</h2></div><p>Plan a cleanup for your next handover or recurring care for an established workplace. Choose the service that fits.</p></div>
+      <div className="service-overview-grid">
+        <article className="service-card construction service-overview-card" aria-labelledby="construction-service-title">
+          <div className="service-card-top"><HardHat size={30} aria-hidden="true" /><span>01 / PROJECT CLEANUP</span></div>
+          <h3 id="construction-service-title">Construction cleanup</h3>
+          <p>Take your commercial project from the last trade to a clean handover. Coordinate the cleanup around released areas, new finishes, and your construction schedule.</p>
+          <ul><li><Check aria-hidden="true" />New builds, renovations, and tenant improvements</li><li><Check aria-hidden="true" />Rough, final, and touch-up cleaning</li><li><Check aria-hidden="true" />A defined scope for your project</li></ul>
+          <div className="service-overview-actions"><Link href="/construction-cleaning" className="ic-button">Explore construction cleanup <ArrowUpRight size={18} aria-hidden="true" /></Link><Link href={CONSTRUCTION_QUOTE_HREF} className="text-link">Request a construction quote <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+        </article>
+        <article id="commercial-cleaning" className="service-card service-overview-card" aria-labelledby="commercial-service-title">
+          <div className="service-card-top"><Building2 size={30} aria-hidden="true" /><span>02 / ONGOING CLEANING</span></div>
+          <h3 id="commercial-service-title">Commercial cleaning</h3>
+          <p>Keep your workplace ready for staff and customers with recurring office cleaning and janitorial services. Set the scope and frequency around your facility.</p>
+          <ul><li><Check aria-hidden="true" /><Link href="/office-cleaning">Office cleaning</Link></li><li><Check aria-hidden="true" /><Link href="/janitorial-services">Janitorial services</Link></li><li><Check aria-hidden="true" />Cleaning around your business hours</li></ul>
+          <div className="service-overview-actions"><Link href="/commercial-cleaning" className="ic-button secondary">Explore commercial cleaning <ArrowUpRight size={18} aria-hidden="true" /></Link><Link href="/contact?service=commercial" className="text-link">Request a commercial quote <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+        </article>
+      </div>
+    </div></section>
+    <section id="construction-phases" className="ic-section"><div className="site-width">
+      <div className="section-heading"><div><span className="eyebrow">CONSTRUCTION CLEANUP BY PHASE</span><h2>Construction cleaning.<br />From rough to final.</h2></div><p>Keep your trades focused on the build. Plan the cleanup around released work areas, new finishes, and the handover ahead.</p></div>
       <div className="construction-phase-grid">{constructionPhases.map(phase => <article className="service-card construction" key={phase.href}>
         <div className="service-card-top"><HardHat size={28} aria-hidden="true" /><span>{phase.stage}</span></div>
         <h3>{phase.label}</h3><p>{phase.description}</p>
@@ -48,10 +67,6 @@ export default function HomeClient() {
         { state: "Utah", slug: "utah", cities: [{name:"Salt Lake City",slug:"salt-lake-city"},{name:"Logan",slug:"logan"},{name:"Ogden",slug:"ogden"},{name:"Provo",slug:"provo"}] },
       ].map(area => <article className="area-card construction-area-card" key={area.slug}><div><span className="eyebrow"><MapPin size={14} aria-hidden="true" />CONSTRUCTION SERVICE AREAS</span><h3>{area.state}</h3><ul>{area.cities.map(city => <li key={city.slug}><Link href={`/${area.slug}/construction-cleaning/${city.slug}`}>Construction cleanup in {city.name}<ArrowUpRight size={15} aria-hidden="true" /></Link></li>)}</ul><Link className="text-link" href={`/service-areas/${area.slug}`}>View all {area.state} service areas <ArrowUpRight size={17} aria-hidden="true" /></Link></div></article>)}
       </div><Link href="/service-areas" className="text-link area-all">Find every service area <ArrowUpRight size={17} aria-hidden="true" /></Link>
-    </div></section>
-    <section id="commercial-cleaning" className="ic-section commercial-secondary"><div className="site-width commercial-secondary-inner">
-      <div><span className="eyebrow">ALSO AVAILABLE</span><h2>Ongoing commercial cleaning.</h2><p>Need regular cleaning after the building opens? We also provide recurring office cleaning and janitorial services for commercial facilities.</p></div>
-      <div><Link href="/commercial-cleaning" className="ic-button secondary">Explore commercial cleaning <ArrowUpRight size={18} aria-hidden="true" /></Link><Link href="/contact?service=commercial" className="text-link">Request a commercial quote <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
     </div></section>
     <section id="faq" className="ic-section"><div className="site-width faq-layout"><div><span className="eyebrow">CONSTRUCTION CLEANUP QUESTIONS</span><h2>Before the crew<br />gets to work.</h2><p>Planning a build, renovation, or final clean?</p><Link href={CONSTRUCTION_QUOTE_HREF} className="text-link">Talk through your project <ArrowUpRight size={18} aria-hidden="true" /></Link></div><Accordion type="single" collapsible className="home-faq">{homeFaqs.map(faq => <AccordionItem key={faq.id} value={faq.id}><AccordionTrigger>{faq.question}</AccordionTrigger><AccordionContent>{faq.answer}</AccordionContent></AccordionItem>)}</Accordion></div></section>
   </>;

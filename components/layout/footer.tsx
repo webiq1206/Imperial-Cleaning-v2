@@ -7,8 +7,8 @@ import { BUSINESS_PHONE, BUSINESS_PHONE_TEL, BUSINESS_EMAIL, BUSINESS_FULL_ADDRE
 export default function Footer() {
   return <footer className="site-footer">
     <div className="site-width">
-      <div className="footer-invitation"><div><span className="eyebrow">LET’S PLAN YOUR NEXT PROJECT</span><h2>Get your construction cleanup in the plan.</h2></div><Link href="/contact" className="ic-button">Get a free quote <ArrowUpRight size={19} aria-hidden="true" /></Link></div>
-      <div className="footer-grid"><div className="footer-brand"><BrandLogo /><p>Construction cleanup for commercial contractors and builders across Idaho and Utah. Recurring commercial cleaning is also available.</p>
+      <div className="footer-invitation"><div><span className="eyebrow">LET’S PLAN YOUR CLEANING</span><h2>Get a quote for your project or workplace.</h2></div><Link href="/contact" className="ic-button">Get a free quote <ArrowUpRight size={19} aria-hidden="true" /></Link></div>
+      <div className="footer-grid"><div className="footer-brand"><BrandLogo /><p>Construction cleanup for builders and contractors. Commercial cleaning for offices and business facilities across Idaho and Utah.</p>
         <a href={`tel:${BUSINESS_PHONE_TEL}`}><Phone size={16} aria-hidden="true" />{BUSINESS_PHONE}</a>
         <a href={`mailto:${BUSINESS_EMAIL}`}><Mail size={16} aria-hidden="true" />{BUSINESS_EMAIL}</a>
         <p className="footer-address"><MapPin size={16} aria-hidden="true" />{BUSINESS_FULL_ADDRESS}</p>

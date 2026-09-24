@@ -1,6 +1,12 @@
 # Imperial: construction-first service priority
 
-## Standing owner direction
+## Latest clarification: September 24, 2026
+
+Construction remains the primary service. That does not mean commercial cleaning should be hidden or relegated to a small block near the bottom. Both services must be immediately discoverable in the hero, the first service section, navigation, and their own quote paths. Construction leads through the headline, primary CTA, first position, and additional phase detail. Commercial receives a full, readable service card in the first section, before construction-specific detail or reviews. It is an independent service for established workplaces, not only an option after a construction project.
+
+This clarification supersedes the smaller late-page commercial section described in the historical checkpoint below. The implementation and verification are recorded in SERVICE-VISIBILITY-2026-09-24.md.
+
+## September 23 direction and historical implementation checkpoint
 
 Reaffirmed by Jared on September 23, 2026: construction cleaning, construction cleanup, and post-construction cleanup are Imperial's primary services. Commercial cleaning and janitorial work are secondary. Construction must dominate the homepage, navigation, conversion paths, related content, and future search/growth priorities.
 

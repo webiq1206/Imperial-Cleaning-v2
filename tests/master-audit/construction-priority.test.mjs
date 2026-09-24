@@ -54,10 +54,13 @@ test('title, social cards, and homepage schema use the same construction-first s
   assert.match(source,/description: homeSearch.description/); assert.match(source,/canonical: origin/);
   assert.doesNotMatch(source,/index:\s*true/);
 });
-test('hero leads with the construction headline and service-specific quote context', () => {
+test('hero leads with construction and gives commercial cleaning an explicit visible action', () => {
   const source=read('components/hero-section.tsx');assert.match(source,/<h1>\{homeSearch.headline\}/);
   assert.match(source,/href=\{CONSTRUCTION_QUOTE_HREF\}/); assert.match(source,/Post-construction cleanup for general contractors/);
-  assert.doesNotMatch(source,/href="\/commercial-cleaning"/);
+  assert.match(source,/href="\/commercial-cleaning" className="ic-button secondary"/);
+  assert.match(source,/recurring commercial cleaning for offices and business facilities/);
+  assert.ok(source.indexOf('href={CONSTRUCTION_QUOTE_HREF}') < source.indexOf('href="/commercial-cleaning"'));
+  assert.match(source,/className="hero-phone"/);
   assert.equal(CONSTRUCTION_QUOTE_HREF,'/contact?service=construction');
 });
 test('all construction phases are distinct canonical destinations in the leading menu', () => {
@@ -76,10 +79,15 @@ test('every new navigation and planning link resolves to an existing canonical p
     assert.ok(known.has(link.href),link.href); assert.ok(!/[?#]/.test(link.href));
   }
 });
-test('homepage construction phases, proof, and planning resources precede commercial cleaning', () => {
-  const source=read('components/pages/home-client.tsx'),secondary=source.indexOf('id="commercial-cleaning"');assert.ok(secondary>0);
-  for (const marker of ['construction-phase-grid','id="reviews"','id="construction-resources"','id="service-areas"']) assert.ok(source.indexOf(marker)<secondary,marker);
-  assert.match(source,/commercial-secondary/);assert.doesNotMatch(source,/Floor care & day porters|property owners|navigation\[1\]/);
+test('both service cards are in the first section before phase detail and reviews', () => {
+  const source=read('components/pages/home-client.tsx');
+  const first=source.indexOf('id="services"'),commercial=source.indexOf('id="commercial-cleaning"');
+  const end=source.indexOf('</section>',first);
+  assert.ok(first>=0 && commercial>first && commercial<end);
+  assert.ok(source.indexOf('id="construction-service-title"')<commercial);
+  for (const marker of ['id="construction-phases"','id="reviews"','id="construction-resources"','id="service-areas"']) assert.ok(source.indexOf(marker)>end,marker);
+  assert.equal((source.match(/id="commercial-cleaning"/g)||[]).length,1);
+  assert.doesNotMatch(source,/ALSO AVAILABLE|commercial-secondary|Need regular cleaning after the building opens/);
 });
 test('construction proof reuses named source reviews rather than relabeling commercial testimonials', () => {
   const source=read('components/pages/home-client.tsx');
@@ -145,12 +153,38 @@ test('both generated AI guides lead with construction and retain every canonical
   }
 });
 test('public route inventory remains at 95 and only the homepage receives a new publication date', () => {
-  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-09-23');
-  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-09-23T23:59:59Z'));
+  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-09-24');
+  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-09-24T23:59:59Z'));
   assert.equal(sitemap.length,95);assert.ok(known.has('/commercial-cleaning'));assert.ok(known.has('/construction-cleaning'));
 });
 test('layout and footer descriptions follow construction-first positioning without changing identity constants', () => {
   assert.match(read('app/layout.tsx'),/const description = 'Construction cleanup and post-construction cleaning/);
-  const footer=read('components/layout/footer.tsx');assert.match(footer,/Construction cleanup for commercial contractors and builders/);
+  const footer=read('components/layout/footer.tsx');assert.match(footer,/Construction cleanup for builders and contractors/);
+  assert.match(footer,/Commercial cleaning for offices and business facilities/);
+  assert.match(footer,/Get a quote for your project or workplace/);
   assert.ok(footer.includes('BUSINESS_FULL_ADDRESS'));assert.ok(footer.includes('PrivacySettingsButton'));
+});
+
+test('each early service card has its own service details and matching quote destination', () => {
+  const source=read('components/pages/home-client.tsx');
+  const section=source.slice(source.indexOf('id="services"'),source.indexOf('id="construction-phases"'));
+  const split=section.indexOf('id="commercial-cleaning"');
+  const construction=section.slice(0,split),commercial=section.slice(split);
+  assert.match(construction,/href="\/construction-cleaning"/);
+  assert.match(construction,/href=\{CONSTRUCTION_QUOTE_HREF\}/);
+  for (const path of ['/commercial-cleaning','/office-cleaning','/janitorial-services']) {
+    assert.ok(commercial.includes('href="'+path+'"')); assert.ok(known.has(path));
+  }
+  assert.match(commercial,/href="\/contact\?service=commercial"/);
+  assert.equal(quoteServiceFromSearch('?service=commercial'),'commercial');
+  assert.doesNotMatch(commercial,/href=\{CONSTRUCTION_QUOTE_HREF\}/);
+});
+test('service overview uses full-size shared cards and stacks both offers on mobile', () => {
+  const source=read('components/pages/home-client.tsx'),css=read('app/construction-priority.css');
+  assert.equal((source.match(/service-overview-card"/g)||[]).length,2);
+  assert.match(css,/\.service-overview-grid \{ display:grid; grid-template-columns:minmax\(0,1\.2fr\) minmax\(0,1fr\)/);
+  assert.match(css,/@media\(max-width:767px\) \{\s*\.imperial-site \.service-overview-grid \{ grid-template-columns:1fr; \}/);
+  assert.match(css,/\.service-overview-actions \.text-link \{ min-height:44px/);
+  assert.doesNotMatch(css,/commercial-secondary/);
+  assert.ok(css.includes('.construction-first-hero .button-row .ic-button { width:100%; }'));
 });

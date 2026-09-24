@@ -17,21 +17,36 @@
 .imperial-site .construction-area-card li a { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; padding:10px 0; color:var(--foreground); line-height:1.5; }
 .imperial-site .construction-area-card li a:hover { color:#38cdff; }
 .imperial-site .construction-area-card svg { flex-shrink:0; }
-.imperial-site .commercial-secondary { border-bottom:1px solid var(--border); }
-.imperial-site .commercial-secondary-inner { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:48px; align-items:center; }
-.imperial-site .commercial-secondary h2 { margin:16px 0; font-size:clamp(1.65rem,2.5vw,2.4rem); }
-.imperial-site .commercial-secondary p { color:var(--muted-foreground); max-width:620px; }
-.imperial-site .commercial-secondary-inner>div:last-child { display:flex; flex-direction:column; align-items:flex-start; }
 .imperial-site .footer-coverage { display:flex; flex-wrap:wrap; gap:12px 28px; margin-bottom:24px; }
 .imperial-site .footer-coverage a { display:flex; align-items:center; min-height:44px; color:var(--muted-foreground); font-size:.875rem; }
 @media(min-width:1024px) and (max-width:1399px) { .imperial-site .header-phone { display:none; } .imperial-site .nav-trigger { padding-inline:8px; } }
 @media(max-width:1023px) { .imperial-site .construction-phase-grid,.imperial-site .construction-resource-grid { gap:16px; } .imperial-site .construction-phase-grid .service-card,.imperial-site .construction-resource-card { padding:22px; } }
 @media(max-width:767px) {
-  .imperial-site .construction-phase-grid,.imperial-site .construction-resource-grid,.imperial-site .commercial-secondary-inner { grid-template-columns:1fr; }
+  .imperial-site .construction-phase-grid,.imperial-site .construction-resource-grid { grid-template-columns:1fr; }
   .imperial-site .construction-first-hero .hero-copy h1 { font-size:clamp(2.1rem,9.4vw,3.2rem); }
   .imperial-site .construction-phase-grid .service-card,.imperial-site .construction-resource-card { padding:24px; }
   .imperial-site .construction-section-actions { align-items:stretch; }
   .imperial-site .construction-section-actions .ic-button { width:100%; }
-  .imperial-site .commercial-secondary-inner { gap:24px; }
 }
 @media(min-width:1024px) and (max-width:1199px) { .imperial-site .desktop-navigation { display:none; } .imperial-site .menu-toggle { display:inline-flex; } }
+
+/* Keep both offers visible early. Construction leads by order and modest width, not by hiding commercial content. */
+.imperial-site .service-overview { border-bottom:1px solid var(--border); }
+.imperial-site .service-overview-grid { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:24px; }
+.imperial-site .service-overview-card { display:flex; flex-direction:column; min-width:0; }
+.imperial-site .service-overview-card li { align-items:center; }
+.imperial-site .service-overview-card li svg { flex-shrink:0; }
+.imperial-site .service-overview-card li a { display:inline-flex; align-items:center; min-height:44px; text-decoration:underline; text-underline-offset:4px; }
+.imperial-site .service-overview-actions { display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin-top:auto; padding-top:4px; }
+.imperial-site .service-overview-actions .text-link { min-height:44px; }
+.imperial-site .service-overview-actions svg { flex-shrink:0; }
+.imperial-site .construction-first-hero .hero-assurance { max-width:none; }
+.imperial-site .construction-first-hero .hero-phone { display:inline-flex; align-items:center; min-height:44px; margin-left:12px; padding:8px 0; color:var(--foreground); font-size:.875rem; }
+.imperial-site .construction-first-hero .hero-phone:hover { color:#38cdff; }
+@media(max-width:767px) {
+  .imperial-site .service-overview-grid { grid-template-columns:1fr; }
+  .imperial-site .service-overview-card { padding:24px; }
+  .imperial-site .service-overview-actions { align-items:stretch; }
+  .imperial-site .service-overview-actions .ic-button { width:100%; }
+  .imperial-site .construction-first-hero .button-row .ic-button { width:100%; }
+}

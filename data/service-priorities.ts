@@ -1,10 +1,11 @@
-/** Owner direction, reaffirmed 2026-09-23: construction first, commercial secondary.
+/** Owner direction, clarified 2026-09-24: construction leads, commercial stays prominent.
+ * Show both services in the hero and first service section, not a late add-on.
  * Keep the homepage's primary terms general. City intent belongs on existing city pages.
  */
 export const CONSTRUCTION_QUOTE_HREF = "/contact?service=construction";
 export const homeSearch = {
   title: "Construction Cleanup & Cleaning | Imperial Cleaning",
-  description: "Construction cleanup and post-construction cleaning for commercial builds, renovations, and tenant improvements. Request a free project quote from Imperial.",
+  description: "Construction cleanup and post-construction cleaning for project handovers, plus office and commercial cleaning for your business. Request a free quote.",
   keywords: "construction cleanup, construction cleaning, post construction cleanup, post-construction cleaning services, commercial construction cleaning, final construction cleaning, rough construction cleaning, builder cleanup",
   headline: "Construction cleanup.",
   benefit: "Ready for handover.",
