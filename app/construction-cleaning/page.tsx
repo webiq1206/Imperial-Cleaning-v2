@@ -1,43 +1,6 @@
-import { Metadata } from "next";
-import ConstructionCleaningClient from "@/components/pages/construction-cleaning-client";
+import type { Metadata } from 'next';
+import ConstructionCleaningClient from '@/components/pages/construction-cleaning-client';
+import { buildSearchMetadata } from '@/lib/search-appearance';
 
-export const metadata: Metadata = {
-  title: { absolute: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc" },
-  description: "Professional post-construction cleanup across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors. Call (208) 520-3202 today!",
-  keywords: "construction cleanup Idaho Utah, post construction cleaning, debris removal, final inspection cleaning, construction site cleaning Idaho Falls, building cleanup services",
-  authors: [{ name: "Imperial Cleaning Inc" }],
-  openGraph: {
-    title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc",
-    description: "Professional post-construction cleanup across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors.",
-    url: "https://imperialcleaninginc.com/construction-cleaning",
-    siteName: "Imperial Cleaning Inc",
-    locale: "en_US",
-    type: "website",
-    images: [{
-      url: "https://imperialcleaninginc.com/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "Construction Cleaning Services in Idaho & Utah | Imperial Cleaning Inc"
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Idaho & Utah Construction Cleaning | Imperial Cleaning Inc",
-    description: "Professional post-construction cleanup across Idaho & Utah. Expert debris removal & inspection-ready cleaning for contractors.",
-    site: "@imperialcleaninginc",
-    creator: "@imperialcleaninginc",
-    images: ["https://imperialcleaninginc.com/og-image.png"],
-  },
-  alternates: {
-    canonical: "https://imperialcleaninginc.com/construction-cleaning",
-  },
-  other: {
-    "geo.region": "US-ID",
-    "geo.placename": "Idaho Falls, Idaho",
-    "geo.position": "43.5102;-112.0842",
-  },
-};
-
-export default function ConstructionCleaningPage() {
-  return <ConstructionCleaningClient />;
-}
+export const metadata: Metadata = buildSearchMetadata('/construction-cleaning');
+export default function ConstructionCleaningPage() { return <ConstructionCleaningClient />; }

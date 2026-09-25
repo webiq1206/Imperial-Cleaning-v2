@@ -1,0 +1,11 @@
+{
+  "checked": "2026-09-25",
+  "property": "sc-domain:imperialcleaninginc.com",
+  "fresh_gsc_status": "blocked: GSC Wizard payment_required, trial ended or no active subscription",
+  "fresh_28_day_comparison": "not retrieved",
+  "fresh_device_country_query_page_export": "not retrieved",
+  "baseline": "Earlier actual connector responses retained in this conversation; selected rows only. Windows must not be combined.",
+  "alternate_reporting_provider": "Plugin discovery performed; alternatives require a new authorized connection. No purchase or subscription change.",
+  "google_selected_canonicals": "Not refreshed this turn",
+  "results_after_changes": "Not measurable before deployment and recrawl"
+}

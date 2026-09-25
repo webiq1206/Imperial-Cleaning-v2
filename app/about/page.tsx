@@ -1,43 +1,6 @@
-import { Metadata } from "next";
-import AboutClient from "@/components/pages/about-client";
+import type { Metadata } from 'next';
+import AboutClient from '@/components/pages/about-client';
+import { buildSearchMetadata } from '@/lib/search-appearance';
 
-export const metadata: Metadata = {
-  title: { absolute: "About Imperial Cleaning Inc | Idaho & Utah Cleaning" },
-  description: "Imperial Cleaning Inc: Idaho's trusted cleaning company since 2015. Licensed, bonded & insured. Expert construction & commercial cleaning in ID & UT. Get a free quote!",
-  keywords: "about Imperial Cleaning, Idaho cleaning company, Utah cleaning services, professional cleaners, construction cleanup experts, commercial cleaning specialists, Idaho Falls headquarters",
-  authors: [{ name: "Imperial Cleaning Inc" }],
-  openGraph: {
-    title: "About Imperial Cleaning Inc | Idaho & Utah's Premier Cleaning Company",
-    description: "Discover Imperial Cleaning Inc's story - Idaho's most trusted cleaning company since 2015. Expert construction cleanup and commercial cleaning across Idaho and Utah.",
-    url: "https://imperialcleaninginc.com/about",
-    siteName: "Imperial Cleaning Inc",
-    locale: "en_US",
-    type: "website",
-    images: [{
-      url: "https://imperialcleaninginc.com/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "About Imperial Cleaning Inc - Professional Cleaning Company Idaho & Utah"
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Imperial Cleaning Inc | Idaho & Utah Cleaning Experts",
-    description: "Learn about Imperial Cleaning Inc - Idaho's premier cleaning company since 2015. Licensed, bonded & insured cleaning services across Idaho and Utah.",
-    site: "@imperialcleaninginc",
-    creator: "@imperialcleaninginc",
-    images: ["https://imperialcleaninginc.com/og-image.png"],
-  },
-  alternates: {
-    canonical: "https://imperialcleaninginc.com/about",
-  },
-  other: {
-    "geo.region": "US-ID",
-    "geo.placename": "Idaho Falls, Idaho",
-    "geo.position": "43.5102;-112.0842",
-  },
-};
-
-export default function AboutPage() {
-  return <AboutClient />;
-}
+export const metadata: Metadata = buildSearchMetadata('/about');
+export default function AboutPage() { return <AboutClient />; }

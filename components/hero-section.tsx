@@ -15,7 +15,7 @@ export default function HeroSection({ imageAlt }: { imageAlt?: string } = {}) {
         <div className="hero-assurance"><ClipboardCheck size={17} aria-hidden="true" /> Free cleaning quote <a href={`tel:${BUSINESS_PHONE_TEL}`} className="hero-phone">Call {BUSINESS_PHONE}</a></div>
       </div>
       <div className="hero-visual">
-        <Image className="hero-photo" src="/images/commercial-interior.jpg" alt={imageAlt ?? "A bright commercial interior"} fill sizes="(max-width: 767px) 100vw, 48vw" priority />
+        <Image className="hero-photo" src="/site-media/commercial-office-interior.webp" alt={imageAlt ?? "Office interior with glass partitions, desks, and carpeted floors"} fill sizes="(max-width: 767px) 100vw, 48vw" priority />
         <div className="photo-shade" />
         <div className="hero-photo-label"><MapPin size={16} aria-hidden="true" /> IDAHO & UTAH</div>
         <div className="hero-photo-card"><span className="eyebrow">FROM THE LAST TRADE TO HANDOVER</span><strong>You build it.<br />We handle the cleanup.</strong><span><Check size={16} aria-hidden="true" /> Rough clean <Check size={16} aria-hidden="true" /> Final clean <Check size={16} aria-hidden="true" /> Touch-ups</span></div>

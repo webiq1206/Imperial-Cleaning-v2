@@ -1,0 +1,31 @@
+{
+  "existing_lion": {
+    "path": "public/hero-logo.webp",
+    "git_blob": "0cd554b619f4428ae7a127cd55665bcc216dd1bb",
+    "use": "Existing header mark reused; not redesigned"
+  },
+  "existing_photo": {
+    "path": "public/images/commercial-interior.jpg",
+    "git_blob": "2b4ab647170c176f389e455fec6aee20b11c756d",
+    "description": "Office with glass partitions, desks, chairs, and carpeted floors",
+    "attribution_limit": "Existing website asset; not represented as an Imperial project photograph or newly licensed third-party work"
+  },
+  "new_icons": [
+    "/imperial-cleaning-icon-96.png",
+    "/imperial-cleaning-icon-192.png"
+  ],
+  "previews": {
+    "count": 95,
+    "size": "1200x630",
+    "type": "Branded title cards, not project photography",
+    "source": "Existing lion plus reviewed page text; code-rendered from a fixed whitelist"
+  },
+  "photo_optimization": {
+    "old_bytes": 307744,
+    "new_bytes": 192164,
+    "reduction_percent": 37.56,
+    "route": "/site-media/commercial-office-interior.webp",
+    "unchanged_original": true
+  },
+  "icon_generation": "Static PNG route handlers derive both icons from the existing header lion; no font or external fetch."
+}

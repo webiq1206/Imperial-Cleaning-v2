@@ -4,6 +4,7 @@ import HomeClient from "@/components/pages/home-client";
 import { StructuredData } from "@/components/structured-data";
 import { homeFaqs } from "@/data/home-faqs";
 import { homeSearch } from "@/data/service-priorities";
+import { SITE_ICONS, searchImage } from "@/lib/search-appearance";
 
 const origin = "https://imperialcleaninginc.com/";
 export const metadata: Metadata = {
@@ -14,10 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: homeSearch.title, description: homeSearch.description, url: origin,
     siteName: "Imperial Cleaning Inc", locale: "en_US", type: "website",
-    images: [{ url: `${origin}og-image.png`, width: 1200, height: 630, alt: "Imperial Cleaning Inc" }],
+    images: [searchImage('/')],
   },
-  twitter: { card: "summary_large_image", title: homeSearch.title, description: homeSearch.description, images: [`${origin}og-image.png`] },
+  twitter: { card: "summary_large_image", title: homeSearch.title, description: homeSearch.description, images: [searchImage('/').url] },
   alternates: { canonical: origin },
+  icons: SITE_ICONS,
   // Inherit the environment-aware index policy from the root layout.
 };
 const webPageSchema = {

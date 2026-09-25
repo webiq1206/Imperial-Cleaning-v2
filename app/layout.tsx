@@ -9,6 +9,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import AnalyticsConsent from '@/components/analytics-consent';
 import ContextualContact from '@/components/contextual-contact';
+import { SITE_ICONS, searchImage } from '@/lib/search-appearance';
 import {
   BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_GEO, BUSINESS_OPENING_HOURS_SCHEMA,
   BUSINESS_PHONE_TEL, GOOGLE_LISTING_URL, DIRECTORY_CITATIONS,
@@ -28,15 +29,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website', locale: 'en_US', url: origin, siteName: 'Imperial Cleaning Inc',
     title: 'Imperial Cleaning Inc | Construction Cleanup & Cleaning', description,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Imperial Cleaning Inc' }],
+    images: [searchImage('/')],
   },
-  twitter: { card: 'summary_large_image', title: 'Imperial Cleaning Inc | Construction Cleanup & Cleaning', description, images: ['/og-image.png'] },
+  twitter: { card: 'summary_large_image', title: 'Imperial Cleaning Inc | Construction Cleanup & Cleaning', description, images: [searchImage('/').url] },
   robots: {
     index: !preview, follow: !preview,
     googleBot: { index: !preview, follow: !preview, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   // Individual pages declare their own canonical. Do not inherit the homepage URL onto new pages.
-  icons: { icon: [{ url: '/favicon.ico', sizes: 'any' }, { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }, { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' }], apple: '/apple-touch-icon.png' },
+  icons: SITE_ICONS,
   manifest: '/site.webmanifest', category: 'business',
 };
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#000000' };
@@ -45,7 +46,7 @@ const WEBSITE_ID = `${origin}/#website`;
 const siteJsonLd = [
   {
     '@context': 'https://schema.org', '@type': ['Organization', 'ProfessionalService'], '@id': ORG_ID,
-    name: 'Imperial Cleaning Inc', url: origin, logo: `${origin}/hero-logo.png`, image: `${origin}/og-image.png`, description,
+    name: 'Imperial Cleaning Inc', url: origin, logo: `${origin}/imperial-cleaning-icon-192.png`, image: searchImage('/').url, description,
     telephone: BUSINESS_PHONE_TEL, email: BUSINESS_EMAIL,
     address: { '@type': 'PostalAddress', streetAddress: BUSINESS_ADDRESS.street, addressLocality: BUSINESS_ADDRESS.city, addressRegion: BUSINESS_ADDRESS.state, postalCode: BUSINESS_ADDRESS.postalCode, addressCountry: BUSINESS_ADDRESS.country },
     geo: { '@type': 'GeoCoordinates', latitude: BUSINESS_GEO.latitude, longitude: BUSINESS_GEO.longitude },

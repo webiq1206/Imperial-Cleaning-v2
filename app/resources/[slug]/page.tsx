@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import { buildSearchMetadata, searchImage, searchListing } from '@/lib/search-appearance';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, Clock, CheckCircle2, Calendar } from 'lucide-react';
@@ -8,30 +10,32 @@ import RelatedContent from '@/components/shared/related-content';
 import { guides, getGuideBySlug } from '@/data/guides';
 import PreferredSourceButton from '@/components/preferred-source-button';
 import HandoverChecklist from '@/components/handover-checklist';
+import { constructionCostUpdate } from '@/data/construction-cost-content';
 import rules from '@/data/publication-rules.json';
 import type { PublicationRules } from '@/lib/publishing-policy';
 import { BUSINESS_PHONE, BUSINESS_PHONE_TEL } from '@/data/business-info';
 
+function getSearchGuide(slug: string) {
+  const guide = getGuideBySlug(slug);
+  return guide?.slug === 'post-construction-cleaning-cost' ? { ...guide, ...constructionCostUpdate } : guide;
+}
+
 interface GuidePageProps { params: { slug: string } }
 export function generateStaticParams() { return guides.map(guide => ({slug:guide.slug})); }
 export function generateMetadata({params}:GuidePageProps): Metadata {
-  const guide=getGuideBySlug(params.slug);
+  const guide=getSearchGuide(params.slug);
   if(!guide) return {title:{absolute:'Resource Not Found | Imperial Cleaning Inc'},robots:{index:false,follow:false}};
-  const url=`https://imperialcleaninginc.com/resources/${guide.slug}`;
   const modified=(rules as PublicationRules)[`/resources/${guide.slug}`]?.modified || guide.dateModified;
-  return {
-    title:{absolute:guide.metaTitle},description:guide.description,authors:[{name:'Imperial Cleaning Inc'}],alternates:{canonical:url},
-    openGraph:{title:guide.metaTitle,description:guide.description,url,siteName:'Imperial Cleaning Inc',locale:'en_US',type:'article',publishedTime:guide.datePublished,modifiedTime:modified,images:[{url:'/og-image.png',width:1200,height:630,alt:'Imperial Cleaning Inc'}]},
-    twitter:{card:'summary_large_image',title:guide.metaTitle,description:guide.description,images:['/og-image.png']},
-  };
+  return buildSearchMetadata(`/resources/${guide.slug}`, { published: guide.datePublished, modified });
 }
 export default function GuidePage({params}:GuidePageProps) {
-  const guide=getGuideBySlug(params.slug);if(!guide)notFound();
+  const guide=getSearchGuide(params.slug);if(!guide)notFound();
   const path=`/resources/${guide.slug}`;
   const url=`https://imperialcleaninginc.com${path}`;
   const modified=(rules as PublicationRules)[path]?.modified || guide.dateModified;
+  const featured = searchImage(path);
   const checklist=guide.slug==='construction-cleanup-process-checklist';
-  const articleSchema={'@context':'https://schema.org','@type':'Article','@id':`${url}#article`,headline:guide.title,description:guide.description,url,datePublished:guide.datePublished,dateModified:modified,author:{'@id':'https://imperialcleaninginc.com/#organization'},publisher:{'@id':'https://imperialcleaninginc.com/#organization'},isPartOf:{'@id':'https://imperialcleaninginc.com/#website'},mainEntityOfPage:url,articleSection:guide.category};
+  const articleSchema={'@context':'https://schema.org','@type':'Article','@id':`${url}#article`,headline:guide.title,description:searchListing(path).description,image:featured.url,url,datePublished:guide.datePublished,dateModified:modified,author:{'@id':'https://imperialcleaninginc.com/#organization'},publisher:{'@id':'https://imperialcleaninginc.com/#organization'},isPartOf:{'@id':'https://imperialcleaninginc.com/#website'},mainEntityOfPage:url,articleSection:guide.category};
   const breadcrumbSchema={'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://imperialcleaninginc.com/'},{'@type':'ListItem',position:2,name:'Resources',item:'https://imperialcleaninginc.com/resources'},{'@type':'ListItem',position:3,name:guide.title,item:url}]};
   const faqSchema=guide.faqs.length?{'@context':'https://schema.org','@type':'FAQPage',mainEntity:guide.faqs.map(faq=>({'@type':'Question',name:faq.question,acceptedAnswer:{'@type':'Answer',text:faq.answer}}))}:null;
   const howToSchema=guide.steps?.length?{'@context':'https://schema.org','@type':'HowTo',name:guide.title,description:guide.intro,step:guide.steps.map((step,i)=>({'@type':'HowToStep',position:i+1,name:step.name,text:step.text}))}:null;
@@ -47,6 +51,7 @@ export default function GuidePage({params}:GuidePageProps) {
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-6"><span>By <strong className="text-foreground/80">Imperial Cleaning Inc</strong></span><span className="inline-flex items-center gap-1"><Calendar className="w-3.5 h-3.5" aria-hidden="true"/>Published <time dateTime={guide.datePublished}>{date(guide.datePublished)}</time></span>{modified!==guide.datePublished&&<span>Updated <time dateTime={modified}>{date(modified)}</time></span>}</div>
         <p className="text-lg text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-4">{guide.intro}</p>
       </header>
+      <figure className="mb-10"><Image src={featured.url} alt={featured.alt} width={1200} height={630} sizes="(max-width: 768px) 100vw, 768px" unoptimized className="w-full h-auto rounded-lg" /><figcaption className="mt-2 text-xs text-muted-foreground">Guide graphic by Imperial Cleaning Inc.</figcaption></figure>
       <nav className="article-toc" aria-label="In this guide"><strong>In this guide</strong><ul>{guide.sections.map((section,i)=><li key={section.heading}><a href={`#section-${i}`}>{section.heading}</a></li>)}{checklist&&<li><a href="#handover-checklist">Use the handover checklist</a></li>}</ul></nav>
       <div className="space-y-10">
         {guide.sections.map((section,i)=><section key={section.heading} id={`section-${i}`}><h2 className="text-2xl text-foreground mb-4">{section.heading}</h2><div className="space-y-4">{section.body.map((paragraph,n)=><p key={n} className="text-muted-foreground leading-relaxed">{paragraph}</p>)}</div></section>)}

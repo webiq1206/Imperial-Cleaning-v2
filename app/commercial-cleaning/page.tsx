@@ -1,43 +1,6 @@
-import { Metadata } from "next";
-import CommercialCleaningClient from "@/components/pages/commercial-cleaning-client";
+import type { Metadata } from 'next';
+import CommercialCleaningClient from '@/components/pages/commercial-cleaning-client';
+import { buildSearchMetadata } from '@/lib/search-appearance';
 
-export const metadata: Metadata = {
-  title: { absolute: "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc" },
-  description: "Professional commercial cleaning services across Idaho & Utah. Daily, weekly & monthly schedules for offices & businesses. Call (208) 520-3202 today!",
-  keywords: "commercial cleaning Idaho Utah, office cleaning, janitorial services, business cleaning Idaho Falls, medical facility cleaning, retail cleaning services",
-  authors: [{ name: "Imperial Cleaning Inc" }],
-  openGraph: {
-    title: "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc",
-    description: "Professional commercial cleaning services across Idaho & Utah. Daily, weekly & monthly schedules for offices & businesses.",
-    url: "https://imperialcleaninginc.com/commercial-cleaning",
-    siteName: "Imperial Cleaning Inc",
-    locale: "en_US",
-    type: "website",
-    images: [{
-      url: "https://imperialcleaninginc.com/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "Commercial Cleaning Services in Idaho & Utah | Imperial Cleaning Inc"
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Idaho & Utah Commercial Cleaning | Imperial Cleaning Inc",
-    description: "Professional commercial cleaning services across Idaho & Utah. Daily, weekly & monthly schedules for offices & businesses.",
-    site: "@imperialcleaninginc",
-    creator: "@imperialcleaninginc",
-    images: ["https://imperialcleaninginc.com/og-image.png"],
-  },
-  alternates: {
-    canonical: "https://imperialcleaninginc.com/commercial-cleaning",
-  },
-  other: {
-    "geo.region": "US-ID",
-    "geo.placename": "Idaho Falls, Idaho",
-    "geo.position": "43.5102;-112.0842",
-  },
-};
-
-export default function CommercialCleaningPage() {
-  return <CommercialCleaningClient />;
-}
+export const metadata: Metadata = buildSearchMetadata('/commercial-cleaning');
+export default function CommercialCleaningPage() { return <CommercialCleaningClient />; }

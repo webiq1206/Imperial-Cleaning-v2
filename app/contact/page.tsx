@@ -1,43 +1,6 @@
-import { Metadata } from "next";
-import ContactClient from "@/components/pages/contact-client";
+import type { Metadata } from 'next';
+import ContactClient from '@/components/pages/contact-client';
+import { buildSearchMetadata } from '@/lib/search-appearance';
 
-export const metadata: Metadata = {
-  title: { absolute: "Contact Imperial Cleaning Inc | Free Quote Idaho & Utah" },
-  description: "Contact Imperial Cleaning Inc for cleaning services in Idaho & Utah. Call (208) 520-3202 for free construction cleanup & commercial cleaning quotes!",
-  keywords: "contact Imperial Cleaning, cleaning quote Idaho, Utah cleaning services, (208) 520-3202, Idaho Falls cleaning company, free cleaning estimate",
-  authors: [{ name: "Imperial Cleaning Inc" }],
-  openGraph: {
-    title: "Contact Imperial Cleaning Inc | Professional Cleaning Services Idaho & Utah",
-    description: "Contact Idaho's premier cleaning company for professional construction cleanup and commercial cleaning services. Free quotes available across Idaho and Utah.",
-    url: "https://imperialcleaninginc.com/contact",
-    siteName: "Imperial Cleaning Inc",
-    locale: "en_US",
-    type: "website",
-    images: [{
-      url: "https://imperialcleaninginc.com/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "Contact Imperial Cleaning Inc - Free Cleaning Quotes Idaho & Utah"
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Imperial Cleaning Inc | Free Cleaning Quotes",
-    description: "Get professional cleaning services in Idaho & Utah. Call (208) 520-3202 for free construction cleanup and commercial cleaning quotes.",
-    site: "@imperialcleaninginc",
-    creator: "@imperialcleaninginc",
-    images: ["https://imperialcleaninginc.com/og-image.png"],
-  },
-  alternates: {
-    canonical: "https://imperialcleaninginc.com/contact",
-  },
-  other: {
-    "geo.region": "US-ID",
-    "geo.placename": "Idaho Falls, Idaho",
-    "geo.position": "43.5102;-112.0842",
-  },
-};
-
-export default function ContactPage() {
-  return <ContactClient />;
-}
+export const metadata: Metadata = buildSearchMetadata('/contact');
+export default function ContactPage() { return <ContactClient />; }

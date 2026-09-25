@@ -32,6 +32,8 @@ jobs:
         run: npx tsc --noEmit
       - name: Quote delivery, analytics and crawler regression tests
         run: node scripts/check-master-audit.mjs
+      - name: Search metadata, icons, preview rendering and schema safety
+        run: node scripts/check-search-appearance.mjs
       - name: Internal link manifest is up to date
         run: |
           npm run links:generate

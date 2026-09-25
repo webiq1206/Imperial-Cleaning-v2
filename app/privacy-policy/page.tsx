@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildSearchMetadata } from '@/lib/search-appearance';
 import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
 import RelatedContent from '@/components/shared/related-content';
@@ -7,12 +8,7 @@ import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_TEL } from '@/data/busin
 
 const canonical = 'https://imperialcleaninginc.com/privacy-policy';
 const description = 'How Imperial Cleaning Inc uses information you provide, handles optional website analytics, and lets you change your privacy choices or contact the team.';
-export const metadata: Metadata = {
-  title: { absolute: 'Privacy Policy | Imperial Cleaning Inc' }, description,
-  alternates: { canonical },
-  openGraph: { title: 'Privacy Policy | Imperial Cleaning Inc', description, url: canonical, type: 'website', images: ['/og-image.png'] },
-  twitter: { card: 'summary_large_image', title: 'Privacy Policy | Imperial Cleaning Inc', description, images: ['/og-image.png'] },
-};
+export const metadata: Metadata = buildSearchMetadata('/privacy-policy');
 export default function PrivacyPolicyPage() {
   return <>
     <StructuredData data={[
