@@ -32,6 +32,10 @@ jobs:
         run: npx tsc --noEmit
       - name: Quote delivery, analytics and crawler regression tests
         run: node scripts/check-master-audit.mjs
+      - name: Local context, coverage and worksheet regression tests
+        run: npm run test:website
+      - name: Isolated interactive component checks
+        run: npm run test:ui
       - name: Search metadata, icons, preview rendering and schema safety
         run: node scripts/check-search-appearance.mjs
       - name: Internal link manifest is up to date

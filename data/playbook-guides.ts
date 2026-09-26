@@ -20,7 +20,7 @@ export const playbookGuides: Guide[] = [
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
     intro:
-      "A commercial cleaning RFP should define your facility profile, a detailed scope of work, service frequency, quality standards, insurance and compliance requirements, and a clear scoring method. Include a mandatory site walk so vendors price the actual building, not a generic square-footage guess. Imperial Cleaning, based in Idaho Falls since 2015, provides written quotes within 24 hours for facilities across Idaho and Utah.",
+      "A commercial cleaning RFP should define your facility profile, a detailed scope of work, service frequency, quality standards, insurance and compliance requirements, and a clear scoring method. Include a mandatory site walk so vendors price the actual building, not a generic square-footage guess. Imperial Cleaning, based in Idaho Falls since 2015, provides written, scope-based quotes for facilities across Idaho and Utah.",
     sections: [
       {
         heading: "What belongs in the RFP cover sheet?",
@@ -58,12 +58,12 @@ export const playbookGuides: Guide[] = [
       {
         heading: "Scoring criteria you can copy into the RFP",
         body: [
-          "Price (30 to 40%): Total monthly cost for defined scope, not lowest line item alone. Penalize bids that omit periodic tasks you listed.",
-          "Scope compliance (20 to 25%): Did the vendor address every section and frequency without vague language like \"as needed\"?",
-          "References and experience (15 to 20%): Similar facility type, size, and schedule. Call at least two references and ask about missed cleans, turnover, and billing accuracy.",
-          "Quality and inspection plan (10 to 15%): Written QA process, inspection frequency, reporting format, and response time for deficiencies.",
+          "Price (30%): Compare total cost for the defined scope, not the lowest line item alone.",
+          "Scope compliance (25%): Check every required room, task and frequency.",
+          "References and experience (15%): Ask references about relevant scope, consistency and communication.",
+          "Quality and inspection plan (15%): Compare the written inspection and correction process.",
           "Insurance, safety, and sustainability (10%): Meets minimums, green options if required, documented training.",
-          "Interview and site walk notes (5 to 10%): Professionalism, questions asked, understanding of your building. A vendor who skips the walk should not win on price alone.",
+          "Interview and site walk notes (5%): Record access questions and understanding of the building. This example totals 100%; adjust all weights together if your priorities differ.",
         ],
       },
     ],
@@ -165,7 +165,7 @@ export const playbookGuides: Guide[] = [
         body: [
           "State expected service window (e.g., nightly after 6 p.m., five nights per week) and maximum crew size. Note whether a lead janitor or day porter is required for daytime touch-ups.",
           "Specify who provides consumables (liners, paper, soap), equipment (vacuums, auto-scrubbers), and PPE. If the client supplies paper goods, the vendor should still verify stock during each visit.",
-          "Inspection criteria: Use a simple scorecard (1 to 5) per area with a minimum passing score (often 4). Failed items require re-clean within 24 hours. Common failure points: missed restrooms, overflowing trash, visible floor debris at entries, and streaky glass.",
+          "Inspection criteria: Use a simple scorecard (1 to 5) per area with a minimum passing score (often 4). Agree a realistic correction window with the provider. Common failure points: missed restrooms, overflowing trash, visible floor debris at entries, and streaky glass.",
         ],
       },
     ],
@@ -230,7 +230,7 @@ export const playbookGuides: Guide[] = [
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
     intro:
-      "Switch commercial cleaning vendors by running a structured transition: document current scope gaps, set a parallel start date, transfer keys and alarm codes securely, complete a joint walkthrough, and inspect daily during the first two weeks. Done well, occupants never notice a \"dirty week.\" Imperial Cleaning supports smooth changeovers across Idaho and Utah with licensed, insured crews and quotes within 24 hours.",
+      "Switch commercial cleaning vendors by running a structured transition: document current scope gaps, set a parallel start date, transfer keys and alarm codes securely, complete a joint walkthrough, and inspect daily during the first two weeks. Done well, occupants never notice a \"dirty week.\" Imperial Cleaning supports smooth changeovers across Idaho and Utah with insured crews and a quote after scope review.",
     sections: [
       {
         heading: "When is it time to switch providers?",
@@ -412,7 +412,7 @@ export const playbookGuides: Guide[] = [
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
     intro:
-      "Compare commercial cleaning companies by checking that each bid matches your written scope, calling references with specific questions, reviewing inspection and staffing plans, and verifying insurance. The lowest monthly price often hides skipped periodic work or weak supervision. Imperial Cleaning has served Idaho and Utah since 2015 as a licensed, insured, and bonded provider with quotes in 24 hours.",
+      "Compare commercial cleaning companies by checking that each bid matches your written scope, calling references with specific questions, reviewing inspection and staffing plans, and verifying insurance. The lowest monthly price often hides skipped periodic work or weak supervision. Imperial Cleaning has served Idaho and Utah since 2015 as a insured and bonded provider with scope-based quotes.",
     sections: [
       {
         heading: "Are they pricing the same scope?",
@@ -533,7 +533,7 @@ export const playbookGuides: Guide[] = [
         heading: "Quality, staffing, and safety",
         body: [
           "Named account manager and field supervisor with phone and email.",
-          "Inspection frequency and format (APP, paper log, client portal). Deficiency rework SLA (often 24 hours).",
+          "Inspection frequency and format (APP, paper log, client portal). Agreed response and correction process for missed tasks.",
           "Staffing plan: number of cleaners per night, lead cleaner, backup coverage process.",
           "Training, background checks if required, and safety procedures for wet floors and chemical storage.",
         ],
@@ -765,14 +765,14 @@ export const playbookGuides: Guide[] = [
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
     intro:
-      "Commercial strip and wax for VCT and similar resilient tile is commonly quoted per square foot, with planning ranges often falling between $0.25 and $0.70 per sq ft for standard office and retail aisles in Idaho and Utah. Heavy buildup, extra finish coats, after-hours work, and moving furniture push toward the upper band. These are estimates for budgeting; site walks produce accurate quotes.",
+      "Commercial floor stripping and waxing is quoted from floor material, existing finish, buildup, furniture, cleanable area and available drying time. A walkthrough helps distinguish a maintenance recoat from full finish removal. Request a written scope and price rather than applying a generic regional rate.",
     sections: [
       {
         heading: "Typical per-square-foot planning bands",
         body: [
-          "Light maintenance coat (scrub and recoat, no full strip): roughly $0.15 to $0.30 per sq ft when floors are in good shape and only top coats are refreshed.",
-          "Standard strip and wax (one strip, multiple finish coats): roughly $0.25 to $0.50 per sq ft for open aisles with minimal furniture moving on VCT in average condition.",
-          "Heavy restoration (multiple strip passes, gum and buildup removal, extra coats): roughly $0.45 to $0.70+ per sq ft for neglected floors or high-traffic healthcare and retail corridors.",
+          "Maintenance scrub and recoat: confirm existing finish compatibility and whether only the top coats need attention. This is not the same scope as a full strip.",
+          "Full strip and finish: define removal work, edges, finish system, coats and required drying windows after the floor is assessed.",
+          "Heavy buildup or restoration: identify extra removal passes, furniture movement and any repair work excluded from the cleaning quote.",
           "Always confirm whether price includes furniture moving, materials, disposal of strip slurry, and dry/cure time restrictions.",
         ],
       },
@@ -800,7 +800,7 @@ export const playbookGuides: Guide[] = [
         body: [
           "Specify square footage by zone, desired sheen, number of coats, and furniture expectations. Ask each vendor to note strip chemistry and dry time before reopening.",
           "Request before photos and a written schedule if phasing across wings. Compare warranty or callback period for scuff and powdering issues.",
-          "For budgeting multi-site portfolios, use mid-range assumptions until each site is walked. Imperial Cleaning provides written quotes within 24 hours after assessment.",
+          "For multi-site portfolios, record each floor’s area, material and condition before requesting comparable scopes. Imperial Cleaning provides written, scope-based quotes after assessment.",
         ],
       },
     ],
@@ -850,7 +850,7 @@ export const playbookGuides: Guide[] = [
         body: [
           "Empty trash and sharps containers only if your contract and licensing allow; otherwise report full sharps to clinical staff.",
           "Disinfect waiting chairs arms, reception counter, pens/sign-in tablets (if approved), door handles, and kiosk touch points.",
-          "Vacuum carpets and mats; mop hard floors with hospital-grade disinfectant in entries and waiting areas.",
+          "Follow the practice-approved floor-care scope and product labels; do not assume every floor needs the same disinfectant or method.",
           "Straighten magazines and furniture; wipe glass at entry; restock patient-facing supplies only if clinic staff designates which items cleaners may touch.",
         ],
       },
@@ -1177,7 +1177,7 @@ export const playbookGuides: Guide[] = [
           "List equipment vendor provides: ride-on sweeper, walk-behind scrubber, pressure washer, HEPA vac for office.",
           "Define acceptable floor standard: no visible litter in swept paths, no standing liquid, docks free of tripping hazards.",
           "Inspection: nightly office/restroom scorecard plus weekly aisle walk with operations lead; photo log for dock conditions after busy ship days.",
-          "Imperial Cleaning serves industrial and warehouse sites across Idaho and Utah with licensed, insured crews. Call (208) 520-3202 for a scope review and quote within 24 hours.",
+          "Imperial Cleaning serves industrial and warehouse sites across Idaho and Utah with insured crews. Call (208) 520-3202 for a scope review and a quote after scope review.",
         ],
       },
     ],

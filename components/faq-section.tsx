@@ -65,9 +65,9 @@ export default function FAQSection() {
             <div className="resend-icon-sm mt-1 group-hover:scale-105 transition-all duration-300">
              <div className="w-2 h-2 bg-primary rounded-full icon-gradient"></div>
             </div>
-            <h3 className="text-lg lg:text-xl text-foreground leading-tight pr-4">
+            <span className="text-lg lg:text-xl text-foreground leading-tight pr-4">
              {faq.question}
-            </h3>
+            </span>
            </div>
           </AccordionTrigger>
           

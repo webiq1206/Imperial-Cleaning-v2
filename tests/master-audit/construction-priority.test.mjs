@@ -114,7 +114,8 @@ test('quote context accepts only one explicit recognized service', () => {
 });
 test('quote context preserves an existing visitor choice and all delivery safeguards', () => {
   const source=read('components/quote-form.tsx');
-  assert.ok(source.includes('if (form.getValues("service")) return;'));
+  assert.ok(source.includes('if (!form.getValues("service") && context.service)'));
+  assert.ok(source.includes('if (!form.getValues("location") && context.location)'));
   for(const text of ['Idempotency-Key','result?.status !== "accepted"','typeof result?.receipt !== "string"','controller.abort()','if (inFlight.current) return'])assert.ok(source.includes(text));
 });
 test('sticky contact suppression recognizes query-bearing quote CTAs', () => {
@@ -152,9 +153,9 @@ test('both generated AI guides lead with construction and retain every canonical
     for(const key of ['name','phone','email','fullAddress','googleListingUrl'])assert.ok(text.includes(facts[key]),key);
   }
 });
-test('public route inventory remains at 95 and only the homepage receives a new publication date', () => {
-  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-09-24');
-  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-09-24T23:59:59Z'));
+test('public route inventory remains at 95 with valid reviewed publication dates', () => {
+  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-09-26');
+  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-09-26T23:59:59Z'));
   assert.equal(sitemap.length,95);assert.ok(known.has('/commercial-cleaning'));assert.ok(known.has('/construction-cleaning'));
 });
 test('layout and footer descriptions follow construction-first positioning without changing identity constants', () => {

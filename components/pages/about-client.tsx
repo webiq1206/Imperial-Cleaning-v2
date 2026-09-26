@@ -46,11 +46,11 @@ export default function AboutClient() {
     },
     {
       question: "What areas does Imperial Cleaning serve?",
-      answer: "We serve 16 cities in Idaho, including Idaho Falls, Pocatello, Rexburg, Twin Falls, and Boise, and 8 cities in Utah, including Salt Lake City, Logan, Ogden, and Provo. Same-day service is available in our Eastern Idaho primary markets."
+      answer: "We serve 16 cities in Idaho, including Idaho Falls, Pocatello, Rexburg, Twin Falls, and Boise, and 8 cities in Utah, including Salt Lake City, Logan, Ogden, and Provo. Contact us to confirm availability for your property and requested dates."
     },
     {
       question: "What makes Imperial Cleaning different from other cleaning companies?",
-      answer: "We are a local company headquartered in Idaho Falls, not a national franchise. Clients work directly with our team, get free quotes within 24 hours, and every project is backed by a 100% satisfaction promise with a 24-hour callback guarantee."
+      answer: "We are a local company headquartered in Idaho Falls, not a national franchise. Clients work directly with our team to agree the scope, schedule and price. We review completed work against the agreed tasks and discuss any follow-up needs."
     }
   ];
 

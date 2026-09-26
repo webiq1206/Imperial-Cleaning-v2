@@ -44,17 +44,17 @@ const coreIndustries: IndustryPage[] = [
     intro:
       "Patients judge a practice the moment they walk in. Imperial Cleaning provides medical office cleaning for clinics, dental practices, urgent care centers, and outpatient facilities across Idaho and Utah, following infection-control protocols that go beyond standard janitorial work.",
     directAnswer:
-      "Medical office cleaning differs from standard office cleaning in three ways: EPA-registered hospital-grade disinfectants, strict high-touch and exam-room disinfection protocols, and staff trained in bloodborne pathogen handling. Imperial Cleaning provides all three for medical and dental offices throughout Idaho and Utah.",
+      "Medical office cleaning needs a facility-approved scope that distinguishes public areas from clinical responsibilities. Confirm product requirements, staff qualifications, room access and exclusions with your practice before service starts.",
     services: [
       { title: "Exam Room Disinfection", description: "Detailed disinfection of exam tables, counters, and high-touch surfaces between deep-clean cycles using hospital-grade products." },
       { title: "Waiting Area & Reception Cleaning", description: "Daily cleaning of the spaces patients see first - floors, seating, check-in counters, and entry glass." },
       { title: "Restroom Sanitation", description: "Disinfection and restocking with documented frequency, critical for patient-facing facilities." },
       { title: "Floor Care for Clinical Spaces", description: "Hard-floor disinfection and burnishing appropriate for clinical corridors and treatment areas." },
       { title: "High-Touch Surface Programs", description: "Door handles, light switches, handrails, and shared equipment surfaces on a defined disinfection schedule." },
-      { title: "After-Hours Scheduling", description: "Cleaning scheduled around patient hours so your practice is never disrupted." },
+      { title: "After-Hours Scheduling", description: "Coordinate cleaning windows with your practice and keep clinical responsibilities separate." },
     ],
     whyUs: [
-      { title: "Infection-Control Trained", description: "Our team completes bloodborne pathogen training and follows color-coded cleaning systems to prevent cross-contamination between zones." },
+      { title: "Facility-Approved Scope", description: "Your practice must approve the room-level scope, products, training requirements and separation of clinical responsibilities before work is accepted." },
       { title: "Documented & Consistent", description: "Defined scopes, checklists, and supervisor inspections so your facility passes scrutiny every day, not just inspection day." },
       { title: "Fully Insured & Bonded", description: "General liability and workers' compensation coverage, with additional insured certificates available for your practice." },
     ],
@@ -65,7 +65,7 @@ const coreIndustries: IndustryPage[] = [
       },
       {
         question: "What disinfectants do you use in medical facilities?",
-        answer: "We use EPA-registered, hospital-grade disinfectants applied with correct dwell times, and we can align products with your facility's existing infection-control policies on request.",
+        answer: "Product selection, application and contact times must follow product labels and the facility’s approved procedures. Confirm requirements during scope review. This website does not establish clinical capability or certification.",
       },
       {
         question: "Can you clean after patient hours?",
@@ -73,7 +73,7 @@ const coreIndustries: IndustryPage[] = [
       },
       {
         question: "How is medical office cleaning priced?",
-        answer: "Pricing depends on square footage, number of exam rooms, cleaning frequency, and protocol requirements. Most medical offices fall in a custom monthly contract. Call (208) 520-3202 for a free walkthrough and quote within 24 hours.",
+        answer: "Pricing depends on square footage, number of exam rooms, cleaning frequency, and protocol requirements. Most medical offices fall in a custom monthly contract. Call (208) 520-3202 for a free walkthrough and a quote after scope review.",
       },
     ],
     keywords:
@@ -118,7 +118,7 @@ const coreIndustries: IndustryPage[] = [
       },
       {
         question: "How much does restaurant cleaning cost?",
-        answer: "Pricing depends on square footage, frequency, and scope. Contact us at (208) 520-3202 for a free site visit and a written quote within 24 hours.",
+        answer: "Pricing depends on square footage, frequency, and scope. Contact us at (208) 520-3202 for a free site visit and a written, scope-based quote.",
       },
     ],
     keywords:
@@ -132,26 +132,26 @@ const coreIndustries: IndustryPage[] = [
       "Professional school & daycare cleaning in Idaho & Utah. Classroom disinfection, gym floor care & summer deep cleans. Call (208) 520-3202!",
     h1: "School & Educational Facility Cleaning in Idaho & Utah",
     intro:
-      "Schools concentrate hundreds of students into shared spaces every day. Imperial Cleaning provides cleaning for K-12 schools, daycare centers, charter schools, and training facilities across Idaho and Utah - with background-checked staff and schedules built around the academic calendar.",
+      "Schools concentrate hundreds of students into shared spaces every day. Imperial Cleaning provides cleaning for K-12 schools, daycare centers, charter schools, and training facilities across Idaho and Utah - with scopes and schedules built around the academic calendar.",
     directAnswer:
-      "School cleaning services include daily classroom and restroom cleaning, high-touch disinfection of desks and door handles, cafeteria and gym floor care, and summer deep cleans (floor refinishing, detailed disinfection) timed to academic breaks. All Imperial Cleaning staff are background-checked.",
+      "School cleaning services include daily classroom and restroom cleaning, high-touch disinfection of desks and door handles, cafeteria and gym floor care, and summer deep cleans (floor refinishing, detailed disinfection) timed to academic breaks. Confirm the district’s required screening and access documentation before assigning work.",
     services: [
       { title: "Classroom Cleaning & Disinfection", description: "Desks, chairs, floors, and high-touch surfaces cleaned daily with products safe for learning environments." },
       { title: "Restroom Sanitation", description: "High-frequency disinfection and restocking for the highest-traffic restrooms in any facility type." },
       { title: "Cafeteria & Multipurpose Rooms", description: "Floor care, table cleaning, and post-meal turnaround for shared dining and activity spaces." },
       { title: "Gym & Hard Floor Care", description: "Dust mopping, auto-scrubbing, and periodic refinishing programs for gym and corridor floors." },
       { title: "Summer & Break Deep Cleans", description: "Floor stripping and waxing, detailed disinfection, and project work scheduled during academic breaks." },
-      { title: "Daycare & Early Learning", description: "Toy-safe, child-safe cleaning protocols for daycare centers and preschools." },
+      { title: "Daycare & Early Learning", description: "Confirm toy-area responsibilities, product labels and facility procedures before including early-learning spaces." },
     ],
     whyUs: [
-      { title: "Background-Checked Staff", description: "Every team member passes a background check before working in any facility - mandatory for school environments." },
+      { title: "School Access Requirements", description: "Confirm district screening, visitor and access requirements before the service agreement is accepted." },
       { title: "Academic Calendar Scheduling", description: "Daily after-hours service during the school year, with deep-clean projects timed to summer, winter, and spring breaks." },
       { title: "Fully Insured & Bonded", description: "General liability and workers' compensation coverage, with documentation for district and board requirements." },
     ],
     faqs: [
       {
         question: "Are your staff background-checked for school work?",
-        answer: "Yes. All Imperial Cleaning employees undergo background checks before serving any client, and we can provide documentation to meet district or charter board requirements.",
+        answer: "Tell us the screening and documentation your district requires. We review those requirements before accepting the work; do not assume a particular clearance from this website.",
       },
       {
         question: "Can you handle summer deep cleaning?",
@@ -159,7 +159,7 @@ const coreIndustries: IndustryPage[] = [
       },
       {
         question: "Do you clean daycare and preschool facilities?",
-        answer: "Yes. We follow child-safe cleaning protocols for daycare centers and preschools, including toy-area cleaning and non-toxic product options.",
+        answer: "Discuss the facility’s access and product requirements, including who is responsible for toys, food-contact areas and daily staff tasks. The agreed scope determines the work.",
       },
       {
         question: "How is school cleaning priced?",
@@ -208,7 +208,7 @@ const coreIndustries: IndustryPage[] = [
       },
       {
         question: "How much does dealership cleaning cost?",
-        answer: "Pricing depends on showroom size, glass area, frequency, and floor care scope. Call (208) 520-3202 for a free walkthrough and a written quote within 24 hours.",
+        answer: "Pricing depends on showroom size, glass area, frequency, and floor care scope. Call (208) 520-3202 for a free walkthrough and a written, scope-based quote.",
       },
     ],
     keywords:

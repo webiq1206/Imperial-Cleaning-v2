@@ -126,14 +126,14 @@ try {
     assert.match(readFileSync('app/robots.ts', 'utf8'), /userAgent: '\*', allow: '\/'/);
   });
   check('review quotes remain source data, with no self-serving review-star graph', () => {
-    const source = readFileSync('app/reviews/page.tsx', 'utf8');
+    const source = readFileSync('app/reviews/page.tsx', 'utf8') + readFileSync('components/review-browser.tsx', 'utf8');
     assert.ok(source.includes('{review.text}')); assert.ok(source.includes('href={review.sourceUrl}'));
     assert.doesNotMatch(source, /'@type': '(Review|AggregateRating)'/);
   });
   check('the refreshed construction cost guide contains no unverified numeric rate', () => {
     const source = readFileSync('data/construction-cost-content.ts', 'utf8');
     assert.doesNotMatch(source, /\$\s*\d/); assert.ok(source.includes('not a full scope'));
-    assert.ok(readFileSync('app/resources/[slug]/page.tsx', 'utf8').includes('...constructionCostUpdate'));
+    assert.ok(readFileSync('data/guides.ts', 'utf8').includes("guide.slug === 'post-construction-cleaning-cost' ? constructionCostUpdate"));
   });
 
   check('existing root search copy agrees with the reviewed homepage entry', () => {

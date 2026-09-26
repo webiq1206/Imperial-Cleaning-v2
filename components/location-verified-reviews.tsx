@@ -28,24 +28,12 @@ export default function LocationVerifiedReviews({
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl mb-4 text-foreground">
-            Verified reviews relevant to {city}
+            {namesThisCity ? `Customer feedback from ${city} and the region` : 'Customer feedback about our work'}
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {namesThisCity
-              ? `Quotes below are copied from Imperial Cleaning's public Google listing and only appear here because the review names ${city}, a ${city} venue, or southeast Idaho.`
-              : `No public Google review currently names ${city} in the text. The quotes below are ${serviceLabel} reviews from the same listing. They do not name ${city}.`}
-            {" "}
-            We do not invent local projects or photos.
-            {" "}
-            <a
-              href={GOOGLE_LISTING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              5.0 from {GOOGLE_REVIEW_COUNT} Google reviews
-            </a>
-            , written from the Idaho Falls headquarters that serves {city}, {state}.
+            {namesThisCity ? `Published feedback relevant to ${city} and the surrounding region.` : `Regional ${serviceLabel} feedback from Imperial customers, not a claim of projects in ${city}.`}{" "}
+            <a href={GOOGLE_LISTING_URL} target="_blank" rel="noopener noreferrer" className="text-link">Read the current Google reviews</a>.
+
           </p>
         </div>
 
@@ -83,7 +71,7 @@ export default function LocationVerifiedReviews({
 
         <div className="text-center">
           <Link href="/reviews" className="text-primary hover:underline">
-            See every verified review
+            Explore customer reviews
           </Link>
         </div>
       </div>

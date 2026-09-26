@@ -1,0 +1,5 @@
+import { guideTools } from '@/data/guide-tools';
+export default function GuideTool({slug}:{slug:string}) {
+  const tool=guideTools[slug];if(!tool)return null;
+  return <section id="planning-tool"><h2 className="text-2xl mb-4">{tool.title}</h2><p className="text-muted-foreground">{tool.note}</p><div className="audit-table-wrap" tabIndex={0} role="region" aria-label={tool.title}><table className="audit-table"><caption className="sr-only">{tool.title}</caption><thead><tr>{tool.columns.map(col=><th scope="col" key={col}>{col}</th>)}</tr></thead><tbody>{tool.rows.map((row,i)=><tr key={i}>{row.map((cell,n)=>n===0?<th scope="row" key={n}>{cell}</th>:<td key={n}>{cell}</td>)}</tr>)}</tbody></table></div><div className="download-panel"><h3 className="text-xl">Use this worksheet for your property.</h3><p>Download the editable Markdown text file. Open it in a text editor or copy it into your preferred document tool. No email required.</p><a className="ic-button" href={`/resources/${slug}/worksheet`} download>Download editable worksheet</a></div></section>;
+}

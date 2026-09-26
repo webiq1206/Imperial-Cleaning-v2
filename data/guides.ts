@@ -7,6 +7,7 @@
  */
 
 import { playbookGuides } from "@/data/playbook-guides";
+import { constructionCostUpdate } from "@/data/construction-cost-content";
 
 export interface GuideSection {
   heading: string;
@@ -298,7 +299,11 @@ const coreGuides: Guide[] = [
   },
 ];
 
-export const guides: Guide[] = [...coreGuides, ...playbookGuides];
+export const guides: Guide[] = [...coreGuides, ...playbookGuides].map(guide => ({
+  ...guide,
+  ...(guide.slug === 'post-construction-cleaning-cost' ? constructionCostUpdate : {}),
+  dateModified: '2026-09-26',
+}));
 
 export function getGuideBySlug(slug: string): Guide | undefined {
   return guides.find((g) => g.slug === slug);

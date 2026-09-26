@@ -3,9 +3,285 @@
     "modified": "2026-09-21"
   },
   "/resources/construction-cleanup-process-checklist": {
-    "modified": "2026-09-21"
+    "modified": "2026-09-26"
   },
   "/": {
-    "modified": "2026-09-24"
+    "modified": "2026-09-26"
+  },
+  "/about": {
+    "modified": "2026-09-26"
+  },
+  "/car-dealership-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/commercial-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/commercial-cleaning-cost": {
+    "modified": "2026-09-26"
+  },
+  "/commercial-floor-care": {
+    "modified": "2026-09-26"
+  },
+  "/construction-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/construction-cleaning/final-clean": {
+    "modified": "2026-09-26"
+  },
+  "/construction-cleaning/rough-clean": {
+    "modified": "2026-09-26"
+  },
+  "/construction-cleaning/touch-up-clean": {
+    "modified": "2026-09-26"
+  },
+  "/contact": {
+    "modified": "2026-09-26"
+  },
+  "/day-porter-services": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/ammon": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/blackfoot": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/boise": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/caldwell": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/chubbuck": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/driggs": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/eagle": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/idaho-falls": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/meridian": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/nampa": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/pocatello": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/rexburg": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/rigby": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/shelley": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/st-anthony": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/commercial-cleaning/twin-falls": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/ammon": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/blackfoot": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/boise": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/caldwell": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/chubbuck": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/driggs": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/eagle": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/idaho-falls": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/meridian": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/nampa": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/pocatello": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/rexburg": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/rigby": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/shelley": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/st-anthony": {
+    "modified": "2026-09-26"
+  },
+  "/idaho/construction-cleaning/twin-falls": {
+    "modified": "2026-09-26"
+  },
+  "/industrial-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/janitorial-services": {
+    "modified": "2026-09-26"
+  },
+  "/manufacturing-facility-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/medical-office-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/office-building-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/office-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/property-management-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/resources": {
+    "modified": "2026-09-26"
+  },
+  "/resources/car-dealership-nightly-cleaning-checklist": {
+    "modified": "2026-09-26"
+  },
+  "/resources/commercial-cleaning-proposal-checklist": {
+    "modified": "2026-09-26"
+  },
+  "/resources/commercial-cleaning-rfp-template": {
+    "modified": "2026-09-26"
+  },
+  "/resources/commercial-cleaning-vs-janitorial": {
+    "modified": "2026-09-26"
+  },
+  "/resources/commercial-floor-strip-and-wax-cost": {
+    "modified": "2026-09-26"
+  },
+  "/resources/how-to-compare-commercial-cleaning-companies": {
+    "modified": "2026-09-26"
+  },
+  "/resources/janitorial-scope-of-work-template": {
+    "modified": "2026-09-26"
+  },
+  "/resources/medical-office-cleaning-checklist": {
+    "modified": "2026-09-26"
+  },
+  "/resources/night-cleaning-vs-day-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/resources/office-cleaning-frequency-guide": {
+    "modified": "2026-09-26"
+  },
+  "/resources/post-construction-cleaning-cost": {
+    "modified": "2026-09-26"
+  },
+  "/resources/school-janitorial-checklist": {
+    "modified": "2026-09-26"
+  },
+  "/resources/switch-commercial-cleaning-companies": {
+    "modified": "2026-09-26"
+  },
+  "/resources/warehouse-cleaning-scope-of-work": {
+    "modified": "2026-09-26"
+  },
+  "/resources/what-does-a-day-porter-do": {
+    "modified": "2026-09-26"
+  },
+  "/resources/what-is-post-construction-cleaning": {
+    "modified": "2026-09-26"
+  },
+  "/restaurant-cleaning-services": {
+    "modified": "2026-09-26"
+  },
+  "/reviews": {
+    "modified": "2026-09-26"
+  },
+  "/school-cleaning-services": {
+    "modified": "2026-09-26"
+  },
+  "/service-areas": {
+    "modified": "2026-09-26"
+  },
+  "/service-areas/idaho": {
+    "modified": "2026-09-26"
+  },
+  "/service-areas/utah": {
+    "modified": "2026-09-26"
+  },
+  "/sitemap": {
+    "modified": "2026-09-26"
+  },
+  "/terms-of-service": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/layton": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/logan": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/ogden": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/orem": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/provo": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/salt-lake-city": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/sandy": {
+    "modified": "2026-09-26"
+  },
+  "/utah/commercial-cleaning/west-valley-city": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/layton": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/logan": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/ogden": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/orem": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/provo": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/salt-lake-city": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/sandy": {
+    "modified": "2026-09-26"
+  },
+  "/utah/construction-cleaning/west-valley-city": {
+    "modified": "2026-09-26"
+  },
+  "/warehouse-cleaning": {
+    "modified": "2026-09-26"
   }
 }

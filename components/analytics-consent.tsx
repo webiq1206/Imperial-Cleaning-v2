@@ -81,7 +81,7 @@ export default function AnalyticsConsent() {
   return <>
     <span className="sr-only" role="status">{notice}</span>
     {shown && <section ref={panel} className="privacy-panel" aria-labelledby="privacy-title" data-clarity-mask="true">
-      <div><h2 id="privacy-title">Your privacy choices</h2><p>Optional analytics help us understand how this site is used. They stay off unless you allow them. Your quote request works either way. <Link href="/privacy-policy">Read our privacy policy</Link>.</p>
+      <div><h2 id="privacy-title">Your privacy choices</h2><p>Analytics stay off unless you allow them. Quotes work either way. <Link href="/privacy-policy">Privacy policy</Link>.</p>
       {privacySignal && <p>Your browser’s privacy preference keeps optional analytics off.</p>}</div>
       <div className="privacy-actions"><button type="button" onClick={() => choose('denied')}>Keep analytics off</button><button type="button" onClick={() => choose('granted')} disabled={privacySignal}>Allow analytics</button></div>
     </section>}

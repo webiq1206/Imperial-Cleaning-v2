@@ -10,6 +10,7 @@ import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetDescription } from 
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import SearchBar from "@/components/search-bar";
+import { quoteHref } from "@/lib/quote-context";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(false);
@@ -39,7 +40,7 @@ export default function Header() {
         <div className="header-actions">
           <button className="icon-button search-toggle" onClick={() => setSearch(true)} aria-label="Search website"><Search size={19} /></button>
           <a className="header-phone" href={`tel:${BUSINESS_PHONE_TEL}`}><Phone size={16} aria-hidden="true" />{BUSINESS_PHONE}</a>
-          <Link href="/contact" className="ic-button small header-quote">Get a free quote <ArrowUpRight size={16} aria-hidden="true" /></Link>
+          <Link href={quoteHref(pathname || "/")} className="ic-button small header-quote">Get a free quote <ArrowUpRight size={16} aria-hidden="true" /></Link>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild><button className="icon-button menu-toggle" aria-label="Open navigation"><Menu /></button></SheetTrigger>
             <SheetContent className="mobile-drawer">
@@ -50,7 +51,7 @@ export default function Header() {
                 </AccordionContent></AccordionItem>)}
               </Accordion></nav>
               <button className="ic-button secondary" onClick={() => {setOpen(false); setSearch(true);}}><Search size={18} />Search the website</button>
-              <Link href="/contact" className="ic-button" onClick={() => setOpen(false)}>Get a free quote <ArrowUpRight size={18} /></Link>
+              <Link href={quoteHref(pathname || "/")} className="ic-button" onClick={() => setOpen(false)}>Get a free quote <ArrowUpRight size={18} /></Link>
               <a className="drawer-phone" href={`tel:${BUSINESS_PHONE_TEL}`}><Phone size={18} />{BUSINESS_PHONE}</a>
             </SheetContent>
           </Sheet>

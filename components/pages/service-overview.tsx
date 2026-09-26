@@ -1,0 +1,36 @@
+import Link from 'next/link';
+import InternalHeroSection from '@/components/internal-hero-section';
+import { StructuredData } from '@/components/structured-data';
+import { allServiceLocations } from '@/data/service-locations';
+import { constructionPhases, constructionResources } from '@/data/service-priorities';
+import { servicePolicy } from '@/data/service-policy';
+import { buildServiceLocationUrl } from '@/lib/routing-utils';
+import { searchListing, searchImage } from '@/lib/search-appearance';
+import LocationVerifiedReviews from '@/components/location-verified-reviews';
+
+export default function ServiceOverview({construction}:{construction:boolean}) {
+  const service = construction ? 'construction-cleaning' : 'commercial-cleaning';
+  const path = `/${service}`, url = `https://imperialcleaninginc.com${path}`;
+  const quote = `/contact?service=${construction ? 'construction' : 'commercial'}`;
+  const sections = construction ? constructionPhases : [
+    {label:'Janitorial services',href:'/janitorial-services',stage:'01 / RECURRING CARE',description:'Restrooms, trash, floors and shared surfaces on an agreed schedule. Set room-by-room tasks and consumable responsibilities.'},
+    {label:'Office cleaning',href:'/office-cleaning',stage:'02 / YOUR WORKPLACE',description:'Care for workstations, meeting rooms, reception areas and break rooms while respecting private materials and access rules.'},
+    {label:'Commercial floor care',href:'/commercial-floor-care',stage:'03 / PERIODIC PROJECTS',description:'Review the floor material and condition before scheduling restoration, deep cleaning or other periodic work.'},
+  ];
+  const resources = construction ? constructionResources : [
+    {label:'Commercial cleaning cost factors',href:'/commercial-cleaning-cost'},
+    {label:'Janitorial scope of work template',href:'/resources/janitorial-scope-of-work-template'},
+    {label:'Compare commercial cleaning proposals',href:'/resources/commercial-cleaning-proposal-checklist'},
+  ];
+  return <>
+    <StructuredData data={{'@context':'https://schema.org','@type':'Service','@id':`${url}#service`,name:construction?'Construction Cleaning':'Commercial Cleaning',url,description:searchListing(path).description,image:searchImage(path).url,provider:{'@id':'https://imperialcleaninginc.com/#organization'},areaServed:[{'@type':'State',name:'Idaho'},{'@type':'State',name:'Utah'}]}}/>
+    <InternalHeroSection title={construction?'Construction cleanup. Ready for handover.':'Commercial cleaning built around your business.'} subtitle={construction?'Post-construction cleaning for new builds, renovations and tenant improvements across Idaho and Utah. Plan the rough clean, final detail and later touch-ups with one clear scope.':'Recurring janitorial, office cleaning and periodic facility care across Idaho and Utah. Agree the tasks, access and schedule your building needs.'} pillText={construction?'CONSTRUCTION CLEANING':'COMMERCIAL CLEANING'} secondaryCTA={{text:construction?'Use the handover checklist':'Explore the scope template',href:construction?'/resources/construction-cleanup-process-checklist':'/resources/janitorial-scope-of-work-template'}}/>
+    <nav className="jump-links" aria-label="On this page"><a href="#scope">Services</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#locations">Locations</a></nav>
+    <section id="scope" className="ic-section"><div className="site-width"><h2>{construction?'Choose the right cleaning phase.':'Separate routine tasks from periodic work.'}</h2><div className="audit-grid">{sections.map(item=><Link className="glass-card-elevated audit-card" key={item.href} href={item.href}><span className="eyebrow">{item.stage}</span><h3>{item.label}</h3><p>{item.description}</p><span className="text-link">View scope and details</span></Link>)}</div><p className="scope-note">{servicePolicy.exclusions}</p></div></section>
+    {!construction && <section className="ic-section review-section"><div className="site-width"><h2>Find the scope for your facility.</h2><ul className="audit-link-grid">{['office-building-cleaning','property-management-cleaning','medical-office-cleaning','school-cleaning-services','restaurant-cleaning-services','car-dealership-cleaning','warehouse-cleaning','industrial-cleaning','manufacturing-facility-cleaning','day-porter-services'].map(slug=><li key={slug}><Link href={`/${slug}`}>{slug.split('-').join(' ')}</Link></li>)}</ul><p>Specialist environments require a separate review of access, products, training and exclusions before work is accepted.</p></div></section>}
+    <section id="process" className="ic-section"><div className="site-width audit-two-col"><div><h2>{construction?'Plan the clean before the handover.':'Build a schedule your team can use.'}</h2><ol className="audit-list"><li><strong>Share the site details.</strong> Include the location, cleanable area, surface types and preferred dates.</li><li><strong>Review the work.</strong> Confirm access, tasks, exclusions and whether a walkthrough is needed.</li><li><strong>Agree the quote.</strong> Review scope, price and service windows before booking.</li><li><strong>Check completion.</strong> Identify the walkthrough contact and how missed agreed items will be reported.</li></ol></div><aside className="glass-card-elevated audit-card"><h3>Before requesting a quote</h3><p>{construction?'Tell us which trades are still active, when areas will be released, who handles waste and whether later visits will be needed.':'Tell us the current cleaning concerns, opening hours, restroom usage and the split between tenant and landlord responsibilities.'}</p><p>Insured and bonded. Request insurance documentation for your project’s onboarding requirements.</p><Link href={quote} className="ic-button" data-primary-cta>Request a free quote</Link></aside></div></section>
+    <section id="pricing" className="ic-section review-section"><div className="site-width reading-width"><h2>What affects the quote?</h2><p>{servicePolicy.pricing}</p><p>{servicePolicy.scheduling}</p><p>{servicePolicy.quality}</p><ul className="audit-list">{resources.map(item=><li key={item.href}><Link href={item.href}>{item.label}</Link></li>)}</ul></div></section>
+    <LocationVerifiedReviews city="Idaho Falls" state="Idaho" service={service}/>
+    <section id="locations" className="ic-section"><div className="site-width"><h2>Find {construction?'construction cleanup':'commercial cleaning'} in your area.</h2><p>Headquartered in Idaho Falls. Confirm availability for the specific property and requested dates. These are service areas, not separate staffed offices.</p>{(['Idaho','Utah'] as const).map(state=><div key={state}><h3 className="mt-8">{state}</h3><ul className="audit-link-grid">{allServiceLocations.filter(city=>city.state===state).map(city=><li key={city.name}><Link href={buildServiceLocationUrl(state,service,city.name)}>{city.name}</Link></li>)}</ul></div>)}<div className="button-row"><Link href={quote} className="ic-button">Request your quote</Link><Link href={construction?'/commercial-cleaning':'/construction-cleaning'} className="text-link">{construction?'Need recurring commercial cleaning?':'Need post-construction cleanup?'}</Link></div></div></section>
+  </>;
+}

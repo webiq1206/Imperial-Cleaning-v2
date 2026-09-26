@@ -6,6 +6,7 @@ import { Phone, ArrowUpRight } from 'lucide-react';
 import { BUSINESS_PHONE_TEL } from '@/data/business-info';
 import { safeAnalyticsPath } from '@/lib/public-route-paths';
 import { trackCTAClick } from '@/lib/analytics';
+import { quoteHref } from '@/lib/quote-context';
 
 export default function ContextualContact() {
   const pathname = usePathname();
@@ -45,6 +46,6 @@ export default function ContextualContact() {
   if (!visible) return null;
   return <nav className="contextual-contact" data-contextual-contact="true" aria-label="Quick contact">
     <a href={`tel:${BUSINESS_PHONE_TEL}`} className="contextual-call" onClick={() => trackCTAClick('phone_call', {page:pathname || '/',section:'mobile_contact'})}><Phone size={18} aria-hidden="true" />Call</a>
-    <Link href="/contact" className="ic-button" onClick={() => trackCTAClick('quote_request',{page:pathname || '/',section:'mobile_contact'})}>Get a free quote<ArrowUpRight size={18} aria-hidden="true" /></Link>
+    <Link href={quoteHref(pathname || '/')} className="ic-button" onClick={() => trackCTAClick('quote_request',{page:pathname || '/',section:'mobile_contact'})}>Get a free quote<ArrowUpRight size={18} aria-hidden="true" /></Link>
   </nav>;
 }

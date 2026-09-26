@@ -5,7 +5,7 @@
 export const CONSTRUCTION_QUOTE_HREF = "/contact?service=construction";
 export const homeSearch = {
   title: "Construction Cleanup & Cleaning | Imperial Cleaning",
-  description: "Construction cleanup and post-construction cleaning for project handovers, plus office and commercial cleaning for your business. Request a free quote.",
+  description: "Construction cleanup and post-construction cleaning for commercial builds, renovations, and tenant improvements. Request a free project quote from Imperial.",
   keywords: "construction cleanup, construction cleaning, post construction cleanup, post-construction cleaning services, commercial construction cleaning, final construction cleaning, rough construction cleaning, builder cleanup",
   headline: "Construction cleanup.",
   benefit: "Ready for handover.",

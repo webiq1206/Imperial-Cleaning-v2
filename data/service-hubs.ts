@@ -15,12 +15,12 @@ export const serviceHubs: IndustryPage[] = [
     name: "Janitorial Services",
     metaTitle: "Janitorial Services Idaho Falls & Utah | Imperial Cleaning",
     metaDescription:
-      "Recurring janitorial services for Idaho Falls, Eastern Idaho, and Utah facilities. Licensed, insured crews and written quotes in 24 hours. Call (208) 520-3202.",
+      "Recurring janitorial services for Idaho Falls, Eastern Idaho, and Utah facilities. Licensed, insured crews and written, scope-based quotes. Call (208) 520-3202.",
     h1: "Janitorial Services for Idaho and Utah Facilities",
     intro:
       "Janitorial service is the recurring backbone of a clean building: restrooms, trash, floors, and touchpoints on a schedule your staff can rely on. Imperial Cleaning, founded in 2015 and headquartered at 2653 Clarence Pl in Idaho Falls, provides janitorial programs for offices, retail, and commercial sites across Eastern Idaho and Utah.",
     directAnswer:
-      "Janitorial services are recurring commercial cleaning programs that cover daily or scheduled tasks such as restroom sanitation, trash removal, vacuuming, hard-floor maintenance, and high-touch disinfection. Imperial Cleaning builds scope from a walkthrough, assigns background-checked crews, and holds missed restrooms or inconsistent floors to checklist and supervisor inspection standards.",
+      "Janitorial services are recurring commercial cleaning programs that cover daily or scheduled tasks such as restroom sanitation, trash removal, vacuuming, hard-floor maintenance, and high-touch disinfection. Imperial Cleaning builds scope from a walkthrough, confirms crew access requirements, and holds missed restrooms or inconsistent floors to checklist and supervisor inspection standards.",
     services: [
       { title: "Restroom Sanitation & Restocking", description: "Toilets, urinals, sinks, mirrors, and floors cleaned to a defined frequency with supply restocking so a missed restroom does not carry into the next business day." },
       { title: "Trash & Recycling Removal", description: "Office, break room, and common-area waste emptied on schedule with liners replaced and bins reset before staff arrive." },
@@ -31,8 +31,8 @@ export const serviceHubs: IndustryPage[] = [
     ],
     whyUs: [
       { title: "Scope Built From Walkthroughs", description: "We document square footage, restroom count, floor types, and frequency before quoting so scope creep and missed areas are caught upfront, not after turnover." },
-      { title: "Background-Checked, Supervised Crews", description: "Every team member is background-checked. Supervisors spot-check restrooms, trash lines, and floor edges where shortcuts show up first." },
-      { title: "Licensed, Insured & Bonded", description: "General liability, workers' compensation, and bonding with certificates available for property managers and facility directors." },
+      { title: "Clear Access Requirements", description: "Access and onboarding requirements are reviewed before work begins. Supervisors spot-check restrooms, trash lines, and floor edges where shortcuts show up first." },
+      { title: "Insured & Bonded", description: "General liability, workers' compensation, and bonding with certificates available for property managers and facility directors." },
     ],
     faqs: [
       {
@@ -49,15 +49,15 @@ export const serviceHubs: IndustryPage[] = [
       },
       {
         question: "How do you price janitorial contracts?",
-        answer: "Pricing is a monthly contract based on square footage, cleaning frequency, restroom count, and floor type. We provide a written quote within 24 hours after a site walkthrough. Call (208) 520-3202 to schedule.",
+        answer: "Pricing is a monthly contract based on square footage, cleaning frequency, restroom count, and floor type. We provide a written, scope-based quote after a site walkthrough. Call (208) 520-3202 to schedule.",
       },
     ],
     keywords:
       "janitorial services Idaho Falls, commercial janitorial Eastern Idaho, janitorial cleaning Utah, recurring office cleaning, facility janitorial Idaho",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule a Janitorial Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request a Janitorial walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -82,7 +82,7 @@ export const serviceHubs: IndustryPage[] = [
     whyUs: [
       { title: "Office-Specific Checklists", description: "We separate open office, executive suite, and client-facing zones so conference rooms and lobbies get the same attention as back-office areas." },
       { title: "Crew Continuity Matters", description: "We assign consistent teams to reduce missed rooms caused by unfamiliar layouts and reduce the security friction of rotating strangers." },
-      { title: "Written Quotes Within 24 Hours", description: "After a walkthrough you receive a documented scope and price, not a verbal estimate that changes when restrooms or square footage were undercounted." },
+      { title: "Written, Scope-Based Quotes", description: "After a walkthrough you receive a documented scope and price, not a verbal estimate that changes when restrooms or square footage were undercounted." },
     ],
     faqs: [
       {
@@ -106,8 +106,8 @@ export const serviceHubs: IndustryPage[] = [
       "office cleaning Idaho Falls, office cleaning services Utah, commercial office janitorial, conference room cleaning Eastern Idaho, professional office cleaning",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule an Office Cleaning Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request an Office Cleaning walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -132,7 +132,7 @@ export const serviceHubs: IndustryPage[] = [
     whyUs: [
       { title: "Traffic-Lane Inspection Focus", description: "We document main paths, pivot points, and entry zones where finish wears first, not just total square footage." },
       { title: "Correct Products for Each Surface", description: "Finish, pad, and chemical selection matched to VCT, LVT, polished concrete, or tile so incompatible chemistry does not cloud or strip floors." },
-      { title: "Licensed & Insured Floor Crews", description: "Commercial equipment operated by trained staff with liability coverage for work in occupied buildings." },
+      { title: "Insured Floor Care", description: "Commercial equipment operated by trained staff with liability coverage for work in occupied buildings." },
     ],
     faqs: [
       {
@@ -156,8 +156,8 @@ export const serviceHubs: IndustryPage[] = [
       "commercial floor care Idaho Falls, strip and wax Utah, VCT floor maintenance, burnishing services Eastern Idaho, hard floor cleaning commercial",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule a Floor Care Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request a Floor Care walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -181,7 +181,7 @@ export const serviceHubs: IndustryPage[] = [
     ],
     whyUs: [
       { title: "Defined Patrol Routes", description: "We map restroom locations, elevator banks, and high-traffic zones so porters hit the same inspection points every hour, not random wandering." },
-      { title: "Daytime-Trained Staff", description: "Porters work around occupants, elevators, and security protocols. Background-checked employees represent your building in public view." },
+      { title: "Daytime-Trained Staff", description: "Porters work around occupants, elevators, and security protocols. Access and conduct requirements are agreed with your building contact." },
       { title: "Pairs With Nightly Janitorial", description: "Day porter scope complements, not replaces, deep nightly cleaning so budgets align with actual failure modes during occupied hours." },
     ],
     faqs: [
@@ -206,8 +206,8 @@ export const serviceHubs: IndustryPage[] = [
       "day porter services Idaho Falls, daytime cleaning Utah, building porter Eastern Idaho, restroom attendant commercial, lobby upkeep day shift",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule a Day Porter Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request a Day Porter walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -256,8 +256,8 @@ export const serviceHubs: IndustryPage[] = [
       "industrial cleaning Idaho Falls, plant cleaning Utah, manufacturing facility janitorial, production floor cleaning Eastern Idaho, industrial janitorial services",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule an Industrial Cleaning Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request an Industrial Cleaning walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -282,7 +282,7 @@ export const serviceHubs: IndustryPage[] = [
     whyUs: [
       { title: "Zone-Based Scoping", description: "Docks, aisles, offices, and restrooms are priced and scheduled separately so the dock does not get ignored when the office looks fine." },
       { title: "Forklift-Aware Scheduling", description: "We coordinate with shift supervisors so scrubbers and extractors run when aisles can be sectioned off safely." },
-      { title: "Background-Checked Warehouse Crews", description: "Staff cleared for facilities with inventory, badges, and dock access rules." },
+      { title: "Warehouse Access Planning", description: "Confirm inventory restrictions, badge requirements and dock access rules before service begins." },
     ],
     faqs: [
       {
@@ -306,8 +306,8 @@ export const serviceHubs: IndustryPage[] = [
       "warehouse cleaning Idaho Falls, distribution center cleaning Utah, dock cleaning services, warehouse floor scrubbing Eastern Idaho, fulfillment center janitorial",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule a Warehouse Cleaning Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request a Warehouse Cleaning walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -332,7 +332,7 @@ export const serviceHubs: IndustryPage[] = [
     whyUs: [
       { title: "Portfolio-Level Coordination", description: "We map sites across 24 cities in Idaho and Utah with one point of contact for scope changes, COI updates, and complaint response." },
       { title: "Documented Inspection Standards", description: "Checklists and supervisor visits reduce the back-and-forth when a tenant photos a missed restroom at 2 p.m." },
-      { title: "Licensed, Insured & Bonded", description: "Certificates for ownership groups and lenders delivered on request." },
+      { title: "Insured & Bonded", description: "Certificates for ownership groups and lenders delivered on request." },
     ],
     faqs: [
       {
@@ -349,15 +349,15 @@ export const serviceHubs: IndustryPage[] = [
       },
       {
         question: "What do you need from property managers to start?",
-        answer: "Site list, square footage, common-area plans, access procedures, and insurance requirements. We walk representative sites and deliver written quotes within 24 hours.",
+        answer: "Site list, square footage, common-area plans, access procedures, and insurance requirements. We walk representative sites and deliver written, scope-based quotes.",
       },
     ],
     keywords:
       "property management cleaning Idaho Falls, multi-site janitorial Utah, common area cleaning, tenant turnover cleaning Eastern Idaho, commercial property janitorial",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule a Property Management Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request a Property Management walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -391,7 +391,7 @@ export const serviceHubs: IndustryPage[] = [
       },
       {
         question: "How do you handle multi-tenant access and badges?",
-        answer: "We document badge issuance, after-hours access, and elevator restrictions during onboarding. Background-checked staff are assigned consistently to reduce security friction.",
+        answer: "We document badge issuance, after-hours access, and elevator restrictions during onboarding. Confirm staff onboarding and access requirements before service begins.",
       },
       {
         question: "Can you service high-rise restrooms on a tight loop?",
@@ -406,8 +406,8 @@ export const serviceHubs: IndustryPage[] = [
       "office building cleaning Idaho Falls, multi-tenant janitorial Utah, commercial tower cleaning, elevator lobby cleaning Eastern Idaho, building janitorial services",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule an Office Building Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request an Office Building walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -432,7 +432,7 @@ export const serviceHubs: IndustryPage[] = [
     whyUs: [
       { title: "Plant Orientation Before Day One", description: "Crews learn your PPE, escort rules, and no-go zones. We do not assume a manufacturing floor is the same as a warehouse aisle." },
       { title: "Shift-Aware Scheduling", description: "Service timed around shift change and production peaks so wet floors and hoses are not competing with forklifts." },
-      { title: "Background-Checked Plant Staff", description: "Employees cleared for facilities with badges, inventory, and visitor policies." },
+      { title: "Plant Access Planning", description: "Review badge, inventory and visitor policies before assigning the service schedule." },
     ],
     faqs: [
       {
@@ -456,8 +456,8 @@ export const serviceHubs: IndustryPage[] = [
       "manufacturing facility cleaning Idaho Falls, plant janitorial Utah, factory cleaning services, production facility cleaning Eastern Idaho, assembly plant cleaning",
     parentName: "Commercial Cleaning",
     parentHref: "/commercial-cleaning",
-    ctaLabel: "Schedule Walkthrough",
-    ctaHeading: "Schedule a Manufacturing Facility Walkthrough",
+    ctaLabel: "Request a walkthrough",
+    ctaHeading: "Request a Manufacturing Facility walkthrough",
     serviceLine: "commercial-cleaning",
   },
   {
@@ -465,33 +465,33 @@ export const serviceHubs: IndustryPage[] = [
     name: "Commercial Cleaning Cost",
     metaTitle: "Commercial Cleaning Cost Guide Idaho | Imperial Cleaning",
     metaDescription:
-      "Planning ranges for commercial cleaning cost in Idaho and Utah. Monthly contracts depend on scope, not guesses. Written quote in 24 hours. Call (208) 520-3202.",
+      "Scope factors for commercial cleaning cost in Idaho and Utah. Monthly contracts depend on scope, not guesses. Request a written, scope-based quote. Call (208) 520-3202.",
     h1: "Commercial Cleaning Cost: What Idaho and Utah Facilities Should Plan For",
     intro:
-      "Commercial cleaning cost depends on square footage, frequency, restrooms, floor types, and whether you need day porter coverage or periodic floor projects. Imperial Cleaning, headquartered in Idaho Falls, provides written quotes within 24 hours of a walkthrough across Idaho and Utah. The figures below are planning estimates, not binding quotes.",
+      "Commercial cleaning cost depends on square footage, frequency, restrooms, floor types, and whether you need day porter coverage or periodic floor projects. Imperial Cleaning, headquartered in Idaho Falls, provides written, scope-based quotes after a walkthrough across Idaho and Utah. Review the factors below, then request a written scope and price.",
     directAnswer:
-      "Recurring commercial cleaning is usually priced as a monthly contract driven by square footage, visit frequency, restroom count, floor type, and add-ons such as day porter or strip-and-wax cycles. For budgeting only, many Idaho and Utah offices in the 5,000 to 20,000 sq ft range with three to five nightly visits often fall in a planning band of roughly $800 to $3,500 per month, but actual pricing requires a walkthrough. Post-construction cleaning is discussed separately on a per-square-foot basis.",
+      "Recurring commercial cleaning is quoted around the agreed tasks, cleanable area, visit frequency, restroom use, floor type and periodic projects. Request a walkthrough-based written quote; a generic square-foot rate is not a reliable project price.",
     services: [
       { title: "Scope Variables We Document", description: "Square footage by zone, restroom count, break rooms, floor material, trash volume, and access restrictions captured on site, not over the phone." },
       { title: "Frequency & Failure-Point Review", description: "We match nights per week to restrooms and traffic so you are not underbuying service that fails at lunch or overpaying for unused areas." },
       { title: "Floor Care Project Planning", description: "Strip-and-wax, carpet extraction, and scrub projects quoted separately from recurring janitorial so finish work is not hidden in a low monthly rate." },
       { title: "Day Porter Add-On Pricing", description: "Hourly or fixed daily blocks priced against patrol routes, not bundled into nightly service without acknowledgment." },
       { title: "Multi-Site Portfolio Discounts", description: "Property managers with several addresses may receive coordinated pricing after representative site walks." },
-      { title: "Written Quote Within 24 Hours", description: "After walkthrough you receive documented scope and price, not a verbal range that changes when restrooms were missed in the estimate." },
+      { title: "Written, Scope-Based Quotes", description: "After walkthrough you receive documented scope and price, not a verbal range that changes when restrooms were missed in the estimate." },
     ],
     whyUs: [
       { title: "Walkthrough-First Pricing", description: "We do not publish fake precision. Every facility gets a site review before numbers are binding." },
       { title: "Transparent Scope Lines", description: "Recurring, porter, and project work are separated so you see what drives the monthly number." },
-      { title: "Licensed, Insured & Bonded Since 2015", description: "Imperial Cleaning has served Idaho and Utah from Idaho Falls with documented insurance for facility managers." },
+      { title: "Insured & Bonded Since 2015", description: "Imperial Cleaning has served Idaho and Utah from Idaho Falls with documented insurance for facility managers." },
     ],
     faqs: [
       {
         question: "What is a typical commercial cleaning cost per square foot?",
-        answer: "Recurring janitorial is rarely sold as a flat per-square-foot rate because restrooms and frequency matter more than open floor. For planning, some offices land between $0.08 and $0.20 per sq ft per month depending on scope, but your walkthrough determines the real number.",
+        answer: "A square-foot figure alone does not capture restroom use, access or cleaning frequency. Ask for the included tasks, visit schedule, periodic work and exclusions alongside the price.",
       },
       {
         question: "How does post-construction cleaning cost compare?",
-        answer: "Post-construction is priced per project by phase and debris level. Published planning ranges often run $0.15 to $0.60 per sq ft depending on rough, final, or touch-up scope. That is not a substitute for a GC walkthrough quote.",
+        answer: "Post-construction cleaning is quoted by the agreed phase, area, debris and surface condition, access and timing. Request a project scope rather than applying a generic published range.",
       },
       {
         question: "Why do two bids for the same building differ so much?",
@@ -499,7 +499,7 @@ export const serviceHubs: IndustryPage[] = [
       },
       {
         question: "How do I get an exact commercial cleaning quote?",
-        answer: "Schedule a walkthrough at your facility. We deliver a written quote within 24 hours. Call (208) 520-3202 or request a visit online.",
+        answer: "Schedule a walkthrough at your facility. We deliver a written, scope-based quote. Call (208) 520-3202 or request a visit online.",
       },
     ],
     keywords:
@@ -532,7 +532,7 @@ export const serviceHubs: IndustryPage[] = [
     whyUs: [
       { title: "GC Phase Alignment", description: "We understand rough clean is a gate before trim and paint. Missed dust here becomes callback cost for the GC later." },
       { title: "Construction-Trained Crews", description: "Teams expect incomplete power, incomplete HVAC, and active trades on adjacent phases." },
-      { title: "Written Project Quotes Within 24 Hours", description: "Walkthrough-based pricing documented by square footage, debris level, and access constraints." },
+      { title: "Written Project Quotes", description: "Walkthrough-based pricing documented by square footage, debris level, and access constraints." },
     ],
     faqs: [
       {
@@ -545,7 +545,7 @@ export const serviceHubs: IndustryPage[] = [
       },
       {
         question: "How is rough clean priced?",
-        answer: "Pricing depends on square footage, debris volume, floor condition, and access. Published planning ranges for post-construction work often run $0.15 to $0.60 per sq ft by phase. We confirm numbers after a jobsite walk.",
+        answer: "Pricing depends on cleanable area, agreed debris removal, floor condition, access and the rough-clean scope. We confirm the price after reviewing the jobsite requirements.",
       },
       {
         question: "Do you haul off construction dumpsters?",
@@ -582,7 +582,7 @@ export const serviceHubs: IndustryPage[] = [
     whyUs: [
       { title: "Turnover Inspection Mindset", description: "We clean to the points owners and municipal inspectors actually open: drawers, vents, glass, and restrooms." },
       { title: "Coordination With Punch List", description: "Final clean is sequenced after major trades complete. We communicate with supers when late work will require touch-up phase." },
-      { title: "Licensed & Insured for Active Jobsites", description: "Certificates available for GC compliance and owner requirements." },
+      { title: "Insurance Documentation", description: "Certificates available for GC compliance and owner requirements." },
     ],
     faqs: [
       {
@@ -645,7 +645,7 @@ export const serviceHubs: IndustryPage[] = [
       },
       {
         question: "How is touch-up clean priced compared to final clean?",
-        answer: "Touch-up is typically lower total cost because scope is limited to affected zones. Per-square-foot planning may still fall within post-construction ranges but on a reduced footprint. Walkthrough confirms.",
+        answer: "Touch-up is typically lower total cost because scope is limited to affected zones. Ask for a quote for the affected areas and the agreed return visit.",
       },
       {
         question: "Who should attend the touch-up walkthrough?",

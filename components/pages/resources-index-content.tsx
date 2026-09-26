@@ -5,7 +5,7 @@ import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import RelatedContent from "@/components/shared/related-content";
 import { guides } from "@/data/guides";
-import PreferredSourceButton from "@/components/preferred-source-button";
+import ResourceBrowser from "@/components/resource-browser";
 
 export const metadata: Metadata = {
   title: { absolute: "Cleaning Resources & Guides | Imperial Cleaning Inc" },
@@ -94,39 +94,12 @@ export default function ResourcesHubPage() {
           {/* Google Preferred Sources. The resource index is the one page whose
               whole purpose is "we publish guides", so the ask fits above the fold
               here in a way it would not on a service page. */}
-          <PreferredSourceButton className="mt-8 flex justify-center" />
+          <p className="mt-6">Free, editable planning worksheets. No email required.</p>
         </div>
       </section>
 
       <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-          {guides.map((guide) => (
-            <Link
-              key={guide.slug}
-              href={`/resources/${guide.slug}`}
-              className="glass-card-elevated p-8 rounded-lg hover-lift-gentle group flex flex-col"
-              data-testid={`guide-card-${guide.slug}`}
-            >
-              <div className="flex items-center gap-3 mb-4 text-xs text-muted-foreground">
-                <span className="px-2 py-1 bg-primary/10 text-primary rounded-full">{guide.category}</span>
-                <span className="inline-flex items-center gap-1">
-                  <Clock className="w-3 h-3" /> {guide.readTime}
-                </span>
-                <span className="inline-flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  <time dateTime={guide.dateModified}>{new Date(guide.dateModified).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" })}</time>
-                </span>
-              </div>
-              <h2 className="text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
-                {guide.title}
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{guide.description}</p>
-              <span className="inline-flex items-center text-primary text-sm mt-5">
-                Read guide <ArrowRight className="w-4 h-4 ml-2" />
-              </span>
-            </Link>
-          ))}
-        </div>
+        <div className="site-width"><ResourceBrowser guides={guides.map(({slug,title,description,category,readTime})=>({slug,title,description,category,readTime}))}/></div>
       </section>
 
       <RelatedContent

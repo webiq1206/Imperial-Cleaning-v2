@@ -193,12 +193,8 @@ export default function TermsOfServicePage() {
                 Contact us today for a free quote on professional cleaning services.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
-                  <Button size="lg">Get a Free Quote</Button>
-                </Link>
-                <a href="tel:+12085203202">
-                  <Button variant="outline" size="lg">Call (208) 520-3202</Button>
-                </a>
+                <Button asChild size="lg"><Link href="/contact">Get a Free Quote</Link></Button>
+                <Button asChild variant="outline" size="lg"><a href="tel:+12085203202">Call (208) 520-3202</a></Button>
               </div>
             </div>
           </div>

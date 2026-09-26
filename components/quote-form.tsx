@@ -5,9 +5,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUpRight, ArrowLeft, CheckCircle2, Phone, ShieldCheck } from "lucide-react";
 import { contactSchema, type ContactData } from "@/lib/contact-schema";
-import { trackConversionComplete, trackEvent } from "@/lib/analytics";
+import { trackConversionComplete, trackEvent, trackFormInteraction } from "@/lib/analytics";
+import { quoteContext } from "@/lib/quote-context";
 import { BUSINESS_PHONE, BUSINESS_PHONE_TEL } from "@/data/business-info";
-import { quoteServices, quoteServiceFromSearch } from "@/data/service-priorities";
+import { quoteServices } from "@/data/service-priorities";
 export default function QuoteForm() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "preview">("idle");
@@ -20,13 +21,14 @@ export default function QuoteForm() {
   const form = useForm<ContactData>({ resolver: zodResolver(contactSchema), defaultValues: { name:"", email:"", phone:"", location:"", company:"", message:"", website:"" }, shouldFocusError: true });
   useEffect(() => {
     // Do not replace a visitor's existing service choice.
-    if (form.getValues("service")) return;
-    const service = quoteServiceFromSearch(window.location.search);
-    if (service) form.setValue("service", service);
+    const context = quoteContext(window.location.pathname, window.location.search);
+    if (!form.getValues("service") && context.service) form.setValue("service", context.service);
+    if (!form.getValues("location") && context.location) form.setValue("location", context.location);
+    trackFormInteraction("form_open", "quote_request", 1);
   }, [form]);
   const { errors } = form.formState;
   const focusTitle = () => requestAnimationFrame(() => titleRef.current?.focus());
-  const next = async () => { if (await form.trigger(["service", "location", "message"], { shouldFocus: true })) { setStep(2); focusTitle(); } };
+  const next = async () => { if (await form.trigger(["service", "location", "message"], { shouldFocus: true })) { setStep(2); trackFormInteraction("form_step", "quote_request", 2); focusTitle(); } };
   const submit = async (values: ContactData) => {
     if (inFlight.current) return;
     setError("");

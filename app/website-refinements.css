@@ -1,0 +1,35 @@
+/* September 2026: preserve Imperial's existing colors, type and logo. */
+.imperial-site .reading-width {max-width:760px;}
+.imperial-site .audit-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:28px 0;}
+.imperial-site .audit-two-col {display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:start;}
+.imperial-site .audit-card {padding:28px;border-radius:10px;min-width:0;}
+.imperial-site .audit-card h3 {font-size:1.35rem;line-height:1.35;margin:12px 0;}
+.imperial-site .audit-card p,.imperial-site .audit-two-col p,.imperial-site .reading-width p {margin:16px 0;color:#c4cdd7;line-height:1.7;}
+.imperial-site .audit-list {list-style:disc;padding-left:22px;margin:20px 0;}
+.imperial-site .audit-list li {margin:12px 0;line-height:1.65;}
+.imperial-site ol.audit-list {list-style:decimal;}
+.imperial-site .audit-link-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 20px;margin:20px 0 32px;}
+.imperial-site .audit-link-grid a {display:inline-block;padding:10px 0;text-transform:capitalize;}
+.imperial-site .scope-note {padding:18px 22px;border-left:3px solid #8e62d9;background:#15111e;line-height:1.65;margin:24px 0;}
+.imperial-site main p a,.imperial-site .audit-list a,.imperial-site .audit-link-grid a,.imperial-site article li a {text-decoration:underline;text-underline-offset:4px;}
+.imperial-site .audit-table-wrap {overflow-x:auto;max-width:100%;margin:24px 0;border:1px solid #435065;border-radius:8px;}
+.imperial-site .audit-table {width:100%;border-collapse:collapse;text-align:left;font-size:.95rem;}
+.imperial-site .audit-table th,.imperial-site .audit-table td {padding:16px;border-bottom:1px solid #354150;vertical-align:top;min-width:130px;}
+.imperial-site .audit-table th {background:#15202c;color:#fff;}
+.imperial-site .audit-table td {color:#c4cdd7;line-height:1.6;}
+.imperial-site .resource-filters {display:flex;flex-wrap:wrap;gap:10px;margin:24px 0;}
+.imperial-site .resource-filters button {min-height:44px;border:1px solid #607186;border-radius:6px;padding:10px 16px;}
+.imperial-site .resource-filters button[aria-pressed=true] {background:#00bfff;color:#061017;border-color:#00bfff;}
+.imperial-site .privacy-panel {padding:16px 20px;max-width:680px;}
+.imperial-site .privacy-panel h2 {font-size:1rem;margin-bottom:6px;}
+.imperial-site .privacy-panel p {font-size:.875rem;line-height:1.45;margin-bottom:12px;}
+.imperial-site .privacy-actions button {flex:1 1 0;min-width:0;min-height:44px;padding:10px;font-size:.875rem;}
+.imperial-site .download-panel {padding:24px;border:1px solid #55687c;border-radius:10px;background:#111c28;margin:28px 0;}
+.imperial-site .download-panel p {margin:12px 0 20px;}
+.imperial-site .contact-copy {min-width:0;}
+.imperial-site .contact-methods strong {overflow-wrap:anywhere;}
+.imperial-site .quote-form input,.imperial-site .quote-form textarea {font-size:16px;}
+.imperial-site :where(section[id],h2[id]) {scroll-margin-top:100px;}
+@media(max-width:900px){.imperial-site .audit-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.imperial-site .audit-two-col{grid-template-columns:1fr;gap:28px;}.imperial-site .audit-link-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:600px){.imperial-site .audit-grid{grid-template-columns:1fr;gap:16px;}.imperial-site .audit-card{padding:22px;}.imperial-site .audit-link-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.imperial-site .privacy-panel{padding:14px;inset:auto 10px max(10px,env(safe-area-inset-bottom)) 10px;}.imperial-site .contact-page{padding-top:28px;}.imperial-site .contact-copy h1{font-size:2.3rem;}.imperial-site .contact-benefits{gap:8px;margin:16px 0;}.imperial-site .contact-methods{margin:16px 0;}.imperial-site .contact-layout{gap:24px;}}
+@media print{.imperial-site .audit-table th,.imperial-site .audit-table td{background:white;color:black;border-color:#777;}.imperial-site .audit-table-wrap{overflow:visible;}.imperial-site .download-panel,.imperial-site .resource-filters{display:none;}}
