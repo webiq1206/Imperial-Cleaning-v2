@@ -23,7 +23,7 @@ export function trackPageView(url: string) {
   if (typeof window !== 'undefined') window.__imperialTrackPage?.(url);
 }
 export function trackEvent(action: string, category?: string, label?: string, _value?: number) {
-  const name = token(action, ['form_start', 'form_submit', 'form_error', 'quote_form_open', 'phone_click', 'email_click', 'file_download', 'checklist_use', 'checklist_download', 'checklist_print', 'consent_update'], 'interaction');
+  const name = token(action, ['form_start', 'form_submit', 'form_error', 'quote_form_open', 'phone_click', 'sms_click', 'email_click', 'file_download', 'checklist_use', 'checklist_download', 'checklist_print', 'consent_update'], 'interaction');
   // form_submit is a supplemental diagnostic. generate_lead is the single lead key event.
   event(name, { event_category: token(category, ['contact', 'navigation', 'resources', 'engagement', 'privacy']), event_label: token(label, ['quote_request', 'construction', 'commercial', 'both', 'construction_checklist', 'grant', 'deny', 'revoke']) });
 }
@@ -48,3 +48,4 @@ export function trackSEOPerformance(_location: string, _serviceType: Service, _m
   // Real search-query and rank analysis belongs in Search Console. Do not manufacture it from browser input.
 }
 export function trackAnalyticsError(errorType: 'tracking_failure' | 'ga_load_error' | 'event_error', _errorDetails?: string) { event('analytics_error', { error_type: errorType }); }
+

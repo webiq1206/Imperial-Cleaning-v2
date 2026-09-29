@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createAnalyticsRuntime, readConsent, serializeConsent, CONSENT_MAX_AGE } from './analytics-runtime.mjs';
+import { createAnalyticsRuntime, readConsent, serializeConsent, CONSENT_MAX_AGE, safeAcquisitionReferrer } from './analytics-runtime.mjs';
 function fixture(url='https://imperialcleaninginc.com/contact',config={measurementId:'G-TEST123',clarityId:'testabc123'}){
   const scripts=[];const cookieWrites=[];let cookie='_ga=test; session=keep; _clck=test';
   const document={head:{appendChild:script=>scripts.push(script)},createElement:()=>({}),get cookie(){return cookie;},set cookie(v){cookieWrites.push(v);}};
@@ -10,6 +10,21 @@ function fixture(url='https://imperialcleaninginc.com/contact',config={measureme
   return {controller,window,document,scripts,cookieWrites,events};
 }
 test('initial and denied consent load no third-party scripts',()=>{const f=fixture();assert.equal(f.scripts.length,0);f.controller.setConsent('denied');assert.equal(f.scripts.length,0);assert.equal(f.events().length,0);});
+test('search and AI referrers retain origin only, with exact host checks',()=>{
+  assert.equal(safeAcquisitionReferrer('https://www.google.com/search?q=private'),'https://www.google.com/');
+  assert.equal(safeAcquisitionReferrer('https://chatgpt.com/c/private#secret'),'https://chatgpt.com/');
+  for(const url of ['https://chatgpt.com.attacker.test/','https://secret@google.com/','https://google.com:8443/','http://google.com/','https://private.example/patient','not a URL']) assert.equal(safeAcquisitionReferrer(url),'');
+});
+test('initial session preserves safe acquisition without sending a search query',()=>{
+  const scripts=[];const document={referrer:'https://www.google.com/search?q=private',head:{appendChild:s=>scripts.push(s)},createElement:()=>({})};
+  const window={location:new URL('https://imperialcleaninginc.com/contact'),navigator:{}};
+  const runtime=createAnalyticsRuntime({measurementId:'G-TEST123'},window,document);
+  runtime.setConsent('granted');
+  const events=window.dataLayer.map(args=>Array.from(args));
+  assert.equal(events.find(e=>e[0]==='config')[2].page_referrer,'https://www.google.com/');
+  assert.equal(events.find(e=>e[0]==='event'&&e[1]==='page_view')[2].page_referrer,'https://www.google.com/');
+  assert.ok(!JSON.stringify(events).includes('private'));
+});
 test('grant installs exactly one GA tag and one Clarity tag',()=>{const f=fixture();f.controller.setConsent('granted');f.controller.setConsent('granted');assert.equal(f.scripts.length,2);assert.equal(f.scripts.filter(s=>s.id==='imperial-ga').length,1);assert.equal(typeof f.window.gtag,'function');});
 test('default denied precedes configuration and page event',()=>{const f=fixture();f.controller.setConsent('granted');const e=f.events();assert.equal(e[0][0],'consent');assert.equal(e[0][1],'default');assert.equal(e[0][2].analytics_storage,'denied');assert.equal(e.find(x=>x[0]==='config')[2].send_page_view,false);});
 test('same route calls deduplicate and Back generates a new visit',()=>{const f=fixture();f.controller.setConsent('granted');f.controller.page('/contact');f.window.location=new URL('https://imperialcleaninginc.com/about');f.controller.page('/about');f.window.location=new URL('https://imperialcleaninginc.com/contact');f.controller.page('/contact');assert.deepEqual(f.events().filter(e=>e[0]==='event').map(e=>e[2].page_path),['/contact','/about','/contact']);});

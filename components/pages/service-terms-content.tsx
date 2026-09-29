@@ -168,13 +168,13 @@ export default function TermsOfServicePage() {
                 <p>For questions about these terms, please contact:</p>
                 <div className="grid md:grid-cols-2 gap-6 mt-4">
                   <div>
-                    <h4 className="text-foreground mb-2">Email</h4>
+                    <h3 className="text-foreground mb-2">Email</h3>
                     <a href="mailto:service@imperialcleaninginc.com" className="text-primary hover:text-primary/80">
                       Email Us
                     </a>
                   </div>
                   <div>
-                    <h4 className="text-foreground mb-2">Phone</h4>
+                    <h3 className="text-foreground mb-2">Phone</h3>
                     <a href="tel:+12085203202" className="text-primary hover:text-primary/80">
                       (208) 520-3202
                     </a>
@@ -208,3 +208,4 @@ export default function TermsOfServicePage() {
     </>
   );
 }
+

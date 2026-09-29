@@ -53,3 +53,17 @@ const first=screen.getAllByRole('checkbox')[0];fireEvent.click(first);assert.equ
 render(React.createElement(HandoverChecklist));await waitFor(()=>assert.equal(screen.getAllByRole('checkbox')[0].checked,true));
 fireEvent.click(screen.getByRole('button',{name:'Clear checkmarks'}));assert.ok(screen.getAllByRole('checkbox').every(input=>!input.checked));cleanup();
 assert.equal(networkCalls,0);console.log('PASS resource/review filters and handover persistence/reset; zero network requests');
+process.env.NEXT_PUBLIC_DESIGN_PREVIEW='0';
+const requests=[];
+globalThis.fetch=async(url)=>{requests.push(url);return {ok:true,json:async()=>({available:false})};};
+render(React.createElement(QuoteForm));
+await screen.findByText('Request your quote by phone or email.');
+assert.equal(screen.getByRole('link',{name:/Email service/}).getAttribute('href'),'mailto:service@imperialcleaninginc.com');
+assert.equal(screen.queryByRole('button',{name:/Continue/}),null);
+assert.deepEqual(requests,['/api/contact/availability']);
+cleanup();
+globalThis.fetch=async()=>{throw new Error('Unavailable readiness endpoint');};
+render(React.createElement(QuoteForm));
+await waitFor(()=>assert.ok(screen.getByRole('button',{name:/Continue/})));
+cleanup();
+console.log('PASS explicit unavailability provides call/email before data entry; failed readiness check preserves form');

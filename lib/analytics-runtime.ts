@@ -3,6 +3,15 @@ import { safeAnalyticsPath } from './public-route-paths';
 export type ConsentChoice = 'granted' | 'denied';
 export const CONSENT_KEY = 'imperial.analytics.v1';
 export const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
+/** Preserve only the origin of known search and AI referrers, never prompts, paths or query strings. */
+export function safeAcquisitionReferrer(raw: string): string {
+  try {
+    const url = new URL(raw);
+    const hosts = ['google.com', 'bing.com', 'duckduckgo.com', 'search.yahoo.com', 'ecosia.org', 'chatgpt.com', 'chat.openai.com', 'perplexity.ai', 'claude.ai', 'gemini.google.com', 'copilot.microsoft.com', 'copilot.com'];
+    if (url.protocol !== 'https:' || url.username || url.password || url.port) return '';
+    return hosts.some(host => url.hostname === host || url.hostname === `www.${host}`) ? `${url.origin}/` : '';
+  } catch { return ''; }
+}
 const DENIED = { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
 type Config = { measurementId?: string; clarityId?: string; preview?: boolean };
 declare global {
@@ -33,6 +42,7 @@ export function createAnalyticsRuntime(config: Config, browser: Window, document
   let active = false;
   let replayStarted = false;
   let replayStopped = false;
+  const acquisitionReferrer = safeAcquisitionReferrer(document.referrer || '');
   const measurementId = /^G-[A-Z0-9]+$/.test(config.measurementId || '') ? config.measurementId! : '';
   const clarityId = /^[a-z0-9]{6,24}$/.test(config.clarityId || '') ? config.clarityId! : '';
   const production = () => !config.preview && browser.location.protocol === 'https:' && ['imperialcleaninginc.com', 'www.imperialcleaninginc.com'].includes(browser.location.hostname);
@@ -78,7 +88,7 @@ export function createAnalyticsRuntime(config: Config, browser: Window, document
     send('js', new Date());
     send('config', measurementId, {
       send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false,
-      page_location: `https://imperialcleaninginc.com${path}`, page_referrer: '',
+      page_location: `https://imperialcleaninginc.com${path}`, page_referrer: acquisitionReferrer,
     });
     send('consent', 'update', { ...DENIED, analytics_storage: 'granted' });
     const script = document.createElement('script');
@@ -102,8 +112,8 @@ export function createAnalyticsRuntime(config: Config, browser: Window, document
     if (!measurementId || lastPage === path) return;
     const previousPage = lastPage;
     lastPage = path;
-    send('set', { page_location: `https://imperialcleaninginc.com${path}`, page_referrer: previousPage ? `https://imperialcleaninginc.com${previousPage}` : '' });
-    send('event', 'page_view', { page_path: path, page_location: `https://imperialcleaninginc.com${path}`, page_referrer: previousPage ? `https://imperialcleaninginc.com${previousPage}` : '' });
+    send('set', { page_location: `https://imperialcleaninginc.com${path}`, page_referrer: previousPage ? `https://imperialcleaninginc.com${previousPage}` : acquisitionReferrer });
+    send('event', 'page_view', { page_path: path, page_location: `https://imperialcleaninginc.com${path}`, page_referrer: previousPage ? `https://imperialcleaninginc.com${previousPage}` : acquisitionReferrer });
   }
   function clearAnalyticsCookies() {
     // Remove only known optional analytics cookies. Essential site/session cookies are untouched.
@@ -131,3 +141,4 @@ export function createAnalyticsRuntime(config: Config, browser: Window, document
   browser.__imperialTrackPage = page;
   return { page, setConsent, isAvailable: () => production() && !!allowedPath() && !!(measurementId || clarityId), globalPrivacy };
 }
+

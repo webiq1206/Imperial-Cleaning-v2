@@ -40,13 +40,20 @@ export default function AnalyticsConsent() {
       setVisible(!choice && !!runtime?.isAvailable());
     };
     const route = () => runtime?.page(window.location.href);
-    // One delegated listener measures every call, text and email link. The mobile contact bar reports its own clicks.
+    // One listener measures contact links and quote CTAs. The mobile bar reports its own clicks.
     const contactClick = (event: MouseEvent) => {
-      const link = event.target instanceof Element ? event.target.closest('a[href^="tel:"],a[href^="sms:"],a[href^="mailto:"]') : null;
+      const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
       if (!link || link.closest('[data-contextual-contact]')) return;
       const href = link.getAttribute('href') || '';
       if (href.startsWith('mailto:')) trackEvent('email_click', 'contact');
-      else trackCTAClick('phone_call', { page: window.location.pathname, section: href.startsWith('sms:') ? 'sms_link' : 'phone_link' });
+      else if (href.startsWith('sms:')) trackEvent('sms_click', 'contact');
+      else if (href.startsWith('tel:')) trackCTAClick('phone_call', { page: window.location.pathname, section: 'phone_link' });
+      else {
+        try {
+          const target = new URL(href, window.location.origin);
+          if (target.origin === window.location.origin && target.pathname === '/contact') trackCTAClick('quote_request', { page: window.location.pathname, section: 'quote_link' });
+        } catch { /* Ignore non-URL links. */ }
+      }
     };
     document.addEventListener('click', contactClick);
     window.addEventListener('imperial:privacy-settings', open);
@@ -98,3 +105,4 @@ export default function AnalyticsConsent() {
     </section>}
   </>;
 }
+

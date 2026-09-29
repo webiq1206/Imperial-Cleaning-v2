@@ -8,9 +8,20 @@ import { quoteContext, quoteHref } from '../lib/quote-context';
 import { buildServiceLocationUrl } from '../lib/routing-utils';
 import { searchListing } from '../lib/search-appearance';
 import { GET } from '../app/resources/[slug]/worksheet/route';
+import { GET as contactAvailability } from '../app/api/contact/availability/route';
 let checks=0;
 function check(name:string,fn:()=>void){fn();checks++;console.log('PASS '+name);}
 async function main(){
+  const previousKey=process.env.RESEND_API_KEY, previousFrom=process.env.CONTACT_FROM_EMAIL;
+  delete process.env.RESEND_API_KEY; delete process.env.CONTACT_FROM_EMAIL;
+  try {
+    const readiness=await contactAvailability();
+    const body=await readiness.json();
+    check('unconfigured contact readiness is explicit and never cached or indexed',()=>{assert.deepEqual(body,{available:false});assert.equal(readiness.headers.get('Cache-Control'),'no-store');assert.match(readiness.headers.get('X-Robots-Tag')||'',/noindex/);});
+  } finally {
+    if(previousKey!==undefined)process.env.RESEND_API_KEY=previousKey;
+    if(previousFrom!==undefined)process.env.CONTACT_FROM_EMAIL=previousFrom;
+  }
   check('24 cities have distinct planning entries',()=>{assert.equal(allServiceLocations.length,24);assert.equal(new Set(Object.values(localPlanning).flat()).size,48);});
   for(const city of allServiceLocations){
     check(city.name+' has useful planning and geographic neighbors',()=>{assert.equal(localPlanning[city.name]?.length,2);const nearby=nearbyLocations(city);assert.equal(nearby.length,4);assert.ok(nearby.every(other=>other.name!==city.name&&other.state===city.state));});

@@ -7,16 +7,18 @@ import { ArrowUpRight, ArrowLeft, CheckCircle2, Phone, ShieldCheck } from "lucid
 import { contactSchema, type ContactData } from "@/lib/contact-schema";
 import { trackConversionComplete, trackEvent, trackFormInteraction } from "@/lib/analytics";
 import { quoteContext } from "@/lib/quote-context";
-import { BUSINESS_PHONE, BUSINESS_PHONE_TEL } from "@/data/business-info";
+import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_TEL } from "@/data/business-info";
 import { quoteServices } from "@/data/service-priorities";
 export default function QuoteForm() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "preview">("idle");
   const [error, setError] = useState("");
+  const [unavailable, setUnavailable] = useState(false);
   const id = useId();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const errorRef = useRef<HTMLDivElement>(null);
   const inFlight = useRef(false);
+  const started = useRef(false);
   const attempt = useRef({ payload: "", key: "" });
   const form = useForm<ContactData>({ resolver: zodResolver(contactSchema), defaultValues: { name:"", email:"", phone:"", location:"", company:"", message:"", website:"" }, shouldFocusError: true });
   useEffect(() => {
@@ -26,12 +28,30 @@ export default function QuoteForm() {
     if (!form.getValues("location") && context.location) form.setValue("location", context.location);
     trackFormInteraction("form_open", "quote_request", 1);
   }, [form]);
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_DESIGN_PREVIEW === "1") return;
+    const controller = new AbortController();
+    // This checks configuration only. A submission still needs a provider receipt.
+    void fetch("/api/contact/availability", { cache: "no-store", signal: controller.signal })
+      .then(response => response.ok ? response.json() : null)
+      .then(result => { if (!controller.signal.aborted && result?.available === false) setUnavailable(true); })
+      .catch(() => { /* A failed check must not prevent an otherwise valid submission. */ });
+    return () => controller.abort();
+  }, []);
   const { errors } = form.formState;
   const focusTitle = () => requestAnimationFrame(() => titleRef.current?.focus());
-  const next = async () => { if (await form.trigger(["service", "location", "message"], { shouldFocus: true })) { setStep(2); trackFormInteraction("form_step", "quote_request", 2); focusTitle(); } };
+  const start = () => { if (!started.current) { started.current = true; trackEvent("form_start", "contact", "quote_request"); } };
+  const invalid = () => trackEvent("form_error", "contact", "quote_request");
+  const next = async () => {
+    start();
+    if (await form.trigger(["service", "location", "message"], { shouldFocus: true })) {
+      setStep(2); trackFormInteraction("form_step", "quote_request", 2); focusTitle();
+    } else invalid();
+  };
   const submit = async (values: ContactData) => {
     if (inFlight.current) return;
     setError("");
+    start();
     if (process.env.NEXT_PUBLIC_DESIGN_PREVIEW === "1") { setStatus("preview"); focusTitle(); return; }
     inFlight.current = true;
     setStatus("sending");
@@ -48,6 +68,7 @@ export default function QuoteForm() {
       }
       accepted = true;
     } catch (cause) {
+      invalid();
       setError(controller.signal.aborted ? "We could not confirm your request in time. Your details are still here. Retry without changing them, or call us." : cause instanceof Error ? cause.message : "We could not confirm your request. Please retry or call us.");
       setStatus("idle");
       requestAnimationFrame(() => errorRef.current?.focus());
@@ -62,8 +83,9 @@ export default function QuoteForm() {
   };
   const fieldError = (key: keyof ContactData) => errors[key] ? <span className="field-error" id={`${id}-${key}-error`} role="alert">{errors[key]?.message}</span> : null;
   const attrs = (key: keyof ContactData) => ({ id:`${id}-${key}`, "aria-invalid": !!errors[key], "aria-describedby": errors[key] ? `${id}-${key}-error` : undefined });
-  if (status === "sent" || status === "preview") return <div className="quote-result" role="status"><CheckCircle2 size={40} /><h2 ref={titleRef} tabIndex={-1}>{status === "preview" ? "Your preview request is ready." : "Your request was submitted."}</h2><p>{status === "preview" ? "This is a design preview. Nothing was sent to Imperial Cleaning." : "Our email service accepted your request for delivery to the team. We will review the scope and contact you. Need to confirm receipt? Please call us."}</p><button className="ic-button secondary" onClick={() => {setStatus("idle"); setStep(1); if(status === "sent") {form.reset(); attempt.current = {payload:"", key:""};} focusTitle();}}>Back to the form</button>{status === "sent" && <a className="text-link" href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a>}</div>;
-  return <form className="quote-form" method="post" action="/api/contact" data-clarity-mask="true" aria-busy={status === "sending"} onSubmit={step === 1 ? (event) => { event.preventDefault(); void next(); } : form.handleSubmit(submit)} noValidate>
+  if (unavailable && status !== "sent") return <div className="quote-result" role="status"><h2>Request your quote by phone or email.</h2><p>Online requests are temporarily unavailable. Tell us the service you need, your city and state, and your preferred schedule.</p><a className="ic-button" href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a><p><a className="text-link" href={`mailto:${BUSINESS_EMAIL}`}>Email {BUSINESS_EMAIL}</a></p></div>;
+  if (status === "sent" || status === "preview") return <div className="quote-result" role="status"><CheckCircle2 size={40} /><h2 ref={titleRef} tabIndex={-1}>{status === "preview" ? "Your preview request is ready." : "Your request was submitted."}</h2><p>{status === "preview" ? "This is a design preview. Nothing was sent to Imperial Cleaning." : "Thank you for submitting your cleaning request. We will review the scope and contact you. If your project is time-sensitive or you need to confirm receipt, please call us."}</p><button className="ic-button secondary" onClick={() => {setStatus("idle"); setStep(1); if(status === "sent") {form.reset(); started.current = false; attempt.current = {payload:"", key:""};} focusTitle();}}>Back to the form</button>{status === "sent" && <a className="text-link" href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a>}</div>;
+  return <form className="quote-form" method="post" action="/api/contact" data-clarity-mask="true" aria-busy={status === "sending"} onChange={start} onSubmit={step === 1 ? (event) => { event.preventDefault(); void next(); } : form.handleSubmit(submit, invalid)} noValidate>
     <noscript><p>Online requests need JavaScript. Please call {BUSINESS_PHONE} or email service@imperialcleaninginc.com. Do not enter details in this inactive form.</p></noscript>
     {process.env.NEXT_PUBLIC_DESIGN_PREVIEW === "1" && <p className="preview-note">Design preview: requests will not be sent.</p>}
     <div className="form-progress" aria-label={`Step ${step} of 2`}><span className="active">1. Your space</span><span className={step === 2 ? "active" : ""}>2. Your details</span></div>
@@ -79,7 +101,7 @@ export default function QuoteForm() {
       <div className="form-two-col"><div><label htmlFor={`${id}-email`}>Email <span aria-hidden="true">*</span></label><input type="email" {...attrs("email")} {...form.register("email")} autoComplete="email" maxLength={254} />{fieldError("email")}</div><div><label htmlFor={`${id}-phone`}>Phone <span aria-hidden="true">*</span></label><input type="tel" inputMode="tel" {...attrs("phone")} {...form.register("phone")} autoComplete="tel" maxLength={32} />{fieldError("phone")}</div></div>
       <label htmlFor={`${id}-company`}>Company <span className="optional-label">(optional)</span></label><input {...attrs("company")} {...form.register("company")} autoComplete="organization" maxLength={160} />{fieldError("company")}
       <p className="form-consent">By submitting, you are asking Imperial Cleaning to contact you about this request. <Link href="/privacy-policy">Privacy policy</Link>.</p>
-      {error && <div ref={errorRef} tabIndex={-1} className="form-error" role="alert">{error} <a href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a>.</div>}
+      {error && <div ref={errorRef} tabIndex={-1} className="form-error" role="alert">{error} <a href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a> or <a href={`mailto:${BUSINESS_EMAIL}`}>email us</a>.</div>}
       <div className="form-actions"><button type="button" className="back-button" disabled={status === "sending"} onClick={() => {setStep(1); focusTitle();}}><ArrowLeft size={17} />Back</button><button className="ic-button" type="submit" disabled={status === "sending"}>{status === "sending" ? "Submitting..." : "Request my free quote"}<ArrowUpRight size={18} /></button></div>
     </>}
     <div className="honeypot" aria-hidden="true"><label>Website<input {...form.register("website")} tabIndex={-1} autoComplete="off" /></label></div>
