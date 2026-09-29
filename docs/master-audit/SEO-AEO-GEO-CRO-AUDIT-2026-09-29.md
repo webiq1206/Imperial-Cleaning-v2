@@ -101,6 +101,14 @@ Keyword and intent map: each of the 95 pages already owns a distinct intent (ser
 
 Not verified here: live deployment, Google indexing, selected snippets, favicon display, rankings, AI citations, inbox delivery, GA4 event receipt and conversion lift.
 
+## 5b. Deployment fix (September 29, 2026, after the merge)
+
+The Replit publish failed at `npm install` because Replit's Socket Security Policy blocks packages that carry a critical CVE, and Next.js 14.2.35 is covered by two critical advisories (GHSA-2xp9-vwfh-vxw4, unauthenticated remote code execution through the image optimizer with AVIF input, and GHSA-p293-qw3h-jr36, CVE-2026-75604) whose only patched releases are 15.5.24 or later and 16.3.3 or later. No 14.x fix exists.
+
+- Upgraded `next` and `eslint-config-next` from 14.2.35 to 15.5.26 (the maintained 15.5 backport line, still on webpack, React 18 peer dependency retained) and `sharp` to 0.35.5 (its libheif and libvips advisories). `npm audit fix` also resolved the fixable high findings in transitive packages (mailparser, nodemailer, minimatch, picomatch, nanoid, js-yaml, flatted, brace-expansion, browserslist). No critical findings remain; the remaining high findings are drizzle-orm (semver-major upgrade, admin CRM only) and the postcss copy nested inside Next.
+- Migration edits: `params` is a Promise in Next 15, so the worksheet, search-preview, site-media and five admin API route handlers plus the guide page now await it; the browser-only toaster moved into a Client Component because `ssr: false` is not allowed in Server Components.
+- Verified on the Next 15 production build: all 95 pages render with identical titles, descriptions, H1s, schema types and word counts to the pre-upgrade crawl; preview images, the site photo and worksheets stay statically generated; redirects, 404s, HSTS and Referrer-Policy unchanged; all regression suites pass; Playwright journeys and the mobile bar behave as before; homepage mobile Lighthouse 98.
+
 ## 6. Owner and external actions (cannot be completed from the repository)
 
 1. Fix the failed Replit publish first. Open the Replit deployment log for deployment a146a23c, resolve the build or start failure, then publish the merged `main`. Then run `node scripts/check-live-search.mjs`. Confirm the live homepage title, the FAQ answers in view-source, the new hub schema and the HSTS header.

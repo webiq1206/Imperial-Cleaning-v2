@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import './globals.css';
 import './redesign.css';
 import './audit-improvements.css';
@@ -10,13 +9,13 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import AnalyticsConsent from '@/components/analytics-consent';
 import ContextualContact from '@/components/contextual-contact';
+import ClientToaster from '@/components/client-toaster';
 import { SITE_ICONS, searchImage } from '@/lib/search-appearance';
 import {
   BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_GEO, BUSINESS_OPENING_HOURS_SCHEMA,
   BUSINESS_PHONE_TEL, GOOGLE_LISTING_URL, DIRECTORY_CITATIONS,
 } from '@/data/business-info';
 
-const Toaster = dynamic(() => import('@/components/ui/toaster').then(m => ({ default: m.Toaster })), { ssr: false });
 const preview = process.env.NEXT_PUBLIC_DESIGN_PREVIEW === '1';
 const origin = 'https://imperialcleaninginc.com';
 const description = 'Construction cleanup and post-construction cleaning for commercial contractors and builders across Idaho and Utah. Recurring commercial cleaning is also available.';
@@ -80,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <Header />
       <main id="main-content" tabIndex={-1}>{children}</main>
       <Footer />
-      <Toaster />
+      <ClientToaster />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd).replace(/</g, '\\u003c') }} />
       <Suspense fallback={null}><AnalyticsConsent /></Suspense>
       <ContextualContact />
