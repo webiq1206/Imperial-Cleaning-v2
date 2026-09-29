@@ -126,6 +126,8 @@
 .imperial-site .area-card p {font-size:.875rem;color:#c0c7d1;}
 .imperial-site .circle-arrow {display:flex;align-items:center;justify-content:center;border:1px solid #5c6778;border-radius:50%;width:46px;height:46px;flex-shrink:0;}
 .imperial-site .area-all {margin-top:20px;}
+.imperial-site .area-commercial-note {margin-top:22px;color:#b6c0cd;font-size:.95rem;}
+.imperial-site .area-commercial-note a {color:#7fdbff;text-decoration:underline;text-underline-offset:3px;}
 .imperial-site .faq-layout {display:grid;grid-template-columns:.75fr 1.25fr;gap:90px;align-items:start;}
 .imperial-site .faq-layout h2 {margin-top:18px;}
 .imperial-site .faq-layout p {margin-top:22px;color:#aeb8c6;}
@@ -144,7 +146,7 @@
 .imperial-site .internal-hero .hero-description {max-width:700px;}
 .imperial-site .hero-service-note {border:1px solid #334052;border-radius:10px;background:#101621;padding:30px;}
 .imperial-site .hero-service-note>svg {color:#00bfff;margin-bottom:23px;}
-.imperial-site .hero-service-note h2 {font-size:1.75rem;margin:13px 0;}
+.imperial-site .hero-service-note h2, .imperial-site .hero-service-note .hero-note-title {font-family:var(--font-sans),Arial,sans-serif;font-size:1.75rem;font-weight:500;line-height:1.15;letter-spacing:-.035em;text-wrap:balance;color:#fff;margin:13px 0;}
 .imperial-site .hero-service-note p {font-size:.9375rem;color:#b6c0cd;}
 .imperial-site .hero-service-note .text-link {font-size:.875rem;margin-top:10px;}
 .imperial-site .simple-breadcrumb {display:flex;gap:10px;align-items:center;color:#aab6c6;font-size:.875rem;padding-bottom:30px;}

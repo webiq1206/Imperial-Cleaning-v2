@@ -154,8 +154,8 @@ test('both generated AI guides lead with construction and retain every canonical
   }
 });
 test('public route inventory remains at 95 with valid reviewed publication dates', () => {
-  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-09-26');
-  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-09-26T23:59:59Z'));
+  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-09-29');
+  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-09-29T23:59:59Z'));
   assert.equal(sitemap.length,95);assert.ok(known.has('/commercial-cleaning'));assert.ok(known.has('/construction-cleaning'));
 });
 test('layout and footer descriptions follow construction-first positioning without changing identity constants', () => {

@@ -4,6 +4,8 @@ The complete master assignment remains open. This directory records implemented 
 
 ## Current batch
 
+See [SEO, AEO, GEO and CRO audit and implementation, September 29, 2026](./SEO-AEO-GEO-CRO-AUDIT-2026-09-29.md) for the latest evidence-based audit, the source changes it justified, the blockers that still need owner or external access, and the follow-up measurement plan.
+
 See [Direct implementation and Git handoff](./IMPLEMENTATION-2026-09-21.md) for the latest changes, configuration, test scope, remaining tasks and rollback.
 
 The latest owner instruction authorizes direct code changes and a Git commit/push without prompting Replit Agent. This supersedes the earlier review-only repository instruction, but does not establish a production publication or a successful Replit workspace pull. No force-push is authorized.

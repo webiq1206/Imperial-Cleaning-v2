@@ -10,7 +10,7 @@ export default function HeroSection({ imageAlt }: { imageAlt?: string } = {}) {
       <div className="hero-copy">
         <p className="eyebrow"><span className="accent-rule" /> CONSTRUCTION CLEANING FOR COMMERCIAL PROJECTS</p>
         <h1>{homeSearch.headline}<br /><span className="brand-gradient">{homeSearch.benefit}</span></h1>
-        <p className="hero-description">Post-construction cleanup for general contractors, builders, and commercial projects. From rough cleaning to final detail, we help prepare your space for handover. We also provide recurring commercial cleaning for offices and business facilities.</p>
+        <p className="hero-description">Post-construction cleanup for general contractors, builders, and commercial projects across Idaho and Utah, coordinated from our Idaho Falls headquarters. From rough cleaning to final detail, we help prepare your space for handover. We also provide recurring commercial cleaning for offices and business facilities.</p>
         <div className="button-row"><Link href={CONSTRUCTION_QUOTE_HREF} className="ic-button">Get a construction quote <ArrowUpRight size={19} aria-hidden="true" /></Link><Link href="/commercial-cleaning" className="ic-button secondary">Commercial cleaning <ArrowUpRight size={19} aria-hidden="true" /></Link></div>
         <div className="hero-assurance"><ClipboardCheck size={17} aria-hidden="true" /> Free cleaning quote <a href={`tel:${BUSINESS_PHONE_TEL}`} className="hero-phone">Call {BUSINESS_PHONE}</a></div>
       </div>

@@ -7,6 +7,7 @@ import { servicePolicy } from '@/data/service-policy';
 import { buildServiceLocationUrl } from '@/lib/routing-utils';
 import { searchListing, searchImage } from '@/lib/search-appearance';
 import LocationVerifiedReviews from '@/components/location-verified-reviews';
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 
 export default function ServiceOverview({construction}:{construction:boolean}) {
   const service = construction ? 'construction-cleaning' : 'commercial-cleaning';
@@ -23,7 +24,12 @@ export default function ServiceOverview({construction}:{construction:boolean}) {
     {label:'Compare commercial cleaning proposals',href:'/resources/commercial-cleaning-proposal-checklist'},
   ];
   return <>
-    <StructuredData data={{'@context':'https://schema.org','@type':'Service','@id':`${url}#service`,name:construction?'Construction Cleaning':'Commercial Cleaning',url,description:searchListing(path).description,image:searchImage(path).url,provider:{'@id':'https://imperialcleaninginc.com/#organization'},areaServed:[{'@type':'State',name:'Idaho'},{'@type':'State',name:'Utah'}]}}/>
+    <StructuredData data={[
+      {'@context':'https://schema.org','@type':'WebPage','@id':`${url}#webpage`,url,name:searchListing(path).title,description:searchListing(path).description,isPartOf:{'@id':'https://imperialcleaninginc.com/#website'},about:{'@id':'https://imperialcleaninginc.com/#organization'},primaryImageOfPage:{'@type':'ImageObject',url:searchImage(path).url,width:1200,height:630,caption:searchImage(path).alt,encodingFormat:'image/png'},mainEntity:{'@id':`${url}#service`}},
+      {'@context':'https://schema.org','@type':'Service','@id':`${url}#service`,name:construction?'Construction Cleaning':'Commercial Cleaning',serviceType:construction?'Post-construction cleaning':'Commercial cleaning',url,description:searchListing(path).description,image:searchImage(path).url,provider:{'@id':'https://imperialcleaninginc.com/#organization'},areaServed:[{'@type':'State',name:'Idaho'},{'@type':'State',name:'Utah'}]},
+      {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://imperialcleaninginc.com/'},{'@type':'ListItem',position:2,name:construction?'Construction cleaning':'Commercial cleaning',item:url}]},
+    ]}/>
+    <div className="site-width py-4"><Breadcrumbs includeStructuredData={false} items={[{name:construction?'Construction cleaning':'Commercial cleaning'}]}/></div>
     <InternalHeroSection title={construction?'Construction cleanup. Ready for handover.':'Commercial cleaning built around your business.'} subtitle={construction?'Post-construction cleaning for new builds, renovations and tenant improvements across Idaho and Utah. Plan the rough clean, final detail and later touch-ups with one clear scope.':'Recurring janitorial, office cleaning and periodic facility care across Idaho and Utah. Agree the tasks, access and schedule your building needs.'} pillText={construction?'CONSTRUCTION CLEANING':'COMMERCIAL CLEANING'} secondaryCTA={{text:construction?'Use the handover checklist':'Explore the scope template',href:construction?'/resources/construction-cleanup-process-checklist':'/resources/janitorial-scope-of-work-template'}}/>
     <nav className="jump-links" aria-label="On this page"><a href="#scope">Services</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#locations">Locations</a></nav>
     <section id="scope" className="ic-section"><div className="site-width"><h2>{construction?'Choose the right cleaning phase.':'Separate routine tasks from periodic work.'}</h2><div className="audit-grid">{sections.map(item=><Link className="glass-card-elevated audit-card" key={item.href} href={item.href}><span className="eyebrow">{item.stage}</span><h3>{item.label}</h3><p>{item.description}</p><span className="text-link">View scope and details</span></Link>)}</div><p className="scope-note">{servicePolicy.exclusions}</p></div></section>

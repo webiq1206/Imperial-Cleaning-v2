@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { CONSENT_KEY, createAnalyticsRuntime, readConsent, serializeConsent, type ConsentChoice } from '@/lib/analytics-runtime';
+import { trackCTAClick, trackEvent } from '@/lib/analytics';
 
 let runtime: ReturnType<typeof createAnalyticsRuntime> | undefined;
 export default function AnalyticsConsent() {
@@ -39,11 +40,21 @@ export default function AnalyticsConsent() {
       setVisible(!choice && !!runtime?.isAvailable());
     };
     const route = () => runtime?.page(window.location.href);
+    // One delegated listener measures every call, text and email link. The mobile contact bar reports its own clicks.
+    const contactClick = (event: MouseEvent) => {
+      const link = event.target instanceof Element ? event.target.closest('a[href^="tel:"],a[href^="sms:"],a[href^="mailto:"]') : null;
+      if (!link || link.closest('[data-contextual-contact]')) return;
+      const href = link.getAttribute('href') || '';
+      if (href.startsWith('mailto:')) trackEvent('email_click', 'contact');
+      else trackCTAClick('phone_call', { page: window.location.pathname, section: href.startsWith('sms:') ? 'sms_link' : 'phone_link' });
+    };
+    document.addEventListener('click', contactClick);
     window.addEventListener('imperial:privacy-settings', open);
     window.addEventListener('storage', storage);
     window.addEventListener('hashchange', route);
     window.addEventListener('popstate', route);
     return () => {
+      document.removeEventListener('click', contactClick);
       window.removeEventListener('imperial:privacy-settings', open);
       window.removeEventListener('storage', storage);
       window.removeEventListener('hashchange', route);
