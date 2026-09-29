@@ -24,7 +24,8 @@ export default function ContextualContact() {
       const privacy = document.documentElement.dataset.privacyOpen === 'true';
       const height = window.visualViewport?.height || window.innerHeight;
       const otherCTA = Array.from(document.querySelectorAll<HTMLElement>('a[href="/contact"],a[href^="/contact?"],[data-primary-cta],.quote-form')).some(element => {
-        if (element.closest('[data-contextual-contact]')) return false;
+        // The sticky header keeps its quote button in view on every scroll position, so it must not suppress the bar.
+        if (element.closest('[data-contextual-contact]') || element.closest('.site-header')) return false;
         const rect = element.getBoundingClientRect();
         const style = window.getComputedStyle(element);
         return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < height && rect.right > 0 && rect.left < window.innerWidth && style.visibility !== 'hidden' && style.display !== 'none';

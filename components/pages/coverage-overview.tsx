@@ -3,9 +3,21 @@ import InternalHeroSection from '@/components/internal-hero-section';
 import { allServiceLocations } from '@/data/service-locations';
 import { servicePolicy } from '@/data/service-policy';
 import { buildServiceLocationUrl } from '@/lib/routing-utils';
+import { StructuredData } from '@/components/structured-data';
+import Breadcrumbs from '@/components/ui/breadcrumbs';
+import { canonicalUrl, searchListing } from '@/lib/search-appearance';
 export default function CoverageOverview({state}:{state?:'Idaho'|'Utah'}) {
   const locations = allServiceLocations.filter(city=>!state || city.state===state);
-  return <><InternalHeroSection title={`Construction and commercial cleaning in ${state || 'Idaho and Utah'}.`} subtitle="Find your city, choose your service and tell us about the property. We confirm scope and scheduling before work is booked." pillText="IMPERIAL SERVICE AREAS"/>
+  const path = state ? `/service-areas/${state.toLowerCase()}` : '/service-areas';
+  const url = canonicalUrl(path), listing = searchListing(path);
+  const crumbs = state ? [{name:'Service areas',href:'/service-areas'},{name:state}] : [{name:'Service areas'}];
+  return <>
+    <StructuredData data={[
+      {'@context':'https://schema.org','@type':'CollectionPage','@id':`${url}#collection`,url,name:listing.title,description:listing.description,isPartOf:{'@id':'https://imperialcleaninginc.com/#website'},about:{'@id':'https://imperialcleaninginc.com/#organization'}},
+      {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://imperialcleaninginc.com/'},{'@type':'ListItem',position:2,name:'Service areas',item:'https://imperialcleaninginc.com/service-areas'},...(state?[{'@type':'ListItem',position:3,name:state,item:url}]:[])]},
+    ]}/>
+    <div className="site-width py-4"><Breadcrumbs includeStructuredData={false} items={crumbs}/></div>
+    <InternalHeroSection title={`Construction and commercial cleaning in ${state || 'Idaho and Utah'}.`} subtitle="Find your city, choose your service and tell us about the property. We confirm scope and scheduling before work is booked." pillText="IMPERIAL SERVICE AREAS"/>
     <section className="ic-section"><div className="site-width audit-two-col"><div><h2>One headquarters. Clearly defined coverage.</h2><p>Imperial Cleaning is headquartered in Idaho Falls. The locations below describe service coverage, not individual branch offices.</p><p>{servicePolicy.scheduling}</p><p>{state==='Utah'?'For Utah projects, include the full address, access restrictions and proposed service dates so the team can review travel and the required visits.':state==='Idaho'?'For Idaho projects, include the full address and whether you need a one-time handover clean or a recurring facility schedule.':'Start with the city where the work will take place. Construction phases and recurring cleaning have different scheduling requirements.'}</p></div><aside className="glass-card-elevated audit-card"><h3>Not sure which service to choose?</h3><p>Choose construction cleanup after a build or renovation. Choose commercial cleaning for recurring office and facility care.</p><ul className="audit-list"><li><Link href="/construction-cleaning">Construction cleanup scope</Link></li><li><Link href="/commercial-cleaning">Commercial cleaning scope</Link></li><li><Link href="/contact">Ask about your property</Link></li></ul></aside></div></section>
     <section className="ic-section review-section"><div className="site-width"><h2>Choose your city and service.</h2><div className="audit-grid">{locations.map(city=><div key={city.name} className="glass-card-elevated audit-card"><h3>{city.name}, {city.state}</h3><ul className="audit-list"><li><Link href={buildServiceLocationUrl(city.state,'construction-cleaning',city.name)}>Post-construction cleaning</Link></li><li><Link href={buildServiceLocationUrl(city.state,'commercial-cleaning',city.name)}>Commercial cleaning and janitorial</Link></li></ul></div>)}</div><div className="button-row">{state?<Link href="/service-areas" className="text-link">All Idaho and Utah service areas</Link>:<><Link href="/service-areas/idaho" className="text-link">Idaho coverage</Link><Link href="/service-areas/utah" className="text-link">Utah coverage</Link></>}</div></div></section></>;
 }

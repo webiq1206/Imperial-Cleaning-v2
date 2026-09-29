@@ -4,7 +4,6 @@ import { ArrowUpRight, HardHat, Building2, ClipboardCheck, CalendarClock, MapPin
 import { verifiedReviews } from "@/data/reviews";
 import { homeFaqs } from "@/data/home-faqs";
 import { constructionPhases, constructionResources, CONSTRUCTION_QUOTE_HREF } from "@/data/service-priorities";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export default function HomeClient() {
   // Use the existing owner-supplied construction reviews verbatim. Do not recast commercial reviews as construction proof.
@@ -66,8 +65,9 @@ export default function HomeClient() {
         { state: "Idaho", slug: "idaho", cities: [{name:"Idaho Falls",slug:"idaho-falls"},{name:"Pocatello",slug:"pocatello"},{name:"Rexburg",slug:"rexburg"},{name:"Boise",slug:"boise"}] },
         { state: "Utah", slug: "utah", cities: [{name:"Salt Lake City",slug:"salt-lake-city"},{name:"Logan",slug:"logan"},{name:"Ogden",slug:"ogden"},{name:"Provo",slug:"provo"}] },
       ].map(area => <article className="area-card construction-area-card" key={area.slug}><div><span className="eyebrow"><MapPin size={14} aria-hidden="true" />CONSTRUCTION SERVICE AREAS</span><h3>{area.state}</h3><ul>{area.cities.map(city => <li key={city.slug}><Link href={`/${area.slug}/construction-cleaning/${city.slug}`}>Construction cleanup in {city.name}<ArrowUpRight size={15} aria-hidden="true" /></Link></li>)}</ul><Link className="text-link" href={`/service-areas/${area.slug}`}>View all {area.state} service areas <ArrowUpRight size={17} aria-hidden="true" /></Link></div></article>)}
-      </div><Link href="/service-areas" className="text-link area-all">Find every service area <ArrowUpRight size={17} aria-hidden="true" /></Link>
+      </div><p className="area-commercial-note">Need recurring cleaning instead? See <Link href="/idaho/commercial-cleaning/idaho-falls">commercial cleaning in Idaho Falls</Link> or <Link href="/commercial-cleaning">commercial cleaning across Idaho and Utah</Link>.</p><Link href="/service-areas" className="text-link area-all">Find every service area <ArrowUpRight size={17} aria-hidden="true" /></Link>
     </div></section>
-    <section id="faq" className="ic-section"><div className="site-width faq-layout"><div><span className="eyebrow">CONSTRUCTION CLEANUP QUESTIONS</span><h2>Before the crew<br />gets to work.</h2><p>Planning a build, renovation, or final clean?</p><Link href={CONSTRUCTION_QUOTE_HREF} className="text-link">Talk through your project <ArrowUpRight size={18} aria-hidden="true" /></Link></div><Accordion type="single" collapsible className="home-faq">{homeFaqs.map(faq => <AccordionItem key={faq.id} value={faq.id}><AccordionTrigger>{faq.question}</AccordionTrigger><AccordionContent>{faq.answer}</AccordionContent></AccordionItem>)}</Accordion></div></section>
+    {/* Native details/summary keeps every answer in the server HTML (closed until opened), so the FAQPage JSON-LD matches crawlable content. */}
+    <section id="faq" className="ic-section"><div className="site-width faq-layout"><div><span className="eyebrow">CONSTRUCTION CLEANUP QUESTIONS</span><h2>Before the crew<br />gets to work.</h2><p>Planning a build, renovation, or final clean?</p><Link href={CONSTRUCTION_QUOTE_HREF} className="text-link">Talk through your project <ArrowUpRight size={18} aria-hidden="true" /></Link></div><div className="home-faq">{homeFaqs.map(faq => <details key={faq.id} id={faq.id} className="service-faq-item"><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></div></section>
   </>;
 }

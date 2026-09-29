@@ -180,7 +180,12 @@ const nextConfig = {
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            // The canonical origin is HTTPS only (www and http redirect to it).
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000',
           },
         ],
       },
