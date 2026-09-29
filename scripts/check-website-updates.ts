@@ -24,11 +24,12 @@ async function main(){
   check('all 17 guides share the refreshed content and tools',()=>{assert.equal(guides.length,17);assert.equal(Object.keys(guideTools).length,17);assert.equal(guides.find(g=>g.slug==='post-construction-cleaning-cost')?.readTime,'4 min read');});
   for(const guide of guides){
     check(guide.slug+' has a complete editable worksheet',()=>{const text=guideToolText(guide.slug)!;assert.ok(text.includes(guideTools[guide.slug].title));assert.ok(text.includes('Notes / exclusions'));assert.ok(guideTools[guide.slug].rows.length>=3);});
-    const response=GET(new Request(`http://localhost/resources/${guide.slug}/worksheet`),{params:{slug:guide.slug}});
+    const response=await GET(new Request(`http://localhost/resources/${guide.slug}/worksheet`),{params:Promise.resolve({slug:guide.slug})});
     check(guide.slug+' download is safe and nonindexable',()=>{assert.equal(response.status,200);assert.equal(response.headers.get('X-Robots-Tag'),'noindex');assert.ok(response.headers.get('Content-Disposition')?.includes('.md'));});
     assert.equal(await response.text(),guideToolText(guide.slug));
   }
-  check('unknown worksheet returns 404',()=>assert.equal(GET(new Request('http://localhost'),{params:{slug:'unknown'}}).status,404));
+  const unknown=await GET(new Request('http://localhost'),{params:Promise.resolve({slug:'unknown'})});
+  check('unknown worksheet returns 404',()=>assert.equal(unknown.status,404));
   check('RFP example weights total 100',()=>assert.equal(guideTools['commercial-cleaning-rfp-template'].rows.reduce((sum,row)=>sum+parseInt(row[1]),0),100));
   check('local template does not consume unsupported legacy claims',()=>{const text=readFileSync('components/pages/service-location-client.tsx','utf8');assert.doesNotMatch(text,/location-content-utils|ISO-certified|zero deficiencies|marketTier|majorEmployers/);});
   console.log(`${checks} website update checks passed.`);

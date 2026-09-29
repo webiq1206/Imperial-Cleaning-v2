@@ -21,16 +21,18 @@ function getSearchGuide(slug: string) {
   return guide;
 }
 
-interface GuidePageProps { params: { slug: string } }
+interface GuidePageProps { params: Promise<{ slug: string }> }
 export function generateStaticParams() { return guides.map(guide => ({slug:guide.slug})); }
-export function generateMetadata({params}:GuidePageProps): Metadata {
-  const guide=getSearchGuide(params.slug);
+export async function generateMetadata({params}:GuidePageProps): Promise<Metadata> {
+  const {slug}=await params;
+  const guide=getSearchGuide(slug);
   if(!guide) return {title:{absolute:'Resource Not Found | Imperial Cleaning Inc'},robots:{index:false,follow:false}};
   const modified=(rules as PublicationRules)[`/resources/${guide.slug}`]?.modified || guide.dateModified;
   return buildSearchMetadata(`/resources/${guide.slug}`, { published: guide.datePublished, modified });
 }
-export default function GuidePage({params}:GuidePageProps) {
-  const guide=getSearchGuide(params.slug);if(!guide)notFound();
+export default async function GuidePage({params}:GuidePageProps) {
+  const {slug}=await params;
+  const guide=getSearchGuide(slug);if(!guide)notFound();
   const path=`/resources/${guide.slug}`;
   const url=`https://imperialcleaninginc.com${path}`;
   const modified=(rules as PublicationRules)[path]?.modified || guide.dateModified;

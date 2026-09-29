@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a professional business website for Imperial Cleaning Inc, a commercial and construction cleaning company serving Idaho and Utah. The site is built with Next.js 14 using the App Router pattern, featuring location-based service pages, SEO optimization, and lead generation through contact forms. The business is headquartered in Idaho Falls, Idaho and provides cleaning services across 24+ cities in both states.
+This is a professional business website for Imperial Cleaning Inc, a commercial and construction cleaning company serving Idaho and Utah. The site is built with Next.js 15 using the App Router pattern, featuring location-based service pages, SEO optimization, and lead generation through contact forms. The business is headquartered in Idaho Falls, Idaho and provides cleaning services across 24+ cities in both states.
 
 ## User Preferences
 
@@ -11,7 +11,7 @@ Preferred communication style: Simple, everyday language.
 ## System Architecture
 
 ### Frontend Framework
-- **Next.js 14 with App Router**: Server-side rendering and static generation for SEO performance
+- **Next.js 15 with App Router**: Server-side rendering and static generation for SEO performance
 - **React 18**: Component-based UI with client/server component separation
 - **TypeScript**: Full type safety across the codebase
 
