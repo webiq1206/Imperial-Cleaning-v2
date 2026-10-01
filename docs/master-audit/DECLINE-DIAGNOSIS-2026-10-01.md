@@ -42,7 +42,7 @@ The homepage is the only page Google ranks for these queries, and its title has 
 
 ### Indexing was poor on September 29 and is recovering
 
-On September 29, 28 of 95 sitemap URLs were indexed, 48 were "Discovered - currently not indexed", 13 were unknown to Google and 5 had Google selecting `https://www.747live.bet/` as canonical. On October 1, all five of those URLs were re-inspected: each is now "Submitted and indexed" with its own canonical, crawled that morning. `/idaho/construction-cleaning/idaho-falls` and `/idaho/commercial-cleaning/idaho-falls` are also indexed now. `/contact`, `/about` and `/service-areas/idaho` are still not indexed. The sitemap was last read on September 29 with 95 URLs and no errors. Google also still holds trailing-slash variants that returned 200 as late as August 17; they now redirect (308), which is correct.
+On September 29, 28 of 95 sitemap URLs were indexed, 48 were "Discovered - currently not indexed", 13 were unknown to Google and 5 had Google selecting `https://www.747live.bet/` as canonical. On October 1, all five of those URLs were re-inspected: each is now "Submitted and indexed" with its own canonical, crawled that morning after indexing requests recorded in [docs/growth-playbook/execution-2026-10-01.md](../growth-playbook/execution-2026-10-01.md). `/idaho/construction-cleaning/idaho-falls` and `/idaho/commercial-cleaning/idaho-falls` are also indexed now. `/contact`, `/about` and `/service-areas/idaho` are still not indexed. The sitemap was last read on September 29 with 95 URLs and no errors. Google also still holds trailing-slash variants that returned 200 as late as August 17; they now redirect (308), which is correct.
 
 The city pages themselves share roughly 95 percent of their body text and were reachable only from hub, sitemap and sibling pages (about 9 internal sources each, none sitewide). That is the usual profile for "Discovered - currently not indexed" on a low-authority domain.
 
@@ -72,7 +72,8 @@ GA4 sessions from chatgpt.com, copilot.com and similar assistants: 0 to 1 a mont
 | Confirmed | AI referrals are rising slightly. |
 | Hypothesis | The April to June impression spike came from a rank tracker or grid scan; the operator is unknown. |
 | Hypothesis | Google Business Profile or map pack changes explain part of the local slip; GBP data was not accessible in this session. |
-| Not verifiable here | Backlink profile (Ahrefs plan), Search Console Security Issues and Manual Actions (not in the API), Core Web Vitals (PageSpeed quota exhausted). |
+| Confirmed elsewhere | Search Console Manual Actions and Security Issues both showed "No issues detected" on October 1 (growth-playbook execution record). |
+| Not verifiable here | Backlink profile (Ahrefs plan), Core Web Vitals (PageSpeed quota exhausted). |
 
 ## 3. Changes made in this branch
 
@@ -92,8 +93,7 @@ Not changed on purpose: no city page was deleted or noindexed, no content was fa
 1. **Configure email delivery (highest value).** In Replit Secrets set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` (a verified sender), or `SENDGRID_API_KEY` and `CONTACT_FROM_EMAIL`. Then submit one labeled test quote and confirm it arrives at service@imperialcleaninginc.com. Until this is done, organic improvement cannot produce leads from the form.
 2. **Decide the analytics default.** The site serves Idaho and Utah, where opt-in consent for first-party analytics is not required. Keeping opt-in means GA4 will keep recording about 10 percent of sessions and conversion rates will stay unmeasurable. If you approve default-on with opt-out and GPC respect, the change touches `lib/analytics-runtime.ts`, `components/analytics-consent.tsx` and the privacy policy wording, and takes under an hour including tests.
 3. **Deploy this branch** through the normal Replit publish. Day 0 for measurement is the publish date.
-4. **Check Search Console Security Issues and Manual Actions** once in the web UI. The hacked-era URLs are gone from the index, but the API cannot read those two reports.
-5. **Google Business Profile.** Confirm the primary category, service area and that the website link is the apex domain. GBP drives the map pack that sits above the homepage result on every core query.
+4. **Google Business Profile.** Confirm the primary category, service area and that the website link is the apex domain. GBP drives the map pack that sits above the homepage result on every core query.
 
 ## 5. Measurement plan and decision rules
 
@@ -106,4 +106,4 @@ Compare equal windows, same weekdays, United States only, with the "commercial c
 | Day 28 | Clicks and positions for the core Idaho Falls queries versus the preceding 28 days; GA4 sessions per day; accepted quote requests | If core positions have not improved by at least one place on average, test moving the Idaho Falls commercial intent onto `/idaho/commercial-cleaning/idaho-falls` with a stronger page and a homepage link in the hero, instead of further title changes. |
 | Day 56 | Qualified leads by source, AI assistant sessions, review count | If accepted requests are still zero with the form live, the quote journey itself is the next audit target. |
 
-A scheduled check-in on the 1st and 15th of each month re-pulls these numbers, compares them to the baseline file, and either records "no change" or opens the next piece of work. The first check-in that finds a deployment mismatch or a still-unavailable form reports it immediately.
+A scheduled check-in on the 1st and 15th of each month (separate from the weekday growth automation recorded in docs/growth-playbook/AUTONOMOUS-GROWTH.md) re-pulls these numbers, compares them to the baseline file, and either records "no change" or opens the next piece of work. The first check-in that finds a deployment mismatch or a still-unavailable form reports it immediately.
