@@ -100,3 +100,47 @@ Procore's additional Wyoming coverage, company size and contract-size fields wer
 5. Check the first expanded automation execution receipt and report failures honestly.
 
 Screenshots are retained with the shared operations record. All external actions above are distinguished from research, preparation and unavailable capabilities.
+
+## Scheduled execution update: October 1, 2026, 08:04 MDT
+
+### Completed Search Console verification
+
+Native Search Console account `google_search_console_garial-untop` was used for `sc-domain:imperialcleaninginc.com`. No paid reporting layer was used.
+
+All five URLs that previously selected the unrelated `747live.bet` canonical now return `Submitted and indexed`, `PASS`, successful mobile fetches, `INDEXING_ALLOWED`, and matching Google and user canonicals on Imperial's domain:
+
+- https://imperialcleaninginc.com/construction-cleaning/rough-clean
+- https://imperialcleaninginc.com/resources/what-does-a-day-porter-do
+- https://imperialcleaninginc.com/utah/commercial-cleaning/layton
+- https://imperialcleaninginc.com/utah/commercial-cleaning/west-valley-city
+- https://imperialcleaninginc.com/utah/construction-cleaning/ogden
+
+Status: canonical recovery confirmed October 1. Do not repeat unchanged recrawl requests. Recheck only if coverage, canonical, security, or performance evidence changes.
+
+Priority-page status also changed:
+
+- `/idaho/commercial-cleaning/idaho-falls` is now submitted and indexed with a matching self-canonical.
+- `/idaho/construction-cleaning/idaho-falls` is now crawled but not indexed. Fetch succeeded and robots are allowed.
+- `/resources/construction-cleanup-process-checklist` is now crawled but not indexed. Fetch succeeded and robots are allowed.
+
+The sitemap remains healthy with 95 submitted URLs, no errors, no warnings, and no pending state. Its content field still reports zero indexed and is not used as a coverage total.
+
+Receipts: Composio execution logs `log_XUTmj_TATCQg`, `log_vvDJiblJHQ5u`, and `log_bW_3mtDlukUS`.
+
+Deduplication keys: `gsc|imperialcleaninginc.com|canonical-recovery|2026-10-01` and `gsc|imperialcleaninginc.com|priority-indexing|2026-10-01`.
+
+### Procore profile status and blocker
+
+The existing claimed profile at https://network.procore.com/p/imperial-cleaning-inc-idaho-falls was rechecked. The page is visible, links directly to https://www.imperialcleaninginc.com/ with no `rel` attribute observed, and shows the verified phone and address plus Cleaning Services, Final Cleaning, and Progress Cleaning.
+
+The profile also shows Wyoming, company size of 10 to 50 employees, and average contract size of $100,000 to $1,000,000. Those claims are not verified in the current proof ledger, and Wyoming is outside this program's approved Idaho and Utah scope. Exact Imperial Procore management access was not verified, so no edit or duplicate profile was attempted.
+
+Deduplication key: `procore|imperial-cleaning-inc-idaho-falls|claimed-profile`.
+
+### Thursday discussion, partner, and procurement result
+
+Current public searches covered construction cleanup, final cleaning, janitorial solicitations, contractor opportunities, public recommendations, and Utah procurement. No new item met the required scope, geography, active stage, deadline, timezone, and public contact standard. No public comment or post was made because no current discussion justified one.
+
+The convenience GSC Wizard route returned a payment-required response. It was stopped without subscribing or paying. The verified native Search Console connection completed the checks. Incremental spend remained $0.
+
+No directory signup, public post, comment, bid, cold message, profile edit, or website runtime change occurred. The repository documentation update is the completed coordination action for this scheduled run.
