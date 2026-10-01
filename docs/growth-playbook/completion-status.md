@@ -8,7 +8,9 @@ Aligned to playbook **Section 28**. Status key:
 | **PARTIAL** | Started but missing proof, owner action, or full coverage |
 | **OWNER** | Requires human action (GBP, ads, CRM, outbound, video, real case studies) |
 
-Last reviewed: September 1, 2026
+Last reviewed: October 1, 2026
+
+Current authority and dated receipts: [AUTONOMOUS-GROWTH.md](./AUTONOMOUS-GROWTH.md), [execution-2026-10-01.md](./execution-2026-10-01.md). The October 1 zero-cost program supersedes routine owner-only execution restrictions where exact business access is available. Other historical rows below have not been re-certified. Paid activity is outside current scope.
 
 ---
 
@@ -16,11 +18,11 @@ Last reviewed: September 1, 2026
 
 | Area | Status | Notes |
 |------|--------|-------|
-| Measurement | PARTIAL | Contact form and site events exist; GSC/GA4/Bing login, CRM stages, call tracking, 16-month baseline are owner tasks |
+| Measurement | PARTIAL | GSC and exact GA4 property access verified; 28-day baseline recorded; generate_lead and click_phone key events configured and read back. Delivery and qualified inquiry attribution remain unverified; quote service unavailable. |
 | Research | PARTIAL | Workbooks in this folder created; local-rank and AI baselines need first owner fill |
 | Money pages | DONE | Hubs, phases, cost, industries, header mega menu, homepage service paths, footer, sitemap |
 | Local | PARTIAL | City pages now show tagged Google quotes (no invented photos); GBP posts, reviews, map-grid remain owner |
-| Technical SEO | DONE | Sitemap, robots, canonicals, internal-link manifest, build audit clean |
+| Technical SEO | PARTIAL | Live sampled pages have correct canonicals and sitemap is readable. Five historical external-canonical anomalies remain unresolved; recrawl recovery receipts are in the October 1 log. |
 | AI crawlability | DONE | `robots.ts` allows major crawlers; `llms.txt` and `llms-full.txt` published |
 | AEO/GEO | PARTIAL | Answer blocks on hubs; AI prompt tracker created; monthly testing not started |
 | Reviews | PARTIAL | `/reviews` hub live with verified-review system; 10+ reusable proof assets and review velocity are owner |
@@ -34,7 +36,7 @@ Last reviewed: September 1, 2026
 | AI ads | OWNER | Test only when account access exists |
 | Outbound | OWNER | 100-account lists, sequences, CRM logging |
 | CRO | PARTIAL | Contact qualification fields shipping; thank-you flows and construction upload path still partial |
-| Operating cadence | PARTIAL | Scorecard template created; weekly meeting not yet scheduled |
+| Operating cadence | PARTIAL | Existing weekday task expanded to autonomous free execution with Friday reporting. First successful expanded-mode run must still be verified. |
 
 ---
 
@@ -44,8 +46,8 @@ Last reviewed: September 1, 2026
 
 | Item | Status | Owner |
 |------|--------|-------|
-| Google Search Console verified and monitored | OWNER | Owner |
-| GA4 property with qualified conversion events | OWNER | Owner |
+| Google Search Console verified and monitored | PARTIAL | Access and October 1 inspections verified; scheduled checks configured, expanded-mode run verification pending |
+| GA4 property with qualified conversion events | PARTIAL | Correct property verified; generate_lead and click_phone configured without default values; observed delivery/qualification pending |
 | Bing Webmaster Tools verified | OWNER | Owner |
 | 16-month baseline export (GSC, GA4, GBP, CRM) | OWNER | Owner |
 | UTM rules documented and enforced | PARTIAL | Marketing |
@@ -120,7 +122,7 @@ Last reviewed: September 1, 2026
 | No unverifiable aggregateRating in schema | DONE | Web |
 | City pages use Service + areaServed (not fake LocalBusiness per city) | DONE | Web |
 | Internal link manifest audit clean | DONE | Web |
-| GSC indexing queue executed | OWNER | Owner |
+| GSC indexing queue executed | PARTIAL | Priority recovery requests recorded October 1; accepted requests do not prove indexing |
 | Quarterly technical crawl scheduled | OWNER | Owner |
 
 ### Local SEO and GBP
