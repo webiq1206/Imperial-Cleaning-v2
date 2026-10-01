@@ -107,3 +107,18 @@ Compare equal windows, same weekdays, United States only, with the "commercial c
 | Day 56 | Qualified leads by source, AI assistant sessions, review count | If accepted requests are still zero with the form live, the quote journey itself is the next audit target. |
 
 A scheduled check-in on the 1st and 15th of each month (separate from the weekday growth automation recorded in docs/growth-playbook/AUTONOMOUS-GROWTH.md) re-pulls these numbers, compares them to the baseline file, and either records "no change" or opens the next piece of work. The first check-in that finds a deployment mismatch or a still-unavailable form reports it immediately.
+
+## Check-in log
+
+### 2026-10-01, day 0 (deployment verified 18:08 UTC)
+
+Pull request 19 merged to main at 16:24 UTC. The first Replit publish failed in the artifact step after a clean build; a second publish started at 16:45 UTC succeeded. Live checks from an external sandbox at 18:08 UTC:
+
+| Check | Result |
+| --- | --- |
+| Homepage title | "Construction & Commercial Cleaning, Idaho Falls \| Imperial Cleaning" |
+| Footer city block | Present on the homepage and a guide page, 24 construction city links each |
+| Sitemap | 95 URLs |
+| `/api/contact/availability` | `{"available":false}`: the deployment is not reading a delivery provider key and sender address |
+
+Day 0 for the measurement plan is October 1, 2026. The quote form remains unavailable until the provider secrets are readable by the deployment, so lead counts cannot start yet.

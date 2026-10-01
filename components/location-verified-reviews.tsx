@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import {
   GOOGLE_LISTING_URL,
   GOOGLE_REVIEW_COUNT,
@@ -44,7 +44,6 @@ export default function LocationVerifiedReviews({
                 key={`${review.author}-${review.date}`}
                 className="glass-card-elevated p-6 rounded-lg"
               >
-                <Quote className="w-5 h-5 text-primary mb-3" />
                 <div className="flex items-center gap-1 mb-3">
                   {Array.from({ length: review.rating }).map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />

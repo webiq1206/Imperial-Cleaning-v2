@@ -1,4 +1,4 @@
-/* Imperial's existing black, white, cyan and purple brand, with a calmer layout. */
+/* Imperial's black, white and cyan brand, with a calmer layout. Purple accents were removed on owner direction, 2026-10-01. */
 .imperial-site { --background:#050607; --foreground:#fff; --card:#0d0f12; --popover:#0d0f12; --secondary:#121519; --muted:#121519; --border:#292e35; --input:#15191e; --muted-foreground:#bac1ca; --text-secondary:#bac1ca; --text-subtle:#a7afb9; --radius:12px; font-weight:400; letter-spacing:0; }
 .imperial-site *, .imperial-site *::before, .imperial-site *::after { box-sizing:border-box; }
 .imperial-site h1,.imperial-site h2,.imperial-site h3,.imperial-site h4 { font-family:var(--font-sans),Arial,sans-serif!important; font-weight:500!important; line-height:1.15; letter-spacing:-.035em; text-wrap:balance; }
@@ -15,7 +15,7 @@
 .imperial-site button:disabled {opacity:.65;cursor:wait;}
 .imperial-site .site-width {width:min(1240px,calc(100% - 96px));margin-inline:auto;}
 .imperial-site .eyebrow {display:inline-flex;align-items:center;gap:9px;font-size:.75rem;font-weight:600;letter-spacing:.14em;line-height:1.65;text-transform:uppercase;color:#aeb8c5;}
-.imperial-site .brand-gradient {background:linear-gradient(115deg,#00bfff 5%,#9b76ef 93%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.imperial-site .brand-gradient {background:linear-gradient(115deg,#00bfff 5%,#7fe6ff 93%);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .imperial-site .ic-button {display:inline-flex;justify-content:center;align-items:center;gap:16px;background:#00bfff;color:#00141d;border:1px solid #00bfff;border-radius:7px;padding:14px 23px;min-height:52px;font-weight:600;font-size:.9375rem;line-height:1.4;text-align:center;text-decoration:none;transition:background .18s ease,box-shadow .18s ease;white-space:normal;cursor:pointer;}
 .imperial-site .ic-button:hover {background:#38cdff;box-shadow:0 3px 20px #00bfff1a;}
 .imperial-site .ic-button.secondary {background:transparent;color:#fff;border-color:#424b57;}
@@ -66,6 +66,8 @@
 .imperial-site .hero-assurance svg {color:#00bfff;}
 .imperial-site .hero-visual {position:relative;min-height:520px;height:100%;border-radius:12px;overflow:hidden;background:#171c23;}
 .imperial-site .hero-photo {object-fit:cover;object-position:35% center;}
+.imperial-site .hero-visual-brand {background:radial-gradient(circle at 50% 42%,#1c2430 0%,#10151c 58%,#0a0e13 100%);}
+.imperial-site .hero-logo-mark {position:absolute;top:50%;left:50%;width:62%;height:auto;max-height:66%;object-fit:contain;transform:translate(-50%,-56%);opacity:.28;filter:drop-shadow(0 18px 40px #00bfff22);}
 .imperial-site .photo-shade {position:absolute;inset:0;background:linear-gradient(180deg,#07101a15 30%,#05090ee8 100%);}
 .imperial-site .hero-photo-label {position:absolute;top:24px;left:24px;display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff66;border-radius:4px;background:#08101bc9;padding:9px 12px;font-size:.75rem;letter-spacing:.15em;}
 .imperial-site .hero-photo-card {position:absolute;inset:auto 32px 32px;}
@@ -87,7 +89,7 @@
 .imperial-site .service-card {padding:32px;border:1px solid #29313b;border-radius:10px;background:linear-gradient(135deg,#0a1319,#0a0d10);}
 .imperial-site .service-card.construction {background:linear-gradient(135deg,#111019,#0a0d10);}
 .imperial-site .service-card-top {display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;color:#00bfff;}
-.imperial-site .construction .service-card-top {color:#b197f4;}
+.imperial-site .construction .service-card-top {color:#00bfff;}
 .imperial-site .service-card-top span {font-size:.75rem;letter-spacing:.13em;color:#aab8c9;}
 .imperial-site .service-card h3 {font-size:1.75rem;margin-bottom:16px;}
 .imperial-site .service-card p {color:#bac1ca;font-size:1rem;}
@@ -139,11 +141,6 @@
 .imperial-site #main-content .text-center h1 {max-width:950px;margin-inline:auto;}
 .imperial-site #main-content .text-center h2 {max-width:850px;margin-inline:auto;}
 .imperial-site #main-content .text-sm:not(.eyebrow) {font-size:.9375rem;line-height:1.7;}
-.imperial-site #main-content .glass-card-elevated,.imperial-site #main-content .glass-card-premium {background:#0d1116;border:1px solid #303944;border-radius:10px;box-shadow:none;backdrop-filter:none;}
-.imperial-site .internal-hero {padding:62px 0 64px;background:linear-gradient(120deg,#071117,#0d0a13);border-bottom:1px solid #29313b;}
-.imperial-site .internal-hero-grid {display:grid;grid-template-columns:1.6fr 1fr;gap:85px;align-items:center;}
-.imperial-site .internal-hero h1 {margin:20px 0 24px;font-size:clamp(2.3rem,4vw,3.9rem);}
-.imperial-site .internal-hero .hero-description {max-width:700px;}
 .imperial-site .hero-service-note {border:1px solid #334052;border-radius:10px;background:#101621;padding:30px;}
 .imperial-site .hero-service-note>svg {color:#00bfff;margin-bottom:23px;}
 .imperial-site .hero-service-note h2, .imperial-site .hero-service-note .hero-note-title {font-family:var(--font-sans),Arial,sans-serif;font-size:1.75rem;font-weight:500;line-height:1.15;letter-spacing:-.035em;text-wrap:balance;color:#fff;margin:13px 0;}
@@ -154,15 +151,8 @@
 .imperial-site .jump-links {display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:20px 24px;border-bottom:1px solid #303944;background:#0c1117;}
 .imperial-site .jump-links a {font-size:.875rem;padding:10px 14px;border:1px solid #394655;border-radius:5px;}
 .imperial-site .jump-links a:hover {color:#00bfff;border-color:#00bfff;}
-/* Remove decorative movement and overlays that compete with information. */
-.imperial-site :is(.noise-overlay,.grain-texture,.vignette-radial,.section-transition-top,.section-transition-bottom)::before,.imperial-site :is(.noise-overlay,.grain-texture,.vignette-radial,.section-transition-top,.section-transition-bottom)::after {display:none!important;}
-.imperial-site :is(.parallax-subtle,.parallax-gentle,.parallax-depth,.animate-fade-in-up,.animate-fade-in-left,.animate-fade-in-right,.animate-fade-in-scale,.animate-pulse) {animation:none!important;opacity:1!important;transform:none!important;}
-.imperial-site [class*=hover-lift]:hover {transform:none!important;}
-.imperial-site :is(.hero-sophisticated-bg,.services-sophisticated-bg) {background:linear-gradient(120deg,#071117,#0d0a13);}
-.imperial-site :is(.sophisticated-glow,.glass-card-elevated,.glass-card-premium) {box-shadow:none;}
 .imperial-site #main-content a:has(>button),.imperial-site #main-content button {max-width:100%;}
 .imperial-site #main-content button {white-space:normal;min-height:44px;}
-.imperial-site #main-content a[class*=rounded-full],.imperial-site #main-content button[class*=rounded-full] {border-radius:7px;}
 /* Search, quote, and contact */
 .imperial-site .search-dialog,.imperial-site .quote-dialog {background:#101419;border:1px solid #435065;border-radius:12px;width:calc(100% - 32px);max-height:calc(100dvh - 32px);overflow-y:auto;}
 .imperial-site .search-dialog {max-width:650px;padding:32px;}

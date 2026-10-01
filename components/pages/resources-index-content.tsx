@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, ArrowRight, Clock, Calendar } from "lucide-react";
+import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { StructuredData } from "@/components/structured-data";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import RelatedContent from "@/components/shared/related-content";
@@ -81,7 +81,6 @@ export default function ResourcesHubPage() {
       <section className="py-20 px-6 hero-sophisticated-bg noise-overlay grain-texture">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 mb-4 justify-center">
-            <BookOpen className="w-5 h-5 text-primary" />
             <span className="text-sm text-primary uppercase tracking-wider">Resource Center</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 tracking-tight text-foreground">

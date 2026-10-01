@@ -64,7 +64,7 @@ export default function Breadcrumbs({ items, className = "", includeStructuredDa
    className={`flex items-center text-sm text-muted-foreground ${className}`}
    data-testid="breadcrumbs"
   >
-   <ol className="flex items-center space-x-2">
+   <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
     <li>
      <Link 
       href="/" 
@@ -81,7 +81,7 @@ export default function Breadcrumbs({ items, className = "", includeStructuredDa
      const isLast = index === items.length - 1;
      
      return (
-      <li key={index} className="flex items-center">
+      <li key={index} className="flex items-center whitespace-nowrap">
        <ChevronRight className="w-4 h-4 mx-3 text-muted-foreground/50" />
        {isLast ? (
         <span 

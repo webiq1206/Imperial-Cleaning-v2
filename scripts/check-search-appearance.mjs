@@ -118,7 +118,7 @@ try {
   check('the balanced homepage retains both service actions and image priority', () => {
     const hero = readFileSync('components/hero-section.tsx', 'utf8');
     assert.ok(hero.includes('Get a construction quote')); assert.ok(hero.includes('href="/commercial-cleaning" className="ic-button secondary"'));
-    assert.ok(hero.includes('Office interior with glass partitions, desks, and carpeted floors')); assert.match(hero, /\bpriority\s*\/>/);
+    assert.ok(hero.includes('src="/hero-logo.webp"')); assert.ok(hero.includes('Imperial Cleaning Inc lion logo')); assert.match(hero, /\bpriority\s*\/>/);
   });
   check('current private/preview safeguards and broad public crawler access are retained', () => {
     assert.match(readFileSync('app/layout.tsx', 'utf8'), /index: !preview, follow: !preview/);
