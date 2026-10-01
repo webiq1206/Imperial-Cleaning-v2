@@ -5,6 +5,7 @@ import './redesign.css';
 import './audit-improvements.css';
 import './construction-priority.css';
 import './website-refinements.css';
+import './restored-look.css';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import AnalyticsConsent from '@/components/analytics-consent';
@@ -75,6 +76,11 @@ const siteJsonLd = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return <html lang="en-US" suppressHydrationWarning>
+    <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    </head>
     <body className="imperial-site" suppressHydrationWarning>
       <Header />
       <main id="main-content" tabIndex={-1}>{children}</main>

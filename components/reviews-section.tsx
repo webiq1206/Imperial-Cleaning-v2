@@ -98,7 +98,7 @@ export default function ReviewsSection() {
   const bottomRow = featured.slice(half);
 
   return (
-    <section className="py-24 px-6" id="reviews">
+    <section className="py-24 px-6" id="all-reviews">
       <div className="max-w-7xl mx-auto">
         {/* Aggregate hero stats */}
         <div className="text-center mb-14">
