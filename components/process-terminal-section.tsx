@@ -1,5 +1,5 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Settings, TrendingUp, Rocket } from "lucide-react";
 
 export default function ProcessTerminalSection() {
  const [currentStep, setCurrentStep] = useState(0);
@@ -13,25 +13,25 @@ export default function ProcessTerminalSection() {
   },
   {
    command: "scan --debris --construction-waste",
-   output: "✓ Debris removal: 847 items processed",
+   output: "✓ Debris removal complete",
    description: "Construction debris and waste removal",
    color: "text-green-400"
   },
   {
    command: "clean --surfaces --windows --deep",
-   output: "✓ Surface cleaning: 12,500 sq ft completed",
+   output: "✓ Surface and window cleaning complete",
    description: "Deep cleaning of all surfaces and windows",
    color: "text-blue-400"
   },
   {
    command: "sanitize --disinfect --commercial-grade",
-   output: "✓ Sanitization: EPA-approved disinfectants applied",
+   output: "✓ Sanitization: commercial-grade disinfectants applied",
    description: "Commercial-grade sanitization and disinfection",
-   color: "text-purple-400"
+   color: "text-cyan-300"
   },
   {
    command: "inspect --quality-check --final-walkthrough",
-   output: "✓ Final inspection: 100% completion verified",
+   output: "✓ Final inspection and walkthrough complete",
    description: "Quality assurance and final inspection",
    color: "text-yellow-400"
   },
@@ -118,36 +118,6 @@ export default function ProcessTerminalSection() {
       </div>
      </div>
 
-     {/* Process Benefits */}
-     <div className="grid md:grid-cols-3 gap-6 mt-16">
-      <div className="text-center">
-       <div className="icon-gradient text-2xl mb-6">
-        <Settings className="w-6 h-6" />
-       </div>
-       <h3 className="text-lg mb-2 text-foreground">Systematic Approach</h3>
-       <p className="text-sm text-muted-foreground">
-        Every step documented and executed with precision
-       </p>
-      </div>
-      <div className="text-center">
-       <div className="icon-gradient text-2xl mb-6">
-        <TrendingUp className="w-6 h-6" />
-       </div>
-       <h3 className="text-lg mb-2 text-foreground">Quality Tracking</h3>
-       <p className="text-sm text-muted-foreground">
-        Real-time monitoring and quality assurance
-       </p>
-      </div>
-      <div className="text-center">
-       <div className="icon-gradient text-2xl mb-6">
-        <Rocket className="w-6 h-6" />
-       </div>
-       <h3 className="text-lg mb-2 text-foreground">Efficient Execution</h3>
-       <p className="text-sm text-muted-foreground">
-        Optimized workflow for faster project completion
-       </p>
-      </div>
-     </div>
     </div>
    </div>
   </section>

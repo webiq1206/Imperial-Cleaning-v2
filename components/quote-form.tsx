@@ -3,7 +3,7 @@ import { useState, useId, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowUpRight, ArrowLeft, CheckCircle2, Phone, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, CheckCircle2, Phone } from "lucide-react";
 import { contactSchema, type ContactData } from "@/lib/contact-schema";
 import { trackConversionComplete, trackEvent, trackFormInteraction } from "@/lib/analytics";
 import { quoteContext } from "@/lib/quote-context";
@@ -105,7 +105,7 @@ export default function QuoteForm() {
       <div className="form-actions"><button type="button" className="back-button" disabled={status === "sending"} onClick={() => {setStep(1); focusTitle();}}><ArrowLeft size={17} />Back</button><button className="ic-button" type="submit" disabled={status === "sending"}>{status === "sending" ? "Submitting..." : "Request my free quote"}<ArrowUpRight size={18} /></button></div>
     </>}
     <div className="honeypot" aria-hidden="true"><label>Website<input {...form.register("website")} tabIndex={-1} autoComplete="off" /></label></div>
-    <div className="form-reassurance"><ShieldCheck size={16} /> Free quote. No obligation.</div>
+    <div className="form-reassurance">Free quote. No obligation.</div>
     <a className="form-call" href={`tel:${BUSINESS_PHONE_TEL}`}><Phone size={15} /> Prefer to talk? {BUSINESS_PHONE}</a>
   </form>;
 }
