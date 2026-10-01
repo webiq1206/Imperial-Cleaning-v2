@@ -1,0 +1,61 @@
+{
+  "capturedAt": "2026-10-01",
+  "sources": {
+    "gsc": "sc-domain:imperialcleaninginc.com, search type web, data_state final, Search Console API via Composio",
+    "ga4": "properties/375332468, hostname imperialcleaninginc.com only, reporting timezone America/Boise",
+    "liveSite": "Fetched 2026-10-01 from an external sandbox; contact H1 and sitemap lastmod confirmed the 2026-09-29 source is deployed"
+  },
+  "gscMonthly": {
+    "note": "clicks, impressions, impression-weighted average position",
+    "2025-06": [19, 7918, 41.2], "2025-07": [27, 12973, 47.1], "2025-08": [18, 13739, 57.8], "2025-09": [0, 228, 18.8],
+    "2025-10": [35, 5305, 17.8], "2025-11": [24, 6914, 12.3], "2025-12": [18, 3075, 14.5], "2026-01": [31, 3927, 15.8],
+    "2026-02": [27, 3381, 15.6], "2026-03": [27, 4360, 25.7], "2026-04": [25, 5089, 18.1], "2026-05": [27, 7560, 19.4],
+    "2026-06": [16, 5692, 24.7], "2026-07": [19, 5328, 28.1], "2026-08": [19, 6815, 20.8], "2026-09": [29, 3817, 26.2]
+  },
+  "gscQuarterByIntent": {
+    "note": "query rows only (anonymized queries excluded); [clicks, impressions]",
+    "2025-07-01..2025-09-28": { "brand": [7, 1581], "commercial": [5, 15008], "construction": [0, 2286], "spam": [1, 2900], "other": [2, 1452] },
+    "2026-04-01..2026-06-30": { "brand": [16, 1131], "commercial": [4, 12241], "construction": [0, 712], "spam": [0, 0], "other": [0, 329] },
+    "2026-07-01..2026-09-28": { "brand": [13, 955], "commercial": [7, 8823], "construction": [0, 898], "spam": [0, 0], "other": [1, 242] }
+  },
+  "coreLocalQueries": {
+    "note": "[impressions, clicks, average position] per window; the homepage is the ranking page in every case",
+    "commercial cleaning idaho falls": { "2025Q3": [338, 0, 6.3], "2026Q2": [4117, 1, 7.7], "2026Q3": [867, 2, 8.1], "2026-09 weekly positions": [9.7, 9.7, 11.1, 12.5] },
+    "janitorial services idaho falls": { "2025Q3": [531, 0, 4.9], "2026Q2": [285, 0, 8.6], "2026Q3": [199, 0, 13.8] },
+    "office cleaning idaho falls": { "2025Q3": [286, 0, 6.1], "2026Q2 (office cleaning idaho falls id)": [105, 0, 9.3], "2026Q3": "not in top 25 queries" },
+    "commercial cleaning services idaho falls": { "2026Q2": [243, 0, 7.9], "2026Q3": [124, 0, 9.1] }
+  },
+  "indexing": {
+    "2026-09-29": { "indexed": 28, "discoveredNotIndexed": 48, "unknown": 13, "crawledNotIndexed": 1, "duplicateExternalCanonical": 5 },
+    "2026-10-01 spotChecks": {
+      "/construction-cleaning/rough-clean": "Submitted and indexed, self canonical, crawled 2026-10-01",
+      "/utah/construction-cleaning/ogden": "Submitted and indexed, self canonical, crawled 2026-10-01",
+      "/utah/commercial-cleaning/layton": "Submitted and indexed, self canonical, crawled 2026-10-01",
+      "/idaho/construction-cleaning/idaho-falls": "Submitted and indexed, crawled 2026-10-01",
+      "/idaho/commercial-cleaning/idaho-falls": "Submitted and indexed, crawled 2026-10-01",
+      "/contact": "Discovered - currently not indexed",
+      "/about": "URL is unknown to Google",
+      "/service-areas/idaho": "URL is unknown to Google",
+      "/idaho/commercial-cleaning/nampa": "Discovered - currently not indexed",
+      "/idaho/commercial-cleaning/nampa/": "Crawled 2026-08-17 as 200 with slash canonical; now 308 to the canonical"
+    },
+    "sitemap": { "submitted": 95, "errors": 0, "warnings": 0, "lastRead": "2026-09-29T14:03:50Z" }
+  },
+  "ga4Monthly": {
+    "note": "[sessions, engaged sessions, google organic sessions, AI assistant sessions]",
+    "2025-06": [54, 21, 13, 0], "2025-07": [48, 21, 8, 1], "2025-08": [31, 15, 9, 1], "2025-09": [79, 23, 7, 1],
+    "2025-10": [244, 77, 21, 1], "2025-11": [359, 94, 9, 0], "2025-12": [310, 70, 2, 0], "2026-01": [232, 47, 13, 0],
+    "2026-02": [163, 18, 23, 0], "2026-03": [132, 24, 34, 2], "2026-04": [117, 28, 42, 0], "2026-05": [100, 16, 35, 0],
+    "2026-06": [101, 22, 19, 1], "2026-07": [112, 26, 29, 3], "2026-08": [103, 22, 20, 3], "2026-09": [143, 36, 32, 5]
+  },
+  "ga4SeptemberDailySessions": { "09-01..09-23": "1 to 27 per day", "09-24..09-28": 0, "09-29": 2, "09-30": 1 },
+  "ga4KeyEvents": ["schedule_a_call", "purchase", "generate_lead", "click_phone"],
+  "ga4EventsSept": { "page_view": 158, "session_start": 143, "first_visit": 132, "user_engagement": 53, "form_interaction": 2, "generate_lead": 0, "click_phone": 0 },
+  "quoteDelivery": { "/api/contact/availability": { "available": false }, "observed": "2026-10-01" },
+  "kpis": {
+    "primary": "Accepted quote requests (generate_lead) and phone clicks from Idaho and Utah sessions",
+    "search": "Clicks and average position for the four core Idaho Falls queries; indexed count of the 48 city pages",
+    "ai": "Sessions from chatgpt.com, copilot.com, perplexity.ai, claude.ai, gemini.google.com",
+    "measurement": "GA4 sessions per day must return to the pre-2026-09-24 range (3 to 27) before conversion rates are trusted"
+  }
+}
