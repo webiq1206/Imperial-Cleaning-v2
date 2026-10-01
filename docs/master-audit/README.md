@@ -4,6 +4,8 @@ The complete master assignment remains open. This directory records implemented 
 
 ## Current batch
 
+See [Organic and AI visibility: diagnosis, fixes and measurement plan, October 1, 2026](./DECLINE-DIAGNOSIS-2026-10-01.md) for the evidence behind the reported impression decline, the four confirmed causes, the changes made on October 1, the owner actions still required (email delivery configuration and the analytics consent default), and the dated decision rules. Its numeric baseline is [decline-baseline-2026-10-01.json](./decline-baseline-2026-10-01.json).
+
 See [SEO, AEO, GEO and CRO audit and implementation, September 29, 2026](./SEO-AEO-GEO-CRO-AUDIT-2026-09-29.md) for the latest evidence-based audit, the source changes it justified, the blockers that still need owner or external access, and the follow-up measurement plan.
 
 See [Direct implementation and Git handoff](./IMPLEMENTATION-2026-09-21.md) for the latest changes, configuration, test scope, remaining tasks and rollback.

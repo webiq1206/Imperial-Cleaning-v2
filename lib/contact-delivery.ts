@@ -74,23 +74,63 @@ export function contactIdempotencyKey(header: string | null): string {
 }
 
 export type ContactMail = { from: string; to: string; reply_to: string; subject: string; text: string };
+export type ContactProviderName = 'resend' | 'sendgrid';
+export type ContactProvider = { name: ContactProviderName; apiKey: string; from: string };
+const RECEIPT = /^[a-zA-Z0-9_.-]{1,100}$/;
+
+/**
+ * Resolve the configured delivery provider from environment variables. Resend is preferred.
+ * SendGrid is accepted as a fallback because the Replit workspace lists the SendGrid
+ * integration; production returned "available: false" on 2026-10-01 with only Resend wired.
+ * Both providers need a verified sender address in CONTACT_FROM_EMAIL (SENDGRID_FROM_EMAIL is also read).
+ */
+export function resolveContactProvider(env: Record<string, string | undefined> = process.env): ContactProvider | null {
+  const from = env.CONTACT_FROM_EMAIL || env.SENDGRID_FROM_EMAIL || '';
+  if (env.RESEND_API_KEY && env.CONTACT_FROM_EMAIL) return { name: 'resend', apiKey: env.RESEND_API_KEY, from: env.CONTACT_FROM_EMAIL };
+  if (env.SENDGRID_API_KEY && from) return { name: 'sendgrid', apiKey: env.SENDGRID_API_KEY, from };
+  return null;
+}
+
+async function sendResend(apiKey: string, mail: ContactMail, idempotencyKey: string, fetcher: typeof fetch, timeoutMs: number): Promise<string> {
+  const response = await fetcher('https://api.resend.com/emails', {
+    method: 'POST', cache: 'no-store',
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey },
+    body: JSON.stringify(mail), signal: AbortSignal.timeout(timeoutMs),
+  });
+  if (response.status === 429) throw new ContactRequestError(429, 'Online requests are busy. Please wait a minute and retry, or call (208) 520-3202.');
+  if (response.status === 409) throw new ContactRequestError(409, 'This request is still being processed. Please retry with the same details in a moment.');
+  if (!response.ok) throw new ContactRequestError(502, 'We could not submit your request. Your details remain in the form so you can retry.');
+  const result: unknown = await response.json();
+  const id = result && typeof result === 'object' && 'id' in result ? (result as { id: unknown }).id : null;
+  if (typeof id !== 'string' || !RECEIPT.test(id)) throw new ContactRequestError(502, 'We could not confirm your submission. Please retry with the same details.');
+  return id;
+}
+
+async function sendSendGrid(apiKey: string, mail: ContactMail, fetcher: typeof fetch, timeoutMs: number): Promise<string> {
+  const response = await fetcher('https://api.sendgrid.com/v3/mail/send', {
+    method: 'POST', cache: 'no-store',
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      personalizations: [{ to: [{ email: mail.to }] }], from: { email: mail.from }, reply_to: { email: mail.reply_to },
+      subject: mail.subject, content: [{ type: 'text/plain', value: mail.text }],
+    }),
+    signal: AbortSignal.timeout(timeoutMs),
+  });
+  if (response.status === 429) throw new ContactRequestError(429, 'Online requests are busy. Please wait a minute and retry, or call (208) 520-3202.');
+  // SendGrid accepts with 202 and an empty body; the message id arrives as a header.
+  if (response.status !== 202) throw new ContactRequestError(502, 'We could not submit your request. Your details remain in the form so you can retry.');
+  const id = response.headers.get('x-message-id') || '';
+  if (!RECEIPT.test(id)) throw new ContactRequestError(502, 'We could not confirm your submission. Please retry with the same details.');
+  return id;
+}
+
 export async function deliverContactMail(
   apiKey: string, mail: ContactMail, idempotencyKey: string,
-  fetcher: typeof fetch = fetch, timeoutMs = CONTACT_TIMEOUT_MS,
+  fetcher: typeof fetch = fetch, timeoutMs = CONTACT_TIMEOUT_MS, provider: ContactProviderName = 'resend',
 ): Promise<string> {
   try {
-    const response = await fetcher('https://api.resend.com/emails', {
-      method: 'POST', cache: 'no-store',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey },
-      body: JSON.stringify(mail), signal: AbortSignal.timeout(timeoutMs),
-    });
-    if (response.status === 429) throw new ContactRequestError(429, 'Online requests are busy. Please wait a minute and retry, or call (208) 520-3202.');
-    if (response.status === 409) throw new ContactRequestError(409, 'This request is still being processed. Please retry with the same details in a moment.');
-    if (!response.ok) throw new ContactRequestError(502, 'We could not submit your request. Your details remain in the form so you can retry.');
-    const result: unknown = await response.json();
-    const id = result && typeof result === 'object' && 'id' in result ? (result as { id: unknown }).id : null;
-    if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]{1,100}$/.test(id)) throw new ContactRequestError(502, 'We could not confirm your submission. Please retry with the same details.');
-    return id; // Provider acceptance, not proof of inbox delivery or a qualified lead.
+    // Provider acceptance, not proof of inbox delivery or a qualified lead.
+    return provider === 'sendgrid' ? await sendSendGrid(apiKey, mail, fetcher, timeoutMs) : await sendResend(apiKey, mail, idempotencyKey, fetcher, timeoutMs);
   } catch (error) {
     if (error instanceof ContactRequestError) throw error;
     throw new ContactRequestError(502, 'We could not confirm your submission. Please retry with the same details, or call (208) 520-3202.');

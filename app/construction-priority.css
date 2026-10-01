@@ -19,6 +19,11 @@
 .imperial-site .construction-area-card svg { flex-shrink:0; }
 .imperial-site .footer-coverage { display:flex; flex-wrap:wrap; gap:12px 28px; margin-bottom:24px; }
 .imperial-site .footer-coverage a { display:flex; align-items:center; min-height:44px; color:var(--muted-foreground); font-size:.875rem; }
+.imperial-site .footer-cities { margin:0 0 28px; }
+.imperial-site .footer-cities p { font-size:.8125rem; line-height:2.2; color:#9daec3; margin:0 0 6px; }
+.imperial-site .footer-cities strong { color:#c1cddc; font-weight:600; }
+.imperial-site .footer-cities a { display:inline-block; padding:4px 2px; color:#b0bfd1; }
+.imperial-site .footer-cities a:hover { color:#00bfff; }
 @media(min-width:1024px) and (max-width:1399px) { .imperial-site .header-phone { display:none; } .imperial-site .nav-trigger { padding-inline:8px; } }
 @media(max-width:1023px) { .imperial-site .construction-phase-grid,.imperial-site .construction-resource-grid { gap:16px; } .imperial-site .construction-phase-grid .service-card,.imperial-site .construction-resource-card { padding:22px; } }
 @media(max-width:767px) {

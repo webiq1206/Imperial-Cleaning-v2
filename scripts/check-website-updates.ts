@@ -12,8 +12,8 @@ import { GET as contactAvailability } from '../app/api/contact/availability/rout
 let checks=0;
 function check(name:string,fn:()=>void){fn();checks++;console.log('PASS '+name);}
 async function main(){
-  const previousKey=process.env.RESEND_API_KEY, previousFrom=process.env.CONTACT_FROM_EMAIL;
-  delete process.env.RESEND_API_KEY; delete process.env.CONTACT_FROM_EMAIL;
+  const previousKey=process.env.RESEND_API_KEY, previousFrom=process.env.CONTACT_FROM_EMAIL, previousSendGrid=process.env.SENDGRID_API_KEY;
+  delete process.env.RESEND_API_KEY; delete process.env.CONTACT_FROM_EMAIL; delete process.env.SENDGRID_API_KEY;
   try {
     const readiness=await contactAvailability();
     const body=await readiness.json();
@@ -21,6 +21,7 @@ async function main(){
   } finally {
     if(previousKey!==undefined)process.env.RESEND_API_KEY=previousKey;
     if(previousFrom!==undefined)process.env.CONTACT_FROM_EMAIL=previousFrom;
+    if(previousSendGrid!==undefined)process.env.SENDGRID_API_KEY=previousSendGrid;
   }
   check('24 cities have distinct planning entries',()=>{assert.equal(allServiceLocations.length,24);assert.equal(new Set(Object.values(localPlanning).flat()).size,48);});
   for(const city of allServiceLocations){

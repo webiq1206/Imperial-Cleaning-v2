@@ -43,10 +43,15 @@ test('changed TSX components have no TypeScript syntax diagnostics', () => {
     assert.equal(result.diagnostics.length, 0, path);
   }
 });
-test('homepage search promise leads with construction and keeps city targeting out of the primary terms', () => {
-  assert.match(homeSearch.title, /^Construction Cleanup/);
+test('homepage search promise leads with construction and names only the headquarters city', () => {
+  // Search Console, 2026-10-01: the homepage is the only page ranking for "commercial cleaning idaho falls",
+  // "janitorial services idaho falls" and "office cleaning idaho falls", and those positions slipped from
+  // 5-6 (Q3 2025) to 8-14 (Q3 2026). The title may name Idaho Falls; other cities belong on their own pages.
+  assert.match(homeSearch.title, /^Construction/);
+  assert.match(homeSearch.title, /Idaho Falls/);
   assert.match(homeSearch.description, /^Construction cleanup and post-construction cleaning/);
-  for (const value of [homeSearch.title,homeSearch.keywords]) assert.doesNotMatch(value, /Idaho Falls|Boise|Pocatello|Salt Lake/);
+  for (const value of [homeSearch.title,homeSearch.keywords]) assert.doesNotMatch(value, /Boise|Pocatello|Salt Lake/);
+  assert.doesNotMatch(homeSearch.keywords, /Idaho Falls/);
   assert.match(homeSearch.keywords, /construction cleanup/); assert.match(homeSearch.keywords, /construction cleaning/); assert.match(homeSearch.keywords, /post construction cleanup/);
 });
 test('title, social cards, and homepage schema use the same construction-first source', () => {
@@ -154,8 +159,8 @@ test('both generated AI guides lead with construction and retain every canonical
   }
 });
 test('public route inventory remains at 95 with valid reviewed publication dates', () => {
-  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-09-29');
-  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-09-29T23:59:59Z'));
+  const rules=JSON.parse(read('data/publication-rules.json'));assert.equal(rules['/'].modified,'2026-10-01');
+  const sitemap=buildPublicSitemap(paths,rules,new Date('2026-10-01T23:59:59Z'));
   assert.equal(sitemap.length,95);assert.ok(known.has('/commercial-cleaning'));assert.ok(known.has('/construction-cleaning'));
 });
 test('layout and footer descriptions follow construction-first positioning without changing identity constants', () => {

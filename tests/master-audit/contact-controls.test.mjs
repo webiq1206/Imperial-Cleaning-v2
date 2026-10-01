@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { assertContactOrigin, readContactBody, contactIdempotencyKey, deliverContactMail, ContactRequestError } from './contact-delivery.mjs';
+import { assertContactOrigin, readContactBody, contactIdempotencyKey, deliverContactMail, resolveContactProvider, ContactRequestError } from './contact-delivery.mjs';
 const url = 'https://imperialcleaninginc.com/api/contact';
 const request = (body='{}', headers={}) => new Request(url, {method:'POST',headers:{'content-type':'application/json',...headers},body});
 const uuid='550e8400-e29b-41d4-a716-446655440000';
@@ -27,3 +27,21 @@ for(const code of [409,429])test(`provider ${code} preserves retry semantics`,as
 for(const payload of [{}, {id:null}, {id:'private@example.test'}, {id:'<script>bad</script>'}])test(`missing/unsafe receipt ${JSON.stringify(payload)} is not success`,async()=>assert.rejects(deliverContactMail('fake',mail,'key',async()=>Response.json(payload)),status(502)));
 test('provider malformed JSON is not success',async()=>assert.rejects(deliverContactMail('fake',mail,'key',async()=>new Response('{')),status(502)));
 test('network error is recoverable and contains no secret',async()=>{await assert.rejects(deliverContactMail('secret-value',mail,'key',async()=>{throw Error('secret-value test@example.test');}),e=>e.status===502&&!e.message.includes('secret-value')&&!e.message.includes('example.test'));});
+
+test('provider resolution prefers Resend, accepts SendGrid, and needs a sender either way',()=>{
+  assert.equal(resolveContactProvider({}),null);
+  assert.equal(resolveContactProvider({RESEND_API_KEY:'r'}),null);
+  assert.equal(resolveContactProvider({SENDGRID_API_KEY:'s'}),null);
+  assert.deepEqual(resolveContactProvider({RESEND_API_KEY:'r',CONTACT_FROM_EMAIL:'quotes@example.test',SENDGRID_API_KEY:'s'}),{name:'resend',apiKey:'r',from:'quotes@example.test'});
+  assert.deepEqual(resolveContactProvider({SENDGRID_API_KEY:'s',CONTACT_FROM_EMAIL:'quotes@example.test'}),{name:'sendgrid',apiKey:'s',from:'quotes@example.test'});
+  assert.deepEqual(resolveContactProvider({SENDGRID_API_KEY:'s',SENDGRID_FROM_EMAIL:'quotes@example.test'}),{name:'sendgrid',apiKey:'s',from:'quotes@example.test'});
+});
+test('SendGrid receives a v3 mail payload, no-store and timeout signal, and returns the message id',async()=>{
+  let inspected=false;
+  const fake=async(target,options)=>{inspected=true;assert.equal(target,'https://api.sendgrid.com/v3/mail/send');assert.equal(options.headers.Authorization,'Bearer fake-key');assert.equal(options.cache,'no-store');assert.ok(options.signal);const body=JSON.parse(options.body);assert.deepEqual(body.personalizations,[{to:[{email:mail.to}]}]);assert.deepEqual(body.from,{email:mail.from});assert.deepEqual(body.reply_to,{email:mail.reply_to});assert.equal(body.subject,mail.subject);assert.deepEqual(body.content,[{type:'text/plain',value:mail.text}]);return new Response('',{status:202,headers:{'x-message-id':'abc123.filter'}});};
+  assert.equal(await deliverContactMail('fake-key',mail,'key',fake,1000,'sendgrid'),'abc123.filter');assert.equal(inspected,true);
+});
+for(const code of [200,400,401,403,500,503])test(`SendGrid ${code} without acceptance does not report success`,async()=>assert.rejects(deliverContactMail('fake',mail,'key',async()=>new Response('',{status:code}),1000,'sendgrid'),status(502)));
+test('SendGrid 429 preserves retry semantics',async()=>assert.rejects(deliverContactMail('fake',mail,'key',async()=>new Response('',{status:429}),1000,'sendgrid'),status(429)));
+test('SendGrid acceptance without a safe message id is not success',async()=>{for(const id of [undefined,'<script>bad</script>','private@example.test'])await assert.rejects(deliverContactMail('fake',mail,'key',async()=>new Response('',{status:202,headers:id?{'x-message-id':id}:{}}),1000,'sendgrid'),status(502));});
+test('SendGrid network error is recoverable and contains no secret',async()=>{await assert.rejects(deliverContactMail('secret-value',mail,'key',async()=>{throw Error('secret-value test@example.test');},1000,'sendgrid'),e=>e.status===502&&!e.message.includes('secret-value')&&!e.message.includes('example.test'));});
