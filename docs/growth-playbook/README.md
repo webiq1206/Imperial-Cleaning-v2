@@ -4,6 +4,10 @@ This folder is the live execution system for the **Imperial Cleaning Inc Master 
 
 Do not treat the PDF as a checklist you read once. Treat this folder as the operating system you run every week.
 
+## Current execution authority
+
+Read [AUTONOMOUS-GROWTH.md](./AUTONOMOUS-GROWTH.md) and [the October 1 execution receipt](./execution-2026-10-01.md) first. The current program authorizes relevant free autonomous execution, preserves factual proof requirements, and excludes paid acquisition. Historical owner-only labels are access limitations to reassess, not routine approval gates.
+
 ## How to use this system
 
 1. Read the PDF once for context and priorities.

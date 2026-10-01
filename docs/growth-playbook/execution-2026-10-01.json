@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-01",
+  "business": "Imperial Cleaning Inc",
+  "host": "imperialcleaninginc.com",
+  "zero_incremental_spend": true,
+  "ga4": {
+    "property": "375332468",
+    "stream": "5188314156",
+    "measurement_id": "G-LGVNS5VTDL",
+    "key_events_verified": [
+      {
+        "countingMethod": "ONCE_PER_SESSION",
+        "createTime": "2023-05-11T01:22:20.343361Z",
+        "custom": true,
+        "deletable": true,
+        "eventName": "schedule_a_call",
+        "name": "properties/375332468/keyEvents/5188263815"
+      },
+      {
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2023-05-11T01:22:19.734413Z",
+        "eventName": "purchase",
+        "name": "properties/375332468/keyEvents/5188314155"
+      },
+      {
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-10-01T13:53:40.378111Z",
+        "custom": true,
+        "deletable": true,
+        "eventName": "generate_lead",
+        "name": "properties/375332468/keyEvents/15930647341"
+      },
+      {
+        "countingMethod": "ONCE_PER_SESSION",
+        "createTime": "2026-10-01T13:55:58.406195Z",
+        "custom": true,
+        "deletable": true,
+        "eventName": "click_phone",
+        "name": "properties/375332468/keyEvents/15930958602"
+      }
+    ],
+    "delivery_verified": false
+  },
+  "gsc": {
+    "site": "sc-domain:imperialcleaninginc.com",
+    "baseline": {
+      "current": {
+        "start": "2026-09-01",
+        "end": "2026-09-28",
+        "clicks": 29,
+        "impressions": 3817,
+        "ctr": 0.007597589730154571,
+        "position": 26.1669
+      },
+      "prior": {
+        "start": "2026-08-04",
+        "end": "2026-08-31",
+        "clicks": 18,
+        "impressions": 6126,
+        "ctr": 0.002938295788442703,
+        "position": 20.8883
+      }
+    },
+    "manual_actions": "No issues detected",
+    "security_issues": "No issues detected",
+    "indexing_requests": [
+      {
+        "destination": "https://imperialcleaninginc.com/construction-cleaning/rough-clean",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/construction-cleaning/rough-clean"
+      },
+      {
+        "destination": "https://imperialcleaninginc.com/resources/what-does-a-day-porter-do",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/resources/what-does-a-day-porter-do"
+      },
+      {
+        "destination": "https://imperialcleaninginc.com/utah/commercial-cleaning/layton",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/utah/commercial-cleaning/layton"
+      },
+      {
+        "destination": "https://imperialcleaninginc.com/utah/commercial-cleaning/west-valley-city",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/utah/commercial-cleaning/west-valley-city"
+      },
+      {
+        "destination": "https://imperialcleaninginc.com/utah/construction-cleaning/ogden",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/utah/construction-cleaning/ogden"
+      },
+      {
+        "destination": "https://imperialcleaninginc.com/idaho/construction-cleaning/idaho-falls",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/idaho/construction-cleaning/idaho-falls"
+      },
+      {
+        "destination": "https://imperialcleaninginc.com/idaho/commercial-cleaning/idaho-falls",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/idaho/commercial-cleaning/idaho-falls"
+      },
+      {
+        "destination": "https://imperialcleaninginc.com/resources/construction-cleanup-process-checklist",
+        "date": "2026-10-01",
+        "status": "accepted_priority_crawl_queue",
+        "indexed_after_request": null,
+        "deduplication_key": "gsc:imperialcleaninginc.com:request-indexing:2026-10-01:/resources/construction-cleanup-process-checklist"
+      }
+    ]
+  },
+  "quote_availability": {
+    "available": false,
+    "delivery_verified": false
+  },
+  "existing_placement": {
+    "platform": "Procore",
+    "url": "https://network.procore.com/p/imperial-cleaning-inc-idaho-falls",
+    "destination": "https://www.imperialcleaninginc.com",
+    "rel_attribute": null,
+    "new_placement": false,
+    "public_http_status": 200,
+    "indexed": null,
+    "publication_date": null
+  },
+  "automation": {
+    "id": "6ab9da5923e08191bc49e232e06ada9b",
+    "title": "Imperial free growth execution",
+    "enabled": true,
+    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Boise:20260928T080000\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=8;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+    "last_prior_mode_run": "2026-09-30T15:01:19.428981+00:00",
+    "expanded_mode_completed_run_verified": false
+  },
+  "new_directory_submissions": 0,
+  "new_public_posts": 0
+}
