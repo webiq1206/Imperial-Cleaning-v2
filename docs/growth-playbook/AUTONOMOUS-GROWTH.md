@@ -68,7 +68,7 @@ Maintain action records with timestamp, platform/account, source and destination
 ## Current priorities
 
 1. Restore quote delivery through the authorized existing hosting/provider configuration when accessible. GET /api/contact/availability returned available:false on October 1. Do not manufacture success or redirect customer data to an unrelated service.
-2. Verify canonical recovery after accepted recrawl requests. Five old Google index records pointed to an unrelated domain. Current pages are clean; Search Console reports no manual actions or security issues. Root cause and recovery are unresolved.
+2. Preserve the confirmed canonical recovery. On October 1, all five affected URLs were submitted and indexed with matching Google and user canonicals on Imperial's domain. Do not repeat unchanged recrawl requests; recheck only if new coverage, canonical, security, or performance evidence appears.
 3. Observe actual production generate_lead and click_phone events under existing consent rules. GA4 definitions alone prove no event delivery.
 4. Verify relevant existing directory accounts and correct evidence-backed discrepancies. Do not repeatedly prompt for unchanged access blockers.
 5. Improve/distribute a useful existing asset through a permitted, authenticated channel.
