@@ -52,7 +52,7 @@ GA4 sessions from chatgpt.com, copilot.com and similar assistants: 0 to 1 a mont
 
 ### Tracking accuracy: two confirmed measurement failures
 
-1. **GA4 collapsed on September 24.** Daily sessions ran 1 to 27 through September 23, then 0 on September 24 to 28, 2 on September 29 and 1 on September 30. The September 24 deploy shipped opt-in analytics consent (`components/analytics-consent.tsx`, `lib/analytics-runtime.ts`). Google Analytics now loads only after a visitor clicks "Allow analytics", so roughly 90 percent of sessions are no longer recorded and no conversion rate can be computed. A code change to a default-on, opt-out model (with Global Privacy Control honored) was prepared in this session but was blocked by the environment's permission policy as a privacy weakening, so it is left as a decision for the owner. See section 4.
+1. **GA4 collapsed on September 24.** Daily sessions ran 1 to 27 through September 23, then 0 on September 24 to 28, 2 on September 29 and 1 on September 30. The September 24 deploy shipped opt-in analytics consent (`components/analytics-consent.tsx`, `lib/analytics-runtime.ts`). Google Analytics now loads only after a visitor clicks "Allow analytics", so roughly 90 percent of sessions are no longer recorded and no conversion rate can be computed. A code change to a default-on, opt-out model (with Global Privacy Control honored) was prepared in this session but was blocked by the environment's permission policy as a privacy weakening, so it was left as a decision for the owner. The owner approved it on October 6 and it shipped the same day. See section 4 and the October 6 check-in entry.
 2. **Bot traffic in GA4.** 137 of the quarter's homepage sessions came from Singapore with zero engagement, almost certainly a hosted preview or monitor. Segment by United States or by Idaho and Utah before reading any session total.
 
 ### Conversion: the quote form has never delivered a lead in this repository's history
@@ -91,7 +91,7 @@ Not changed on purpose: no city page was deleted or noindexed, no content was fa
 ## 4. Owner actions that this branch cannot do
 
 1. **Configure email delivery (highest value).** In Replit Secrets set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` (a verified sender), or `SENDGRID_API_KEY` and `CONTACT_FROM_EMAIL`. Then submit one labeled test quote and confirm it arrives at service@imperialcleaninginc.com. Until this is done, organic improvement cannot produce leads from the form.
-2. **Decide the analytics default.** The site serves Idaho and Utah, where opt-in consent for first-party analytics is not required. Keeping opt-in means GA4 will keep recording about 10 percent of sessions and conversion rates will stay unmeasurable. If you approve default-on with opt-out and GPC respect, the change touches `lib/analytics-runtime.ts`, `components/analytics-consent.tsx` and the privacy policy wording, and takes under an hour including tests.
+2. **Decide the analytics default.** Done, October 6. The owner approved default-on with opt-out. `components/analytics-consent.tsx` now grants analytics when no choice is saved, the first-visit notice offers "Turn analytics off" and "Keep analytics on", the footer Privacy settings control still lets anyone change the choice, and Global Privacy Control, preview builds, private routes and non-production hosts still keep analytics off. The privacy policy wording and date were updated and `tests/master-audit/analytics-default.test.mjs` guards the default.
 3. **Deploy this branch** through the normal Replit publish. Day 0 for measurement is the publish date.
 4. **Google Business Profile.** Confirm the primary category, service area and that the website link is the apex domain. GBP drives the map pack that sits above the homepage result on every core query.
 
@@ -135,3 +135,11 @@ Pull request 20 (design restoration, icon removal, cyan-only palette, workflow s
 | End-to-end test | One labeled test quote (construction, Idaho Falls, business contact details) posted to `/api/contact` returned `status: accepted` with Resend receipt `01a111bb-63d6-7de6-b253-5e5abfb71c89` |
 
 Provider acceptance is not inbox delivery. The owner should confirm the test message arrived at service@imperialcleaninginc.com. From this date, `generate_lead` events and accepted quote requests can be counted; nothing before October 6 is comparable for conversions.
+
+### 2026-10-06, analytics default switched to opt-out (owner decision)
+
+The owner approved the default-on, opt-out model the same day. Change shipped in `components/analytics-consent.tsx` (default `granted` when no choice is saved, notice copy and buttons), `app/privacy-policy/page.tsx` (wording, "Last updated: October 6, 2026") and a new guard test. Unchanged: Global Privacy Control forces off, a saved "denied" choice is honored for 180 days, ad storage stays denied, replay stays masked on the quote form and off on query-bearing routes.
+
+Measurement consequence: GA4 sessions per day should return to the pre-September-24 range (3 to 27) within a few days of the next publish. The 2026-10-15 routine must treat October 7 onward as the first comparable window for session counts and conversion rates; September 24 to the publish date remains a known gap and is not evidence of a traffic change.
+
+Owner action: republish the Replit deployment so the change is live, then confirm the first-visit notice reads "Optional analytics are on to help us improve the site."

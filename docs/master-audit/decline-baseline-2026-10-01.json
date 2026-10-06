@@ -56,6 +56,6 @@
     "primary": "Accepted quote requests (generate_lead) and phone clicks from Idaho and Utah sessions",
     "search": "Clicks and average position for the four core Idaho Falls queries; indexed count of the 48 city pages",
     "ai": "Sessions from chatgpt.com, copilot.com, perplexity.ai, claude.ai, gemini.google.com",
-    "measurement": "GA4 sessions per day must return to the pre-2026-09-24 range (3 to 27) before conversion rates are trusted"
+    "measurement": "GA4 sessions per day must return to the pre-2026-09-24 range (3 to 27) before conversion rates are trusted. Analytics default switched to opt-out on 2026-10-06 (owner decision); sessions from the publish date onward are the first comparable window and 2026-09-24 to that date is a known gap"
   }
 }
