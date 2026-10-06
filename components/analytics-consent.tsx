@@ -1,4 +1,8 @@
 'use client';
+/* Analytics default, October 6, 2026, owner decision: optional analytics are on until the visitor turns
+   them off (opt-out). Idaho and Utah do not require opt-in for first-party analytics. A Global Privacy
+   Control signal, a saved "denied" choice, preview builds, private routes and non-production hosts
+   still keep analytics off; that logic lives in lib/analytics-runtime.ts and is unchanged. */
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -25,7 +29,7 @@ export default function AnalyticsConsent() {
     let saved: ConsentChoice | null = null;
     try { saved = readConsent(localStorage.getItem(CONSENT_KEY)); } catch { /* Consent remains denied when storage is unavailable. */ }
     setPrivacySignal(runtime.globalPrivacy());
-    runtime.setConsent(saved || 'denied');
+    runtime.setConsent(saved || 'granted');
     setVisible(runtime.isAvailable() && !saved && !runtime.globalPrivacy());
     const open = () => {
       if (!runtime?.isAvailable()) return;
@@ -36,7 +40,7 @@ export default function AnalyticsConsent() {
     const storage = (event: StorageEvent) => {
       if (event.key !== CONSENT_KEY) return;
       const choice = readConsent(event.newValue);
-      runtime?.setConsent(choice || 'denied');
+      runtime?.setConsent(choice || 'granted');
       setVisible(!choice && !!runtime?.isAvailable());
     };
     const route = () => runtime?.page(window.location.href);
@@ -99,9 +103,9 @@ export default function AnalyticsConsent() {
   return <>
     <span className="sr-only" role="status">{notice}</span>
     {shown && <section ref={panel} className="privacy-panel" aria-labelledby="privacy-title" data-clarity-mask="true">
-      <div><h2 id="privacy-title">Your privacy choices</h2><p>Analytics stay off unless you allow them. Quotes work either way. <Link href="/privacy-policy">Privacy policy</Link>.</p>
+      <div><h2 id="privacy-title">Your privacy choices</h2><p>Optional analytics are on to help us improve the site. You can turn them off at any time. Quotes work either way. <Link href="/privacy-policy">Privacy policy</Link>.</p>
       {privacySignal && <p>Your browser’s privacy preference keeps optional analytics off.</p>}</div>
-      <div className="privacy-actions"><button type="button" onClick={() => choose('denied')}>Keep analytics off</button><button type="button" onClick={() => choose('granted')} disabled={privacySignal}>Allow analytics</button></div>
+      <div className="privacy-actions"><button type="button" onClick={() => choose('denied')}>Turn analytics off</button><button type="button" onClick={() => choose('granted')} disabled={privacySignal}>Keep analytics on</button></div>
     </section>}
   </>;
 }
