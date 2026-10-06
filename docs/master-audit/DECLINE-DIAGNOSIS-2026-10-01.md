@@ -122,3 +122,16 @@ Pull request 19 merged to main at 16:24 UTC. The first Replit publish failed in 
 | `/api/contact/availability` | `{"available":false}`: the deployment is not reading a delivery provider key and sender address |
 
 Day 0 for the measurement plan is October 1, 2026. The quote form remains unavailable until the provider secrets are readable by the deployment, so lead counts cannot start yet.
+
+### 2026-10-06, quote delivery live and the restored design verified
+
+Pull request 20 (design restoration, icon removal, cyan-only palette, workflow section) merged and was published on October 1. The owner added `CONTACT_FROM_EMAIL` to the deployment on October 6 and republished. Live checks at 15:00 UTC:
+
+| Check | Result |
+| --- | --- |
+| `/api/contact/availability` | `{"available":true}` |
+| `/contact` | Renders the quote form; the phone-and-email fallback is gone |
+| Restored design | Mega-menu header, restored footer, lion hero, workflow section and review marquee all serving; Inter loading; title unchanged |
+| End-to-end test | One labeled test quote (construction, Idaho Falls, business contact details) posted to `/api/contact` returned `status: accepted` with Resend receipt `01a111bb-63d6-7de6-b253-5e5abfb71c89` |
+
+Provider acceptance is not inbox delivery. The owner should confirm the test message arrived at service@imperialcleaninginc.com. From this date, `generate_lead` events and accepted quote requests can be counted; nothing before October 6 is comparable for conversions.
