@@ -142,4 +142,15 @@ The owner approved the default-on, opt-out model the same day. Change shipped in
 
 Measurement consequence: GA4 sessions per day should return to the pre-September-24 range (3 to 27) within a few days of the next publish. The 2026-10-15 routine must treat October 7 onward as the first comparable window for session counts and conversion rates; September 24 to the publish date remains a known gap and is not evidence of a traffic change.
 
-Owner action: republish the Replit deployment so the change is live, then confirm the first-visit notice reads "Optional analytics are on to help us improve the site."
+Published and verified the same day. The owner republished after pull request 22 merged (main at `3cbdec9`); the Replit publish reported success and live checks at 15:25 UTC confirmed:
+
+| Check | Result |
+| --- | --- |
+| `/privacy-policy` | "Last updated: October 6, 2026", `dateModified` 2026-10-06, opt-out wording present, old opt-in sentence gone |
+| Sitemap | 95 URLs; `/privacy-policy` lastmod 2026-10-06 |
+| Served layout bundle | Carries "Optional analytics are on", "Turn analytics off", "Keep analytics on", the `G-LGVNS5VTDL` measurement id and the `granted` default; no `denied` default remains |
+| Homepage title and quote availability | Unchanged ("Construction & Commercial Cleaning, Idaho Falls \| Imperial Cleaning"; availability true) |
+
+A headless Chromium run of the merged build under the production host name confirmed the runtime behaviour: a fresh visitor gets the GA tag, the Clarity tag and a `page_view` without any click (consent sequence default denied, update granted); "Turn analytics off" sends a denied update, sets the GA disable flag, stores the choice and keeps analytics off on the next page; a browser sending Global Privacy Control loads no tags and sees no notice.
+
+GA4 session counts are therefore comparable from October 6 onward.
