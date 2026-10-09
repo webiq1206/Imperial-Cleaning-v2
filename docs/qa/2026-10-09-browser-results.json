@@ -1,0 +1,60 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "client": 320,
+      "scroll": 320
+    },
+    {
+      "width": 390,
+      "client": 390,
+      "scroll": 390
+    },
+    {
+      "width": 430,
+      "client": 430,
+      "scroll": 430
+    },
+    {
+      "width": 768,
+      "client": 768,
+      "scroll": 768
+    },
+    {
+      "width": 1024,
+      "client": 1024,
+      "scroll": 1024
+    },
+    {
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280
+    },
+    {
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440
+    },
+    {
+      "focus": 0,
+      "top": 84.0625,
+      "header": 74,
+      "focused": true
+    },
+    {
+      "focus": 1,
+      "top": 90.15625,
+      "header": 74,
+      "focused": true
+    },
+    {
+      "focus": 2,
+      "top": 90.15625,
+      "header": 74,
+      "focused": true
+    }
+  ],
+  "history": "Back/Forward/reload preserves name, city and step",
+  "consent": "notes and Continue suppress banner",
+  "mockedSubmissions": 2
+}

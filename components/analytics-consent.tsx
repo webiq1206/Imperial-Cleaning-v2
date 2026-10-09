@@ -76,7 +76,7 @@ export default function AnalyticsConsent() {
   useEffect(() => {
     const inspect = () => {
       const active = document.activeElement;
-      const typing = active instanceof HTMLElement && !!active.closest('input,textarea,select,[contenteditable=true]');
+      const typing = active instanceof HTMLElement && !!active.closest('input,textarea,select,[contenteditable=true],.quote-form');
       const dialog = !!document.querySelector('[role=dialog][data-state=open],[role=dialog][aria-modal=true]');
       const keyboard = !!window.visualViewport && window.innerHeight - window.visualViewport.height > 150;
       setInteracting(typing || dialog || keyboard);
