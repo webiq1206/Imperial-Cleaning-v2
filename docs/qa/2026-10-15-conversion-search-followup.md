@@ -61,3 +61,5 @@ Repeated production validation also exposed final route-drain waiting indefinite
 ## Independent review correction
 
 Independent review of 95eb0bf found that React Hook Form draft hydration replaced its defaults. After acceptance, Back to the form could reset to the submitted draft and persist it again. The new mocked regression failed with TEST CITY, ID instead of an empty city before the fix. Hydration now uses keepDefaultValues so the existing success reset returns to original empty defaults. The regression verifies acceptance clears storage, Back clears all personal fields and notes, and remount does not restore them. No production submission occurred. Exact-final-revision validation and independent re-review are required; prior CI success applies only to 95eb0bf.
+
+A subsequent repeated contact fixture exposed the same gesture-before-focus sequencing after Back in its three-transition loop (two other repetitions passed). That loop now waits for the step-one heading to receive focus before sending Continue. This preserves the functional assertion and avoids dispatching a gesture during the previous transition.

@@ -37,7 +37,10 @@ const assert=require('node:assert/strict');
    await title.waitFor();await page.waitForTimeout(100);
    const pos=await title.evaluate(e=>({top:e.getBoundingClientRect().top,header:document.querySelector('header').getBoundingClientRect().bottom,focused:document.activeElement===e}));
    results.push({focus:i,...pos});assert(pos.focused);assert(pos.top>=pos.header);
-   if(i<2)await page.getByRole('button',{name:'Back',exact:true}).click();
+   if(i<2){
+     await page.getByRole('button',{name:'Back',exact:true}).click();
+     await page.waitForFunction(()=>document.activeElement?.textContent==='Tell us about your space.');
+   }
  }
  await page.getByLabel('Full name',{exact:false}).fill('THIS IS A TEST');
  await page.locator('.form-consent a').click();
