@@ -28,7 +28,7 @@ export default function QuoteForm() {
   useEffect(() => {
     try {
       const draft = readQuoteDraft(window.sessionStorage);
-      if (draft) { form.reset({ ...form.getValues(), ...draft.values }); setStep(draft.step); currentStep.current = draft.step; }
+      if (draft) { form.reset({ ...form.getValues(), ...draft.values }, { keepDefaultValues: true }); setStep(draft.step); currentStep.current = draft.step; }
     } catch { /* Storage may be blocked. */ }
     draftReady.current = true;
     const persist = () => {

@@ -92,4 +92,32 @@ const blocked={getItem(){throw Error('blocked')},setItem(){throw Error('blocked'
 assert.equal(readQuoteDraft(blocked),null);saveQuoteDraft(blocked,{},1);
 storage.clear();
 console.log('PASS draft expiry, malformed/blocked storage and honeypot exclusion');
+// A restored draft must not become the defaults of a new request after acceptance.
+dom.reconfigure({url:'https://imperialcleaninginc.com/contact'});
+const restored={name:'THIS IS A TEST',email:'synthetic@example.invalid',phone:'2025550100',location:'TEST CITY, ID',company:'TEST COMPANY',message:'TEST NOTES',service:'construction'};
+saveQuoteDraft(storage,restored,2);
+let mockSubmissions=0;
+globalThis.fetch=async(url)=>{
+ if(url==='/api/contact/availability')return {ok:true,json:async()=>({available:true})};
+ assert.equal(url,'/api/contact');mockSubmissions++;
+ return {ok:true,json:async()=>({success:true,status:'accepted',receipt:'LOCAL-SYNTHETIC-ONLY'})};
+};
+render(React.createElement(QuoteForm));
+await screen.findByText('How can we reach you?');
+assert.equal(screen.getByLabelText(/Full name/).value,restored.name);
+fireEvent.click(screen.getByRole('button',{name:/Request my free quote/}));
+await screen.findByText('Your request was submitted.');
+assert.equal(storage.getItem(QUOTE_DRAFT_KEY),null);
+fireEvent.click(screen.getByRole('button',{name:'Back to the form'}));
+await screen.findByText('Tell us about your space.');
+assert.equal(screen.getByLabelText(/City and state/).value,'');
+assert.equal(screen.getByLabelText(/Anything we should know/).value,'');
+for(const key of ['name','email','phone','location','company','message'])assert.equal(readQuoteDraft(storage).values[key],'');
+cleanup();render(React.createElement(QuoteForm));
+await screen.findByText('Tell us about your space.');
+assert.equal(screen.getByLabelText(/City and state/).value,'');
+for(const key of ['name','email','phone','location','company','message'])assert.equal(readQuoteDraft(storage).values[key],'');
+assert.equal(mockSubmissions,1);
+cleanup();storage.clear();
+console.log('PASS accepted restored draft stays cleared after Back to the form and remount; mocked submission only');
 dom.window.close();
