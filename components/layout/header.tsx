@@ -54,8 +54,8 @@ export default function Header() {
           <Link href="/" className="flex items-center flex-shrink-0 transition-opacity duration-300 hover:opacity-90" aria-label="Imperial Cleaning Inc home">
             <Image src="/header-logo.svg" alt="Imperial Cleaning Inc" className="h-5 w-auto opacity-70" width={200} height={20} priority unoptimized />
           </Link>
-          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
-            <div className="relative" ref={menuRef}>
+          <nav className="hidden xl:flex items-center space-x-8" aria-label="Main navigation">
+            <div ref={menuRef}>
               <button type="button" className={`${flat} flex items-center rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-primary/50`} onClick={() => setMenuOpen(open => !open)} aria-haspopup="true" aria-expanded={menuOpen} aria-controls="services-mega-menu-panel">
                 Services<svg className={`ml-1 h-3 w-3 transition-transform duration-200 ${menuOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
@@ -76,14 +76,14 @@ export default function Header() {
             <Link href="/about" className={flat}>About</Link>
             <Link href="/contact" className={flat}>Contact</Link>
           </nav>
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             <button type="button" className="text-muted-foreground hover:text-foreground transition-colors p-1" onClick={() => setSearch(true)} aria-label="Search website"><Search size={18} aria-hidden="true" /></button>
             <a href={`tel:${BUSINESS_PHONE_TEL}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200" aria-label={`Call us at ${BUSINESS_PHONE}`}><span className="hidden lg:inline">{BUSINESS_PHONE}</span><span className="lg:hidden">Call</span></a>
             <a href={`sms:${BUSINESS_PHONE_TEL}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200" aria-label={`Text us at ${BUSINESS_PHONE}`}>Text</a>
             <Link href={quote} className={pill}>Request Quote</Link>
           </div>
           <Sheet open={mobile} onOpenChange={setMobile}>
-            <SheetTrigger asChild><button type="button" className="md:hidden text-foreground p-2 rounded-md hover:bg-secondary/50" aria-label="Open navigation"><Menu aria-hidden="true" /></button></SheetTrigger>
+            <SheetTrigger asChild><button type="button" className="xl:hidden text-foreground p-2 rounded-md hover:bg-secondary/50" aria-label="Open navigation"><Menu aria-hidden="true" /></button></SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-96 glass-overlay overflow-y-auto">
               <SheetTitle>Navigation</SheetTitle><SheetDescription className="sr-only">Cleaning services across Idaho and Utah.</SheetDescription>
               <nav className="mt-6 space-y-6" aria-label="Mobile navigation">

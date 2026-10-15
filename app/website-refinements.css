@@ -33,3 +33,10 @@
 @media(max-width:900px){.imperial-site .audit-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.imperial-site .audit-two-col{grid-template-columns:1fr;gap:28px;}.imperial-site .audit-link-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 @media(max-width:600px){.imperial-site .audit-grid{grid-template-columns:1fr;gap:16px;}.imperial-site .audit-card{padding:22px;}.imperial-site .audit-link-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.imperial-site .privacy-panel{padding:14px;inset:auto 10px max(10px,env(safe-area-inset-bottom)) 10px;}.imperial-site .contact-page{padding-top:28px;}.imperial-site .contact-copy h1{font-size:2.3rem;}.imperial-site .contact-benefits{gap:8px;margin:16px 0;}.imperial-site .contact-methods{margin:16px 0;}.imperial-site .contact-layout{gap:24px;}}
 @media print{.imperial-site .audit-table th,.imperial-site .audit-table td{background:white;color:black;border-color:#777;}.imperial-site .audit-table-wrap{overflow:visible;}.imperial-site .download-panel,.imperial-site .resource-filters{display:none;}}
+
+/* Keep the edge-to-edge header glow inside the viewport without clipping menus. */
+.imperial-site header.sophisticated-glow::before,
+.imperial-site header.sophisticated-glow::after { left:0; right:0; }
+
+/* On contact, keep privacy choices in document flow so pointer targets cannot sit behind them. */
+.imperial-site .privacy-panel.privacy-panel-inline {position:relative;inset:auto;z-index:auto;width:calc(100% - 32px);margin:16px auto;max-height:none;overflow:visible;}

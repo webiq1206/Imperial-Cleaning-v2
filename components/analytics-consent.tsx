@@ -19,7 +19,9 @@ export default function AnalyticsConsent() {
   const opener = useRef<HTMLElement | null>(null);
   const [notice, setNotice] = useState('');
   const [interacting, setInteracting] = useState(false);
-  const shown = visible && !interacting;
+  // Contact controls must remain clickable even after focus leaves the form.
+  const inline = pathname === '/contact';
+  const shown = visible && (inline || !interacting);
   useEffect(() => {
     if (!runtime) runtime = createAnalyticsRuntime({
       measurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
@@ -76,7 +78,7 @@ export default function AnalyticsConsent() {
   useEffect(() => {
     const inspect = () => {
       const active = document.activeElement;
-      const typing = active instanceof HTMLElement && !!active.closest('input,textarea,select,[contenteditable=true]');
+      const typing = active instanceof HTMLElement && !!active.closest('input,textarea,select,[contenteditable=true],.quote-form');
       const dialog = !!document.querySelector('[role=dialog][data-state=open],[role=dialog][aria-modal=true]');
       const keyboard = !!window.visualViewport && window.innerHeight - window.visualViewport.height > 150;
       setInteracting(typing || dialog || keyboard);
@@ -89,9 +91,9 @@ export default function AnalyticsConsent() {
     return () => {document.removeEventListener('focusin',inspect);document.removeEventListener('focusout',inspect);window.visualViewport?.removeEventListener('resize',inspect);observer.disconnect();};
   }, []);
   useEffect(() => {
-    document.documentElement.dataset.privacyOpen = shown ? 'true' : 'false';
+    document.documentElement.dataset.privacyOpen = shown && !inline ? 'true' : 'false';
     return () => { delete document.documentElement.dataset.privacyOpen; };
-  }, [shown]);
+  }, [shown, inline]);
   const choose = (choice: ConsentChoice) => {
     const actual = runtime?.globalPrivacy() ? 'denied' : choice;
     runtime?.setConsent(actual);
@@ -102,7 +104,7 @@ export default function AnalyticsConsent() {
   };
   return <>
     <span className="sr-only" role="status">{notice}</span>
-    {shown && <section ref={panel} className="privacy-panel" aria-labelledby="privacy-title" data-clarity-mask="true">
+    {shown && <section ref={panel} className={`privacy-panel${inline ? ' privacy-panel-inline' : ''}`} aria-labelledby="privacy-title" data-clarity-mask="true">
       <div><h2 id="privacy-title">Your privacy choices</h2><p>Optional analytics are on to help us improve the site. You can turn them off at any time. Quotes work either way. <Link href="/privacy-policy">Privacy policy</Link>.</p>
       {privacySignal && <p>Your browser’s privacy preference keeps optional analytics off.</p>}</div>
       <div className="privacy-actions"><button type="button" onClick={() => choose('denied')}>Turn analytics off</button><button type="button" onClick={() => choose('granted')} disabled={privacySignal}>Keep analytics on</button></div>

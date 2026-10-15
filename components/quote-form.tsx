@@ -8,6 +8,7 @@ import { contactSchema, type ContactData } from "@/lib/contact-schema";
 import { trackConversionComplete, trackEvent, trackFormInteraction } from "@/lib/analytics";
 import { quoteContext } from "@/lib/quote-context";
 import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_TEL } from "@/data/business-info";
+import { readQuoteDraft, saveQuoteDraft, clearQuoteDraft } from "@/lib/quote-draft";
 import { quoteServices } from "@/data/service-priorities";
 export default function QuoteForm() {
   const [step, setStep] = useState(1);
@@ -21,6 +22,29 @@ export default function QuoteForm() {
   const started = useRef(false);
   const attempt = useRef({ payload: "", key: "" });
   const form = useForm<ContactData>({ resolver: zodResolver(contactSchema), defaultValues: { name:"", email:"", phone:"", location:"", company:"", message:"", website:"" }, shouldFocusError: true });
+  const draftReady = useRef(false);
+  const currentStep = useRef(1);
+  const acceptedDraft = useRef(false);
+  useEffect(() => {
+    try {
+      const draft = readQuoteDraft(window.sessionStorage);
+      if (draft) { form.reset({ ...form.getValues(), ...draft.values }, { keepDefaultValues: true }); setStep(draft.step); currentStep.current = draft.step; }
+    } catch { /* Storage may be blocked. */ }
+    draftReady.current = true;
+    const persist = () => {
+      if (acceptedDraft.current) return;
+      try { saveQuoteDraft(window.sessionStorage, form.getValues(), currentStep.current); } catch { /* Storage may be blocked. */ }
+    };
+    const subscription = form.watch(persist);
+    window.addEventListener("pagehide", persist);
+    return () => { persist(); subscription.unsubscribe(); window.removeEventListener("pagehide", persist); };
+  }, [form]);
+  useEffect(() => {
+    currentStep.current = step;
+    if (draftReady.current && !acceptedDraft.current) {
+      try { saveQuoteDraft(window.sessionStorage, form.getValues(), step); } catch { /* Storage may be blocked. */ }
+    }
+  }, [form, step]);
   useEffect(() => {
     // Do not replace a visitor's existing service choice.
     const context = quoteContext(window.location.pathname, window.location.search);
@@ -39,7 +63,15 @@ export default function QuoteForm() {
     return () => controller.abort();
   }, []);
   const { errors } = form.formState;
-  const focusTitle = () => requestAnimationFrame(() => titleRef.current?.focus());
+  const focusTitle = () => requestAnimationFrame(() => {
+    const title = titleRef.current;
+    if (!title) return;
+    title.focus({ preventScroll: true });
+    if (title.closest('[role="dialog"]')) { title.scrollIntoView({ block: "nearest", behavior: "instant" }); return; }
+    const header = document.querySelector("header")?.getBoundingClientRect().bottom || 0;
+    const top = title.getBoundingClientRect().top;
+    window.scrollTo({ top: Math.max(0, window.scrollY + top - header - 16), behavior: "instant" });
+  });
   const start = () => { if (!started.current) { started.current = true; trackEvent("form_start", "contact", "quote_request"); } };
   const invalid = () => trackEvent("form_error", "contact", "quote_request");
   const next = async () => {
@@ -74,6 +106,8 @@ export default function QuoteForm() {
       requestAnimationFrame(() => errorRef.current?.focus());
     } finally { clearTimeout(timer); inFlight.current = false; }
     if (!accepted) return;
+    acceptedDraft.current = true;
+    try { clearQuoteDraft(window.sessionStorage); } catch { /* Storage may be blocked. */ }
     setStatus("sent"); focusTitle();
     // Analytics cannot reverse a confirmed provider acceptance. No contact details or free text are sent.
     try {
@@ -84,7 +118,7 @@ export default function QuoteForm() {
   const fieldError = (key: keyof ContactData) => errors[key] ? <span className="field-error" id={`${id}-${key}-error`} role="alert">{errors[key]?.message}</span> : null;
   const attrs = (key: keyof ContactData) => ({ id:`${id}-${key}`, "aria-invalid": !!errors[key], "aria-describedby": errors[key] ? `${id}-${key}-error` : undefined });
   if (unavailable && status !== "sent") return <div className="quote-result" role="status"><h2>Request your quote by phone or email.</h2><p>Online requests are temporarily unavailable. Tell us the service you need, your city and state, and your preferred schedule.</p><a className="ic-button" href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a><p><a className="text-link" href={`mailto:${BUSINESS_EMAIL}`}>Email {BUSINESS_EMAIL}</a></p></div>;
-  if (status === "sent" || status === "preview") return <div className="quote-result" role="status"><CheckCircle2 size={40} /><h2 ref={titleRef} tabIndex={-1}>{status === "preview" ? "Your preview request is ready." : "Your request was submitted."}</h2><p>{status === "preview" ? "This is a design preview. Nothing was sent to Imperial Cleaning." : "Thank you for submitting your cleaning request. We will review the scope and contact you. If your project is time-sensitive or you need to confirm receipt, please call us."}</p><button className="ic-button secondary" onClick={() => {setStatus("idle"); setStep(1); if(status === "sent") {form.reset(); started.current = false; attempt.current = {payload:"", key:""};} focusTitle();}}>Back to the form</button>{status === "sent" && <a className="text-link" href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a>}</div>;
+  if (status === "sent" || status === "preview") return <div className="quote-result" role="status"><CheckCircle2 size={40} /><h2 ref={titleRef} tabIndex={-1}>{status === "preview" ? "Your preview request is ready." : "Your request was submitted."}</h2><p>{status === "preview" ? "This is a design preview. Nothing was sent to Imperial Cleaning." : "Thank you for submitting your cleaning request. We will review the scope and contact you. If your project is time-sensitive or you need to confirm receipt, please call us."}</p><button className="ic-button secondary" onClick={() => {setStatus("idle"); setStep(1); if(status === "sent") {acceptedDraft.current = false; form.reset(); started.current = false; attempt.current = {payload:"", key:""};} focusTitle();}}>Back to the form</button>{status === "sent" && <a className="text-link" href={`tel:${BUSINESS_PHONE_TEL}`}>Call {BUSINESS_PHONE}</a>}</div>;
   return <form className="quote-form" method="post" action="/api/contact" data-clarity-mask="true" aria-busy={status === "sending"} onChange={start} onSubmit={step === 1 ? (event) => { event.preventDefault(); void next(); } : form.handleSubmit(submit, invalid)} noValidate>
     <noscript><p>Online requests need JavaScript. Please call {BUSINESS_PHONE} or email service@imperialcleaninginc.com. Do not enter details in this inactive form.</p></noscript>
     {process.env.NEXT_PUBLIC_DESIGN_PREVIEW === "1" && <p className="preview-note">Design preview: requests will not be sent.</p>}
