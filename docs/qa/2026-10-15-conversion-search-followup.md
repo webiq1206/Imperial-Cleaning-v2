@@ -49,3 +49,9 @@ Cost/release boundary: no further push, rerun or merge is authorized pending the
 Known exact Replit identity remains project 3e71f349-0926-4275-b491-5d22b4cc8d05, https://replit.com/@webiqco/Imperial-Cleaning-Inc, previously mapped by the connector to https://imperialcleaninginc.com and deployment a146a23c-11e7-4b9a-832a-6ab0682aaf9b. This does not verify current workspace commit or dirty state. Release owner must reconcile current project source, preserve unrelated changes, push/run final CI within verified allowance, import the approved revision, publish once, and verify live revision and affected journeys before search notifications.
 
 Receiving provider/mailbox, approved test-recipient isolation and actual inbox delivery remain unverified. The October 6 provider receipt does not prove inbox delivery. Real device keyboard, screen reader, other browsers, full 95-route visual acceptance and post-release search outcomes remain pending.
+
+## Authorized follow-up and production fixture classification
+
+Parent allocated an additional $0.20 from Jared's shared $10 cap: one corrected PR run and one post-merge run at most $0.10 each, no retries. Publication remains with the parent. Merge requires passing checks and review.
+
+The additional production-server contact fixture completed all functional assertions but intermittently rejected a pending route during teardown. Its handler now ignores only the exact already-handled-route error when its page is closed or final teardown has begun; active-test errors still throw. The pointer fixture issued its next keyboard gesture before the preceding step's requestAnimationFrame heading focus completed. It now waits for that explicit accessible focus before pressing Back. Three investigative production pointer runs passed with this sequencing. Product code is unchanged; final exact-commit fixture and CI results must be recorded separately, and these findings do not replace live acceptance.

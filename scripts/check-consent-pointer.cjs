@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 (async()=>{
  const browser=await chromium.launch({headless:true});
  const context=await browser.newContext({viewport:{width:390,height:844}});
- let submitted=0;let rejectSubmission=true;
+ let submitted=0;let rejectSubmission=true;let tearingDown=false;
  await context.route('**/*',async route=>{
    const url=new URL(route.request().url());
    if(url.hostname!=='imperialcleaninginc.com') return route.abort();
@@ -12,8 +12,12 @@ const assert=require('node:assert/strict');
      if(url.pathname==='/api/contact/availability')return route.fulfill({json:{available:true}});
      submitted++; return rejectSubmission ? route.fulfill({status:503,json:{error:'LOCAL SYNTHETIC FAILURE'}}) : route.fulfill({json:{success:true,status:'accepted',receipt:'LOCAL-SYNTHETIC-ONLY'}});
    }
+   const owner=route.request().frame().page();
    const response=await context.request.get('http://127.0.0.1:4317'+url.pathname+url.search);
-   return route.fulfill({response});
+   try { await route.fulfill({response}); } catch(error) {
+     // Page/context teardown can cancel a pending local response; active-test failures still throw.
+     if ((!owner.isClosed() && !tearingDown) || !String(error).includes('Route is already handled')) throw error;
+   }
  });
  const results=[];
  for(const viewport of [{width:1180,height:757},{width:320,height:568}]) {
@@ -41,6 +45,8 @@ const assert=require('node:assert/strict');
  assert.equal(returned,1);
  assert.equal(await page.getByLabel('City and state',{exact:false}).inputValue(),'THIS IS A TEST, ID');
  await page.getByRole('button',{name:'Continue',exact:true}).press('Enter');
+ // Wait for the step's scheduled accessible focus before starting the next keyboard gesture.
+ await page.waitForFunction(()=>document.activeElement?.textContent==='How can we reach you?');
  await page.getByRole('button',{name:'Back',exact:true}).press('Enter');
  assert.equal(await page.getByLabel('City and state',{exact:false}).inputValue(),'THIS IS A TEST, ID');
  }
@@ -48,5 +54,6 @@ const assert=require('node:assert/strict');
  }
  console.log(JSON.stringify({results,mockedSubmissions:submitted},null,2));
  assert.equal(submitted,0);
+ tearingDown=true;
  await context.unrouteAll({behavior:'wait'});await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
