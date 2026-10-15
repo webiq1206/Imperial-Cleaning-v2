@@ -94,6 +94,7 @@ const assert=require('node:assert/strict');
  assert.equal(submitted,2);
  console.log(JSON.stringify({results,history:'Back/Forward/reload preserves name, city and step',consent:'contact notice remains in document flow while notes and Continue have focus',mockedSubmissions:submitted},null,2));
  tearingDown=true;
- await context.unrouteAll({behavior:'wait'});
+ // Do not wait indefinitely for background prefetch handlers after every assertion has completed.
+ await context.unrouteAll({behavior:'ignoreErrors'});
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

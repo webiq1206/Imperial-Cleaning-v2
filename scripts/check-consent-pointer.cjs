@@ -55,5 +55,6 @@ const assert=require('node:assert/strict');
  console.log(JSON.stringify({results,mockedSubmissions:submitted},null,2));
  assert.equal(submitted,0);
  tearingDown=true;
- await context.unrouteAll({behavior:'wait'});await browser.close();
+ // Do not wait indefinitely for background prefetch handlers after every assertion has completed.
+ await context.unrouteAll({behavior:'ignoreErrors'});await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
