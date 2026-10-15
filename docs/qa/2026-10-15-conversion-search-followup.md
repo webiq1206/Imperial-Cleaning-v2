@@ -22,7 +22,7 @@ Preserve all existing titles, homepage construction relevance and balanced comme
 
 | URL | New description | Reason |
 | --- | --- | --- |
-| / | Construction cleanup in Idaho Falls and our Idaho and Utah service areas. Rough, final and touch-up cleaning, plus recurring commercial cleaning. Free quotes. | Align the homepage snippet with observed local construction demand without removing either service. |
+| / | Construction cleanup and post-construction cleaning from Idaho Falls across our Idaho and Utah service areas. Recurring commercial cleaning. Free quotes. | Align the homepage snippet with observed local construction demand without removing either service. |
 | /construction-cleaning | Rough, final and touch-up construction cleanup for new builds and renovations in Idaho and Utah. Confirm your scope and schedule, then request a free quote. | Make scope and the available quote action explicit. |
 | /commercial-cleaning | Office and janitorial cleaning in Idaho and Utah. Plan recurring tasks, cleaning frequency and building access, then request a free commercial cleaning quote. | Specify the recurring offer and useful next step. |
 
@@ -38,9 +38,13 @@ October 15, approximately 13:56–13:58 UTC: construction slash URL returns 308 
 
 ## Verification and release gates
 
-See adjacent pointer/browser result JSON. Existing UI and 223 audit tests pass. Search-appearance checks initially caught an unsynchronized duplicate homepage description; that source was corrected, and all 330 checks pass. Website checks pass. Production build passes, including its link, NAP, and 95-route discovery generation checks.
+Correction to the earlier test report: the 223-test local audit passed before the final homepage description synchronization, not on committed revision b0912de6ef07209629e428b2ea559db21c5e4bde. CI run 38749013541 attempt 2 tested that revision and failed one audit assertion (222 passed, one failed); discovery and typecheck passed, later steps were skipped. The earlier blanket claim of final-revision audit success was incorrect.
 
-This continuation is prepared locally on the existing PR branch. Do not push a new revision until the private repository's current free Actions allowance/cap is verified: PR synchronization triggers the enabled workflow. No workflow changes, new skip directive, billing changes, security changes, scope expansion, or alternate-identity retries were used. Earlier skip-marked PR #24 is not a CI pass.
+The construction-first and service-visibility decisions dated September 23–24 require construction and post-construction intent with commercial services remaining visible. They do not establish a verbatim sentence contract. The existing assertion nevertheless protects that meaningful intent, so it remains unchanged. Both homepage description sources now restore its explicit construction/post-construction opening, retain Idaho Falls and the Idaho/Utah service-area qualification, and retain commercial cleaning and free quotes. Existing titles, hub descriptions and city pages are unchanged by this correction.
+
+This correction is committed locally before validation. Exact-commit results are recorded separately in the workspace after all applicable local checks, including isolated browser regressions, finish. Adjacent committed JSON records earlier browser runs, not a new exact-commit result.
+
+Cost/release boundary: no further push, rerun or merge is authorized pending the parent's resolution of the one-retry limit. The first CI attempt was blocked before steps by account billing; the authorized retry executed for 48 seconds (55 seconds run timing). Its timing API reports zero billable milliseconds, which does not establish a final zero invoice. At the published standard Linux rate of $0.006 per rounded minute, a billable minute would be approximately $0.006. With the unchanged 15-minute job timeout, propose a separate $0.10 allocation for one corrected PR run (runner estimate at most $0.09) and $0.10 for one main-branch run after merge (same estimate), $0.20 total, with no retries included. These are planning estimates, not enforced invoice caps. Review-evidence is skipped for this branch. No billing endpoint retry, identity change, scope expansion, workflow modification, or new skip directive is needed.
 
 Known exact Replit identity remains project 3e71f349-0926-4275-b491-5d22b4cc8d05, https://replit.com/@webiqco/Imperial-Cleaning-Inc, previously mapped by the connector to https://imperialcleaninginc.com and deployment a146a23c-11e7-4b9a-832a-6ab0682aaf9b. This does not verify current workspace commit or dirty state. Release owner must reconcile current project source, preserve unrelated changes, push/run final CI within verified allowance, import the approved revision, publish once, and verify live revision and affected journeys before search notifications.
 
