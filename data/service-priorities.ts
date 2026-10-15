@@ -5,7 +5,7 @@
 export const CONSTRUCTION_QUOTE_HREF = "/contact?service=construction";
 export const homeSearch = {
   title: "Construction & Commercial Cleaning, Idaho Falls | Imperial Cleaning",
-  description: "Construction cleanup and post-construction cleaning for commercial projects in Idaho and Utah, plus recurring commercial cleaning from Idaho Falls. Free quotes.",
+  description: "Construction cleanup in Idaho Falls and our Idaho and Utah service areas. Rough, final and touch-up cleaning, plus recurring commercial cleaning. Free quotes.",
   keywords: "construction cleanup, construction cleaning, post construction cleanup, post-construction cleaning services, commercial construction cleaning, final construction cleaning, rough construction cleaning, builder cleanup",
   headline: "Construction cleanup.",
   benefit: "Ready for handover.",

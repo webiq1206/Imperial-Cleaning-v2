@@ -83,11 +83,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </head>
     <body className="imperial-site" suppressHydrationWarning>
       <Header />
+      <Suspense fallback={null}><AnalyticsConsent /></Suspense>
       <main id="main-content" tabIndex={-1}>{children}</main>
       <Footer />
       <ClientToaster />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd).replace(/</g, '\\u003c') }} />
-      <Suspense fallback={null}><AnalyticsConsent /></Suspense>
       <ContextualContact />
     </body>
   </html>;

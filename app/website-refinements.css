@@ -37,3 +37,6 @@
 /* Keep the edge-to-edge header glow inside the viewport without clipping menus. */
 .imperial-site header.sophisticated-glow::before,
 .imperial-site header.sophisticated-glow::after { left:0; right:0; }
+
+/* On contact, keep privacy choices in document flow so pointer targets cannot sit behind them. */
+.imperial-site .privacy-panel.privacy-panel-inline {position:relative;inset:auto;z-index:auto;width:calc(100% - 32px);margin:16px auto;max-height:none;overflow:visible;}
