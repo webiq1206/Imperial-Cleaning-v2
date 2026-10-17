@@ -72,6 +72,12 @@ export const RATING_SOURCES = [
 ] as const;
 
 /**
+ * The unpublished cross-platform total (GOOGLE_REVIEW_COUNT plus the counts
+ * above) is computed in lib/review-claims.server.ts. Keep that sum out of
+ * client components so it cannot ship in the browser bundle.
+ */
+
+/**
  * Real Google Business Profile reviews, supplied by the owner 2026-08-28 and
  * copied verbatim. All are 5 stars.
  *

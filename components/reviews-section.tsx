@@ -1,6 +1,7 @@
 import { Star, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { verifiedReviews, RATING_SOURCES, GOOGLE_REVIEW_COUNT, GOOGLE_LISTING_URL, type VerifiedReview } from "@/data/reviews";
+import { verifiedReviews, RATING_SOURCES, GOOGLE_LISTING_URL, type VerifiedReview } from "@/data/reviews";
+import type { PublicReviewLine } from "@/lib/review-line";
 
 // Real-review section. Replaces the former placeholder testimonials and
 // illustrative case studies (removed 2026-06-10 per owner decision: only
@@ -13,8 +14,9 @@ import { verifiedReviews, RATING_SOURCES, GOOGLE_REVIEW_COUNT, GOOGLE_LISTING_UR
 // buried everything below them. /reviews remains the complete record - all
 // entries, full text, and the Review JSON-LD - and is linked from here.
 //
-// Deliberately not a client component. The marquee is pure CSS, so this costs
-// no JavaScript and every quote is still in the server-rendered HTML.
+// The homepage marquee is pulled into the client graph by home-client.tsx.
+// The unpublished review total is a server-computed prop. Do not import
+// lib/review-publication.ts from this file.
 
 // How many of the newest reviews to surface here. Two rows of nine fills the
 // track at desktop widths without making the loop tediously long.
@@ -83,12 +85,9 @@ function MarqueeRow({
   );
 }
 
-export default function ReviewsSection() {
-  // Google is not in RATING_SOURCES (see the note in data/reviews.ts), so it has
-  // to be added explicitly - otherwise this line names Google in the copy below
-  // while counting none of its reviews.
-  const totalReviews =
-    GOOGLE_REVIEW_COUNT + RATING_SOURCES.reduce((sum, s) => sum + s.reviewCount, 0);
+export default function ReviewsSection({ reviewLine }: { reviewLine: PublicReviewLine }) {
+  // The unpublished total is decided on the server. This component must not
+  // import lib/review-publication.ts, or the hidden sentence ships in client JS.
 
   // verifiedReviews is ordered newest first, so this takes the most recent.
   const featured = verifiedReviews.slice(0, MARQUEE_COUNT);
@@ -102,7 +101,7 @@ export default function ReviewsSection() {
       <div className="max-w-7xl mx-auto">
         {/* Aggregate hero stats */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-3 mb-6" aria-label="Rated 5.0 on Google">
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className="w-7 h-7 text-amber-400 fill-amber-400" />
@@ -110,8 +109,14 @@ export default function ReviewsSection() {
             </div>
             <span className="text-5xl lg:text-6xl font-light text-foreground tracking-tight">5.0</span>
           </div>
-          <p className="text-lg text-muted-foreground mb-3">
-            {totalReviews}+ verified reviews across Google, Porch, and BestProsInTown
+          <p className="text-lg text-muted-foreground mb-3" data-testid="review-total-line">
+            {reviewLine.mode === "total" ? (
+              reviewLine.text
+            ) : (
+              <a href={reviewLine.href} target="_blank" rel="noopener noreferrer">
+                {reviewLine.label}
+              </a>
+            )}
           </p>
           <h2 className="text-3xl lg:text-4xl tracking-tight text-foreground">
             Trusted by contractors and facility managers across Idaho and Utah

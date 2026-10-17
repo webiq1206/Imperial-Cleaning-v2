@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/hero-section";
 import HomeClient from "@/components/pages/home-client";
+import { getPublicReviewLine } from "@/lib/review-claims.server";
 import { StructuredData } from "@/components/structured-data";
 import { homeFaqs } from "@/data/home-faqs";
 import { homeSearch } from "@/data/service-priorities";
@@ -43,6 +44,6 @@ export default function HomePage() {
   return <>
     <StructuredData data={[webPageSchema, faqSchema, breadcrumbSchema]} />
     <HeroSection />
-    <HomeClient />
+    <HomeClient reviewLine={getPublicReviewLine()} />
   </>;
 }

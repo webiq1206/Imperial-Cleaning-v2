@@ -2,12 +2,13 @@
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { verifiedReviews } from "@/data/reviews";
+import type { PublicReviewLine } from "@/lib/review-line";
 import { homeFaqs } from "@/data/home-faqs";
 import { constructionPhases, constructionResources, CONSTRUCTION_QUOTE_HREF } from "@/data/service-priorities";
 import ProcessTerminalSection from "@/components/process-terminal-section";
 import ReviewsSection from "@/components/reviews-section";
 
-export default function HomeClient() {
+export default function HomeClient({ reviewLine }: { reviewLine: PublicReviewLine }) {
   // Use the existing owner-supplied construction reviews verbatim. Do not recast commercial reviews as construction proof.
   const reviews = ["Ryan S.", "V Josephson", "Miles F."].flatMap(author => {
     const review = verifiedReviews.find(item => item.author === author && item.mentionedServices?.includes("construction-cleaning"));
@@ -52,7 +53,7 @@ export default function HomeClient() {
       </figure>)}</div>
     </div></section>}
     {/* Owner direction, 2026-10-01: the continuous review marquee from the pre-redesign homepage. */}
-    <ReviewsSection />
+    <ReviewsSection reviewLine={reviewLine} />
     <section id="compliance" className="ic-section"><div className="site-width standards-layout">
       <div><span className="eyebrow">A CLEAR PLAN BEFORE THE CREW ARRIVES</span><h2>Keep cleanup aligned<br />with your construction schedule.</h2><p className="section-intro">The right cleaning phase depends on what is finished, what is still underway, and when each area can be released.</p><Link href="/construction-cleaning" className="text-link">Plan your post-construction cleanup <ArrowUpRight size={18} aria-hidden="true" /></Link></div>
       <div className="process-list">{[
