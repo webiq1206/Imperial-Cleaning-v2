@@ -4,7 +4,7 @@ import "server-only";
  * Unpublished review claims. Client components must not import this module:
  * a 'use client' import ships the hidden total into the browser bundle even
  * when the flag is false. Server code enters through lib/review-claims.server.ts.
- * Swap INTERIM_REVIEW_LINE when the final wording arrives.
+ * Swap INTERIM_REVIEW_LINE to change the public sentence.
  */
 
 export const SHOW_REVIEW_TOTAL = false;
@@ -24,40 +24,24 @@ export function visibleReviewTotalText(total: number): string | null {
 }
 
 /**
- * Interim public line. Replace this single export when final wording arrives.
- * "Read our reviews" links to the Google Maps place. The BestPros clause links
- * to that profile.
+ * Interim public line. The whole phrase links to the Google Maps place.
+ * The BestPros count stays on the profile card, not in this line.
  */
 export const INTERIM_REVIEW_LINE = {
-  ratingText: "Rating: 5.0 on Google",
-  separator: " · ",
-  readReviewsLabel: "Read our reviews",
-  googleListingUrl:
-    "https://www.google.com/maps/place/Imperial+Cleaning+Inc/data=!4m7!3m6!1s0x53545b59cac2a7a5:0xdac81c3bdfcf0ea2",
-  afterGoogle: " · ",
-  bestProsLabel: "34 reviews on BestProsInTown",
-  bestProsUrl: "https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/",
+  label: "Read our reviews on Google",
+  href: "https://www.google.com/maps/place/Imperial+Cleaning+Inc/data=!4m7!3m6!1s0x53545b59cac2a7a5:0xdac81c3bdfcf0ea2",
 } as const;
 
 export function interimReviewPlainText(
   line: typeof INTERIM_REVIEW_LINE = INTERIM_REVIEW_LINE,
 ): string {
-  return `${line.ratingText}${line.separator}${line.readReviewsLabel}${line.afterGoogle}${line.bestProsLabel}`;
+  return line.label;
 }
 
 /** Serializable claim for client components. The hidden sentence is included only while the flag is on. */
 export function publicReviewLine(total: number):
   | { mode: "total"; text: string }
-  | {
-      mode: "interim";
-      ratingText: string;
-      separator: string;
-      readReviewsLabel: string;
-      googleListingUrl: string;
-      afterGoogle: string;
-      bestProsLabel: string;
-      bestProsUrl: string;
-    } {
+  | { mode: "interim"; label: string; href: string } {
   const totalText = visibleReviewTotalText(total);
   if (totalText) return { mode: "total", text: totalText };
   return { mode: "interim", ...INTERIM_REVIEW_LINE };

@@ -113,25 +113,9 @@ export default function ReviewsSection({ reviewLine }: { reviewLine: PublicRevie
             {reviewLine.mode === "total" ? (
               reviewLine.text
             ) : (
-              <>
-                {reviewLine.ratingText}
-                {reviewLine.separator}
-                <a
-                  href={reviewLine.googleListingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {reviewLine.readReviewsLabel}
-                </a>
-                {reviewLine.afterGoogle}
-                <a
-                  href={reviewLine.bestProsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {reviewLine.bestProsLabel}
-                </a>
-              </>
+              <a href={reviewLine.href} target="_blank" rel="noopener noreferrer">
+                {reviewLine.label}
+              </a>
             )}
           </p>
           <h2 className="text-3xl lg:text-4xl tracking-tight text-foreground">

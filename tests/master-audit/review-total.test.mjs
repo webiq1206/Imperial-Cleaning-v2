@@ -14,7 +14,6 @@ import {
 } from './review-publication.mjs';
 
 const GOOGLE_PLACE_URL = 'https://www.google.com/maps/place/Imperial+Cleaning+Inc/data=!4m7!3m6!1s0x53545b59cac2a7a5:0xdac81c3bdfcf0ea2';
-const BESTPROS_URL = 'https://www.bestprosintown.com/id/idaho-falls/imperial-cleaning-inc-/';
 const HIDDEN_TOTAL = '102+ verified reviews across Google, Porch, and BestProsInTown';
 
 test('102+ total stays defined and is hidden from the public line', () => {
@@ -26,14 +25,11 @@ test('102+ total stays defined and is hidden from the public line', () => {
   assert.equal(line.mode, 'interim');
   assert.equal(JSON.stringify(line).includes('102'), false);
   assert.equal(JSON.stringify(line).includes('verified reviews across'), false);
-  assert.equal(
-    interimReviewPlainText(),
-    'Rating: 5.0 on Google · Read our reviews · 34 reviews on BestProsInTown',
-  );
-  assert.equal(INTERIM_REVIEW_LINE.readReviewsLabel, 'Read our reviews');
-  assert.equal(INTERIM_REVIEW_LINE.googleListingUrl, GOOGLE_PLACE_URL);
-  assert.equal(INTERIM_REVIEW_LINE.bestProsLabel, '34 reviews on BestProsInTown');
-  assert.equal(INTERIM_REVIEW_LINE.bestProsUrl, BESTPROS_URL);
+  assert.equal(interimReviewPlainText(), 'Read our reviews on Google');
+  assert.equal(INTERIM_REVIEW_LINE.label, 'Read our reviews on Google');
+  assert.equal(INTERIM_REVIEW_LINE.href, GOOGLE_PLACE_URL);
+  assert.equal(JSON.stringify(line).includes('5.0'), false);
+  assert.equal(JSON.stringify(line).includes('34'), false);
 });
 
 test('hidden 102 reviewCount is not emitted as AggregateRating', () => {
