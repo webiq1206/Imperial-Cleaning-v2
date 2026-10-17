@@ -1,6 +1,7 @@
 import { Star, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { verifiedReviews, RATING_SOURCES, GOOGLE_REVIEW_COUNT, GOOGLE_LISTING_URL, type VerifiedReview } from "@/data/reviews";
+import { verifiedReviews, RATING_SOURCES, GOOGLE_LISTING_URL, CROSS_PLATFORM_REVIEW_TOTAL, type VerifiedReview } from "@/data/reviews";
+import { INTERIM_REVIEW_LINE, SHOW_REVIEW_TOTAL, visibleReviewTotalText } from "@/lib/review-publication";
 
 // Real-review section. Replaces the former placeholder testimonials and
 // illustrative case studies (removed 2026-06-10 per owner decision: only
@@ -84,11 +85,10 @@ function MarqueeRow({
 }
 
 export default function ReviewsSection() {
-  // Google is not in RATING_SOURCES (see the note in data/reviews.ts), so it has
-  // to be added explicitly - otherwise this line names Google in the copy below
-  // while counting none of its reviews.
-  const totalReviews =
-    GOOGLE_REVIEW_COUNT + RATING_SOURCES.reduce((sum, s) => sum + s.reviewCount, 0);
+  // Google is not in RATING_SOURCES (see the note in data/reviews.ts). The sum
+  // lives on CROSS_PLATFORM_REVIEW_TOTAL and stays unpublished while
+  // SHOW_REVIEW_TOTAL is false.
+  const totalLabel = visibleReviewTotalText(CROSS_PLATFORM_REVIEW_TOTAL);
 
   // verifiedReviews is ordered newest first, so this takes the most recent.
   const featured = verifiedReviews.slice(0, MARQUEE_COUNT);
@@ -102,7 +102,7 @@ export default function ReviewsSection() {
       <div className="max-w-7xl mx-auto">
         {/* Aggregate hero stats */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-3 mb-6" aria-label="Rated 5.0 on Google">
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className="w-7 h-7 text-amber-400 fill-amber-400" />
@@ -110,8 +110,30 @@ export default function ReviewsSection() {
             </div>
             <span className="text-5xl lg:text-6xl font-light text-foreground tracking-tight">5.0</span>
           </div>
-          <p className="text-lg text-muted-foreground mb-3">
-            {totalReviews}+ verified reviews across Google, Porch, and BestProsInTown
+          <p className="text-lg text-muted-foreground mb-3" data-testid="review-total-line">
+            {SHOW_REVIEW_TOTAL && totalLabel ? (
+              totalLabel
+            ) : (
+              <>
+                {INTERIM_REVIEW_LINE.ratingText}
+                {INTERIM_REVIEW_LINE.separator}
+                <a
+                  href={INTERIM_REVIEW_LINE.googleListingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {INTERIM_REVIEW_LINE.readReviewsLabel}
+                </a>
+                {INTERIM_REVIEW_LINE.afterGoogle}
+                <a
+                  href={INTERIM_REVIEW_LINE.bestProsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {INTERIM_REVIEW_LINE.bestProsLabel}
+                </a>
+              </>
+            )}
           </p>
           <h2 className="text-3xl lg:text-4xl tracking-tight text-foreground">
             Trusted by contractors and facility managers across Idaho and Utah

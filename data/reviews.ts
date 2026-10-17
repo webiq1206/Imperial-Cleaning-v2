@@ -72,6 +72,13 @@ export const RATING_SOURCES = [
 ] as const;
 
 /**
+ * Cross-platform total: Google + Porch + BestProsInTown (42 + 26 + 34).
+ * The number stays here. Do not render it while SHOW_REVIEW_TOTAL is false.
+ */
+export const CROSS_PLATFORM_REVIEW_TOTAL =
+  GOOGLE_REVIEW_COUNT + RATING_SOURCES.reduce((sum, source) => sum + source.reviewCount, 0);
+
+/**
  * Real Google Business Profile reviews, supplied by the owner 2026-08-28 and
  * copied verbatim. All are 5 stars.
  *
