@@ -1,7 +1,7 @@
 import { Star, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { verifiedReviews, RATING_SOURCES, GOOGLE_LISTING_URL, CROSS_PLATFORM_REVIEW_TOTAL, type VerifiedReview } from "@/data/reviews";
-import { INTERIM_REVIEW_LINE, SHOW_REVIEW_TOTAL, visibleReviewTotalText } from "@/lib/review-publication";
+import { verifiedReviews, RATING_SOURCES, GOOGLE_LISTING_URL, type VerifiedReview } from "@/data/reviews";
+import type { PublicReviewLine } from "@/lib/review-line";
 
 // Real-review section. Replaces the former placeholder testimonials and
 // illustrative case studies (removed 2026-06-10 per owner decision: only
@@ -14,8 +14,9 @@ import { INTERIM_REVIEW_LINE, SHOW_REVIEW_TOTAL, visibleReviewTotalText } from "
 // buried everything below them. /reviews remains the complete record - all
 // entries, full text, and the Review JSON-LD - and is linked from here.
 //
-// Deliberately not a client component. The marquee is pure CSS, so this costs
-// no JavaScript and every quote is still in the server-rendered HTML.
+// The homepage marquee is pulled into the client graph by home-client.tsx.
+// The unpublished review total is a server-computed prop. Do not import
+// lib/review-publication.ts from this file.
 
 // How many of the newest reviews to surface here. Two rows of nine fills the
 // track at desktop widths without making the loop tediously long.
@@ -84,11 +85,9 @@ function MarqueeRow({
   );
 }
 
-export default function ReviewsSection() {
-  // Google is not in RATING_SOURCES (see the note in data/reviews.ts). The sum
-  // lives on CROSS_PLATFORM_REVIEW_TOTAL and stays unpublished while
-  // SHOW_REVIEW_TOTAL is false.
-  const totalLabel = visibleReviewTotalText(CROSS_PLATFORM_REVIEW_TOTAL);
+export default function ReviewsSection({ reviewLine }: { reviewLine: PublicReviewLine }) {
+  // The unpublished total is decided on the server. This component must not
+  // import lib/review-publication.ts, or the hidden sentence ships in client JS.
 
   // verifiedReviews is ordered newest first, so this takes the most recent.
   const featured = verifiedReviews.slice(0, MARQUEE_COUNT);
@@ -111,26 +110,26 @@ export default function ReviewsSection() {
             <span className="text-5xl lg:text-6xl font-light text-foreground tracking-tight">5.0</span>
           </div>
           <p className="text-lg text-muted-foreground mb-3" data-testid="review-total-line">
-            {SHOW_REVIEW_TOTAL && totalLabel ? (
-              totalLabel
+            {reviewLine.mode === "total" ? (
+              reviewLine.text
             ) : (
               <>
-                {INTERIM_REVIEW_LINE.ratingText}
-                {INTERIM_REVIEW_LINE.separator}
+                {reviewLine.ratingText}
+                {reviewLine.separator}
                 <a
-                  href={INTERIM_REVIEW_LINE.googleListingUrl}
+                  href={reviewLine.googleListingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {INTERIM_REVIEW_LINE.readReviewsLabel}
+                  {reviewLine.readReviewsLabel}
                 </a>
-                {INTERIM_REVIEW_LINE.afterGoogle}
+                {reviewLine.afterGoogle}
                 <a
-                  href={INTERIM_REVIEW_LINE.bestProsUrl}
+                  href={reviewLine.bestProsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {INTERIM_REVIEW_LINE.bestProsLabel}
+                  {reviewLine.bestProsLabel}
                 </a>
               </>
             )}

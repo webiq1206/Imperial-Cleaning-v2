@@ -16,8 +16,7 @@ import {
   BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_GEO, BUSINESS_OPENING_HOURS_SCHEMA,
   BUSINESS_PHONE_TEL, GOOGLE_LISTING_URL, DIRECTORY_CITATIONS,
 } from '@/data/business-info';
-import { CROSS_PLATFORM_REVIEW_TOTAL } from '@/data/reviews';
-import { applyReviewAggregateRating } from '@/lib/review-publication';
+import { applyOrganizationReviewSchema } from '@/lib/review-claims.server';
 
 const preview = process.env.NEXT_PUBLIC_DESIGN_PREVIEW === '1';
 const origin = 'https://imperialcleaninginc.com';
@@ -47,7 +46,7 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, them
 const ORG_ID = `${origin}/#organization`;
 const WEBSITE_ID = `${origin}/#website`;
 const siteJsonLd = [
-  applyReviewAggregateRating({
+  applyOrganizationReviewSchema({
     '@context': 'https://schema.org', '@type': ['Organization', 'ProfessionalService'], '@id': ORG_ID,
     name: 'Imperial Cleaning Inc', url: origin, logo: `${origin}/imperial-cleaning-icon-192.png`, image: searchImage('/').url, description,
     telephone: BUSINESS_PHONE_TEL, email: BUSINESS_EMAIL,
@@ -65,7 +64,7 @@ const siteJsonLd = [
     slogan: 'Construction cleanup and commercial cleaning across Idaho and Utah.',
     // No unsupported employee count, certifications or rating claims are inserted to satisfy a validator.
     knowsAbout: ['Post-construction cleaning', 'Construction debris removal', 'Final cleaning', 'Commercial janitorial services', 'Office cleaning', 'Medical office cleaning'],
-    // aggregateRating is attached only while SHOW_REVIEW_TOTAL is true. The 102 count stays omitted.
+    // aggregateRating is attached only while the unpublished total is public. The 102 count stays omitted.
     hasOfferCatalog: {
       '@type': 'OfferCatalog', name: 'Cleaning Services',
       itemListElement: [
@@ -73,7 +72,7 @@ const siteJsonLd = [
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Cleaning', url: `${origin}/commercial-cleaning`, description: 'Office cleaning and commercial facility cleaning services' } },
       ],
     },
-  }, CROSS_PLATFORM_REVIEW_TOTAL),
+  }),
   { '@context': 'https://schema.org', '@type': 'WebSite', '@id': WEBSITE_ID, url: origin, name: 'Imperial Cleaning Inc', description, publisher: { '@id': ORG_ID }, inLanguage: 'en-US' },
 ];
 

@@ -731,7 +731,7 @@ export function generateLocationStructuredData(service: string, location: Servic
     },
     // TODO(real-data): do not add an aggregate rating or review count from the
     // cross-platform 102 total while SHOW_REVIEW_TOTAL is false
-    // (lib/review-publication.ts). A rating value alone is not valid here, so omit the node.
+    // (lib/review-claims.server.ts). A rating value alone is not valid here, so omit the node.
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-208-520-3202",

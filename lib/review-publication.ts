@@ -1,12 +1,17 @@
+import "server-only";
+
 /**
- * Public review claims.
- *
- * The cross-platform total (Google + Porch + BestProsInTown) stays in
- * data/reviews.ts. It is not rendered while SHOW_REVIEW_TOTAL is false.
+ * Unpublished review claims. Client components must not import this module:
+ * a 'use client' import ships the hidden total into the browser bundle even
+ * when the flag is false. Server code enters through lib/review-claims.server.ts.
  * Swap INTERIM_REVIEW_LINE when the final wording arrives.
  */
 
 export const SHOW_REVIEW_TOTAL = false;
+
+export function crossPlatformReviewTotal(googleCount: number, otherCounts: readonly number[]): number {
+  return googleCount + otherCounts.reduce((sum, count) => sum + count, 0);
+}
 
 /** Kept so the unpublished total can be restored without rewriting the sentence. */
 export function hiddenReviewTotalText(total: number): string {
@@ -38,6 +43,24 @@ export function interimReviewPlainText(
   line: typeof INTERIM_REVIEW_LINE = INTERIM_REVIEW_LINE,
 ): string {
   return `${line.ratingText}${line.separator}${line.readReviewsLabel}${line.afterGoogle}${line.bestProsLabel}`;
+}
+
+/** Serializable claim for client components. The hidden sentence is included only while the flag is on. */
+export function publicReviewLine(total: number):
+  | { mode: "total"; text: string }
+  | {
+      mode: "interim";
+      ratingText: string;
+      separator: string;
+      readReviewsLabel: string;
+      googleListingUrl: string;
+      afterGoogle: string;
+      bestProsLabel: string;
+      bestProsUrl: string;
+    } {
+  const totalText = visibleReviewTotalText(total);
+  if (totalText) return { mode: "total", text: totalText };
+  return { mode: "interim", ...INTERIM_REVIEW_LINE };
 }
 
 /**
