@@ -1,5 +1,6 @@
 "use client";
-import { useState, useId, useRef, useEffect } from "react";
+import { Suspense, useState, useId, useRef, useEffect } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,8 +10,15 @@ import { trackConversionComplete, trackEvent, trackFormInteraction } from "@/lib
 import { quoteContext } from "@/lib/quote-context";
 import { BUSINESS_EMAIL, BUSINESS_PHONE, BUSINESS_PHONE_TEL } from "@/data/business-info";
 import { readQuoteDraft, saveQuoteDraft, clearQuoteDraft } from "@/lib/quote-draft";
-import { quoteServices } from "@/data/service-priorities";
+import { quoteServices, type QuoteService } from "@/data/service-priorities";
 export default function QuoteForm() {
+  return <Suspense fallback={<p role="status">Loading quote form…</p>}><QuoteFormFields /></Suspense>;
+}
+function QuoteFormFields() {
+  const routePath = usePathname();
+  const routeSearch = useSearchParams();
+  const pathname = routePath ?? (typeof window !== "undefined" ? window.location.pathname : "");
+  const search = routeSearch?.toString() ?? (typeof window !== "undefined" ? window.location.search : "");
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "preview">("idle");
   const [error, setError] = useState("");
@@ -25,31 +33,36 @@ export default function QuoteForm() {
   const draftReady = useRef(false);
   const currentStep = useRef(1);
   const acceptedDraft = useRef(false);
+  const entryService = useRef<QuoteService>();
   useEffect(() => {
-    try {
-      const draft = readQuoteDraft(window.sessionStorage);
-      if (draft) { form.reset({ ...form.getValues(), ...draft.values }, { keepDefaultValues: true }); setStep(draft.step); currentStep.current = draft.step; }
-    } catch { /* Storage may be blocked. */ }
+    const context = quoteContext(pathname, search);
+    let draft: ReturnType<typeof readQuoteDraft> = null;
+    try { draft = readQuoteDraft(window.sessionStorage); } catch { /* Storage may be blocked. */ }
+    const values = { ...form.getValues(), ...draft?.values };
+    const previousEntry = draft?.entryService ?? entryService.current;
+    const changedEntry = !!context.service && context.service !== previousEntry;
+    if (context.service && (changedEntry || !values.service)) values.service = context.service;
+    if (!values.location && context.location) values.location = context.location;
+    entryService.current = context.service ?? previousEntry;
+    form.reset(values, { keepDefaultValues: true });
+    const restoredStep = changedEntry ? 1 : draft?.step ?? currentStep.current;
+    setStep(restoredStep); currentStep.current = restoredStep;
     draftReady.current = true;
     const persist = () => {
       if (acceptedDraft.current) return;
-      try { saveQuoteDraft(window.sessionStorage, form.getValues(), currentStep.current); } catch { /* Storage may be blocked. */ }
+      try { saveQuoteDraft(window.sessionStorage, form.getValues(), currentStep.current, entryService.current); } catch { /* Storage may be blocked. */ }
     };
     const subscription = form.watch(persist);
     window.addEventListener("pagehide", persist);
     return () => { persist(); subscription.unsubscribe(); window.removeEventListener("pagehide", persist); };
-  }, [form]);
+  }, [form, pathname, search]);
   useEffect(() => {
     currentStep.current = step;
     if (draftReady.current && !acceptedDraft.current) {
-      try { saveQuoteDraft(window.sessionStorage, form.getValues(), step); } catch { /* Storage may be blocked. */ }
+      try { saveQuoteDraft(window.sessionStorage, form.getValues(), step, entryService.current); } catch { /* Storage may be blocked. */ }
     }
   }, [form, step]);
   useEffect(() => {
-    // Do not replace a visitor's existing service choice.
-    const context = quoteContext(window.location.pathname, window.location.search);
-    if (!form.getValues("service") && context.service) form.setValue("service", context.service);
-    if (!form.getValues("location") && context.location) form.setValue("location", context.location);
     trackFormInteraction("form_open", "quote_request", 1);
   }, [form]);
   useEffect(() => {
