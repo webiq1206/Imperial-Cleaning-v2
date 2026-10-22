@@ -22,7 +22,7 @@
   },
   "/commercial-cleaning": {
     "title": "Commercial Cleaning in Idaho & Utah | Imperial Cleaning",
-    "description": "Office and janitorial cleaning in Idaho and Utah. Plan recurring tasks, cleaning frequency and building access, then request a free commercial cleaning quote.",
+    "description": "Recurring office cleaning and janitorial services in Idaho and Utah. Define each visit, periodic floor care and access, then request a free quote.",
     "imageLabel": "Commercial Cleaning in Idaho & Utah",
     "kind": "website",
     "intent": "commercial"
@@ -134,7 +134,7 @@
   },
   "/idaho/commercial-cleaning/idaho-falls": {
     "title": "Commercial Cleaning Idaho Falls, ID | Imperial Cleaning",
-    "description": "Commercial cleaning, office cleaning and janitorial services in Idaho Falls, ID. Discuss tasks, frequency and access. Request a free quote.",
+    "description": "Office cleaning and janitorial services from our Idaho Falls headquarters. Plan rooms, recurring tasks and access. Request a free local quote.",
     "imageLabel": "Commercial Cleaning in Idaho Falls",
     "kind": "website",
     "intent": "commercial"
@@ -246,7 +246,7 @@
   },
   "/idaho/construction-cleaning/idaho-falls": {
     "title": "Post-Construction Cleaning Idaho Falls, ID | Imperial Cleaning",
-    "description": "Post-construction cleaning and construction site cleanup in Idaho Falls, ID. Plan rough, final and touch-up work. Request a scope-based quote.",
+    "description": "Post-construction cleaning from our Idaho Falls headquarters. Scope rough, final and touch-up visits around trade release and handover. Request a free quote.",
     "imageLabel": "Construction Cleanup in Idaho Falls",
     "kind": "website",
     "intent": "construction"
