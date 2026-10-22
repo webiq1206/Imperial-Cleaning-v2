@@ -1,4 +1,5 @@
 import type { ContactData } from './contact-schema';
+import type { QuoteService } from '@/data/service-priorities';
 
 // Unsent drafts stay in this tab, expire after 30 minutes, and never enter analytics.
 export const QUOTE_DRAFT_KEY = 'imperial:quote-draft:v1';
@@ -17,13 +18,14 @@ export function readQuoteDraft(storage: Storage, now = Date.now()) {
       values[key as keyof typeof limits] = value;
     }
     if (['commercial', 'construction', 'both'].includes(draft.values.service)) values.service = draft.values.service;
-    return { values, step: draft.step as number };
+    const entryService: QuoteService | undefined = ['commercial', 'construction', 'both'].includes(draft.entryService) ? draft.entryService : undefined;
+    return { values, step: draft.step as number, entryService };
   } catch { return null; }
 }
-export function saveQuoteDraft(storage: Storage, values: Partial<ContactData>, step: number) {
+export function saveQuoteDraft(storage: Storage, values: Partial<ContactData>, step: number, entryService?: QuoteService) {
   try {
     const safe = Object.fromEntries(Object.keys(limits).map(key => [key, values[key as keyof ContactData] || '']));
-    storage.setItem(QUOTE_DRAFT_KEY, JSON.stringify({ updated: Date.now(), step, values: { ...safe, service: values.service } }));
+    storage.setItem(QUOTE_DRAFT_KEY, JSON.stringify({ updated: Date.now(), step, entryService, values: { ...safe, service: values.service } }));
   } catch { /* Blocked storage must not interrupt the form. */ }
 }
 export function clearQuoteDraft(storage: Storage) {

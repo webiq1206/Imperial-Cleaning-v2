@@ -47,6 +47,64 @@ cleanup();
 window.sessionStorage.clear();
 console.log('PASS quote draft survives unmount/remount with step and fields');
 console.log('PASS quote service/city preselection, back navigation, required-location validation and accessible errors');
+
+// A new explicit service entry must outrank a prior tab draft without losing details.
+dom.reconfigure({url:'https://imperialcleaninginc.com/contact?service=commercial&location=Idaho+Falls%2C+Idaho'});
+render(React.createElement(QuoteForm));
+await waitFor(()=>assert.equal(screen.getByRole('radio',{name:/Commercial cleaning/}).checked,true));
+fireEvent.change(screen.getByLabelText(/Anything we should know/),{target:{value:'SYNTHETIC SCOPE NOTES'}});
+fireEvent.click(screen.getByRole('button',{name:/Continue/}));
+await screen.findByText('How can we reach you?');
+fireEvent.change(screen.getByLabelText(/Full name/),{target:{value:'SYNTHETIC CONTACT'}});
+cleanup();
+dom.reconfigure({url:'https://imperialcleaninginc.com/contact?service=construction&location=Idaho+Falls%2C+Idaho'});
+let transitionView=render(React.createElement(QuoteForm));
+await screen.findByText('Tell us about your space.');
+assert.equal(screen.getByRole('radio',{name:/Construction cleanup/}).checked,true);
+assert.equal(screen.getByLabelText(/Anything we should know/).value,'SYNTHETIC SCOPE NOTES');
+assert.equal(screen.getByLabelText(/City and state/).value,'Idaho Falls, Idaho');
+fireEvent.click(screen.getByRole('button',{name:/Continue/}));
+await screen.findByText('How can we reach you?');
+assert.equal(screen.getByLabelText(/Full name/).value,'SYNTHETIC CONTACT');
+fireEvent.click(screen.getByRole('button',{name:/Back/}));
+await screen.findByText('Tell us about your space.');
+fireEvent.click(screen.getByRole('radio',{name:/Commercial cleaning/}));
+cleanup();
+transitionView=render(React.createElement(QuoteForm));
+await waitFor(()=>assert.equal(screen.getByRole('radio',{name:/Commercial cleaning/}).checked,true));
+cleanup();
+window.sessionStorage.clear();
+dom.reconfigure({url:'https://imperialcleaninginc.com/idaho/construction-cleaning/boise'});
+console.log('PASS new service entry overrides the prior draft while same-entry manual choice and entered details survive');
+
+const {SearchParamsContext,PathnameContext}=await import('next/dist/shared/lib/hooks-client-context.shared-runtime.js');
+const routeForm=search=>React.createElement(PathnameContext.Provider,{value:'/contact'},React.createElement(SearchParamsContext.Provider,{value:new URLSearchParams(search)},React.createElement(QuoteForm)));
+transitionView=render(routeForm('service=construction&location=Idaho+Falls%2C+Idaho'));
+await waitFor(()=>assert.equal(screen.getByRole('radio',{name:/Construction cleanup/}).checked,true));
+fireEvent.change(screen.getByLabelText(/Anything we should know/),{target:{value:'PRESERVE ON QUERY TRANSITION'}});
+transitionView.rerender(routeForm('service=commercial&location=Idaho+Falls%2C+Idaho'));
+await waitFor(()=>assert.equal(screen.getByRole('radio',{name:/Commercial cleaning/}).checked,true));
+assert.equal(screen.getByLabelText(/Anything we should know/).value,'PRESERVE ON QUERY TRANSITION');
+transitionView.rerender(routeForm('service=construction&location=Idaho+Falls%2C+Idaho'));
+await waitFor(()=>assert.equal(screen.getByRole('radio',{name:/Construction cleanup/}).checked,true));
+transitionView.rerender(routeForm('service=invalid'));
+await waitFor(()=>assert.equal(screen.getByRole('radio',{name:/Construction cleanup/}).checked,true));
+transitionView.rerender(routeForm(''));
+await waitFor(()=>assert.equal(screen.getByRole('radio',{name:/Construction cleanup/}).checked,true));
+cleanup();window.sessionStorage.clear();
+console.log('PASS mounted Next query transitions in both directions preserve notes; invalid/plain entries retain draft choice');
+
+const {saveQuoteDraft:seedLegacyDraft}=await import('../lib/quote-draft.ts');
+seedLegacyDraft(window.sessionStorage,{service:'commercial',name:'LEGACY SYNTHETIC NAME',location:'Idaho Falls, Idaho',message:'LEGACY NOTES'},2);
+transitionView=render(routeForm('service=construction&location=Idaho+Falls%2C+Idaho'));
+await screen.findByText('Tell us about your space.');
+assert.equal(screen.getByRole('radio',{name:/Construction cleanup/}).checked,true);
+assert.equal(screen.getByLabelText(/Anything we should know/).value,'LEGACY NOTES');
+cleanup();window.sessionStorage.clear();
+console.log('PASS existing v1 draft without entry metadata upgrades without losing notes');
+
+
+
 render(React.createElement(RfpScorecard));
 for(const input of screen.getAllByRole('spinbutton').filter(input=>input.getAttribute('aria-label').endsWith('rating')))fireEvent.change(input,{target:{value:'5'}});
 assert.match(screen.getByRole('status').textContent,/100.0 \/ 100/);

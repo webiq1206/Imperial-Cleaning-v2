@@ -117,10 +117,9 @@ test('quote context accepts only one explicit recognized service', () => {
   for(const value of ['construction','commercial','both'])assert.equal(quoteServiceFromSearch('?service='+value),value);
   for(const search of ['', '?service=unknown','?service=Construction','?service=construction&service=commercial','?email=test@example.test','?service='])assert.equal(quoteServiceFromSearch(search),undefined);
 });
-test('quote context preserves an existing visitor choice and all delivery safeguards', () => {
+test('quote context retains all delivery safeguards', () => {
   const source=read('components/quote-form.tsx');
-  assert.ok(source.includes('if (!form.getValues("service") && context.service)'));
-  assert.ok(source.includes('if (!form.getValues("location") && context.location)'));
+  // Service-entry precedence and preservation are exercised with rendered forms in test:ui.
   for(const text of ['Idempotency-Key','result?.status !== "accepted"','typeof result?.receipt !== "string"','controller.abort()','if (inFlight.current) return'])assert.ok(source.includes(text));
 });
 test('sticky contact suppression recognizes query-bearing quote CTAs', () => {
