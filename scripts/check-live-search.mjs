@@ -27,7 +27,9 @@ async function verify(path) {
     const expect = (actual, expected, label) => { if (actual !== expected) errors.push(`${label}: expected ${JSON.stringify(expected)}, received ${JSON.stringify(actual)}`); };
     expect(title, listing.title, 'title');
     expect(meta('description'), listing.description, 'description');
-    expect(canonical, canonicalOrigin + path, 'canonical');
+    // The origin and origin/ are the same root URL; Next serializes the former.
+    // URL normalization still rejects another host, path, query or fragment.
+    expect(canonical ? new URL(canonical).href : canonical, new URL(canonicalOrigin + path).href, 'canonical');
     expect(meta('og:title'), listing.title, 'Open Graph title');
     expect(meta('og:description'), listing.description, 'Open Graph description');
     expect(meta('og:url'), canonical, 'Open Graph URL');
