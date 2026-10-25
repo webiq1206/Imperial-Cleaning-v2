@@ -220,20 +220,6 @@
 .imperial-site .contact-copy .contact-address {display:flex;align-items:center;gap:8px;font-size:.875rem;margin-top:26px;}
 .imperial-site .contact-copy .contact-hours {font-size:.875rem;margin-top:9px;color:#9dacc0;}
 .imperial-site .contact-form-card {border:1px solid #3b4759;border-radius:12px;background:#111720;padding:32px;}
-.imperial-site .hero-lead {margin:28px 0 8px;max-width:40rem;}
-.imperial-site .lead-actions {display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px;}
-.imperial-site .lead-actions>* {flex:1 1 10rem;}
-.imperial-site .site-chat-panel {margin:0 0 18px;padding:16px;border:1px solid #3b4759;border-radius:10px;background:#0c1219;}
-.imperial-site .site-chat-panel h2 {margin-top:0;}
-.imperial-site .lead-context,.imperial-site .file-hint {color:#b6c4d4;font-size:.875rem;margin:8px 0 0;}
-.imperial-site .short-lead-form input[type=file] {padding:10px 12px;font-size:.875rem;}
-.imperial-site .secondary-intake {margin-top:22px;border-top:1px solid #344154;padding-top:8px;scroll-margin-top:96px;}
-.imperial-site .secondary-intake>summary {cursor:pointer;min-height:44px;padding:10px 0;color:#d5e2f2;}
-.imperial-site .secondary-intake>p {color:#b4c0ce;font-size:.9375rem;margin:8px 0 4px;}
-.imperial-site .contact-lead-layout {grid-template-areas:"intro form" "support form";align-items:start;}
-.imperial-site .contact-lead-layout .contact-intro {grid-area:intro;}
-.imperial-site .contact-lead-layout .contact-form-card {grid-area:form;}
-.imperial-site .contact-lead-layout .contact-support {grid-area:support;padding-top:0;}
 .imperial-site .next-steps {display:grid;grid-template-columns:repeat(3,1fr);gap:55px;margin-top:35px;}
 .imperial-site .next-steps span {font-size:.875rem;color:#00bfff;}
 .imperial-site .next-steps h2 {font-size:1.3rem;margin:18px 0 12px;}
@@ -436,8 +422,3 @@
 .imperial-site .eyebrow {max-width:100%;white-space:normal;}
 .imperial-site .header-quote {max-width:calc(100% - 52px);}
 @media(max-width:767px){.imperial-site .hero-grid{grid-template-columns:minmax(0,1fr);}.imperial-site .header-actions{margin-left:auto;}}
-@media(max-width:767px){
- .imperial-site .lead-actions>*{flex-basis:100%;}
- .imperial-site .hero-lead{margin-top:18px;}
- .imperial-site .contact-lead-layout{grid-template-columns:1fr;grid-template-areas:"intro" "form" "support";gap:12px;}
-}

@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { assertContactOrigin, readContactBody, contactIdempotencyKey, deliverContactMail, resolveContactProvider, ContactRequestError } from './contact-delivery.mjs';
-import { parseLeadAttachment } from './lead-attachment.mjs';
 const url = 'https://imperialcleaninginc.com/api/contact';
 const request = (body='{}', headers={}) => new Request(url, {method:'POST',headers:{'content-type':'application/json',...headers},body});
 const uuid='550e8400-e29b-41d4-a716-446655440000';
@@ -46,23 +45,3 @@ for(const code of [200,400,401,403,500,503])test(`SendGrid ${code} without accep
 test('SendGrid 429 preserves retry semantics',async()=>assert.rejects(deliverContactMail('fake',mail,'key',async()=>new Response('',{status:429}),1000,'sendgrid'),status(429)));
 test('SendGrid acceptance without a safe message id is not success',async()=>{for(const id of [undefined,'<script>bad</script>','private@example.test'])await assert.rejects(deliverContactMail('fake',mail,'key',async()=>new Response('',{status:202,headers:id?{'x-message-id':id}:{}}),1000,'sendgrid'),status(502));});
 test('SendGrid network error is recoverable and contains no secret',async()=>{await assert.rejects(deliverContactMail('secret-value',mail,'key',async()=>{throw Error('secret-value test@example.test');},1000,'sendgrid'),e=>e.status===502&&!e.message.includes('secret-value')&&!e.message.includes('example.test'));});
-test('short form attachment accepts a png and refuses other files',()=>{
-  const png=Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a]).toString('base64');
-  const parsed=parseLeadAttachment({filename:'plan.png',contentType:'image/png',data:png});
-  assert.equal(parsed.ok,true);assert.equal(parsed.attachment.filename,'plan.png');assert.equal(parsed.attachment.contentType,'image/png');
-  assert.equal(parseLeadAttachment(undefined).attachment,undefined);
-  const text=parseLeadAttachment({filename:'notes.txt',contentType:'text/plain',data:Buffer.from('hello').toString('base64')});
-  assert.equal(text.ok,false);assert.equal(text.status,400);
-  const oversized=parseLeadAttachment({filename:'big.png',contentType:'image/png',data:'A'.repeat(Math.ceil((4*1024*1024)/3)*4+8)});
-  assert.equal(oversized.ok,false);assert.equal(oversized.status,413);
-});
-test('provider forwards a short-form attachment and leaves mail without one unchanged',async()=>{
-  const file={filename:'plan.pdf',contentType:'application/pdf',data:Buffer.from('%PDF-1.4').toString('base64')};
-  let resend;
-  await deliverContactMail('fake-key',{...mail,attachments:[file]},'key',async(_target,options)=>{resend=JSON.parse(options.body);return Response.json({id:uuid});});
-  assert.deepEqual(resend.attachments,[{filename:'plan.pdf',content:file.data}]);
-  assert.equal(resend.subject,mail.subject);
-  let grid;
-  await deliverContactMail('fake-key',{...mail,attachments:[file]},'key',async(_target,options)=>{grid=JSON.parse(options.body);return new Response('',{status:202,headers:{'x-message-id':'abc123.filter'}});},1000,'sendgrid');
-  assert.deepEqual(grid.attachments,[{content:file.data,filename:'plan.pdf',type:'application/pdf',disposition:'attachment'}]);
-});
