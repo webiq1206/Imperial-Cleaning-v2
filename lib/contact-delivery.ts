@@ -3,6 +3,8 @@ export class ContactRequestError extends Error {
   constructor(public status: number, message: string) { super(message); this.name = 'ContactRequestError'; }
 }
 export const CONTACT_BODY_LIMIT = 24_000;
+/** JSON cap when a short-form file is attached. The decoded file is capped separately at 4 MB. */
+export const CONTACT_ATTACHMENT_LIMIT = 6_500_000;
 export const CONTACT_TIMEOUT_MS = 15_000;
 const PUBLIC_ORIGINS = new Set(['https://imperialcleaninginc.com', 'https://www.imperialcleaninginc.com']);
 
@@ -23,6 +25,10 @@ export function assertContactOrigin(request: Request, development = false): void
 }
 
 export async function readContactBody(request: Request, maxBytes = CONTACT_BODY_LIMIT, timeoutMs = 5_000): Promise<unknown> {
+  return (await readContactPayload(request, maxBytes, timeoutMs)).value;
+}
+
+export async function readContactPayload(request: Request, maxBytes = CONTACT_BODY_LIMIT, timeoutMs = 5_000): Promise<{ value: unknown; bytes: number }> {
   if (!/^application\/json(?:\s*;|$)/i.test(request.headers.get('content-type') || '')) {
     throw new ContactRequestError(415, 'Please use the online quote form, or call (208) 520-3202.');
   }
@@ -54,7 +60,7 @@ export async function readContactBody(request: Request, maxBytes = CONTACT_BODY_
       const bytes = new Uint8Array(size);
       let offset = 0;
       for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
-      try { return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)); }
+      try { return { value: JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)) as unknown, bytes: size }; }
       catch { throw new ContactRequestError(400, 'The request was not valid. Please check your details and retry.'); }
     })();
     return await Promise.race([content, deadline]);
@@ -73,7 +79,15 @@ export function contactIdempotencyKey(header: string | null): string {
   return `imperial-quote/${header.toLowerCase()}`;
 }
 
-export type ContactMail = { from: string; to: string; reply_to: string; subject: string; text: string };
+export type ContactMail = {
+  from: string; to: string; reply_to: string; subject: string; text: string;
+  attachments?: { filename: string; contentType: string; data: string }[];
+};
+function resendPayload(mail: ContactMail) {
+  if (!mail.attachments?.length) return mail;
+  const { attachments, ...message } = mail;
+  return { ...message, attachments: attachments.map(file => ({ filename: file.filename, content: file.data })) };
+}
 export type ContactProviderName = 'resend' | 'sendgrid';
 export type ContactProvider = { name: ContactProviderName; apiKey: string; from: string };
 const RECEIPT = /^[a-zA-Z0-9_.-]{1,100}$/;
@@ -95,7 +109,7 @@ async function sendResend(apiKey: string, mail: ContactMail, idempotencyKey: str
   const response = await fetcher('https://api.resend.com/emails', {
     method: 'POST', cache: 'no-store',
     headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey },
-    body: JSON.stringify(mail), signal: AbortSignal.timeout(timeoutMs),
+    body: JSON.stringify(resendPayload(mail)), signal: AbortSignal.timeout(timeoutMs),
   });
   if (response.status === 429) throw new ContactRequestError(429, 'Online requests are busy. Please wait a minute and retry, or call (208) 520-3202.');
   if (response.status === 409) throw new ContactRequestError(409, 'This request is still being processed. Please retry with the same details in a moment.');
@@ -113,6 +127,7 @@ async function sendSendGrid(apiKey: string, mail: ContactMail, fetcher: typeof f
     body: JSON.stringify({
       personalizations: [{ to: [{ email: mail.to }] }], from: { email: mail.from }, reply_to: { email: mail.reply_to },
       subject: mail.subject, content: [{ type: 'text/plain', value: mail.text }],
+      ...(mail.attachments?.length ? { attachments: mail.attachments.map(file => ({ content: file.data, filename: file.filename, type: file.contentType, disposition: 'attachment' })) } : {}),
     }),
     signal: AbortSignal.timeout(timeoutMs),
   });
