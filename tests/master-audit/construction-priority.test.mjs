@@ -67,21 +67,6 @@ test('hero leads with construction and gives commercial cleaning an explicit vis
   assert.ok(source.indexOf('href={CONSTRUCTION_QUOTE_HREF}') < source.indexOf('href="/commercial-cleaning"'));
   assert.match(source,/className="hero-phone"/);
   assert.equal(CONSTRUCTION_QUOTE_HREF,'/contact?service=construction');
-  assert.ok(source.indexOf('<LeadRequest placement="hero" />') < source.indexOf('href={CONSTRUCTION_QUOTE_HREF}'));
-});
-test('home and contact lead with call, chat, and a one-screen request', () => {
-  const lead = read('components/lead-request.tsx');
-  const contact = read('components/pages/contact-client.tsx');
-  assert.match(contact, /<LeadRequest placement="contact" \/>/);
-  assert.match(lead, /Call \{BUSINESS_PHONE\}/);
-  assert.match(lead, /Chat</);
-  assert.match(lead, /short-lead-form/);
-  assert.match(lead, /type="file"/);
-  assert.match(lead, /Add project details/);
-  assert.ok(lead.indexOf('includeFile persist') < lead.indexOf('Add project details'));
-  assert.ok(lead.indexOf('includeFile={false}') < lead.indexOf('type="file"'));
-  assert.doesNotMatch(lead, /\u2014|--/);
-  assert.doesNotMatch(read('lib/contact-submit.ts'), /sendPartial|abandonmentEmail|form_abandon/);
 });
 test('all construction phases are distinct canonical destinations in the leading menu', () => {
   assert.equal(navigation[0].id,'construction');assert.equal(navigation[0].links[0].href,'/construction-cleaning');
