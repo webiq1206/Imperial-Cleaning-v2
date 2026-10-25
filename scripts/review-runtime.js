@@ -69,7 +69,7 @@
       form.querySelector('button').onclick = first; form.querySelector('h2').focus();
     };
   }
-  document.querySelectorAll('.quote-form').forEach(setupForm);
+  document.querySelectorAll('.quote-form').forEach(form => { if (form.querySelector('[name=service]')) setupForm(form); });
   document.querySelectorAll('.nav-trigger').forEach(button => button.onclick = () => {
     const group = navigation.find(group => normalized(group.label) === normalized(button.textContent));
     if (group) dialog('review-navigation', `<div class="nav-panel"><span class="eyebrow">${escape(group.label)}</span><ul>${links(group)}</ul></div>`);
