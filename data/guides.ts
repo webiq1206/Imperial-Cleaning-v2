@@ -114,67 +114,84 @@ const coreGuides: Guide[] = [
   },
   {
     slug: "construction-cleanup-process-checklist",
-    title: "Construction Cleanup Process & Checklist",
-    metaTitle: "Construction Cleanup Process & Checklist | Imperial Cleaning",
+    title: "3-Phase Construction Cleanup Checklist",
+    metaTitle: "3-Phase Construction Cleanup Checklist",
     description:
-      "A step-by-step construction cleanup process and checklist - from rough clean to final inspection-ready handover - so your project opens on schedule.",
+      "Plan rough, final, and touch-up construction cleaning with a checklist for released areas, access, photos, documents, exclusions, and handover.",
     category: "Construction Cleaning",
     readTime: "7 min read",
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
     intro:
-      "A reliable construction cleanup follows a repeatable process: assess the site, complete a rough clean, perform the detailed final clean, verify quality against a checklist, and coordinate the final inspection. Following the same steps every time produces consistent, inspection-ready results.",
+      "Imperial Cleaning Inc. organizes construction cleanup into three phases across verified Idaho and Utah service areas: rough clean, final clean, and touch-up. Contractors should confirm released areas, access, debris responsibilities, finish protections, and the walkthrough standard before requesting a quote.",
     sections: [
       {
-        heading: "Construction cleanup checklist by area",
+        heading: "What belongs in a 3-phase cleanup scope?",
         body: [
-          "Windows & glass: Remove stickers, labels, paint, and adhesive; clean glass, tracks, and frames.",
-          "Floors: Vacuum with HEPA filtration, then mop, buff, or treat based on material (concrete, tile, hardwood, carpet, vinyl).",
-          "Surfaces & fixtures: Dust and wipe all horizontal surfaces, ledges, cabinetry, countertops, light fixtures, and HVAC vents.",
-          "Restrooms & break areas: Sanitize fixtures, mirrors, and counters; remove construction residue.",
-          "Final detail: Spot-clean walls, remove fingerprints and smudges, and complete a punch-list walkthrough.",
+          "Rough clean: identify the released rooms or zones, agreed loose debris, initial dust removal, waste containers, and tasks that remain with the construction trades.",
+          "Final clean: list the accessible surfaces, fixtures, glass, and floors included after finishing work is sufficiently complete. Record finish-specific restrictions before products or methods are selected.",
+          "Touch-up: define the areas that may need a return visit after walkthroughs or late trade work. Treat a return visit as a separate approved scope instead of assuming a full repeat clean.",
         ],
       },
       {
-        heading: "How contractors keep cleanup on schedule",
+        heading: "What should contractors send before a walkthrough?",
         body: [
-          "The biggest scheduling risk is leaving cleanup until the very end. Coordinating cleaning crews at milestones - after drywall, after paint and flooring, and before inspection - keeps the project moving and prevents a last-minute crunch before handover.",
-          "Clear documentation also helps: before/after photos, disposal records, and a completion checklist give the owner and inspector confidence that the space meets standards.",
+          "Send the current drawings or room list, cleanable area, finish schedule, milestone dates, access plan, and any safety or onboarding requirements that apply to the cleaning contractor.",
+          "Share current photos of debris, dust, labels or adhesive, installed finishes, glass, restricted areas, and remaining trade activity. Keep private customer, employee, alarm, and access-code details out of public files and unsecured messages.",
+        ],
+      },
+      {
+        heading: "Which responsibilities and exclusions need an owner?",
+        body: [
+          "Assign responsibility for dumpsters, hauling, trade debris, utilities, lifts or other access equipment, locked rooms, exterior work, high work, hazardous materials, and damage that existed before cleaning.",
+          "Record who can release each area, approve added work, and decide whether later trade activity requires a touch-up visit. A clear owner for each decision prevents an unpriced task from being mistaken for an included task.",
+        ],
+      },
+      {
+        heading: "How should the handover be checked?",
+        body: [
+          "Name the authorized walkthrough contact and review the written scope by room or zone. Record areas that were not ready, existing damage, agreed open items, and the owner of each follow-up.",
+          "The cleanup record documents the agreed work. It does not certify site safety, resolve construction defects, or guarantee inspection or occupancy approval.",
         ],
       },
     ],
     steps: [
       {
-        name: "Site assessment",
-        text: "Walk the site to evaluate debris volume, surface types, and any inspection or compliance requirements, then build the cleanup plan and timeline.",
+        name: "Prepare the project package",
+        text: "Gather the current drawings or area list, finish information, milestone dates, onboarding requirements, and permissioned site photos.",
       },
       {
-        name: "Rough clean",
-        text: "Remove large debris and leftover materials, and complete an initial dust removal so finishing trades can work.",
+        name: "Confirm release and access",
+        text: "Identify the rooms ready for cleaning, remaining trades, service windows, parking, utilities, restricted areas, and authorized site contact.",
       },
       {
-        name: "Final detailed clean",
-        text: "Clean every surface, fixture, window, and floor using HEPA filtration and material-appropriate methods.",
+        name: "Separate the three phases",
+        text: "Write the rough, final, and touch-up tasks separately, including waste, glass, finish restrictions, exclusions, and return-visit assumptions.",
       },
       {
-        name: "Quality verification",
-        text: "Inspect the space against a detailed checklist and address any items before handover.",
+        name: "Walk the site and compare the scope",
+        text: "Review actual conditions against the project package and record open questions before a scope-based quote is accepted.",
       },
       {
-        name: "Inspection & handover",
-        text: "Coordinate the final inspection, complete touch-ups, and deliver completion documentation.",
+        name: "Check the handover",
+        text: "Review each released zone with the authorized contact and assign every approved follow-up item to an owner.",
       },
     ],
     faqs: [
       {
-        question: "What are the phases of construction cleanup?",
+        question: "What are the three phases of construction cleanup?",
         answer:
-          "Construction cleanup is typically done in three phases: a rough clean to remove debris, a detailed final clean of every surface, and a touch-up clean before inspection and handover.",
+          "The phases are rough clean, final clean, and touch-up. Each phase should name the released areas, included tasks, exclusions, access conditions, and completion review.",
       },
       {
-        question: "When should construction cleanup be scheduled?",
+        question: "What should I send for a construction-cleaning walkthrough?",
         answer:
-          "Schedule cleaning at key milestones - after drywall, after paint and flooring, and before final inspection - rather than only at the very end of the project, to keep the timeline on track.",
+          "Send the current drawings or room list, cleanable area, finish information, milestone dates, access and safety requirements, remaining trade schedule, and current permissioned photos.",
+      },
+      {
+        question: "Does a cleanup checklist certify inspection readiness?",
+        answer:
+          "No. A cleanup checklist records the agreed cleaning scope and follow-up. It does not certify safety, resolve trade defects, or guarantee inspection or occupancy approval.",
       },
     ],
     related: [
