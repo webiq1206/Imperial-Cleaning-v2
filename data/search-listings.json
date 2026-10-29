@@ -406,9 +406,9 @@
     "intent": "commercial"
   },
   "/resources/construction-cleanup-process-checklist": {
-    "title": "Construction Cleanup Checklist | Imperial Cleaning",
-    "description": "Plan rough, final, and touch-up cleaning with a construction cleanup checklist. Use the interactive handover checklist, save progress, print, or download it.",
-    "imageLabel": "Construction Cleanup Checklist",
+    "title": "3-Phase Construction Cleanup Checklist | Imperial Cleaning",
+    "description": "Plan rough, final, and touch-up construction cleaning. Organize released areas, access, photos, documents, exclusions, and the handover review.",
+    "imageLabel": "3-Phase Construction Cleanup Checklist",
     "kind": "article",
     "intent": "construction"
   },

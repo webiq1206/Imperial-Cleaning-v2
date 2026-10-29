@@ -1,10 +1,10 @@
 export const handoverGroups = [
   { title: 'Before the cleaning visit', items: [
-    'Identify the project stage and the rooms included.',
-    'Confirm who removes remaining construction debris.',
-    'Record which trades still need access and their expected completion.',
-    'Document site access, parking, keys and the site contact.',
-    'Identify finish-specific instructions and restricted areas.',
+    'Identify the project phase and the rooms or zones included.',
+    'Gather the current drawings or area list, finish schedule and milestone dates.',
+    'Take current photos of debris, dust, labels or adhesive, finishes and restricted areas.',
+    'Confirm trade release timing, access, parking, keys and the authorized site contact.',
+    'Record safety, onboarding and required-document requirements.',
   ] },
   { title: 'Agree on the written scope', items: [
     'List the surfaces and areas included in this visit.',
@@ -35,7 +35,7 @@ export function buildHandoverText(selected: readonly string[]): string {
     'Planning aid. Not a cleaning procedure, safety plan, inspection certification or contractual scope.',
     `${checked.size} of ${handoverItems.length} items checked.`, '',
     ...handoverGroups.flatMap(group => [group.title, ...handoverItems.filter(item => item.group === group.title).map(item => `[${checked.has(item.id)?'x':' '}] ${item.label}`), '']),
-    'Prepared September 21, 2026. Confirm the scope and follow-up with your project team.',
+    'Updated October 29, 2026. Confirm the scope and follow-up with your project team.',
     'https://imperialcleaninginc.com/resources/construction-cleanup-process-checklist', ''
   ].join('\n');
 }
