@@ -6,6 +6,7 @@ import './audit-improvements.css';
 import './construction-priority.css';
 import './website-refinements.css';
 import './restored-look.css';
+import './mobile-polish.css';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import AnalyticsConsent from '@/components/analytics-consent';
