@@ -6,6 +6,7 @@ import './audit-improvements.css';
 import './construction-priority.css';
 import './website-refinements.css';
 import './restored-look.css';
+import './mobile-polish.css';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import AnalyticsConsent from '@/components/analytics-consent';
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   icons: SITE_ICONS,
   manifest: '/site.webmanifest', category: 'business',
 };
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#000000' };
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#383837' };
 const ORG_ID = `${origin}/#organization`;
 const WEBSITE_ID = `${origin}/#website`;
 const siteJsonLd = [

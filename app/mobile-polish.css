@@ -1,0 +1,265 @@
+/* Mobile polish under 768px. Desktop rules stay as they are. */
+.imperial-site .hero-points {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  max-width: 36rem;
+}
+
+.imperial-site .hero-points li {
+  line-height: 1.45;
+}
+
+.imperial-site .hero-points li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #00bfff;
+  vertical-align: middle;
+}
+
+@media (min-width: 1440px) {
+  .imperial-site .home-hero .hero-description {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .imperial-site h1,
+  .imperial-site .home-hero h1,
+  .imperial-site .construction-first-hero .hero-copy h1,
+  .imperial-site .internal-hero h1,
+  .imperial-site .contact-copy h1 {
+    font-size: 36px;
+    line-height: 1.08;
+  }
+
+  .imperial-site h2 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .imperial-site main p,
+  .imperial-site main li,
+  .imperial-site main blockquote,
+  .imperial-site footer p,
+  .imperial-site footer li,
+  .imperial-site .hero-description,
+  .imperial-site .hero-points li {
+    font-size: 16px;
+  }
+
+  .imperial-site .ic-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .imperial-site #main-content > section.py-24,
+  .imperial-site #main-content > section.py-16,
+  .imperial-site #main-content > section.py-12 {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .imperial-site .home-hero .hero-copy,
+  .imperial-site .construction-first-hero .hero-copy,
+  .imperial-site .page-hero .hero-copy {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .imperial-site .hero-copy > div:first-child,
+  .imperial-site .hero-copy .button-row,
+  .imperial-site .hero-assurance {
+    justify-content: center;
+  }
+
+  .imperial-site .hero-description,
+  .imperial-site .hero-points {
+    margin-inline: auto;
+  }
+
+  /* 44px targets are for standalone controls. Only links inside a sentence are exempt. */
+  .imperial-site :where(button, summary, .ic-button, .text-link, .service-link, .hero-phone) {
+    min-height: 44px;
+  }
+
+  .imperial-site header :where(a, button),
+  .imperial-site .circle-arrow,
+  .imperial-site .icon-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .imperial-site footer a,
+  .imperial-site .footer-bottom :where(a, button),
+  .imperial-site .text-link,
+  .imperial-site .service-link,
+  .imperial-site summary {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .imperial-site .footer-city-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .imperial-site .service-card li,
+  .imperial-site .service-link,
+  .imperial-site .footer-cities,
+  .imperial-site .footer-cities p,
+  .imperial-site .footer-cities a {
+    font-size: 16px;
+  }
+
+  .imperial-site .footer-cities a,
+  .imperial-site li > a,
+  .imperial-site .review-card a,
+  .imperial-site .marquee figcaption a {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  .imperial-site p a {
+    display: inline;
+    min-height: 0;
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .imperial-site .hero-copy > div:first-child {
+    margin-bottom: 12px;
+  }
+
+  .imperial-site .hero-description {
+    margin-top: 12px;
+  }
+
+  .imperial-site .hero-points {
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  /* Compact consent bar. Stay under 20% of the viewport and clear the hero actions. */
+  .imperial-site .privacy-panel:not(.privacy-panel-inline) {
+    inset: auto 0 0 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 14px 14px 0 0;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    display: grid;
+    align-content: center;
+    gap: 6px;
+  }
+
+  .imperial-site .privacy-panel a {
+    display: inline;
+    min-height: 0;
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .contextual-contact {
+    display: none;
+  }
+
+  .imperial-site .privacy-panel:not(.privacy-panel-inline) h2 {
+    font-size: 16px;
+    line-height: 1.2;
+    margin: 0 0 8px;
+  }
+
+  .imperial-site .privacy-panel:not(.privacy-panel-inline) p {
+    font-size: 16px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .imperial-site .privacy-panel:not(.privacy-panel-inline) .privacy-actions {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .imperial-site .privacy-panel:not(.privacy-panel-inline) .privacy-actions button {
+    min-height: 44px;
+    height: auto;
+    padding: 8px 8px;
+    font-size: 16px;
+    line-height: 1.35;
+    flex: 1 1 140px;
+    white-space: normal;
+  }
+
+  html[data-privacy-open="true"] .imperial-site {
+    padding-bottom: 190px;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-bottom: 190px;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero h1 {
+    margin: 0 0 12px;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero .hero-copy > div:first-child {
+    margin-bottom: 12px;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero .max-w-7xl > .flex {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero .hero-description {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero .hero-points {
+    gap: 8px;
+    margin-bottom: 8px;
+    margin-inline: 0;
+    text-align: left;
+    justify-items: start;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero .hero-assurance {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 389px) {
+  html[data-privacy-open="true"] .imperial-site .home-hero h1 {
+    font-size: 30px;
+    line-height: 1.05;
+    margin: 0 0 12px;
+  }
+
+  html[data-privacy-open="true"] .imperial-site .home-hero .hero-points li {
+    line-height: 1.25;
+  }
+}

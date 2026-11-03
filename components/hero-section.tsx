@@ -25,7 +25,12 @@ export default function HeroSection({ imageAlt }: { imageAlt?: string } = {}) {
         <div className="hero-copy flex-1 max-w-2xl z-20">
           <div className="mb-8"><span className="inline-flex items-center px-4 py-2 rounded-full border border-gray-800/60 glass-effect sophisticated-glow text-xs tracking-[0.15em] uppercase text-secondary-color">Construction cleaning for commercial projects</span></div>
           <h1>{homeSearch.headline}<br /><span className="brand-gradient">{homeSearch.benefit}</span></h1>
-          <p className="hero-description text-lg md:text-xl text-secondary-color mt-8 mb-10 max-w-xl leading-relaxed">Post-construction cleanup for general contractors, builders, and commercial projects across Idaho and Utah, coordinated from our Idaho Falls headquarters. From rough cleaning to final detail, we help prepare your space for handover. We also provide recurring commercial cleaning for offices and business facilities.</p>
+          <p className="hero-description text-lg md:text-xl text-secondary-color mt-8 mb-4 max-w-xl leading-relaxed">Post-construction cleanup for general contractors, builders, and commercial projects across Idaho and Utah.</p>
+          <ul className="hero-points">
+            <li>Coordinated from our Idaho Falls headquarters.</li>
+            <li>From rough cleaning to final detail, we help prepare your space for handover.</li>
+            <li>We also provide recurring commercial cleaning for offices and business facilities.</li>
+          </ul>
           <div className="button-row"><Link href={CONSTRUCTION_QUOTE_HREF} className="ic-button">Get a construction quote <ArrowUpRight size={19} aria-hidden="true" /></Link><Link href="/commercial-cleaning" className="ic-button secondary">Commercial cleaning <ArrowUpRight size={19} aria-hidden="true" /></Link></div>
           <div className="hero-assurance">Free cleaning quote <a href={`tel:${BUSINESS_PHONE_TEL}`} className="hero-phone">Call {BUSINESS_PHONE}</a></div>
         </div>
