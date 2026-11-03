@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   icons: SITE_ICONS,
   manifest: '/site.webmanifest', category: 'business',
 };
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#000000' };
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#383837' };
 const ORG_ID = `${origin}/#organization`;
 const WEBSITE_ID = `${origin}/#website`;
 const siteJsonLd = [

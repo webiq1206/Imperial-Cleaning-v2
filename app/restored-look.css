@@ -2,7 +2,7 @@
    (Inter, glass cards, cyan glow, pill buttons, textured dark backgrounds, parallax hero)
    applied to the current page structure, content, metadata and links. Loaded last. */
 :root { --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
-.imperial-site { font-family: var(--font-sans); --background:#000; --card:#050505; --popover:#050505; --border:#262a30; --radius:12px; background:#000; }
+.imperial-site { font-family: var(--font-sans); --background:#383837; --card:#383837; --popover:#383837; --border:#262a30; --radius:12px; background:var(--background); }
 .imperial-site h1,.imperial-site h2,.imperial-site h3,.imperial-site h4 { font-weight:300!important; letter-spacing:-.03em; }
 .imperial-site h1 { font-size:clamp(2.3rem,4.2vw,4rem); line-height:1; letter-spacing:-.035em; }
 .imperial-site .home-hero h1 { font-size:clamp(2.75rem,5.4vw,5.5rem); line-height:.95; letter-spacing:-.04em; }
@@ -14,10 +14,10 @@
 /* Sections: textured dark backgrounds with a faint cyan glow, like the old sophisticated backgrounds. */
 .imperial-site .ic-section { position:relative; padding:96px 0; background:
   radial-gradient(ellipse 150% 100% at 50% 0%, hsl(195 100% 50% / .045) 0%, transparent 50%),
-  linear-gradient(135deg,#000 0%,#010101 50%,#000 100%); }
+  linear-gradient(135deg,var(--background) 0%,#010101 50%,var(--background) 100%); }
 .imperial-site .ic-section.review-section { background:
   radial-gradient(circle at 20% 80%, hsl(195 100% 50% / .03), transparent 50%),
-  linear-gradient(45deg,#000,#020202 50%,#000); }
+  linear-gradient(45deg,var(--background),#020202 50%,var(--background)); }
 .imperial-site .ic-section + .ic-section { border-top:1px solid hsl(0 0% 100% / .06); }
 .imperial-site .ic-section::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.35;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E"); }
@@ -30,7 +30,7 @@
   transition:all .3s cubic-bezier(.4,0,.2,1); }
 .imperial-site .ic-button:hover { background:linear-gradient(135deg,#fff,#ececec); color:#000; transform:translateY(-2px);
   box-shadow:0 0 0 1px hsl(0 0% 100% / .3), 0 4px 20px hsl(0 0% 100% / .2), inset 0 1px 0 hsl(0 0% 100% / .5); }
-.imperial-site .ic-button.secondary { background:hsl(0 0% 0% / .3); color:#d9dde3; border:1px solid hsl(0 0% 24% / .7); backdrop-filter:blur(12px);
+.imperial-site .ic-button.secondary { background:color-mix(in srgb, var(--secondary) 30%, transparent); color:#d9dde3; border:1px solid hsl(0 0% 24% / .7); backdrop-filter:blur(12px);
   box-shadow: inset 0 1px 0 hsl(0 0% 100% / .05), 0 1px 3px hsl(0 0% 0% / .1); }
 .imperial-site .ic-button.secondary:hover { background:hsl(0 0% 4% / .6); color:#fff; border-color:hsl(195 100% 50% / .3);
   box-shadow:0 0 0 1px hsl(195 100% 50% / .15), 0 4px 16px hsl(195 100% 50% / .1), inset 0 1px 0 hsl(0 0% 100% / .1); }
@@ -44,7 +44,7 @@
   background:
     radial-gradient(circle at 20% 20%, hsl(195 100% 50% / .035) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, hsl(195 100% 50% / .02) 0%, transparent 50%),
-    linear-gradient(135deg,hsl(0 0% 2.5%) 0%,hsl(0 0% 1%) 25%,hsl(0 0% .8%) 50%,hsl(0 0% 1.5%) 75%,hsl(0 0% 2%) 100%);
+    linear-gradient(135deg,hsl(0 0% 2.5%) 0%,hsl(0 0% 1%) 25%,hsl(0 0% .8%) 50%,hsl(0 0% 1.5%) 75%,var(--muted) 100%);
   box-shadow: inset 0 1px 0 hsl(0 0% 100% / .12), inset 0 -1px 0 hsl(0 0% 0% / .25), 0 0 0 1px hsl(0 0% 100% / .04),
     0 4px 12px hsl(0 0% 0% / .2), 0 8px 24px hsl(0 0% 0% / .15), 0 16px 48px hsl(0 0% 0% / .1);
   transition:all .4s cubic-bezier(.4,0,.2,1); }
@@ -62,7 +62,7 @@
 .imperial-site .brand-gradient { background:linear-gradient(115deg,#00bfff 0%,#8ae9ff 60%,#fff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
 
 /* Forms and inputs: glass fields. */
-.imperial-site .quote-form input,.imperial-site .quote-form textarea,.imperial-site .quote-form select { background:hsl(0 0% 0% / .4); border:1px solid hsl(0 0% 100% / .12); border-radius:10px; backdrop-filter:blur(8px); }
+.imperial-site .quote-form input,.imperial-site .quote-form textarea,.imperial-site .quote-form select { background:color-mix(in srgb, var(--input) 40%, transparent); border:1px solid hsl(0 0% 100% / .12); border-radius:10px; backdrop-filter:blur(8px); }
 .imperial-site .quote-form input:focus,.imperial-site .quote-form textarea:focus { border-color:hsl(195 100% 50% / .6); box-shadow:0 0 0 3px hsl(195 100% 50% / .15); }
 
 /* Footer spacing above the mobile contact bar. */
