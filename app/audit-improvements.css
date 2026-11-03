@@ -3,7 +3,7 @@
 .imperial-site .privacy-panel p {font-size:.9375rem;line-height:1.6;margin:0 0 16px;color:#d3dce7;}
 .imperial-site .privacy-panel a {text-decoration:underline;text-underline-offset:3px;color:#67d8ff;}
 .imperial-site .privacy-actions {display:flex;gap:12px;flex-wrap:wrap;}
-.imperial-site .privacy-actions button {display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;flex:1 1 200px;color:#fff;background:#18222e;border:1px solid #8494a9;border-radius:6px;cursor:pointer;}
+.imperial-site .privacy-actions button {display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;flex:1 1 200px;color:#fff;background:var(--background);border:1px solid var(--border);border-radius:6px;cursor:pointer;}
 .imperial-site .privacy-actions button:hover {background:#25384a;}
 .imperial-site .privacy-actions button:disabled {opacity:.55;cursor:not-allowed;}
 .imperial-site .privacy-settings-button {font:inherit;text-decoration:underline;text-underline-offset:3px;min-height:44px;padding:8px 0;color:inherit;cursor:pointer;}
@@ -18,7 +18,7 @@ html[data-privacy-open=true] .imperial-site :is(.mobile-contact-bar,.mobile-cta,
 .imperial-site .policy-content p a {color:#67d8ff;text-decoration:underline;text-underline-offset:3px;}
 .imperial-site .policy-content .ic-button {margin-top:12px;}
 .imperial-site .footer-bottom>div {display:flex;flex-wrap:wrap;align-items:center;gap:20px;}
-.imperial-site .contextual-contact {position:fixed;z-index:35;inset:auto 0 0;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:#080c12;border-top:1px solid #405065;}
+.imperial-site .contextual-contact {position:fixed;z-index:35;inset:auto 0 0;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:var(--surface);border-top:1px solid var(--border);}
 .imperial-site .contextual-contact .ic-button {min-height:48px;padding:10px 14px;font-size:.9375rem;gap:10px;}
 .imperial-site .contextual-call {min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #8494a9;border-radius:7px;color:#fff;text-decoration:none;}
 html[data-privacy-open=true] .imperial-site .contextual-contact {z-index:46;}

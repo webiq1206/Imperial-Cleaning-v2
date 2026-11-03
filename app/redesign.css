@@ -148,7 +148,7 @@
 .imperial-site .hero-service-note .text-link {font-size:.875rem;margin-top:10px;}
 .imperial-site .simple-breadcrumb {display:flex;gap:10px;align-items:center;color:#aab6c6;font-size:.875rem;padding-bottom:30px;}
 .imperial-site .simple-breadcrumb a:hover {color:#00bfff;}
-.imperial-site .jump-links {display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:20px 24px;border-bottom:1px solid #303944;background:#0c1117;}
+.imperial-site .jump-links {display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:20px 24px;border-bottom:1px solid var(--border);background:var(--background);}
 .imperial-site .jump-links a {font-size:.875rem;padding:10px 14px;border:1px solid #394655;border-radius:5px;}
 .imperial-site .jump-links a:hover {color:#00bfff;border-color:#00bfff;}
 .imperial-site #main-content a:has(>button),.imperial-site #main-content button {max-width:100%;}
@@ -157,7 +157,7 @@
 .imperial-site .search-dialog,.imperial-site .quote-dialog {background:var(--popover);border:1px solid var(--border);border-radius:12px;width:calc(100% - 32px);max-height:calc(100dvh - 32px);overflow-y:auto;}
 .imperial-site .search-dialog {max-width:650px;padding:32px;}
 .imperial-site .search-dialog h2 {font-size:1.5rem;margin-right:20px;}
-.imperial-site .search-input {display:flex;gap:12px;align-items:center;border:1px solid #566175;border-radius:7px;padding:0 16px;background:#080c11;margin-top:10px;}
+.imperial-site .search-input {display:flex;gap:12px;align-items:center;border:1px solid var(--border);border-radius:7px;padding:0 16px;background:var(--input);margin-top:10px;}
 .imperial-site .search-input input {padding:16px 0;border:0;background:transparent;min-width:0;flex:1;font-size:1rem;outline-offset:1px!important;}
 .imperial-site .search-results {max-height:55vh;overflow:auto;}
 .imperial-site .search-results>.eyebrow {padding:10px 0;}
@@ -168,7 +168,7 @@
 .imperial-site .quote-form h2 {font-size:1.75rem;line-height:1.25;margin:24px 0 10px;}
 .imperial-site .quote-form label,.imperial-site .quote-form legend {display:block;font-size:.875rem;font-weight:500;margin:19px 0 8px;}
 .imperial-site .quote-form legend span,.imperial-site .quote-form label>span:not(.optional-label) {color:#c0cfdf;}
-.imperial-site .quote-form :is(input:not([type=radio]),textarea) {width:100%;padding:12px 14px;background:#080d13;border:1px solid #526174;border-radius:6px;min-height:48px;color:#fff;font:inherit;font-size:1rem;}
+.imperial-site .quote-form :is(input:not([type=radio]),textarea) {width:100%;padding:12px 14px;background:var(--input);border:1px solid var(--border);border-radius:6px;min-height:48px;color:#fff;font:inherit;font-size:1rem;}
 .imperial-site .quote-form textarea {resize:vertical;}
 .imperial-site .quote-form :is(input,textarea)::placeholder {color:#94a3b5;opacity:1;}
 .imperial-site .quote-form :is(input,textarea)[aria-invalid=true] {border-color:#ffadb7;}
