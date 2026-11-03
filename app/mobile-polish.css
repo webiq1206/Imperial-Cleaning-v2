@@ -78,7 +78,8 @@
     margin-inline: auto;
   }
 
-  .imperial-site :where(a, button, summary) {
+  /* 44px targets are for standalone controls. Links inside paragraphs keep their text size. */
+  .imperial-site :where(button, summary, .ic-button, .text-link, .service-link, .hero-phone) {
     min-height: 44px;
   }
 
@@ -89,29 +90,33 @@
     min-height: 44px;
   }
 
-  .imperial-site :where(p, li, figcaption, address, .footer-bottom, .hero-assurance) a,
-  .imperial-site .footer-cities a,
+  .imperial-site footer a:not(.footer-cities a) {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .imperial-site .footer-bottom :where(a, button),
   .imperial-site .text-link,
   .imperial-site .service-link,
   .imperial-site summary {
     display: inline-flex;
     align-items: center;
     box-sizing: border-box;
-  }
-
-  .imperial-site footer a {
-    display: flex;
-    align-items: center;
-    min-width: 44px;
     min-height: 44px;
+    min-width: 44px;
   }
 
   .imperial-site .footer-cities a,
-  .imperial-site .footer-bottom :where(a, button) {
-    display: inline-flex;
-    width: auto;
-    min-width: 44px;
-    padding-inline: 6px;
+  .imperial-site p a,
+  .imperial-site p a.text-link {
+    display: inline;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    height: auto;
   }
 
   .imperial-site .hero-copy > div:first-child {
@@ -134,36 +139,41 @@
     max-width: none;
     margin: 0;
     border-radius: 14px 14px 0 0;
-    padding: 6px 12px calc(6px + env(safe-area-inset-bottom));
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
     display: grid;
     align-content: center;
-    gap: 4px;
+    gap: 8px;
+  }
+
+  html:has(.contextual-contact) .imperial-site .privacy-panel:not(.privacy-panel-inline) {
+    bottom: 76px;
   }
 
   .imperial-site .privacy-panel:not(.privacy-panel-inline) h2 {
     font-size: 16px;
     line-height: 1.2;
-    margin: 0;
+    margin: 0 0 8px;
   }
 
   .imperial-site .privacy-panel:not(.privacy-panel-inline) p {
     font-size: 16px;
-    line-height: 1.15;
+    line-height: 1.35;
     margin: 0;
   }
 
   .imperial-site .privacy-panel:not(.privacy-panel-inline) .privacy-actions {
     gap: 8px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
 
   .imperial-site .privacy-panel:not(.privacy-panel-inline) .privacy-actions button {
     min-height: 44px;
-    max-height: 44px;
-    padding: 0 10px;
+    height: auto;
+    padding: 8px 12px;
     font-size: 16px;
-    line-height: 1.1;
-    flex: 1 1 0;
+    line-height: 1.35;
+    flex: 1 1 140px;
+    white-space: normal;
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero {
