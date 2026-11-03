@@ -1,4 +1,28 @@
 /* Mobile polish under 768px. Desktop rules stay as they are. */
+.imperial-site .hero-points {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  max-width: 36rem;
+}
+
+.imperial-site .hero-points li {
+  line-height: 1.45;
+}
+
+.imperial-site .hero-points li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #00bfff;
+  vertical-align: middle;
+}
+
 @media (max-width: 767px) {
   .imperial-site h1,
   .imperial-site .home-hero h1,
