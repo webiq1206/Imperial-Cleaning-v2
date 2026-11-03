@@ -190,7 +190,7 @@ export default function ReviewsSection({ reviewLine }: { reviewLine: PublicRevie
             Read our Google reviews <ExternalLink className="w-4 h-4" />
           </a>
           <p className="text-xs text-muted-foreground mt-3">
-            Opens our Google Business Profile — every rating is independently verifiable
+            Opens our Google Business Profile. Every rating is independently verifiable.
           </p>
           {/* The marquee shows only the newest few, so the complete list needs a
               way in from here. */}

@@ -78,7 +78,7 @@
     margin-inline: auto;
   }
 
-  /* 44px targets are for standalone controls. Links inside paragraphs keep their text size. */
+  /* 44px targets are for standalone controls. Only links inside a sentence are exempt. */
   .imperial-site :where(button, summary, .ic-button, .text-link, .service-link, .hero-phone) {
     min-height: 44px;
   }
@@ -90,14 +90,7 @@
     min-height: 44px;
   }
 
-  .imperial-site footer a:not(.footer-cities a) {
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    min-height: 44px;
-    min-width: 44px;
-  }
-
+  .imperial-site footer a,
   .imperial-site .footer-bottom :where(a, button),
   .imperial-site .text-link,
   .imperial-site .service-link,
@@ -109,14 +102,40 @@
     min-width: 44px;
   }
 
+  .imperial-site .footer-city-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .imperial-site .service-card li,
+  .imperial-site .service-link,
+  .imperial-site .footer-cities,
+  .imperial-site .footer-cities p,
+  .imperial-site .footer-cities a {
+    font-size: 16px;
+  }
+
   .imperial-site .footer-cities a,
-  .imperial-site p a,
-  .imperial-site p a.text-link {
+  .imperial-site li > a,
+  .imperial-site .review-card a,
+  .imperial-site .marquee figcaption a {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  .imperial-site p a {
     display: inline;
     min-height: 0;
     min-width: 0;
-    padding: 0;
     height: auto;
+    padding: 0;
+    font-size: inherit;
   }
 
   .imperial-site .hero-copy > div:first-child {
@@ -151,10 +170,11 @@
     min-width: 0;
     height: auto;
     padding: 0;
+    font-size: inherit;
   }
 
-  html:has(.contextual-contact) .imperial-site .privacy-panel:not(.privacy-panel-inline) {
-    bottom: 76px;
+  html[data-privacy-open="true"] .imperial-site .contextual-contact {
+    display: none;
   }
 
   .imperial-site .privacy-panel:not(.privacy-panel-inline) h2 {

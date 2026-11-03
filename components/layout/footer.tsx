@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
       </div>
       {/* Sitewide crawlable links to every city page. Search Console reported 48 of 95 URLs "Discovered - currently not indexed" on 2026-09-29. */}
-      <nav className="footer-cities border-t border-border/30 pt-8 mb-8" aria-label="Construction cleanup by city">{footerStates.map(group => <p key={group.state}><strong>{group.state} construction cleanup:</strong> {group.all.map((city, index) => <span key={city.name}>{index > 0 && ", "}<Link href={buildServiceLocationUrl(city.state, "construction-cleaning", city.name)}>{city.name}</Link></span>)}</p>)}</nav>
+      <nav className="footer-cities border-t border-border/30 pt-8 mb-8" aria-label="Construction cleanup by city">{footerStates.map(group => <div key={group.state} className="footer-city-group"><p><strong>{group.state} construction cleanup</strong></p><div className="footer-city-links">{group.all.map(city => <Link key={city.name} href={buildServiceLocationUrl(city.state, "construction-cleaning", city.name)}>{city.name}</Link>)}</div></div>)}</nav>
       <div className="border-t border-border/30 pt-8 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs text-muted-foreground">
         <span>© {new Date().getFullYear()} Imperial Cleaning Inc. All rights reserved.</span>
         <div className="flex flex-wrap items-center gap-5"><Link href="/privacy-policy" className="hover:text-foreground">Privacy</Link><PrivacySettingsButton /><Link href="/terms-of-service" className="hover:text-foreground">Terms</Link><Link href="/sitemap" className="hover:text-foreground">Sitemap</Link></div>
