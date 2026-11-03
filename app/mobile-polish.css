@@ -23,6 +23,12 @@
   vertical-align: middle;
 }
 
+@media (min-width: 1440px) {
+  .imperial-site .home-hero .hero-description {
+    margin-top: 20px;
+  }
+}
+
 @media (max-width: 767px) {
   .imperial-site h1,
   .imperial-site .home-hero h1,
@@ -215,11 +221,11 @@
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero h1 {
-    margin: 0;
+    margin: 0 0 12px;
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero .hero-copy > div:first-child {
-    margin-bottom: 6px;
+    margin-bottom: 12px;
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero .max-w-7xl > .flex {
@@ -228,17 +234,20 @@
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero .hero-description {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero .hero-points {
-    gap: 0;
-    margin-bottom: 6px;
+    gap: 8px;
+    margin-bottom: 8px;
+    margin-inline: 0;
+    text-align: left;
+    justify-items: start;
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero .hero-assurance {
-    margin-top: 4px;
+    margin-top: 0;
     margin-bottom: 0;
   }
 }
@@ -247,7 +256,7 @@
   html[data-privacy-open="true"] .imperial-site .home-hero h1 {
     font-size: 30px;
     line-height: 1.05;
-    margin: 0;
+    margin: 0 0 12px;
   }
 
   html[data-privacy-open="true"] .imperial-site .home-hero .hero-points li {
