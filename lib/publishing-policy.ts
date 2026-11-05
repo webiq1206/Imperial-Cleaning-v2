@@ -87,7 +87,10 @@ export function buildLLMS(paths: readonly string[], facts: PublicBusinessFacts, 
     const city = /^\/(idaho|utah)\//.test(path);
     if (city && !full) continue;
     const group = city || path.startsWith('/service-areas') ? 1 : path.startsWith('/resources') ? 2 : names[path] ? 3 : 0;
-    groups[group][1].push(`- [${label(path)}](${PUBLIC_ORIGIN}${path === '/' ? '/' : path})`);
+    const answer = path === '/construction-cleaning/final-clean'
+      ? ': Imperial Cleaning plans final construction cleaning in Idaho and Utah. Confirm released areas, surfaces, floors, glass, exclusions and touch-up scope.'
+      : '';
+    groups[group][1].push(`- [${label(path)}](${PUBLIC_ORIGIN}${path === '/' ? '/' : path})${answer}`);
   }
   groups[3][1].push(`- [Google Business Profile](${facts.googleListingUrl})`);
   return [`# ${facts.name}`, '', '> Construction cleanup and post-construction cleaning for commercial contractors and builders in Idaho and Utah. Recurring commercial cleaning is our secondary service.', '',
