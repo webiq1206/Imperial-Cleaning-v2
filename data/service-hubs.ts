@@ -563,47 +563,47 @@ export const serviceHubs: IndustryPage[] = [
   {
     slug: "construction-cleaning/final-clean",
     name: "Final Clean",
-    metaTitle: "Final Clean Construction Services Utah & Idaho | Imperial",
+    metaTitle: "Final Construction Cleaning | Imperial Cleaning",
     metaDescription:
-      "Final clean for turnover and inspection in Idaho Falls and Utah. Detail dust, floors, and fixtures before CO. Call (208) 520-3202 to hold your target date.",
+      "Imperial Cleaning plans final construction cleaning in Idaho and Utah. Confirm released areas, surfaces, floors, glass, exclusions and touch-up scope.",
     h1: "Final Clean Construction Cleaning Before Turnover",
     intro:
-      "Final clean is the detailed pass before certificate of occupancy, client walkthrough, or tenant move-in: every surface a inspector or owner will touch. Imperial Cleaning provides final cleans for commercial and multi-family projects across Idaho Falls, Eastern Idaho, and Utah.",
+      "Imperial Cleaning plans final construction cleaning in Idaho and Utah. Confirm released areas, surfaces, floors, glass, exclusions and touch-up scope.",
     directAnswer:
-      "Final construction cleaning is the comprehensive detail phase after trades complete work: fine dust removal, fixture and appliance cleaning, floor finish protection removal, restroom and kitchen detail, and interior glass to turnover standard. Imperial Cleaning schedules final clean after punch-heavy trades are done so dust from late HVAC balancing or door hardware installs does not undo the first detailed pass.",
+      "Final construction cleaning is the detailed pass after trades finish and the contractor releases an area. Confirm new-finish instructions, glass access, remaining debris, available utilities, excluded work and the requested handover sequence. Late trade work may require a separate touch-up scope.",
     services: [
-      { title: "Fine Dust Detail Throughout", description: "High and low dusting, ledges, diffusers, and horizontal surfaces that fail white-glove or owner walkthroughs." },
-      { title: "Floor Finish & Protection Removal", description: "Adhesive, film, and trade protection removed from VCT, tile, LVT, and sealed concrete without damaging new finish." },
-      { title: "Restroom & Kitchen Fixture Detail", description: "Basins, fixtures, mirrors, and hardware polished to occupancy-ready condition." },
-      { title: "Interior Glass & Partition Cleaning", description: "Streak-free glass and framing after construction film and label removal." },
-      { title: "Cabinet, Millwork & Appliance Fronts", description: "Fingerprints, pencil marks, and dust removed from visible joinery before owner photos." },
-      { title: "Trash & Staging Area Clear-Out", description: "Final bag-out of trade debris and protection materials so the site presents clean for inspection." },
+      { title: "Released Area Dust Detail", description: "Dust accessible ledges, diffusers, trim, fixtures and other surfaces listed in the written scope." },
+      { title: "New-Finish Floor Cleaning", description: "Identify floor materials, protective coverings and residue before agreeing on material-appropriate cleaning tasks." },
+      { title: "Restroom and Break Area Detail", description: "Detail accessible fixtures, mirrors, counters and cabinets after the contractor releases each area." },
+      { title: "Reachable Interior Glass", description: "List reachable interior glass, tracks, frames, labels and residue that belong in the final-clean scope." },
+      { title: "Cabinet and Millwork Detail", description: "Identify accessible cabinet faces, interiors, hardware and millwork that require dust or mark removal." },
+      { title: "Agreed Debris and Staging Areas", description: "Define bagged debris, protection materials and staging areas. Heavy waste and hauling need separate written approval." },
     ],
     whyUs: [
-      { title: "Turnover Inspection Mindset", description: "We clean to the points owners and municipal inspectors actually open: drawers, vents, glass, and restrooms." },
-      { title: "Coordination With Punch List", description: "Final clean is sequenced after major trades complete. We communicate with supers when late work will require touch-up phase." },
-      { title: "Insurance Documentation", description: "Certificates available for GC compliance and owner requirements." },
+      { title: "Written Phase Scope", description: "The quote can identify released areas, included tasks, exclusions and any separately approved return visit." },
+      { title: "GC Handover Sequence", description: "The superintendent can identify remaining trades and the order in which rooms become available for cleaning." },
+      { title: "Access and Finish Review", description: "Confirm keys, utilities, restricted areas and surface instructions before the cleaning visit." },
     ],
     faqs: [
       {
         question: "What is the difference between final clean and rough clean?",
-        answer: "Rough clean removes bulk debris and heavy drywall dust so finish trades can work. Final clean is detailed turnover cleaning after finishes are installed, aimed at inspection and occupancy.",
+        answer: "Rough clean addresses agreed debris and initial dust before finish work. Final clean details released areas after finishes are installed. Later trade work may require a separate touch-up.",
       },
       {
         question: "Should final clean happen before or after punch list?",
-        answer: "Final clean usually follows substantial completion of finishes and precedes or overlaps initial punch walk. Late trade return after final clean moves work to a touch-up phase.",
+        answer: "Schedule final clean after major finish work is complete and the contractor releases each area. Record remaining trades and decide whether later work needs a separate touch-up.",
       },
       {
-        question: "Do you clean exterior windows on final clean?",
-        answer: "Interior glass is standard. Exterior window cleaning may be scoped separately based on access, height, and owner requirements.",
+        question: "Does final clean include exterior windows?",
+        answer: "List interior and exterior glass separately. Height, access, coatings and residue can change the equipment, method and scope required.",
       },
       {
-        question: "How far in advance should we book final clean?",
-        answer: "Contact us when trim and floor finishes are scheduled for completion. Lead time varies by season and project size across Idaho and Utah. Call (208) 520-3202 to hold a target date.",
+        question: "What should a final-clean quote request include?",
+        answer: "Share the location, approximate area, released rooms, remaining trades and new-finish instructions. Include glass access, debris responsibilities, requested handover sequence and permissioned photos or bid documents.",
       },
     ],
     keywords:
-      "final clean construction Idaho Falls, post construction final clean Utah, turnover cleaning commercial, CO cleaning services Eastern Idaho, builder final clean",
+      "final construction cleaning Idaho, final construction cleaning Utah, post construction final clean, contractor handover cleaning, final clean scope",
     parentName: "Construction Cleaning",
     parentHref: "/construction-cleaning",
     ctaLabel: "Get Project Quote",
